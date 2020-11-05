@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.setting.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {}
+  }
+}
