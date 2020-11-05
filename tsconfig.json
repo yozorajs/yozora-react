@@ -2,6 +2,10 @@
   "extends": "./tsconfig.setting.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@yozora/react-text": [
+        "./packages/text/src"
+      ]
+    }
   }
 }

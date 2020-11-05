@@ -31,8 +31,11 @@
     "packages/*"
   ],
   "resolutions": {
+    "styled-components": "5.2.1"
   },
   "devDependencies": {
+    "@barusu-react/eslint-config": "0.0.13",
+    "@barusu-react/rollup-config": "0.0.13",
     "@barusu/tool-find-inconsistent": "0.0.40",
     "@barusu/tool-sort-imports": "0.0.40",
     "@types/jest": "26.0.15",
@@ -49,6 +52,7 @@
     "react-is": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "rimraf": "~3.0.2",
+    "rollup": "2.28.1",
     "styled-components": "^5.2.1",
     "ts-jest": "26.4.3",
     "ts-node": "~9.0.0",

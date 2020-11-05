@@ -1,0 +1,62 @@
+{
+  "name": "@yozora/react-text",
+  "version": "0.0.13",
+  "description": "render markdown text in react",
+  "author": {
+    "name": "lemon-clown",
+    "url": "https://github.com/lemon-clown/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lemon-clown/yozora-react.git"
+  },
+  "homepage": "https://github.com/lemon-clown/yozora-react/tree/master/packages/text#readme",
+  "keywords": [
+    "markdown text"
+  ],
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/types/index.d.ts",
+  "source": "src/index.tsx",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 12.16.0"
+  },
+  "files": [
+    "lib/",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "package.json",
+    "tsconfig.json",
+    "!lib/**/*.js.map",
+    "!lib/**/*.d.ts.map"
+  ],
+  "scripts": {
+    "start": "rollup -w -c rollup.config.js",
+    "prebuild": "rimraf lib/",
+    "build": "rollup -c rollup.config.js",
+    "test": "TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir .",
+    "lint:fix": "eslint '{src,__test__}/**/*.{ts,tsx}' --fix",
+    "prepublishOnly": "cross-env ROLLUP_USE_SOURCE_MAP=false yarn build"
+  },
+  "peerDependencies": {
+    "@types/react": "^16.9.55",
+    "@types/styled-components": "^5.1.4",
+    "react": "^17.0.1",
+    "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.55",
+    "@types/styled-components": "^5.1.4",
+    "react": "^17.0.1",
+    "styled-components": "^5.2.1",
+    "rollup": "2.28.1"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
+}
