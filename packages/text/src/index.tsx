@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 
@@ -30,6 +31,11 @@ export function Text(props: TextProps): React.ReactElement {
   return (
     <Container { ...spanProps }>{ props.value }</Container>
   )
+}
+
+
+Text.propTypes = {
+  value: PropTypes.string.isRequired,
 }
 
 

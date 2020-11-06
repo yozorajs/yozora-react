@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import Text from '../src'
 
 
@@ -20,5 +20,23 @@ describe('test suite: Test component', () => {
     )
     expect(wrapper.hasClass(className)).toEqual(true)
     expect(wrapper.text()).toEqual(text)
+  })
+
+  it('value is required', () => {
+    const errorLogger = jest
+      .spyOn(global.console, 'error')
+      .mockImplementation((...args) => {
+        throw new Error(args.join(' '))
+      })
+
+    for (const value of [undefined, null] as any[]) {
+      expect(() => {
+        mount(
+          <Text value={ value } />
+        )
+      }).toThrow(/Failed prop type: The prop `value` is marked as required/)
+    }
+
+    errorLogger.mockRestore()
   })
 })
