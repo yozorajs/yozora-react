@@ -6,6 +6,9 @@
       "@yozora/react-emphasis": [
         "./packages/emphasis/src"
       ],
+      "@yozora/react-strong": [
+        "./packages/strong/src"
+      ],
       "@yozora/react-text": [
         "./packages/text/src"
       ]
