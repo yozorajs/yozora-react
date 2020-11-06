@@ -30,10 +30,15 @@ module.exports = {
   moduleNameMapper,
   globals: {
     'ts-jest': {
-      'packageJson': '<rootDir>/package.json',
-      'tsConfig': '<rootDir>/tsconfig.json'
+      'tsconfig': '<rootDir>/tsconfig.json'
     }
   },
+  setupFilesAfterEnv: [
+    '<rootDir>/../../jest.setupEnzyme.ts',
+  ],
+  snapshotSerializers: [
+    'enzyme-to-json/serializer',
+  ],
   transform: {
     '^.+\\.tsx?$': 'ts-jest'
   },

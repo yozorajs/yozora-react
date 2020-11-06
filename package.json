@@ -38,6 +38,8 @@
     "@barusu-react/rollup-config": "0.0.13",
     "@barusu/tool-find-inconsistent": "0.0.40",
     "@barusu/tool-sort-imports": "0.0.40",
+    "@types/enzyme": "3.10.8",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "26.0.15",
     "@types/node": "^13.13.30",
     "@types/react": "^16.9.55",
@@ -45,10 +47,13 @@
     "@types/react-router-dom": "^5.1.6",
     "@types/styled-components": "^5.1.4",
     "cross-env": "~7.0.2",
-    "lerna": "3.22.1",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.5",
+    "enzyme-to-json": "^3.6.1",
     "jest": "26.6.3",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "lerna": "3.22.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-is": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "rimraf": "~3.0.2",
@@ -68,11 +73,11 @@
     ],
     "moduleRanks": [
       {
-        "regex": "^(react|vue|angular)(?:[\/\\-][\\w\\-.\/]*)?$",
+        "regex": "^(react|vue|angular)(?:[/\\-][\\w\\-./]*)?$",
         "rank": 1.1
       },
       {
-        "regex": "^mocha|chai(?:[\/][\\w\\-.\/]*)?$",
+        "regex": "^mocha|chai(?:[/][\\w\\-./]*)?$",
         "rank": 1.2
       },
       {
