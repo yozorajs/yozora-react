@@ -12,6 +12,7 @@
   },
   "homepage": "https://github.com/lemon-clown/yozora-react/tree/master/packages/text#readme",
   "keywords": [
+    "mdast node renderer",
     "markdown text"
   ],
   "main": "lib/cjs/index.js",

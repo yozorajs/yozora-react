@@ -5,6 +5,7 @@
     "browserslist",
     "downlevel",
     "esnext",
+    "mdast",
     "prebuild",
     "styl",
     "yozora"
