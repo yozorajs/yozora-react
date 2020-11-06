@@ -3,6 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@yozora/react-emphasis": [
+        "./packages/emphasis/src"
+      ],
       "@yozora/react-text": [
         "./packages/text/src"
       ]
