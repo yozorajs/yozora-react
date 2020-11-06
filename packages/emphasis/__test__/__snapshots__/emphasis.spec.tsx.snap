@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test suite: Test component snapshot 1`] = `
+.c0 {
+  color: var(--md-emphasis-color);
+  font-size: var(--md-emphasis-font-size,1em);
+  font-style: var(--md-emphasis-font-style,italic);
+}
+
+<em
+  class="c0"
+  style="color:orange;font-size:16px"
+>
+  some text1
+  <span>
+    some text2
+  </span>
+</em>
+`;

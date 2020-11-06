@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount, shallow } from 'enzyme'
+import { mount, render, shallow } from 'enzyme'
 import Strong from '../src'
 
 
@@ -61,5 +61,15 @@ describe('test suite: Test component', () => {
     const o = wrapper.getDOMNode()
     expect(o).toEqual(ref.current)
     expect(o.getAttribute('data-value')).toEqual('waw')
+  })
+
+  it('snapshot', () => {
+    const wrapper = render(
+      <Strong style={{ color: 'orange', fontSize: '16px' }}>
+        some text1
+        <span>some text2</span>
+      </Strong>
+    )
+    expect(wrapper).toMatchSnapshot()
   })
 })
