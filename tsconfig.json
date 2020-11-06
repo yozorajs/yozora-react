@@ -3,6 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@yozora/react-delete": [
+        "./packages/delete/src"
+      ],
       "@yozora/react-emphasis": [
         "./packages/emphasis/src"
       ],
