@@ -24,6 +24,9 @@
       "@yozora/react-link": [
         "./packages/link/src"
       ],
+      "@yozora/react-list-item": [
+        "./packages/list-item/src"
+      ],
       "@yozora/react-math": [
         "./packages/math/src"
       ],
