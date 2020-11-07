@@ -9,6 +9,9 @@
       "@yozora/react-emphasis": [
         "./packages/emphasis/src"
       ],
+      "@yozora/react-heading": [
+        "./packages/heading/src"
+      ],
       "@yozora/react-strong": [
         "./packages/strong/src"
       ],
