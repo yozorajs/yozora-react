@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
-import { OrderedList } from '../src'
+import { ListItem, OrderedList } from '../src'
 
 
 describe('basic rendering case', () => {
@@ -18,7 +18,7 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const wrapper = render(
       <OrderedList start={ 0 }>
-        <li>{ text }</li>
+        <ListItem index={ 0 }>{ text }</ListItem>
       </OrderedList>
     )
     expect(wrapper.text()).toEqual(text)
@@ -29,7 +29,7 @@ describe('basic rendering case', () => {
     const className = 'custom-list'
     const wrapper = render(
       <OrderedList start={ 0 } className={ className }>
-        <li><span>{ text }</span></li>
+        <ListItem index={ 0 }><span>{ text }</span></ListItem>
       </OrderedList>
     )
     expect(wrapper.hasClass(className)).toEqual(true)
@@ -52,8 +52,8 @@ describe('basic rendering case', () => {
     const ref = React.createRef<HTMLOListElement>()
     const wrapper = mount(
       <OrderedList ref={ ref } start={ 1 } type="a" data-value="waw">
-        <li>First: Good afternoon!</li>
-        <li>Second: Good night!</li>
+        <ListItem index={ 0 }>First: Good afternoon!</ListItem>
+        <ListItem index={ 1 }>Second: Good night!</ListItem>
       </OrderedList>
     )
     expect(wrapper.getDOMNode()).toEqual(ref.current)
@@ -63,8 +63,8 @@ describe('basic rendering case', () => {
   it('snapshot', () => {
     const wrapper = mount(
       <OrderedList start={ 3 } type="a">
-        <li>First: Good afternoon!</li>
-        <li>Second: Good night!</li>
+        <ListItem index={ 0 }>First: Good afternoon!</ListItem>
+        <ListItem index={ 1 }>Second: Good night!</ListItem>
       </OrderedList>
     )
     expect(wrapper).toMatchSnapshot()

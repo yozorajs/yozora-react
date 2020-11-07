@@ -10,7 +10,7 @@ export interface ListItemProps extends React.LiHTMLAttributes<HTMLSpanElement> {
   /**
    * Index of its parent.children
    */
-  index: number
+  index: number | string
   /**
    * Whether if is a TODO item, and given its status
    */

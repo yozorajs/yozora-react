@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
-import ListItem from '../src'
+import { ListItem } from '../src'
 
 
 describe('basic rendering case', () => {

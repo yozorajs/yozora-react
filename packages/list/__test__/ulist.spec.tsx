@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
-import { UnorderedList } from '../src'
+import { ListItem, UnorderedList } from '../src'
 
 
 describe('basic rendering case', () => {
@@ -18,7 +18,7 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const wrapper = render(
       <UnorderedList>
-        <li>{ text }</li>
+        <ListItem index={ 0 }>{ text }</ListItem>
       </UnorderedList>
     )
     expect(wrapper.text()).toEqual(text)
@@ -29,7 +29,7 @@ describe('basic rendering case', () => {
     const className = 'custom-list'
     const wrapper = render(
       <UnorderedList className={ className }>
-        <li><span>{ text }</span></li>
+        <ListItem index={ 0 }><span>{ text }</span></ListItem>
       </UnorderedList>
     )
     expect(wrapper.hasClass(className)).toEqual(true)
@@ -52,9 +52,9 @@ describe('basic rendering case', () => {
     const ref = React.createRef<HTMLUListElement>()
     const wrapper = mount(
       <UnorderedList ref={ ref } data-value="waw">
-        <li>apple</li>
-        <li>banana</li>
-        <li>cat</li>
+        <ListItem index={ 0 }>apple</ListItem>
+        <ListItem index={ 1 }>banana</ListItem>
+        <ListItem index={ 2 }>cat</ListItem>
       </UnorderedList >
     )
     expect(wrapper.getDOMNode()).toEqual(ref.current)
@@ -64,9 +64,9 @@ describe('basic rendering case', () => {
   it('snapshot', () => {
     const wrapper = mount(
       <UnorderedList>
-        <li>apple</li>
-        <li>banana</li>
-        <li>cat</li>
+        <ListItem index={ 0 }>apple</ListItem>
+        <ListItem index={ 1 }>banana</ListItem>
+        <ListItem index={ 2 }>cat</ListItem>
       </UnorderedList>
     )
     expect(wrapper).toMatchSnapshot()

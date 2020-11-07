@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-list.svg)](https://www.npmjs.com/package/@yozora/react-list)
 
 
-This library is designed to render [mdast list][] type data
+This library is designed to render [mdast list][] and [mdast list-item][] type data
 
 
 # Install
@@ -19,23 +19,35 @@ This library is designed to render [mdast list][] type data
     // index.tsx
     import React from 'react'
     import ReactDOM from 'react-dom'
-    import { OrderedList, UnorderedList } from '@yozora/react-list'
+    import { ListItem, OrderedList, UnorderedList } from '@yozora/react-list'
 
     ReactDOM.render(
       <div>
         <OrderedList start={ 1 } type="a">
-          <li>First: Good afternoon!</li>
-          <li>Second: Good night!</li>
+          <ListItem index={ 0 }>First: Good afternoon!</ListItem>
+          <ListItem index={ 1 }>Second: Good night!</ListItem>
         </OrderedList>
         <UnorderedList>
-          <li>apple</li>
-          <li>banana</li>
-          <li>cat</li>
+          <ListItem index={ 0 }>apple</ListItem>
+          <ListItem index={ 1 }>banana</ListItem>
+          <ListItem index={ 2 }>cat</ListItem>
         </UnorderedList>
       </div>
       , document.getElementById('root')
     )
     ```
+
+
+  * ListItemProps
+
+     Name       | Type                                | Required  | Default | Description
+    :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
+     `children` | `React.ReactNode`                   | `true`    | -       | ListItem content
+     `index`    | `number|string`                     | `true`    | -       | Used as a React key
+     `ref`      | `React.RefObject<HTMLLIElement>`    | `false`   | -       | Forwarded ref callback
+     `status`   | `'todo'|'doing'|'done'`             | `false`   | -       | Whether if it is a TODO item, and given its status
+
+    ListItemProps inherited all attributes of `HTMLLIElement` (`React.LiHTMLAttributes<HTMLLIElement>`)
 
   * OrderedListProps
 
@@ -58,11 +70,14 @@ This library is designed to render [mdast list][] type data
 
   * CSS variables
 
-     Name                     | Default       |  Description
-    :------------------------:|:-------------:|:-----------------------
-     `--md-list-bg-color`     | -             | List background color
-     `--md-list-border-color` | -             | List border color
-     `--md-list-padding`      | `0.625em 1em` | List padding
-     `--md-list-margin`       | `0 0 1.25em`  | List margin
+     Name                     | Default         |  Description
+    :------------------------:|:---------------:|:-----------------------
+     `--md-list-item-margin`  | ` 0 0 0 0.25em` | List item margin
+     `--md-list-bg-color`     | -               | List background color
+     `--md-list-border-color` | -               | List border color
+     `--md-list-padding`      | `0.625em 1em`   | List padding
+     `--md-list-margin`       | `0 0 1.25em`    | List margin
 
+
+[mdast list-item]: https://github.com/syntax-tree/mdast#listitem
 [mdast list]: https://github.com/syntax-tree/mdast#list
