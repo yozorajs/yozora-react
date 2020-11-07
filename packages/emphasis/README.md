@@ -33,9 +33,17 @@ This library is designed to render [mdast emphasis][] type data
 
      Name       | Type                                | Required  | Default | Description
     :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                   | `true`    | `-`     | Emphasis content
-     `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | `-`     | Forwarded ref callback
+     `children` | `React.ReactNode`                   | `true`    | -       | Emphasis content
+     `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
 
     Emphasis Props inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
+
+  * CSS variables
+
+     Name                       | Default   |  Description
+    :--------------------------:|:---------:|:-----------------------
+     `--md-emphasis-color`      | -         | Emphasis text font color
+     `--md-emphasis-font-size`  | `1em`     | Emphasis text font size
+     `--md-emphasis-font-style` | `italic`  | Emphasis text font style
 
 [mdast emphasis]: https://github.com/syntax-tree/mdast#emphasis

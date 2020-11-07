@@ -33,9 +33,18 @@ This library is designed to render [mdast strong][] type data
 
      Name       | Type                                | Required  | Default | Description
     :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                   | `true`    | `-`     | strong content
-     `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | `-`     | Forwarded ref callback
+     `children` | `React.ReactNode`                   | `true`    | -       | strong content
+     `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
 
     Strong Props inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
+
+  * CSS variables
+
+     Name                       | Default   |  Description
+    :--------------------------:|:---------:|:-----------------------
+     `--md-strong-color`        | -         | Strong text font color
+     `--md-strong-font-size`    | `1em`     | Strong text font size
+     `--md-strong-font-style`   | `normal`  | Strong text font style
+     `--md-strong-font-weight`  | `600`     | Strong text font weight
 
 [mdast strong]: https://github.com/syntax-tree/mdast#strong

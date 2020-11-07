@@ -33,9 +33,18 @@ This library is designed to render [mdast delete][] type data
 
      Name       | Type                                | Required  | Default | Description
     :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                   | `true`    | `-`     | Delete content
-     `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | `-`     | Forwarded ref callback
+     `children` | `React.ReactNode`                   | `true`    | -       | Delete content
+     `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
 
     Delete Props inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
+
+  * CSS variables
+
+     Name                           | Default         |  Description
+    :------------------------------:|:---------------:|:-----------------------
+     `--md-delete-color`            | -               | Delete text font color
+     `--md-delete-font-size`        | `1em`           | Delete text font size
+     `--md-delete-font-style`       | `normal`        | Delete text font style
+     `--md-delete-text-decoration`  | `line-through`  | Delete text decoration
 
 [mdast delete]: https://github.com/syntax-tree/mdast#delete

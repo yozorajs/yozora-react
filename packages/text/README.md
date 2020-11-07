@@ -31,9 +31,18 @@ This library is designed to render [mdast text][] type data
 
      Name     | Type                                | Required  | Default | Description
     :--------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `value`  | `string`                            | `true`    | `-`     | Text content
-     `ref`    | `React.RefObject<HTMLSpanElement>`  | `false`   | `-`     | Forwarded ref callback
+     `value`  | `string`                            | `true`    | -       | Text content
+     `ref`    | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
 
     TextProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
+
+  * CSS variables
+
+     Name                    | Default  |  Description
+    :-----------------------:|:--------:|:-----------------------
+     `--md-text-color`       | -        | Text font color
+     `--md-text-font-size`   | `1em`    | Text font size
+     `--md-text-font-style`  | `normal` | Text font style
+     `--md-text-font-weight` | `400`    | Text font weight
 
 [mdast text]: https://github.com/syntax-tree/mdast#text
