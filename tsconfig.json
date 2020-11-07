@@ -15,6 +15,9 @@
       "@yozora/react-heading": [
         "./packages/heading/src"
       ],
+      "@yozora/react-inline-code": [
+        "./packages/inline-code/src"
+      ],
       "@yozora/react-paragraph": [
         "./packages/paragraph/src"
       ],
