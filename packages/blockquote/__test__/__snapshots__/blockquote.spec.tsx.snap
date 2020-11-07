@@ -8,13 +8,36 @@ exports[`basic rendering case snapshot 1`] = `
   margin: var(--md-blockquote-margin,0 0 1.25em);
 }
 
-<blockquote
-  class="c0"
-  style="color:orange;font-size:16px"
+<Blockquote
+  style={
+    Object {
+      "color": "orange",
+      "fontSize": "16px",
+    }
+  }
 >
-  some text1
-  <span>
-    some text2
-  </span>
-</blockquote>
+  <styled.blockquote
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+  >
+    <blockquote
+      className="c0"
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+    >
+      some text1
+      <span>
+        some text2
+      </span>
+    </blockquote>
+  </styled.blockquote>
+</Blockquote>
 `;

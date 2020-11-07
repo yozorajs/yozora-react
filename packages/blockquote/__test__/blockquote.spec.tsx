@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount, render, shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import Blockquote from '../src'
 
 
@@ -64,7 +64,7 @@ describe('basic rendering case', () => {
   })
 
   it('snapshot', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <Blockquote style={{ color: 'orange', fontSize: '16px' }}>
         some text1
         <span>some text2</span>
