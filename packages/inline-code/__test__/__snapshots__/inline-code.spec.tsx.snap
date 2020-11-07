@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic rendering case snapshot 1`] = `
+.c0 {
+  padding: var(--md-inline-code-padding,0.2em);
+  border-radius: var(--md-inline-code-border-radius,2px);
+  margin: var(--md-inline-code-margin,0);
+  background: var(--md-inline-code-bg-color);
+  color: var(--md-inline-code-color);
+  font-family: var(--md-inline-code-font-family,'Consolas, monospace, sans-serif');
+  font-size: var(--md-inline-code-font-size,1em);
+  font-weight: var(--md-inline-code-font-weight,500);
+  line-height: var(--md-inline-code-line-height,1.375);
+  white-space: var(--md-inline-code-white-space,normal);
+}
+
+<InlineCode
+  style={
+    Object {
+      "color": "orange",
+      "fontSize": "16px",
+    }
+  }
+  value="Hello, world!"
+>
+  <styled.code
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+  >
+    <code
+      className="c0"
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+    >
+      Hello, world!
+    </code>
+  </styled.code>
+</InlineCode>
+`;
