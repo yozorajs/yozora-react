@@ -2,6 +2,8 @@
   "cSpell.words": [
     "HTMLHR",
     "HTMLLI",
+    "HTMLO",
+    "HTMLU",
     "Serializers",
     "barusu",
     "blockquote",
@@ -10,8 +12,10 @@
     "esnext",
     "mathjax",
     "mdast",
+    "olist",
     "prebuild",
     "styl",
+    "ulist",
     "yozora"
   ]
 }
