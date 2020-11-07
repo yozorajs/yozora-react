@@ -6,7 +6,7 @@ import styled from 'styled-components'
 /**
  * Props for creating Blockquote
  */
-export interface BlockquoteProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface BlockquoteProps extends React.BlockquoteHTMLAttributes<HTMLDivElement> {
   /**
    * Blockquote content
    */

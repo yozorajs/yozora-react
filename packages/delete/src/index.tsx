@@ -6,7 +6,7 @@ import styled from 'styled-components'
 /**
  * Props for creating Delete
  */
-export interface DeleteProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface DeleteProps extends React.DelHTMLAttributes<HTMLSpanElement> {
   /**
    * Delete content
    */
