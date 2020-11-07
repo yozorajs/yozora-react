@@ -28,9 +28,8 @@ const Container = styled.em`
  */
 export const Emphasis = React.forwardRef<HTMLSpanElement, EmphasisProps>(
   (props, forwardRef): React.ReactElement => {
-    const { children, ...emProps } = props
     return (
-      <Container { ...emProps } ref={ forwardRef }>{ children }</Container>
+      <Container { ...props } ref={ forwardRef } />
     )
   }
 )

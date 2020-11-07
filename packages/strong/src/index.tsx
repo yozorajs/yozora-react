@@ -29,9 +29,8 @@ const Container = styled.strong`
  */
 export const Strong = React.forwardRef<HTMLSpanElement, StrongProps>(
   (props, forwardRef): React.ReactElement => {
-    const { children, ...strongProps } = props
     return (
-      <Container { ...strongProps } ref={ forwardRef }>{ children }</Container>
+      <Container { ...props } ref={ forwardRef } />
     )
   }
 )

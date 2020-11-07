@@ -29,9 +29,8 @@ const Container = styled.del`
  */
 export const Delete = React.forwardRef<HTMLSpanElement, DeleteProps>(
   (props, forwardRef): React.ReactElement => {
-    const { children, ...delProps } = props
     return (
-      <Container { ...delProps } ref={ forwardRef }>{ children }</Container>
+      <Container { ...props } ref={ forwardRef } />
     )
   }
 )
