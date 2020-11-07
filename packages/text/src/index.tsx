@@ -6,7 +6,7 @@ import styled from 'styled-components'
 /**
  * Props for creating Text
  */
-export interface TextProps extends React.HTMLAttributes<HTMLElement> {
+export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * text content
    */
