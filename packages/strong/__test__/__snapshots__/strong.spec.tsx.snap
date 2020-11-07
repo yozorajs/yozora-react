@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test suite: Test component snapshot 1`] = `
+exports[`basic rendering case snapshot 1`] = `
 .c0 {
   color: var(--md-strong-color);
   font-size: var(--md-strong-font-size,1em);
@@ -8,13 +8,36 @@ exports[`test suite: Test component snapshot 1`] = `
   font-weight: var(--md-strong-font-weight,600);
 }
 
-<strong
-  class="c0"
-  style="color:orange;font-size:16px"
+<Strong
+  style={
+    Object {
+      "color": "orange",
+      "fontSize": "16px",
+    }
+  }
 >
-  some text1
-  <span>
-    some text2
-  </span>
-</strong>
+  <styled.strong
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+  >
+    <strong
+      className="c0"
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+    >
+      some text1
+      <span>
+        some text2
+      </span>
+    </strong>
+  </styled.strong>
+</Strong>
 `;

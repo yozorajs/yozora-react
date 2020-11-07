@@ -1,9 +1,9 @@
 import React from 'react'
-import { mount, render, shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import Delete from '../src'
 
 
-describe('test suite: Test component', () => {
+describe('basic rendering case', () => {
   const errorLogger = jest
     .spyOn(global.console, 'error')
     .mockImplementation((...args) => {
@@ -14,7 +14,7 @@ describe('test suite: Test component', () => {
     errorLogger.mockRestore()
   })
 
-  it('expect render a simple content', () => {
+  it('render a simple content', () => {
     const text = 'Hello, world!'
     const wrapper = shallow(
       <Delete>
@@ -26,7 +26,7 @@ describe('test suite: Test component', () => {
     expect(wrapper.text()).toEqual(text)
   })
 
-  it('expect render with custom className', () => {
+  it('render with custom className', () => {
     const text = 'Hello, world!'
     const className = 'custom-text'
     const wrapper = shallow(
@@ -64,7 +64,7 @@ describe('test suite: Test component', () => {
   })
 
   it('snapshot', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <Delete style={{ color: 'orange', fontSize: '16px' }}>
         some text1
         <span>some text2</span>

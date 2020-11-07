@@ -1,9 +1,9 @@
 import React from 'react'
-import { mount, render, shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import ThematicBreak from '../src'
 
 
-describe('test suite: Test component', () => {
+describe('basic rendering case', () => {
   const errorLogger = jest
     .spyOn(global.console, 'error')
     .mockImplementation((...args) => {
@@ -14,7 +14,7 @@ describe('test suite: Test component', () => {
     errorLogger.mockRestore()
   })
 
-  it('expect render with custom className', () => {
+  it('render with custom className', () => {
     const className = 'custom-thematic-break'
     const wrapper = shallow(
       <ThematicBreak className={ className } />
@@ -34,7 +34,7 @@ describe('test suite: Test component', () => {
   })
 
   it('snapshot', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <ThematicBreak
         style={ { color: 'orange', fontSize: '16px' } }
       />

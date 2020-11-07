@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test suite: Test component snapshot 1`] = `
+exports[`basic rendering case snapshot 1`] = `
 .c0 {
   overflow: hidden;
   display: block;
@@ -14,8 +14,31 @@ exports[`test suite: Test component snapshot 1`] = `
   margin: 1.5em 0;
 }
 
-<hr
-  class="c0"
-  style="color:orange;font-size:16px"
-/>
+<ThematicBreak
+  style={
+    Object {
+      "color": "orange",
+      "fontSize": "16px",
+    }
+  }
+>
+  <styled.hr
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+  >
+    <hr
+      className="c0"
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+    />
+  </styled.hr>
+</ThematicBreak>
 `;
