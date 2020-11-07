@@ -7,6 +7,7 @@
     "browserslist",
     "downlevel",
     "esnext",
+    "mathjax",
     "mdast",
     "prebuild",
     "styl",

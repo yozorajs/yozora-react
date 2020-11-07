@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic rendering case snapshot 1`] = `
+<InlineMath
+  style={
+    Object {
+      "color": "orange",
+      "fontSize": "16px",
+    }
+  }
+  value="x^2 + y^2 = z^2"
+>
+  <styled.span
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+  >
+    <span
+      className=""
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+    >
+      <MathJaxNode
+        formula="x^2 + y^2 = z^2"
+        inline={true}
+      />
+    </span>
+  </styled.span>
+</InlineMath>
+`;

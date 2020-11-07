@@ -1901,6 +1901,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-mathjax@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@types/react-mathjax/-/react-mathjax-1.0.0.tgz#5e337ddc0fbee4d01513d960f81f85963a9ee482"
+  integrity sha512-c3beW/LhRx/7LkwYGj7mIDphatRdih80Cpe4l2u3LFdyOgBloPaXq3H9QROC6GnhbGxVql7ByHLA70s+Q6ol1Q==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-native@*":
   version "0.63.32"
   resolved "https://registry.npmjs.org/@types/react-native/-/react-native-0.63.32.tgz#2f6785947c9e1bb634bffd509007c7e73af823b6"
@@ -6670,6 +6677,11 @@ load-json-file@^5.3.0:
     strip-bom "^3.0.0"
     type-fest "^0.3.0"
 
+load-script@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+  integrity sha1-BJGTngvuVkPuSUp+PaPSuscMbKQ=
+
 loader-utils@^1.1.0:
   version "1.4.0"
   resolved "https://registry.npmjs.org/loader-utils/-/loader-utils-1.4.0.tgz#c579b5e34cb34b1a74edc6c1fb36bfa371d5a613"
@@ -8744,6 +8756,13 @@ react-is@^17.0.1:
   version "17.0.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
+
+react-mathjax@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/react-mathjax/-/react-mathjax-1.0.1.tgz#a8c282e75d277a201632dfd07edf41edda372b4b"
+  integrity sha512-+mjFcciZY3GQoqiQm3aRTyDjgBKuoaXpY+SCONX00jScuPpTKwnASeFMS5+pbTIzDf5zPT2Y9ZZfQ9U/d4CKtQ==
+  dependencies:
+    load-script "^1.0.0"
 
 react-router-dom@^5.2.0:
   version "5.2.0"

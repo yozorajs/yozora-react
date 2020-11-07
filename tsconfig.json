@@ -18,6 +18,9 @@
       "@yozora/react-inline-code": [
         "./packages/inline-code/src"
       ],
+      "@yozora/react-inline-math": [
+        "./packages/inline-math/src"
+      ],
       "@yozora/react-paragraph": [
         "./packages/paragraph/src"
       ],
