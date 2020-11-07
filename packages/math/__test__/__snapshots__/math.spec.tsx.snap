@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic rendering case snapshot 1`] = `
+<Math
+  style={
+    Object {
+      "color": "orange",
+      "fontSize": "16px",
+    }
+  }
+  value="x^2 + y^2 = z^2"
+>
+  <styled.div
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+  >
+    <div
+      className=""
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+    >
+      <MathJaxNode
+        formula="x^2 + y^2 = z^2"
+        inline={false}
+      />
+    </div>
+  </styled.div>
+</Math>
+`;
