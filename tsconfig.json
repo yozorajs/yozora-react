@@ -3,6 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@yozora/react-blockquote": [
+        "./packages/blockquote/src"
+      ],
       "@yozora/react-delete": [
         "./packages/delete/src"
       ],
