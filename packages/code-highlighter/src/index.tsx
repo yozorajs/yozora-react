@@ -136,7 +136,7 @@ CodeHighlighter.propTypes = {
   value: PropTypes.string.isRequired,
   lang: PropTypes.string,
   theme: PropTypes.object,
-  lineNoWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  linenoWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   onLineCountChange: PropTypes.func,
 }
 
