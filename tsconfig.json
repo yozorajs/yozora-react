@@ -36,6 +36,9 @@
       "@yozora/react-strong": [
         "./packages/strong/src"
       ],
+      "@yozora/react-table": [
+        "./packages/table/src"
+      ],
       "@yozora/react-text": [
         "./packages/text/src"
       ],
