@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount, shallow } from 'enzyme'
+import { mount, render } from 'enzyme'
 import ThematicBreak from '../src'
 
 
@@ -16,7 +16,7 @@ describe('basic rendering case', () => {
 
   it('render with custom className', () => {
     const className = 'custom-thematic-break'
-    const wrapper = shallow(
+    const wrapper = render(
       <ThematicBreak className={ className } />
     )
     expect(wrapper.hasClass(className)).toEqual(true)

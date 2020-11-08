@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount, shallow } from 'enzyme'
+import { mount, render } from 'enzyme'
 import { TableCell, TableRow } from '../src'
 
 
@@ -16,7 +16,7 @@ describe('basic rendering case', () => {
 
   it('render a simple content', () => {
     const text = 'Hello, world!'
-    const wrapper = shallow(
+    const wrapper = render(
       <table>
         <TableRow>
           <TableCell isHeader={ true }>
@@ -31,7 +31,7 @@ describe('basic rendering case', () => {
   it('render with custom className', () => {
     const text = 'Hello, world!'
     const className = 'custom-list-item'
-    const wrapper = shallow(
+    const wrapper = render(
       <table>
         <TableRow>
           <TableCell isHeader={ false } className={ className }>

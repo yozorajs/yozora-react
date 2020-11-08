@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount, shallow } from 'enzyme'
+import { mount, render } from 'enzyme'
 import InlineCode from '../src'
 
 
@@ -16,7 +16,7 @@ describe('basic rendering case', () => {
 
   it('render a text value', () => {
     const text = 'Hello, world!'
-    const wrapper = shallow(
+    const wrapper = render(
       <InlineCode value={ text } />
     )
     expect(wrapper.text()).toEqual(text)
@@ -25,7 +25,7 @@ describe('basic rendering case', () => {
   it('render with custom className', () => {
     const text = 'Hello, world!'
     const className = 'custom-text'
-    const wrapper = shallow(
+    const wrapper = render(
       <InlineCode className={ className } value={ text } />
     )
     expect(wrapper.hasClass(className)).toEqual(true)
