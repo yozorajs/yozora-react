@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic rendering case snapshot 1`] = `
+.c0 {
+  padding: var(--md-paragraph-padding,0);
+  margin: var(--md-paragraph-margin,0 0 1em);
+  line-height: var(--md-paragraph-line-height,2);
+}
+
+<Paragraph
+  style={
+    Object {
+      "color": "orange",
+      "fontSize": "16px",
+    }
+  }
+>
+  <styled.p
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+  >
+    <p
+      className="c0"
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+    >
+      some text1
+      <span>
+        some text2
+      </span>
+    </p>
+  </styled.p>
+</Paragraph>
+`;

@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic rendering case snapshot 1`] = `
+.c0 {
+  color: var(--md-text-color);
+  font-size: var(--md-text-font-size,1em);
+  font-style: var(--md-text-font-style,normal);
+  font-weight: var(--md-text-font-weight,400);
+}
+
+<Text
+  style={
+    Object {
+      "color": "orange",
+      "fontSize": "16px",
+    }
+  }
+  value="Hello, world!"
+>
+  <styled.span
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+  >
+    <span
+      className="c0"
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+    >
+      Hello, world!
+    </span>
+  </styled.span>
+</Text>
+`;

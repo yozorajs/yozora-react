@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic rendering case snapshot 1`] = `
+.c0 {
+  background: var(--md-blockquote-bg-color);
+  border-left: 0.25em solid var(--md-blockquote-border-color);
+  padding: var(--md-blockquote-padding,0.625em 1em);
+  margin: var(--md-blockquote-margin,0 0 1.25em);
+}
+
+<Blockquote
+  style={
+    Object {
+      "color": "orange",
+      "fontSize": "16px",
+    }
+  }
+>
+  <styled.blockquote
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+  >
+    <blockquote
+      className="c0"
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+    >
+      some text1
+      <span>
+        some text2
+      </span>
+    </blockquote>
+  </styled.blockquote>
+</Blockquote>
+`;

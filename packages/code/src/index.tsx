@@ -1,0 +1,60 @@
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import CodeHighlighter from '@yozora/react-code-highlighter'
+
+
+/**
+ * Props for Code
+ */
+export interface CodeProps extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * Source code contents
+   */
+  value: string
+  /**
+   * Code language
+   */
+  lang?: string
+}
+
+
+const Container = styled.div``
+
+
+/**
+ *
+ * @param props
+ */
+export const Code = React.forwardRef<HTMLDivElement, CodeProps>(
+  (props, forwardRef): React.ReactElement => {
+    const { lang, value, ...divProps } = props
+    const [lineCount, setLineCount] = useState<number>(0)
+    const linenoWidth = `${ Math.max(2, ('' + lineCount).length) + 0.5 }em`
+
+    return (
+      <Container { ...divProps } ref={ forwardRef }>
+        <pre>
+          <CodeHighlighter
+            lang={ lang }
+            value={ value }
+            linenoWidth={ linenoWidth }
+            onLineCountChange={ setLineCount }
+          />
+        </pre>
+      </Container>
+    )
+  }
+)
+
+
+Code.propTypes = {
+  value: PropTypes.string.isRequired,
+  lang: PropTypes.string,
+}
+
+
+Code.displayName = 'Code'
+
+
+export default Code

@@ -1,0 +1,56 @@
+{
+  "extends": "./tsconfig.setting.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@yozora/react-blockquote": [
+        "./packages/blockquote/src"
+      ],
+      "@yozora/react-code": [
+        "./packages/code/src"
+      ],
+      "@yozora/react-code-highlighter": [
+        "./packages/code-highlighter/src"
+      ],
+      "@yozora/react-delete": [
+        "./packages/delete/src"
+      ],
+      "@yozora/react-emphasis": [
+        "./packages/emphasis/src"
+      ],
+      "@yozora/react-heading": [
+        "./packages/heading/src"
+      ],
+      "@yozora/react-inline-code": [
+        "./packages/inline-code/src"
+      ],
+      "@yozora/react-inline-math": [
+        "./packages/inline-math/src"
+      ],
+      "@yozora/react-link": [
+        "./packages/link/src"
+      ],
+      "@yozora/react-list": [
+        "./packages/list/src"
+      ],
+      "@yozora/react-math": [
+        "./packages/math/src"
+      ],
+      "@yozora/react-paragraph": [
+        "./packages/paragraph/src"
+      ],
+      "@yozora/react-strong": [
+        "./packages/strong/src"
+      ],
+      "@yozora/react-table": [
+        "./packages/table/src"
+      ],
+      "@yozora/react-text": [
+        "./packages/text/src"
+      ],
+      "@yozora/react-thematic-break": [
+        "./packages/thematic-break/src"
+      ]
+    }
+  }
+}

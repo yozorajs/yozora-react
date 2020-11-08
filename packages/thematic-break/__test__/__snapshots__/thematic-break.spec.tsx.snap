@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic rendering case snapshot 1`] = `
+.c0 {
+  overflow: hidden;
+  display: block;
+  box-sizing: content-box;
+  height: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--md-thematic-break-bg-color,#e1e4e8);
+  outline: 0;
+  margin: 1.5em 0;
+}
+
+<ThematicBreak
+  style={
+    Object {
+      "color": "orange",
+      "fontSize": "16px",
+    }
+  }
+>
+  <styled.hr
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+  >
+    <hr
+      className="c0"
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+    />
+  </styled.hr>
+</ThematicBreak>
+`;
