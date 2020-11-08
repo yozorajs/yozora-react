@@ -6,6 +6,9 @@
       "@yozora/react-blockquote": [
         "./packages/blockquote/src"
       ],
+      "@yozora/react-code-highlighter": [
+        "./packages/code-highlighter/src"
+      ],
       "@yozora/react-delete": [
         "./packages/delete/src"
       ],
