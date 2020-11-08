@@ -36,7 +36,7 @@ This library is designed to render [mdast delete][] type data
      `children` | `React.ReactNode`                   | `true`    | -       | Delete content
      `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
 
-    Delete Props inherited all attributes of `HTMLSpanElement` (`React.DelHTMLAttributes<HTMLSpanElement>`)
+    DeleteProps inherited all attributes of `HTMLSpanElement` (`React.DelHTMLAttributes<HTMLSpanElement>`)
 
   * CSS variables
 

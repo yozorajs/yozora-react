@@ -36,7 +36,7 @@ This library is designed to render [mdast emphasis][] type data
      `children` | `React.ReactNode`                   | `true`    | -       | Emphasis content
      `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
 
-    Emphasis Props inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
+    EmphasisProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
 
   * CSS variables
 

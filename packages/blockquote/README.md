@@ -36,7 +36,7 @@ This library is designed to render [mdast blockquote][] type data
      `children` | `React.ReactNode`                 | `true`    | -       | Blockquote content
      `ref`      | `React.RefObject<HTMLDivElement>` | `false`   | -       | Forwarded ref callback
 
-    Blockquote Props inherited all attributes of `HTMLDivElement` (`React.BlockquoteHTMLAttributes<HTMLDivElement>`)
+    BlockquoteProps inherited all attributes of `HTMLDivElement` (`React.BlockquoteHTMLAttributes<HTMLDivElement>`)
 
   * CSS variables
 

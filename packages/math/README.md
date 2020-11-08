@@ -33,7 +33,7 @@ This library is designed to render [mdast math][] type data
     `
 
     ReactDOM.render(
-      <Math value={ code }>
+      <Math value={ code } />
       , document.getElementById('root')
     )
     ```

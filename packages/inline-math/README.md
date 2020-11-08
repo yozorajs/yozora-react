@@ -22,7 +22,7 @@ This library is designed to render [mdast inline-math][] type data
     import InlineMath from '@yozora/react-inline-math'
 
     ReactDOM.render(
-      <InlineMath value="E=m \\cdot c^2">
+      <InlineMath value="E=m \\cdot c^2" />
       , document.getElementById('root')
     )
     ```

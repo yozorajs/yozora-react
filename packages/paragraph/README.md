@@ -36,7 +36,7 @@ This library is designed to render [mdast paragraph][] type data
      `children` | `React.ReactNode`                       | `true`    | -       | Paragraph content
      `ref`      | `React.RefObject<HTMLParagraphElement>` | `false`   | -       | Forwarded ref callback
 
-    Paragraph Props inherited all attributes of `HTMLParagraphElement` (`React.HTMLAttributes<HTMLParagraphElement>`)
+    ParagraphProps inherited all attributes of `HTMLParagraphElement` (`React.HTMLAttributes<HTMLParagraphElement>`)
 
   * CSS variables
 

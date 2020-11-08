@@ -19,12 +19,12 @@ This library is designed to render [mdast link][] type data
     // index.tsx
     import React from 'react'
     import ReactDOM from 'react-dom'
-    import link from '@yozora/react-link'
+    import Link from '@yozora/react-link'
 
     ReactDOM.render(
-      <link>
+      <Link>
         <span>Hello, world!</span>
-      </link>
+      </Link>
       , document.getElementById('root')
     )
     ```
@@ -40,7 +40,7 @@ This library is designed to render [mdast link][] type data
      `target`   | `string`                              | `_blank`      | -       |
      `rel`      | `string`                              | `noreferrer`  | -       |
 
-    link Props inherited all attributes of `HTMLAnchorElement` (`React.AnchorHTMLAttributes<HTMLAnchorElement>`)
+    LinkProps inherited all attributes of `HTMLAnchorElement` (`React.AnchorHTMLAttributes<HTMLAnchorElement>`)
 
   * CSS variables
 

@@ -22,7 +22,7 @@ This library is designed to render [mdast inline-code][] type data
     import InlineCode from '@yozora/react-inline-code'
 
     ReactDOM.render(
-      <InlineCode value="Hello, world!">
+      <InlineCode value="Hello, world!" />
       , document.getElementById('root')
     )
     ```

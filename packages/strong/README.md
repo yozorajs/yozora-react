@@ -19,12 +19,12 @@ This library is designed to render [mdast strong][] type data
     // index.tsx
     import React from 'react'
     import ReactDOM from 'react-dom'
-    import strong from '@yozora/react-strong'
+    import Strong from '@yozora/react-strong'
 
     ReactDOM.render(
-      <strong>
+      <Strong>
         <span>Hello, world!</span>
-      </strong>
+      </Strong>
       , document.getElementById('root')
     )
     ```
@@ -36,7 +36,7 @@ This library is designed to render [mdast strong][] type data
      `children` | `React.ReactNode`                   | `true`    | -       | strong content
      `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
 
-    Strong Props inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
+    StrongProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
 
   * CSS variables
 

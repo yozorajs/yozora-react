@@ -22,7 +22,7 @@ This library is designed to render [mdast thematic-break][] type data
     import ThematicBreak from '@yozora/react-thematic-break'
 
     ReactDOM.render(
-      <ThematicBreak value="Hello, world!">
+      <ThematicBreak />
       , document.getElementById('root')
     )
     ```

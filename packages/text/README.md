@@ -22,7 +22,7 @@ This library is designed to render [mdast text][] type data
     import Text from '@yozora/react-text'
 
     ReactDOM.render(
-      <Text value="Hello, world!">
+      <Text value="Hello, world!" />
       , document.getElementById('root')
     )
     ```

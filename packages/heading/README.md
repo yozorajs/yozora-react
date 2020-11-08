@@ -42,7 +42,7 @@ This library is designed to render [mdast heading][] type data
      `calcIdentifer`  | `(h: HTMLHeadingElement) => string` | `false`   | `calcIdentifierForHeading`  | generate identifier if it not specified
 
 
-    Heading Props inherited all attributes of `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`)
+    HeadingProps inherited all attributes of `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`)
 
   * CSS variables
 
