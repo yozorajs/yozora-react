@@ -6,7 +6,6 @@ exports[`basic rendering case snapshot 1`] = `
 }
 
 <ListItem
-  index={1}
   status="done"
   style={
     Object {
@@ -16,7 +15,6 @@ exports[`basic rendering case snapshot 1`] = `
   }
 >
   <styled.li
-    key="1"
     style={
       Object {
         "color": "orange",

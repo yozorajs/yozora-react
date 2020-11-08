@@ -17,9 +17,9 @@ describe('basic rendering case', () => {
   it('render a simple content', () => {
     const text = 'Hello, world!'
     const wrapper = shallow(
-      <ListItem index={ 1 }>
+      <ListItem key={ 1 }>
         <span>
-          <ListItem index={ 1 }>{ text }</ListItem>
+          <ListItem key={ 1 }>{ text }</ListItem>
         </span>
       </ListItem>
     )
@@ -30,7 +30,7 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const className = 'custom-list-item'
     const wrapper = shallow(
-      <ListItem index={ 1 } className={ className }>
+      <ListItem key={ 1 } className={ className }>
         <span>{ text }</span>
       </ListItem>
     )
@@ -42,7 +42,7 @@ describe('basic rendering case', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
         mount(
-          <ListItem index={ 1 }>
+          <ListItem key={ 1 }>
             { value }
           </ListItem>
         )
@@ -53,7 +53,7 @@ describe('basic rendering case', () => {
   it('forward ref', () => {
     const ref = React.createRef<HTMLLIElement>()
     const wrapper = mount(
-      <ListItem ref={ ref } index={ 1 } data-value="waw">
+      <ListItem ref={ ref } key={ 1 } data-value="waw">
         1
       </ListItem>
     )
@@ -65,7 +65,7 @@ describe('basic rendering case', () => {
 
   it('snapshot', () => {
     const wrapper = mount(
-      <ListItem index={ 1 } status="done" style={ { color: 'orange', fontSize: '16px' } }>
+      <ListItem key={ 1 } status="done" style={ { color: 'orange', fontSize: '16px' } }>
         some text1
         <span>some text2</span>
       </ListItem>

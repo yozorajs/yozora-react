@@ -8,10 +8,6 @@ import styled from 'styled-components'
  */
 export interface ListItemProps extends React.LiHTMLAttributes<HTMLSpanElement> {
   /**
-   * Index of its parent.children
-   */
-  index: number | string
-  /**
    * Whether if is a TODO item, and given its status
    */
   status?: 'todo' | 'doing' | 'done'
@@ -34,16 +30,15 @@ const Container = styled.li`
  */
 export const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(
   (props, forwardRef): React.ReactElement => {
-    const { index, status, ...listItemProps } = props
+    const { status, ...listItemProps } = props
     return (
-      <Container key={ index } { ...listItemProps } ref={ forwardRef } />
+      <Container { ...listItemProps } ref={ forwardRef } />
     )
   }
 )
 
 
 ListItem.propTypes = {
-  index: PropTypes.number.isRequired,
   status: PropTypes.oneOf<'todo' | 'doing' | 'done'>(['todo', 'doing', 'done']),
   children: PropTypes.node.isRequired,
 }

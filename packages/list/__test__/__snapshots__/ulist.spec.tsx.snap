@@ -16,11 +16,9 @@ exports[`basic rendering case snapshot 1`] = `
       className="c0"
     >
       <ListItem
-        index={0}
+        key="0"
       >
-        <styled.li
-          key="0"
-        >
+        <styled.li>
           <li
             className="c1"
           >
@@ -29,11 +27,9 @@ exports[`basic rendering case snapshot 1`] = `
         </styled.li>
       </ListItem>
       <ListItem
-        index={1}
+        key="1"
       >
-        <styled.li
-          key="1"
-        >
+        <styled.li>
           <li
             className="c1"
           >
@@ -42,11 +38,9 @@ exports[`basic rendering case snapshot 1`] = `
         </styled.li>
       </ListItem>
       <ListItem
-        index={2}
+        key="2"
       >
-        <styled.li
-          key="2"
-        >
+        <styled.li>
           <li
             className="c1"
           >

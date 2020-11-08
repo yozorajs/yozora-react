@@ -18,7 +18,7 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const wrapper = render(
       <UnorderedList>
-        <ListItem index={ 0 }>{ text }</ListItem>
+        <ListItem key={ 0 }>{ text }</ListItem>
       </UnorderedList>
     )
     expect(wrapper.text()).toEqual(text)
@@ -29,7 +29,7 @@ describe('basic rendering case', () => {
     const className = 'custom-list'
     const wrapper = render(
       <UnorderedList className={ className }>
-        <ListItem index={ 0 }><span>{ text }</span></ListItem>
+        <ListItem key={ 0 }><span>{ text }</span></ListItem>
       </UnorderedList>
     )
     expect(wrapper.hasClass(className)).toEqual(true)
@@ -52,9 +52,9 @@ describe('basic rendering case', () => {
     const ref = React.createRef<HTMLUListElement>()
     const wrapper = mount(
       <UnorderedList ref={ ref } data-value="waw">
-        <ListItem index={ 0 }>apple</ListItem>
-        <ListItem index={ 1 }>banana</ListItem>
-        <ListItem index={ 2 }>cat</ListItem>
+        <ListItem key={ 0 }>apple</ListItem>
+        <ListItem key={ 1 }>banana</ListItem>
+        <ListItem key={ 2 }>cat</ListItem>
       </UnorderedList >
     )
     expect(wrapper.getDOMNode()).toEqual(ref.current)
@@ -64,9 +64,9 @@ describe('basic rendering case', () => {
   it('snapshot', () => {
     const wrapper = mount(
       <UnorderedList>
-        <ListItem index={ 0 }>apple</ListItem>
-        <ListItem index={ 1 }>banana</ListItem>
-        <ListItem index={ 2 }>cat</ListItem>
+        <ListItem key={ 0 }>apple</ListItem>
+        <ListItem key={ 1 }>banana</ListItem>
+        <ListItem key={ 2 }>cat</ListItem>
       </UnorderedList>
     )
     expect(wrapper).toMatchSnapshot()

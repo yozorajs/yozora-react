@@ -24,13 +24,13 @@ This library is designed to render [mdast list][] and [mdast list-item][] type d
     ReactDOM.render(
       <div>
         <OrderedList start={ 1 } type="a">
-          <ListItem index={ 0 }>First: Good afternoon!</ListItem>
-          <ListItem index={ 1 }>Second: Good night!</ListItem>
+          <ListItem key={ 0 }>First: Good afternoon!</ListItem>
+          <ListItem key={ 1 }>Second: Good night!</ListItem>
         </OrderedList>
         <UnorderedList>
-          <ListItem index={ 0 }>apple</ListItem>
-          <ListItem index={ 1 }>banana</ListItem>
-          <ListItem index={ 2 }>cat</ListItem>
+          <ListItem key={ 0 }>apple</ListItem>
+          <ListItem key={ 1 }>banana</ListItem>
+          <ListItem key={ 2 }>cat</ListItem>
         </UnorderedList>
       </div>
       , document.getElementById('root')
@@ -43,7 +43,6 @@ This library is designed to render [mdast list][] and [mdast list-item][] type d
      Name       | Type                                | Required  | Default | Description
     :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
      `children` | `React.ReactNode`                   | `true`    | -       | ListItem content
-     `index`    | `number|string`                     | `true`    | -       | Used as a React key
      `ref`      | `React.RefObject<HTMLLIElement>`    | `false`   | -       | Forwarded ref callback
      `status`   | `'todo'|'doing'|'done'`             | `false`   | -       | Whether if it is a TODO item, and given its status
 
