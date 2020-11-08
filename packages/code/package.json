@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "render markdown code in react",
   "author": {
     "name": "lemon-clown",

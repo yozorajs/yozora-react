@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-heading",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "render markdown heading in react",
   "author": {
     "name": "lemon-clown",
