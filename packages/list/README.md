@@ -72,8 +72,6 @@ This library is designed to render [mdast list][] and [mdast list-item][] type d
      Name                     | Default         |  Description
     :------------------------:|:---------------:|:-----------------------
      `--md-list-item-margin`  | ` 0 0 0 0.25em` | List item margin
-     `--md-list-bg-color`     | -               | List background color
-     `--md-list-border-color` | -               | List border color
      `--md-list-padding`      | `0.625em 1em`   | List padding
      `--md-list-margin`       | `0 0 1.25em`    | List margin
 

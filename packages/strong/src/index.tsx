@@ -15,9 +15,9 @@ export interface StrongProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 
 const Container = styled.strong`
-  color: var(--md-strong-color);
-  font-size: var(--md-strong-font-size, 1em);
-  font-style: var(--md-strong-font-style, normal);
+  color: var(--md-strong-color, inherit);
+  font-size: var(--md-strong-font-size, inherit);
+  font-style: var(--md-strong-font-style, inherit);
   font-weight: var(--md-strong-font-weight, 600);
 `
 

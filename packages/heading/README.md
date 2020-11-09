@@ -46,19 +46,22 @@ This library is designed to render [mdast heading][] type data
 
   * CSS variables
 
-     Name                           | Default       |  Description
-    :------------------------------:|:-------------:|:-----------------------
-     `--md-heading-border-color`    | -             | Heading border bottom color
-     `--md-heading-margin`          | `1.2em 0 1em` | Heading margin
-     `--md-heading-color`           | `inherit`     | Heading text font color
-     `--md-heading-font-family`     | -             | Heading text font family
-     `--md-heading-line-height`     | `1.25`        | Heading line height
-     `--md-heading-font-style`      | `normal`      | Heading text font style
-     `--md-heading1-font-size`      | `2em`         | Text font size of h1
-     `--md-heading2-font-size`      | `1.5em`       | Text font size of h2
-     `--md-heading3-font-size`      | `1.25em`      | Text font size of h3
-     `--md-heading4-font-size`      | `1em`         | Text font size of h4
-     `--md-heading5-font-size`      | `0.875em`     | Text font size of h5
-     `--md-heading6-font-size`      | `0.85em`      | Text font size of h6
+     Name                             | Default           |  Description
+    :--------------------------------:|:-----------------:|:-----------------------
+     `--md-heading-border-color`      | -                 | Heading border bottom color
+     `--md-heading-margin`            | `1.2em -2em 1em`  | Heading margin
+     `--md-heading-padding`           | `0 2em`           | Heading padding
+     `--md-heading-color`             | `inherit`         | Heading text font color
+     `--md-heading-font-family`       | `inherit`         | Heading text font family
+     `--md-heading-line-height`       | `1.25`            | Heading line height
+     `--md-heading-font-style`        | `normal`          | Heading text font style
+     `--md-heading-link-color`        | `inherit`         | Heading link font color
+     `--md-heading-link-hover-color`  | `inherit`         | Heading link font color when hover
+     `--md-heading1-font-size`        | `2em`             | Text font size of h1
+     `--md-heading2-font-size`        | `1.5em`           | Text font size of h2
+     `--md-heading3-font-size`        | `1.25em`          | Text font size of h3
+     `--md-heading4-font-size`        | `1em`             | Text font size of h4
+     `--md-heading5-font-size`        | `0.875em`         | Text font size of h5
+     `--md-heading6-font-size`        | `0.85em`          | Text font size of h6
 
 [mdast heading]: https://github.com/syntax-tree/mdast#heading

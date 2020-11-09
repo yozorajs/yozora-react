@@ -85,9 +85,11 @@ This library is designed to render [mdast table][], [mdast table row][] and
     :--------------------------:|:---------------:|:-----------------------
      `--md-table-width`         | `max-content`   | Table width
      `--md-table-overflow`      | `auto`          | Table overflow
-     `--md-table-margin`        | `0 0 1rem`      | Table margin
-     `--md-table-cell-padding`  | `0.4rem 0.8rem` | Table cell padding
      `--md-table-border-color`  | -               | Table border color
+     `--md-table-margin`        | `0 0 1rem`      | Table margin
+     `--md-table-row-bg`        | -               | Table body row background
+     `--md-table-row-even-bg`   | -               | Table body even row background
+     `--md-table-cell-padding`  | `0.4rem 0.8rem` | Table cell padding
 
 
 [mdast table]: https://github.com/syntax-tree/mdast#table

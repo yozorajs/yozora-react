@@ -42,7 +42,7 @@
     "lint:fix": "eslint '{src,__test__}/**/*.{ts,tsx}' --fix"
   },
   "dependencies": {
-    "@yozora/react-code-highlighter": "^0.0.0"
+    "@yozora/react-code-highlighter": "^0.0.1"
   },
   "peerDependencies": {
     "@types/react": "^16.9.55",

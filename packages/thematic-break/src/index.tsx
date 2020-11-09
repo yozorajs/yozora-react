@@ -20,7 +20,7 @@ const Container = styled.hr`
   border: 0;
   border-bottom: 1px solid var(--md-thematic-break-bg-color, #e1e4e8);
   outline: 0;
-  margin: 1.5em 0;
+  margin: var(--md-thematic-margin, 1.5em 0);
 `
 
 

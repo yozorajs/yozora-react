@@ -15,10 +15,7 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 
 const Container = styled.span`
-  color: var(--md-text-color);
-  font-size: var(--md-text-font-size, 1em);
-  font-style: var(--md-text-font-style, normal);
-  font-weight: var(--md-text-font-weight, 400);
+  line-height: var(--md-text-line-height, inherit);;
 `
 
 

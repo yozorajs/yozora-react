@@ -41,12 +41,11 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLDivElement> {
 const Container = styled.header`
   position: relative;
   display: block;
-  margin: 0 -2em;
-  padding: 0 2em;
+  margin: var(--md-heading-margin, 1.2em -2em 1em);
+  padding: var(--md-heading-padding, 0 2em);
   line-height: var(--md-heading-line-height, 1.25);
-  font-family: var(--md-heading-font-family);
+  font-family: var(--md-heading-font-family, inherit);
   h1, h2, h3, h4, h5, h6 {
-    margin: var(--md-heading-margin, 1.2em 0 1em);
     line-height: var(--md-heading-line-height, 1.25);
     color: var(--md-heading-color, inherit);
     font-style: var(--md-heading-font-style, normal);
@@ -84,6 +83,7 @@ const Container = styled.header`
     padding-right: 0.25em;
     font-size: 1.25em;
     line-height: 1;
+    color: var(--md-heading-link-color, inherit);
     user-select: none;
     text-decoration: none;
     visibility: hidden;
@@ -96,6 +96,7 @@ const Container = styled.header`
     fill: currentColor;
   }
   &:hover > a {
+    color: var(--md-heading-link-hover-color, inherit);
     visibility: visible;
     opacity: 1;
   }

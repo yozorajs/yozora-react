@@ -15,9 +15,9 @@ export interface DeleteProps extends React.DelHTMLAttributes<HTMLSpanElement> {
 
 
 const Container = styled.del`
-  color: var(--md-delete-color);
-  font-size: var(--md-delete-font-size, 1em);
-  font-style: var(--md-delete-font-style, normal);
+  color: var(--md-delete-color, inherit);
+  font-size: var(--md-delete-font-size, inherit);
+  font-style: var(--md-delete-font-style, inherit);
   text-decoration: var(--md-delete-text-decoration, line-through);
 `
 

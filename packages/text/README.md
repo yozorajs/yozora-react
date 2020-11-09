@@ -38,11 +38,8 @@ This library is designed to render [mdast text][] type data
 
   * CSS variables
 
-     Name                    | Default  |  Description
-    :-----------------------:|:--------:|:-----------------------
-     `--md-text-color`       | -        | Text font color
-     `--md-text-font-size`   | `1em`    | Text font size
-     `--md-text-font-style`  | `normal` | Text font style
-     `--md-text-font-weight` | `400`    | Text font weight
+     Name                    | Default    |  Description
+    :-----------------------:|:----------:|:-----------------------
+     `--md-text-line-height` | `inherit`  | Text line-height
 
 [mdast text]: https://github.com/syntax-tree/mdast#text

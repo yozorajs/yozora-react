@@ -37,8 +37,10 @@ This library is designed to render [mdast thematic-break][] type data
 
   * CSS variables
 
-     Name                            | Default   |  Description
-    :-------------------------------:|:---------:|:-----------------------
-     `--md-thematic-break-bg-color`  | `#e1e4e8` | Thematic break background value
+     Name                           | Default   |  Description
+    :------------------------------:|:---------:|:-----------------------
+     `--md-thematic-margin`         | `1.5em 0` | Thematic break margin
+     `--md-thematic-break-bg-color` | `#e1e4e8` | Thematic break background value
+
 
 [mdast thematic-break]: https://github.com/syntax-tree/mdast#thematicbreak

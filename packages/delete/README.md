@@ -42,9 +42,9 @@ This library is designed to render [mdast delete][] type data
 
      Name                           | Default         |  Description
     :------------------------------:|:---------------:|:-----------------------
-     `--md-delete-color`            | -               | Delete text font color
-     `--md-delete-font-size`        | `1em`           | Delete text font size
-     `--md-delete-font-style`       | `normal`        | Delete text font style
+     `--md-delete-color`            | `inherit`       | Delete text font color
+     `--md-delete-font-size`        | `inherit`       | Delete text font size
+     `--md-delete-font-style`       | `inherit`       | Delete text font style
      `--md-delete-text-decoration`  | `line-through`  | Delete text decoration
 
 [mdast delete]: https://github.com/syntax-tree/mdast#delete

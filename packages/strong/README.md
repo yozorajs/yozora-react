@@ -42,9 +42,9 @@ This library is designed to render [mdast strong][] type data
 
      Name                       | Default   |  Description
     :--------------------------:|:---------:|:-----------------------
-     `--md-strong-color`        | -         | Strong text font color
-     `--md-strong-font-size`    | `1em`     | Strong text font size
-     `--md-strong-font-style`   | `normal`  | Strong text font style
+     `--md-strong-color`        | `inherit` | Strong text font color
+     `--md-strong-font-size`    | `inherit` | Strong text font size
+     `--md-strong-font-style`   | `inherit` | Strong text font style
      `--md-strong-font-weight`  | `600`     | Strong text font weight
 
 [mdast strong]: https://github.com/syntax-tree/mdast#strong
