@@ -1,5 +1,6 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
 import Heading from '../src'
 
 
@@ -49,11 +50,7 @@ describe('basic rendering case', () => {
   it('children is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        mount(
-          <Heading level={ 1 }>
-            { value }
-          </Heading>
-        )
+        render(<Heading level={ 1 }>{ value }</Heading>)
       }).toThrow(/Failed prop type: The prop `children` is marked as required/)
     }
   })
@@ -74,7 +71,7 @@ describe('basic rendering case', () => {
 
   it('snapshot', () => {
     const level = 2
-    const wrapper = mount(
+    const wrapper = render(
       <Heading
         level={ level }
         style={ { color: 'orange', fontSize: '16px' } }
@@ -83,5 +80,42 @@ describe('basic rendering case', () => {
       </Heading>
     )
     expect(wrapper).toMatchSnapshot(`level ${ level }`)
+  })
+
+  it('snapshot with theme', () => {
+    const theme: DefaultTheme = {
+      yozora: {
+        heading: {
+          fontStyle: 'italic',
+          color: '#ccc',
+          padding: '0 2em',
+          borderColor: 'lightgray',
+          // margin: '1.2em -2em 1em',
+          lineHeight: 1.25,
+          fontFamily: 'inherit',
+          h1FontSize: '2em',
+          h2FontSize: '1.5em',
+          h3FontSize: '1.25em',
+          h4FontSize: '1em',
+          h5FontSize: '0.875em',
+          h6FontSize: '0.85em',
+          linkColor: 'blue',
+          hoverLinkColor: 'cyan',
+        }
+      }
+    }
+
+    const level = 1
+    const wrapper = render(
+      <ThemeProvider theme={ theme }>
+        <Heading
+          level={ level }
+          style={ { color: 'orange', fontSize: '16px' } }
+        >
+          Waw -- { level }, 中文标题“这”
+        </Heading>
+      </ThemeProvider>
+    )
+    expect(wrapper).toMatchSnapshot()
   })
 })

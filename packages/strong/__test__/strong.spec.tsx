@@ -1,5 +1,6 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
 import Strong from '../src'
 
 
@@ -41,11 +42,7 @@ describe('basic rendering case', () => {
   it('children is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        mount(
-          <Strong>
-            { value }
-          </Strong>
-        )
+        render(<Strong>{ value }</Strong>)
       }).toThrow(/Failed prop type: The prop `children` is marked as required/)
     }
   })
@@ -64,11 +61,34 @@ describe('basic rendering case', () => {
   })
 
   it('snapshot', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Strong style={{ color: 'orange', fontSize: '16px' }}>
         some text1
         <span>some text2</span>
       </Strong>
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('snapshot with theme', () => {
+    const theme: DefaultTheme = {
+      yozora: {
+        strong: {
+          color: 'red',
+          fontSize: 18,
+          // fontWeight: 'bold',
+          fontStyle: 'oblique',
+        }
+      }
+    }
+
+    const wrapper = render(
+      <ThemeProvider theme={ theme }>
+        <Strong>
+          some text1
+          <span>some text2</span>
+        </Strong>
+      </ThemeProvider>
     )
     expect(wrapper).toMatchSnapshot()
   })

@@ -2,37 +2,26 @@
 
 exports[`basic rendering case snapshot 1`] = `
 .c0 {
-  line-height: var(--md-text-line-height,inherit);
+  line-height: inherit;
 }
 
-<Text
-  style={
-    Object {
-      "color": "orange",
-      "fontSize": "16px",
-    }
-  }
-  value="Hello, world!"
+<span
+  class="c0"
+  style="color:orange;font-size:16px"
 >
-  <styled.span
-    style={
-      Object {
-        "color": "orange",
-        "fontSize": "16px",
-      }
-    }
-  >
-    <span
-      className="c0"
-      style={
-        Object {
-          "color": "orange",
-          "fontSize": "16px",
-        }
-      }
-    >
-      Hello, world!
-    </span>
-  </styled.span>
-</Text>
+  Hello, world!
+</span>
+`;
+
+exports[`basic rendering case snapshot with theme 1`] = `
+.c0 {
+  line-height: 2;
+}
+
+<span
+  class="c0"
+  style="color:orange;font-size:16px"
+>
+  Hello, world!
+</span>
 `;

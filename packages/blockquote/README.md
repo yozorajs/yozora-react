@@ -15,19 +15,49 @@ This library is designed to render [mdast blockquote][] type data
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import Blockquote from '@yozora/react-blockquote'
+    - Pure
 
-    ReactDOM.render(
-      <Blockquote>
-        <span>Hello, world!</span>
-      </Blockquote>
-      , document.getElementById('root')
-    )
-    ```
+      ```typescript
+      // index.tsx
+      import React from 'react'
+      import Blockquote from '@yozora/react-blockquote'
+
+      const Wrapper = (
+        <Blockquote style={{ color: 'orange', fontSize: '16px' }}>
+          some text1
+          <span>some text2</span>
+        </Blockquote>
+      )
+      ```
+
+    - With theme
+
+      ```typescript
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import Blockquote from '@yozora/react-blockquote'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          blockquote: {
+            color: 'red',
+            padding: '0 1rem',
+            borderColor: 'orange',
+            margin: 18,
+            background: 'rgba(0, 0, 0, 0.15)',
+          }
+        }
+      }
+
+      const wrapper = (
+        <ThemeProvider theme={ theme }>
+          <Blockquote>
+            some text1
+            <span>some text2</span>
+          </Blockquote>
+        </ThemeProvider>
+      )
+      ```
 
   * Props
 
@@ -38,13 +68,9 @@ This library is designed to render [mdast blockquote][] type data
 
     BlockquoteProps inherited all attributes of `HTMLDivElement` (`React.BlockquoteHTMLAttributes<HTMLDivElement>`)
 
-  * CSS variables
+  * Theme
 
-     Name                           | Default       |  Description
-    :------------------------------:|:-------------:|:-----------------------
-     `--md-blockquote-bg-color`     | -             | Blockquote background color
-     `--md-blockquote-border-color` | -             | Blockquote border color
-     `--md-blockquote-padding`      | `0.625em 1em` | Blockquote padding
-     `--md-blockquote-margin`       | `0 0 1.25em`  | Blockquote margin
+    see [YozoraBlockquoteTheme][]
 
 [mdast blockquote]: https://github.com/syntax-tree/mdast#blockquote
+[YozoraBlockquoteTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/blockquote/src/theme.ts)

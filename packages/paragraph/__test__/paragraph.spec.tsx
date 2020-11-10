@@ -1,5 +1,6 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
 import Paragraph from '../src'
 
 
@@ -41,11 +42,7 @@ describe('basic rendering case', () => {
   it('children is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        mount(
-          <Paragraph>
-            { value }
-          </Paragraph>
-        )
+        render(<Paragraph>{ value }</Paragraph>)
       }).toThrow(/Failed prop type: The prop `children` is marked as required/)
     }
   })
@@ -64,11 +61,34 @@ describe('basic rendering case', () => {
   })
 
   it('snapshot', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Paragraph style={{ color: 'orange', fontSize: '16px' }}>
         some text1
         <span>some text2</span>
       </Paragraph>
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('snapshot with theme', () => {
+    const theme: DefaultTheme = {
+      yozora: {
+        paragraph: {
+          color: 'red',
+          padding: '0 1rem',
+          margin: 18,
+          // lineHeight: 1.5,
+        }
+      }
+    }
+
+    const wrapper = render(
+      <ThemeProvider theme={ theme }>
+        <Paragraph>
+          some text1
+          <span>some text2</span>
+        </Paragraph>
+      </ThemeProvider>
     )
     expect(wrapper).toMatchSnapshot()
   })

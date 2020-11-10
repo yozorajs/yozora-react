@@ -15,28 +15,71 @@ This library is designed to render [mdast math][] type data
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import Math from '@yozora/react-math'
+    - Pure
 
-    const code = `
-      \\begin{align}
-        f(x) = \\left\\lbrace
-          \\begin{aligned}
-            &x^2, &x < 0 \\\\
-            &\\frac{1}{x^3}, &x > 0
-          \\end{aligned}
-        \\right.
-      \\end{align}
-    `
+      ```typescript
+      // index.tsx
+      import React from 'react'
+      import Math from '@yozora/react-math'
 
-    ReactDOM.render(
-      <Math value={ code } />
-      , document.getElementById('root')
-    )
-    ```
+      const code = `
+        \\begin{align}
+          f(x) = \\left\\lbrace
+            \\begin{aligned}
+              &x^2, &x < 0 \\\\
+              &\\frac{1}{x^3}, &x > 0
+            \\end{aligned}
+          \\right.
+        \\end{align}
+      `
+
+      const Wrapper = (
+        <Math
+          value={ code }
+          style={ { color: 'orange', fontSize: '16px' } }
+        />
+      )
+      ```
+
+    - With theme
+
+      ```typescript
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import Math from '@yozora/react-math'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          math: {
+            padding: '2px',
+            border: '1px solid blue',
+            // margin: '0 2px',
+            background: 'hsla(210deg, 13%, 12%, 0.05)',
+            color: '#d81848',
+          }
+        }
+      }
+
+      const code = `
+        \\begin{align}
+          f(x) = \\left\\lbrace
+            \\begin{aligned}
+              &x^2, &x < 0 \\\\
+              &\\frac{1}{x^3}, &x > 0
+            \\end{aligned}
+          \\right.
+        \\end{align}
+      `
+
+      const Wrapper = (
+        <ThemeProvider theme={ theme }>
+          <Math
+            value={ code }
+            style={ { color: 'orange', fontSize: '16px' } }
+          />
+        </ThemeProvider>
+      )
+      ```
 
   * Props
 
@@ -47,9 +90,10 @@ This library is designed to render [mdast math][] type data
 
     MathProps inherited all attributes of `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`)
 
-  * CSS variables
+  * Theme
 
-     Name                                 | Default                           |  Description
-    :------------------------------------:|:---------------------------------:|:-----------------------
+    see [YozoraMathTheme][]
 
 [mathjax]: https://www.mathjax.org/
+[YozoraMathTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/math/src/theme.ts)
+

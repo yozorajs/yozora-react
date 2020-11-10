@@ -2,42 +2,39 @@
 
 exports[`basic rendering case snapshot 1`] = `
 .c0 {
-  background: var(--md-blockquote-bg-color);
-  border-left: 0.25em solid var(--md-blockquote-border-color);
-  padding: var(--md-blockquote-padding,0.625em 1em);
-  margin: var(--md-blockquote-margin,0 0 1.25em);
+  color: inherit;
+  padding: 0.625em 1em;
+  border-left: 0.25em solid transparent;
+  margin: 0 0 1.25em;
+  background: none;
 }
 
-<Blockquote
-  style={
-    Object {
-      "color": "orange",
-      "fontSize": "16px",
-    }
-  }
+<blockquote
+  class="c0"
+  style="color:orange;font-size:16px"
 >
-  <styled.blockquote
-    style={
-      Object {
-        "color": "orange",
-        "fontSize": "16px",
-      }
-    }
-  >
-    <blockquote
-      className="c0"
-      style={
-        Object {
-          "color": "orange",
-          "fontSize": "16px",
-        }
-      }
-    >
-      some text1
-      <span>
-        some text2
-      </span>
-    </blockquote>
-  </styled.blockquote>
-</Blockquote>
+  some text1
+  <span>
+    some text2
+  </span>
+</blockquote>
+`;
+
+exports[`basic rendering case snapshot with theme 1`] = `
+.c0 {
+  color: red;
+  padding: 0 1rem;
+  border-left: 0.25em solid transparent;
+  margin: 18;
+  background: rgba(0,0,0,0.15);
+}
+
+<blockquote
+  class="c0"
+>
+  some text1
+  <span>
+    some text2
+  </span>
+</blockquote>
 `;

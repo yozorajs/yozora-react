@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { defaultDeleteTheme, getDeleteStyle } from './theme'
+export * from './theme'
 
 
 /**
@@ -15,11 +17,17 @@ export interface DeleteProps extends React.DelHTMLAttributes<HTMLSpanElement> {
 
 
 const Container = styled.del`
-  color: var(--md-delete-color, inherit);
-  font-size: var(--md-delete-font-size, inherit);
-  font-style: var(--md-delete-font-style, inherit);
-  text-decoration: var(--md-delete-text-decoration, line-through);
+  color: ${ getDeleteStyle('color') };
+  font-size: ${ getDeleteStyle('fontSize') };
+  font-weight: ${ getDeleteStyle('fontWeight') };
+  font-style: ${ getDeleteStyle('fontStyle') };
+  text-decoration: ${ getDeleteStyle('textDecoration') };
 `
+
+
+Container.defaultProps = {
+  theme: { yozora: { delete: defaultDeleteTheme } }
+}
 
 
 /**
@@ -36,12 +44,12 @@ export const Delete = React.forwardRef<HTMLSpanElement, DeleteProps>(
 )
 
 
+Delete.displayName = 'Delete'
+
+
 Delete.propTypes = {
   children: PropTypes.node.isRequired,
 }
-
-
-Delete.displayName = 'Delete'
 
 
 export default Delete

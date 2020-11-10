@@ -15,19 +15,56 @@ This library is designed to render [mdast link][] type data
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import Link from '@yozora/react-link'
+    - Pure
 
-    ReactDOM.render(
-      <Link>
-        <span>Hello, world!</span>
-      </Link>
-      , document.getElementById('root')
-    )
-    ```
+      ```typescript
+      // index.tsx
+      import React from 'react'
+      import Link from '@yozora/react-link'
+
+      const Wrapper = (
+        <Link
+          url="/home"
+          title="home"
+          style={ { color: 'orange', fontSize: '16px' } }
+        >
+          some text1
+          <span>some text2</span>
+        </Link>
+      )
+      ```
+
+    - With theme
+
+      ```typescript
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import Link from '@yozora/react-link'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          link: {
+            color: 'blue',
+            fontSize: undefined,
+            fontStyle: 'italic',
+            textDecoration: 'none',
+          }
+        }
+      }
+
+      const wrapper = (
+        <ThemeProvider theme={ theme }>
+          <Link
+            url="/home"
+            title="home"
+            style={ { color: 'orange', fontSize: '16px' } }
+          >
+            some text1
+            <span>some text2</span>
+          </Link>
+        </ThemeProvider>
+      )
+      ```
 
   * Props
 
@@ -42,13 +79,10 @@ This library is designed to render [mdast link][] type data
 
     LinkProps inherited all attributes of `HTMLAnchorElement` (`React.AnchorHTMLAttributes<HTMLAnchorElement>`)
 
-  * CSS variables
+  * Theme
 
-     Name                         | Default   |  Description
-    :----------------------------:|:---------:|:-----------------------
-     `--md-link-color`            | -         | link text color
-     `--md-link-font-size`        | `inherit` | link text font size
-     `--md-link-font-style`       | `normal`  | link text font style
-     `--md-link-text-decoration`  | `none`    | link text text decoration
+    see [YozoraLinkTheme][]
 
 [mdast link]: https://github.com/syntax-tree/mdast#link
+[YozoraLinkTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/link/src/theme.ts)
+

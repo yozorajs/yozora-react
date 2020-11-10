@@ -1,5 +1,6 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
 import Blockquote from '../src'
 
 
@@ -41,11 +42,7 @@ describe('basic rendering case', () => {
   it('children is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        mount(
-          <Blockquote>
-            { value }
-          </Blockquote>
-        )
+        render(<Blockquote>{ value }</Blockquote>)
       }).toThrow(/Failed prop type: The prop `children` is marked as required/)
     }
   })
@@ -64,11 +61,35 @@ describe('basic rendering case', () => {
   })
 
   it('snapshot', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Blockquote style={{ color: 'orange', fontSize: '16px' }}>
         some text1
         <span>some text2</span>
       </Blockquote>
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('snapshot with theme', () => {
+    const theme: DefaultTheme = {
+      yozora: {
+        blockquote: {
+          color: 'red',
+          padding: '0 1rem',
+          // borderColor: 'orange',
+          margin: 18,
+          background: 'rgba(0, 0, 0, 0.15)',
+        }
+      }
+    }
+
+    const wrapper = render(
+      <ThemeProvider theme={ theme }>
+        <Blockquote>
+          some text1
+          <span>some text2</span>
+        </Blockquote>
+      </ThemeProvider>
     )
     expect(wrapper).toMatchSnapshot()
   })

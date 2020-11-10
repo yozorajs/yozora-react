@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic rendering case snapshot: level 2 1`] = `
+exports[`basic rendering case snapshot with theme 1`] = `
 .c0 {
   position: relative;
   display: block;
-  margin: var(--md-heading-margin,1.2em -2em 1em);
-  padding: var(--md-heading-padding,0 2em);
-  line-height: var(--md-heading-line-height,1.25);
-  font-family: var(--md-heading-font-family,inherit);
+  margin: 1.2em -2em 1em;
+  padding: 0 2em;
+  line-height: 1.25;
+  font-family: inherit;
 }
 
 .c0 h1,
@@ -16,40 +16,39 @@ exports[`basic rendering case snapshot: level 2 1`] = `
 .c0 h4,
 .c0 h5,
 .c0 h6 {
-  line-height: var(--md-heading-line-height,1.25);
-  color: var(--md-heading-color,inherit);
-  font-style: var(--md-heading-font-style,normal);
+  color: #ccc;
+  font-style: italic;
 }
 
 .c0 h1,
 .c0 h2 {
   padding: 0.3em 0;
-  border-bottom: 1px solid var(--md-heading-border-color);
+  border-bottom: 1px solid lightgray;
   margin: 0.9em 0 1em;
 }
 
 .c0 h1 {
-  font-size: var(--md-heading1-font-size,2em);
+  font-size: 2em;
 }
 
 .c0 h2 {
-  font-size: var(--md-heading2-font-size,1.5em);
+  font-size: 1.5em;
 }
 
 .c0 h3 {
-  font-size: var(--md-heading3-font-size,1.25em);
+  font-size: 1.25em;
 }
 
 .c0 h4 {
-  font-size: var(--md-heading4-font-size,1em);
+  font-size: 1em;
 }
 
 .c0 h5 {
-  font-size: var(--md-heading5-font-size,0.875em);
+  font-size: 0.875em;
 }
 
 .c0 h6 {
-  font-size: var(--md-heading6-font-size,0.85em);
+  font-size: 0.85em;
 }
 
 .c0 > a {
@@ -64,7 +63,7 @@ exports[`basic rendering case snapshot: level 2 1`] = `
   padding-right: 0.25em;
   font-size: 1.25em;
   line-height: 1;
-  color: var(--md-heading-link-color,inherit);
+  color: blue;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -83,62 +82,144 @@ exports[`basic rendering case snapshot: level 2 1`] = `
 }
 
 .c0:hover > a {
-  color: var(--md-heading-link-hover-color,inherit);
+  color: cyan;
   visibility: visible;
   opacity: 1;
 }
 
-<Heading
-  level={2}
-  style={
-    Object {
-      "color": "orange",
-      "fontSize": "16px",
-    }
-  }
+<header
+  class="c0"
+  style="color:orange;font-size:16px"
 >
-  <styled.header
-    style={
-      Object {
-        "color": "orange",
-        "fontSize": "16px",
-      }
-    }
+  <a
+    href="#undefined"
   >
-    <header
-      className="c0"
-      style={
-        Object {
-          "color": "orange",
-          "fontSize": "16px",
-        }
-      }
+    <svg
+      aria-hidden="true"
+      height="16"
+      version="1.1"
+      viewBox="0 0 16 16"
+      width="16"
     >
-      <a
-        href="#heading-waw-2-中文标题-这"
-        id="heading-waw-2-中文标题-这"
-      >
-        <HeadingLinkIcon>
-          <svg
-            aria-hidden="true"
-            height="16"
-            version="1.1"
-            viewBox="0 0 16 16"
-            width="16"
-          >
-            <path
-              d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"
-              fillRule="evenodd"
-            />
-          </svg>
-        </HeadingLinkIcon>
-      </a>
-      <h2>
-        Waw -- 
-        2
-        , 中文标题“这”
-      </h2>
-    </header>
-  </styled.header>
-</Heading>
+      <path
+        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </a>
+  <h1>
+    Waw -- 1, 中文标题“这”
+  </h1>
+</header>
+`;
+
+exports[`basic rendering case snapshot: level 2 1`] = `
+.c0 {
+  position: relative;
+  display: block;
+  margin: 1.2em -2em 1em;
+  padding: 0 2em;
+  line-height: 1.25;
+  font-family: inherit;
+}
+
+.c0 h1,
+.c0 h2,
+.c0 h3,
+.c0 h4,
+.c0 h5,
+.c0 h6 {
+  color: inherit;
+  font-style: normal;
+}
+
+.c0 h1,
+.c0 h2 {
+  padding: 0.3em 0;
+  border-bottom: 1px solid lightgray;
+  margin: 0.9em 0 1em;
+}
+
+.c0 h1 {
+  font-size: 2em;
+}
+
+.c0 h2 {
+  font-size: 1.5em;
+}
+
+.c0 h3 {
+  font-size: 1.25em;
+}
+
+.c0 h4 {
+  font-size: 1em;
+}
+
+.c0 h5 {
+  font-size: 0.875em;
+}
+
+.c0 h6 {
+  font-size: 0.85em;
+}
+
+.c0 > a {
+  position: absolute;
+  top: 50%;
+  left: 0.25em;
+  -webkit-transform: translate(0,-50%);
+  -ms-transform: translate(0,-50%);
+  transform: translate(0,-50%);
+  display: inline-block;
+  height: 1.25em;
+  padding-right: 0.25em;
+  font-size: 1.25em;
+  line-height: 1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c0 > a > svg {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+.c0:hover > a {
+  visibility: visible;
+  opacity: 1;
+}
+
+<header
+  class="c0"
+  style="color:orange;font-size:16px"
+>
+  <a
+    href="#undefined"
+  >
+    <svg
+      aria-hidden="true"
+      height="16"
+      version="1.1"
+      viewBox="0 0 16 16"
+      width="16"
+    >
+      <path
+        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </a>
+  <h2>
+    Waw -- 2, 中文标题“这”
+  </h2>
+</header>
 `;

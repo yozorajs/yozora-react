@@ -2,11 +2,12 @@
 
 exports[`basic rendering case snapshot 1`] = `
 .c0 {
-  color: var(--md-delete-color,inherit);
-  font-size: var(--md-delete-font-size,inherit);
-  font-style: var(--md-delete-font-style,inherit);
-  -webkit-text-decoration: var(--md-delete-text-decoration,line-through);
-  text-decoration: var(--md-delete-text-decoration,line-through);
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  -webkit-text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 <Delete
@@ -22,6 +23,19 @@ exports[`basic rendering case snapshot 1`] = `
       Object {
         "color": "orange",
         "fontSize": "16px",
+      }
+    }
+    theme={
+      Object {
+        "yozora": Object {
+          "delete": Object {
+            "color": "inherit",
+            "fontSize": "inherit",
+            "fontStyle": "inherit",
+            "fontWeight": "inherit",
+            "textDecoration": "line-through",
+          },
+        },
       }
     }
   >
@@ -41,4 +55,24 @@ exports[`basic rendering case snapshot 1`] = `
     </del>
   </styled.del>
 </Delete>
+`;
+
+exports[`basic rendering case snapshot with theme 1`] = `
+.c0 {
+  color: red;
+  font-size: 18;
+  font-weight: inherit;
+  font-style: inherit;
+  -webkit-text-decoration: dashed;
+  text-decoration: dashed;
+}
+
+<del
+  class="c0"
+>
+  some text1
+  <span>
+    some text2
+  </span>
+</del>
 `;

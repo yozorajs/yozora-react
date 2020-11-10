@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { defaultStrongTheme, getStrongStyle } from './theme'
+export * from './theme'
 
 
 /**
@@ -15,11 +17,16 @@ export interface StrongProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 
 const Container = styled.strong`
-  color: var(--md-strong-color, inherit);
-  font-size: var(--md-strong-font-size, inherit);
-  font-style: var(--md-strong-font-style, inherit);
-  font-weight: var(--md-strong-font-weight, 600);
+  color: ${ getStrongStyle('color') };
+  font-size: ${ getStrongStyle('fontSize') };
+  font-weight: ${ getStrongStyle('fontWeight') };
+  font-style: ${ getStrongStyle('fontStyle') };
 `
+
+
+Container.defaultProps = {
+  theme: { yozora: { strong: defaultStrongTheme } }
+}
 
 
 /**
@@ -36,12 +43,12 @@ export const Strong = React.forwardRef<HTMLSpanElement, StrongProps>(
 )
 
 
+Strong.displayName = 'Strong'
+
+
 Strong.propTypes = {
   children: PropTypes.node.isRequired,
 }
-
-
-Strong.displayName = 'Strong'
 
 
 export default Strong

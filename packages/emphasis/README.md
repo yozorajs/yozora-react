@@ -14,20 +14,48 @@ This library is designed to render [mdast emphasis][] type data
 
 # Usage
   * Use in React project
+    - Pure
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import Emphasis from '@yozora/react-emphasis'
+      ```typescript
+      // index.tsx
+      import React from 'react'
+      import Emphasis from '@yozora/react-emphasis'
 
-    ReactDOM.render(
-      <Emphasis>
-        <span>Hello, world!</span>
-      </Emphasis>
-      , document.getElementById('root')
-    )
-    ```
+      const Wrapper = (
+        <Emphasis style={ { color: 'orange', fontSize: '16px' } }>
+          some text1
+          <span>some text2</span>
+        </Emphasis>
+      )
+      ```
+
+    - With theme
+
+      ```typescript
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import Emphasis from '@yozora/react-emphasis'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          emphasis: {
+            color: 'red',
+            fontSize: 18,
+            fontWeight: undefined,
+            fontStyle: 'oblique',
+          }
+        }
+      }
+
+      const Wrapper = (
+        <ThemeProvider theme={ theme }>
+          <Emphasis>
+            some text1
+            <span>some text2</span>
+          </Emphasis>
+        </ThemeProvider>
+      )
+      ```
 
   * Props
 
@@ -38,12 +66,9 @@ This library is designed to render [mdast emphasis][] type data
 
     EmphasisProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
 
-  * CSS variables
+  * Theme
 
-     Name                       | Default   |  Description
-    :--------------------------:|:---------:|:-----------------------
-     `--md-emphasis-color`      | -         | Emphasis text font color
-     `--md-emphasis-font-size`  | `1em`     | Emphasis text font size
-     `--md-emphasis-font-style` | `italic`  | Emphasis text font style
+    see [YozoraEmphasisTheme][]
 
 [mdast emphasis]: https://github.com/syntax-tree/mdast#emphasis
+[YozoraEmphasisTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/emphasis/src/theme.ts)

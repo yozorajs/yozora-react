@@ -2,6 +2,8 @@ import React from 'react'
 import MathJax from 'react-mathjax'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { defaultInlineMathTheme, getInlineMathStyle } from './theme'
+export * from './theme'
 
 
 /**
@@ -15,7 +17,17 @@ export interface InlineMathProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 
-const Container = styled.span``
+const Container = styled.span`
+  padding: ${ getInlineMathStyle('padding') };
+  border: ${ getInlineMathStyle('border') };
+  margin: ${ getInlineMathStyle('margin') };
+  background: ${ getInlineMathStyle('background') };
+  color: ${ getInlineMathStyle('color') };
+`
+
+Container.defaultProps = {
+  theme: { yozora: { inlineMath: defaultInlineMathTheme } }
+}
 
 
 /**
@@ -35,12 +47,12 @@ export const InlineMath = React.forwardRef<HTMLSpanElement, InlineMathProps>(
 )
 
 
+InlineMath.displayName = 'InlineMath'
+
+
 InlineMath.propTypes = {
   value: PropTypes.string.isRequired,
 }
-
-
-InlineMath.displayName = 'InlineMath'
 
 
 export default InlineMath

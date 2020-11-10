@@ -1,5 +1,6 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
 import Emphasis from '../src'
 
 
@@ -17,11 +18,7 @@ describe('basic rendering case', () => {
   it('render a simple content', () => {
     const text = 'Hello, world!'
     const wrapper = render(
-      <Emphasis>
-        <span>
-          <Emphasis>{ text }</Emphasis>
-        </span>
-      </Emphasis>
+      <Emphasis>{ text }</Emphasis>
     )
     expect(wrapper.text()).toEqual(text)
   })
@@ -41,11 +38,7 @@ describe('basic rendering case', () => {
   it('children is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        mount(
-          <Emphasis>
-            { value }
-          </Emphasis>
-        )
+        render(<Emphasis>{ value }</Emphasis>)
       }).toThrow(/Failed prop type: The prop `children` is marked as required/)
     }
   })
@@ -64,11 +57,34 @@ describe('basic rendering case', () => {
   })
 
   it('snapshot', () => {
-    const wrapper = mount(
-      <Emphasis style={{ color: 'orange', fontSize: '16px' }}>
+    const wrapper = render(
+      <Emphasis style={ { color: 'orange', fontSize: '16px' } }>
         some text1
         <span>some text2</span>
       </Emphasis>
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('snapshot with theme', () => {
+    const theme: DefaultTheme = {
+      yozora: {
+        emphasis: {
+          color: 'red',
+          fontSize: 18,
+          fontWeight: undefined,
+          fontStyle: 'oblique',
+        }
+      }
+    }
+
+    const wrapper = render(
+      <ThemeProvider theme={ theme }>
+        <Emphasis>
+          some text1
+          <span>some text2</span>
+        </Emphasis>
+      </ThemeProvider>
     )
     expect(wrapper).toMatchSnapshot()
   })

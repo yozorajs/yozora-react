@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { defaultTextTheme, getTextStyle } from './theme'
+export * from './theme'
 
 
 /**
@@ -15,8 +17,13 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 
 const Container = styled.span`
-  line-height: var(--md-text-line-height, inherit);;
+  line-height: ${ getTextStyle('lineHeight') };
 `
+
+
+Container.defaultProps = {
+  theme: { yozora: { text: defaultTextTheme } }
+}
 
 
 /**
@@ -34,12 +41,12 @@ export const Text = React.forwardRef<HTMLSpanElement, TextProps>(
 )
 
 
+Text.displayName = 'Text'
+
+
 Text.propTypes = {
   value: PropTypes.string.isRequired,
 }
-
-
-Text.displayName = 'Text'
 
 
 export default Text

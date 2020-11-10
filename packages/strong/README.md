@@ -15,19 +15,48 @@ This library is designed to render [mdast strong][] type data
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import Strong from '@yozora/react-strong'
+    - Pure
 
-    ReactDOM.render(
-      <Strong>
-        <span>Hello, world!</span>
-      </Strong>
-      , document.getElementById('root')
-    )
-    ```
+      ```typescript
+      // index.tsx
+      import React from 'react'
+      import Strong from '@yozora/react-strong'
+
+      const Wrapper = (
+        <Strong style={{ color: 'orange', fontSize: '16px' }}>
+          some text1
+          <span>some text2</span>
+        </Strong>
+      )
+      ```
+
+    - With theme
+
+      ```typescript
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import Strong from '@yozora/react-strong'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          strong: {
+            color: 'red',
+            fontSize: 18,
+            // fontWeight: 'bold',
+            fontStyle: 'oblique',
+          }
+        }
+      }
+
+      const wrapper = (
+        <ThemeProvider theme={ theme }>
+          <Strong>
+            some text1
+            <span>some text2</span>
+          </Strong>
+        </ThemeProvider>
+      )
+      ```
 
   * Props
 
@@ -38,13 +67,9 @@ This library is designed to render [mdast strong][] type data
 
     StrongProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
 
-  * CSS variables
+  * Theme
 
-     Name                       | Default   |  Description
-    :--------------------------:|:---------:|:-----------------------
-     `--md-strong-color`        | `inherit` | Strong text font color
-     `--md-strong-font-size`    | `inherit` | Strong text font size
-     `--md-strong-font-style`   | `inherit` | Strong text font style
-     `--md-strong-font-weight`  | `600`     | Strong text font weight
+    see [YozoraStrongTheme][]
 
 [mdast strong]: https://github.com/syntax-tree/mdast#strong
+[YozoraStrongTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/strong/src/theme.ts)

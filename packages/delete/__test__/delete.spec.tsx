@@ -1,5 +1,6 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
 import Delete from '../src'
 
 
@@ -41,11 +42,7 @@ describe('basic rendering case', () => {
   it('children is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        mount(
-          <Delete>
-            { value }
-          </Delete>
-        )
+        render(<Delete>{ value }</Delete>)
       }).toThrow(/Failed prop type: The prop `children` is marked as required/)
     }
   })
@@ -69,6 +66,30 @@ describe('basic rendering case', () => {
         some text1
         <span>some text2</span>
       </Delete>
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('snapshot with theme', () => {
+    const theme: DefaultTheme = {
+      yozora: {
+        delete: {
+          color: 'red',
+          fontSize: 18,
+          fontWeight: undefined,
+          // fontStyle: 'oblique',
+          textDecoration: 'dashed',
+        }
+      }
+    }
+
+    const wrapper = render(
+      <ThemeProvider theme={ theme }>
+        <Delete>
+          some text1
+          <span>some text2</span>
+        </Delete>
+      </ThemeProvider>
     )
     expect(wrapper).toMatchSnapshot()
   })

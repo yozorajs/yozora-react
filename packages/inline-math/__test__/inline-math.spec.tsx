@@ -1,5 +1,6 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
 import InlineMath from '../src'
 
 
@@ -26,9 +27,7 @@ describe('basic rendering case', () => {
   it('value is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        mount(
-          <InlineMath value={ value } />
-        )
+        render(<InlineMath value={ value } />)
       }).toThrow(/Failed prop type: The prop `value` is marked as required/)
     }
   })
@@ -45,12 +44,35 @@ describe('basic rendering case', () => {
   })
 
   it('snapshot', () => {
-    const code = 'x^2 + y^2 = z^2'
     const wrapper = mount(
       <InlineMath
-        value={ code }
+        value="x^2 + y^2 = z^2"
         style={ { color: 'orange', fontSize: '16px' } }
       />
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('snapshot with theme', () => {
+    const theme: DefaultTheme = {
+      yozora: {
+        inlineMath: {
+          padding: '2px',
+          border: '1px solid blue',
+          // margin: '0 2px',
+          background: 'hsla(210deg, 13%, 12%, 0.05)',
+          color: '#d81848',
+        }
+      }
+    }
+
+    const wrapper = mount(
+      <ThemeProvider theme={ theme }>
+        <InlineMath
+          value="x^2 + y^2 = z^2"
+          style={ { color: 'orange', fontSize: '16px' } }
+        />
+      </ThemeProvider>
     )
     expect(wrapper).toMatchSnapshot()
   })

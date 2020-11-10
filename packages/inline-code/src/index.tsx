@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { defaultInlineCodeTheme, getInlineCodeStyle } from './theme'
+export * from './theme'
 
 
 /**
@@ -15,17 +17,23 @@ export interface InlineCodeProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 
 const Container = styled.code`
-  padding: var(--md-inline-code-padding, 0.2em);
-  border-radius: var(--md-inline-code-border-radius, 2px);
-  margin: var(--md-inline-code-margin, 0);
-  background: var(--md-inline-code-bg-color);
-  color: var(--md-inline-code-color);
-  font-family: var(--md-inline-code-font-family, 'Consolas, monospace, sans-serif');
-  font-size: var(--md-inline-code-font-size, 1em);
-  font-weight: var(--md-inline-code-font-weight, 500);
-  line-height: var(--md-inline-code-line-height, 1.375);
-  white-space: var(--md-inline-code-white-space, normal);
+  padding: ${ getInlineCodeStyle('padding') };
+  border-radius: ${ getInlineCodeStyle('borderRadius') };
+  margin: ${ getInlineCodeStyle('margin') };
+  background: ${ getInlineCodeStyle('background') };
+  line-height: ${ getInlineCodeStyle('lineHeight') };
+  color: ${ getInlineCodeStyle('color') };
+  font-family: ${ getInlineCodeStyle('fontFamily') };
+  font-size: ${ getInlineCodeStyle('fontSize') };
+  font-weight: ${ getInlineCodeStyle('fontWeight') };
+  font-style: ${ getInlineCodeStyle('fontStyle') };
+  white-space: ${ getInlineCodeStyle('whiteSpace') };
 `
+
+
+Container.defaultProps = {
+  theme: { yozora: { inlineCode: defaultInlineCodeTheme } }
+}
 
 
 /**
@@ -43,12 +51,12 @@ export const InlineCode = React.forwardRef<HTMLSpanElement, InlineCodeProps>(
 )
 
 
+InlineCode.displayName = 'InlineCode'
+
+
 InlineCode.propTypes = {
   value: PropTypes.string.isRequired,
 }
-
-
-InlineCode.displayName = 'InlineCode'
 
 
 export default InlineCode

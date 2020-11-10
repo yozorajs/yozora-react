@@ -15,17 +15,40 @@ This library is designed to render [mdast text][] type data
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import Text from '@yozora/react-text'
+    - Pure
 
-    ReactDOM.render(
-      <Text value="Hello, world!" />
-      , document.getElementById('root')
-    )
-    ```
+      ```typescript
+      import React from 'react'
+      import Text from '@yozora/react-text'
+
+      const Wrapper = (
+        <Text value="Hello, world!" />
+      )
+
+    - With theme
+
+      ```typescript
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import Text from '@yozora/react-text'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          text: {
+            lineHeight: '2',
+          }
+        }
+      }
+
+      const Wrapper = (
+        <ThemeProvider theme={ theme }>
+          <Text
+            value="Hello, world!"
+            style={ { color: 'orange', fontSize: '16px' } }
+          />
+        </ThemeProvider>
+      )
+      ```
 
   * Props
 
@@ -36,10 +59,10 @@ This library is designed to render [mdast text][] type data
 
     TextProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
 
-  * CSS variables
+* Theme
 
-     Name                    | Default    |  Description
-    :-----------------------:|:----------:|:-----------------------
-     `--md-text-line-height` | `inherit`  | Text line-height
+  see [YozoraTextTheme][]
+
 
 [mdast text]: https://github.com/syntax-tree/mdast#text
+[YozoraTextTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/text/src/theme.ts)

@@ -1,5 +1,6 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
 import ThematicBreak from '../src'
 
 
@@ -34,10 +35,27 @@ describe('basic rendering case', () => {
   })
 
   it('snapshot', () => {
-    const wrapper = mount(
-      <ThematicBreak
-        style={ { color: 'orange', fontSize: '16px' } }
-      />
+    const wrapper = render(
+      <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('snapshot with theme', () => {
+    const theme: DefaultTheme = {
+      yozora: {
+        thematicBreak: {
+          borderColor: 'orange',
+          // outline: '1px dash red',
+          margin: '2rem 0',
+        }
+      }
+    }
+
+    const wrapper = render(
+      <ThemeProvider theme={ theme }>
+        <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
+      </ThemeProvider>
     )
     expect(wrapper).toMatchSnapshot()
   })

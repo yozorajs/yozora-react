@@ -2,42 +2,37 @@
 
 exports[`basic rendering case snapshot 1`] = `
 .c0 {
-  color: var(--md-strong-color,inherit);
-  font-size: var(--md-strong-font-size,inherit);
-  font-style: var(--md-strong-font-style,inherit);
-  font-weight: var(--md-strong-font-weight,600);
+  color: inherit;
+  font-size: inherit;
+  font-weight: 600;
+  font-style: inherit;
 }
 
-<Strong
-  style={
-    Object {
-      "color": "orange",
-      "fontSize": "16px",
-    }
-  }
+<strong
+  class="c0"
+  style="color:orange;font-size:16px"
 >
-  <styled.strong
-    style={
-      Object {
-        "color": "orange",
-        "fontSize": "16px",
-      }
-    }
-  >
-    <strong
-      className="c0"
-      style={
-        Object {
-          "color": "orange",
-          "fontSize": "16px",
-        }
-      }
-    >
-      some text1
-      <span>
-        some text2
-      </span>
-    </strong>
-  </styled.strong>
-</Strong>
+  some text1
+  <span>
+    some text2
+  </span>
+</strong>
+`;
+
+exports[`basic rendering case snapshot with theme 1`] = `
+.c0 {
+  color: red;
+  font-size: 18;
+  font-weight: 600;
+  font-style: oblique;
+}
+
+<strong
+  class="c0"
+>
+  some text1
+  <span>
+    some text2
+  </span>
+</strong>
 `;

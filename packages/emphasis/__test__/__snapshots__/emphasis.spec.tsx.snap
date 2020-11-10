@@ -2,41 +2,37 @@
 
 exports[`basic rendering case snapshot 1`] = `
 .c0 {
-  color: var(--md-emphasis-color);
-  font-size: var(--md-emphasis-font-size,1em);
-  font-style: var(--md-emphasis-font-style,italic);
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: italic;
 }
 
-<Emphasis
-  style={
-    Object {
-      "color": "orange",
-      "fontSize": "16px",
-    }
-  }
+<em
+  class="c0"
+  style="color:orange;font-size:16px"
 >
-  <styled.em
-    style={
-      Object {
-        "color": "orange",
-        "fontSize": "16px",
-      }
-    }
-  >
-    <em
-      className="c0"
-      style={
-        Object {
-          "color": "orange",
-          "fontSize": "16px",
-        }
-      }
-    >
-      some text1
-      <span>
-        some text2
-      </span>
-    </em>
-  </styled.em>
-</Emphasis>
+  some text1
+  <span>
+    some text2
+  </span>
+</em>
+`;
+
+exports[`basic rendering case snapshot with theme 1`] = `
+.c0 {
+  color: red;
+  font-size: 18;
+  font-weight: inherit;
+  font-style: oblique;
+}
+
+<em
+  class="c0"
+>
+  some text1
+  <span>
+    some text2
+  </span>
+</em>
 `;

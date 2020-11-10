@@ -15,17 +15,41 @@ This library is designed to render [mdast thematic-break][] type data
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import ThematicBreak from '@yozora/react-thematic-break'
+    - Pure
 
-    ReactDOM.render(
-      <ThematicBreak />
-      , document.getElementById('root')
-    )
-    ```
+      ```typescript
+      // index.tsx
+      import React from 'react'
+      import ThematicBreak from '@yozora/react-thematic-break'
+
+      const Wrapper = (
+        <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
+      )
+      ```
+
+    - With theme
+
+      ```typescript
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import ThematicBreak from '@yozora/react-thematic-break'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          thematicBreak: {
+            borderColor: 'orange',
+            // outline: '1px dash red',
+            margin: '2rem 0',
+          }
+        }
+      }
+
+      const Wrapper = (
+      <ThemeProvider theme={ theme }>
+        <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
+      </ThemeProvider>
+      )
+      ```
 
   * Props
 
@@ -35,12 +59,9 @@ This library is designed to render [mdast thematic-break][] type data
 
     ThematicBreakProps inherited all attributes of `HTMLHRElement` (`React.HTMLAttributes<HTMLHRElement>`)
 
-  * CSS variables
+  * Theme
 
-     Name                           | Default   |  Description
-    :------------------------------:|:---------:|:-----------------------
-     `--md-thematic-margin`         | `1.5em 0` | Thematic break margin
-     `--md-thematic-break-bg-color` | `#e1e4e8` | Thematic break background value
-
+    see [YozoraThematicBreakTheme][]
 
 [mdast thematic-break]: https://github.com/syntax-tree/mdast#thematicbreak
+[YozoraThematicBreakTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/thematic-break/src/theme.ts)
