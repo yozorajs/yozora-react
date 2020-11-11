@@ -8,6 +8,6 @@ declare module 'styled-components' {
   }
 
   interface YozoraTheme {
-    link: YozoraLinkTheme
+    link?: YozoraLinkTheme
   }
 }

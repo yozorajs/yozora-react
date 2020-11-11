@@ -17,12 +17,12 @@ This library is designed to render [mdast strong][] type data
 
     - Pure
 
-      ```typescript
+      ```tsx
       // index.tsx
       import React from 'react'
       import Strong from '@yozora/react-strong'
 
-      const Wrapper = (
+      const wrapper = (
         <Strong style={{ color: 'orange', fontSize: '16px' }}>
           some text1
           <span>some text2</span>
@@ -32,7 +32,7 @@ This library is designed to render [mdast strong][] type data
 
     - With theme
 
-      ```typescript
+      ```tsx
       import React from 'react'
       import { DefaultTheme, ThemeProvider } from 'styled-components'
       import Strong from '@yozora/react-strong'
@@ -62,14 +62,22 @@ This library is designed to render [mdast strong][] type data
 
      Name       | Type                                | Required  | Default | Description
     :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                   | `true`    | -       | strong content
      `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
+     `children` | `React.ReactNode`                   | `true`    | -       | strong content
 
     StrongProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
 
   * Theme
 
-    see [YozoraStrongTheme][]
+     Prop Name    | Default
+    :------------:|:--------------
+     color        | `inherit`
+     fontSize     | `inherit`
+     fontWeight   | `600`
+     fontStyle    | `inherit`
+
+    See [YozoraStrongTheme][] for details.
+
 
 [mdast strong]: https://github.com/syntax-tree/mdast#strong
 [YozoraStrongTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/strong/src/theme.ts)

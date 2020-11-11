@@ -2,7 +2,7 @@ import type { CSSProperties, DefaultTheme } from 'styled-components'
 
 
 /**
- * yozora `thematic-break` theme
+ * yozora `thematicBreak` theme
  */
 export interface YozoraThematicBreakTheme {
   /**
@@ -24,7 +24,7 @@ export interface YozoraThematicBreakTheme {
 
 
 /**
- * Default yozora `thematic-break` theme
+ * Default yozora `thematicBreak` theme
  */
 export const defaultThematicBreakTheme: YozoraThematicBreakTheme = {
   borderColor: 'lightgray',
@@ -34,7 +34,7 @@ export const defaultThematicBreakTheme: YozoraThematicBreakTheme = {
 
 
 /**
- * Get `thematic-break` style
+ * Get `thematicBreak` style
  * @param key
  * @param defaultTheme
  */

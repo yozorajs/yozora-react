@@ -31,7 +31,7 @@ Container.defaultProps = {
 
 
 /**
- * Render InlineMath content
+ * Render `inlineMath` content
  *
  * @param props
  */

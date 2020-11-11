@@ -27,7 +27,7 @@ export interface YozoraMathTheme {
   background?: CSSProperties['background']
   /**
    * Inline math color
-   * @default 'none'
+   * @default 'inherit'
    */
   color?: CSSProperties['color']
 }

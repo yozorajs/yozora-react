@@ -1,7 +1,7 @@
 {
   "name": "@yozora/react-inline-code",
   "version": "0.0.1",
-  "description": "render markdown inline-code in react",
+  "description": "render markdown inlineCode in react",
   "author": {
     "name": "lemon-clown",
     "url": "https://github.com/lemon-clown/"
@@ -13,7 +13,7 @@
   "homepage": "https://github.com/lemon-clown/yozora-react/tree/master/packages/inline-code#readme",
   "keywords": [
     "mdast node renderer",
-    "markdown inline-code"
+    "markdown inlineCode"
   ],
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",

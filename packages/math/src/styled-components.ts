@@ -8,6 +8,6 @@ declare module 'styled-components' {
   }
 
   interface YozoraTheme {
-    math: YozoraMathTheme
+    math?: YozoraMathTheme
   }
 }

@@ -17,12 +17,12 @@ This library is designed to render [mdast delete][] type data
 
     - Pure
 
-      ```typescript
+      ```tsx
       // index.tsx
       import React from 'react'
       import Delete from '@yozora/react-delete'
 
-      const Wrapper = (
+      const wrapper = (
         <Delete style={{ color: 'orange', fontSize: '16px' }}>
           some text1
           <span>some text2</span>
@@ -32,7 +32,7 @@ This library is designed to render [mdast delete][] type data
 
     - With theme
 
-      ```typescript
+      ```tsx
       import React from 'react'
       import { DefaultTheme, ThemeProvider } from 'styled-components'
       import Delete from '@yozora/react-delete'
@@ -49,7 +49,7 @@ This library is designed to render [mdast delete][] type data
         }
       }
 
-      const Wrapper = (
+      const wrapper = (
         <ThemeProvider theme={ theme }>
           <Delete>
             some text1
@@ -63,14 +63,23 @@ This library is designed to render [mdast delete][] type data
 
      Name       | Type                                | Required  | Default | Description
     :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                   | `true`    | -       | Delete content
      `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
+     `children` | `React.ReactNode`                   | `true`    | -       | Delete content
 
     DeleteProps inherited all attributes of `HTMLSpanElement` (`React.DelHTMLAttributes<HTMLSpanElement>`)
 
   * Theme
 
-    see [YozoraDeleteTheme][]
+     Prop Name      | Default
+    :--------------:|:--------------
+     color          | `inherit`
+     fontSize       | `inherit`
+     fontWeight     | `inherit`
+     fontStyle      | `inherit`
+     textDecoration | `line-through`
+
+    See [YozoraDeleteTheme][] for details.
+
 
 [mdast delete]: https://github.com/syntax-tree/mdast#delete
 [YozoraDeleteTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/delete/src/theme.ts)

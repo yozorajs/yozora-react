@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-inline-code.svg)](https://www.npmjs.com/package/@yozora/react-inline-code)
 
 
-This library is designed to render [mdast inline-code][] type data
+This library is designed to render [mdast inlineCode][] type data
 
 
 # Install
@@ -17,12 +17,12 @@ This library is designed to render [mdast inline-code][] type data
 
     - Pure
 
-      ```typescript
+      ```tsx
       // index.tsx
       import React from 'react'
       import InlineCode from '@yozora/react-inline-code'
 
-      const Wrapper = (
+      const wrapper = (
         <InlineCode
           value="Hello, world!"
           style={ { color: 'orange', fontSize: '16px' } }
@@ -32,7 +32,7 @@ This library is designed to render [mdast inline-code][] type data
 
     - With theme
 
-      ```typescript
+      ```tsx
       import React from 'react'
       import { DefaultTheme, ThemeProvider } from 'styled-components'
       import InlineCode from '@yozora/react-inline-code'
@@ -55,7 +55,7 @@ This library is designed to render [mdast inline-code][] type data
         }
       }
 
-      const Wrapper = (
+      const wrapper = (
         <ThemeProvider theme={ theme }>
           <InlineCode
             value="Hello, world!"
@@ -69,14 +69,29 @@ This library is designed to render [mdast inline-code][] type data
 
      Name     | Type                                | Required  | Default | Description
     :--------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `value`  | `string`                            | `true`    | -       | InlineCode content
      `ref`    | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
+     `value`  | `string`                            | `true`    | -       | InlineCode content
 
     InlineCodeProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
 
   * Theme
 
-    see [YozoraInlineCodeTheme][]
+     Prop Name    | Default
+    :------------:|:--------------
+     padding      | `4px`
+     borderRadius | `2px`
+     margin       | `0`
+     background   | `none`
+     lineHeight   | `1.375`
+     color        | `inherit`
+     fontFamily   | `Consolas, monospace, sans-serif`
+     fontSize     | `1em`
+     fontWeight   | `inherit`
+     fontStyle    | `inherit`
+     whiteSpace   | `normal`
 
-[mdast inline-code]: https://github.com/syntax-tree/mdast#inlinecode
+    See [YozoraInlineCodeTheme][] for details.
+
+
+[mdast inlineCode]: https://github.com/syntax-tree/mdast#inlinecode
 [YozoraInlineCodeTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/inline-code/src/theme.ts)

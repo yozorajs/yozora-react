@@ -32,7 +32,7 @@ Container.defaultProps = {
 
 
 /**
- * Render Math content
+ * Render `math` content
  *
  * @param props
  */

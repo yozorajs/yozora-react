@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-inline-math.svg)](https://www.npmjs.com/package/@yozora/react-inline-math)
 
 
-This library is designed to render [mdast inline-math][] type data
+This library is designed to render [inlineMath][mathjax] type data
 
 
 # Install
@@ -17,12 +17,12 @@ This library is designed to render [mdast inline-math][] type data
 
     - Pure
 
-      ```typescript
+      ```tsx
       // index.tsx
       import React from 'react'
       import InlineMath from '@yozora/react-inline-math'
 
-      const Wrapper = (
+      const wrapper = (
         <InlineMath
           value="x^2 + y^2 = z^2"
           style={ { color: 'orange', fontSize: '16px' } }
@@ -32,7 +32,7 @@ This library is designed to render [mdast inline-math][] type data
 
     - With theme
 
-      ```typescript
+      ```tsx
       import React from 'react'
       import { DefaultTheme, ThemeProvider } from 'styled-components'
       import InlineMath from '@yozora/react-inline-math'
@@ -49,7 +49,7 @@ This library is designed to render [mdast inline-math][] type data
         }
       }
 
-      const Wrapper = (
+      const wrapper = (
         <ThemeProvider theme={ theme }>
           <InlineMath
             value="x^2 + y^2 = z^2"
@@ -63,14 +63,23 @@ This library is designed to render [mdast inline-math][] type data
 
      Name     | Type                                | Required  | Default | Description
     :--------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `value`  | `string`                            | `true`    | -       | InlineMath content
      `ref`    | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
+     `value`  | `string`                            | `true`    | -       | InlineMath content
 
     InlineMathProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
 
   * Theme
 
-    see [YozoraInlineMathTheme][]
+     Prop Name    | Default
+    :------------:|:--------------
+     padding      | `0`
+     border       | `none`
+     margin       | `0`
+     background   | `none`
+     color        | `inherit`
+
+    See [YozoraInlineMathTheme][] for details.
+
 
 [mathjax]: https://www.mathjax.org/
 [YozoraInlineMathTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/inline-math/src/theme.ts)

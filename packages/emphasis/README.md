@@ -16,12 +16,12 @@ This library is designed to render [mdast emphasis][] type data
   * Use in React project
     - Pure
 
-      ```typescript
+      ```tsx
       // index.tsx
       import React from 'react'
       import Emphasis from '@yozora/react-emphasis'
 
-      const Wrapper = (
+      const wrapper = (
         <Emphasis style={ { color: 'orange', fontSize: '16px' } }>
           some text1
           <span>some text2</span>
@@ -31,7 +31,7 @@ This library is designed to render [mdast emphasis][] type data
 
     - With theme
 
-      ```typescript
+      ```tsx
       import React from 'react'
       import { DefaultTheme, ThemeProvider } from 'styled-components'
       import Emphasis from '@yozora/react-emphasis'
@@ -47,7 +47,7 @@ This library is designed to render [mdast emphasis][] type data
         }
       }
 
-      const Wrapper = (
+      const wrapper = (
         <ThemeProvider theme={ theme }>
           <Emphasis>
             some text1
@@ -61,14 +61,22 @@ This library is designed to render [mdast emphasis][] type data
 
      Name       | Type                                | Required  | Default | Description
     :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                   | `true`    | -       | Emphasis content
      `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
+     `children` | `React.ReactNode`                   | `true`    | -       | Emphasis content
 
     EmphasisProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
 
   * Theme
 
-    see [YozoraEmphasisTheme][]
+     Prop Name  | Default
+    :----------:|:--------------
+     color      | `inherit`
+     fontSize   | `inherit`
+     fontWeight | `inherit`
+     fontStyle  | `italic`
+
+    See [YozoraEmphasisTheme][] for details.
+
 
 [mdast emphasis]: https://github.com/syntax-tree/mdast#emphasis
 [YozoraEmphasisTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/emphasis/src/theme.ts)

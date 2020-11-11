@@ -6,11 +6,6 @@ import type { CSSProperties, DefaultTheme } from 'styled-components'
  */
 export interface YozoraParagraphTheme {
   /**
-   * Paragraph font color
-   * @default 'inherit'
-   */
-  color?: CSSProperties['color']
-  /**
    * Paragraph padding
    * @default 0
    */
@@ -25,6 +20,11 @@ export interface YozoraParagraphTheme {
    * @default 2
    */
   lineHeight?: CSSProperties['lineHeight']
+  /**
+   * Paragraph font color
+   * @default 'inherit'
+   */
+  color?: CSSProperties['color']
 }
 
 
@@ -32,10 +32,10 @@ export interface YozoraParagraphTheme {
  * Default yozora `paragraph` theme
  */
 export const defaultParagraphTheme: YozoraParagraphTheme = {
-  color: 'inherit',
   padding: 0,
   margin: '0 0 1em',
   lineHeight: 2,
+  color: 'inherit',
 }
 
 

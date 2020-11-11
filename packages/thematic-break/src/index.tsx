@@ -32,7 +32,7 @@ Container.defaultProps = {
 
 
 /**
- * Render thematic-break content
+ * Render `thematicBreak` content
  *
  * @param props
  */

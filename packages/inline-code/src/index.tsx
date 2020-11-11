@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import './styled-components'
 import { defaultInlineCodeTheme, getInlineCodeStyle } from './theme'
 export * from './theme'
 
@@ -37,7 +38,7 @@ Container.defaultProps = {
 
 
 /**
- * Render InlineCode content
+ * Render `inlineCode` content
  *
  * @param props
  */

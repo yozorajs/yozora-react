@@ -2,7 +2,7 @@ import type { CSSProperties, DefaultTheme } from 'styled-components'
 
 
 /**
- * yozora `inline-math` theme
+ * yozora `inlineMath` theme
  */
 export interface YozoraInlineMathTheme {
   /**
@@ -27,14 +27,14 @@ export interface YozoraInlineMathTheme {
   background?: CSSProperties['background']
   /**
    * Inline math color
-   * @default 'none'
+   * @default 'inherit'
    */
   color?: CSSProperties['color']
 }
 
 
 /**
- * Default yozora `inline-math` theme
+ * Default yozora `inlineMath` theme
  */
 export const defaultInlineMathTheme: YozoraInlineMathTheme = {
   padding: 0,
@@ -46,7 +46,7 @@ export const defaultInlineMathTheme: YozoraInlineMathTheme = {
 
 
 /**
- * Get `inline-math` style
+ * Get `inlineMath` style
  * @param key
  * @param defaultTheme
  */

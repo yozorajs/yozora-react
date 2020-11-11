@@ -1,7 +1,7 @@
 {
   "name": "@yozora/react-inline-math",
   "version": "0.0.1",
-  "description": "render markdown inline-math in react",
+  "description": "render markdown inlineMath in react",
   "author": {
     "name": "lemon-clown",
     "url": "https://github.com/lemon-clown/"
@@ -13,7 +13,7 @@
   "homepage": "https://github.com/lemon-clown/yozora-react/tree/master/packages/inline-math#readme",
   "keywords": [
     "mdast node renderer",
-    "markdown inline-math"
+    "markdown inlineMath"
   ],
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",

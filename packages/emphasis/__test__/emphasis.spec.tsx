@@ -39,7 +39,7 @@ describe('basic rendering case', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
         render(<Emphasis>{ value }</Emphasis>)
-      }).toThrow(/Failed prop type: The prop `children` is marked as required/)
+      }).toThrow(/Failed prop type: The prop `children` is marked as required/i)
     }
   })
 

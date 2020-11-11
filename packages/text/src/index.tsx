@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import './styled-components'
 import { defaultTextTheme, getTextStyle } from './theme'
 export * from './theme'
 
@@ -27,7 +28,7 @@ Container.defaultProps = {
 
 
 /**
- * Render Text content
+ * Render `text` content
  *
  * @param props
  */

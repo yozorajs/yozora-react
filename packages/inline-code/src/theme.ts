@@ -2,7 +2,7 @@ import type { CSSProperties, DefaultTheme } from 'styled-components'
 
 
 /**
- * yozora `inline-code` theme
+ * yozora `inlineCode` theme
  */
 export interface YozoraInlineCodeTheme {
   /**
@@ -64,7 +64,7 @@ export interface YozoraInlineCodeTheme {
 
 
 /**
- * Default yozora `inline-code` theme
+ * Default yozora `inlineCode` theme
  */
 export const defaultInlineCodeTheme: YozoraInlineCodeTheme = {
   padding: '4px',
@@ -82,7 +82,7 @@ export const defaultInlineCodeTheme: YozoraInlineCodeTheme = {
 
 
 /**
- * Get `inline-code` style
+ * Get `inlineCode` style
  * @param key
  * @param defaultTheme
  */

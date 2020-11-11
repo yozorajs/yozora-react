@@ -17,12 +17,12 @@ This library is designed to render [mdast paragraph][] type data
 
     - Pure
 
-      ```typescript
+      ```tsx
       // index.tsx
       import React from 'react'
       import Paragraph from '@yozora/react-paragraph'
 
-      const Wrapper = (
+      const wrapper = (
         <Paragraph style={{ color: 'orange', fontSize: '16px' }}>
           some text1
           <span>some text2</span>
@@ -32,7 +32,7 @@ This library is designed to render [mdast paragraph][] type data
 
     - With theme
 
-      ```typescript
+      ```tsx
       import React from 'react'
       import { DefaultTheme, ThemeProvider } from 'styled-components'
       import Paragraph from '@yozora/react-paragraph'
@@ -40,10 +40,10 @@ This library is designed to render [mdast paragraph][] type data
       const theme: DefaultTheme = {
         yozora: {
           paragraph: {
-            color: 'red',
             padding: '0 1rem',
             margin: 18,
             // lineHeight: 1.5,
+            color: 'red',
           }
         }
       }
@@ -62,14 +62,22 @@ This library is designed to render [mdast paragraph][] type data
 
      Name       | Type                                    | Required  | Default | Description
     :----------:|:---------------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                       | `true`    | -       | Paragraph content
      `ref`      | `React.RefObject<HTMLParagraphElement>` | `false`   | -       | Forwarded ref callback
+     `children` | `React.ReactNode`                       | `true`    | -       | Paragraph content
 
     ParagraphProps inherited all attributes of `HTMLParagraphElement` (`React.HTMLAttributes<HTMLParagraphElement>`)
 
   * Theme
 
-    see [YozoraParagraphTheme][]
+     Prop Name    | Default
+    :------------:|:--------------
+     padding      | `0`
+     margin       | `0 0 1em`
+     lineHeight   | `2`
+     color        | `inherit`
+
+    See [YozoraParagraphTheme][] for details.
+
 
 [mdast paragraph]: https://github.com/syntax-tree/mdast#paragraph
 [YozoraParagraphTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/paragraph/src/theme.ts)

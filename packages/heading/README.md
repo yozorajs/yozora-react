@@ -17,12 +17,12 @@ This library is designed to render [mdast heading][] type data
 
     - Pure
 
-      ```typescript
+      ```tsx
       // index.tsx
       import React from 'react'
       import Heading from '@yozora/react-heading'
 
-      const Wrapper = (
+      const wrapper = (
         <Heading
           level={ 2 }
           style={ { color: 'orange', fontSize: '16px' } }
@@ -34,7 +34,7 @@ This library is designed to render [mdast heading][] type data
 
     - With theme
 
-      ```typescript
+      ```tsx
       import React from 'react'
       import { DefaultTheme, ThemeProvider } from 'styled-components'
       import Heading from '@yozora/react-heading'
@@ -75,22 +75,40 @@ This library is designed to render [mdast heading][] type data
 
   * Props
 
-     Name             | Type                                | Required  | Default                     | Description
-    :----------------:|:-----------------------------------:|:---------:|:---------------------------:|:-------------
-     `level`          | `1|2|3|4|5|6`                       | `true`    | -                           | Heading level
-     `children`       | `React.ReactNode`                   | `true`    | -                           | Heading content
-     `ref`            | `React.RefObject<HTMLDivElement>`   | `false`   | -                           | Forwarded ref callback
-     `identifier`     | `string`                            | `false`   | `heading-{e.textContent}`   | Heading identifier
-     `headingIcon`       | `React.ReactNode`                   | `false`   | `<HeadingHeadingIcon />`       | Heading heading icon
-     `headingClassName`  | `string`                            | `false`   | -                           | css className for heading heading
-     `calcIdentifer`  | `(h: HTMLHeadingElement) => string` | `false`   | `calcIdentifierForHeading`  | generate identifier if it not specified
-
+     Name               | Type                                | Required  | Default                     | Description
+    :------------------:|:-----------------------------------:|:---------:|:---------------------------:|:-------------
+     `ref`              | `React.RefObject<HTMLDivElement>`   | `false`   | -                           | Forwarded ref callback
+     `children`         | `React.ReactNode`                   | `true`    | -                           | Heading content
+     `level`            | `1|2|3|4|5|6`                       | `true`    | -                           | Heading level
+     `identifier`       | `string`                            | `false`   | `heading-{e.textContent}`   | Heading identifier
+     `headingIcon`      | `React.ReactNode`                   | `false`   | `<HeadingHeadingIcon />`    | Heading heading icon
+     `headingClassName` | `string`                            | `false`   | -                           | css className for heading heading
+     `calcIdentifer`    | `(h: HTMLHeadingElement) => string` | `false`   | `calcIdentifierForHeading`  | generate identifier if it not specified
 
     HeadingProps inherited all attributes of `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`)
 
   * Theme
 
-    see [YozoraHeadingTheme][]
+     Prop Name      | Default
+    :--------------:|:--------------
+     color          | `inherit`
+     padding        | `0 2em`
+     borderColor    | `lightgray`
+     margin         | `1.2em -2em 1em`
+     lineHeight     | 1.25
+     fontFamily     | `inherit`
+     fontStyle      | `normal`
+     h1FontSize     | `2em`
+     h2FontSize     | `1.5em`
+     h3FontSize     | `1.25em`
+     h4FontSize     | `1em`
+     h5FontSize     | `0.875em`
+     h6FontSize     | `0.85em`
+     linkColor      | -
+     hoverLinkColor | -
+
+    See [YozoraHeadingTheme][] for details.
+
 
 [mdast heading]: https://github.com/syntax-tree/mdast#heading
 [YozoraHeadingTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/heading/src/theme.ts)

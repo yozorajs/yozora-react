@@ -6,11 +6,6 @@ import type { CSSProperties, DefaultTheme } from 'styled-components'
  */
 export interface YozoraHeadingTheme {
   /**
-   * Heading font color
-   * @default 'inherit'
-   */
-  color?: CSSProperties['color']
-  /**
    * Heading padding
    * @default '0 2em'
    */
@@ -30,6 +25,11 @@ export interface YozoraHeadingTheme {
    * @default 1.25
    */
   lineHeight?: CSSProperties['lineHeight']
+  /**
+   * Heading font color
+   * @default 'inherit'
+   */
+  color?: CSSProperties['color']
   /**
    * Heading font family
    * @default 'inherit'

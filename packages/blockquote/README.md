@@ -17,12 +17,12 @@ This library is designed to render [mdast blockquote][] type data
 
     - Pure
 
-      ```typescript
+      ```tsx
       // index.tsx
       import React from 'react'
       import Blockquote from '@yozora/react-blockquote'
 
-      const Wrapper = (
+      const wrapper = (
         <Blockquote style={{ color: 'orange', fontSize: '16px' }}>
           some text1
           <span>some text2</span>
@@ -32,7 +32,7 @@ This library is designed to render [mdast blockquote][] type data
 
     - With theme
 
-      ```typescript
+      ```tsx
       import React from 'react'
       import { DefaultTheme, ThemeProvider } from 'styled-components'
       import Blockquote from '@yozora/react-blockquote'
@@ -40,11 +40,11 @@ This library is designed to render [mdast blockquote][] type data
       const theme: DefaultTheme = {
         yozora: {
           blockquote: {
-            color: 'red',
             padding: '0 1rem',
             borderColor: 'orange',
             margin: 18,
             background: 'rgba(0, 0, 0, 0.15)',
+            color: 'red',
           }
         }
       }
@@ -63,14 +63,23 @@ This library is designed to render [mdast blockquote][] type data
 
      Name       | Type                              | Required  | Default | Description
     :----------:|:---------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                 | `true`    | -       | Blockquote content
      `ref`      | `React.RefObject<HTMLDivElement>` | `false`   | -       | Forwarded ref callback
+     `children` | `React.ReactNode`                 | `true`    | -       | Blockquote content
 
     BlockquoteProps inherited all attributes of `HTMLDivElement` (`React.BlockquoteHTMLAttributes<HTMLDivElement>`)
 
   * Theme
 
-    see [YozoraBlockquoteTheme][]
+     Prop Name    | Default
+    :------------:|:--------------
+     padding      | `0.625em 1em`
+     borderColor  | `transparent`
+     margin       | `0 0 1.25em`
+     background   | `none`
+     color        | `inherit`
+
+    See [YozoraBlockquoteTheme][] for details.
+
 
 [mdast blockquote]: https://github.com/syntax-tree/mdast#blockquote
 [YozoraBlockquoteTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/blockquote/src/theme.ts)

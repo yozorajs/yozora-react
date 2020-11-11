@@ -8,6 +8,6 @@ declare module 'styled-components' {
   }
 
   interface YozoraTheme {
-    inlineCode: YozoraInlineCodeTheme
+    inlineCode?: YozoraInlineCodeTheme
   }
 }

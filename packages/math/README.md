@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-math.svg)](https://www.npmjs.com/package/@yozora/react-math)
 
 
-This library is designed to render [mdast math][] type data
+This library is designed to render [mdast math][mathjax] type data
 
 
 # Install
@@ -17,7 +17,7 @@ This library is designed to render [mdast math][] type data
 
     - Pure
 
-      ```typescript
+      ```tsx
       // index.tsx
       import React from 'react'
       import Math from '@yozora/react-math'
@@ -33,7 +33,7 @@ This library is designed to render [mdast math][] type data
         \\end{align}
       `
 
-      const Wrapper = (
+      const wrapper = (
         <Math
           value={ code }
           style={ { color: 'orange', fontSize: '16px' } }
@@ -43,7 +43,7 @@ This library is designed to render [mdast math][] type data
 
     - With theme
 
-      ```typescript
+      ```tsx
       import React from 'react'
       import { DefaultTheme, ThemeProvider } from 'styled-components'
       import Math from '@yozora/react-math'
@@ -71,7 +71,7 @@ This library is designed to render [mdast math][] type data
         \\end{align}
       `
 
-      const Wrapper = (
+      const wrapper = (
         <ThemeProvider theme={ theme }>
           <Math
             value={ code }
@@ -85,14 +85,23 @@ This library is designed to render [mdast math][] type data
 
      Name     | Type                                | Required  | Default | Description
     :--------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `value`  | `string`                            | `true`    | -       | Math content
      `ref`    | `React.RefObject<HTMLDivElement>`   | `false`   | -       | Forwarded ref callback
+     `value`  | `string`                            | `true`    | -       | Math content
 
     MathProps inherited all attributes of `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`)
 
   * Theme
 
-    see [YozoraMathTheme][]
+     Prop Name    | Default
+    :------------:|:--------------
+     padding      | `0`
+     border       | `none`
+     margin       | `0`
+     background   | `none`
+     color        | `inherit`
+
+    See [YozoraMathTheme][] for details.
+
 
 [mathjax]: https://www.mathjax.org/
 [YozoraMathTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/math/src/theme.ts)

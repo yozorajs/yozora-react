@@ -8,6 +8,6 @@ declare module 'styled-components' {
   }
 
   interface YozoraTheme {
-    thematicBreak: YozoraThematicBreakTheme
+    thematicBreak?: YozoraThematicBreakTheme
   }
 }

@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-thematic-break.svg)](https://www.npmjs.com/package/@yozora/react-thematic-break)
 
 
-This library is designed to render [mdast thematic-break][] type data
+This library is designed to render [mdast thematicBreak][] type data
 
 
 # Install
@@ -17,19 +17,19 @@ This library is designed to render [mdast thematic-break][] type data
 
     - Pure
 
-      ```typescript
+      ```tsx
       // index.tsx
       import React from 'react'
       import ThematicBreak from '@yozora/react-thematic-break'
 
-      const Wrapper = (
+      const wrapper = (
         <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
       )
       ```
 
     - With theme
 
-      ```typescript
+      ```tsx
       import React from 'react'
       import { DefaultTheme, ThemeProvider } from 'styled-components'
       import ThematicBreak from '@yozora/react-thematic-break'
@@ -44,7 +44,7 @@ This library is designed to render [mdast thematic-break][] type data
         }
       }
 
-      const Wrapper = (
+      const wrapper = (
       <ThemeProvider theme={ theme }>
         <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
       </ThemeProvider>
@@ -61,7 +61,14 @@ This library is designed to render [mdast thematic-break][] type data
 
   * Theme
 
-    see [YozoraThematicBreakTheme][]
+     Prop Name    | Default
+    :------------:|:-----------
+     borderColor  | `lightgray`
+     outline      | `0`
+     margin       | `1.5em 0`
 
-[mdast thematic-break]: https://github.com/syntax-tree/mdast#thematicbreak
+    See [YozoraThematicBreakTheme][] for details.
+
+
+[mdast thematicBreak]: https://github.com/syntax-tree/mdast#thematicbreak
 [YozoraThematicBreakTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/thematic-break/src/theme.ts)

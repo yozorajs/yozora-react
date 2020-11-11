@@ -6,11 +6,6 @@ import type { CSSProperties, DefaultTheme } from 'styled-components'
  */
 export interface YozoraBlockquoteTheme {
   /**
-   * Blockquote font color
-   * @default 'inherit'
-   */
-  color?: CSSProperties['color']
-  /**
    * Blockquote padding
    * @default '0.625em 1em'
    */
@@ -30,6 +25,11 @@ export interface YozoraBlockquoteTheme {
    * @default 'none'
    */
   background?: CSSProperties['background']
+  /**
+   * Blockquote font color
+   * @default 'inherit'
+   */
+  color?: CSSProperties['color']
 }
 
 
@@ -37,11 +37,11 @@ export interface YozoraBlockquoteTheme {
  * Default yozora `blockquote` theme
  */
 export const defaultBlockquoteTheme: YozoraBlockquoteTheme = {
-  color: 'inherit',
   padding: '0.625em 1em',
   borderColor: 'transparent',
   margin: '0 0 1.25em',
   background: 'none',
+  color: 'inherit',
 }
 
 

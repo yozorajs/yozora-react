@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import './styled-components'
 import { defaultStrongTheme, getStrongStyle } from './theme'
 export * from './theme'
 
@@ -30,7 +31,7 @@ Container.defaultProps = {
 
 
 /**
- * Render Strong content
+ * Render `strong` content
  *
  * @param props
  */

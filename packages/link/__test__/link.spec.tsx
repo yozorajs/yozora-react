@@ -40,11 +40,11 @@ describe('basic rendering case', () => {
       expect(() => {
         render(<Link url={ value }>link text</Link>
         )
-      }).toThrow(/Failed prop type: The prop `url` is marked as required/)
+      }).toThrow(/Failed prop type: The prop `url` is marked as required/i)
 
       expect(() => {
         render(<Link url="/home">{ value }</Link>)
-      }).toThrow(/Failed prop type: The prop `children` is marked as required/)
+      }).toThrow(/Failed prop type: The prop `children` is marked as required/i)
     }
   })
 

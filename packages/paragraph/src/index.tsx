@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import './styled-components'
 import { defaultParagraphTheme, getParagraphStyle } from './theme'
 export * from './theme'
 
@@ -17,10 +18,10 @@ export interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElemen
 
 
 const Container = styled.p`
-  color: ${ getParagraphStyle('color') };
   padding: ${ getParagraphStyle('padding') };
   margin: ${ getParagraphStyle('margin') };
   line-height: ${ getParagraphStyle('lineHeight') };
+  color: ${ getParagraphStyle('color') };
 `
 
 
@@ -30,7 +31,7 @@ Container.defaultProps = {
 
 
 /**
- * Render Paragraph content
+ * Render `paragraph` content
  *
  * @param props
  */

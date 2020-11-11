@@ -17,12 +17,12 @@ This library is designed to render [mdast link][] type data
 
     - Pure
 
-      ```typescript
+      ```tsx
       // index.tsx
       import React from 'react'
       import Link from '@yozora/react-link'
 
-      const Wrapper = (
+      const wrapper = (
         <Link
           url="/home"
           title="home"
@@ -36,7 +36,7 @@ This library is designed to render [mdast link][] type data
 
     - With theme
 
-      ```typescript
+      ```tsx
       import React from 'react'
       import { DefaultTheme, ThemeProvider } from 'styled-components'
       import Link from '@yozora/react-link'
@@ -70,10 +70,10 @@ This library is designed to render [mdast link][] type data
 
      Name       | Type                                  | Required      | Default | Description
     :----------:|:-------------------------------------:|:-------------:|:-------:|:-------------
-     `url`      | `string`                              | `true`        | -       | link url
-     `children` | `React.ReactNode`                     | `true`        | -       | link content
-     `title`    | `string`                              | `false`       | -       | link title
      `ref`      | `React.RefObject<HTMLAnchorElement>`  | `false`       | -       | Forwarded ref callback
+     `children` | `React.ReactNode`                     | `true`        | -       | link content
+     `url`      | `string`                              | `true`        | -       | link url
+     `title`    | `string`                              | `false`       | -       | link title
      `target`   | `string`                              | `_blank`      | -       |
      `rel`      | `string`                              | `noreferrer`  | -       |
 
@@ -81,7 +81,15 @@ This library is designed to render [mdast link][] type data
 
   * Theme
 
-    see [YozoraLinkTheme][]
+     Prop Name      | Default
+    :--------------:|:--------------
+     color          | `inherit`
+     fontSize       | `inherit`
+     fontStyle      | `inherit`
+     textDecoration | `none`
+
+    See [YozoraLinkTheme][] for details.
+
 
 [mdast link]: https://github.com/syntax-tree/mdast#link
 [YozoraLinkTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/link/src/theme.ts)

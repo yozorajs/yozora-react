@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import './styled-components'
 import { defaultLinkTheme, getLinkStyle } from './theme'
 export * from './theme'
 
@@ -38,7 +39,7 @@ Container.defaultProps = {
 
 
 /**
- * Render link content
+ * Render `link` content
  *
  * @param props
  */

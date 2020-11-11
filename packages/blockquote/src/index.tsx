@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import './styled-components'
 import { defaultBlockquoteTheme, getBlockquoteStyle } from './theme'
 export * from './theme'
 
@@ -17,11 +18,11 @@ export interface BlockquoteProps extends React.BlockquoteHTMLAttributes<HTMLDivE
 
 
 const Container = styled.blockquote`
-  color: ${ getBlockquoteStyle('color') };
   padding: ${ getBlockquoteStyle('padding') };
   border-left: 0.25em solid ${ getBlockquoteStyle('borderColor') };
   margin: ${ getBlockquoteStyle('margin') };
   background:  ${ getBlockquoteStyle('background') };
+  color: ${ getBlockquoteStyle('color') };
 `
 
 

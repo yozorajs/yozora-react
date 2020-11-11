@@ -17,17 +17,17 @@ This library is designed to render [mdast text][] type data
 
     - Pure
 
-      ```typescript
+      ```tsx
       import React from 'react'
       import Text from '@yozora/react-text'
 
-      const Wrapper = (
+      const wrapper = (
         <Text value="Hello, world!" />
       )
 
     - With theme
 
-      ```typescript
+      ```tsx
       import React from 'react'
       import { DefaultTheme, ThemeProvider } from 'styled-components'
       import Text from '@yozora/react-text'
@@ -40,7 +40,7 @@ This library is designed to render [mdast text][] type data
         }
       }
 
-      const Wrapper = (
+      const wrapper = (
         <ThemeProvider theme={ theme }>
           <Text
             value="Hello, world!"
@@ -54,14 +54,18 @@ This library is designed to render [mdast text][] type data
 
      Name     | Type                                | Required  | Default | Description
     :--------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `value`  | `string`                            | `true`    | -       | Text content
      `ref`    | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
+     `value`  | `string`                            | `true`    | -       | Text content
 
     TextProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
 
-* Theme
+  * Theme
 
-  see [YozoraTextTheme][]
+     Prop Name  | Default
+    :----------:|:--------------
+     lineHeight | `inherit`
+
+    See [YozoraTextTheme][] for details.
 
 
 [mdast text]: https://github.com/syntax-tree/mdast#text

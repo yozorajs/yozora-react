@@ -38,12 +38,8 @@ describe('basic rendering case', () => {
   it('level is a required enum number', () => {
     for (const level of [0, '1', 1.2, 7] as any[]) {
       expect(() => {
-        mount(
-          <Heading level={ level }>
-            heading { level }
-          </Heading>
-        )
-      }) // .toThrow(/Failed prop type: The prop `children` is marked as required/)
+        render(<Heading level={ level }>heading { level }</Heading>)
+      }).toThrow(/Failed prop type: Invalid prop `level`/i)
     }
   })
 
@@ -51,7 +47,7 @@ describe('basic rendering case', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
         render(<Heading level={ 1 }>{ value }</Heading>)
-      }).toThrow(/Failed prop type: The prop `children` is marked as required/)
+      }).toThrow(/Failed prop type: The prop `children` is marked as required/i)
     }
   })
 

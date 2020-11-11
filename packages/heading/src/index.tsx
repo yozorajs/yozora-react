@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { HeadingLinkIcon } from './icon'
+import './styled-components'
 import { defaultHeadingTheme, getHeadingStyle } from './theme'
 import { calcIdentifierForHeading } from './util'
 export * from './icon'
@@ -110,7 +111,7 @@ Container.defaultProps = {
 
 
 /**
- * Render Heading content
+ * Render `heading` content
  *
  * @param props
  */
