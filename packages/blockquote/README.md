@@ -82,4 +82,4 @@ This library is designed to render [mdast blockquote][] type data
 
 
 [mdast blockquote]: https://github.com/syntax-tree/mdast#blockquote
-[YozoraBlockquoteTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/blockquote/src/theme.ts)
+[YozoraBlockquoteTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/blockquote/src/theme.ts)

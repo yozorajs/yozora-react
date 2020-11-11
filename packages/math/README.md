@@ -104,5 +104,5 @@ This library is designed to render [mdast math][mathjax] type data
 
 
 [mathjax]: https://www.mathjax.org/
-[YozoraMathTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/math/src/theme.ts)
+[YozoraMathTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/math/src/theme.ts)
 

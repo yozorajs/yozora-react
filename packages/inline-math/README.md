@@ -82,4 +82,4 @@ This library is designed to render [inlineMath][mathjax] type data
 
 
 [mathjax]: https://www.mathjax.org/
-[YozoraInlineMathTheme]: (https://github.com/lemon-clown/yozora-react/blob/master/packages/inline-math/src/theme.ts)
+[YozoraInlineMathTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/inline-math/src/theme.ts)

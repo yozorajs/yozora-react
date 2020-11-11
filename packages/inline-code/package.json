@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "description": "render markdown inlineCode in react",
   "author": {
-    "name": "lemon-clown",
-    "url": "https://github.com/lemon-clown/"
+    "name": "guanghechen",
+    "url": "https://github.com/guanghechen/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lemon-clown/yozora-react.git"
+    "url": "https://github.com/guanghechen/yozora-react.git"
   },
-  "homepage": "https://github.com/lemon-clown/yozora-react/tree/master/packages/inline-code#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/inline-code#readme",
   "keywords": [
     "mdast node renderer",
     "markdown inlineCode"
