@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import './styled-components'
 import { defaultThematicBreakTheme, getThematicBreakStyle } from './theme'
 export * from './theme'
 

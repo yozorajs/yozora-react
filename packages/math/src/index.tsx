@@ -2,6 +2,7 @@ import React from 'react'
 import MathJax from 'react-mathjax'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import './styled-components'
 import { defaultMathTheme, getMathStyle } from './theme'
 export * from './theme'
 
