@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import './styled-components'
+import { defaultListItemTheme, getListItemStyle } from './theme'
+export * from './theme'
 
 
 /**
@@ -19,8 +22,16 @@ export interface ListItemProps extends React.LiHTMLAttributes<HTMLSpanElement> {
 
 
 const Container = styled.li`
-  margin: var(--md-list-item-margin, 0 0 0 .25em);
+  color: ${ getListItemStyle('color') };
+  padding: ${ getListItemStyle('padding') };
+  margin: ${ getListItemStyle('margin') };
+  line-height: ${ getListItemStyle('lineHeight') };
 `
+
+
+Container.defaultProps = {
+  theme: { yozora: { listItem: defaultListItemTheme } }
+}
 
 
 /**
@@ -38,13 +49,13 @@ export const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(
 )
 
 
+ListItem.displayName = 'ListItem'
+
+
 ListItem.propTypes = {
   status: PropTypes.oneOf<'todo' | 'doing' | 'done'>(['todo', 'doing', 'done']),
   children: PropTypes.node.isRequired,
 }
-
-
-ListItem.displayName = 'ListItem'
 
 
 export default ListItem
