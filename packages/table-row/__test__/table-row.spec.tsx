@@ -1,6 +1,7 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
-import { TableCell } from '../src'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
+import TableRow from '../src'
 
 
 describe('basic rendering case', () => {
@@ -18,11 +19,9 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const wrapper = render(
       <table>
-        <tr>
-          <TableCell isHeader={ true }>
-            <span>{ text }</span>
-          </TableCell>
-        </tr>
+        <TableRow>
+          <th><span>{ text }</span></th>
+        </TableRow>
       </table>
     )
     expect(wrapper.text()).toEqual(text)
@@ -33,11 +32,9 @@ describe('basic rendering case', () => {
     const className = 'custom-list-item'
     const wrapper = render(
       <table>
-        <tr>
-          <TableCell isHeader={ false } className={ className }>
-            <span>{ text }</span>
-          </TableCell>
-        </tr>
+        <TableRow>
+          <td className={ className }><span>{ text }</span></td>
+        </TableRow>
       </table>
     )
     expect(wrapper.find('.' + className) != null).toEqual(true)
@@ -47,50 +44,71 @@ describe('basic rendering case', () => {
   it('children is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        mount(
+        render(
           <table>
-            <tr>
-              <TableCell isHeader={ true }>
-                { value }
-              </TableCell>
-            </tr>
+            <TableRow>{ value }</TableRow>
           </table>
         )
-      }).toThrow(/Failed prop type: The prop `children` is marked as required/)
+      }).toThrow(/Failed prop type: The prop `children` is marked as required/i)
     }
   })
 
   it('forward ref', () => {
-    const ref = React.createRef<HTMLTableDataCellElement>()
+    const ref = React.createRef<HTMLTableRowElement>()
     const wrapper = mount(
       <table>
         <tbody>
-          <tr>
-            <TableCell ref={ ref } data-value="waw">
-              1
-            </TableCell>
-          </tr>
+          <TableRow ref={ ref } data-value="waw">
+            <td>1</td>
+          </TableRow>
         </tbody>
       </table>
     )
 
-    const o = wrapper.find('td').getDOMNode()
+    const o = wrapper.find('tr').getDOMNode()
     expect(o).toEqual(ref.current)
     expect(o.getAttribute('data-value')).toEqual('waw')
   })
 
   it('snapshot', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <table>
         <tbody>
-          <tr>
-            <TableCell style={ { color: 'orange', fontSize: '16px' } }>
+          <TableRow style={ { color: 'orange', fontSize: '16px' } }>
+            <td>
               some text1
               <span>some text2</span>
-            </TableCell>
-          </tr>
+            </td>
+          </TableRow>
         </tbody>
       </table>
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('snapshot with theme', () => {
+    const theme: DefaultTheme = {
+      yozora: {
+        tableRow: {
+          // background: 'red',
+          evenBackground: 'blue',
+        }
+      }
+    }
+
+    const wrapper = render(
+      <ThemeProvider theme={ theme }>
+        <table>
+          <tbody>
+            <TableRow style={ { color: 'orange', fontSize: '16px' } }>
+              <td>
+                some text1
+                <span>some text2</span>
+              </td>
+            </TableRow>
+          </tbody>
+        </table>
+      </ThemeProvider>
     )
     expect(wrapper).toMatchSnapshot()
   })

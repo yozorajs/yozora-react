@@ -1,6 +1,7 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
-import { TableCell, TableRow } from '../src'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
+import TableCell from '../src'
 
 
 describe('basic rendering case', () => {
@@ -18,11 +19,11 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const wrapper = render(
       <table>
-        <TableRow>
+        <tr>
           <TableCell isHeader={ true }>
             <span>{ text }</span>
           </TableCell>
-        </TableRow>
+        </tr>
       </table>
     )
     expect(wrapper.text()).toEqual(text)
@@ -33,11 +34,11 @@ describe('basic rendering case', () => {
     const className = 'custom-list-item'
     const wrapper = render(
       <table>
-        <TableRow>
+        <tr>
           <TableCell isHeader={ false } className={ className }>
             <span>{ text }</span>
           </TableCell>
-        </TableRow>
+        </tr>
       </table>
     )
     expect(wrapper.find('.' + className) != null).toEqual(true)
@@ -49,32 +50,32 @@ describe('basic rendering case', () => {
       expect(() => {
         mount(
           <table>
-            <TableRow>
+            <tr>
               <TableCell isHeader={ true }>
                 { value }
               </TableCell>
-            </TableRow>
+            </tr>
           </table>
         )
-      }).toThrow(/Failed prop type: The prop `children` is marked as required/)
+      }).toThrow(/Failed prop type: The prop `children` is marked as required/i)
     }
   })
 
   it('forward ref', () => {
-    const ref = React.createRef<HTMLTableRowElement>()
+    const ref = React.createRef<HTMLTableDataCellElement>()
     const wrapper = mount(
       <table>
         <tbody>
-          <TableRow ref={ ref } data-value="waw">
-            <TableCell isHeader={ false }>
+          <tr>
+            <TableCell ref={ ref } data-value="waw">
               1
             </TableCell>
-          </TableRow>
+          </tr>
         </tbody>
       </table>
     )
 
-    const o = wrapper.find('tr').getDOMNode()
+    const o = wrapper.find('td').getDOMNode()
     expect(o).toEqual(ref.current)
     expect(o.getAttribute('data-value')).toEqual('waw')
   })
@@ -83,14 +84,41 @@ describe('basic rendering case', () => {
     const wrapper = mount(
       <table>
         <tbody>
-          <TableRow style={ { color: 'orange', fontSize: '16px' } }>
-            <TableCell isHeader={ false }>
+          <tr>
+            <TableCell style={ { color: 'orange', fontSize: '16px' } }>
               some text1
               <span>some text2</span>
             </TableCell>
-          </TableRow>
+          </tr>
         </tbody>
       </table>
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('snapshot with theme', () => {
+    const theme: DefaultTheme = {
+      yozora: {
+        tableCell: {
+          // padding: '0.4rem',
+          borderColor: 'red',
+        }
+      }
+    }
+
+    const wrapper = render(
+      <ThemeProvider theme={ theme }>
+        <table>
+          <tbody>
+            <tr>
+              <TableCell style={ { color: 'orange', fontSize: '16px' } }>
+                some text1
+                <span>some text2</span>
+              </TableCell>
+            </tr>
+          </tbody>
+        </table>
+      </ThemeProvider>
     )
     expect(wrapper).toMatchSnapshot()
   })

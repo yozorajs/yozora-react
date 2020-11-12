@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import './styled-components'
+import { defaultTableCellTheme, getTableCellStyle } from './theme'
+export * from './theme'
 
 
 /**
@@ -23,16 +26,15 @@ export interface TableCellProps
 }
 
 
-const TH = styled.th`
-  padding: var(--md-table-cell-padding, 0.4rem 0.8rem);
-  border: 1px solid var(--md-table-border-color);
+const Container = styled.th`
+  padding: ${ getTableCellStyle('padding') };
+  border: 1px solid ${ getTableCellStyle('borderColor') };
 `
 
 
-const TD = styled.td`
-  padding: var(--md-table-cell-padding, 0.4rem 0.8rem);
-  border: 1px solid var(--md-table-border-color);
-`
+Container.defaultProps = {
+  theme: { yozora: { tableCell: defaultTableCellTheme } }
+}
 
 
 /**
@@ -45,16 +47,18 @@ export const TableCell = React.forwardRef<
 >(
   (props, forwardRef): React.ReactElement => {
     const { children, isHeader = false, align = 'center', ...cellProps } = props
-    const T = isHeader ? TH : TD
+    const as = isHeader ? 'th' : 'td'
 
     return (
-      <T { ...cellProps } align={ align } ref={ forwardRef }>
+      <Container as={ as } { ...cellProps } align={ align } ref={ forwardRef }>
         { children }
-      </T>
+      </Container>
     )
   }
 )
 
+
+TableCell.displayName = 'TableCell'
 
 
 TableCell.propTypes = {
@@ -62,9 +66,6 @@ TableCell.propTypes = {
   isHeader: PropTypes.bool,
   align: PropTypes.oneOf<'left' | 'center' | 'right'>(['left', 'center', 'right']),
 }
-
-
-TableCell.displayName = 'TableCell'
 
 
 export default TableCell

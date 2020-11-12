@@ -48,6 +48,12 @@
       "@yozora/react-table": [
         "./packages/table/src"
       ],
+      "@yozora/react-table-row": [
+        "./packages/table-row/src"
+      ],
+      "@yozora/react-table-cell": [
+        "./packages/table-cell/src"
+      ],
       "@yozora/react-text": [
         "./packages/text/src"
       ],
