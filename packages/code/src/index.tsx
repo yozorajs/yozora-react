@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import CodeHighlighter from '@yozora/react-code-highlighter'
+import './styled-components'
+import { defaultCodeTheme, getCodeStyle } from './theme'
+export * from './theme'
 
 
 /**
@@ -19,10 +22,21 @@ export interface CodeProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 
-const Container = styled.div``
+const Container = styled.div`
+  padding: ${ getCodeStyle('padding') };
+  border: ${ getCodeStyle('border') };
+  margin: ${ getCodeStyle('margin') };
+  background: ${ getCodeStyle('background') };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { code: defaultCodeTheme } }
+}
 
 
 /**
+ * Render `code` content
  *
  * @param props
  */
@@ -48,13 +62,13 @@ export const Code = React.forwardRef<HTMLDivElement, CodeProps>(
 )
 
 
+Code.displayName = 'Code'
+
+
 Code.propTypes = {
   value: PropTypes.string.isRequired,
   lang: PropTypes.string,
 }
-
-
-Code.displayName = 'Code'
 
 
 export default Code
