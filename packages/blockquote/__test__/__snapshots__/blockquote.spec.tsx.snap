@@ -2,11 +2,11 @@
 
 exports[`basic rendering case snapshot 1`] = `
 .c0 {
-  color: inherit;
   padding: 0.625em 1em;
   border-left: 0.25em solid transparent;
   margin: 0 0 1.25em;
   background: none;
+  color: inherit;
 }
 
 <blockquote
@@ -22,11 +22,11 @@ exports[`basic rendering case snapshot 1`] = `
 
 exports[`basic rendering case snapshot with theme 1`] = `
 .c0 {
-  color: red;
   padding: 0 1rem;
   border-left: 0.25em solid transparent;
   margin: 18;
   background: rgba(0,0,0,0.15);
+  color: red;
 }
 
 <blockquote

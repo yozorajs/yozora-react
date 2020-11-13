@@ -2,10 +2,10 @@
 
 exports[`basic rendering case snapshot 1`] = `
 .c0 {
-  color: inherit;
   padding: 0;
   margin: 0 0 1em;
   line-height: 2;
+  color: inherit;
 }
 
 <p
@@ -21,10 +21,10 @@ exports[`basic rendering case snapshot 1`] = `
 
 exports[`basic rendering case snapshot with theme 1`] = `
 .c0 {
-  color: red;
   padding: 0 1rem;
   margin: 18;
   line-height: 2;
+  color: red;
 }
 
 <p
