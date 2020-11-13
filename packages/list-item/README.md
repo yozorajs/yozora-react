@@ -80,5 +80,10 @@ This library is designed to render [mdast list-item][] type data
     See [YozoraListItemTheme][] for details.
 
 
+# References
+
+  - [mdast list-item][]
+
+
 [mdast list-item]: https://github.com/syntax-tree/mdast#listitem
 [YozoraListItemTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/list-item/src/theme.ts)

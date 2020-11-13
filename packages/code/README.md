@@ -81,5 +81,10 @@ This library is designed to render [mdast code][] type data
 
     See [YozoraCodeTheme][] for details.
 
+
+# References
+
+  - [YozoraCodeTheme][]
+
 [mdast code]: https://github.com/syntax-tree/mdast#code
 [YozoraCodeTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/code/src/theme.ts)

@@ -78,5 +78,10 @@ This library is designed to render [mdast emphasis][] type data
     See [YozoraEmphasisTheme][] for details.
 
 
+# References
+
+  - [mdast emphasis][]
+
+
 [mdast emphasis]: https://github.com/syntax-tree/mdast#emphasis
 [YozoraEmphasisTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/emphasis/src/theme.ts)

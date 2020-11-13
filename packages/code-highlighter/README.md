@@ -61,4 +61,9 @@ This library is designed to highlight [mdast code][] type data
      `onLineCountChange`  | `(lineCount: number) => void`  | `false`   | -          | Callback of Code line count changing
 
 
+# References
+
+  - [mdast code][]
+
+
 [mdast code]: https://github.com/syntax-tree/mdast#code

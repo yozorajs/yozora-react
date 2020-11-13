@@ -70,5 +70,10 @@ This library is designed to render [mdast thematicBreak][] type data
     See [YozoraThematicBreakTheme][] for details.
 
 
+# References
+
+  - [mdast thematicBreak][]
+
+
 [mdast thematicBreak]: https://github.com/syntax-tree/mdast#thematicbreak
 [YozoraThematicBreakTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/thematic-break/src/theme.ts)

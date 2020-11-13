@@ -81,5 +81,10 @@ This library is designed to render [inlineMath][mathjax] type data
     See [YozoraInlineMathTheme][] for details.
 
 
+# References
+
+  - [mathjax][]
+
+
 [mathjax]: https://www.mathjax.org/
 [YozoraInlineMathTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/inline-math/src/theme.ts)

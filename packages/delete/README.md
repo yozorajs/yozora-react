@@ -81,5 +81,10 @@ This library is designed to render [mdast delete][] type data
     See [YozoraDeleteTheme][] for details.
 
 
+# References
+
+  - [mdast delete][]
+
+
 [mdast delete]: https://github.com/syntax-tree/mdast#delete
 [YozoraDeleteTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/delete/src/theme.ts)

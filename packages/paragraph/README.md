@@ -79,5 +79,10 @@ This library is designed to render [mdast paragraph][] type data
     See [YozoraParagraphTheme][] for details.
 
 
+# References
+
+  - [mdast paragraph][]
+
+
 [mdast paragraph]: https://github.com/syntax-tree/mdast#paragraph
 [YozoraParagraphTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/paragraph/src/theme.ts)

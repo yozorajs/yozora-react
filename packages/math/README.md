@@ -103,6 +103,10 @@ This library is designed to render [mdast math][mathjax] type data
     See [YozoraMathTheme][] for details.
 
 
+# References
+
+  - [mathjax][]
+
+
 [mathjax]: https://www.mathjax.org/
 [YozoraMathTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/math/src/theme.ts)
-
