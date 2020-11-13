@@ -9,27 +9,27 @@ export interface YozoraInlineMathTheme {
    * Inline math padding
    * @default 0
    */
-  padding?: CSSProperties['padding']
+  padding?: CSSProperties['padding'] | string
   /**
    * Inline math border radius
    * @default 'none'
    */
-  border?: CSSProperties['border']
+  border?: CSSProperties['border'] | string
   /**
    * Inline math margin
    * @default 0
    */
-  margin?: CSSProperties['margin']
+  margin?: CSSProperties['margin'] | string
   /**
    * Inline math background
    * @default 'none'
    */
-  background?: CSSProperties['background']
+  background?: CSSProperties['background'] | string
   /**
    * Inline math color
    * @default 'inherit'
    */
-  color?: CSSProperties['color']
+  color?: CSSProperties['color'] | string
 }
 
 

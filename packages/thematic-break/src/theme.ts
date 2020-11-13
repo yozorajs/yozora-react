@@ -9,17 +9,17 @@ export interface YozoraThematicBreakTheme {
    * Thematic break border color
    * @default 'lightgray'
    */
-  borderColor?: CSSProperties['borderColor']
+  borderColor?: CSSProperties['borderColor'] | string
   /**
    * Thematic break outline
    * @default 0
    */
-  outline?: CSSProperties['outline']
+  outline?: CSSProperties['outline'] | string
   /**
    * Thematic break margin
    * @default '1.5em 0'
    */
-  margin?: CSSProperties['margin']
+  margin?: CSSProperties['margin'] | string
 }
 
 

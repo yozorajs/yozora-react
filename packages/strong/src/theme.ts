@@ -9,22 +9,22 @@ export interface YozoraStrongTheme {
    * Strong font color
    * @default 'inherit'
    */
-  color?: CSSProperties['color']
+  color?: CSSProperties['color'] | string
   /**
    * Strong font size
    * @default 'inherit'
    */
-  fontSize?: CSSProperties['fontSize']
+  fontSize?: CSSProperties['fontSize'] | string
   /**
    * Strong font weight
    * @default 600
    */
-  fontWeight?: CSSProperties['fontWeight']
+  fontWeight?: CSSProperties['fontWeight'] | string
   /**
    * Strong font style
    * @default 'inherit'
    */
-  fontStyle?: CSSProperties['fontStyle']
+  fontStyle?: CSSProperties['fontStyle'] | string
 }
 
 

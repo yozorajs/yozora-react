@@ -9,22 +9,22 @@ export interface YozoraLinkTheme {
    * Link font color
    * @default 'inherit'
    */
-  color?: CSSProperties['color']
+  color?: CSSProperties['color'] | string
   /**
    * Link font size
    * @default 'inherit'
    */
-  fontSize?: CSSProperties['fontSize']
+  fontSize?: CSSProperties['fontSize'] | string
   /**
    * Link font style
    * @default 'inherit'
    */
-  fontStyle?: CSSProperties['fontStyle']
+  fontStyle?: CSSProperties['fontStyle'] | string
   /**
    * Link text decoration
    * @default 'none'
    */
-  textDecoration?: CSSProperties['textDecoration']
+  textDecoration?: CSSProperties['textDecoration'] | string
 }
 
 

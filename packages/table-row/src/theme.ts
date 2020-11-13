@@ -9,12 +9,12 @@ export interface YozoraTableRowTheme {
    * Background of table row
    * @default 'none'
    */
-  background?: CSSProperties['background']
+  background?: CSSProperties['background'] | string
   /**
    * Background of even rows
    * @default 'none'
    */
-  evenBackground?: CSSProperties['background']
+  evenBackground?: CSSProperties['background'] | string
 }
 
 

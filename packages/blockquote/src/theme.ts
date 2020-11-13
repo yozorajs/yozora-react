@@ -9,27 +9,27 @@ export interface YozoraBlockquoteTheme {
    * Blockquote padding
    * @default '0.625em 1em'
    */
-  padding?: CSSProperties['padding']
+  padding?: CSSProperties['padding'] | string
   /**
    * Blockquote padding
    * @default 'transparent'
    */
-  borderColor?: CSSProperties['borderColor']
+  borderColor?: CSSProperties['borderColor'] | string
   /**
    * Blockquote margin
    * @default '0 0 1.25em'
    */
-  margin?: CSSProperties['margin']
+  margin?: CSSProperties['margin'] | string
   /**
    * Blockquote background
    * @default 'none'
    */
-  background?: CSSProperties['background']
+  background?: CSSProperties['background'] | string
   /**
    * Blockquote font color
    * @default 'inherit'
    */
-  color?: CSSProperties['color']
+  color?: CSSProperties['color'] | string
 }
 
 

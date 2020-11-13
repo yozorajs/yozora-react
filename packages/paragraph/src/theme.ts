@@ -9,22 +9,22 @@ export interface YozoraParagraphTheme {
    * Paragraph padding
    * @default 0
    */
-  padding?: CSSProperties['padding']
+  padding?: CSSProperties['padding'] | string
   /**
    * Paragraph margin
    * @default '0 0 1em'
    */
-  margin?: CSSProperties['margin']
+  margin?: CSSProperties['margin'] | string
   /**
    * Paragraph line height
    * @default 2
    */
-  lineHeight?: CSSProperties['lineHeight']
+  lineHeight?: CSSProperties['lineHeight'] | string
   /**
    * Paragraph font color
    * @default 'inherit'
    */
-  color?: CSSProperties['color']
+  color?: CSSProperties['color'] | string
 }
 
 

@@ -9,57 +9,57 @@ export interface YozoraInlineCodeTheme {
    * Inline code padding
    * @default '4px'
    */
-  padding?: CSSProperties['padding']
+  padding?: CSSProperties['padding'] | string
   /**
    * Inline code border radius
    * @default '2px'
    */
-  borderRadius?: CSSProperties['borderRadius']
+  borderRadius?: CSSProperties['borderRadius'] | string
   /**
    * Inline code margin
    * @default 0
    */
-  margin?: CSSProperties['margin']
+  margin?: CSSProperties['margin'] | string
   /**
    * Inline code background
    * @default 'none'
    */
-  background?: CSSProperties['background']
+  background?: CSSProperties['background'] | string
   /**
    * Inline code line height
    * @default 1.375
    */
-  lineHeight?: CSSProperties['lineHeight']
+  lineHeight?: CSSProperties['lineHeight'] | string
   /**
    * Inline code font color
    * @default 'inherit'
    */
-  color?: CSSProperties['color']
+  color?: CSSProperties['color'] | string
   /**
    * Inline code font family
    * @default 'Consolas, monospace, sans-serif'
    */
-  fontFamily?: CSSProperties['fontFamily']
+  fontFamily?: CSSProperties['fontFamily'] | string
   /**
    * Inline code font size
    * @default '1em'
    */
-  fontSize?: CSSProperties['fontSize']
+  fontSize?: CSSProperties['fontSize'] | string
   /**
    * Inline code font weight
    * @default 'inherit'
    */
-  fontWeight?: CSSProperties['fontWeight']
+  fontWeight?: CSSProperties['fontWeight'] | string
   /**
    * Inline code font style
    * @default 'inherit'
    */
-  fontStyle?: CSSProperties['fontStyle']
+  fontStyle?: CSSProperties['fontStyle'] | string
   /**
    * Inline code white-space
    * @default 'normal'
    */
-  whiteSpace?: CSSProperties['whiteSpace']
+  whiteSpace?: CSSProperties['whiteSpace'] | string
 }
 
 

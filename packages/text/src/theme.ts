@@ -9,7 +9,7 @@ export interface YozoraTextTheme {
    * Text line height
    * @default 'inherit'
    */
-  lineHeight?: CSSProperties['lineHeight']
+  lineHeight?: CSSProperties['lineHeight'] | string
 }
 
 

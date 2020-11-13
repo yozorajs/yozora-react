@@ -9,77 +9,77 @@ export interface YozoraHeadingTheme {
    * Heading padding
    * @default '0 2em'
    */
-  padding?: CSSProperties['padding']
+  padding?: CSSProperties['padding'] | string
   /**
    * Heading border color
    * @default 'lightgray'
    */
-  borderColor?: CSSProperties['borderColor']
+  borderColor?: CSSProperties['borderColor'] | string
   /**
    * Heading margin
    * @default '1.2em -2em 1em'
    */
-  margin?: CSSProperties['margin']
+  margin?: CSSProperties['margin'] | string
   /**
    * Heading line height
    * @default 1.25
    */
-  lineHeight?: CSSProperties['lineHeight']
+  lineHeight?: CSSProperties['lineHeight'] | string
   /**
    * Heading font color
    * @default 'inherit'
    */
-  color?: CSSProperties['color']
+  color?: CSSProperties['color'] | string
   /**
    * Heading font family
    * @default 'inherit'
    */
-  fontFamily?: CSSProperties['fontFamily']
+  fontFamily?: CSSProperties['fontFamily'] | string
   /**
    * Heading font style
    * @default 'normal'
    */
-  fontStyle?: CSSProperties['fontStyle']
+  fontStyle?: CSSProperties['fontStyle'] | string
   /**
    * Heading level 1 font size
    * @default '2em'
    */
-  h1FontSize?: CSSProperties['fontSize']
+  h1FontSize?: CSSProperties['fontSize'] | string
   /**
    * Heading level 2 font size
    * @default '1.5rem'
    */
-  h2FontSize?: CSSProperties['fontSize']
+  h2FontSize?: CSSProperties['fontSize'] | string
   /**
    * Heading level 3 font size
    * @default '1.25em'
    */
-  h3FontSize?: CSSProperties['fontSize']
+  h3FontSize?: CSSProperties['fontSize'] | string
   /**
    * Heading level 4 font size
    * @default '1em'
    */
-  h4FontSize?: CSSProperties['fontSize']
+  h4FontSize?: CSSProperties['fontSize'] | string
   /**
    * Heading level 5 font size
    * @default '0.875em'
    */
-  h5FontSize?: CSSProperties['fontSize']
+  h5FontSize?: CSSProperties['fontSize'] | string
   /**
    * Heading level 6 font size
    * @default '0.85em'
    */
-  h6FontSize?: CSSProperties['fontSize']
+  h6FontSize?: CSSProperties['fontSize'] | string
   /**
    * Heading link color
    * @default undefined
    */
-  linkColor?: CSSProperties['color']
+  linkColor?: CSSProperties['color'] | string
   /**
    * Heading link color when hover
    * @default undefined
    */
-  hoverLinkColor?: CSSProperties['color']
+  hoverLinkColor?: CSSProperties['color'] | string
 }
 
 

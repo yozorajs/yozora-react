@@ -9,12 +9,12 @@ export interface YozoraTableCellTheme {
    * TableCell padding
    * @default '0.4rem 0.8rem'
    */
-  padding?: CSSProperties['padding']
+  padding?: CSSProperties['padding'] | string
   /**
    * Background of even cells
    * @default 'transparent'
    */
-  borderColor?: CSSProperties['borderColor']
+  borderColor?: CSSProperties['borderColor'] | string
 }
 
 

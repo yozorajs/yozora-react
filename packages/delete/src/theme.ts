@@ -9,27 +9,27 @@ export interface YozoraDeleteTheme {
    * Delete font color
    * @default 'inherit'
    */
-  color?: CSSProperties['color']
+  color?: CSSProperties['color'] | string
   /**
    * Delete font size
    * @default 'inherit'
    */
-  fontSize?: CSSProperties['fontSize']
+  fontSize?: CSSProperties['fontSize'] | string
   /**
    * Delete font weight
    * @default 'inherit'
    */
-  fontWeight?: CSSProperties['fontWeight']
+  fontWeight?: CSSProperties['fontWeight'] | string
   /**
    * Delete font style
    * @default 'inherit'
    */
-  fontStyle?: CSSProperties['fontStyle']
+  fontStyle?: CSSProperties['fontStyle'] | string
   /**
    * Delete text decoration
    * @default 'line-through'
    */
-  textDecoration?: CSSProperties['textDecoration']
+  textDecoration?: CSSProperties['textDecoration'] | string
 }
 
 

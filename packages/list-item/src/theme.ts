@@ -9,22 +9,22 @@ export interface YozoraListItemTheme {
    * ListItem padding
    * @default '0'
    */
-  padding?: CSSProperties['padding']
+  padding?: CSSProperties['padding'] | string
   /**
    * ListItem margin
    * @default '0 0 0.25em 0.25em'
    */
-  margin?: CSSProperties['margin']
+  margin?: CSSProperties['margin'] | string
   /**
    * ListItem line height
    * @default inherit
    */
-  lineHeight?: CSSProperties['lineHeight']
+  lineHeight?: CSSProperties['lineHeight'] | string
   /**
    * ListItem font color
    * @default 'inherit'
    */
-  color?: CSSProperties['color']
+  color?: CSSProperties['color'] | string
 }
 
 

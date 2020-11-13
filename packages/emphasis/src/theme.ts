@@ -9,22 +9,22 @@ export interface YozoraEmphasisTheme {
    * Emphasis font color
    * @default 'inherit'
    */
-  color?: CSSProperties['color']
+  color?: CSSProperties['color'] | string
   /**
    * Emphasis font size
    * @default 'inherit'
    */
-  fontSize?: CSSProperties['fontSize']
+  fontSize?: CSSProperties['fontSize'] | string
   /**
    * Emphasis font weight
    * @default 'inherit'
    */
-  fontWeight?: CSSProperties['fontWeight']
+  fontWeight?: CSSProperties['fontWeight'] | string
   /**
    * Emphasis font style
    * @default 'italic'
    */
-  fontStyle?: CSSProperties['fontStyle']
+  fontStyle?: CSSProperties['fontStyle'] | string
 }
 
 

@@ -9,27 +9,27 @@ export interface YozoraTableTheme {
    * Table width
    * @default 'max-content'
    */
-  width?: CSSProperties['width']
+  width?: CSSProperties['width'] | string
   /**
    * Table overflow
    * @default 'auto'
    */
-  overflow?: CSSProperties['overflow']
+  overflow?: CSSProperties['overflow'] | string
   /**
    * Table margin
    * @default '0 0 1em'
    */
-  margin?: CSSProperties['margin']
+  margin?: CSSProperties['margin'] | string
   /**
    * Table border spacing
    * @default 0
    */
-  borderSpacing?: CSSProperties['borderSpacing']
+  borderSpacing?: CSSProperties['borderSpacing'] | string
   /**
    * Table border collapse
    * @default 'collapse'
    */
-  borderCollapse?: CSSProperties['borderCollapse']
+  borderCollapse?: CSSProperties['borderCollapse'] | string
 }
 
 
