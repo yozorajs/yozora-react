@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-thematic-break",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "render markdown thematicBreak in react",
   "author": {
     "name": "guanghechen",
