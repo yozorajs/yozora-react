@@ -1,5 +1,6 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
 import Link from '../src'
 
 
@@ -37,20 +38,13 @@ describe('basic rendering case', () => {
   it('url and children both are required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        mount(
-          <Link url={value}>
-            link text
-          </Link>
+        render(<Link url={ value }>link text</Link>
         )
-      }).toThrow(/Failed prop type: The prop `url` is marked as required/)
+      }).toThrow(/Failed prop type: The prop `url` is marked as required/i)
 
       expect(() => {
-        mount(
-          <Link url="/home">
-            { value }
-          </Link>
-        )
-      }).toThrow(/Failed prop type: The prop `children` is marked as required/)
+        render(<Link url="/home">{ value }</Link>)
+      }).toThrow(/Failed prop type: The prop `children` is marked as required/i)
     }
   })
 
@@ -72,7 +66,7 @@ describe('basic rendering case', () => {
   })
 
   it('snapshot', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Link
         url="/home"
         title="home"
@@ -81,6 +75,33 @@ describe('basic rendering case', () => {
         some text1
         <span>some text2</span>
       </Link>
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('snapshot with theme', () => {
+    const theme: DefaultTheme = {
+      yozora: {
+        link: {
+          color: 'blue',
+          fontSize: undefined,
+          fontStyle: 'italic',
+          textDecoration: 'none',
+        }
+      }
+    }
+
+    const wrapper = render(
+      <ThemeProvider theme={ theme }>
+        <Link
+          url="/home"
+          title="home"
+          style={ { color: 'orange', fontSize: '16px' } }
+        >
+          some text1
+          <span>some text2</span>
+        </Link>
+      </ThemeProvider>
     )
     expect(wrapper).toMatchSnapshot()
   })

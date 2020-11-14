@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "Consolas",
     "HTMLHR",
     "HTMLLI",
     "HTMLO",
@@ -10,10 +11,14 @@
     "browserslist",
     "downlevel",
     "esnext",
+    "guanghechen",
+    "lightgray",
     "mathjax",
     "mdast",
+    "monospace",
     "olist",
     "prebuild",
+    "rgba",
     "styl",
     "ulist",
     "yozora"

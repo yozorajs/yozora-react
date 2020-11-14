@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic rendering case snapshot with theme: ol 1`] = `
+.c0 {
+  color: red;
+  padding: 0 1rem;
+  margin: 18;
+  line-height: 2;
+}
+
+<ol
+  class="c0"
+  start="3"
+  type="a"
+>
+  <li>
+    apple
+  </li>
+  <li>
+    banana
+  </li>
+  <li>
+    cat
+  </li>
+</ol>
+`;
+
+exports[`basic rendering case snapshot with theme: ul 1`] = `
+.c0 {
+  color: red;
+  padding: 0 1rem;
+  margin: 18;
+  line-height: 2;
+}
+
+<ul
+  class="c0"
+  start="3"
+  type="a"
+>
+  <li>
+    apple
+  </li>
+  <li>
+    banana
+  </li>
+  <li>
+    cat
+  </li>
+</ul>
+`;
+
+exports[`basic rendering case snapshot: ol 1`] = `
+.c0 {
+  color: inherit;
+  padding: 0 0 0 1.2em;
+  margin: 0 0 1em;
+  line-height: 2;
+}
+
+<ol
+  class="c0"
+  start="3"
+  type="a"
+>
+  <li>
+    apple
+  </li>
+  <li>
+    banana
+  </li>
+  <li>
+    cat
+  </li>
+</ol>
+`;
+
+exports[`basic rendering case snapshot: ul 1`] = `
+.c0 {
+  color: inherit;
+  padding: 0 0 0 1.2em;
+  margin: 0 0 1em;
+  line-height: 2;
+}
+
+<ul
+  class="c0"
+  start="3"
+  type="a"
+>
+  <li>
+    apple
+  </li>
+  <li>
+    banana
+  </li>
+  <li>
+    cat
+  </li>
+</ul>
+`;

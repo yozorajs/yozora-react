@@ -2,53 +2,48 @@
 
 exports[`basic rendering case snapshot 1`] = `
 .c0 {
-  color: var(--md-link-color);
-  font-size: var(--md-link-font-size,inherit);
-  font-style: var(--md-link-font-style,normal);
-  -webkit-text-decoration: var(--md-link-text-decoration,none);
-  text-decoration: var(--md-link-text-decoration,none);
+  color: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
-<link
-  style={
-    Object {
-      "color": "orange",
-      "fontSize": "16px",
-    }
-  }
+<a
+  class="c0"
+  href="/home"
+  rel="noreferrer"
+  style="color:orange;font-size:16px"
+  target="_blank"
   title="home"
-  url="/home"
 >
-  <styled.a
-    href="/home"
-    rel="noreferrer"
-    style={
-      Object {
-        "color": "orange",
-        "fontSize": "16px",
-      }
-    }
-    target="_blank"
-    title="home"
-  >
-    <a
-      className="c0"
-      href="/home"
-      rel="noreferrer"
-      style={
-        Object {
-          "color": "orange",
-          "fontSize": "16px",
-        }
-      }
-      target="_blank"
-      title="home"
-    >
-      some text1
-      <span>
-        some text2
-      </span>
-    </a>
-  </styled.a>
-</link>
+  some text1
+  <span>
+    some text2
+  </span>
+</a>
+`;
+
+exports[`basic rendering case snapshot with theme 1`] = `
+.c0 {
+  color: blue;
+  font-size: inherit;
+  font-style: italic;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<a
+  class="c0"
+  href="/home"
+  rel="noreferrer"
+  style="color:orange;font-size:16px"
+  target="_blank"
+  title="home"
+>
+  some text1
+  <span>
+    some text2
+  </span>
+</a>
 `;

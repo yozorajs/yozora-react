@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import './styled-components'
+import { defaultThematicBreakTheme, getThematicBreakStyle } from './theme'
+export * from './theme'
 
 
 /**
@@ -18,14 +21,19 @@ const Container = styled.hr`
   width: 100%;
   padding: 0;
   border: 0;
-  border-bottom: 1px solid var(--md-thematic-break-bg-color, #e1e4e8);
-  outline: 0;
-  margin: 1.5em 0;
+  border-bottom: 1px solid ${ getThematicBreakStyle('borderColor') };
+  outline: ${ getThematicBreakStyle('outline') };
+  margin: ${ getThematicBreakStyle('margin') };
 `
 
 
+Container.defaultProps = {
+  theme: { yozora: { thematicBreak: defaultThematicBreakTheme } }
+}
+
+
 /**
- * Render thematic-break content
+ * Render `thematicBreak` content
  *
  * @param props
  */
@@ -38,12 +46,12 @@ export const ThematicBreak = React.forwardRef<HTMLHRElement, ThematicBreakProps>
 )
 
 
+ThematicBreak.displayName = 'ThematicBreak'
+
+
 ThematicBreak.propTypes = {
 
 }
-
-
-ThematicBreak.displayName = 'ThematicBreak'
 
 
 export default ThematicBreak

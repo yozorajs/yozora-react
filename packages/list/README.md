@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-list.svg)](https://www.npmjs.com/package/@yozora/react-list)
 
 
-This library is designed to render [mdast list][] and [mdast list-item][] type data
+This library is designed to render [mdast list][] type data
 
 
 # Install
@@ -15,46 +15,58 @@ This library is designed to render [mdast list][] and [mdast list-item][] type d
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import { ListItem, OrderedList, UnorderedList } from '@yozora/react-list'
+    - Pure
 
-    ReactDOM.render(
-      <div>
-        <OrderedList start={ 1 } type="a">
-          <ListItem key={ 0 }>First: Good afternoon!</ListItem>
-          <ListItem key={ 1 }>Second: Good night!</ListItem>
-        </OrderedList>
-        <UnorderedList>
-          <ListItem key={ 0 }>apple</ListItem>
-          <ListItem key={ 1 }>banana</ListItem>
-          <ListItem key={ 2 }>cat</ListItem>
-        </UnorderedList>
-      </div>
-      , document.getElementById('root')
-    )
-    ```
+      ```tsx
+      // index.tsx
+      import React from 'react'
+      import List from '@yozora/react-list'
 
+      const wrapper = (
+        <List ordered={ true } start={ 3 } type="a">
+          <li key={ 0 }>apple</li>
+          <li key={ 1 }>banana</li>
+          <li key={ 2 }>cat</li>
+        </List>
+      )
+      ```
 
-  * ListItemProps
+    - With theme
 
-     Name       | Type                                | Required  | Default | Description
-    :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                   | `true`    | -       | ListItem content
-     `ref`      | `React.RefObject<HTMLLIElement>`    | `false`   | -       | Forwarded ref callback
-     `status`   | `'todo'|'doing'|'done'`             | `false`   | -       | Whether if it is a TODO item, and given its status
+      ```tsx
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import List from '@yozora/react-list'
 
-    ListItemProps inherited all attributes of `HTMLLIElement` (`React.LiHTMLAttributes<HTMLLIElement>`)
+      const theme: DefaultTheme = {
+        yozora: {
+          list: {
+            color: 'red',
+            padding: '0 1rem',
+            margin: 18,
+            // lineHeight: 1.5,
+          }
+        }
+      }
+
+      const wrapper = (
+        <ThemeProvider theme={ theme }>
+          <List ordered={ false }>
+            <li key={ 0 }>apple</li>
+            <li key={ 1 }>banana</li>
+            <li key={ 2 }>cat</li>
+          </List>
+        </ThemeProvider>>
+      )
+      ```
 
   * OrderedListProps
 
-     Name       | Type                              | Required  | Default | Description
+     Name       | Type                                | Required  | Default | Description
     :----------:|:---------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                 | `true`    | -       | OrderedList content
-     `start`    | `number`                          | `true`    | -       | OrderedList start number
-     `ref`      | `React.RefObject<HTMLDivElement>` | `false`   | -       | Forwarded ref callback
+     `ref`      | `React.RefObject<HTMLOListElement>` | `false`   | -       | Forwarded ref callback
+     `children` | `React.ReactNode`                   | `true`    | -       | OrderedList content
+     `start`    | `number`                            | `true`    | -       | OrderedList start number
 
     OrderedListProps inherited all attributes of `HTMLOListElement` (`React.OlHTMLAttributes<HTMLOListElement>`)
 
@@ -62,21 +74,35 @@ This library is designed to render [mdast list][] and [mdast list-item][] type d
 
      Name       | Type                              | Required  | Default | Description
     :----------:|:---------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                 | `true`    | -       | UnorderedList content
      `ref`      | `React.RefObject<HTMLDivElement>` | `false`   | -       | Forwarded ref callback
+     `children` | `React.ReactNode`                 | `true`    | -       | UnorderedList content
 
     UnorderedListProps inherited all attributes of `HTMLUListElement` (`React.HTMLAttributes<HTMLUListElement>`)
 
-  * CSS variables
+  * Props
 
-     Name                     | Default         |  Description
-    :------------------------:|:---------------:|:-----------------------
-     `--md-list-item-margin`  | ` 0 0 0 0.25em` | List item margin
-     `--md-list-bg-color`     | -               | List background color
-     `--md-list-border-color` | -               | List border color
-     `--md-list-padding`      | `0.625em 1em`   | List padding
-     `--md-list-margin`       | `0 0 1.25em`    | List margin
+     Name       | Type      | Required  | Default | Description
+    :----------:|:---------:|:---------:|:-------:|:-------------
+     ordered    | `boolean` | true      | -       | Flag used  to distinguish ordered and unordered list
+
+    ListProps extends OrderedListProps and UnorderedListProps.
+
+  * Theme
+
+     Prop Name    | Default
+    :------------:|:--------------
+     padding      | `0 0 0 1.2em`
+     margin       | `0 0 1`
+     lineHeight   | `2`
+     borderColor  | `transparent`
+
+    See [YozoraListTheme][] for details.
 
 
-[mdast list-item]: https://github.com/syntax-tree/mdast#listitem
+# References
+
+  - [mdast list][]
+
+
 [mdast list]: https://github.com/syntax-tree/mdast#list
+[YozoraListTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/list/src/theme.ts

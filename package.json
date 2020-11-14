@@ -3,27 +3,28 @@
   "version": "0.0.0",
   "description": "render md data in react",
   "author": {
-    "name": "lemon-clown",
-    "url": "https://github.com/lemon-clown/"
+    "name": "guanghechen",
+    "url": "https://github.com/guanghechen/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lemon-clown/yozora-react.git"
+    "url": "https://github.com/guanghechen/yozora-react.git"
   },
-  "homepage": "https://github.com/lemon-clown/yozora-react/#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/#readme",
   "license": "MIT",
   "private": true,
   "engines": {
     "node": ">= 14.15.0"
   },
   "scripts": {
-    ":publish": "yarn format && lerna publish --no-private",
-    "test": "lerna exec --concurrency 1 -- 'echo && pwd && yarn test'",
-    "build": "lerna exec --concurrency 1 -- 'echo && pwd && yarn build'",
-    "clean": "lerna clean --yes && yarn install",
+    ":publish": "yarn format && yarn test && lerna publish --no-private",
+    "start": "lerna run --parallel start",
+    "build": "lerna run --concurrency 1 build",
     "rebuild": "yarn clean && yarn build",
+    "test": "lerna run --parallel test",
+    "clean": "lerna clean --yes && yarn install",
     "format": "yarn find-inconsistent && yarn sort-imports && yarn lint:fix",
-    "lint:fix": "lerna exec --concurrency 1 -- 'echo && pwd && yarn lint:fix'",
+    "lint:fix": "lerna run --parallel lint:fix",
     "find-inconsistent": "barusu-find-inconsistent .",
     "sort-imports": "barusu-sort-imports ."
   },

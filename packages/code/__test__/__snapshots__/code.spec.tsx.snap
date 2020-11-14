@@ -1,14 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`basic rendering case snapshot 1`] = `
-.c0 {
-  text-indent: -;
+.c1 {
+  text-indent: -2.5em;
+  padding-left: 2.5em;
 }
 
-.c1 {
+.c2 {
   display: inline-block;
+  width: 2.5em;
   padding-right: 0.6em;
-  color: var(--md-code-lineno-color,#858585);
+  color: #858585;
   cursor: default;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -17,16 +19,23 @@ exports[`basic rendering case snapshot 1`] = `
   text-align: right;
 }
 
+.c0 {
+  padding: 0;
+  border: none;
+  margin: 0;
+  background: none;
+}
+
 <div
-  class=""
+  class="c0"
 >
   <pre>
     <div
-      class="c0 token-line"
+      class="c1 token-line"
       style="color:#9CDCFE"
     >
       <span
-        class="c1"
+        class="c2"
       >
         1
       </span>
@@ -107,6 +116,372 @@ exports[`basic rendering case snapshot 1`] = `
         style="color:rgb(212, 212, 212)"
       >
         ;
+      </span>
+    </div>
+  </pre>
+</div>
+`;
+
+exports[`basic rendering case snapshot with theme 1`] = `
+.c1 {
+  text-indent: -2.5em;
+  padding-left: 2.5em;
+}
+
+.c2 {
+  display: inline-block;
+  width: 2.5em;
+  padding-right: 0.6em;
+  color: #858585;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: right;
+}
+
+.c0 {
+  padding: 2px;
+  border: 1px solid blue;
+  margin: 0;
+  background: hsla(210deg,13%,12%,0.05);
+}
+
+<div
+  class="c0"
+>
+  <pre>
+    <div
+      class="c1 token-line"
+      style="color:#9CDCFE"
+    >
+      <span
+        class="c2"
+      >
+        1
+      </span>
+      <span
+        class="token plain"
+        style="display:inline-block"
+      />
+    </div>
+    <div
+      class="c1 token-line"
+      style="color:#9CDCFE"
+    >
+      <span
+        class="c2"
+      >
+        2
+      </span>
+      <span
+        class="token plain"
+      >
+              
+      </span>
+      <span
+        class="token keyword"
+        style="color:rgb(86, 156, 214)"
+      >
+        const
+      </span>
+      <span
+        class="token plain"
+      >
+         a 
+      </span>
+      <span
+        class="token operator"
+        style="color:rgb(212, 212, 212)"
+      >
+        =
+      </span>
+      <span
+        class="token plain"
+      >
+         
+      </span>
+      <span
+        class="token number"
+        style="color:rgb(181, 206, 168)"
+      >
+        1
+      </span>
+      <span
+        class="token punctuation"
+        style="color:rgb(212, 212, 212)"
+      >
+        ,
+      </span>
+      <span
+        class="token plain"
+      >
+         b 
+      </span>
+      <span
+        class="token operator"
+        style="color:rgb(212, 212, 212)"
+      >
+        =
+      </span>
+      <span
+        class="token plain"
+      >
+         
+      </span>
+      <span
+        class="token number"
+        style="color:rgb(181, 206, 168)"
+      >
+        2
+      </span>
+      <span
+        class="token punctuation"
+        style="color:rgb(212, 212, 212)"
+      >
+        ,
+      </span>
+      <span
+        class="token plain"
+      >
+         c 
+      </span>
+      <span
+        class="token operator"
+        style="color:rgb(212, 212, 212)"
+      >
+        =
+      </span>
+      <span
+        class="token plain"
+      >
+         
+      </span>
+      <span
+        class="token number"
+        style="color:rgb(181, 206, 168)"
+      >
+        3
+      </span>
+      <span
+        class="token plain"
+      />
+    </div>
+    <div
+      class="c1 token-line"
+      style="color:#9CDCFE"
+    >
+      <span
+        class="c2"
+      >
+        3
+      </span>
+      <span
+        class="token plain"
+      >
+              
+      </span>
+      <span
+        class="token keyword"
+        style="color:rgb(86, 156, 214)"
+      >
+        const
+      </span>
+      <span
+        class="token plain"
+      >
+         result 
+      </span>
+      <span
+        class="token operator"
+        style="color:rgb(212, 212, 212)"
+      >
+        =
+      </span>
+      <span
+        class="token plain"
+      >
+         
+      </span>
+      <span
+        class="token number"
+        style="color:rgb(181, 206, 168)"
+      >
+        3
+      </span>
+      <span
+        class="token plain"
+      >
+         
+      </span>
+      <span
+        class="token operator"
+        style="color:rgb(212, 212, 212)"
+      >
+        *
+      </span>
+      <span
+        class="token plain"
+      >
+         a 
+      </span>
+      <span
+        class="token operator"
+        style="color:rgb(212, 212, 212)"
+      >
+        *
+      </span>
+      <span
+        class="token plain"
+      >
+         a 
+      </span>
+      <span
+        class="token operator"
+        style="color:rgb(212, 212, 212)"
+      >
+        *
+      </span>
+      <span
+        class="token plain"
+      >
+         a 
+      </span>
+      <span
+        class="token operator"
+        style="color:rgb(212, 212, 212)"
+      >
+        +
+      </span>
+      <span
+        class="token plain"
+      >
+         
+      </span>
+      <span
+        class="token number"
+        style="color:rgb(181, 206, 168)"
+      >
+        2
+      </span>
+      <span
+        class="token plain"
+      >
+         
+      </span>
+      <span
+        class="token operator"
+        style="color:rgb(212, 212, 212)"
+      >
+        *
+      </span>
+      <span
+        class="token plain"
+      >
+         b 
+      </span>
+      <span
+        class="token operator"
+        style="color:rgb(212, 212, 212)"
+      >
+        *
+      </span>
+      <span
+        class="token plain"
+      >
+         b 
+      </span>
+      <span
+        class="token operator"
+        style="color:rgb(212, 212, 212)"
+      >
+        +
+      </span>
+      <span
+        class="token plain"
+      >
+         c
+      </span>
+    </div>
+    <div
+      class="c1 token-line"
+      style="color:#9CDCFE"
+    >
+      <span
+        class="c2"
+      >
+        4
+      </span>
+      <span
+        class="token plain"
+      >
+              
+      </span>
+      <span
+        class="token console class-name"
+        style="color:rgb(78, 201, 176)"
+      >
+        console
+      </span>
+      <span
+        class="token punctuation"
+        style="color:rgb(212, 212, 212)"
+      >
+        .
+      </span>
+      <span
+        class="token method function property-access"
+        style="color:rgb(220, 220, 170)"
+      >
+        log
+      </span>
+      <span
+        class="token punctuation"
+        style="color:rgb(212, 212, 212)"
+      >
+        (
+      </span>
+      <span
+        class="token string"
+        style="color:rgb(206, 145, 120)"
+      >
+        'result:'
+      </span>
+      <span
+        class="token punctuation"
+        style="color:rgb(212, 212, 212)"
+      >
+        ,
+      </span>
+      <span
+        class="token plain"
+      >
+         result
+      </span>
+      <span
+        class="token punctuation"
+        style="color:rgb(212, 212, 212)"
+      >
+        )
+      </span>
+      <span
+        class="token plain"
+      />
+    </div>
+    <div
+      class="c1 token-line"
+      style="color:#9CDCFE"
+    >
+      <span
+        class="c2"
+      >
+        5
+      </span>
+      <span
+        class="token plain"
+      >
+            
       </span>
     </div>
   </pre>

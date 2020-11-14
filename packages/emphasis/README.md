@@ -14,36 +14,74 @@ This library is designed to render [mdast emphasis][] type data
 
 # Usage
   * Use in React project
+    - Pure
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import Emphasis from '@yozora/react-emphasis'
+      ```tsx
+      // index.tsx
+      import React from 'react'
+      import Emphasis from '@yozora/react-emphasis'
 
-    ReactDOM.render(
-      <Emphasis>
-        <span>Hello, world!</span>
-      </Emphasis>
-      , document.getElementById('root')
-    )
-    ```
+      const wrapper = (
+        <Emphasis style={ { color: 'orange', fontSize: '16px' } }>
+          some text1
+          <span>some text2</span>
+        </Emphasis>
+      )
+      ```
+
+    - With theme
+
+      ```tsx
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import Emphasis from '@yozora/react-emphasis'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          emphasis: {
+            color: 'red',
+            fontSize: 18,
+            fontWeight: undefined,
+            fontStyle: 'oblique',
+          }
+        }
+      }
+
+      const wrapper = (
+        <ThemeProvider theme={ theme }>
+          <Emphasis>
+            some text1
+            <span>some text2</span>
+          </Emphasis>
+        </ThemeProvider>
+      )
+      ```
 
   * Props
 
      Name       | Type                                | Required  | Default | Description
     :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                   | `true`    | -       | Emphasis content
      `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
+     `children` | `React.ReactNode`                   | `true`    | -       | Emphasis content
 
     EmphasisProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
 
-  * CSS variables
+  * Theme
 
-     Name                       | Default   |  Description
-    :--------------------------:|:---------:|:-----------------------
-     `--md-emphasis-color`      | -         | Emphasis text font color
-     `--md-emphasis-font-size`  | `1em`     | Emphasis text font size
-     `--md-emphasis-font-style` | `italic`  | Emphasis text font style
+     Prop Name  | Default
+    :----------:|:--------------
+     color      | `inherit`
+     fontSize   | `inherit`
+     fontWeight | `inherit`
+     fontStyle  | `italic`
+
+    See [YozoraEmphasisTheme][] for details.
+
+
+# References
+
+  - [mdast emphasis][]
+
 
 [mdast emphasis]: https://github.com/syntax-tree/mdast#emphasis
+[YozoraEmphasisTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/emphasis/src/theme.ts)

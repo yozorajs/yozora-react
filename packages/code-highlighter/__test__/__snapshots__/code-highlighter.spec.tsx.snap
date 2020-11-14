@@ -2,13 +2,15 @@
 
 exports[`basic rendering case snapshot 1`] = `
 .c0 {
-  text-indent: -;
+  text-indent: -2em;
+  padding-left: 2em;
 }
 
 .c1 {
   display: inline-block;
+  width: 2em;
   padding-right: 0.6em;
-  color: var(--md-code-lineno-color,#858585);
+  color: #858585;
   cursor: default;
   -webkit-user-select: none;
   -moz-user-select: none;

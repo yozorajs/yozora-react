@@ -2,8 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { HeadingLinkIcon } from './icon'
+import './styled-components'
+import { defaultHeadingTheme, getHeadingStyle } from './theme'
 import { calcIdentifierForHeading } from './util'
 export * from './icon'
+export * from './theme'
 export * from './util'
 
 
@@ -41,38 +44,36 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLDivElement> {
 const Container = styled.header`
   position: relative;
   display: block;
-  margin: 0 -2em;
-  padding: 0 2em;
-  line-height: var(--md-heading-line-height, 1.25);
-  font-family: var(--md-heading-font-family);
+  margin: ${ getHeadingStyle('margin') };
+  padding: ${ getHeadingStyle('padding') };
+  line-height: ${ getHeadingStyle('lineHeight') };
+  font-family: ${ getHeadingStyle('fontFamily') };
   h1, h2, h3, h4, h5, h6 {
-    margin: var(--md-heading-margin, 1.2em 0 1em);
-    line-height: var(--md-heading-line-height, 1.25);
-    color: var(--md-heading-color, inherit);
-    font-style: var(--md-heading-font-style, normal);
+    color: ${ getHeadingStyle('color') };
+    font-style: ${ getHeadingStyle('fontStyle') };
   }
   h1, h2 {
     padding: 0.3em 0;
-    border-bottom: 1px solid var(--md-heading-border-color);
+    border-bottom: 1px solid ${ getHeadingStyle('borderColor') };
     margin: 0.9em 0 1em;
   }
   h1 {
-    font-size: var(--md-heading1-font-size, 2em);
+    font-size: ${ getHeadingStyle('h1FontSize') };
   }
   h2 {
-    font-size: var(--md-heading2-font-size, 1.5em);
+    font-size: ${ getHeadingStyle('h2FontSize') };
   }
   h3 {
-    font-size: var(--md-heading3-font-size, 1.25em);
+    font-size: ${ getHeadingStyle('h3FontSize') };
   }
   h4 {
-    font-size: var(--md-heading4-font-size, 1em);
+    font-size: ${ getHeadingStyle('h4FontSize') };
   }
   h5 {
-    font-size: var(--md-heading5-font-size, 0.875em);
+    font-size: ${ getHeadingStyle('h5FontSize') };
   }
   h6 {
-    font-size: var(--md-heading6-font-size, 0.85em);
+    font-size: ${ getHeadingStyle('h6FontSize') };
   }
   & > a {
     position: absolute;
@@ -84,6 +85,7 @@ const Container = styled.header`
     padding-right: 0.25em;
     font-size: 1.25em;
     line-height: 1;
+    color: ${ getHeadingStyle('linkColor') };
     user-select: none;
     text-decoration: none;
     visibility: hidden;
@@ -96,14 +98,20 @@ const Container = styled.header`
     fill: currentColor;
   }
   &:hover > a {
+    color: ${ getHeadingStyle('hoverLinkColor') };
     visibility: visible;
     opacity: 1;
   }
 `
 
 
+Container.defaultProps = {
+  theme: { yozora: { heading: defaultHeadingTheme } }
+}
+
+
 /**
- * Render Heading content
+ * Render `heading` content
  *
  * @param props
  */

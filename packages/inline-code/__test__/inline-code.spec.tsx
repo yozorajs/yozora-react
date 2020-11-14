@@ -1,5 +1,6 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
 import InlineCode from '../src'
 
 
@@ -35,10 +36,8 @@ describe('basic rendering case', () => {
   it('value is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        mount(
-          <InlineCode value={ value } />
-        )
-      }).toThrow(/Failed prop type: The prop `value` is marked as required/)
+        render(<InlineCode value={ value } />)
+      }).toThrow(/Failed prop type: The prop `value` is marked as required/i)
     }
   })
 
@@ -54,11 +53,41 @@ describe('basic rendering case', () => {
   })
 
   it('snapshot', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <InlineCode
         value="Hello, world!"
         style={ { color: 'orange', fontSize: '16px' } }
       />
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('snapshot with theme', () => {
+    const theme: DefaultTheme = {
+      yozora: {
+        inlineCode: {
+          padding: '2px',
+          borderRadius: '3px',
+          margin: '0 2px',
+          background: 'hsla(210deg, 13%, 12%, 0.05)',
+          lineHeight: 1.5,
+          color: '#d81848',
+          fontFamily: 'Consolas, monospace, sans-serif',
+          fontSize: '1em',
+          fontWeight: 'inherit',
+          fontStyle: undefined,
+          // whiteSpace: undefined,
+        }
+      }
+    }
+
+    const wrapper = render(
+      <ThemeProvider theme={ theme }>
+        <InlineCode
+          value="Hello, world!"
+          style={ { color: 'orange', fontSize: '16px' } }
+        />
+      </ThemeProvider>
     )
     expect(wrapper).toMatchSnapshot()
   })

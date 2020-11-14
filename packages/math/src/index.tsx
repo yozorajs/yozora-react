@@ -2,6 +2,9 @@ import React from 'react'
 import MathJax from 'react-mathjax'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import './styled-components'
+import { defaultMathTheme, getMathStyle } from './theme'
+export * from './theme'
 
 
 /**
@@ -9,17 +12,28 @@ import styled from 'styled-components'
  */
 export interface MathProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * inline math content
+   * math content
    */
   value: string
 }
 
 
-const Container = styled.div``
+const Container = styled.div`
+  padding: ${ getMathStyle('padding') };
+  border: ${ getMathStyle('border') };
+  margin: ${ getMathStyle('margin') };
+  background: ${ getMathStyle('background') };
+  color: ${ getMathStyle('color') };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { math: defaultMathTheme } }
+}
 
 
 /**
- * Render Math content
+ * Render `math` content
  *
  * @param props
  */
@@ -35,12 +49,12 @@ export const Math = React.forwardRef<HTMLDivElement, MathProps>(
 )
 
 
+Math.displayName = 'Math'
+
+
 Math.propTypes = {
   value: PropTypes.string.isRequired,
 }
-
-
-Math.displayName = 'Math'
 
 
 export default Math

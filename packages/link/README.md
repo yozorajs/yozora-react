@@ -15,40 +15,87 @@ This library is designed to render [mdast link][] type data
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import Link from '@yozora/react-link'
+    - Pure
 
-    ReactDOM.render(
-      <Link>
-        <span>Hello, world!</span>
-      </Link>
-      , document.getElementById('root')
-    )
-    ```
+      ```tsx
+      // index.tsx
+      import React from 'react'
+      import Link from '@yozora/react-link'
+
+      const wrapper = (
+        <Link
+          url="/home"
+          title="home"
+          style={ { color: 'orange', fontSize: '16px' } }
+        >
+          some text1
+          <span>some text2</span>
+        </Link>
+      )
+      ```
+
+    - With theme
+
+      ```tsx
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import Link from '@yozora/react-link'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          link: {
+            color: 'blue',
+            fontSize: undefined,
+            fontStyle: 'italic',
+            textDecoration: 'none',
+          }
+        }
+      }
+
+      const wrapper = (
+        <ThemeProvider theme={ theme }>
+          <Link
+            url="/home"
+            title="home"
+            style={ { color: 'orange', fontSize: '16px' } }
+          >
+            some text1
+            <span>some text2</span>
+          </Link>
+        </ThemeProvider>
+      )
+      ```
 
   * Props
 
      Name       | Type                                  | Required      | Default | Description
     :----------:|:-------------------------------------:|:-------------:|:-------:|:-------------
-     `url`      | `string`                              | `true`        | -       | link url
-     `children` | `React.ReactNode`                     | `true`        | -       | link content
-     `title`    | `string`                              | `false`       | -       | link title
      `ref`      | `React.RefObject<HTMLAnchorElement>`  | `false`       | -       | Forwarded ref callback
+     `children` | `React.ReactNode`                     | `true`        | -       | link content
+     `url`      | `string`                              | `true`        | -       | link url
+     `title`    | `string`                              | `false`       | -       | link title
      `target`   | `string`                              | `_blank`      | -       |
      `rel`      | `string`                              | `noreferrer`  | -       |
 
     LinkProps inherited all attributes of `HTMLAnchorElement` (`React.AnchorHTMLAttributes<HTMLAnchorElement>`)
 
-  * CSS variables
+  * Theme
 
-     Name                         | Default   |  Description
-    :----------------------------:|:---------:|:-----------------------
-     `--md-link-color`            | -         | link text color
-     `--md-link-font-size`        | `inherit` | link text font size
-     `--md-link-font-style`       | `normal`  | link text font style
-     `--md-link-text-decoration`  | `none`    | link text text decoration
+     Prop Name      | Default
+    :--------------:|:--------------
+     color          | `inherit`
+     fontSize       | `inherit`
+     fontStyle      | `inherit`
+     textDecoration | `none`
+
+    See [YozoraLinkTheme][] for details.
+
+
+# References
+
+  - [mdast link][]
+
 
 [mdast link]: https://github.com/syntax-tree/mdast#link
+[YozoraLinkTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/link/src/theme.ts)
+

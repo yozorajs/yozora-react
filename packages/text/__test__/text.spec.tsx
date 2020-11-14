@@ -1,5 +1,6 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
 import Text from '../src'
 
 
@@ -35,10 +36,8 @@ describe('basic rendering case', () => {
   it('value is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        mount(
-          <Text value={ value } />
-        )
-      }).toThrow(/Failed prop type: The prop `value` is marked as required/)
+        render(<Text value={ value } />)
+      }).toThrow(/Failed prop type: The prop `value` is marked as required/i)
     }
   })
 
@@ -54,11 +53,31 @@ describe('basic rendering case', () => {
   })
 
   it('snapshot', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Text
         value="Hello, world!"
         style={ { color: 'orange', fontSize: '16px' } }
       />
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('snapshot with theme', () => {
+    const theme: DefaultTheme = {
+      yozora: {
+        text: {
+          lineHeight: '2',
+        }
+      }
+    }
+
+    const wrapper = render(
+      <ThemeProvider theme={ theme }>
+        <Text
+          value="Hello, world!"
+          style={ { color: 'orange', fontSize: '16px' } }
+        />
+      </ThemeProvider>
     )
     expect(wrapper).toMatchSnapshot()
   })

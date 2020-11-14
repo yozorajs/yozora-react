@@ -15,35 +15,74 @@ This library is designed to render [mdast paragraph][] type data
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import Paragraph from '@yozora/react-paragraph'
+    - Pure
 
-    ReactDOM.render(
-      <Paragraph>
-        <span>Hello, world!</span>
-      </Paragraph>
-      , document.getElementById('root')
-    )
-    ```
+      ```tsx
+      // index.tsx
+      import React from 'react'
+      import Paragraph from '@yozora/react-paragraph'
+
+      const wrapper = (
+        <Paragraph style={{ color: 'orange', fontSize: '16px' }}>
+          some text1
+          <span>some text2</span>
+        </Paragraph>
+      )
+      ```
+
+    - With theme
+
+      ```tsx
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import Paragraph from '@yozora/react-paragraph'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          paragraph: {
+            padding: '0 1rem',
+            margin: 18,
+            // lineHeight: 1.5,
+            color: 'red',
+          }
+        }
+      }
+
+      const wrapper = (
+        <ThemeProvider theme={ theme }>
+          <Paragraph>
+            some text1
+            <span>some text2</span>
+          </Paragraph>
+        </ThemeProvider>
+      )
+      ```
 
   * Props
 
      Name       | Type                                    | Required  | Default | Description
     :----------:|:---------------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                       | `true`    | -       | Paragraph content
      `ref`      | `React.RefObject<HTMLParagraphElement>` | `false`   | -       | Forwarded ref callback
+     `children` | `React.ReactNode`                       | `true`    | -       | Paragraph content
 
     ParagraphProps inherited all attributes of `HTMLParagraphElement` (`React.HTMLAttributes<HTMLParagraphElement>`)
 
-  * CSS variables
+  * Theme
 
-     Name                           | Default   |  Description
-    :------------------------------:|:---------:|:-----------------------
-     `--md-paragraph-padding`       | `0`       | Paragraph padding
-     `--md-paragraph-margin`        | `0 0 1em` | Paragraph margin
-     `--md-paragraph-line-height`   | `2`       | Paragraph border color
+     Prop Name    | Default
+    :------------:|:--------------
+     padding      | `0`
+     margin       | `0 0 1em`
+     lineHeight   | `2`
+     color        | `inherit`
+
+    See [YozoraParagraphTheme][] for details.
+
+
+# References
+
+  - [mdast paragraph][]
+
 
 [mdast paragraph]: https://github.com/syntax-tree/mdast#paragraph
+[YozoraParagraphTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/paragraph/src/theme.ts)

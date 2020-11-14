@@ -15,36 +15,76 @@ This library is designed to render [mdast delete][] type data
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import Delete from '@yozora/react-delete'
+    - Pure
 
-    ReactDOM.render(
-      <Delete>
-        <span>Hello, world!</span>
-      </Delete>
-      , document.getElementById('root')
-    )
-    ```
+      ```tsx
+      // index.tsx
+      import React from 'react'
+      import Delete from '@yozora/react-delete'
+
+      const wrapper = (
+        <Delete style={{ color: 'orange', fontSize: '16px' }}>
+          some text1
+          <span>some text2</span>
+        </Delete>
+      )
+      ```
+
+    - With theme
+
+      ```tsx
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import Delete from '@yozora/react-delete'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          delete: {
+            color: 'red',
+            fontSize: 18,
+            fontWeight: undefined,
+            // fontStyle: 'oblique',
+            textDecoration: 'dashed',
+          }
+        }
+      }
+
+      const wrapper = (
+        <ThemeProvider theme={ theme }>
+          <Delete>
+            some text1
+            <span>some text2</span>
+          </Delete>
+        </ThemeProvider>
+      )
+      ```
 
   * Props
 
      Name       | Type                                | Required  | Default | Description
     :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                   | `true`    | -       | Delete content
      `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
+     `children` | `React.ReactNode`                   | `true`    | -       | Delete content
 
     DeleteProps inherited all attributes of `HTMLSpanElement` (`React.DelHTMLAttributes<HTMLSpanElement>`)
 
-  * CSS variables
+  * Theme
 
-     Name                           | Default         |  Description
-    :------------------------------:|:---------------:|:-----------------------
-     `--md-delete-color`            | -               | Delete text font color
-     `--md-delete-font-size`        | `1em`           | Delete text font size
-     `--md-delete-font-style`       | `normal`        | Delete text font style
-     `--md-delete-text-decoration`  | `line-through`  | Delete text decoration
+     Prop Name      | Default
+    :--------------:|:--------------
+     color          | `inherit`
+     fontSize       | `inherit`
+     fontWeight     | `inherit`
+     fontStyle      | `inherit`
+     textDecoration | `line-through`
+
+    See [YozoraDeleteTheme][] for details.
+
+
+# References
+
+  - [mdast delete][]
+
 
 [mdast delete]: https://github.com/syntax-tree/mdast#delete
+[YozoraDeleteTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/delete/src/theme.ts)

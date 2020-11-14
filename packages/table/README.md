@@ -3,8 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-table.svg)](https://www.npmjs.com/package/@yozora/react-table)
 
 
-This library is designed to render [mdast table][], [mdast table row][] and
-[mdast table cell][] type data
+This library is designed to render [mdast table][] type data
 
 
 # Install
@@ -16,40 +15,58 @@ This library is designed to render [mdast table][], [mdast table row][] and
 # Usage
   * Use in React project
 
-    ```tsx
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import { Table, TableCell, TableRow } from '@yozora/react-table'
+    - Pure
 
-    const HeadRow = () => (
-      <TableRow>
-        <TableCell isHeader={ true }>Name</TableCell>
-      </TableRow>
-    )
+      ```tsx
+      import React from 'react'
+      import Table from '@yozora/react-table'
 
-    const BodyRows = () => (
-      <React.Fragment>
-        <TableRow>
-          <TableCell isHeader={ false }>Alice</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell isHeader={ false }>Bob</TableCell>
-        </TableRow>
-      </React.Fragment>
-    )
+      const rows: React.ReactNode[] = [
+        (<tr key="0"><th>Name</th></tr>),
+        (<tr key="1"><td>Alice</td></tr>),
+        (<tr key="2"><td>Bob</td></tr>),
+      ]
 
-    ReactDOM.render(
-      <Table
-        head={ <HeadRow /> }
-        body={ <BodyRows /> }
-        style={ { color: 'orange', fontSize: '16px' }}
-      />
-      , document.getElementById('root')
-    )
-    ```
+      const wrapper = (
+        <Table style={ { color: 'orange', fontSize: '16px' } }>
+          { rows }
+        </Table>
+      )
+      ```
 
-  * TableProps
+    - With theme
+
+      ```tsx
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import Table from '@yozora/react-table'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          table: {
+            width: '100%',
+            overflow: 'hidden auto',
+            margin: 18,
+          }
+        }
+      }
+
+      const rows: React.ReactNode[] = [
+        (<tr key="0"><th>Name</th></tr>),
+        (<tr key="1"><td>Alice</td></tr>),
+        (<tr key="2"><td>Bob</td></tr>),
+      ]
+
+      const wrapper = (
+        <ThemeProvider theme={ theme }>
+          <Table style={ { color: 'orange', fontSize: '16px' } }>
+            { rows }
+          </Table>
+        </ThemeProvider>
+      )
+      ```
+
+  * Props
 
      Name       | Type                                | Required  | Default | Description
     :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
@@ -59,37 +76,27 @@ This library is designed to render [mdast table][], [mdast table row][] and
 
     TableProps inherited all attributes of `HTMLTableElement` (`React.TableHTMLAttributes<HTMLTableElement>`)
 
-  * TableRowProps
+  * Theme
 
-     Name       | Type                                    | Required  | Default | Description
-    :----------:|:---------------------------------------:|:---------:|:-------:|:-------------
-     `ref`      | `React.RefObject<HTMLTableRowElement>`  | `false`   | -       | Forwarded ref callback
-     `children` | `React.ReactNode`                       | `true`    | -       | table row contents
+     Prop Name      | Default
+    :--------------:|:--------------
+     width          | `max-width`
+     overflow       | `auto`
+     margin         | `margin`
+     borderSpacing  | `0`
+     borderCollapse | `collapse`
 
-    TableRowProps inherited all attributes of `HTMLTableRowElement` (`React.HTMLAttributes<HTMLTableRowElement>`)
+    See [YozoraTableTheme][] for details.
 
-  * TableCellProps
 
-     Name       | Type                                    | Required  | Default | Description
-    :----------:|:---------------------------------------:|:---------:|:-------:|:-------------
-     `ref`      | `React.RefObject<HTMLTableRowElement>`  | `false`   | -       | Forwarded ref callback
-     `children` | `React.ReactNode`                       | `true`    | -       | table row contents
-     `isHeader` | `boolean`                               | `false`   | `false` | Whether is the table header cell
-     `align`    | `left|center|right`                     | `false`   | -       | Table cell content align
+# References
 
-    TableCellProps inherited all attributes of `HTMLTableCellElement` (`React.HTMLAttributes<HTMLTableCellElement>`)
-
-  * CSS variables
-
-     Name                       | Default         |  Description
-    :--------------------------:|:---------------:|:-----------------------
-     `--md-table-width`         | `max-content`   | Table width
-     `--md-table-overflow`      | `auto`          | Table overflow
-     `--md-table-margin`        | `0 0 1rem`      | Table margin
-     `--md-table-cell-padding`  | `0.4rem 0.8rem` | Table cell padding
-     `--md-table-border-color`  | -               | Table border color
+  - [mdast table][]
+  - [mdast table row][]
+  - [mdast table cell][]
 
 
 [mdast table]: https://github.com/syntax-tree/mdast#table
 [mdast table row]: https://github.com/syntax-tree/mdast#tablecell
 [mdast table cell]: https://github.com/syntax-tree/mdast#tablerow
+[YozoraTableTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/table/src/theme.ts)

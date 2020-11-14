@@ -26,7 +26,11 @@ export interface CodeHighlighterProps {
   /**
    * Width of line numbers
    */
-  linenoWidth?: number | string
+  linenoWidth?: React.CSSProperties['width']
+  /**
+   * Line number color
+   */
+  linenoColor?: React.CSSProperties['color']
   /**
    * Line count change callback
    */
@@ -37,20 +41,25 @@ export interface CodeHighlighterProps {
 /**
  * Code line
  */
-const Line = styled<{ linenoWidth: number } & any>('div')`
-  text-indent: -${ (props) => props.width };
-  padding-left: ${ (props) => props.width };
+const Line = styled.div<{
+  linenoWidth: React.CSSProperties['width'],
+}>`
+  text-indent: -${ (props) => props.linenoWidth };
+  padding-left: ${ (props) => props.linenoWidth };
 `
 
 
 /**
  * Code line number
  */
-const LineNo = styled<{ width: number } & any>('span')`
+const LineNo = styled.span<{
+  linenoWidth: React.CSSProperties['width'],
+  linenoColor: React.CSSProperties['color'],
+}>`
   display: inline-block;
-  width: ${ (props) => props.width };
+  width: ${ (props) => props.linenoWidth };
   padding-right: 0.6em;
-  color: var(--md-code-lineno-color, #858585);
+  color: ${ (props) => props.linenoColor };
   cursor: default;
   user-select: none;
   text-align: right;
@@ -58,7 +67,8 @@ const LineNo = styled<{ width: number } & any>('span')`
 
 
 type HighlightContentProps = RenderProps & {
-  linenoWidth: string | number,
+  linenoWidth: React.CSSProperties['width'],
+  linenoColor: React.CSSProperties['color']
   onLineCountChange?: (lineCount: number) => void
 }
 
@@ -69,7 +79,14 @@ type HighlightContentProps = RenderProps & {
  * @param props
  */
 function HighlightContent(props: HighlightContentProps): React.ReactElement {
-  const { tokens, getLineProps, getTokenProps, linenoWidth: lineNoWidth, onLineCountChange } = props
+  const {
+    tokens,
+    linenoWidth,
+    linenoColor,
+    getLineProps,
+    getTokenProps,
+    onLineCountChange,
+  } = props
 
   useEffect(() => {
     if (onLineCountChange != null) {
@@ -80,8 +97,14 @@ function HighlightContent(props: HighlightContentProps): React.ReactElement {
   return (
     <React.Fragment>
       { tokens.map((line, i) => (
-        <Line { ...getLineProps({ line, key: i }) } linenoWidth={ lineNoWidth }>
-          <LineNo key="line-number" lineNoWidth={ lineNoWidth }>{ i + 1 }</LineNo>
+        <Line { ...getLineProps({ line, key: i }) } linenoWidth={ linenoWidth }>
+          <LineNo
+            key="line-number"
+            linenoWidth={ linenoWidth }
+            linenoColor={ linenoColor }
+          >
+            { i + 1 }
+          </LineNo>
           {
             line.map((token, key) => (
               <span { ...getTokenProps({ token, key }) } />
@@ -104,6 +127,7 @@ export function CodeHighlighter(props: CodeHighlighterProps): React.ReactElement
     value: code,
     theme = defaultTheme,
     linenoWidth = 0,
+    linenoColor = '#858585',
     onLineCountChange,
   } = props
 
@@ -120,13 +144,14 @@ export function CodeHighlighter(props: CodeHighlighterProps): React.ReactElement
             <HighlightContent
               { ...props }
               linenoWidth={ linenoWidth }
+              linenoColor={ linenoColor }
               onLineCountChange={ onLineCountChange }
             />
           )
         }
       </Highlight>
     )
-  }, [code, theme, lang, linenoWidth, onLineCountChange])
+  }, [code, theme, lang, linenoWidth, linenoColor, onLineCountChange])
 
   return result
 }

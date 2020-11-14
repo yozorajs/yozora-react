@@ -15,34 +15,63 @@ This library is designed to render [mdast text][] type data
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import Text from '@yozora/react-text'
+    - Pure
 
-    ReactDOM.render(
-      <Text value="Hello, world!" />
-      , document.getElementById('root')
-    )
-    ```
+      ```tsx
+      import React from 'react'
+      import Text from '@yozora/react-text'
+
+      const wrapper = (
+        <Text value="Hello, world!" />
+      )
+
+    - With theme
+
+      ```tsx
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import Text from '@yozora/react-text'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          text: {
+            lineHeight: '2',
+          }
+        }
+      }
+
+      const wrapper = (
+        <ThemeProvider theme={ theme }>
+          <Text
+            value="Hello, world!"
+            style={ { color: 'orange', fontSize: '16px' } }
+          />
+        </ThemeProvider>
+      )
+      ```
 
   * Props
 
      Name     | Type                                | Required  | Default | Description
     :--------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `value`  | `string`                            | `true`    | -       | Text content
      `ref`    | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
+     `value`  | `string`                            | `true`    | -       | Text content
 
     TextProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
 
-  * CSS variables
+  * Theme
 
-     Name                    | Default  |  Description
-    :-----------------------:|:--------:|:-----------------------
-     `--md-text-color`       | -        | Text font color
-     `--md-text-font-size`   | `1em`    | Text font size
-     `--md-text-font-style`  | `normal` | Text font style
-     `--md-text-font-weight` | `400`    | Text font weight
+     Prop Name  | Default
+    :----------:|:--------------
+     lineHeight | `inherit`
+
+    See [YozoraTextTheme][] for details.
+
+
+# References
+
+  - [mdast text][]
+
 
 [mdast text]: https://github.com/syntax-tree/mdast#text
+[YozoraTextTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/text/src/theme.ts)

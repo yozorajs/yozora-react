@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-thematic-break.svg)](https://www.npmjs.com/package/@yozora/react-thematic-break)
 
 
-This library is designed to render [mdast thematic-break][] type data
+This library is designed to render [mdast thematicBreak][] type data
 
 
 # Install
@@ -15,17 +15,41 @@ This library is designed to render [mdast thematic-break][] type data
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import ThematicBreak from '@yozora/react-thematic-break'
+    - Pure
 
-    ReactDOM.render(
-      <ThematicBreak />
-      , document.getElementById('root')
-    )
-    ```
+      ```tsx
+      // index.tsx
+      import React from 'react'
+      import ThematicBreak from '@yozora/react-thematic-break'
+
+      const wrapper = (
+        <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
+      )
+      ```
+
+    - With theme
+
+      ```tsx
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import ThematicBreak from '@yozora/react-thematic-break'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          thematicBreak: {
+            borderColor: 'orange',
+            // outline: '1px dash red',
+            margin: '2rem 0',
+          }
+        }
+      }
+
+      const wrapper = (
+      <ThemeProvider theme={ theme }>
+        <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
+      </ThemeProvider>
+      )
+      ```
 
   * Props
 
@@ -35,10 +59,21 @@ This library is designed to render [mdast thematic-break][] type data
 
     ThematicBreakProps inherited all attributes of `HTMLHRElement` (`React.HTMLAttributes<HTMLHRElement>`)
 
-  * CSS variables
+  * Theme
 
-     Name                            | Default   |  Description
-    :-------------------------------:|:---------:|:-----------------------
-     `--md-thematic-break-bg-color`  | `#e1e4e8` | Thematic break background value
+     Prop Name    | Default
+    :------------:|:-----------
+     borderColor  | `lightgray`
+     outline      | `0`
+     margin       | `1.5em 0`
 
-[mdast thematic-break]: https://github.com/syntax-tree/mdast#thematicbreak
+    See [YozoraThematicBreakTheme][] for details.
+
+
+# References
+
+  - [mdast thematicBreak][]
+
+
+[mdast thematicBreak]: https://github.com/syntax-tree/mdast#thematicbreak
+[YozoraThematicBreakTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/thematic-break/src/theme.ts)

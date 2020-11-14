@@ -17,8 +17,7 @@ This library is designed to highlight [mdast code][] type data
 
     ```typescript
     // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
+    import React, { useEffect, useState } from 'react'
     import CodeHighlighter from '@yozora/react-code-highlighter'
 
     function Wrapper() {
@@ -47,26 +46,24 @@ This library is designed to highlight [mdast code][] type data
       )
     }
 
-    ReactDOM.render(
-      <Wrapper />
-      , document.getElementById('root')
-    )
+    const wrapper = (<Wrapper />)
     ```
 
   * Props
 
-     Name                 | Type                                | Required  | Default | Description
-    :--------------------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `value`              | `string`                            | `true`    | -       | Code content
-     `lang`               | `string`                            | `false`   | -       | Code language
-     `theme`              | `PrismTheme`                        | `false`   | vsDark  | Code highlight theme
-     `lineNoWidth`        | `number|string`                     | `false`   | -       | Code line number width
-     `onLineCountChange`  | `(lineCount: number) => void`       | `false`   | -       | Callback of Code line count changing
+     Name                 | Type                           | Required  | Default    | Description
+    :--------------------:|:------------------------------:|:---------:|:----------:|:-------------
+     `value`              | `string`                       | `true`    | -          | Code content
+     `lang`               | `string`                       | `false`   | -          | Code language
+     `theme`              | `PrismTheme`                   | `false`   | vsDark     | Code highlight theme
+     `linenoWidth`        | `React.CSSProperties['width']` | `false`   | `0`        | Code line number width
+     `linenoColor`        | `React.CSSProperties['color']` | `false`   | `#858585`  | Code line number color
+     `onLineCountChange`  | `(lineCount: number) => void`  | `false`   | -          | Callback of Code line count changing
 
-  * CSS variables
 
-     Name                     | Default  |  Description
-    :------------------------:|:--------:|:-----------------------
-     `--md-code-lineno-color` | `#858585 | Code line no color
+# References
+
+  - [mdast code][]
+
 
 [mdast code]: https://github.com/syntax-tree/mdast#code

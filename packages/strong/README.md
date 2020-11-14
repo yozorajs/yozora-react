@@ -15,36 +15,74 @@ This library is designed to render [mdast strong][] type data
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import Strong from '@yozora/react-strong'
+    - Pure
 
-    ReactDOM.render(
-      <Strong>
-        <span>Hello, world!</span>
-      </Strong>
-      , document.getElementById('root')
-    )
-    ```
+      ```tsx
+      // index.tsx
+      import React from 'react'
+      import Strong from '@yozora/react-strong'
+
+      const wrapper = (
+        <Strong style={{ color: 'orange', fontSize: '16px' }}>
+          some text1
+          <span>some text2</span>
+        </Strong>
+      )
+      ```
+
+    - With theme
+
+      ```tsx
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import Strong from '@yozora/react-strong'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          strong: {
+            color: 'red',
+            fontSize: 18,
+            // fontWeight: 'bold',
+            fontStyle: 'oblique',
+          }
+        }
+      }
+
+      const wrapper = (
+        <ThemeProvider theme={ theme }>
+          <Strong>
+            some text1
+            <span>some text2</span>
+          </Strong>
+        </ThemeProvider>
+      )
+      ```
 
   * Props
 
      Name       | Type                                | Required  | Default | Description
     :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                   | `true`    | -       | strong content
      `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
+     `children` | `React.ReactNode`                   | `true`    | -       | strong content
 
     StrongProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
 
-  * CSS variables
+  * Theme
 
-     Name                       | Default   |  Description
-    :--------------------------:|:---------:|:-----------------------
-     `--md-strong-color`        | -         | Strong text font color
-     `--md-strong-font-size`    | `1em`     | Strong text font size
-     `--md-strong-font-style`   | `normal`  | Strong text font style
-     `--md-strong-font-weight`  | `600`     | Strong text font weight
+     Prop Name    | Default
+    :------------:|:--------------
+     color        | `inherit`
+     fontSize     | `inherit`
+     fontWeight   | `600`
+     fontStyle    | `inherit`
+
+    See [YozoraStrongTheme][] for details.
+
+
+# References
+
+  - [mdast strong][]
+
 
 [mdast strong]: https://github.com/syntax-tree/mdast#strong
+[YozoraStrongTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/strong/src/theme.ts)

@@ -15,36 +15,76 @@ This library is designed to render [mdast blockquote][] type data
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
-    import React from 'react'
-    import ReactDOM from 'react-dom'
-    import Blockquote from '@yozora/react-blockquote'
+    - Pure
 
-    ReactDOM.render(
-      <Blockquote>
-        <span>Hello, world!</span>
-      </Blockquote>
-      , document.getElementById('root')
-    )
-    ```
+      ```tsx
+      // index.tsx
+      import React from 'react'
+      import Blockquote from '@yozora/react-blockquote'
+
+      const wrapper = (
+        <Blockquote style={{ color: 'orange', fontSize: '16px' }}>
+          some text1
+          <span>some text2</span>
+        </Blockquote>
+      )
+      ```
+
+    - With theme
+
+      ```tsx
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import Blockquote from '@yozora/react-blockquote'
+
+      const theme: DefaultTheme = {
+        yozora: {
+          blockquote: {
+            padding: '0 1rem',
+            borderColor: 'orange',
+            margin: 18,
+            background: 'rgba(0, 0, 0, 0.15)',
+            color: 'red',
+          }
+        }
+      }
+
+      const wrapper = (
+        <ThemeProvider theme={ theme }>
+          <Blockquote>
+            some text1
+            <span>some text2</span>
+          </Blockquote>
+        </ThemeProvider>
+      )
+      ```
 
   * Props
 
      Name       | Type                              | Required  | Default | Description
     :----------:|:---------------------------------:|:---------:|:-------:|:-------------
-     `children` | `React.ReactNode`                 | `true`    | -       | Blockquote content
      `ref`      | `React.RefObject<HTMLDivElement>` | `false`   | -       | Forwarded ref callback
+     `children` | `React.ReactNode`                 | `true`    | -       | Blockquote content
 
     BlockquoteProps inherited all attributes of `HTMLDivElement` (`React.BlockquoteHTMLAttributes<HTMLDivElement>`)
 
-  * CSS variables
+  * Theme
 
-     Name                           | Default       |  Description
-    :------------------------------:|:-------------:|:-----------------------
-     `--md-blockquote-bg-color`     | -             | Blockquote background color
-     `--md-blockquote-border-color` | -             | Blockquote border color
-     `--md-blockquote-padding`      | `0.625em 1em` | Blockquote padding
-     `--md-blockquote-margin`       | `0 0 1.25em`  | Blockquote margin
+     Prop Name    | Default
+    :------------:|:--------------
+     padding      | `0.625em 1em`
+     borderColor  | `transparent`
+     margin       | `0 0 1.25em`
+     background   | `none`
+     color        | `inherit`
+
+    See [YozoraBlockquoteTheme][] for details.
+
+
+# References
+
+  - [mdast blockquote][]
+
 
 [mdast blockquote]: https://github.com/syntax-tree/mdast#blockquote
+[YozoraBlockquoteTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/blockquote/src/theme.ts)

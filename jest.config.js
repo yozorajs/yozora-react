@@ -63,9 +63,7 @@ module.exports = {
   collectCoverageFrom: [
     '**/src/**/*.{js,jsx,ts,tsx}',
     '**/src/*.{js,jsx,ts,tsx}',
-    '!**/src/cli.ts',
-    '!**/src/command/_util.ts',
-    '!**/test/cases/**',
+    '!**/src/styled-components.ts',
     '!**/__test__/cases/**',
     '!**/node_modules/**',
     '!**/lib/**',

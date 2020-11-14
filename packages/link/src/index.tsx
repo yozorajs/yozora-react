@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import './styled-components'
+import { defaultLinkTheme, getLinkStyle } from './theme'
+export * from './theme'
 
 
 /**
@@ -23,15 +26,20 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
 
 
 const Container = styled.a`
-  color: var(--md-link-color);
-  font-size: var(--md-link-font-size, inherit);
-  font-style: var(--md-link-font-style, normal);
-  text-decoration: var(--md-link-text-decoration, none);
+  color: ${ getLinkStyle('color') };
+  font-size: ${ getLinkStyle('fontSize') };
+  font-style: ${ getLinkStyle('fontStyle') };
+  text-decoration: ${ getLinkStyle('textDecoration') };
 `
 
 
+Container.defaultProps = {
+  theme: { yozora: { link: defaultLinkTheme } }
+}
+
+
 /**
- * Render link content
+ * Render `link` content
  *
  * @param props
  */
@@ -60,14 +68,14 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
 )
 
 
+Link.displayName = 'link'
+
+
 Link.propTypes = {
   url: PropTypes.string.isRequired,
   title: PropTypes.string,
   children: PropTypes.node.isRequired,
 }
-
-
-Link.displayName = 'link'
 
 
 export default Link
