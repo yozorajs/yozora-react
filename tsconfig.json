@@ -12,6 +12,9 @@
       "@yozora/react-code-highlighter": [
         "./packages/code-highlighter/src"
       ],
+      "@yozora/react-code-renderer-jsx": [
+        "./packages/code-renderer-jsx/src"
+      ],
       "@yozora/react-delete": [
         "./packages/delete/src"
       ],
