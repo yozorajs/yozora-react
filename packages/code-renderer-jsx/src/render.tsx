@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import { renderElement, renderElementAsync } from './eval'
 
 
@@ -21,7 +22,7 @@ export interface CodeRendererJsxProps {
   /**
    * Additional accessible variables
    */
-  scope?: Record<string, unknown>
+  scope?: Readonly<Record<string, unknown>>
   /**
    * Error callback
    */
@@ -35,7 +36,7 @@ export interface CodeRendererJsxProps {
  * @param props
  */
 export function CodeRendererJsx(props: CodeRendererJsxProps): React.ReactElement | null {
-  const { code, inline, scope = {}, onError } = props
+  const { code, inline, scope, onError } = props
   const [Element, setElement] = useState<React.ElementType | null>(null)
 
   const transpile = useCallback((code: string): void => {
@@ -52,12 +53,12 @@ export function CodeRendererJsx(props: CodeRendererJsxProps): React.ReactElement
 
     try {
       if (inline) {
-        const element = renderElement(code, scope, handleError)
+        const element = renderElement(code, scope!, handleError)
         handleSuccess(element)
       } else {
         // Reset output for async (no inline) evaluation
         setElement(null)
-        renderElementAsync(code, scope, handleError, handleSuccess)
+        renderElementAsync(code, scope!, handleError, handleSuccess)
       }
     } catch (error: any) {
       handleError(error)
@@ -76,10 +77,15 @@ export function CodeRendererJsx(props: CodeRendererJsxProps): React.ReactElement
 CodeRendererJsx.displayName = 'CodeRendererJsx'
 
 
+CodeRendererJsx.defaultProps = {
+  scope: { styled },
+}
+
+
 CodeRendererJsx.propTypes = {
   code: PropTypes.string.isRequired,
   inline: PropTypes.bool.isRequired,
-  scope: PropTypes.object.isRequired,
+  scope: PropTypes.object,
   onError: PropTypes.func.isRequired,
 }
 
