@@ -1,0 +1,67 @@
+{
+  "name": "@yozora/react-code-editor",
+  "version": "0.0.2",
+  "description": "simple code editor",
+  "author": {
+    "name": "guanghechen",
+    "url": "https://github.com/guanghechen/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guanghechen/yozora-react.git"
+  },
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/code-editor#readme",
+  "keywords": [
+    "simple code editor"
+  ],
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/types/index.d.ts",
+  "source": "src/index.tsx",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 14.15.0"
+  },
+  "files": [
+    "lib/",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "package.json",
+    "tsconfig.json",
+    "!lib/**/*.js.map",
+    "!lib/**/*.d.ts.map"
+  ],
+  "scripts": {
+    "start": "rollup -w -c rollup.config.js",
+    "prebuild": "rimraf lib/",
+    "build": "cross-env NODE_ENV=production rollup -c rollup.config.js",
+    "prepublishOnly": "cross-env ROLLUP_USE_SOURCE_MAP=false yarn build",
+    "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir .",
+    "lint:fix": "eslint '{src,__test__}/**/*.{ts,tsx}' --fix"
+  },
+  "dependencies": {
+    "@yozora/react-code-highlighter": "^0.0.2"
+  },
+  "peerDependencies": {
+    "@types/react": "^16.9.55",
+    "@types/styled-components": "^5.1.4",
+    "prop-types": "^15.7.2",
+    "react": "^16.14.0",
+    "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.55",
+    "@types/styled-components": "^5.1.4",
+    "prop-types": "^15.7.2",
+    "react": "^16.14.0",
+    "rollup": "2.28.1",
+    "styled-components": "^5.2.1"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
+}

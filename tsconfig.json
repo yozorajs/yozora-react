@@ -9,6 +9,9 @@
       "@yozora/react-code": [
         "./packages/code/src"
       ],
+      "@yozora/react-code-editor": [
+        "./packages/code-editor/src"
+      ],
       "@yozora/react-code-highlighter": [
         "./packages/code-highlighter/src"
       ],
