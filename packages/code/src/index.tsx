@@ -27,6 +27,19 @@ const Container = styled.div`
   border: ${ getCodeStyle('border') };
   margin: ${ getCodeStyle('margin') };
   background: ${ getCodeStyle('background') };
+  pre {
+    code, span {
+      line-height: inherit !important;
+    }
+    code {
+      background: transparent !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    ::selection {
+      background: ${ getCodeStyle('selectionBackground') };
+    }
+  }
 `
 
 

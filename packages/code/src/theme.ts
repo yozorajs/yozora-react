@@ -6,25 +6,30 @@ import type { CSSProperties, DefaultTheme } from 'styled-components'
  */
 export interface YozoraCodeTheme {
   /**
-   * Inline math padding
+   * Block code padding
    * @default 0
    */
   padding?: CSSProperties['padding'] | string
   /**
-   * Inline math border radius
+   * Block code border radius
    * @default 'none'
    */
   border?: CSSProperties['border'] | string
   /**
-   * Inline math margin
+   * Block code margin
    * @default 0
    */
   margin?: CSSProperties['margin'] | string
   /**
-   * Inline math background
+   * Block code background
    * @default 'none'
    */
   background?: CSSProperties['background'] | string
+  /**
+   * Block code selection background
+   * @default 'none'
+   */
+  selectionBackground?: CSSProperties['background'] | string
 }
 
 
@@ -36,6 +41,7 @@ export const defaultCodeTheme: YozoraCodeTheme = {
   border: 'none',
   margin: 0,
   background: 'none',
+  selectionBackground: 'none',
 }
 
 

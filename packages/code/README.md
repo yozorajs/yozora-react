@@ -72,19 +72,22 @@ This library is designed to render [mdast code][] type data
 
   * Theme
 
-     Prop Name    | Default
-    :------------:|:--------------
-     padding      | `0`
-     border       | `none`
-     margin       | `0`
-     background   | `none`
+     Prop Name            | Default
+    :--------------------:|:--------------
+     padding              | `0`
+     border               | `none`
+     margin               | `0`
+     background           | `none`
+     selectionBackground  | `none`
 
     See [YozoraCodeTheme][] for details.
 
 
 # References
 
+  - [mdast code][]
   - [YozoraCodeTheme][]
 
+
 [mdast code]: https://github.com/syntax-tree/mdast#code
-[YozoraCodeTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/code/src/theme.ts)
+[YozoraCodeTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/code/src/theme.ts

@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
+import styled from 'styled-components'
 import CodeHighlighter from '@yozora/react-code-highlighter'
+import { getCodeStyle } from '@yozora/react-code'
 import SimpleCodeEditor from './editor.no-cover'
 
 
@@ -44,6 +46,28 @@ export interface CodeEditorProps {
    */
   style?: React.CSSProperties
 }
+
+
+const Container = styled(SimpleCodeEditor)`
+  white-space: pre;
+  font-family: Consolas, "Source Code Pro", monospace, sans-serif;
+  & > pre {
+    code, span {
+      line-height: inherit !important;
+    }
+    code {
+      background: transparent !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+  }
+  & > pre, & > textarea {
+    ::selection {
+      background: ${ getCodeStyle('selectionBackground') };
+    }
+  }
+`
 
 
 /**
@@ -101,7 +125,7 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
   }
 
   return (
-    <SimpleCodeEditor
+    <Container
       value={ code }
       padding={ 10 }
       highlight={ highlightCode }
@@ -121,13 +145,15 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
       }}
       className={ className }
       style={{
-        whiteSpace: 'pre',
-        fontFamily: 'Consolas, Source Code Pro, monospace, sans-serif',
+
         ...style,
       }}
     />
   )
 }
+
+
+CodeEditor.displayName = 'CodeEditor'
 
 
 export default CodeEditor
