@@ -96,4 +96,4 @@ This library is designed to render [mdast table row][] type data
 [mdast table]: https://github.com/syntax-tree/mdast#table
 [mdast table row]: https://github.com/syntax-tree/mdast#tablecell
 [mdast table cell]: https://github.com/syntax-tree/mdast#tablerow
-[YozoraTableRowTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/table-row/src/theme.ts)
+[YozoraTableRowTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/table-row/src/theme.ts

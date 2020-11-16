@@ -99,4 +99,4 @@ This library is designed to render [mdast inlineCode][] type data
 
 
 [mdast inlineCode]: https://github.com/syntax-tree/mdast#inlinecode
-[YozoraInlineCodeTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/inline-code/src/theme.ts)
+[YozoraInlineCodeTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/inline-code/src/theme.ts

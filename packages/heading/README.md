@@ -116,4 +116,4 @@ This library is designed to render [mdast heading][] type data
 
 
 [mdast heading]: https://github.com/syntax-tree/mdast#heading
-[YozoraHeadingTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/heading/src/theme.ts)
+[YozoraHeadingTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/heading/src/theme.ts

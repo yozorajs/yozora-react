@@ -85,4 +85,4 @@ This library is designed to render [mdast strong][] type data
 
 
 [mdast strong]: https://github.com/syntax-tree/mdast#strong
-[YozoraStrongTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/strong/src/theme.ts)
+[YozoraStrongTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/strong/src/theme.ts

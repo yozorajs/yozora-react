@@ -74,4 +74,4 @@ This library is designed to render [mdast text][] type data
 
 
 [mdast text]: https://github.com/syntax-tree/mdast#text
-[YozoraTextTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/text/src/theme.ts)
+[YozoraTextTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/text/src/theme.ts

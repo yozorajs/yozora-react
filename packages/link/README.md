@@ -97,5 +97,5 @@ This library is designed to render [mdast link][] type data
 
 
 [mdast link]: https://github.com/syntax-tree/mdast#link
-[YozoraLinkTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/link/src/theme.ts)
+[YozoraLinkTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/link/src/theme.ts
 

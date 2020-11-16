@@ -105,4 +105,4 @@ This library is designed to render [mdast list][] type data
 
 
 [mdast list]: https://github.com/syntax-tree/mdast#list
-[YozoraListTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/list/src/theme.ts
+[YozoraListTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/list/src/theme.ts
