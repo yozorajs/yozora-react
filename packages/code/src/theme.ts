@@ -65,4 +65,3 @@ export function getCodeStyle(
     return yozora.code[key]
   }
 }
-
