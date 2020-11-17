@@ -39,11 +39,6 @@ exports[`basic rendering case snapshot 1`] = `
   padding: 0 !important;
 }
 
-.c3 > pre::selection,
-.c3 > textarea::selection {
-  background: none;
-}
-
 .c10 {
   position: absolute;
   top: 0;
@@ -77,6 +72,11 @@ exports[`basic rendering case snapshot 1`] = `
   caret-color: #aeafad;
   font-size: 1rem;
   font-family: Consolas,"Source Code Pro",monospace,sans-serif;
+}
+
+.c2 pre::selection,
+.c2 textarea::selection {
+  background: none;
 }
 
 .c9 {
@@ -342,11 +342,6 @@ exports[`basic rendering case snapshot with theme 1`] = `
   padding: 0 !important;
 }
 
-.c3 > pre::selection,
-.c3 > textarea::selection {
-  background: none;
-}
-
 .c10 {
   position: absolute;
   top: 0;
@@ -380,6 +375,11 @@ exports[`basic rendering case snapshot with theme 1`] = `
   caret-color: white;
   font-size: 18px;
   font-family: Consolas,"Source Code Pro",monospace,sans-serif;
+}
+
+.c2 pre::selection,
+.c2 textarea::selection {
+  background: none;
 }
 
 .c9 {

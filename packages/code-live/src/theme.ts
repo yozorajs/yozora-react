@@ -35,6 +35,11 @@ export interface YozoraCodeLiveTheme {
    * @default 'Consolas, "Source Code Pro", monospace, sans-serif'
    */
   editorFontFamily?: CSSProperties['fontFamily'] | string
+  /**
+   * CodeLive editor selection background
+   * @default 'none'
+   */
+  editorSelectionBackground?: CSSProperties['background'] | string
 }
 
 
@@ -48,6 +53,7 @@ export const defaultCodeLiveTheme: YozoraCodeLiveTheme = {
   editorCaretColor: '#aeafad',
   editorFontSize: '1rem',
   editorFontFamily: 'Consolas, "Source Code Pro", monospace, sans-serif',
+  editorSelectionBackground: 'none',
 }
 
 

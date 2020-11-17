@@ -101,14 +101,15 @@ Create a code live container.
 
   * Theme
 
-     Prop Name            | Default
-    :--------------------:|:----------------------------------------------------
-     margin               | `0 0 1rem`
-     editorPadding        | `0.8rem 0`
-     editorBackground     | `#1e1e1e`
-     editorCaretColor     | `#aeafad`
-     editorFontSize       | `1rem`
-     editorFontFamily     | `Consolas, "Source Code Pro", monospace, sans-serif`
+     Prop Name                  | Default
+    :--------------------------:|:----------------------------------------------------
+     margin                     | `0 0 1rem`
+     editorPadding              | `0.8rem 0`
+     editorBackground           | `#1e1e1e`
+     editorCaretColor           | `#aeafad`
+     editorFontSize             | `1rem`
+     editorFontFamily           | `Consolas, "Source Code Pro", monospace, sans-serif`
+      editorSelectionBackground | `none`
 
     See [YozoraCodeLiveTheme][] for details.
 

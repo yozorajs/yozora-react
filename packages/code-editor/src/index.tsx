@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
-import { getCodeStyle } from '@yozora/react-code'
 import CodeHighlighter from '@yozora/react-code-highlighter'
 import SimpleCodeEditor from './editor.no-cover'
 
@@ -59,12 +58,6 @@ const Container = styled(SimpleCodeEditor)`
       background: transparent !important;
       margin: 0 !important;
       padding: 0 !important;
-    }
-
-  }
-  & > pre, & > textarea {
-    ::selection {
-      background: ${ getCodeStyle('selectionBackground') };
     }
   }
 `

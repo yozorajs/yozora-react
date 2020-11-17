@@ -50,6 +50,11 @@ const EditorContainer = styled.div`
   caret-color: ${ getCodeLiveStyle('editorCaretColor') };
   font-size: ${ getCodeLiveStyle('editorFontSize') };
   font-family: ${ getCodeLiveStyle('editorFontFamily') };
+  pre, textarea {
+    ::selection {
+      background: ${ getCodeLiveStyle('editorSelectionBackground') };
+    }
+  }
 `
 EditorContainer.defaultProps = {
   theme: { yozora: { codeLive: defaultCodeLiveTheme } }
