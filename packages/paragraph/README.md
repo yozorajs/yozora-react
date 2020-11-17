@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-paragraph.svg)](https://www.npmjs.com/package/@yozora/react-paragraph)
 
 
-This library is designed to render [mdast paragraph][] type data
+This package is designed to render [mdast paragraph][] type data
 
 
 # Install
@@ -18,7 +18,6 @@ This library is designed to render [mdast paragraph][] type data
     - Pure
 
       ```tsx
-      // index.tsx
       import React from 'react'
       import Paragraph from '@yozora/react-paragraph'
 

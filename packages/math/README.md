@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-math.svg)](https://www.npmjs.com/package/@yozora/react-math)
 
 
-This library is designed to render [mdast math][mathjax] type data
+This package is designed to render [mdast math][mathjax] type data
 
 
 # Install
@@ -18,7 +18,6 @@ This library is designed to render [mdast math][mathjax] type data
     - Pure
 
       ```tsx
-      // index.tsx
       import React from 'react'
       import Math from '@yozora/react-math'
 

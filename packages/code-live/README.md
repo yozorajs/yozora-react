@@ -17,7 +17,7 @@ Create a code live container.
 
     - Pure
 
-      ```jsx
+      ```tsx
       import React from 'react'
       import CodeLive, { CodeRendererProps } from '@yozora/react-code-live'
 
@@ -44,7 +44,7 @@ Create a code live container.
 
     - With theme
 
-      ```jsx
+      ```tsx
       import React from 'react'
       import { DefaultTheme, ThemeProvider } from 'styled-components'
       import CodeLive, { CodeRendererProps } from '@yozora/react-code-live'

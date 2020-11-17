@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-list.svg)](https://www.npmjs.com/package/@yozora/react-list)
 
 
-This library is designed to render [mdast list][] type data
+This package is designed to render [mdast list][] type data
 
 
 # Install
@@ -18,7 +18,6 @@ This library is designed to render [mdast list][] type data
     - Pure
 
       ```tsx
-      // index.tsx
       import React from 'react'
       import List from '@yozora/react-list'
 

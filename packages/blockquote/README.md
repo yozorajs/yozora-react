@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-blockquote.svg)](https://www.npmjs.com/package/@yozora/react-blockquote)
 
 
-This library is designed to render [mdast blockquote][] type data
+This package is designed to render [mdast blockquote][] type data
 
 
 # Install
@@ -18,7 +18,6 @@ This library is designed to render [mdast blockquote][] type data
     - Pure
 
       ```tsx
-      // index.tsx
       import React from 'react'
       import Blockquote from '@yozora/react-blockquote'
 

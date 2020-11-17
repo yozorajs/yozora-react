@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-thematic-break.svg)](https://www.npmjs.com/package/@yozora/react-thematic-break)
 
 
-This library is designed to render [mdast thematicBreak][] type data
+This package is designed to render [mdast thematicBreak][] type data
 
 
 # Install
@@ -18,7 +18,6 @@ This library is designed to render [mdast thematicBreak][] type data
     - Pure
 
       ```tsx
-      // index.tsx
       import React from 'react'
       import ThematicBreak from '@yozora/react-thematic-break'
 

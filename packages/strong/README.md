@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-strong.svg)](https://www.npmjs.com/package/@yozora/react-strong)
 
 
-This library is designed to render [mdast strong][] type data
+This package is designed to render [mdast strong][] type data
 
 
 # Install
@@ -18,7 +18,6 @@ This library is designed to render [mdast strong][] type data
     - Pure
 
       ```tsx
-      // index.tsx
       import React from 'react'
       import Strong from '@yozora/react-strong'
 

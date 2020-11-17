@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-inline-code.svg)](https://www.npmjs.com/package/@yozora/react-inline-code)
 
 
-This library is designed to render [mdast inlineCode][] type data
+This package is designed to render [mdast inlineCode][] type data
 
 
 # Install
@@ -18,7 +18,6 @@ This library is designed to render [mdast inlineCode][] type data
     - Pure
 
       ```tsx
-      // index.tsx
       import React from 'react'
       import InlineCode from '@yozora/react-inline-code'
 

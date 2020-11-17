@@ -16,8 +16,7 @@ as it's seems not been updated for several months.
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
+    ```tsx
     import React, { useState } from 'react'
     import CodeEditor from '@yozora/react-code-editor'
 

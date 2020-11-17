@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-code.svg)](https://www.npmjs.com/package/@yozora/react-code)
 
 
-This library is designed to render [mdast code][] type data
+This package is designed to render [mdast code][] type data
 
 
 # Install
@@ -18,7 +18,6 @@ This library is designed to render [mdast code][] type data
     - Pure
 
       ```tsx
-      // index.tsx
       import React from 'react'
       import Code from '@yozora/react-code'
 

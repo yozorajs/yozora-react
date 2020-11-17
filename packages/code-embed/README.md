@@ -17,7 +17,7 @@ Render [mdast code][] type data with particular components.
 
     - Pure
 
-      ```jsx
+      ```tsx
       import React from 'react'
       import CodeEmbed, { CodeRendererProps } from '@yozora/react-code-embed'
 
@@ -44,7 +44,7 @@ Render [mdast code][] type data with particular components.
 
     - With theme
 
-      ```jsx
+      ```tsx
       import React from 'react'
       import { DefaultTheme, ThemeProvider } from 'styled-components'
       import CodeEmbed, { CodeRendererProps } from '@yozora/react-code-embed'

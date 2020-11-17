@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-code-renderer-jsx.svg)](https://www.npmjs.com/package/@yozora/react-code-renderer-jsx)
 
 
-This library is designed to live render jsx, like which [react live][] did. (In fact,
+This package is designed to live render jsx, like which [react live][] did. (In fact,
 this component is implemented with reference to [react-live][])
 
 
@@ -16,7 +16,7 @@ this component is implemented with reference to [react-live][])
 # Usage
   * Use in React project
 
-    ```typescript
+    ```tsx
     import React from 'react'
     import styled from 'styled-components'
     import CodeRendererJsx from '../src'
@@ -39,7 +39,7 @@ this component is implemented with reference to [react-live][])
 
     - Inline code: Render `React.ReactNode` directly
 
-      ```typescript
+      ```tsx
       const code = `
         (
           <div>
@@ -55,7 +55,7 @@ this component is implemented with reference to [react-live][])
 
     - Block code: Call the `render()` function with `React.ReactNode` explicitly
 
-      ```typescript
+      ```tsx
       const code = `
         const Container = styled.div\`
           background: hsl(0deg, 10%, 90%);

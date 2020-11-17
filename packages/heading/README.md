@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-heading.svg)](https://www.npmjs.com/package/@yozora/react-heading)
 
 
-This library is designed to render [mdast heading][] type data
+This package is designed to render [mdast heading][] type data
 
 
 # Install
@@ -18,7 +18,6 @@ This library is designed to render [mdast heading][] type data
     - Pure
 
       ```tsx
-      // index.tsx
       import React from 'react'
       import Heading from '@yozora/react-heading'
 

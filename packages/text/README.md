@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-text.svg)](https://www.npmjs.com/package/@yozora/react-text)
 
 
-This library is designed to render [mdast text][] type data
+This package is designed to render [mdast text][] type data
 
 
 # Install

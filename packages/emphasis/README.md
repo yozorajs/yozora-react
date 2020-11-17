@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-emphasis.svg)](https://www.npmjs.com/package/@yozora/react-emphasis)
 
 
-This library is designed to render [mdast emphasis][] type data
+This package is designed to render [mdast emphasis][] type data
 
 
 # Install
@@ -17,7 +17,6 @@ This library is designed to render [mdast emphasis][] type data
     - Pure
 
       ```tsx
-      // index.tsx
       import React from 'react'
       import Emphasis from '@yozora/react-emphasis'
 

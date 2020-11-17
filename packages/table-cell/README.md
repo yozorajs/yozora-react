@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-table-cell.svg)](https://www.npmjs.com/package/@yozora/react-table-cell)
 
 
-This library is designed to render [mdast table cell][] type data
+This package is designed to render [mdast table cell][] type data
 
 
 # Install
