@@ -1,7 +1,8 @@
 import React from 'react'
 import { act } from 'react-dom/test-utils'
 import { mount, render } from 'enzyme'
-import CodeLive, { CodeLiveProps } from '../src'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
+import CodeLive, { CodeRendererProps } from '../src'
 
 
 describe('basic rendering case', () => {
@@ -15,9 +16,9 @@ describe('basic rendering case', () => {
     errorLogger.mockRestore()
   })
 
-  const JsxRenderer: CodeLiveProps['CodeRenderer'] = ({ code }): React.ReactElement => {
+  const JsxRenderer = ({ value }: CodeRendererProps): React.ReactElement => {
     // eslint-disable-next-line no-new-func
-    const f = new Function(code)
+    const f = new Function(value)
     const v = f()
     return <span data-type="jsx">{ v }</span>
   }
@@ -83,6 +84,38 @@ describe('basic rendering case', () => {
 
     expect(wrapper.find('textarea').text()).toEqual(code)
     expect(wrapper.find('[data-type="jsx"]').text()).toEqual('9')
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('snapshot with theme', () => {
+    const theme: DefaultTheme = {
+      yozora: {
+        codeLive: {
+          margin: '1rem 0',
+          editorBackground: 'pink',
+          editorCaretColor: 'white',
+          editorFontSize: '18px',
+        },
+        codeEmbed: {
+          errorBackground: 'red',
+        }
+      }
+    }
+
+    const code = `
+      const a = 1 + 2;
+      return a * a
+    `
+
+    const wrapper = render(
+      <ThemeProvider theme={ theme }>
+        <CodeLive
+          lang="jsx"
+          value={ code }
+          CodeRenderer={ JsxRenderer }
+        />
+      </ThemeProvider>
+    )
     expect(wrapper).toMatchSnapshot()
   })
 })

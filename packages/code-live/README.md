@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-code-live.svg)](https://www.npmjs.com/package/@yozora/react-code-live)
 
 
-This library is designed to highlight [mdast code][] type data
+Create a code live container.
 
 
 # Install
@@ -15,30 +15,76 @@ This library is designed to highlight [mdast code][] type data
 # Usage
   * Use in React project
 
-    ```typescript
-    import React from 'react'
-    import CodeLive, { CodeLiveProps } from '@yozora/react-code-live'
+    - Pure
 
-    const JsxRenderer: CodeLiveProps['CodeRenderer'] = ({ code }): React.ReactElement => {
-      // eslint-disable-next-line no-new-func
-      const f = new Function(code)
-      const v = f()
-      return <span data-type="jsx">{ v }</span>
-    }
+      ```jsx
+      import React from 'react'
+      import CodeLive, { CodeRendererProps } from '@yozora/react-code-live'
 
-    const code = `
-      const a = 1 + 2;
-      return a * a
-    `
+      const JsxRenderer = ({ value }: CodeRendererProps): React.ReactElement => {
+        // eslint-disable-next-line no-new-func
+        const f = new Function(code)
+        const v = f()
+        return <span data-type="jsx">{ v }</span>
+      }
 
-    const wrapper = (
-      <CodeLive
-        lang="jsx"
-        value={ code }
-        CodeRenderer={ JsxRenderer }
-      />
-    )
-    ```
+      const code = `
+        const a = 1 + 2;
+        return a * a
+      `
+
+      const wrapper = (
+        <CodeLive
+          lang="jsx"
+          value={ code }
+          CodeRenderer={ JsxRenderer }
+        />
+      )
+      ```
+
+    - With theme
+
+      ```jsx
+      import React from 'react'
+      import { DefaultTheme, ThemeProvider } from 'styled-components'
+      import CodeLive, { CodeRendererProps } from '@yozora/react-code-live'
+
+      const JsxRenderer = ({ value }: CodeRendererProps): React.ReactElement => {
+        // eslint-disable-next-line no-new-func
+        const f = new Function(code)
+        const v = f()
+        return <span data-type="jsx">{ v }</span>
+      }
+
+      const theme: DefaultTheme = {
+        yozora: {
+          codeLive: {
+            margin: '1rem 0',
+            editorBackground: 'pink',
+            editorCaretColor: 'white',
+            editorFontSize: '18px',
+          },
+          codeEmbed: {
+            errorBackground: 'red',
+          }
+        }
+      }
+
+      const code = `
+        const a = 1 + 2;
+        return a * a
+      `
+
+      const wrapper = (
+        <ThemeProvider theme={ theme }>
+          <CodeLive
+            lang="jsx"
+            value={ code }
+            CodeRenderer={ JsxRenderer }
+          />
+        </ThemeProvider>
+      )
+      ```
 
   * Props
 
@@ -63,14 +109,6 @@ This library is designed to highlight [mdast code][] type data
      editorCaretColor     | `#aeafad`
      editorFontSize       | `1rem`
      editorFontFamily     | `Consolas, "Source Code Pro", monospace, sans-serif`
-     previewPadding       | `0.5rem`
-     previewBorder        | `none`
-     previewBackground    | `#fff`
-     previewColor         | `#000`
-     errorBackground      | `#ff5555`
-     errorColor           | `#f8f8f2`
-     errorFontSize        | `0.9em`
-     errorFontFamily      | `Consolas, "Source Code Pro", monospace, sans-serif`
 
     See [YozoraCodeLiveTheme][] for details.
 

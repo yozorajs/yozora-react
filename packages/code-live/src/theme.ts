@@ -35,46 +35,6 @@ export interface YozoraCodeLiveTheme {
    * @default 'Consolas, "Source Code Pro", monospace, sans-serif'
    */
   editorFontFamily?: CSSProperties['fontFamily'] | string
-  /**
-   * CodeLive preview padding
-   * @default '0.5rem'
-   */
-  previewPadding?: CSSProperties['padding'] | string
-  /**
-   * CodeLive preview border
-   * @default 'none'
-   */
-  previewBorder?: CSSProperties['border'] | string
-  /**
-   * CodeLive preview background
-   * @default '#fff'
-   */
-  previewBackground?: CSSProperties['background'] | string
-  /**
-   * CodeLive preview color
-   * @default '#000'
-   */
-  previewColor?: CSSProperties['background'] | string
-  /**
-   * CodeLive error background
-   * @default '#ff5555'
-   */
-  errorBackground?: CSSProperties['background'] | string
-  /**
-   * CodeLive error color
-   * @default '#f8f8f2'
-   */
-  errorColor?: CSSProperties['color'] | string
-  /**
-   * CodeLive error font-size
-   * @default '0.9em'
-   */
-  errorFontSize?: CSSProperties['fontSize'] | string
-  /**
-   * CodeLive error font-family
-   * @default 'Consolas, "Source Code Pro", monospace, sans-serif'
-   */
-  errorFontFamily?: CSSProperties['fontFamily'] | string
 }
 
 
@@ -88,14 +48,6 @@ export const defaultCodeLiveTheme: YozoraCodeLiveTheme = {
   editorCaretColor: '#aeafad',
   editorFontSize: '1rem',
   editorFontFamily: 'Consolas, "Source Code Pro", monospace, sans-serif',
-  previewPadding: '0.5rem',
-  previewBorder: 'none',
-  previewBackground: '#fff',
-  previewColor: '#000',
-  errorBackground: '#ff5555',
-  errorColor: '#f8f8f2',
-  errorFontSize: '0.9em',
-  errorFontFamily: 'Consolas, "Source Code Pro", monospace, sans-serif',
 }
 
 
