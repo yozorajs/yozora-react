@@ -12,6 +12,9 @@
       "@yozora/react-code-editor": [
         "./packages/code-editor/src"
       ],
+      "@yozora/react-code-embed": [
+        "./packages/code-embed/src"
+      ],
       "@yozora/react-code-highlighter": [
         "./packages/code-highlighter/src"
       ],
