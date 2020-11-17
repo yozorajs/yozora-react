@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-inline-math.svg)](https://www.npmjs.com/package/@yozora/react-inline-math)
 
 
-This library is designed to render [inlineMath][mathjax] type data
+This package is designed to render [inlineMath][mathjax] type data
 
 
 # Install
@@ -18,7 +18,6 @@ This library is designed to render [inlineMath][mathjax] type data
     - Pure
 
       ```tsx
-      // index.tsx
       import React from 'react'
       import InlineMath from '@yozora/react-inline-math'
 
@@ -87,4 +86,4 @@ This library is designed to render [inlineMath][mathjax] type data
 
 
 [mathjax]: https://www.mathjax.org/
-[YozoraInlineMathTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/inline-math/src/theme.ts)
+[YozoraInlineMathTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/inline-math/src/theme.ts

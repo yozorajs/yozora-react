@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-table-cell.svg)](https://www.npmjs.com/package/@yozora/react-table-cell)
 
 
-This library is designed to render [mdast table cell][] type data
+This package is designed to render [mdast table cell][] type data
 
 
 # Install
@@ -98,4 +98,4 @@ This library is designed to render [mdast table cell][] type data
 [mdast table]: https://github.com/syntax-tree/mdast#table
 [mdast table cell]: https://github.com/syntax-tree/mdast#tablecell
 [mdast table cell]: https://github.com/syntax-tree/mdast#tablecell
-[YozoraTableCellTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/table-cell/src/theme.ts)
+[YozoraTableCellTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/table-cell/src/theme.ts

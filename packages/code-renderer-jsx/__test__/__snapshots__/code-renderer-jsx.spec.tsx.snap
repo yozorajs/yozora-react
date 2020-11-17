@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic rendering case snapshot: bad code 1`] = `
+<Wrapper
+  code="
+      (<div>hello</div>)
+    "
+  inline={false}
+>
+  <div>
+    <CodeRendererJsx
+      code="
+      (<div>hello</div>)
+    "
+      inline={false}
+      onError={[Function]}
+      scope={
+        Object {
+          "styled": [Function],
+        }
+      }
+    />
+    <pre>
+      SyntaxError: No-Inline evaluations must call \`render\`.
+    </pre>
+  </div>
+</Wrapper>
+`;
+
+exports[`basic rendering case snapshot: block code 1`] = `
+.c0 {
+  background: hsl(0deg,10%,90%);
+}
+
+<Wrapper
+  code="
+      const Container = styled.div\`
+        background: hsl(0deg, 10%, 90%);
+      \`
+
+      render(
+        <Container>
+          <span style={{ color: 'orange' }}>Hello, world</span>
+        </Container>
+      )
+    "
+  inline={false}
+>
+  <div>
+    <CodeRendererJsx
+      code="
+      const Container = styled.div\`
+        background: hsl(0deg, 10%, 90%);
+      \`
+
+      render(
+        <Container>
+          <span style={{ color: 'orange' }}>Hello, world</span>
+        </Container>
+      )
+    "
+      inline={false}
+      onError={[Function]}
+      scope={
+        Object {
+          "styled": [Function],
+        }
+      }
+    >
+      <ErrorBoundary>
+        <styled.div>
+          <div
+            className="c0"
+          >
+            <span
+              style={
+                Object {
+                  "color": "orange",
+                }
+              }
+            >
+              Hello, world
+            </span>
+          </div>
+        </styled.div>
+      </ErrorBoundary>
+    </CodeRendererJsx>
+    <pre />
+  </div>
+</Wrapper>
+`;
+
+exports[`basic rendering case snapshot: inline code 1`] = `
+<Wrapper
+  code="
+      (
+        <div>
+          <span>Hello, world</span>
+        </div>
+      )
+    "
+  inline={true}
+>
+  <div>
+    <CodeRendererJsx
+      code="
+      (
+        <div>
+          <span>Hello, world</span>
+        </div>
+      )
+    "
+      inline={true}
+      onError={[Function]}
+      scope={
+        Object {
+          "styled": [Function],
+        }
+      }
+    >
+      <ErrorBoundary>
+        <div>
+          <span>
+            Hello, world
+          </span>
+        </div>
+      </ErrorBoundary>
+    </CodeRendererJsx>
+    <pre />
+  </div>
+</Wrapper>
+`;

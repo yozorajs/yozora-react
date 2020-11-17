@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-link.svg)](https://www.npmjs.com/package/@yozora/react-link)
 
 
-This library is designed to render [mdast link][] type data
+This package is designed to render [mdast link][] type data
 
 
 # Install
@@ -18,7 +18,6 @@ This library is designed to render [mdast link][] type data
     - Pure
 
       ```tsx
-      // index.tsx
       import React from 'react'
       import Link from '@yozora/react-link'
 
@@ -97,5 +96,5 @@ This library is designed to render [mdast link][] type data
 
 
 [mdast link]: https://github.com/syntax-tree/mdast#link
-[YozoraLinkTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/link/src/theme.ts)
+[YozoraLinkTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/link/src/theme.ts
 

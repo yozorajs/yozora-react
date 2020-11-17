@@ -53,4 +53,3 @@ export function getThematicBreakStyle(
     return yozora.thematicBreak[key]
   }
 }
-

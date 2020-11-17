@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-code-highlighter.svg)](https://www.npmjs.com/package/@yozora/react-code-highlighter)
 
 
-This library is designed to highlight [mdast code][] type data
+This package is designed to highlight [mdast code][] type data
 
 
 # Install
@@ -15,8 +15,7 @@ This library is designed to highlight [mdast code][] type data
 # Usage
   * Use in React project
 
-    ```typescript
-    // index.tsx
+    ```tsx
     import React, { useEffect, useState } from 'react'
     import CodeHighlighter from '@yozora/react-code-highlighter'
 

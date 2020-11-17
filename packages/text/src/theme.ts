@@ -41,4 +41,3 @@ export function getTextStyle(
     return yozora.text[key]
   }
 }
-

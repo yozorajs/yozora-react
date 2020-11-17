@@ -26,6 +26,21 @@ exports[`basic rendering case snapshot 1`] = `
   background: none;
 }
 
+.c0 pre code,
+.c0 pre span {
+  line-height: inherit !important;
+}
+
+.c0 pre code {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.c0 pre::selection {
+  background: none;
+}
+
 <div
   class="c0"
 >
@@ -146,6 +161,21 @@ exports[`basic rendering case snapshot with theme 1`] = `
   border: 1px solid blue;
   margin: 0;
   background: hsla(210deg,13%,12%,0.05);
+}
+
+.c0 pre code,
+.c0 pre span {
+  line-height: inherit !important;
+}
+
+.c0 pre code {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.c0 pre::selection {
+  background: none;
 }
 
 <div

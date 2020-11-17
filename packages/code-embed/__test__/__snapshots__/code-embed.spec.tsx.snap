@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic rendering case snapshot 1`] = `
+.c1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.c0 {
+  position: relative;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: block;
+  overflow: auto;
+  padding: 0;
+  border: none;
+  background: #fff;
+  color: #000;
+}
+
+<div
+  class="c0"
+>
+  <span
+    data-type="jsx"
+  >
+    9
+  </span>
+  <div
+    class="c1"
+    hidden=""
+  />
+</div>
+`;
+
+exports[`basic rendering case snapshot with theme 1`] = `
+.c1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.c0 {
+  position: relative;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: block;
+  overflow: auto;
+  padding: 2px;
+  border: none;
+  background: #fff;
+  color: #ccc;
+}
+
+<div
+  class="c0"
+>
+  <span
+    data-type="jsx"
+  >
+    9
+  </span>
+  <div
+    class="c1"
+    hidden=""
+  />
+</div>
+`;

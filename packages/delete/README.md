@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@yozora/react-delete.svg)](https://www.npmjs.com/package/@yozora/react-delete)
 
 
-This library is designed to render [mdast delete][] type data
+This package is designed to render [mdast delete][] type data
 
 
 # Install
@@ -18,7 +18,6 @@ This library is designed to render [mdast delete][] type data
     - Pure
 
       ```tsx
-      // index.tsx
       import React from 'react'
       import Delete from '@yozora/react-delete'
 
@@ -87,4 +86,4 @@ This library is designed to render [mdast delete][] type data
 
 
 [mdast delete]: https://github.com/syntax-tree/mdast#delete
-[YozoraDeleteTheme]: (https://github.com/guanghechen/yozora-react/blob/master/packages/delete/src/theme.ts)
+[YozoraDeleteTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/delete/src/theme.ts
