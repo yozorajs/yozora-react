@@ -51,6 +51,9 @@
       "@yozora/react-math": [
         "./packages/math/src"
       ],
+      "@yozora/react-markdown": [
+        "./packages/react-markdown/src"
+      ],
       "@yozora/react-paragraph": [
         "./packages/paragraph/src"
       ],
