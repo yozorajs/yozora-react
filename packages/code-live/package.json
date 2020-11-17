@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-live",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "code live in react",
   "author": {
     "name": "guanghechen",
@@ -42,8 +42,8 @@
     "lint:fix": "eslint '{src,__test__}/**/*.{ts,tsx}' --fix"
   },
   "dependencies": {
-    "@yozora/react-code-editor": "^0.0.2",
-    "@yozora/react-code-embed": "^0.0.2"
+    "@yozora/react-code-editor": "^0.0.3",
+    "@yozora/react-code-embed": "^0.0.3"
   },
   "peerDependencies": {
     "@types/react": "^16.9.55",

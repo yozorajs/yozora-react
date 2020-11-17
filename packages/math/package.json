@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-math",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "render markdown math in react",
   "author": {
     "name": "guanghechen",

@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "render markdown code in react",
   "author": {
     "name": "guanghechen",
@@ -42,7 +42,7 @@
     "lint:fix": "eslint '{src,__test__}/**/*.{ts,tsx}' --fix"
   },
   "dependencies": {
-    "@yozora/react-code-highlighter": "^0.0.2"
+    "@yozora/react-code-highlighter": "^0.0.3"
   },
   "peerDependencies": {
     "@types/react": "^16.9.55",
