@@ -13,15 +13,10 @@ exports[`basic rendering case snapshot 1`] = `
 
 .c0 {
   position: relative;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  display: block;
-  overflow: auto;
   padding: 0;
   border: none;
-  background: #fff;
-  color: #000;
+  background: transparent;
+  color: inherit;
 }
 
 <div
@@ -52,11 +47,6 @@ exports[`basic rendering case snapshot with theme 1`] = `
 
 .c0 {
   position: relative;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  display: block;
-  overflow: auto;
   padding: 2px;
   border: none;
   background: #fff;

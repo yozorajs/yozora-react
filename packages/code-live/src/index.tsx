@@ -61,29 +61,34 @@ EditorContainer.defaultProps = {
 }
 
 
-const EmbedContainer = styled(CodeEmbed)`
-  margin: 0;
+const EmbedContainer = styled.div`
+  flex: 0 0 auto;
+  display: block;
+  overflow: auto;
+  padding: ${ getCodeLiveStyle('previewPadding') };
+  border: ${ getCodeLiveStyle('previewBorder') };
+  background: ${ getCodeLiveStyle('previewBackground') };
+  color: ${ getCodeLiveStyle('previewColor') };
 `
 
 
 const Container = styled.div<{ layout: 'horizontal' | 'vertical' }>`
   display: flex;
-  ${
-    props => props.layout === 'horizontal'
-      ? css`
-          flex-direction: row;
-          ${ EditorContainer }, ${ EmbedContainer } {
-            flex: 1 1 0;
-            width: 50%;
-          }
-        `
-      : css`
-          flex-direction: column;
-          ${ EditorContainer }, ${ EmbedContainer } {
-            flex: 1 1 auto;
-            width: 100%;
-          }
-        `
+  ${ props => props.layout === 'horizontal'
+    ? css`
+        flex-direction: row;
+        ${ EditorContainer }, ${ EmbedContainer } {
+          flex: 1 1 0;
+          width: 50%;
+        }
+      `
+    : css`
+        flex-direction: column;
+        ${ EditorContainer }, ${ EmbedContainer } {
+          flex: 1 1 auto;
+          width: 100%;
+        }
+      `
   };
 `
 Container.defaultProps = {
@@ -118,12 +123,14 @@ export const CodeLive = React.forwardRef<HTMLDivElement, CodeLiveProps>(
             preClassName={ editorPreClassName }
           />
         </EditorContainer>
-        <EmbedContainer
-          lang={ lang }
-          value={ value }
-          errorClassName={ errorClassName }
-          CodeRenderer={ CodeRenderer }
-        />
+        <EmbedContainer>
+          <CodeEmbed
+            lang={ lang }
+            value={ value }
+            errorClassName={ errorClassName }
+            CodeRenderer={ CodeRenderer }
+          />
+        </EmbedContainer>
       </Container>
     )
   }

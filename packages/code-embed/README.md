@@ -103,8 +103,8 @@ Render [mdast code][] type data with particular components.
     :----------------:|:----------------------------------------------------
      padding          | `0`
      border           | `none`
-     background       | `#fff`
-     color            | `#000`
+     background       | `transparent`
+     color            | `inherit`
      errorBackground  | `#ff5555`
      errorColor       | `#f8f8f2`
      errorFontSize    | `0.9em`

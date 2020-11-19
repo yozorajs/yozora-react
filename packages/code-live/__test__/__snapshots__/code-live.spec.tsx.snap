@@ -49,17 +49,12 @@ exports[`basic rendering case snapshot 1`] = `
   overflow-y: auto;
 }
 
-.c7 {
+.c9 {
   position: relative;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  display: block;
-  overflow: auto;
   padding: 0;
   border: none;
-  background: #fff;
-  color: #000;
+  background: transparent;
+  color: inherit;
 }
 
 .c2 {
@@ -79,8 +74,16 @@ exports[`basic rendering case snapshot 1`] = `
   background: none;
 }
 
-.c9 {
-  margin: 0;
+.c8 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: block;
+  overflow: auto;
+  padding: 0;
+  border: none;
+  background: #fff;
+  color: #000;
 }
 
 .c0 {
@@ -94,7 +97,7 @@ exports[`basic rendering case snapshot 1`] = `
 }
 
 .c0 .c1,
-.c0 .c8 {
+.c0 .c7 {
   -webkit-flex: 1 1 0;
   -ms-flex: 1 1 0;
   flex: 1 1 0;
@@ -288,17 +291,21 @@ exports[`basic rendering case snapshot 1`] = `
     </div>
   </div>
   <div
-    class="c7 c8 c9"
+    class="c7 c8"
   >
-    <span
-      data-type="jsx"
-    >
-      9
-    </span>
     <div
-      class="c10"
-      hidden=""
-    />
+      class="c9"
+    >
+      <span
+        data-type="jsx"
+      >
+        9
+      </span>
+      <div
+        class="c10"
+        hidden=""
+      />
+    </div>
   </div>
 </div>
 `;
@@ -352,17 +359,12 @@ exports[`basic rendering case snapshot with theme 1`] = `
   overflow-y: auto;
 }
 
-.c7 {
+.c9 {
   position: relative;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  display: block;
-  overflow: auto;
   padding: 0;
   border: none;
-  background: #fff;
-  color: #000;
+  background: transparent;
+  color: inherit;
 }
 
 .c2 {
@@ -382,8 +384,16 @@ exports[`basic rendering case snapshot with theme 1`] = `
   background: none;
 }
 
-.c9 {
-  margin: 0;
+.c8 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  display: block;
+  overflow: auto;
+  padding: 0;
+  border: none;
+  background: #fff;
+  color: #000;
 }
 
 .c0 {
@@ -397,7 +407,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
 }
 
 .c0 .c1,
-.c0 .c8 {
+.c0 .c7 {
   -webkit-flex: 1 1 0;
   -ms-flex: 1 1 0;
   flex: 1 1 0;
@@ -591,17 +601,21 @@ exports[`basic rendering case snapshot with theme 1`] = `
     </div>
   </div>
   <div
-    class="c7 c8 c9"
+    class="c7 c8"
   >
-    <span
-      data-type="jsx"
-    >
-      9
-    </span>
     <div
-      class="c10"
-      hidden=""
-    />
+      class="c9"
+    >
+      <span
+        data-type="jsx"
+      >
+        9
+      </span>
+      <div
+        class="c10"
+        hidden=""
+      />
+    </div>
   </div>
 </div>
 `;

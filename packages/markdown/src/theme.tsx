@@ -43,9 +43,9 @@ export const defaultTheme: DefaultTheme = {
     },
     codeEmbed: {
       padding: 'var(--md-code-embed-padding, 0.5rem)',
-      border: 'var(--md-code-embed-border, 1px solid lightgray)',
-      background: 'var(--md-code-embed-background, #fff)',
-      color: 'var(--md-code-embed-color, #000)',
+      border: 'var(--md-code-embed-border, none)',
+      background: 'var(--md-code-embed-background, transparent)',
+      color: 'var(--md-code-embed-color, inherit)',
       errorBackground: 'var(--md-code-embed-error-background, #ff5555)',
       errorColor: 'var(--md-code-embed-error-color, #f8f8f8)',
       errorFontSize: 'var(--md-code-embed-error-font-size, 0.9em)',
@@ -59,6 +59,10 @@ export const defaultTheme: DefaultTheme = {
       editorFontSize: 'var(--md-code-live-editor-font-size, 1rem)',
       editorFontFamily: 'var(--md-code-live-editor-font-family, Consolas, "Source Code Pro", monospace, sans-serif)',
       editorSelectionBackground: 'var(--md-code-live-editor-selection-background, hsla(200deg, 30%, 70%, 0.3))',
+      previewPadding: 'var(--md-code-live-preview-padding, 0)',
+      previewBorder: 'var(--md-code-live-preview-border, 1px solid lightgray)',
+      previewBackground: 'var(--md-code-live-preview-background, #fff)',
+      previewColor: 'var(--md-code-live-preview-color, #000)',
     },
     delete: {
       color: 'var(--md-delete-color, inherit)',

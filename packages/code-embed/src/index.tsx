@@ -66,9 +66,6 @@ ErrorContainer.defaultProps = {
 
 const Container = styled.div`
   position: relative;
-  flex: 0 0 auto;
-  display: block;
-  overflow: auto;
   padding: ${ getCodeEmbedStyle('padding') };
   border: ${ getCodeEmbedStyle('border') };
   background: ${ getCodeEmbedStyle('background') };
