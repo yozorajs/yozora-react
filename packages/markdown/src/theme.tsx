@@ -120,8 +120,8 @@ export const defaultTheme: DefaultTheme = {
       textDecoration: 'var(--md-link-text-decoration, none)',
     },
     list: {
-      padding: 'var(--md-list-padding, 0.625em 1em)',
-      margin: 'var(--md-list-margin, 0 0 1.25em)',
+      padding: 'var(--md-list-padding, 0 0 0 1.2em)',
+      margin: 'var(--md-list-margin, 0 0 1em)',
       lineHeight: 'var(--md-list-line-height, 2)',
       color: 'var(--md-list-color, inherit)',
     },
