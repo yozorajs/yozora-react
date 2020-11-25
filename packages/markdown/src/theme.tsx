@@ -39,6 +39,12 @@ export const defaultTheme: DefaultTheme = {
       margin: 'var(--md-blockquote-margin, 0 0 1.25em)'
     },
     code: {
+      padding: 'var(--md-code-padding, 0)',
+      border: 'var(--md-code-border, none)',
+      margin: 'var(--md-code-margin, 0)',
+      lineHeight: 'var(--md-code-line-height, 1.33)',
+      background: 'var(--md-code-background, none)',
+      fontFamily: `var(--md-code-font-family, ${ fontFamily.code })`,
       selectionBackground: 'var(--md-code-selection-background, hsla(200deg, 30%, 70%, 0.3))',
     },
     codeEmbed: {

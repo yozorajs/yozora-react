@@ -21,10 +21,19 @@ export interface YozoraCodeTheme {
    */
   margin?: CSSProperties['margin'] | string
   /**
+   * @default 1.33
+   */
+  lineHeight?: CSSProperties['lineHeight'] | string
+  /**
    * Block code background
    * @default 'none'
    */
   background?: CSSProperties['background'] | string
+  /**
+   * Code font-family
+   * @default 'Consolas, "Source Code Pro", monospace, sans-serif'
+   */
+  fontFamily?: CSSProperties['fontFamily'] | string
   /**
    * Block code selection background
    * @default 'none'
@@ -40,7 +49,9 @@ export const defaultCodeTheme: YozoraCodeTheme = {
   padding: 0,
   border: 'none',
   margin: 0,
+  lineHeight: 1.33,
   background: 'none',
+  fontFamily: 'Consolas, "Source Code Pro", monospace, sans-serif',
   selectionBackground: 'none',
 }
 

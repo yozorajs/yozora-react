@@ -24,17 +24,24 @@ exports[`basic rendering case snapshot 1`] = `
   border: none;
   margin: 0;
   background: none;
+  font-family: Consolas,"Source Code Pro",monospace,sans-serif;
+  line-height: 1.33;
+}
+
+.c0 pre {
+  line-height: inherit;
+  font-family: Consolas,"Source Code Pro",monospace,sans-serif;
 }
 
 .c0 pre code,
 .c0 pre span {
-  line-height: inherit !important;
+  line-height: inherit;
 }
 
 .c0 pre code {
-  background: transparent !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  background: transparent;
+  margin: 0;
+  padding: 0;
 }
 
 .c0 pre::selection {
@@ -161,17 +168,24 @@ exports[`basic rendering case snapshot with theme 1`] = `
   border: 1px solid blue;
   margin: 0;
   background: hsla(210deg,13%,12%,0.05);
+  font-family: Consolas,"Source Code Pro",monospace,sans-serif;
+  line-height: 1.33;
+}
+
+.c0 pre {
+  line-height: inherit;
+  font-family: Consolas,"Source Code Pro",monospace,sans-serif;
 }
 
 .c0 pre code,
 .c0 pre span {
-  line-height: inherit !important;
+  line-height: inherit;
 }
 
 .c0 pre code {
-  background: transparent !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  background: transparent;
+  margin: 0;
+  padding: 0;
 }
 
 .c0 pre::selection {
