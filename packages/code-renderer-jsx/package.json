@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-renderer-jsx",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "render jsx code",
   "author": {
     "name": "guanghechen",
