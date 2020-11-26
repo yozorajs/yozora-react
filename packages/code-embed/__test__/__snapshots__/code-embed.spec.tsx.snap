@@ -13,8 +13,8 @@ exports[`basic rendering case snapshot 1`] = `
 
 .c0 {
   position: relative;
-  padding: 0;
   border: none;
+  padding: 0;
   background: transparent;
   color: inherit;
 }
@@ -47,8 +47,8 @@ exports[`basic rendering case snapshot with theme 1`] = `
 
 .c0 {
   position: relative;
-  padding: 2px;
   border: none;
+  padding: 2px;
   background: #fff;
   color: #ccc;
 }

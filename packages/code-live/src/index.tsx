@@ -61,14 +61,20 @@ EditorContainer.defaultProps = {
 }
 
 
+const WrappedCodeEmbed = styled(CodeEmbed)`
+  width: 100%;
+  height: 100%;
+  border: ${ getCodeLiveStyle('previewBorder') };
+  padding: ${ getCodeLiveStyle('previewPadding') };
+`
+
+
 const EmbedContainer = styled.div`
   flex: 0 0 auto;
   display: block;
   overflow: auto;
-  padding: ${ getCodeLiveStyle('previewPadding') };
-  border: ${ getCodeLiveStyle('previewBorder') };
-  background: ${ getCodeLiveStyle('previewBackground') };
   color: ${ getCodeLiveStyle('previewColor') };
+  background: ${ getCodeLiveStyle('previewBackground') };
 `
 
 
@@ -77,6 +83,7 @@ const Container = styled.div<{ layout: 'horizontal' | 'vertical' }>`
   ${ props => props.layout === 'horizontal'
     ? css`
         flex-direction: row;
+        align-items: stretch;
         ${ EditorContainer }, ${ EmbedContainer } {
           flex: 1 1 0;
           width: 50%;
@@ -124,7 +131,7 @@ export const CodeLive = React.forwardRef<HTMLDivElement, CodeLiveProps>(
           />
         </EditorContainer>
         <EmbedContainer>
-          <CodeEmbed
+          <WrappedCodeEmbed 
             lang={ lang }
             value={ value }
             errorClassName={ errorClassName }

@@ -48,7 +48,7 @@ export const defaultTheme: DefaultTheme = {
       selectionBackground: 'var(--md-code-selection-background, hsla(200deg, 30%, 70%, 0.3))',
     },
     codeEmbed: {
-      padding: 'var(--md-code-embed-padding, 0.5rem)',
+      padding: 'var(--md-code-embed-padding, 0)',
       border: 'var(--md-code-embed-border, none)',
       background: 'var(--md-code-embed-background, transparent)',
       color: 'var(--md-code-embed-color, inherit)',

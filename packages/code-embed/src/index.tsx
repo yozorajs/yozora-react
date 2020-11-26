@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import CodeEmbedError from './error'
 import './styled-components'
 import { defaultCodeEmbedTheme, getCodeEmbedStyle } from './theme'
@@ -64,10 +64,21 @@ ErrorContainer.defaultProps = {
 }
 
 
-const Container = styled.div`
+const Container = styled.div<{ $hasError: boolean }>`
   position: relative;
-  padding: ${ getCodeEmbedStyle('padding') };
-  border: ${ getCodeEmbedStyle('border') };
+  ${
+    props => props.$hasError
+      ? css`
+        && {
+          border: none;
+          padding: 0;
+        }
+      `
+      : css`
+        border: ${ getCodeEmbedStyle('border') };
+        padding: ${ getCodeEmbedStyle('padding') };
+      `
+  }
   background: ${ getCodeEmbedStyle('background') };
   color: ${ getCodeEmbedStyle('color') };
 `
@@ -83,7 +94,7 @@ export const CodeEmbed = React.forwardRef<HTMLDivElement, CodeEmbedProps>(
     const [error, setError] = useState<string | null>(null)
 
     return (
-      <Container { ...htmlProps } ref={ forwardRef }>
+      <Container { ...htmlProps } ref={ forwardRef } $hasError={ error != null }>
         <CodeRenderer
           lang={ lang }
           value={ value }
