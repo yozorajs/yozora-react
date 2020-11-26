@@ -76,7 +76,9 @@ This package is designed to render [mdast code][] type data
      padding              | `0`
      border               | `none`
      margin               | `0`
+     lineHeight           | `1.33`
      background           | `none`
+     fontFamily           | `Consolas, "Source Code Pro", monospace, sans-serif`
      selectionBackground  | `none`
 
     See [YozoraCodeTheme][] for details.

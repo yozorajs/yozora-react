@@ -109,7 +109,11 @@ Create a code live container.
      editorCaretColor           | `#aeafad`
      editorFontSize             | `1rem`
      editorFontFamily           | `Consolas, "Source Code Pro", monospace, sans-serif`
-      editorSelectionBackground | `none`
+     editorSelectionBackground  | `none`
+     previewPadding             | `0`
+     previewBorder              | `none`
+     previewBackground          | `#fff`
+     previewColor               | `#000`
 
     See [YozoraCodeLiveTheme][] for details.
 

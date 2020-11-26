@@ -27,14 +27,18 @@ const Container = styled.div`
   border: ${ getCodeStyle('border') };
   margin: ${ getCodeStyle('margin') };
   background: ${ getCodeStyle('background') };
+  font-family: ${ getCodeStyle('fontFamily') };
+  line-height: ${ getCodeStyle('lineHeight') };
   pre {
+    line-height: inherit;
+    font-family: ${ getCodeStyle('fontFamily') };
     code, span {
-      line-height: inherit !important;
+      line-height: inherit;
     }
     code {
-      background: transparent !important;
-      margin: 0 !important;
-      padding: 0 !important;
+      background: transparent;
+      margin: 0;
+      padding: 0;
     }
     ::selection {
       background: ${ getCodeStyle('selectionBackground') };

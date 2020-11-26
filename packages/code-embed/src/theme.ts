@@ -17,12 +17,12 @@ export interface YozoraCodeEmbedTheme {
   border?: CSSProperties['border'] | string
   /**
    * CodeEmbed background
-   * @default '#fff'
+   * @default 'transparent'
    */
   background?: CSSProperties['background'] | string
   /**
    * CodeEmbed color
-   * @default '#000'
+   * @default 'inherit'
    */
   color?: CSSProperties['background'] | string
   /**
@@ -54,8 +54,8 @@ export interface YozoraCodeEmbedTheme {
 export const defaultCodeEmbedTheme: YozoraCodeEmbedTheme = {
   padding: '0',
   border: 'none',
-  background: '#fff',
-  color: '#000',
+  background: 'transparent',
+  color: 'inherit',
   errorBackground: '#ff5555',
   errorColor: '#f8f8f2',
   errorFontSize: '0.9em',

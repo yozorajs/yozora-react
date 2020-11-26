@@ -61,29 +61,41 @@ EditorContainer.defaultProps = {
 }
 
 
-const EmbedContainer = styled(CodeEmbed)`
-  margin: 0;
+const WrappedCodeEmbed = styled(CodeEmbed)`
+  width: 100%;
+  height: 100%;
+  border: ${ getCodeLiveStyle('previewBorder') };
+  padding: ${ getCodeLiveStyle('previewPadding') };
+`
+
+
+const EmbedContainer = styled.div`
+  flex: 0 0 auto;
+  display: block;
+  overflow: auto;
+  color: ${ getCodeLiveStyle('previewColor') };
+  background: ${ getCodeLiveStyle('previewBackground') };
 `
 
 
 const Container = styled.div<{ layout: 'horizontal' | 'vertical' }>`
   display: flex;
-  ${
-    props => props.layout === 'horizontal'
-      ? css`
-          flex-direction: row;
-          ${ EditorContainer }, ${ EmbedContainer } {
-            flex: 1 1 0;
-            width: 50%;
-          }
-        `
-      : css`
-          flex-direction: column;
-          ${ EditorContainer }, ${ EmbedContainer } {
-            flex: 1 1 auto;
-            width: 100%;
-          }
-        `
+  ${ props => props.layout === 'horizontal'
+    ? css`
+        flex-direction: row;
+        align-items: stretch;
+        ${ EditorContainer }, ${ EmbedContainer } {
+          flex: 1 1 0;
+          width: 50%;
+        }
+      `
+    : css`
+        flex-direction: column;
+        ${ EditorContainer }, ${ EmbedContainer } {
+          flex: 1 1 auto;
+          width: 100%;
+        }
+      `
   };
 `
 Container.defaultProps = {
@@ -118,12 +130,14 @@ export const CodeLive = React.forwardRef<HTMLDivElement, CodeLiveProps>(
             preClassName={ editorPreClassName }
           />
         </EditorContainer>
-        <EmbedContainer
-          lang={ lang }
-          value={ value }
-          errorClassName={ errorClassName }
-          CodeRenderer={ CodeRenderer }
-        />
+        <EmbedContainer>
+          <WrappedCodeEmbed 
+            lang={ lang }
+            value={ value }
+            errorClassName={ errorClassName }
+            CodeRenderer={ CodeRenderer }
+          />
+        </EmbedContainer>
       </Container>
     )
   }

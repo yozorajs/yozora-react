@@ -40,6 +40,26 @@ export interface YozoraCodeLiveTheme {
    * @default 'none'
    */
   editorSelectionBackground?: CSSProperties['background'] | string
+  /**
+   * CodeLive preview padding
+   * @default '0'
+   */
+  previewPadding?: CSSProperties['padding'] | string
+  /**
+   * CodeLive preview border
+   * @default 'none'
+   */
+  previewBorder?: CSSProperties['border'] | string
+  /**
+   * CodeLive preview background
+   * @default '#fff'
+   */
+  previewBackground?: CSSProperties['background'] | string
+  /**
+   * CodeLive preview color
+   * @default '#000'
+   */
+  previewColor?: CSSProperties['background'] | string
 }
 
 
@@ -54,6 +74,10 @@ export const defaultCodeLiveTheme: YozoraCodeLiveTheme = {
   editorFontSize: '1rem',
   editorFontFamily: 'Consolas, "Source Code Pro", monospace, sans-serif',
   editorSelectionBackground: 'none',
+  previewPadding: '0',
+  previewBorder: 'none',
+  previewBackground: '#fff',
+  previewColor: '#000',
 }
 
 
