@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-link",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "render markdown link in react",
   "author": {
     "name": "guanghechen",

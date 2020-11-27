@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-table-row",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "render markdown tableRow in react",
   "author": {
     "name": "guanghechen",
