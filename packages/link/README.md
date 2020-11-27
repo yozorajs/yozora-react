@@ -33,6 +33,27 @@ This package is designed to render [mdast link][] type data
       )
       ```
 
+    - React router
+
+      ```tsx
+      import React from 'react'
+      import { BrowserRouter as Router } from 'react-router-dom'
+      import { RouteLink as Link } from '@yozora/react-link'
+
+      const wrapper = (
+        <Router>
+          <Link
+            url="/home"
+            title="home"
+            style={ { color: 'orange', fontSize: '16px' } }
+          >
+            some text1
+            <span>some text2</span>
+          </Link>
+        </Router>
+      )
+      ```
+
     - With theme
 
       ```tsx

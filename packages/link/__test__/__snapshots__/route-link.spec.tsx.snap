@@ -13,6 +13,7 @@ exports[`basic rendering case snapshot 1`] = `
   class="c0"
   href="/home"
   style="color:orange;font-size:16px"
+  theme="[object Object]"
   title="home"
 >
   some text1
@@ -35,6 +36,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
   class="c0"
   href="/home"
   style="color:orange;font-size:16px"
+  theme="[object Object]"
   title="home"
 >
   some text1
