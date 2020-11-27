@@ -49,8 +49,6 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       url,
       href,
       title,
-      target = '_blank',
-      rel = 'noreferrer',
       ...anchorProps
     } = props
 
@@ -60,8 +58,6 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
         ref={ forwardRef }
         title={ title }
         href={ url }
-        target={ target }
-        rel={rel}
       />
     )
   }
