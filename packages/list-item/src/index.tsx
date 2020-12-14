@@ -26,6 +26,10 @@ const Container = styled.li`
   padding: ${ getListItemStyle('padding') };
   margin: ${ getListItemStyle('margin') };
   line-height: ${ getListItemStyle('lineHeight') };
+
+  & > :first-child {
+    margin-bottom: 0
+  }
 `
 
 
