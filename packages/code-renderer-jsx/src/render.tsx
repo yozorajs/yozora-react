@@ -74,9 +74,6 @@ export function CodeRendererJsx(props: CodeRendererJsxProps): React.ReactElement
 }
 
 
-CodeRendererJsx.displayName = 'CodeRendererJsx'
-
-
 CodeRendererJsx.defaultProps = {
   scope: { styled },
 }
@@ -90,4 +87,5 @@ CodeRendererJsx.propTypes = {
 }
 
 
+CodeRendererJsx.displayName = 'CodeRendererJsx'
 export default CodeRendererJsx

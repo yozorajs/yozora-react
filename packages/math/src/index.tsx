@@ -39,9 +39,9 @@ Container.defaultProps = {
  */
 export const Math = React.forwardRef<HTMLDivElement, MathProps>(
   (props, forwardRef): React.ReactElement => {
-    const { children, value, ...mathProps } = props
+    const { children, value, ...htmlProps } = props
     return (
-      <Container { ...mathProps } ref={ forwardRef }>
+      <Container { ...htmlProps } ref={ forwardRef }>
         <MathJax.Node inline={ false } formula={ value } />
       </Container>
     )
@@ -49,12 +49,15 @@ export const Math = React.forwardRef<HTMLDivElement, MathProps>(
 )
 
 
-Math.displayName = 'Math'
-
-
 Math.propTypes = {
   value: PropTypes.string.isRequired,
 }
 
 
+Math.displayName = 'Math'
 export default Math
+
+
+export const MathClasses = {
+  container: `${ Container }`,
+}

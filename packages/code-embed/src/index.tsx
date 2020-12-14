@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import CodeEmbedError from './error'
+import { CodeEmbedError, CodeEmbedErrorClasses } from './error'
 import './styled-components'
 import { defaultCodeEmbedTheme, getCodeEmbedStyle } from './theme'
 export * from './error'
@@ -112,9 +112,6 @@ export const CodeEmbed = React.forwardRef<HTMLDivElement, CodeEmbedProps>(
 )
 
 
-CodeEmbed.displayName = 'CodeEmbed'
-
-
 CodeEmbed.propTypes = {
   lang: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
@@ -126,4 +123,12 @@ CodeEmbed.propTypes = {
 }
 
 
+CodeEmbed.displayName = 'CodeEmbed'
 export default CodeEmbed
+
+
+export const CodeEmbedClasses = {
+  container: `${ Container }`,
+  errorContainer: `${ ErrorContainer }`,
+  error: `${ CodeEmbedErrorClasses.container }`,
+}

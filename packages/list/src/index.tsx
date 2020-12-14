@@ -45,19 +45,16 @@ Container.defaultProps = {
  */
 export const List = React.forwardRef<HTMLUListElement | HTMLOListElement, ListProps>(
   (props, forwardRef): React.ReactElement => {
-    const { ordered, children, ...listProps } = props
+    const { ordered, children, ...htmlProps } = props
     const as = ordered ? 'ol' : 'ul'
 
     return (
-      <Container as={ as } { ...listProps } ref={ forwardRef }>
+      <Container as={ as } { ...htmlProps } ref={ forwardRef }>
         { children }
       </Container>
     )
   }
 )
-
-
-List.displayName = 'List'
 
 
 List.propTypes = {
@@ -67,4 +64,10 @@ List.propTypes = {
 }
 
 
+List.displayName = 'List'
 export default List
+
+
+export const ListClasses = {
+  container: `${ Container }`,
+}

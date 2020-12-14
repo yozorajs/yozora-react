@@ -64,9 +64,6 @@ export const Markdown = React.forwardRef<HTMLDivElement, MarkdownProps>(
 )
 
 
-Markdown.displayName = 'Markdown'
-
-
 Markdown.propTypes = {
   ast: PropTypes.any.isRequired,
   theme: PropTypes.any,
@@ -77,4 +74,10 @@ Markdown.propTypes = {
 }
 
 
+Markdown.displayName = 'Markdown'
 export default Markdown
+
+
+export const MarkdownClasses = {
+  container: `${ Container }`,
+}

@@ -45,12 +45,15 @@ export const Blockquote = React.forwardRef<HTMLDivElement, BlockquoteProps>(
 )
 
 
-Blockquote.displayName = 'Blockquote'
-
-
 Blockquote.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
 
+Blockquote.displayName = 'Blockquote'
 export default Blockquote
+
+
+export const BlockquoteClasses = {
+  container: `${ Container }`,
+}

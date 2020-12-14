@@ -45,12 +45,15 @@ export const Delete = React.forwardRef<HTMLSpanElement, DeleteProps>(
 )
 
 
-Delete.displayName = 'Delete'
-
-
 Delete.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
 
+Delete.displayName = 'Delete'
 export default Delete
+
+
+export const DeleteClasses = {
+  container: `${ Container }`,
+}

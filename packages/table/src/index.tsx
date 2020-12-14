@@ -36,10 +36,10 @@ Container.defaultProps = {
  */
 export const Table = React.forwardRef<HTMLTableElement, TableProps>(
   (props, forwardRef): React.ReactElement => {
-    const { children, ...tableProps } = props
+    const { children, ...htmlProps } = props
     const [headRows, ...bodyRows] = children
     return (
-      <Container { ...tableProps } ref={ forwardRef }>
+      <Container { ...htmlProps } ref={ forwardRef }>
         <thead>{ headRows }</thead>
         <tbody>{ bodyRows }</tbody>
       </Container>
@@ -48,12 +48,15 @@ export const Table = React.forwardRef<HTMLTableElement, TableProps>(
 )
 
 
-Table.displayName = 'Table'
-
-
 Table.propTypes = {
   children: PropTypes.arrayOf(PropTypes.node).isRequired,
 }
 
 
+Table.displayName = 'Table'
 export default Table
+
+
+export const TableClasses = {
+  container: `${ Container }`
+}

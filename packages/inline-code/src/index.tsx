@@ -44,15 +44,12 @@ Container.defaultProps = {
  */
 export const InlineCode = React.forwardRef<HTMLSpanElement, InlineCodeProps>(
   (props, forwardRef): React.ReactElement => {
-    const { children, value, ...codeProps } = props
+    const { children, value, ...htmlProps } = props
     return (
-      <Container { ...codeProps } ref={ forwardRef }>{ value }</Container>
+      <Container { ...htmlProps } ref={ forwardRef }>{ value }</Container>
     )
   }
 )
-
-
-InlineCode.displayName = 'InlineCode'
 
 
 InlineCode.propTypes = {
@@ -60,4 +57,10 @@ InlineCode.propTypes = {
 }
 
 
+InlineCode.displayName = 'InlineCode'
 export default InlineCode
+
+
+export const InlineCodeClasses = {
+  container: `${ Container}`,
+}

@@ -34,15 +34,12 @@ Container.defaultProps = {
  */
 export const Text = React.forwardRef<HTMLSpanElement, TextProps>(
   (props, forwardRef): React.ReactElement => {
-    const { children, value, ...spanProps } = props
+    const { children, value, ...htmlProps } = props
     return (
-      <Container { ...spanProps } ref={ forwardRef }>{ value }</Container>
+      <Container { ...htmlProps } ref={ forwardRef }>{ value }</Container>
     )
   }
 )
-
-
-Text.displayName = 'Text'
 
 
 Text.propTypes = {
@@ -50,4 +47,10 @@ Text.propTypes = {
 }
 
 
+Text.displayName = 'Text'
 export default Text
+
+
+export const TextClasses = {
+  container: `${ Container }`
+}

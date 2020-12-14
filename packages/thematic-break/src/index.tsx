@@ -46,12 +46,13 @@ export const ThematicBreak = React.forwardRef<HTMLHRElement, ThematicBreakProps>
 )
 
 
+ThematicBreak.propTypes = {}
+
+
 ThematicBreak.displayName = 'ThematicBreak'
-
-
-ThematicBreak.propTypes = {
-
-}
-
-
 export default ThematicBreak
+
+
+export const ThematicBreakClasses = {
+  container: `${ Container }`,
+}

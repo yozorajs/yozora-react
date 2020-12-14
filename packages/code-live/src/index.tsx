@@ -111,7 +111,7 @@ export const CodeLive = React.forwardRef<HTMLDivElement, CodeLiveProps>(
       errorClassName,
       editorTextareaClassName,
       editorPreClassName,
-      ...divProps
+      ...htmlProps
     } = props
 
     const [layout] = useState<'horizontal' | 'vertical'>('horizontal')
@@ -120,7 +120,7 @@ export const CodeLive = React.forwardRef<HTMLDivElement, CodeLiveProps>(
     const handleChange = useMemo(() => debounce(setValue, 300), [])
 
     return (
-      <Container { ...divProps } ref={ forwardRef } layout={ layout }>
+      <Container { ...htmlProps } ref={ forwardRef } layout={ layout }>
         <EditorContainer>
           <CodeLiveEditor
             lang={ lang }
@@ -131,7 +131,7 @@ export const CodeLive = React.forwardRef<HTMLDivElement, CodeLiveProps>(
           />
         </EditorContainer>
         <EmbedContainer>
-          <WrappedCodeEmbed 
+          <WrappedCodeEmbed
             lang={ lang }
             value={ value }
             errorClassName={ errorClassName }
@@ -142,9 +142,6 @@ export const CodeLive = React.forwardRef<HTMLDivElement, CodeLiveProps>(
     )
   }
 )
-
-
-CodeLive.displayName = 'CodeLive'
 
 
 CodeLive.propTypes = {
@@ -160,4 +157,13 @@ CodeLive.propTypes = {
 }
 
 
+CodeLive.displayName = 'CodeLive'
 export default CodeLive
+
+
+export const CodeLiveClasses = {
+  container: `${ Container }`,
+  editorContainer: `${ EditorContainer }`,
+  embedContainer: `${ EmbedContainer }`,
+  wrappedCodeEmbed: `${ WrappedCodeEmbed }`,
+}

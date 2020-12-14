@@ -44,12 +44,15 @@ export const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(
 )
 
 
-TableRow.displayName = 'TableRow'
-
-
 TableRow.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
 
+TableRow.displayName = 'TableRow'
 export default TableRow
+
+
+export const TableRowClasses = {
+  container: `${ Container }`,
+}

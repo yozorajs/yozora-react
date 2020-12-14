@@ -46,19 +46,16 @@ export const TableCell = React.forwardRef<
   TableCellProps
 >(
   (props, forwardRef): React.ReactElement => {
-    const { children, isHeader = false, align = 'center', ...cellProps } = props
+    const { children, isHeader = false, align = 'center', ...htmlProps } = props
     const as = isHeader ? 'th' : 'td'
 
     return (
-      <Container as={ as } { ...cellProps } align={ align } ref={ forwardRef }>
+      <Container as={ as } { ...htmlProps } align={ align } ref={ forwardRef }>
         { children }
       </Container>
     )
   }
 )
-
-
-TableCell.displayName = 'TableCell'
 
 
 TableCell.propTypes = {
@@ -68,4 +65,10 @@ TableCell.propTypes = {
 }
 
 
+TableCell.displayName = 'TableCell'
 export default TableCell
+
+
+export const TableCellClasses = {
+  container: `${ Container }`,
+}

@@ -38,9 +38,9 @@ Container.defaultProps = {
  */
 export const InlineMath = React.forwardRef<HTMLSpanElement, InlineMathProps>(
   (props, forwardRef): React.ReactElement => {
-    const { children, value, ...mathProps } = props
+    const { children, value, ...htmlProps } = props
     return (
-      <Container { ...mathProps } ref={ forwardRef }>
+      <Container { ...htmlProps } ref={ forwardRef }>
         <MathJax.Node inline={ true } formula={ value } />
       </Container>
     )
@@ -48,12 +48,15 @@ export const InlineMath = React.forwardRef<HTMLSpanElement, InlineMathProps>(
 )
 
 
-InlineMath.displayName = 'InlineMath'
-
-
 InlineMath.propTypes = {
   value: PropTypes.string.isRequired,
 }
 
 
+InlineMath.displayName = 'InlineMath'
 export default InlineMath
+
+
+export const InlineMathClasses = {
+  container: `${ Container }`,
+}

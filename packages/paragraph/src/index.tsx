@@ -44,12 +44,15 @@ export const Paragraph = React.forwardRef<HTMLParagraphElement, ParagraphProps>(
 )
 
 
-Paragraph.displayName = 'Paragraph'
-
-
 Paragraph.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
 
+Paragraph.displayName = 'Paragraph'
 export default Paragraph
+
+
+export const ParagraphClasses = {
+  container: `${ Container}`,
+}

@@ -147,6 +147,9 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
 
 
 CodeEditor.displayName = 'CodeEditor'
-
-
 export default CodeEditor
+
+
+export const CodeEditorClasses = {
+  container: `${ Container }`,
+}

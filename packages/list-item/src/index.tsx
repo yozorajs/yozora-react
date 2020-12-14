@@ -41,15 +41,12 @@ Container.defaultProps = {
  */
 export const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(
   (props, forwardRef): React.ReactElement => {
-    const { status, ...listItemProps } = props
+    const { status, ...htmlProps } = props
     return (
-      <Container { ...listItemProps } ref={ forwardRef } />
+      <Container { ...htmlProps } ref={ forwardRef } />
     )
   }
 )
-
-
-ListItem.displayName = 'ListItem'
 
 
 ListItem.propTypes = {
@@ -58,4 +55,10 @@ ListItem.propTypes = {
 }
 
 
+ListItem.displayName = 'ListItem'
 export default ListItem
+
+
+export const ListItemClasses = {
+  container: `${ Container }`,
+}

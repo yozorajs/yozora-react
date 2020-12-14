@@ -44,12 +44,15 @@ export const Strong = React.forwardRef<HTMLSpanElement, StrongProps>(
 )
 
 
-Strong.displayName = 'Strong'
-
-
 Strong.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
 
+Strong.displayName = 'Strong'
 export default Strong
+
+
+export const StrongClasses = {
+  container: `${ Container }`,
+}

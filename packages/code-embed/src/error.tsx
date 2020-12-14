@@ -48,6 +48,9 @@ export function CodeEmbedError(props: CodeEmbedErrorProps): React.ReactElement |
 
 
 CodeEmbedError.displayName = 'CodeEmbedError'
-
-
 export default CodeEmbedError
+
+
+export const CodeEmbedErrorClasses = {
+  container: `${ Container }`,
+}

@@ -83,7 +83,7 @@ export const defaultMdastRendererMap: Record<string, React.ElementType<any>> = {
   emphasis: Emphasis,
   link: Link,
   image: 'img',
-  linkReference: 'a',
+  linkReference: Link,
   imageReference: 'img',
   strong: Strong,
   text: Text,

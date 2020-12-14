@@ -44,12 +44,15 @@ export const Emphasis = React.forwardRef<HTMLSpanElement, EmphasisProps>(
 )
 
 
-Emphasis.displayName = 'Emphasis'
-
-
 Emphasis.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
 
+Emphasis.displayName = 'Emphasis'
 export default Emphasis
+
+
+export const EmphasisClasses = {
+  container: `${ Container }`,
+}

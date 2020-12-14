@@ -166,4 +166,11 @@ CodeHighlighter.propTypes = {
 }
 
 
+CodeHighlighter.displayName = 'CodeHighlighter'
 export default CodeHighlighter
+
+
+export const CodeHighlighterClasses = {
+  line: `${ Line }`,
+  lineNo: `${ LineNo }`,
+}

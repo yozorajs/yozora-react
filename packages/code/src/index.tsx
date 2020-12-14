@@ -59,12 +59,12 @@ Container.defaultProps = {
  */
 export const Code = React.forwardRef<HTMLDivElement, CodeProps>(
   (props, forwardRef): React.ReactElement => {
-    const { lang, value, ...divProps } = props
+    const { lang, value, ...htmlProps } = props
     const [lineCount, setLineCount] = useState<number>(0)
     const linenoWidth = `${ Math.max(2, ('' + lineCount).length) + 0.5 }em`
 
     return (
-      <Container { ...divProps } ref={ forwardRef }>
+      <Container { ...htmlProps } ref={ forwardRef }>
         <pre>
           <CodeHighlighter
             lang={ lang }
@@ -79,13 +79,16 @@ export const Code = React.forwardRef<HTMLDivElement, CodeProps>(
 )
 
 
-Code.displayName = 'Code'
-
-
 Code.propTypes = {
   value: PropTypes.string.isRequired,
   lang: PropTypes.string,
 }
 
 
+Code.displayName = 'Code'
 export default Code
+
+
+export const CodeClasses = {
+  container: `${ Container }`,
+}

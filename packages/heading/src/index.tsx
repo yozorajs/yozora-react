@@ -124,7 +124,7 @@ export const Heading = React.forwardRef<HTMLDivElement, HeadingProps>(
       linkIcon = <HeadingLinkIcon />,
       linkClassName,
       calcIdentifier = calcIdentifierForHeading,
-      ...headerProps
+      ...htmlProps
     } = props
 
     const H: any = 'h' + props.level as keyof JSX.IntrinsicElements
@@ -145,7 +145,7 @@ export const Heading = React.forwardRef<HTMLDivElement, HeadingProps>(
     }, [hRef, calcIdentifier, _identifier])
 
     return (
-      <Container { ...headerProps } ref={ forwardRef } >
+      <Container { ...htmlProps } ref={ forwardRef } >
         <a
           id={ identifier }
           className={ linkClassName }
@@ -171,6 +171,9 @@ Heading.propTypes = {
 
 
 Heading.displayName = 'Heading'
-
-
 export default Heading
+
+
+export const HeadingClasses = {
+  container: `${ Container }`,
+}

@@ -15,12 +15,12 @@ export const RouteLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
       url,
       href,
       title,
-      ...anchorProps
+      ...htmlProps
     } = props
 
     return (
       <Container
-        { ...anchorProps }
+        { ...htmlProps }
         as={ Link }
         ref={ forwardRef }
         title={ title }
@@ -31,9 +31,6 @@ export const RouteLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
 )
 
 
-RouteLink.displayName = 'RouteLink'
-
-
 RouteLink.propTypes = {
   url: PropTypes.string.isRequired,
   title: PropTypes.string,
@@ -41,4 +38,10 @@ RouteLink.propTypes = {
 }
 
 
-export default Link
+RouteLink.displayName = 'RouteLink'
+export default RouteLink
+
+
+export const RouteLinkClasses = {
+  container: `${Container}`,
+}

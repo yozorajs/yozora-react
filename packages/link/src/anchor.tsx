@@ -47,12 +47,12 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       url,
       href,
       title,
-      ...anchorProps
+      ...htmlProps
     } = props
 
     return (
       <Container
-        { ...anchorProps }
+        { ...htmlProps }
         ref={ forwardRef }
         title={ title }
         href={ url }
@@ -62,9 +62,6 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
 )
 
 
-Link.displayName = 'Link'
-
-
 Link.propTypes = {
   url: PropTypes.string.isRequired,
   title: PropTypes.string,
@@ -72,4 +69,10 @@ Link.propTypes = {
 }
 
 
+Link.displayName = 'Link'
 export default Link
+
+
+export const LinkClasses = {
+  container: `${ Container }`,
+}
