@@ -18,10 +18,55 @@ exports[`basic rendering case snapshot with theme 1`] = `
   line-height: 2;
 }
 
-<span
-  class="c0"
-  style="color:orange;font-size:16px"
+<Component
+  theme={
+    Object {
+      "yozora": Object {
+        "text": Object {
+          "lineHeight": "2",
+        },
+      },
+    }
+  }
 >
-  Hello, world!
-</span>
+  <YozoraText
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+    value="Hello, world!"
+  >
+    <styled.span
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+      theme={
+        Object {
+          "yozora": Object {
+            "text": Object {
+              "lineHeight": "inherit",
+            },
+          },
+        }
+      }
+    >
+      <span
+        className="c0"
+        style={
+          Object {
+            "color": "orange",
+            "fontSize": "16px",
+          }
+        }
+      >
+        Hello, world!
+      </span>
+    </styled.span>
+  </YozoraText>
+</Component>
 `;

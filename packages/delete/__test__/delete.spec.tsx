@@ -61,7 +61,7 @@ describe('basic rendering case', () => {
   })
 
   it('snapshot', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Delete style={{ color: 'orange', fontSize: '16px' }}>
         some text1
         <span>some text2</span>
@@ -83,7 +83,7 @@ describe('basic rendering case', () => {
       }
     }
 
-    const wrapper = render(
+    const wrapper = mount(
       <ThemeProvider theme={ theme }>
         <Delete>
           some text1

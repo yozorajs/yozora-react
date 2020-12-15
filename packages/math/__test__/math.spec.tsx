@@ -55,7 +55,7 @@ describe('basic rendering case', () => {
       \\end{align}
     `
 
-    const wrapper = render(
+    const wrapper = mount(
       <Math
         value={ code }
         style={ { color: 'orange', fontSize: '16px' } }

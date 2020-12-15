@@ -87,31 +87,108 @@ exports[`basic rendering case snapshot with theme 1`] = `
   opacity: 1;
 }
 
-<header
-  class="c0"
-  style="color:orange;font-size:16px"
+<Component
+  theme={
+    Object {
+      "yozora": Object {
+        "heading": Object {
+          "borderColor": "lightgray",
+          "color": "#ccc",
+          "fontFamily": "inherit",
+          "fontStyle": "italic",
+          "h1FontSize": "2em",
+          "h2FontSize": "1.5em",
+          "h3FontSize": "1.25em",
+          "h4FontSize": "1em",
+          "h5FontSize": "0.875em",
+          "h6FontSize": "0.85em",
+          "hoverLinkColor": "cyan",
+          "lineHeight": 1.25,
+          "linkColor": "blue",
+          "padding": "0 2em",
+        },
+      },
+    }
+  }
 >
-  <a
-    href="#heading-1"
-    id="heading-1"
+  <YozoraHeading
+    identifier="heading-1"
+    level={1}
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
   >
-    <svg
-      aria-hidden="true"
-      height="16"
-      version="1.1"
-      viewBox="0 0 16 16"
-      width="16"
+    <styled.header
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+      theme={
+        Object {
+          "yozora": Object {
+            "heading": Object {
+              "borderColor": "lightgray",
+              "color": "inherit",
+              "fontFamily": "inherit",
+              "fontStyle": "normal",
+              "h1FontSize": "2em",
+              "h2FontSize": "1.5em",
+              "h3FontSize": "1.25em",
+              "h4FontSize": "1em",
+              "h5FontSize": "0.875em",
+              "h6FontSize": "0.85em",
+              "hoverLinkColor": undefined,
+              "lineHeight": 1.25,
+              "linkColor": undefined,
+              "margin": "1.2em -2em 1em",
+              "padding": "0 2em",
+            },
+          },
+        }
+      }
     >
-      <path
-        d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"
-        fill-rule="evenodd"
-      />
-    </svg>
-  </a>
-  <h1>
-    Waw -- 1, 中文标题“这”
-  </h1>
-</header>
+      <header
+        className="c0"
+        style={
+          Object {
+            "color": "orange",
+            "fontSize": "16px",
+          }
+        }
+      >
+        <a
+          href="#heading-1"
+          id="heading-1"
+        >
+          <HeadingLinkIcon>
+            <svg
+              aria-hidden="true"
+              height="16"
+              version="1.1"
+              viewBox="0 0 16 16"
+              width="16"
+            >
+              <path
+                d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"
+                fillRule="evenodd"
+              />
+            </svg>
+          </HeadingLinkIcon>
+        </a>
+        <h1>
+          Waw -- 
+          1
+          , 中文标题“这”
+        </h1>
+      </header>
+    </styled.header>
+  </YozoraHeading>
+</Component>
 `;
 
 exports[`basic rendering case snapshot: level 2 1`] = `

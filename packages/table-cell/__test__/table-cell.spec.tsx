@@ -81,7 +81,7 @@ describe('basic rendering case', () => {
   })
 
   it('snapshot', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <table>
         <tbody>
           <tr>
@@ -106,7 +106,7 @@ describe('basic rendering case', () => {
       }
     }
 
-    const wrapper = render(
+    const wrapper = mount(
       <ThemeProvider theme={ theme }>
         <table>
           <tbody>

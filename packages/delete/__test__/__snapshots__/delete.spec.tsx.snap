@@ -10,51 +10,15 @@ exports[`basic rendering case snapshot 1`] = `
   text-decoration: line-through;
 }
 
-<Delete
-  style={
-    Object {
-      "color": "orange",
-      "fontSize": "16px",
-    }
-  }
+<del
+  class="c0"
+  style="color:orange;font-size:16px"
 >
-  <styled.del
-    style={
-      Object {
-        "color": "orange",
-        "fontSize": "16px",
-      }
-    }
-    theme={
-      Object {
-        "yozora": Object {
-          "delete": Object {
-            "color": "inherit",
-            "fontSize": "inherit",
-            "fontStyle": "inherit",
-            "fontWeight": "inherit",
-            "textDecoration": "line-through",
-          },
-        },
-      }
-    }
-  >
-    <del
-      className="c0"
-      style={
-        Object {
-          "color": "orange",
-          "fontSize": "16px",
-        }
-      }
-    >
-      some text1
-      <span>
-        some text2
-      </span>
-    </del>
-  </styled.del>
-</Delete>
+  some text1
+  <span>
+    some text2
+  </span>
+</del>
 `;
 
 exports[`basic rendering case snapshot with theme 1`] = `
@@ -67,12 +31,45 @@ exports[`basic rendering case snapshot with theme 1`] = `
   text-decoration: dashed;
 }
 
-<del
-  class="c0"
+<Component
+  theme={
+    Object {
+      "yozora": Object {
+        "delete": Object {
+          "color": "red",
+          "fontSize": 18,
+          "fontWeight": undefined,
+          "textDecoration": "dashed",
+        },
+      },
+    }
+  }
 >
-  some text1
-  <span>
-    some text2
-  </span>
-</del>
+  <YozoraDelete>
+    <styled.del
+      theme={
+        Object {
+          "yozora": Object {
+            "delete": Object {
+              "color": "inherit",
+              "fontSize": "inherit",
+              "fontStyle": "inherit",
+              "fontWeight": "inherit",
+              "textDecoration": "line-through",
+            },
+          },
+        }
+      }
+    >
+      <del
+        className="c0"
+      >
+        some text1
+        <span>
+          some text2
+        </span>
+      </del>
+    </styled.del>
+  </YozoraDelete>
+</Component>
 `;

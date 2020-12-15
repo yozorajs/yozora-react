@@ -8,21 +8,65 @@ exports[`basic rendering case snapshot with theme: ol 1`] = `
   line-height: 2;
 }
 
-<ol
-  class="c0"
-  start="3"
-  type="a"
+<Component
+  theme={
+    Object {
+      "yozora": Object {
+        "list": Object {
+          "color": "red",
+          "margin": 18,
+          "padding": "0 1rem",
+        },
+      },
+    }
+  }
 >
-  <li>
-    apple
-  </li>
-  <li>
-    banana
-  </li>
-  <li>
-    cat
-  </li>
-</ol>
+  <YozoraList
+    ordered={true}
+    start={3}
+    type="a"
+  >
+    <styled.ul
+      as="ol"
+      start={3}
+      theme={
+        Object {
+          "yozora": Object {
+            "list": Object {
+              "color": "inherit",
+              "lineHeight": 2,
+              "margin": "0 0 1em",
+              "padding": "0 0 0 1.2em",
+            },
+          },
+        }
+      }
+      type="a"
+    >
+      <ol
+        className="c0"
+        start={3}
+        type="a"
+      >
+        <li
+          key="0"
+        >
+          apple
+        </li>
+        <li
+          key="1"
+        >
+          banana
+        </li>
+        <li
+          key="2"
+        >
+          cat
+        </li>
+      </ol>
+    </styled.ul>
+  </YozoraList>
+</Component>
 `;
 
 exports[`basic rendering case snapshot with theme: ul 1`] = `
@@ -33,21 +77,65 @@ exports[`basic rendering case snapshot with theme: ul 1`] = `
   line-height: 2;
 }
 
-<ul
-  class="c0"
-  start="3"
-  type="a"
+<Component
+  theme={
+    Object {
+      "yozora": Object {
+        "list": Object {
+          "color": "red",
+          "margin": 18,
+          "padding": "0 1rem",
+        },
+      },
+    }
+  }
 >
-  <li>
-    apple
-  </li>
-  <li>
-    banana
-  </li>
-  <li>
-    cat
-  </li>
-</ul>
+  <YozoraList
+    ordered={false}
+    start={3}
+    type="a"
+  >
+    <styled.ul
+      as="ul"
+      start={3}
+      theme={
+        Object {
+          "yozora": Object {
+            "list": Object {
+              "color": "inherit",
+              "lineHeight": 2,
+              "margin": "0 0 1em",
+              "padding": "0 0 0 1.2em",
+            },
+          },
+        }
+      }
+      type="a"
+    >
+      <ul
+        className="c0"
+        start={3}
+        type="a"
+      >
+        <li
+          key="0"
+        >
+          apple
+        </li>
+        <li
+          key="1"
+        >
+          banana
+        </li>
+        <li
+          key="2"
+        >
+          cat
+        </li>
+      </ul>
+    </styled.ul>
+  </YozoraList>
+</Component>
 `;
 
 exports[`basic rendering case snapshot: ol 1`] = `

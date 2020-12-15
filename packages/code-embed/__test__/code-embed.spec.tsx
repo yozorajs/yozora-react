@@ -77,7 +77,7 @@ describe('basic rendering case', () => {
       return a * a
     `
 
-    const wrapper = render(
+    const wrapper = mount(
       <ThemeProvider theme={ theme }>
         <CodeEmbed
           lang="jsx"

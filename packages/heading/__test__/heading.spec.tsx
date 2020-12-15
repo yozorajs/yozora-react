@@ -111,7 +111,7 @@ describe('basic rendering case', () => {
     }
 
     const level = 1
-    const wrapper = render(
+    const wrapper = mount(
       <ThemeProvider theme={ theme }>
         <Heading
           level={ level }

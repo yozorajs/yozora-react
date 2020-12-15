@@ -52,7 +52,7 @@ describe('basic rendering case', () => {
       }
     }
 
-    const wrapper = render(
+    const wrapper = mount(
       <ThemeProvider theme={ theme }>
         <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
       </ThemeProvider>
