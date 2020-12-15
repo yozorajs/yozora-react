@@ -14,22 +14,6 @@ export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> 
 }
 
 
-const Container = styled.table`
-  display: block;
-  max-width: 100%;
-  width: ${ getTableStyle('width') };
-  overflow: ${ getTableStyle('overflow') };
-  margin: ${ getTableStyle('margin') };
-  border-spacing: ${ getTableStyle('borderSpacing') };
-  border-collapse: ${ getTableStyle('borderCollapse') };
-`
-
-
-Container.defaultProps = {
-  theme: { yozora: { table: defaultTableTheme } }
-}
-
-
 /**
  *
  * @param props
@@ -53,8 +37,24 @@ Table.propTypes = {
 }
 
 
-Table.displayName = 'Table'
+Table.displayName = 'YozoraTable'
 export default Table
+
+
+const Container = styled.table`
+  display: block;
+  max-width: 100%;
+  width: ${ getTableStyle('width') };
+  overflow: ${ getTableStyle('overflow') };
+  margin: ${ getTableStyle('margin') };
+  border-spacing: ${ getTableStyle('borderSpacing') };
+  border-collapse: ${ getTableStyle('borderCollapse') };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { table: defaultTableTheme } }
+}
 
 
 export const TableClasses = {

@@ -39,4 +39,5 @@ export function CodeLiveRenderer(props: CodeLiveRendererProps): React.ReactEleme
 }
 
 
+CodeLiveRenderer.displayName = 'CodeLiveRenderer'
 export default CodeLiveRenderer

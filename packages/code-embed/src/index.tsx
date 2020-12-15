@@ -50,43 +50,6 @@ export interface CodeEmbedProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 
-const ErrorContainer = styled.div<{ hidden: boolean }>`
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: ${ props => props.hidden ? 'none' : 'block' };
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
-`
-ErrorContainer.defaultProps = {
-  theme: { yozora: { codeEmbed: defaultCodeEmbedTheme } }
-}
-
-
-const Container = styled.div<{ $hasError: boolean }>`
-  position: relative;
-  ${
-    props => props.$hasError
-      ? css`
-        && {
-          border: none;
-          padding: 0;
-        }
-      `
-      : css`
-        border: ${ getCodeEmbedStyle('border') };
-        padding: ${ getCodeEmbedStyle('padding') };
-      `
-  }
-  background: ${ getCodeEmbedStyle('background') };
-  color: ${ getCodeEmbedStyle('color') };
-`
-Container.defaultProps = {
-  theme: { yozora: { codeEmbed: defaultCodeEmbedTheme } }
-}
-
-
 export const CodeEmbed = React.forwardRef<HTMLDivElement, CodeEmbedProps>(
   (props, forwardRef) => {
     const { lang, value, errorClassName, CodeRenderer, ...htmlProps } = props
@@ -123,8 +86,44 @@ CodeEmbed.propTypes = {
 }
 
 
-CodeEmbed.displayName = 'CodeEmbed'
+CodeEmbed.displayName = 'YozoraCodeEmbed'
 export default CodeEmbed
+
+
+const ErrorContainer = styled.div<{ hidden: boolean }>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: ${ props => props.hidden ? 'none' : 'block' };
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+`
+
+
+const Container = styled.div<{ $hasError: boolean }>`
+  position: relative;
+  ${
+    props => props.$hasError
+      ? css`
+        && {
+          border: none;
+          padding: 0;
+        }
+      `
+      : css`
+        border: ${ getCodeEmbedStyle('border') };
+        padding: ${ getCodeEmbedStyle('padding') };
+      `
+  }
+  background: ${ getCodeEmbedStyle('background') };
+  color: ${ getCodeEmbedStyle('color') };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { codeEmbed: defaultCodeEmbedTheme } }
+}
 
 
 export const CodeEmbedClasses = {

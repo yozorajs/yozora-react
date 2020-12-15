@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import CodeHighlighter from '@yozora/react-code-highlighter'
 import SimpleCodeEditor from './editor.no-cover'
@@ -47,22 +47,6 @@ export interface CodeEditorProps {
 }
 
 
-const Container = styled(SimpleCodeEditor)`
-  white-space: pre;
-  font-family: Consolas, "Source Code Pro", monospace, sans-serif;
-  & > pre {
-    code, span {
-      line-height: inherit !important;
-    }
-    code {
-      background: transparent !important;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-  }
-`
-
-
 /**
  * Simple live code editor
  * @param props
@@ -82,30 +66,23 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
   const [code, setCode] = useState<string>(props.code)
   const [lineCount, setLineCount] = useState<number>(0)
 
-  const linenoWidth = `${ Math.max(2, ('' + lineCount).length) + 0.5 }em`
-  const highlightCode = useMemo(() => {
-    return function HighlightCode(code: string): React.ReactElement {
-      return (
-        <CodeHighlighter
-          lang={ lang }
-          value={ code }
-          linenoWidth={ linenoWidth }
-          onLineCountChange={ setLineCount }
-        />
-      )
-    }
-  }, [lang, linenoWidth])
+  const linenoWidth = `${ Math.max(2, lineCount.toString(10).length) + 0.5 }em`
+  const highlightCode = useCallback<React.FC<string>>((code) => (
+    <CodeHighlighter
+      lang={ lang }
+      value={ code }
+      linenoWidth={ linenoWidth }
+      onLineCountChange={ setLineCount }
+    />
+  ), [lang, linenoWidth])
 
-  const handleChange = useMemo(() => {
-    return (nextCode: string) => {
-      setCode(nextCode)
-      onChange(nextCode)
-    }
+  const handleChange = useCallback((nextCode: string) => {
+    setCode(nextCode)
+    onChange(nextCode)
   }, [onChange])
 
-  useEffect(() => {
-    setCode(props.code)
-  }, [props.code, setCode])
+  // Reset code if the props.code has changed
+  useEffect((): void => setCode(props.code), [props.code])
 
   const wordStyle: React.CSSProperties = {
     whiteSpace: 'pre-wrap',
@@ -146,8 +123,24 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
 }
 
 
-CodeEditor.displayName = 'CodeEditor'
+CodeEditor.displayName = 'YozoraCodeEditor'
 export default CodeEditor
+
+
+const Container = styled(SimpleCodeEditor)`
+  white-space: pre;
+  font-family: Consolas, "Source Code Pro", monospace, sans-serif;
+  & > pre {
+    code, span {
+      line-height: inherit !important;
+    }
+    code {
+      background: transparent !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+`
 
 
 export const CodeEditorClasses = {

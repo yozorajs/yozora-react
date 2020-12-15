@@ -42,67 +42,6 @@ export interface CodeLiveProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 
-const EditorContainer = styled.div`
-  flex: 0 0 auto;
-  overflow: auto;
-  padding: ${ getCodeLiveStyle('editorPadding') };
-  background: ${ getCodeLiveStyle('editorBackground') };
-  caret-color: ${ getCodeLiveStyle('editorCaretColor') };
-  font-size: ${ getCodeLiveStyle('editorFontSize') };
-  font-family: ${ getCodeLiveStyle('editorFontFamily') };
-  pre, textarea {
-    ::selection {
-      background: ${ getCodeLiveStyle('editorSelectionBackground') };
-    }
-  }
-`
-EditorContainer.defaultProps = {
-  theme: { yozora: { codeLive: defaultCodeLiveTheme } }
-}
-
-
-const WrappedCodeEmbed = styled(CodeEmbed)`
-  width: 100%;
-  height: 100%;
-  border: ${ getCodeLiveStyle('previewBorder') };
-  padding: ${ getCodeLiveStyle('previewPadding') };
-`
-
-
-const EmbedContainer = styled.div`
-  flex: 0 0 auto;
-  display: block;
-  overflow: auto;
-  color: ${ getCodeLiveStyle('previewColor') };
-  background: ${ getCodeLiveStyle('previewBackground') };
-`
-
-
-const Container = styled.div<{ layout: 'horizontal' | 'vertical' }>`
-  display: flex;
-  ${ props => props.layout === 'horizontal'
-    ? css`
-        flex-direction: row;
-        align-items: stretch;
-        ${ EditorContainer }, ${ EmbedContainer } {
-          flex: 1 1 0;
-          width: 50%;
-        }
-      `
-    : css`
-        flex-direction: column;
-        ${ EditorContainer }, ${ EmbedContainer } {
-          flex: 1 1 auto;
-          width: 100%;
-        }
-      `
-  };
-`
-Container.defaultProps = {
-  theme: { yozora: { codeLive: defaultCodeLiveTheme } }
-}
-
-
 export const CodeLive = React.forwardRef<HTMLDivElement, CodeLiveProps>(
   (props, forwardRef) => {
     const {
@@ -157,8 +96,69 @@ CodeLive.propTypes = {
 }
 
 
-CodeLive.displayName = 'CodeLive'
+CodeLive.displayName = 'YozoraCodeLive'
 export default CodeLive
+
+
+const EditorContainer = styled.div`
+  flex: 0 0 auto;
+  overflow: auto;
+  padding: ${ getCodeLiveStyle('editorPadding') };
+  background: ${ getCodeLiveStyle('editorBackground') };
+  caret-color: ${ getCodeLiveStyle('editorCaretColor') };
+  font-size: ${ getCodeLiveStyle('editorFontSize') };
+  font-family: ${ getCodeLiveStyle('editorFontFamily') };
+  pre, textarea {
+    ::selection {
+      background: ${ getCodeLiveStyle('editorSelectionBackground') };
+    }
+  }
+`
+
+
+const WrappedCodeEmbed = styled(CodeEmbed)`
+  width: 100%;
+  height: 100%;
+  border: ${ getCodeLiveStyle('previewBorder') };
+  padding: ${ getCodeLiveStyle('previewPadding') };
+`
+
+
+const EmbedContainer = styled.div`
+  flex: 0 0 auto;
+  display: block;
+  overflow: auto;
+  color: ${ getCodeLiveStyle('previewColor') };
+  background: ${ getCodeLiveStyle('previewBackground') };
+`
+
+
+const horizontalContainer = css`
+  flex-direction: row;
+  align-items: stretch;
+  ${ EditorContainer }, ${ EmbedContainer } {
+    flex: 1 1 0;
+    width: 50%;
+  }
+`
+const verticalContainer = css`
+  flex-direction: column;
+  ${ EditorContainer }, ${ EmbedContainer } {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+`
+
+
+const Container = styled.div<{ layout: 'horizontal' | 'vertical' }>`
+  display: flex;
+  ${ props => props.layout === 'horizontal' ? horizontalContainer : verticalContainer };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { codeLive: defaultCodeLiveTheme } }
+}
 
 
 export const CodeLiveClasses = {

@@ -14,6 +14,24 @@ export interface CodeEmbedErrorProps extends React.HTMLAttributes<HTMLPreElement
 }
 
 
+/**
+ *
+ * @param props
+ */
+export function CodeEmbedError(props: CodeEmbedErrorProps): React.ReactElement | null {
+  const { error, children, ...htmlProps } = props
+  if (error == null) return null
+
+  return (
+    <Container { ...htmlProps }>{ error }</Container>
+  )
+}
+
+
+CodeEmbedError.displayName = 'YozoraCodeEmbedError'
+export default CodeEmbedError
+
+
 const Container = styled.pre`
   display: block;
   width: 100%;
@@ -31,24 +49,6 @@ const Container = styled.pre`
 Container.defaultProps = {
   theme: { yozora: { codeEmbed: defaultCodeEmbedTheme } }
 }
-
-
-/**
- *
- * @param props
- */
-export function CodeEmbedError(props: CodeEmbedErrorProps): React.ReactElement | null {
-  const { error, children, ...htmlProps } = props
-  if (error == null) return null
-
-  return (
-    <Container { ...htmlProps }>{ error }</Container>
-  )
-}
-
-
-CodeEmbedError.displayName = 'CodeEmbedError'
-export default CodeEmbedError
 
 
 export const CodeEmbedErrorClasses = {

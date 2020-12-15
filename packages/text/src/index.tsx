@@ -17,16 +17,6 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 
-const Container = styled.span`
-  line-height: ${ getTextStyle('lineHeight') };
-`
-
-
-Container.defaultProps = {
-  theme: { yozora: { text: defaultTextTheme } }
-}
-
-
 /**
  * Render `text` content
  *
@@ -47,8 +37,18 @@ Text.propTypes = {
 }
 
 
-Text.displayName = 'Text'
+Text.displayName = 'YozoraText'
 export default Text
+
+
+const Container = styled.span`
+  line-height: ${ getTextStyle('lineHeight') };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { text: defaultTextTheme } }
+}
 
 
 export const TextClasses = {

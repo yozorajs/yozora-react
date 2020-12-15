@@ -18,19 +18,6 @@ export interface InlineMathProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 
-const Container = styled.span`
-  padding: ${ getInlineMathStyle('padding') };
-  border: ${ getInlineMathStyle('border') };
-  margin: ${ getInlineMathStyle('margin') };
-  background: ${ getInlineMathStyle('background') };
-  color: ${ getInlineMathStyle('color') };
-`
-
-Container.defaultProps = {
-  theme: { yozora: { inlineMath: defaultInlineMathTheme } }
-}
-
-
 /**
  * Render `inlineMath` content
  *
@@ -53,8 +40,21 @@ InlineMath.propTypes = {
 }
 
 
-InlineMath.displayName = 'InlineMath'
+InlineMath.displayName = 'YozoraInlineMath'
 export default InlineMath
+
+
+const Container = styled.span`
+  padding: ${ getInlineMathStyle('padding') };
+  border: ${ getInlineMathStyle('border') };
+  margin: ${ getInlineMathStyle('margin') };
+  background: ${ getInlineMathStyle('background') };
+  color: ${ getInlineMathStyle('color') };
+`
+
+Container.defaultProps = {
+  theme: { yozora: { inlineMath: defaultInlineMathTheme } }
+}
 
 
 export const InlineMathClasses = {

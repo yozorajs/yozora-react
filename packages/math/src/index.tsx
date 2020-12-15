@@ -18,20 +18,6 @@ export interface MathProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 
-const Container = styled.div`
-  padding: ${ getMathStyle('padding') };
-  border: ${ getMathStyle('border') };
-  margin: ${ getMathStyle('margin') };
-  background: ${ getMathStyle('background') };
-  color: ${ getMathStyle('color') };
-`
-
-
-Container.defaultProps = {
-  theme: { yozora: { math: defaultMathTheme } }
-}
-
-
 /**
  * Render `math` content
  *
@@ -54,8 +40,22 @@ Math.propTypes = {
 }
 
 
-Math.displayName = 'Math'
+Math.displayName = 'YozoraMath'
 export default Math
+
+
+const Container = styled.div`
+  padding: ${ getMathStyle('padding') };
+  border: ${ getMathStyle('border') };
+  margin: ${ getMathStyle('margin') };
+  background: ${ getMathStyle('background') };
+  color: ${ getMathStyle('color') };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { math: defaultMathTheme } }
+}
 
 
 export const MathClasses = {

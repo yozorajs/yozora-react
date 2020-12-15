@@ -25,19 +25,6 @@ export interface ListProps extends React.OlHTMLAttributes<HTMLOListElement | HTM
 }
 
 
-const Container = styled.ul`
-  color: ${ getListStyle('color') };
-  padding: ${ getListStyle('padding') };
-  margin: ${ getListStyle('margin') };
-  line-height: ${ getListStyle('lineHeight') };
-`
-
-
-Container.defaultProps = {
-  theme: { yozora: { list: defaultListTheme } }
-}
-
-
 /**
  * Render `list` content
  *
@@ -64,8 +51,21 @@ List.propTypes = {
 }
 
 
-List.displayName = 'List'
+List.displayName = 'YozoraList'
 export default List
+
+
+const Container = styled.ul`
+  color: ${ getListStyle('color') };
+  padding: ${ getListStyle('padding') };
+  margin: ${ getListStyle('margin') };
+  line-height: ${ getListStyle('lineHeight') };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { list: defaultListTheme } }
+}
 
 
 export const ListClasses = {

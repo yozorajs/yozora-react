@@ -22,36 +22,6 @@ export interface CodeProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 
-const Container = styled.div`
-  padding: ${ getCodeStyle('padding') };
-  border: ${ getCodeStyle('border') };
-  margin: ${ getCodeStyle('margin') };
-  background: ${ getCodeStyle('background') };
-  font-family: ${ getCodeStyle('fontFamily') };
-  line-height: ${ getCodeStyle('lineHeight') };
-  pre {
-    line-height: inherit;
-    font-family: ${ getCodeStyle('fontFamily') };
-    code, span {
-      line-height: inherit;
-    }
-    code {
-      background: transparent;
-      margin: 0;
-      padding: 0;
-    }
-    ::selection {
-      background: ${ getCodeStyle('selectionBackground') };
-    }
-  }
-`
-
-
-Container.defaultProps = {
-  theme: { yozora: { code: defaultCodeTheme } }
-}
-
-
 /**
  * Render `code` content
  *
@@ -85,10 +55,41 @@ Code.propTypes = {
 }
 
 
-Code.displayName = 'Code'
+Code.displayName = 'YozoraCode'
 export default Code
+
+
+const Container = styled.div`
+  padding: ${ getCodeStyle('padding') };
+  border: ${ getCodeStyle('border') };
+  margin: ${ getCodeStyle('margin') };
+  background: ${ getCodeStyle('background') };
+  font-family: ${ getCodeStyle('fontFamily') };
+  line-height: ${ getCodeStyle('lineHeight') };
+  pre {
+    line-height: inherit;
+    font-family: ${ getCodeStyle('fontFamily') };
+    code, span {
+      line-height: inherit;
+    }
+    code {
+      background: transparent;
+      margin: 0;
+      padding: 0;
+    }
+    ::selection {
+      background: ${ getCodeStyle('selectionBackground') };
+    }
+  }
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { code: defaultCodeTheme } }
+}
 
 
 export const CodeClasses = {
   container: `${ Container }`,
 }
+

@@ -17,19 +17,6 @@ export interface StrongProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 
-const Container = styled.strong`
-  color: ${ getStrongStyle('color') };
-  font-size: ${ getStrongStyle('fontSize') };
-  font-weight: ${ getStrongStyle('fontWeight') };
-  font-style: ${ getStrongStyle('fontStyle') };
-`
-
-
-Container.defaultProps = {
-  theme: { yozora: { strong: defaultStrongTheme } }
-}
-
-
 /**
  * Render `strong` content
  *
@@ -49,8 +36,21 @@ Strong.propTypes = {
 }
 
 
-Strong.displayName = 'Strong'
+Strong.displayName = 'YozoraStrong'
 export default Strong
+
+
+const Container = styled.strong`
+  color: ${ getStrongStyle('color') };
+  font-size: ${ getStrongStyle('fontSize') };
+  font-weight: ${ getStrongStyle('fontWeight') };
+  font-style: ${ getStrongStyle('fontStyle') };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { strong: defaultStrongTheme } }
+}
 
 
 export const StrongClasses = {

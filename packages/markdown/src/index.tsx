@@ -29,16 +29,6 @@ interface MarkdownProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 
-const Container = styled.div`
-  display: block;
-  font-size: 1rem;
-  line-height: 1.4;
-  :last-child {
-    margin-bottom: 0;
-  }
-`
-
-
 /**
  *
  * @param props
@@ -74,8 +64,18 @@ Markdown.propTypes = {
 }
 
 
-Markdown.displayName = 'Markdown'
+Markdown.displayName = 'YozoraMarkdown'
 export default Markdown
+
+
+const Container = styled.div`
+  display: block;
+  font-size: 1rem;
+  line-height: 1.4;
+  :last-child {
+    margin-bottom: 0;
+  }
+`
 
 
 export const MarkdownClasses = {

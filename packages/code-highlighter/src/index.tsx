@@ -39,31 +39,56 @@ export interface CodeHighlighterProps {
 
 
 /**
- * Code line
+ *
+ * @param props
  */
-const Line = styled.div<{
-  linenoWidth: React.CSSProperties['width'],
-}>`
-  text-indent: -${ (props) => props.linenoWidth };
-  padding-left: ${ (props) => props.linenoWidth };
-`
+export function CodeHighlighter(props: CodeHighlighterProps): React.ReactElement | null {
+  const {
+    lang,
+    value: code,
+    theme = defaultTheme,
+    linenoWidth = 0,
+    linenoColor = '#858585',
+    onLineCountChange,
+  } = props
+
+  const result = useMemo<React.ReactElement | null>(() => {
+    return (
+      <Highlight
+        Prism={ Prism }
+        code={ code }
+        theme={ theme }
+        language={ lang as any }
+      >
+        {
+          props => (
+            <HighlightContent
+              { ...props }
+              linenoWidth={ linenoWidth }
+              linenoColor={ linenoColor }
+              onLineCountChange={ onLineCountChange }
+            />
+          )
+        }
+      </Highlight>
+    )
+  }, [code, theme, lang, linenoWidth, linenoColor, onLineCountChange])
+
+  return result
+}
 
 
-/**
- * Code line number
- */
-const LineNo = styled.span<{
-  linenoWidth: React.CSSProperties['width'],
-  linenoColor: React.CSSProperties['color'],
-}>`
-  display: inline-block;
-  width: ${ (props) => props.linenoWidth };
-  padding-right: 0.6em;
-  color: ${ (props) => props.linenoColor };
-  cursor: default;
-  user-select: none;
-  text-align: right;
-`
+CodeHighlighter.propTypes = {
+  value: PropTypes.string.isRequired,
+  lang: PropTypes.string,
+  theme: PropTypes.object,
+  linenoWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  onLineCountChange: PropTypes.func,
+}
+
+
+CodeHighlighter.displayName = 'YozoraCodeHighlighter'
+export default CodeHighlighter
 
 
 type HighlightContentProps = RenderProps & {
@@ -118,56 +143,31 @@ function HighlightContent(props: HighlightContentProps): React.ReactElement {
 
 
 /**
- *
- * @param props
+ * Code line
  */
-export function CodeHighlighter(props: CodeHighlighterProps): React.ReactElement | null {
-  const {
-    lang,
-    value: code,
-    theme = defaultTheme,
-    linenoWidth = 0,
-    linenoColor = '#858585',
-    onLineCountChange,
-  } = props
-
-  const result = useMemo<React.ReactElement | null>(() => {
-    return (
-      <Highlight
-        Prism={ Prism }
-        code={ code }
-        theme={ theme }
-        language={ lang as any }
-      >
-        {
-          props => (
-            <HighlightContent
-              { ...props }
-              linenoWidth={ linenoWidth }
-              linenoColor={ linenoColor }
-              onLineCountChange={ onLineCountChange }
-            />
-          )
-        }
-      </Highlight>
-    )
-  }, [code, theme, lang, linenoWidth, linenoColor, onLineCountChange])
-
-  return result
-}
+const Line = styled.div<{
+  linenoWidth: React.CSSProperties['width'],
+}>`
+  text-indent: -${ (props) => props.linenoWidth };
+  padding-left: ${ (props) => props.linenoWidth };
+`
 
 
-CodeHighlighter.propTypes = {
-  value: PropTypes.string.isRequired,
-  lang: PropTypes.string,
-  theme: PropTypes.object,
-  linenoWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  onLineCountChange: PropTypes.func,
-}
-
-
-CodeHighlighter.displayName = 'CodeHighlighter'
-export default CodeHighlighter
+/**
+ * Code line number
+ */
+const LineNo = styled.span<{
+  linenoWidth: React.CSSProperties['width'],
+  linenoColor: React.CSSProperties['color'],
+}>`
+  display: inline-block;
+  width: ${ (props) => props.linenoWidth };
+  padding-right: 0.6em;
+  color: ${ (props) => props.linenoColor };
+  cursor: default;
+  user-select: none;
+  text-align: right;
+`
 
 
 export const CodeHighlighterClasses = {

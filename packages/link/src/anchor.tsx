@@ -23,19 +23,6 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
 }
 
 
-export const Container = styled.a`
-  color: ${ getLinkStyle('color') };
-  font-size: ${ getLinkStyle('fontSize') };
-  font-style: ${ getLinkStyle('fontStyle') };
-  text-decoration: ${ getLinkStyle('textDecoration') };
-`
-
-
-Container.defaultProps = {
-  theme: { yozora: { link: defaultLinkTheme } }
-}
-
-
 /**
  * Render `link` content
  *
@@ -69,8 +56,21 @@ Link.propTypes = {
 }
 
 
-Link.displayName = 'Link'
+Link.displayName = 'YozoraLink'
 export default Link
+
+
+export const Container = styled.a`
+  color: ${ getLinkStyle('color') };
+  font-size: ${ getLinkStyle('fontSize') };
+  font-style: ${ getLinkStyle('fontStyle') };
+  text-decoration: ${ getLinkStyle('textDecoration') };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { link: defaultLinkTheme } }
+}
 
 
 export const LinkClasses = {

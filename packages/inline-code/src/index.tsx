@@ -17,26 +17,6 @@ export interface InlineCodeProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 
-const Container = styled.code`
-  padding: ${ getInlineCodeStyle('padding') };
-  border-radius: ${ getInlineCodeStyle('borderRadius') };
-  margin: ${ getInlineCodeStyle('margin') };
-  background: ${ getInlineCodeStyle('background') };
-  line-height: ${ getInlineCodeStyle('lineHeight') };
-  color: ${ getInlineCodeStyle('color') };
-  font-family: ${ getInlineCodeStyle('fontFamily') };
-  font-size: ${ getInlineCodeStyle('fontSize') };
-  font-weight: ${ getInlineCodeStyle('fontWeight') };
-  font-style: ${ getInlineCodeStyle('fontStyle') };
-  white-space: ${ getInlineCodeStyle('whiteSpace') };
-`
-
-
-Container.defaultProps = {
-  theme: { yozora: { inlineCode: defaultInlineCodeTheme } }
-}
-
-
 /**
  * Render `inlineCode` content
  *
@@ -57,8 +37,28 @@ InlineCode.propTypes = {
 }
 
 
-InlineCode.displayName = 'InlineCode'
+InlineCode.displayName = 'YozoraInlineCode'
 export default InlineCode
+
+
+const Container = styled.code`
+  padding: ${ getInlineCodeStyle('padding') };
+  border-radius: ${ getInlineCodeStyle('borderRadius') };
+  margin: ${ getInlineCodeStyle('margin') };
+  background: ${ getInlineCodeStyle('background') };
+  line-height: ${ getInlineCodeStyle('lineHeight') };
+  color: ${ getInlineCodeStyle('color') };
+  font-family: ${ getInlineCodeStyle('fontFamily') };
+  font-size: ${ getInlineCodeStyle('fontSize') };
+  font-weight: ${ getInlineCodeStyle('fontWeight') };
+  font-style: ${ getInlineCodeStyle('fontStyle') };
+  white-space: ${ getInlineCodeStyle('whiteSpace') };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { inlineCode: defaultInlineCodeTheme } }
+}
 
 
 export const InlineCodeClasses = {

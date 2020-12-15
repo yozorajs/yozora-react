@@ -17,20 +17,6 @@ export interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement>
 }
 
 
-const Container = styled.tr`
-  background: ${ getTableRowStyle('background') };
-
-  &:nth-child(2n) {
-    background: ${ getTableRowStyle('evenBackground') };
-  }
-`
-
-
-Container.defaultProps = {
-  theme: { yozora: { tableRow: defaultTableRowTheme } }
-}
-
-
 /**
  *
  * @param props
@@ -49,8 +35,22 @@ TableRow.propTypes = {
 }
 
 
-TableRow.displayName = 'TableRow'
+TableRow.displayName = 'YozoraTableRow'
 export default TableRow
+
+
+const Container = styled.tr`
+  background: ${ getTableRowStyle('background') };
+
+  &:nth-child(2n) {
+    background: ${ getTableRowStyle('evenBackground') };
+  }
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { tableRow: defaultTableRowTheme } }
+}
 
 
 export const TableRowClasses = {

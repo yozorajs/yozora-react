@@ -35,6 +35,52 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 
+/**
+ * Render `heading` content
+ *
+ * @param props
+ */
+export const Heading = React.forwardRef<HTMLDivElement, HeadingProps>(
+  (props, forwardRef): React.ReactElement => {
+    const {
+      level,
+      children,
+      identifier,
+      linkIcon = <HeadingLinkIcon />,
+      linkClassName,
+      ...htmlProps
+    } = props
+
+    const H: any = 'h' + props.level as keyof JSX.IntrinsicElements
+    return (
+      <Container { ...htmlProps } ref={ forwardRef } >
+        <a
+          id={ identifier }
+          className={ linkClassName }
+          href={ '#' + identifier }
+        >
+          { linkIcon }
+        </a>
+        <H>{ children }</H>
+      </Container >
+    )
+  }
+)
+
+
+Heading.propTypes = {
+  level: PropTypes.oneOf<1 | 2 | 3 | 4 | 5 | 6>([1, 2, 3, 4, 5, 6]).isRequired,
+  children: PropTypes.node.isRequired,
+  identifier: PropTypes.string.isRequired,
+  linkIcon: PropTypes.node,
+  linkClassName: PropTypes.string,
+}
+
+
+Heading.displayName = 'YozoraHeading'
+export default Heading
+
+
 const Container = styled.header`
   position: relative;
   display: block;
@@ -102,52 +148,6 @@ const Container = styled.header`
 Container.defaultProps = {
   theme: { yozora: { heading: defaultHeadingTheme } }
 }
-
-
-/**
- * Render `heading` content
- *
- * @param props
- */
-export const Heading = React.forwardRef<HTMLDivElement, HeadingProps>(
-  (props, forwardRef): React.ReactElement => {
-    const {
-      level,
-      children,
-      identifier,
-      linkIcon = <HeadingLinkIcon />,
-      linkClassName,
-      ...htmlProps
-    } = props
-
-    const H: any = 'h' + props.level as keyof JSX.IntrinsicElements
-    return (
-      <Container { ...htmlProps } ref={ forwardRef } >
-        <a
-          id={ identifier }
-          className={ linkClassName }
-          href={ '#' + identifier }
-        >
-          { linkIcon }
-        </a>
-        <H>{ children }</H>
-      </Container >
-    )
-  }
-)
-
-
-Heading.propTypes = {
-  level: PropTypes.oneOf<1 | 2 | 3 | 4 | 5 | 6>([1, 2, 3, 4, 5, 6]).isRequired,
-  children: PropTypes.node.isRequired,
-  identifier: PropTypes.string.isRequired,
-  linkIcon: PropTypes.node,
-  linkClassName: PropTypes.string,
-}
-
-
-Heading.displayName = 'Heading'
-export default Heading
 
 
 export const HeadingClasses = {

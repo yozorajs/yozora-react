@@ -21,23 +21,6 @@ export interface ListItemProps extends React.LiHTMLAttributes<HTMLSpanElement> {
 }
 
 
-const Container = styled.li`
-  color: ${ getListItemStyle('color') };
-  padding: ${ getListItemStyle('padding') };
-  margin: ${ getListItemStyle('margin') };
-  line-height: ${ getListItemStyle('lineHeight') };
-
-  & > :first-child {
-    margin-bottom: 0
-  }
-`
-
-
-Container.defaultProps = {
-  theme: { yozora: { listItem: defaultListItemTheme } }
-}
-
-
 /**
  * Render ListItem content
  *
@@ -59,8 +42,25 @@ ListItem.propTypes = {
 }
 
 
-ListItem.displayName = 'ListItem'
+ListItem.displayName = 'YozoraListItem'
 export default ListItem
+
+
+const Container = styled.li`
+  color: ${ getListItemStyle('color') };
+  padding: ${ getListItemStyle('padding') };
+  margin: ${ getListItemStyle('margin') };
+  line-height: ${ getListItemStyle('lineHeight') };
+
+  & > :first-child {
+    margin-bottom: 0
+  }
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { listItem: defaultListItemTheme } }
+}
 
 
 export const ListItemClasses = {

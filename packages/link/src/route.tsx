@@ -38,10 +38,5 @@ RouteLink.propTypes = {
 }
 
 
-RouteLink.displayName = 'RouteLink'
+RouteLink.displayName = 'YozoraRouteLink'
 export default RouteLink
-
-
-export const RouteLinkClasses = {
-  container: `${Container}`,
-}

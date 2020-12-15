@@ -26,17 +26,6 @@ export interface TableCellProps
 }
 
 
-const Container = styled.th`
-  padding: ${ getTableCellStyle('padding') };
-  border: 1px solid ${ getTableCellStyle('borderColor') };
-`
-
-
-Container.defaultProps = {
-  theme: { yozora: { tableCell: defaultTableCellTheme } }
-}
-
-
 /**
  *
  * @param props
@@ -65,8 +54,19 @@ TableCell.propTypes = {
 }
 
 
-TableCell.displayName = 'TableCell'
+TableCell.displayName = 'YozoraTableCell'
 export default TableCell
+
+
+const Container = styled.th`
+  padding: ${ getTableCellStyle('padding') };
+  border: 1px solid ${ getTableCellStyle('borderColor') };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { tableCell: defaultTableCellTheme } }
+}
 
 
 export const TableCellClasses = {
