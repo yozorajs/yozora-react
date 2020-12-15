@@ -38,14 +38,14 @@ export const Markdown = React.forwardRef<HTMLDivElement, MarkdownProps>(
     const {
       ast,
       theme = defaultTheme,
-      render: Markdown = MdastRenderer,
+      render: Renderer = MdastRenderer,
       ...htmlProps
     } = props
     return (
       <Container { ...htmlProps } ref={ forwardRef }>
         <ThemeProvider theme={ theme }>
           <MathJax.Provider>
-            <Markdown ast={ ast } />
+            <Renderer ast={ ast } />
           </MathJax.Provider>
         </ThemeProvider>
       </Container>
