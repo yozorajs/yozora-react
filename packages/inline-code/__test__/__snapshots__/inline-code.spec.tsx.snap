@@ -38,10 +38,74 @@ exports[`basic rendering case snapshot with theme 1`] = `
   white-space: normal;
 }
 
-<code
-  class="c0"
-  style="color:orange;font-size:16px"
+<Component
+  theme={
+    Object {
+      "yozora": Object {
+        "inlineCode": Object {
+          "background": "hsla(210deg, 13%, 12%, 0.05)",
+          "borderRadius": "3px",
+          "color": "#d81848",
+          "fontFamily": "Consolas, monospace, sans-serif",
+          "fontSize": "1em",
+          "fontStyle": undefined,
+          "fontWeight": "inherit",
+          "lineHeight": 1.5,
+          "margin": "0 2px",
+          "padding": "2px",
+        },
+      },
+    }
+  }
 >
-  Hello, world!
-</code>
+  <YozoraInlineCode
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+    value="Hello, world!"
+  >
+    <styled.code
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+      theme={
+        Object {
+          "yozora": Object {
+            "inlineCode": Object {
+              "background": "none",
+              "borderRadius": "2px",
+              "color": "inherit",
+              "fontFamily": "Consolas, monospace, sans-serif",
+              "fontSize": "1em",
+              "fontStyle": "inherit",
+              "fontWeight": "inherit",
+              "lineHeight": 1.375,
+              "margin": 0,
+              "padding": "4px",
+              "whiteSpace": "normal",
+            },
+          },
+        }
+      }
+    >
+      <code
+        className="c0"
+        style={
+          Object {
+            "color": "orange",
+            "fontSize": "16px",
+          }
+        }
+      >
+        Hello, world!
+      </code>
+    </styled.code>
+  </YozoraInlineCode>
+</Component>
 `;

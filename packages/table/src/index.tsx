@@ -14,6 +14,33 @@ export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> 
 }
 
 
+/**
+ *
+ * @param props
+ */
+export const Table = React.forwardRef<HTMLTableElement, TableProps>(
+  (props, forwardRef): React.ReactElement => {
+    const { children, ...htmlProps } = props
+    const [headRows, ...bodyRows] = children
+    return (
+      <Container { ...htmlProps } ref={ forwardRef }>
+        <thead>{ headRows }</thead>
+        <tbody>{ bodyRows }</tbody>
+      </Container>
+    )
+  }
+)
+
+
+Table.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.node).isRequired,
+}
+
+
+Table.displayName = 'YozoraTable'
+export default Table
+
+
 const Container = styled.table`
   display: block;
   max-width: 100%;
@@ -30,30 +57,6 @@ Container.defaultProps = {
 }
 
 
-/**
- *
- * @param props
- */
-export const Table = React.forwardRef<HTMLTableElement, TableProps>(
-  (props, forwardRef): React.ReactElement => {
-    const { children, ...tableProps } = props
-    const [headRows, ...bodyRows] = children
-    return (
-      <Container { ...tableProps } ref={ forwardRef }>
-        <thead>{ headRows }</thead>
-        <tbody>{ bodyRows }</tbody>
-      </Container>
-    )
-  }
-)
-
-
-Table.displayName = 'Table'
-
-
-Table.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.node).isRequired,
+export const TableClasses = {
+  container: `${ Container }`
 }
-
-
-export default Table

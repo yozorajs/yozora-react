@@ -93,7 +93,7 @@ describe('basic rendering case', () => {
     }
 
     for (const ordered of [false, true]) {
-      const wrapper = render(
+      const wrapper = mount(
         <ThemeProvider theme={ theme }>
           <List ordered={ ordered } start={ 3 } type="a">
             <li key={ 0 }>apple</li>

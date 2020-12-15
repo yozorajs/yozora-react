@@ -18,6 +18,32 @@ export interface MathProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 
+/**
+ * Render `math` content
+ *
+ * @param props
+ */
+export const Math = React.forwardRef<HTMLDivElement, MathProps>(
+  (props, forwardRef): React.ReactElement => {
+    const { children, value, ...htmlProps } = props
+    return (
+      <Container { ...htmlProps } ref={ forwardRef }>
+        <MathJax.Node inline={ false } formula={ value } />
+      </Container>
+    )
+  }
+)
+
+
+Math.propTypes = {
+  value: PropTypes.string.isRequired,
+}
+
+
+Math.displayName = 'YozoraMath'
+export default Math
+
+
 const Container = styled.div`
   padding: ${ getMathStyle('padding') };
   border: ${ getMathStyle('border') };
@@ -32,29 +58,6 @@ Container.defaultProps = {
 }
 
 
-/**
- * Render `math` content
- *
- * @param props
- */
-export const Math = React.forwardRef<HTMLDivElement, MathProps>(
-  (props, forwardRef): React.ReactElement => {
-    const { children, value, ...mathProps } = props
-    return (
-      <Container { ...mathProps } ref={ forwardRef }>
-        <MathJax.Node inline={ false } formula={ value } />
-      </Container>
-    )
-  }
-)
-
-
-Math.displayName = 'Math'
-
-
-Math.propTypes = {
-  value: PropTypes.string.isRequired,
+export const MathClasses = {
+  container: `${ Container }`,
 }
-
-
-export default Math

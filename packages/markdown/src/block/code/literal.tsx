@@ -19,6 +19,31 @@ export interface CodeLiteralProps {
 }
 
 
+/**
+ *
+ * @param props
+ */
+export function CodeLiteral(props: CodeLiteralProps): React.ReactElement | null {
+  const { lang, value } = props
+  return (
+    <Container>
+      <OverlayContainer>
+        <CopyButton>
+          <CopyToClipboard text={ value }>
+            <span>copy</span>
+          </CopyToClipboard>
+        </CopyButton>
+      </OverlayContainer>
+      <CodePreview lang={ lang } value={ value } />
+    </Container>
+  )
+}
+
+
+CodeLiteral.displayName = 'CodeLiteral'
+export default CodeLiteral
+
+
 const Container = styled.div`
   --md-code-literal-border-color: lightgray;
   --md-code-literal-border-radius: 4px;
@@ -82,27 +107,3 @@ const CodePreview = styled(Code)`
     background: var(--md-code-literal-background-selection);
   }
 `
-
-
-/**
- *
- * @param props
- */
-export function CodeLiteral(props: CodeLiteralProps): React.ReactElement | null {
-  const { lang, value } = props
-  return (
-    <Container>
-      <OverlayContainer>
-        <CopyButton>
-          <CopyToClipboard text={ value }>
-            <span>copy</span>
-          </CopyToClipboard>
-        </CopyButton>
-      </OverlayContainer>
-      <CodePreview lang={ lang } value={ value } />
-    </Container>
-  )
-}
-
-
-export default CodeLiteral

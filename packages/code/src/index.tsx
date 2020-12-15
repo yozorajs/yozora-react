@@ -22,6 +22,43 @@ export interface CodeProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 
+/**
+ * Render `code` content
+ *
+ * @param props
+ */
+export const Code = React.forwardRef<HTMLDivElement, CodeProps>(
+  (props, forwardRef): React.ReactElement => {
+    const { lang, value, ...htmlProps } = props
+    const [lineCount, setLineCount] = useState<number>(0)
+    const linenoWidth = `${ Math.max(2, ('' + lineCount).length) + 0.5 }em`
+
+    return (
+      <Container { ...htmlProps } ref={ forwardRef }>
+        <pre>
+          <CodeHighlighter
+            lang={ lang }
+            value={ value }
+            linenoWidth={ linenoWidth }
+            onLineCountChange={ setLineCount }
+          />
+        </pre>
+      </Container>
+    )
+  }
+)
+
+
+Code.propTypes = {
+  value: PropTypes.string.isRequired,
+  lang: PropTypes.string,
+}
+
+
+Code.displayName = 'YozoraCode'
+export default Code
+
+
 const Container = styled.div`
   padding: ${ getCodeStyle('padding') };
   border: ${ getCodeStyle('border') };
@@ -52,40 +89,7 @@ Container.defaultProps = {
 }
 
 
-/**
- * Render `code` content
- *
- * @param props
- */
-export const Code = React.forwardRef<HTMLDivElement, CodeProps>(
-  (props, forwardRef): React.ReactElement => {
-    const { lang, value, ...divProps } = props
-    const [lineCount, setLineCount] = useState<number>(0)
-    const linenoWidth = `${ Math.max(2, ('' + lineCount).length) + 0.5 }em`
-
-    return (
-      <Container { ...divProps } ref={ forwardRef }>
-        <pre>
-          <CodeHighlighter
-            lang={ lang }
-            value={ value }
-            linenoWidth={ linenoWidth }
-            onLineCountChange={ setLineCount }
-          />
-        </pre>
-      </Container>
-    )
-  }
-)
-
-
-Code.displayName = 'Code'
-
-
-Code.propTypes = {
-  value: PropTypes.string.isRequired,
-  lang: PropTypes.string,
+export const CodeClasses = {
+  container: `${ Container }`,
 }
 
-
-export default Code

@@ -29,12 +29,45 @@ exports[`basic rendering case snapshot with theme 1`] = `
   color: red;
 }
 
-<blockquote
-  class="c0"
+<Component
+  theme={
+    Object {
+      "yozora": Object {
+        "blockquote": Object {
+          "background": "rgba(0, 0, 0, 0.15)",
+          "color": "red",
+          "margin": 18,
+          "padding": "0 1rem",
+        },
+      },
+    }
+  }
 >
-  some text1
-  <span>
-    some text2
-  </span>
-</blockquote>
+  <YozoraBlockquote>
+    <styled.blockquote
+      theme={
+        Object {
+          "yozora": Object {
+            "blockquote": Object {
+              "background": "none",
+              "borderColor": "transparent",
+              "color": "inherit",
+              "margin": "0 0 1.25em",
+              "padding": "0.625em 1em",
+            },
+          },
+        }
+      }
+    >
+      <blockquote
+        className="c0"
+      >
+        some text1
+        <span>
+          some text2
+        </span>
+      </blockquote>
+    </styled.blockquote>
+  </YozoraBlockquote>
+</Component>
 `;

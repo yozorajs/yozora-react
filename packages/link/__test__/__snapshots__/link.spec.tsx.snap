@@ -31,15 +31,69 @@ exports[`basic rendering case snapshot with theme 1`] = `
   text-decoration: none;
 }
 
-<a
-  class="c0"
-  href="/home"
-  style="color:orange;font-size:16px"
-  title="home"
+<Component
+  theme={
+    Object {
+      "yozora": Object {
+        "link": Object {
+          "color": "blue",
+          "fontSize": undefined,
+          "fontStyle": "italic",
+          "textDecoration": "none",
+        },
+      },
+    }
+  }
 >
-  some text1
-  <span>
-    some text2
-  </span>
-</a>
+  <YozoraLink
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+    title="home"
+    url="/home"
+  >
+    <styled.a
+      href="/home"
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+      theme={
+        Object {
+          "yozora": Object {
+            "link": Object {
+              "color": "inherit",
+              "fontSize": "inherit",
+              "fontStyle": "inherit",
+              "textDecoration": "none",
+            },
+          },
+        }
+      }
+      title="home"
+    >
+      <a
+        className="c0"
+        href="/home"
+        style={
+          Object {
+            "color": "orange",
+            "fontSize": "16px",
+          }
+        }
+        title="home"
+      >
+        some text1
+        <span>
+          some text2
+        </span>
+      </a>
+    </styled.a>
+  </YozoraLink>
+</Component>
 `;

@@ -18,6 +18,32 @@ export interface InlineMathProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 
+/**
+ * Render `inlineMath` content
+ *
+ * @param props
+ */
+export const InlineMath = React.forwardRef<HTMLSpanElement, InlineMathProps>(
+  (props, forwardRef): React.ReactElement => {
+    const { children, value, ...htmlProps } = props
+    return (
+      <Container { ...htmlProps } ref={ forwardRef }>
+        <MathJax.Node inline={ true } formula={ value } />
+      </Container>
+    )
+  }
+)
+
+
+InlineMath.propTypes = {
+  value: PropTypes.string.isRequired,
+}
+
+
+InlineMath.displayName = 'YozoraInlineMath'
+export default InlineMath
+
+
 const Container = styled.span`
   padding: ${ getInlineMathStyle('padding') };
   border: ${ getInlineMathStyle('border') };
@@ -31,29 +57,6 @@ Container.defaultProps = {
 }
 
 
-/**
- * Render `inlineMath` content
- *
- * @param props
- */
-export const InlineMath = React.forwardRef<HTMLSpanElement, InlineMathProps>(
-  (props, forwardRef): React.ReactElement => {
-    const { children, value, ...mathProps } = props
-    return (
-      <Container { ...mathProps } ref={ forwardRef }>
-        <MathJax.Node inline={ true } formula={ value } />
-      </Container>
-    )
-  }
-)
-
-
-InlineMath.displayName = 'InlineMath'
-
-
-InlineMath.propTypes = {
-  value: PropTypes.string.isRequired,
+export const InlineMathClasses = {
+  container: `${ Container }`,
 }
-
-
-export default InlineMath

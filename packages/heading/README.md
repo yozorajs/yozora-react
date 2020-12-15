@@ -24,6 +24,7 @@ This package is designed to render [mdast heading][] type data
       const wrapper = (
         <Heading
           level={ 2 }
+          identifier="heading-waw"
           style={ { color: 'orange', fontSize: '16px' } }
         >
           Waw -- { 2 }, 中文标题“这”
@@ -64,6 +65,7 @@ This package is designed to render [mdast heading][] type data
         <ThemeProvider theme={ theme }>
           <Heading
             level={ 1 }
+            identifier="heading-waw"
             style={ { color: 'orange', fontSize: '16px' } }
           >
             Waw -- { 1 }, 中文标题“这”

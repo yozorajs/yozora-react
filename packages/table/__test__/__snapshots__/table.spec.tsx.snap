@@ -50,28 +50,84 @@ exports[`basic rendering case snapshot with theme 1`] = `
   border-collapse: collapse;
 }
 
-<table
-  class="c0"
-  style="color:orange;font-size:16px"
+<Component
+  theme={
+    Object {
+      "yozora": Object {
+        "table": Object {
+          "margin": 18,
+          "overflow": "hidden auto",
+          "width": "100%",
+        },
+      },
+    }
+  }
 >
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        Alice
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Bob
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <YozoraTable
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+  >
+    <styled.table
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+      theme={
+        Object {
+          "yozora": Object {
+            "table": Object {
+              "borderCollapse": "collapse",
+              "borderSpacing": 0,
+              "margin": "0 0 1em",
+              "overflow": "auto",
+              "width": "max-content",
+            },
+          },
+        }
+      }
+    >
+      <table
+        className="c0"
+        style={
+          Object {
+            "color": "orange",
+            "fontSize": "16px",
+          }
+        }
+      >
+        <thead>
+          <tr
+            key="0"
+          >
+            <th>
+              Name
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            key="1"
+          >
+            <td>
+              Alice
+            </td>
+          </tr>
+          <tr
+            key="2"
+          >
+            <td>
+              Bob
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </styled.table>
+  </YozoraTable>
+</Component>
 `;

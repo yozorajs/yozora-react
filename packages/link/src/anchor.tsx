@@ -23,6 +23,43 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
 }
 
 
+/**
+ * Render `link` content
+ *
+ * @param props
+ */
+export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  (props, forwardRef): React.ReactElement => {
+    const {
+      url,
+      href,
+      title,
+      ...htmlProps
+    } = props
+
+    return (
+      <Container
+        { ...htmlProps }
+        ref={ forwardRef }
+        title={ title }
+        href={ url }
+      />
+    )
+  }
+)
+
+
+Link.propTypes = {
+  url: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  children: PropTypes.node.isRequired,
+}
+
+
+Link.displayName = 'YozoraLink'
+export default Link
+
+
 export const Container = styled.a`
   color: ${ getLinkStyle('color') };
   font-size: ${ getLinkStyle('fontSize') };
@@ -36,40 +73,6 @@ Container.defaultProps = {
 }
 
 
-/**
- * Render `link` content
- *
- * @param props
- */
-export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  (props, forwardRef): React.ReactElement => {
-    const {
-      url,
-      href,
-      title,
-      ...anchorProps
-    } = props
-
-    return (
-      <Container
-        { ...anchorProps }
-        ref={ forwardRef }
-        title={ title }
-        href={ url }
-      />
-    )
-  }
-)
-
-
-Link.displayName = 'Link'
-
-
-Link.propTypes = {
-  url: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  children: PropTypes.node.isRequired,
+export const LinkClasses = {
+  container: `${ Container }`,
 }
-
-
-export default Link

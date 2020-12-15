@@ -17,6 +17,30 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 
+/**
+ * Render `text` content
+ *
+ * @param props
+ */
+export const Text = React.forwardRef<HTMLSpanElement, TextProps>(
+  (props, forwardRef): React.ReactElement => {
+    const { children, value, ...htmlProps } = props
+    return (
+      <Container { ...htmlProps } ref={ forwardRef }>{ value }</Container>
+    )
+  }
+)
+
+
+Text.propTypes = {
+  value: PropTypes.string.isRequired,
+}
+
+
+Text.displayName = 'YozoraText'
+export default Text
+
+
 const Container = styled.span`
   line-height: ${ getTextStyle('lineHeight') };
 `
@@ -27,27 +51,6 @@ Container.defaultProps = {
 }
 
 
-/**
- * Render `text` content
- *
- * @param props
- */
-export const Text = React.forwardRef<HTMLSpanElement, TextProps>(
-  (props, forwardRef): React.ReactElement => {
-    const { children, value, ...spanProps } = props
-    return (
-      <Container { ...spanProps } ref={ forwardRef }>{ value }</Container>
-    )
-  }
-)
-
-
-Text.displayName = 'Text'
-
-
-Text.propTypes = {
-  value: PropTypes.string.isRequired,
+export const TextClasses = {
+  container: `${ Container }`
 }
-
-
-export default Text

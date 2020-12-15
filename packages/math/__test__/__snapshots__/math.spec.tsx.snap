@@ -9,10 +9,70 @@ exports[`basic rendering case snapshot 1`] = `
   color: inherit;
 }
 
-<div
-  class="c0"
-  style="color:orange;font-size:16px"
-/>
+<YozoraMath
+  style={
+    Object {
+      "color": "orange",
+      "fontSize": "16px",
+    }
+  }
+  value="
+      \\\\begin{align}
+        f(x) = \\\\left\\\\lbrace
+          \\\\begin{aligned}
+            &x^2, &x < 0 \\\\\\\\
+            &\\\\frac{1}{x^3}, &x > 0
+          \\\\end{aligned}
+        \\\\right.
+      \\\\end{align}
+    "
+>
+  <styled.div
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+    theme={
+      Object {
+        "yozora": Object {
+          "math": Object {
+            "background": "none",
+            "border": "none",
+            "color": "inherit",
+            "margin": 0,
+            "padding": 0,
+          },
+        },
+      }
+    }
+  >
+    <div
+      className="c0"
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+    >
+      <MathJaxNode
+        formula="
+      \\\\begin{align}
+        f(x) = \\\\left\\\\lbrace
+          \\\\begin{aligned}
+            &x^2, &x < 0 \\\\\\\\
+            &\\\\frac{1}{x^3}, &x > 0
+          \\\\end{aligned}
+        \\\\right.
+      \\\\end{align}
+    "
+        inline={false}
+      />
+    </div>
+  </styled.div>
+</YozoraMath>
 `;
 
 exports[`basic rendering case snapshot with theme 1`] = `
@@ -38,7 +98,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
     }
   }
 >
-  <Math
+  <YozoraMath
     style={
       Object {
         "color": "orange",
@@ -101,6 +161,6 @@ exports[`basic rendering case snapshot with theme 1`] = `
         />
       </div>
     </styled.div>
-  </Math>
+  </YozoraMath>
 </Component>
 `;

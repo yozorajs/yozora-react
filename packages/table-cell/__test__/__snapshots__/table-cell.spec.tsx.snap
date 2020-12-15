@@ -9,64 +9,6 @@ exports[`basic rendering case snapshot 1`] = `
 <table>
   <tbody>
     <tr>
-      <TableCell
-        style={
-          Object {
-            "color": "orange",
-            "fontSize": "16px",
-          }
-        }
-      >
-        <styled.th
-          align="center"
-          as="td"
-          style={
-            Object {
-              "color": "orange",
-              "fontSize": "16px",
-            }
-          }
-          theme={
-            Object {
-              "yozora": Object {
-                "tableCell": Object {
-                  "borderColor": "transparent",
-                  "padding": "0.4rem 0.8rem",
-                },
-              },
-            }
-          }
-        >
-          <td
-            className="c0"
-            style={
-              Object {
-                "color": "orange",
-                "fontSize": "16px",
-              }
-            }
-          >
-            some text1
-            <span>
-              some text2
-            </span>
-          </td>
-        </styled.th>
-      </TableCell>
-    </tr>
-  </tbody>
-</table>
-`;
-
-exports[`basic rendering case snapshot with theme 1`] = `
-.c0 {
-  padding: 0.4rem 0.8rem;
-  border: 1px solid red;
-}
-
-<table>
-  <tbody>
-    <tr>
       <td
         class="c0"
         style="color:orange;font-size:16px"
@@ -79,4 +21,74 @@ exports[`basic rendering case snapshot with theme 1`] = `
     </tr>
   </tbody>
 </table>
+`;
+
+exports[`basic rendering case snapshot with theme 1`] = `
+.c0 {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid red;
+}
+
+<Component
+  theme={
+    Object {
+      "yozora": Object {
+        "tableCell": Object {
+          "borderColor": "red",
+        },
+      },
+    }
+  }
+>
+  <table>
+    <tbody>
+      <tr>
+        <YozoraTableCell
+          style={
+            Object {
+              "color": "orange",
+              "fontSize": "16px",
+            }
+          }
+        >
+          <styled.th
+            align="center"
+            as="td"
+            style={
+              Object {
+                "color": "orange",
+                "fontSize": "16px",
+              }
+            }
+            theme={
+              Object {
+                "yozora": Object {
+                  "tableCell": Object {
+                    "borderColor": "transparent",
+                    "padding": "0.4rem 0.8rem",
+                  },
+                },
+              }
+            }
+          >
+            <td
+              className="c0"
+              style={
+                Object {
+                  "color": "orange",
+                  "fontSize": "16px",
+                }
+              }
+            >
+              some text1
+              <span>
+                some text2
+              </span>
+            </td>
+          </styled.th>
+        </YozoraTableCell>
+      </tr>
+    </tbody>
+  </table>
+</Component>
 `;

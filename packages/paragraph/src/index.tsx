@@ -17,19 +17,6 @@ export interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElemen
 }
 
 
-const Container = styled.p`
-  padding: ${ getParagraphStyle('padding') };
-  margin: ${ getParagraphStyle('margin') };
-  line-height: ${ getParagraphStyle('lineHeight') };
-  color: ${ getParagraphStyle('color') };
-`
-
-
-Container.defaultProps = {
-  theme: { yozora: { paragraph: defaultParagraphTheme } }
-}
-
-
 /**
  * Render `paragraph` content
  *
@@ -44,12 +31,28 @@ export const Paragraph = React.forwardRef<HTMLParagraphElement, ParagraphProps>(
 )
 
 
-Paragraph.displayName = 'Paragraph'
-
-
 Paragraph.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
 
+Paragraph.displayName = 'YozoraParagraph'
 export default Paragraph
+
+
+const Container = styled.p`
+  padding: ${ getParagraphStyle('padding') };
+  margin: ${ getParagraphStyle('margin') };
+  line-height: ${ getParagraphStyle('lineHeight') };
+  color: ${ getParagraphStyle('color') };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { paragraph: defaultParagraphTheme } }
+}
+
+
+export const ParagraphClasses = {
+  container: `${ Container}`,
+}

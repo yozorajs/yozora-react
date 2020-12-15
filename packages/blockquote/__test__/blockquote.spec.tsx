@@ -83,7 +83,7 @@ describe('basic rendering case', () => {
       }
     }
 
-    const wrapper = render(
+    const wrapper = mount(
       <ThemeProvider theme={ theme }>
         <Blockquote>
           some text1

@@ -42,6 +42,64 @@ export interface CodeLiveProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 
+export const CodeLive = React.forwardRef<HTMLDivElement, CodeLiveProps>(
+  (props, forwardRef) => {
+    const {
+      CodeRenderer,
+      lang,
+      errorClassName,
+      editorTextareaClassName,
+      editorPreClassName,
+      ...htmlProps
+    } = props
+
+    const [layout] = useState<'horizontal' | 'vertical'>('horizontal')
+    const [value, setValue] = useState<string>(props.value)
+
+    const handleChange = useMemo(() => debounce(setValue, 300), [])
+
+    return (
+      <Container { ...htmlProps } ref={ forwardRef } layout={ layout }>
+        <EditorContainer>
+          <CodeLiveEditor
+            lang={ lang }
+            code={ value }
+            onChange={ handleChange }
+            textareaClassName={ editorTextareaClassName }
+            preClassName={ editorPreClassName }
+          />
+        </EditorContainer>
+        <EmbedContainer>
+          <WrappedCodeEmbed
+            lang={ lang }
+            value={ value }
+            errorClassName={ errorClassName }
+            CodeRenderer={ CodeRenderer }
+          />
+        </EmbedContainer>
+      </Container>
+    )
+  }
+)
+
+
+CodeLive.propTypes = {
+  lang: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  CodeRenderer: PropTypes.oneOfType<any>([
+    PropTypes.elementType,
+    PropTypes.func,
+  ]).isRequired,
+  errorClassName: PropTypes.string,
+  editorPreClassName: PropTypes.string,
+  editorTextareaClassName: PropTypes.string,
+}
+
+
+CodeLive.displayName = 'YozoraCodeLive'
+export default CodeLive
+
+
 const EditorContainer = styled.div`
   flex: 0 0 auto;
   overflow: auto;
@@ -56,9 +114,6 @@ const EditorContainer = styled.div`
     }
   }
 `
-EditorContainer.defaultProps = {
-  theme: { yozora: { codeLive: defaultCodeLiveTheme } }
-}
 
 
 const WrappedCodeEmbed = styled(CodeEmbed)`
@@ -78,86 +133,37 @@ const EmbedContainer = styled.div`
 `
 
 
+const horizontalContainer = css`
+  flex-direction: row;
+  align-items: stretch;
+  ${ EditorContainer }, ${ EmbedContainer } {
+    flex: 1 1 0;
+    width: 50%;
+  }
+`
+const verticalContainer = css`
+  flex-direction: column;
+  ${ EditorContainer }, ${ EmbedContainer } {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+`
+
+
 const Container = styled.div<{ layout: 'horizontal' | 'vertical' }>`
   display: flex;
-  ${ props => props.layout === 'horizontal'
-    ? css`
-        flex-direction: row;
-        align-items: stretch;
-        ${ EditorContainer }, ${ EmbedContainer } {
-          flex: 1 1 0;
-          width: 50%;
-        }
-      `
-    : css`
-        flex-direction: column;
-        ${ EditorContainer }, ${ EmbedContainer } {
-          flex: 1 1 auto;
-          width: 100%;
-        }
-      `
-  };
+  ${ props => props.layout === 'horizontal' ? horizontalContainer : verticalContainer };
 `
+
+
 Container.defaultProps = {
   theme: { yozora: { codeLive: defaultCodeLiveTheme } }
 }
 
 
-export const CodeLive = React.forwardRef<HTMLDivElement, CodeLiveProps>(
-  (props, forwardRef) => {
-    const {
-      CodeRenderer,
-      lang,
-      errorClassName,
-      editorTextareaClassName,
-      editorPreClassName,
-      ...divProps
-    } = props
-
-    const [layout] = useState<'horizontal' | 'vertical'>('horizontal')
-    const [value, setValue] = useState<string>(props.value)
-
-    const handleChange = useMemo(() => debounce(setValue, 300), [])
-
-    return (
-      <Container { ...divProps } ref={ forwardRef } layout={ layout }>
-        <EditorContainer>
-          <CodeLiveEditor
-            lang={ lang }
-            code={ value }
-            onChange={ handleChange }
-            textareaClassName={ editorTextareaClassName }
-            preClassName={ editorPreClassName }
-          />
-        </EditorContainer>
-        <EmbedContainer>
-          <WrappedCodeEmbed 
-            lang={ lang }
-            value={ value }
-            errorClassName={ errorClassName }
-            CodeRenderer={ CodeRenderer }
-          />
-        </EmbedContainer>
-      </Container>
-    )
-  }
-)
-
-
-CodeLive.displayName = 'CodeLive'
-
-
-CodeLive.propTypes = {
-  lang: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  CodeRenderer: PropTypes.oneOfType<any>([
-    PropTypes.elementType,
-    PropTypes.func,
-  ]).isRequired,
-  errorClassName: PropTypes.string,
-  editorPreClassName: PropTypes.string,
-  editorTextareaClassName: PropTypes.string,
+export const CodeLiveClasses = {
+  container: `${ Container }`,
+  editorContainer: `${ EditorContainer }`,
+  embedContainer: `${ EmbedContainer }`,
+  wrappedCodeEmbed: `${ WrappedCodeEmbed }`,
 }
-
-
-export default CodeLive

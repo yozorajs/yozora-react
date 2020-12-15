@@ -25,6 +25,36 @@ export interface ListProps extends React.OlHTMLAttributes<HTMLOListElement | HTM
 }
 
 
+/**
+ * Render `list` content
+ *
+ * @param props
+ */
+export const List = React.forwardRef<HTMLUListElement | HTMLOListElement, ListProps>(
+  (props, forwardRef): React.ReactElement => {
+    const { ordered, children, ...htmlProps } = props
+    const as = ordered ? 'ol' : 'ul'
+
+    return (
+      <Container as={ as } { ...htmlProps } ref={ forwardRef }>
+        { children }
+      </Container>
+    )
+  }
+)
+
+
+List.propTypes = {
+  ordered: PropTypes.bool.isRequired,
+  start: PropTypes.number,
+  children: PropTypes.node.isRequired,
+}
+
+
+List.displayName = 'YozoraList'
+export default List
+
+
 const Container = styled.ul`
   color: ${ getListStyle('color') };
   padding: ${ getListStyle('padding') };
@@ -38,33 +68,6 @@ Container.defaultProps = {
 }
 
 
-/**
- * Render `list` content
- *
- * @param props
- */
-export const List = React.forwardRef<HTMLUListElement | HTMLOListElement, ListProps>(
-  (props, forwardRef): React.ReactElement => {
-    const { ordered, children, ...listProps } = props
-    const as = ordered ? 'ol' : 'ul'
-
-    return (
-      <Container as={ as } { ...listProps } ref={ forwardRef }>
-        { children }
-      </Container>
-    )
-  }
-)
-
-
-List.displayName = 'List'
-
-
-List.propTypes = {
-  ordered: PropTypes.bool.isRequired,
-  start: PropTypes.number,
-  children: PropTypes.node.isRequired,
+export const ListClasses = {
+  container: `${ Container }`,
 }
-
-
-export default List

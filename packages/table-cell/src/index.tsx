@@ -26,6 +26,38 @@ export interface TableCellProps
 }
 
 
+/**
+ *
+ * @param props
+ */
+export const TableCell = React.forwardRef<
+  HTMLTableDataCellElement | HTMLTableHeaderCellElement,
+  TableCellProps
+>(
+  (props, forwardRef): React.ReactElement => {
+    const { children, isHeader = false, align = 'center', ...htmlProps } = props
+    const as = isHeader ? 'th' : 'td'
+
+    return (
+      <Container as={ as } { ...htmlProps } align={ align } ref={ forwardRef }>
+        { children }
+      </Container>
+    )
+  }
+)
+
+
+TableCell.propTypes = {
+  children: PropTypes.node.isRequired,
+  isHeader: PropTypes.bool,
+  align: PropTypes.oneOf<'left' | 'center' | 'right'>(['left', 'center', 'right']),
+}
+
+
+TableCell.displayName = 'YozoraTableCell'
+export default TableCell
+
+
 const Container = styled.th`
   padding: ${ getTableCellStyle('padding') };
   border: 1px solid ${ getTableCellStyle('borderColor') };
@@ -37,35 +69,6 @@ Container.defaultProps = {
 }
 
 
-/**
- *
- * @param props
- */
-export const TableCell = React.forwardRef<
-  HTMLTableDataCellElement | HTMLTableHeaderCellElement,
-  TableCellProps
->(
-  (props, forwardRef): React.ReactElement => {
-    const { children, isHeader = false, align = 'center', ...cellProps } = props
-    const as = isHeader ? 'th' : 'td'
-
-    return (
-      <Container as={ as } { ...cellProps } align={ align } ref={ forwardRef }>
-        { children }
-      </Container>
-    )
-  }
-)
-
-
-TableCell.displayName = 'TableCell'
-
-
-TableCell.propTypes = {
-  children: PropTypes.node.isRequired,
-  isHeader: PropTypes.bool,
-  align: PropTypes.oneOf<'left' | 'center' | 'right'>(['left', 'center', 'right']),
+export const TableCellClasses = {
+  container: `${ Container }`,
 }
-
-
-export default TableCell

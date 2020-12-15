@@ -17,6 +17,28 @@ export interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement>
 }
 
 
+/**
+ *
+ * @param props
+ */
+export const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(
+  (props, forwardRef): React.ReactElement => {
+    return (
+      <Container { ...props } ref={ forwardRef } />
+    )
+  }
+)
+
+
+TableRow.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+
+TableRow.displayName = 'YozoraTableRow'
+export default TableRow
+
+
 const Container = styled.tr`
   background: ${ getTableRowStyle('background') };
 
@@ -31,25 +53,6 @@ Container.defaultProps = {
 }
 
 
-/**
- *
- * @param props
- */
-export const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(
-  (props, forwardRef): React.ReactElement => {
-    return (
-      <Container { ...props } ref={ forwardRef } />
-    )
-  }
-)
-
-
-TableRow.displayName = 'TableRow'
-
-
-TableRow.propTypes = {
-  children: PropTypes.node.isRequired,
+export const TableRowClasses = {
+  container: `${ Container }`,
 }
-
-
-export default TableRow

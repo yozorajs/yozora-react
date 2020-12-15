@@ -9,7 +9,7 @@ exports[`basic rendering case snapshot 1`] = `
   color: inherit;
 }
 
-<InlineMath
+<YozoraInlineMath
   style={
     Object {
       "color": "orange",
@@ -54,7 +54,7 @@ exports[`basic rendering case snapshot 1`] = `
       />
     </span>
   </styled.span>
-</InlineMath>
+</YozoraInlineMath>
 `;
 
 exports[`basic rendering case snapshot with theme 1`] = `
@@ -80,7 +80,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
     }
   }
 >
-  <InlineMath
+  <YozoraInlineMath
     style={
       Object {
         "color": "orange",
@@ -125,6 +125,6 @@ exports[`basic rendering case snapshot with theme 1`] = `
         />
       </span>
     </styled.span>
-  </InlineMath>
+  </YozoraInlineMath>
 </Component>
 `;

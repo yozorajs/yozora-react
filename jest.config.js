@@ -64,7 +64,7 @@ module.exports = {
     '**/src/**/*.{js,jsx,ts,tsx}',
     '**/src/*.{js,jsx,ts,tsx}',
     '!**/src/styled-components.ts',
-    '!**/src/**/*.no-cover.{ts,tsx,js,jsx}',
+    '!**/src/**/no-cover/**',
     '!**/__test__/cases/**',
     '!**/node_modules/**',
     '!**/lib/**',
@@ -84,7 +84,7 @@ module.exports = {
   coverageThreshold: {
     'global': {
       'branches': 50,
-      'functions': 80,
+      'functions': 60,
       'lines': 90,
       'statements': 90
     }

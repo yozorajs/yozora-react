@@ -17,6 +17,30 @@ export interface InlineCodeProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 
+/**
+ * Render `inlineCode` content
+ *
+ * @param props
+ */
+export const InlineCode = React.forwardRef<HTMLSpanElement, InlineCodeProps>(
+  (props, forwardRef): React.ReactElement => {
+    const { children, value, ...htmlProps } = props
+    return (
+      <Container { ...htmlProps } ref={ forwardRef }>{ value }</Container>
+    )
+  }
+)
+
+
+InlineCode.propTypes = {
+  value: PropTypes.string.isRequired,
+}
+
+
+InlineCode.displayName = 'YozoraInlineCode'
+export default InlineCode
+
+
 const Container = styled.code`
   padding: ${ getInlineCodeStyle('padding') };
   border-radius: ${ getInlineCodeStyle('borderRadius') };
@@ -37,27 +61,6 @@ Container.defaultProps = {
 }
 
 
-/**
- * Render `inlineCode` content
- *
- * @param props
- */
-export const InlineCode = React.forwardRef<HTMLSpanElement, InlineCodeProps>(
-  (props, forwardRef): React.ReactElement => {
-    const { children, value, ...codeProps } = props
-    return (
-      <Container { ...codeProps } ref={ forwardRef }>{ value }</Container>
-    )
-  }
-)
-
-
-InlineCode.displayName = 'InlineCode'
-
-
-InlineCode.propTypes = {
-  value: PropTypes.string.isRequired,
+export const InlineCodeClasses = {
+  container: `${ Container}`,
 }
-
-
-export default InlineCode

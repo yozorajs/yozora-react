@@ -65,6 +65,4 @@ export function CustomCodeEmbed(props: CodeEmbedProps): React.ReactElement | nul
 
 
 CustomCodeEmbed.displayName = 'CustomCodeEmbed'
-
-
 export default CustomCodeEmbed

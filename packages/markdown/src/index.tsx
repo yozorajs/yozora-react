@@ -29,16 +29,6 @@ interface MarkdownProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 
-const Container = styled.div`
-  display: block;
-  font-size: 1rem;
-  line-height: 1.4;
-  :last-child {
-    margin-bottom: 0;
-  }
-`
-
-
 /**
  *
  * @param props
@@ -48,23 +38,20 @@ export const Markdown = React.forwardRef<HTMLDivElement, MarkdownProps>(
     const {
       ast,
       theme = defaultTheme,
-      render: Markdown = MdastRenderer,
+      render: Renderer = MdastRenderer,
       ...htmlProps
     } = props
     return (
       <Container { ...htmlProps } ref={ forwardRef }>
         <ThemeProvider theme={ theme }>
           <MathJax.Provider>
-            <Markdown ast={ ast } />
+            <Renderer ast={ ast } />
           </MathJax.Provider>
         </ThemeProvider>
       </Container>
     )
   }
 )
-
-
-Markdown.displayName = 'Markdown'
 
 
 Markdown.propTypes = {
@@ -77,4 +64,20 @@ Markdown.propTypes = {
 }
 
 
+Markdown.displayName = 'YozoraMarkdown'
 export default Markdown
+
+
+const Container = styled.div`
+  display: block;
+  font-size: 1rem;
+  line-height: 1.4;
+  :last-child {
+    margin-bottom: 0;
+  }
+`
+
+
+export const MarkdownClasses = {
+  container: `${ Container }`,
+}

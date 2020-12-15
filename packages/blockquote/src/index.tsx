@@ -17,20 +17,6 @@ export interface BlockquoteProps extends React.BlockquoteHTMLAttributes<HTMLDivE
 }
 
 
-const Container = styled.blockquote`
-  padding: ${ getBlockquoteStyle('padding') };
-  border-left: 0.25em solid ${ getBlockquoteStyle('borderColor') };
-  margin: ${ getBlockquoteStyle('margin') };
-  background:  ${ getBlockquoteStyle('background') };
-  color: ${ getBlockquoteStyle('color') };
-`
-
-
-Container.defaultProps = {
-  theme: { yozora: { blockquote: defaultBlockquoteTheme } }
-}
-
-
 /**
  * Render Blockquote content
  *
@@ -45,12 +31,29 @@ export const Blockquote = React.forwardRef<HTMLDivElement, BlockquoteProps>(
 )
 
 
-Blockquote.displayName = 'Blockquote'
-
-
 Blockquote.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
 
+Blockquote.displayName = 'YozoraBlockquote'
 export default Blockquote
+
+
+const Container = styled.blockquote`
+  padding: ${ getBlockquoteStyle('padding') };
+  border-left: 0.25em solid ${ getBlockquoteStyle('borderColor') };
+  margin: ${ getBlockquoteStyle('margin') };
+  background:  ${ getBlockquoteStyle('background') };
+  color: ${ getBlockquoteStyle('color') };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { blockquote: defaultBlockquoteTheme } }
+}
+
+
+export const BlockquoteClasses = {
+  container: `${ Container }`,
+}

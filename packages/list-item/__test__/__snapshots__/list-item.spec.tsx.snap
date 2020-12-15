@@ -8,6 +8,10 @@ exports[`basic rendering case snapshot 1`] = `
   line-height: inherit;
 }
 
+.c0 > :first-child {
+  margin-bottom: 0;
+}
+
 <li
   class="c0"
   style="color:orange;font-size:16px"
@@ -27,13 +31,67 @@ exports[`basic rendering case snapshot with theme 1`] = `
   line-height: inherit;
 }
 
-<li
-  class="c0"
-  style="color:orange;font-size:16px"
+.c0 > :first-child {
+  margin-bottom: 0;
+}
+
+<Component
+  theme={
+    Object {
+      "yozora": Object {
+        "listItem": Object {
+          "color": "red",
+          "margin": 18,
+          "padding": "0 1rem",
+        },
+      },
+    }
+  }
 >
-  some text1
-  <span>
-    some text2
-  </span>
-</li>
+  <YozoraListItem
+    status="doing"
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+  >
+    <styled.li
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+      theme={
+        Object {
+          "yozora": Object {
+            "listItem": Object {
+              "color": "inherit",
+              "lineHeight": "inherit",
+              "margin": "0 0 0.25em 0.25em",
+              "padding": 0,
+            },
+          },
+        }
+      }
+    >
+      <li
+        className="c0"
+        style={
+          Object {
+            "color": "orange",
+            "fontSize": "16px",
+          }
+        }
+      >
+        some text1
+        <span>
+          some text2
+        </span>
+      </li>
+    </styled.li>
+  </YozoraListItem>
+</Component>
 `;

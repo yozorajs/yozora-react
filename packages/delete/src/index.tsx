@@ -17,20 +17,6 @@ export interface DeleteProps extends React.DelHTMLAttributes<HTMLSpanElement> {
 }
 
 
-const Container = styled.del`
-  color: ${ getDeleteStyle('color') };
-  font-size: ${ getDeleteStyle('fontSize') };
-  font-weight: ${ getDeleteStyle('fontWeight') };
-  font-style: ${ getDeleteStyle('fontStyle') };
-  text-decoration: ${ getDeleteStyle('textDecoration') };
-`
-
-
-Container.defaultProps = {
-  theme: { yozora: { delete: defaultDeleteTheme } }
-}
-
-
 /**
  * Render `delete` content
  *
@@ -45,12 +31,29 @@ export const Delete = React.forwardRef<HTMLSpanElement, DeleteProps>(
 )
 
 
-Delete.displayName = 'Delete'
-
-
 Delete.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
 
+Delete.displayName = 'YozoraDelete'
 export default Delete
+
+
+const Container = styled.del`
+  color: ${ getDeleteStyle('color') };
+  font-size: ${ getDeleteStyle('fontSize') };
+  font-weight: ${ getDeleteStyle('fontWeight') };
+  font-style: ${ getDeleteStyle('fontStyle') };
+  text-decoration: ${ getDeleteStyle('textDecoration') };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { delete: defaultDeleteTheme } }
+}
+
+
+export const DeleteClasses = {
+  container: `${ Container }`,
+}

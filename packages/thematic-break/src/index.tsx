@@ -13,6 +13,27 @@ export interface ThematicBreakProps extends React.HTMLAttributes<HTMLHRElement> 
 }
 
 
+/**
+ * Render `thematicBreak` content
+ *
+ * @param props
+ */
+export const ThematicBreak = React.forwardRef<HTMLHRElement, ThematicBreakProps>(
+  (props, forwardRef): React.ReactElement => {
+    return (
+      <Container { ...props } ref={ forwardRef } />
+    )
+  }
+)
+
+
+ThematicBreak.propTypes = {}
+
+
+ThematicBreak.displayName = 'YozoraThematicBreak'
+export default ThematicBreak
+
+
 const Container = styled.hr`
   overflow: hidden;
   display: block;
@@ -32,26 +53,6 @@ Container.defaultProps = {
 }
 
 
-/**
- * Render `thematicBreak` content
- *
- * @param props
- */
-export const ThematicBreak = React.forwardRef<HTMLHRElement, ThematicBreakProps>(
-  (props, forwardRef): React.ReactElement => {
-    return (
-      <Container { ...props } ref={ forwardRef } />
-    )
-  }
-)
-
-
-ThematicBreak.displayName = 'ThematicBreak'
-
-
-ThematicBreak.propTypes = {
-
+export const ThematicBreakClasses = {
+  container: `${ Container }`,
 }
-
-
-export default ThematicBreak

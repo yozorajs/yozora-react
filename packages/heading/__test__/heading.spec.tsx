@@ -18,7 +18,7 @@ describe('basic rendering case', () => {
   it('render a simple content', () => {
     const text = 'Hello, world!'
     const wrapper = render(
-      <Heading level={ 3 }>{ text }</Heading>
+      <Heading level={ 3 } identifier="heading-22">{ text }</Heading>
     )
     expect(wrapper.text()).toEqual(text)
   })
@@ -27,7 +27,7 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const className = 'custom-heading'
     const wrapper = render(
-      <Heading level={ 1 } className={ className }>
+      <Heading level={ 1 } identifier="heading-33" className={ className }>
         <span>{ text }</span>
       </Heading>
     )
@@ -38,7 +38,11 @@ describe('basic rendering case', () => {
   it('level is a required enum number', () => {
     for (const level of [0, '1', 1.2, 7] as any[]) {
       expect(() => {
-        render(<Heading level={ level }>heading { level }</Heading>)
+        render(
+          <Heading level={ level } identifier={ `heading-${ level }` }>
+            heading { level }
+          </Heading>
+        )
       }).toThrow(/Failed prop type: Invalid prop `level`/i)
     }
   })
@@ -46,7 +50,11 @@ describe('basic rendering case', () => {
   it('children is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(<Heading level={ 1 }>{ value }</Heading>)
+        render(
+          <Heading level={ 1 } identifier="heading-1">
+            { value }
+          </Heading>
+        )
       }).toThrow(/Failed prop type: The prop `children` is marked as required/i)
     }
   })
@@ -55,7 +63,7 @@ describe('basic rendering case', () => {
     const ref = React.createRef<HTMLDivElement>()
     const level = 1
     const wrapper = mount(
-      <Heading level={ level } ref={ ref } data-value="waw">
+      <Heading level={ level } ref={ ref } identifier={ `heading-${ level }` } data-value="waw">
         Heading { level }
       </Heading>
     )
@@ -70,6 +78,7 @@ describe('basic rendering case', () => {
     const wrapper = render(
       <Heading
         level={ level }
+        identifier={ `heading-${ level }` }
         style={ { color: 'orange', fontSize: '16px' } }
       >
         Waw -- { level }, 中文标题“这”
@@ -102,10 +111,11 @@ describe('basic rendering case', () => {
     }
 
     const level = 1
-    const wrapper = render(
+    const wrapper = mount(
       <ThemeProvider theme={ theme }>
         <Heading
           level={ level }
+          identifier={ `heading-${ level }` }
           style={ { color: 'orange', fontSize: '16px' } }
         >
           Waw -- { level }, 中文标题“这”

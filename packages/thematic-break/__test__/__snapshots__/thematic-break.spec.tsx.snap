@@ -34,8 +34,55 @@ exports[`basic rendering case snapshot with theme 1`] = `
   margin: 2rem 0;
 }
 
-<hr
-  class="c0"
-  style="color:orange;font-size:16px"
-/>
+<Component
+  theme={
+    Object {
+      "yozora": Object {
+        "thematicBreak": Object {
+          "borderColor": "orange",
+          "margin": "2rem 0",
+        },
+      },
+    }
+  }
+>
+  <YozoraThematicBreak
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+  >
+    <styled.hr
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+      theme={
+        Object {
+          "yozora": Object {
+            "thematicBreak": Object {
+              "borderColor": "lightgray",
+              "margin": "1.5em 0",
+              "outline": 0,
+            },
+          },
+        }
+      }
+    >
+      <hr
+        className="c0"
+        style={
+          Object {
+            "color": "orange",
+            "fontSize": "16px",
+          }
+        }
+      />
+    </styled.hr>
+  </YozoraThematicBreak>
+</Component>
 `;

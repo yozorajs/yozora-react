@@ -107,7 +107,7 @@ describe('basic rendering case', () => {
       }
     }
 
-    const wrapper = render(
+    const wrapper = mount(
       <Router>
         <ThemeProvider theme={ theme }>
           <Link

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import type { EditorProps, EditorState } from './types'
-import { classes, getLines } from './util'
+import type { EditorProps, EditorState } from '../types'
+import { classes, getLines } from '../util'
 
 
 type OperationRecord = {
@@ -133,7 +133,7 @@ export class SimpleCodeEditor extends React.Component<EditorProps, EditorState> 
       /* eslint-enable no-unused-vars */
       preClassName,
       preStyle,
-      ...rest
+      ...restProps
     } = this.props
 
     const contentStyle = {
@@ -146,7 +146,7 @@ export class SimpleCodeEditor extends React.Component<EditorProps, EditorState> 
     const highlighted = highlight(value)
 
     return (
-      <div { ...rest } style={{ ...classes.container, ...style }}>
+      <div { ...restProps } style={{ ...classes.container, ...style }}>
         <Textarea
           ref={ this.inputRef }
           style={{

@@ -17,19 +17,6 @@ export interface EmphasisProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 
-const Container = styled.em`
-  color: ${ getEmphasisStyle('color') };
-  font-size: ${ getEmphasisStyle('fontSize') };
-  font-weight: ${ getEmphasisStyle('fontWeight') };
-  font-style: ${ getEmphasisStyle('fontStyle') };
-`
-
-
-Container.defaultProps = {
-  theme: { yozora: { emphasis: defaultEmphasisTheme } }
-}
-
-
 /**
  * Render `emphasis` content
  *
@@ -44,12 +31,28 @@ export const Emphasis = React.forwardRef<HTMLSpanElement, EmphasisProps>(
 )
 
 
-Emphasis.displayName = 'Emphasis'
-
-
 Emphasis.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
 
+Emphasis.displayName = 'YozoraEmphasis'
 export default Emphasis
+
+
+const Container = styled.em`
+  color: ${ getEmphasisStyle('color') };
+  font-size: ${ getEmphasisStyle('fontSize') };
+  font-weight: ${ getEmphasisStyle('fontWeight') };
+  font-style: ${ getEmphasisStyle('fontStyle') };
+`
+
+
+Container.defaultProps = {
+  theme: { yozora: { emphasis: defaultEmphasisTheme } }
+}
+
+
+export const EmphasisClasses = {
+  container: `${ Container }`,
+}

@@ -1,13 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { HeadingLinkIcon } from './icon'
 import './styled-components'
 import { defaultHeadingTheme, getHeadingStyle } from './theme'
-import { calcIdentifierForHeading } from './util'
 export * from './icon'
 export * from './theme'
-export * from './util'
 
 
 /**
@@ -25,7 +23,7 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Heading identifier
    */
-  identifier?: string
+  identifier: string
   /**
    * Heading link icon
    */
@@ -34,11 +32,53 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLDivElement> {
    * Css class name of link element
    */
   linkClassName?: string
-  /**
-   * Calc identifier
-   */
-  calcIdentifier?: (h: HTMLHeadingElement) => string
 }
+
+
+/**
+ * Render `heading` content
+ *
+ * @param props
+ */
+export const Heading = React.forwardRef<HTMLDivElement, HeadingProps>(
+  (props, forwardRef): React.ReactElement => {
+    const {
+      level,
+      children,
+      identifier,
+      linkIcon = <HeadingLinkIcon />,
+      linkClassName,
+      ...htmlProps
+    } = props
+
+    const H: any = 'h' + props.level as keyof JSX.IntrinsicElements
+    return (
+      <Container { ...htmlProps } ref={ forwardRef } >
+        <a
+          id={ identifier }
+          className={ linkClassName }
+          href={ '#' + identifier }
+        >
+          { linkIcon }
+        </a>
+        <H>{ children }</H>
+      </Container >
+    )
+  }
+)
+
+
+Heading.propTypes = {
+  level: PropTypes.oneOf<1 | 2 | 3 | 4 | 5 | 6>([1, 2, 3, 4, 5, 6]).isRequired,
+  children: PropTypes.node.isRequired,
+  identifier: PropTypes.string.isRequired,
+  linkIcon: PropTypes.node,
+  linkClassName: PropTypes.string,
+}
+
+
+Heading.displayName = 'YozoraHeading'
+export default Heading
 
 
 const Container = styled.header`
@@ -110,67 +150,6 @@ Container.defaultProps = {
 }
 
 
-/**
- * Render `heading` content
- *
- * @param props
- */
-export const Heading = React.forwardRef<HTMLDivElement, HeadingProps>(
-  (props, forwardRef): React.ReactElement => {
-    const {
-      level,
-      children,
-      identifier: _identifier,
-      linkIcon = <HeadingLinkIcon />,
-      linkClassName,
-      calcIdentifier = calcIdentifierForHeading,
-      ...headerProps
-    } = props
-
-    const H: any = 'h' + props.level as keyof JSX.IntrinsicElements
-    const hRef = useRef<HTMLHeadingElement | null>(null)
-
-    const [identifier, setIdentifier] = useState<string | undefined>(_identifier)
-    useEffect(() => {
-      if (_identifier != null) {
-        setIdentifier(_identifier)
-        return
-      }
-
-      if (hRef.current != null) {
-        const nextIdentifier = calcIdentifier(hRef.current)
-        setIdentifier(nextIdentifier)
-        return
-      }
-    }, [hRef, calcIdentifier, _identifier])
-
-    return (
-      <Container { ...headerProps } ref={ forwardRef } >
-        <a
-          id={ identifier }
-          className={ linkClassName }
-          href={ '#' + identifier }
-        >
-          { linkIcon }
-        </a>
-        <H ref={ hRef }>{ children }</H>
-      </Container >
-    )
-  }
-)
-
-
-Heading.propTypes = {
-  level: PropTypes.oneOf<1 | 2 | 3 | 4 | 5 | 6>([1, 2, 3, 4, 5, 6]).isRequired,
-  children: PropTypes.node.isRequired,
-  identifier: PropTypes.string,
-  linkIcon: PropTypes.node,
-  linkClassName: PropTypes.string,
-  calcIdentifier: PropTypes.func,
+export const HeadingClasses = {
+  container: `${ Container }`,
 }
-
-
-Heading.displayName = 'Heading'
-
-
-export default Heading

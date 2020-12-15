@@ -27,12 +27,43 @@ exports[`basic rendering case snapshot with theme 1`] = `
   color: red;
 }
 
-<p
-  class="c0"
+<Component
+  theme={
+    Object {
+      "yozora": Object {
+        "paragraph": Object {
+          "color": "red",
+          "margin": 18,
+          "padding": "0 1rem",
+        },
+      },
+    }
+  }
 >
-  some text1
-  <span>
-    some text2
-  </span>
-</p>
+  <YozoraParagraph>
+    <styled.p
+      theme={
+        Object {
+          "yozora": Object {
+            "paragraph": Object {
+              "color": "inherit",
+              "lineHeight": 2,
+              "margin": "0 0 1em",
+              "padding": 0,
+            },
+          },
+        }
+      }
+    >
+      <p
+        className="c0"
+      >
+        some text1
+        <span>
+          some text2
+        </span>
+      </p>
+    </styled.p>
+  </YozoraParagraph>
+</Component>
 `;

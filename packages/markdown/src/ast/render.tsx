@@ -29,6 +29,7 @@ export interface MdastRendererProps {
 
 export function createMdastRenderer(
   rendererMap: Record<string, React.ElementType<any>>,
+  displayName = 'ReactMarkdown',
 ): (props: MdastRendererProps) => React.ReactElement {
   function render(props: MdastPropsNode, key?: string | number) {
     const Component = rendererMap[props.type]
@@ -56,6 +57,7 @@ export function createMdastRenderer(
     return render(node)
   }
 
+  ReactMarkdown.displayName = displayName
   return ReactMarkdown
 }
 
@@ -83,14 +85,12 @@ export const defaultMdastRendererMap: Record<string, React.ElementType<any>> = {
   emphasis: Emphasis,
   link: Link,
   image: 'img',
-  linkReference: 'a',
+  linkReference: Link,
   imageReference: 'img',
   strong: Strong,
   text: Text,
 }
 
 
-export const MdastRenderer = createMdastRenderer(defaultMdastRendererMap)
-
-
+export const MdastRenderer = createMdastRenderer(defaultMdastRendererMap, 'MdastRenderer')
 export default MdastRenderer

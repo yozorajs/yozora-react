@@ -53,17 +53,81 @@ exports[`basic rendering case snapshot with theme 1`] = `
   color: #ccc;
 }
 
-<div
-  class="c0"
+<Component
+  theme={
+    Object {
+      "yozora": Object {
+        "codeEmbed": Object {
+          "background": "#fff",
+          "border": "none",
+          "color": "#ccc",
+          "errorBackground": "red",
+          "errorColor": "#f8f8f2",
+          "errorFontSize": "0.9em",
+          "padding": "2px",
+        },
+      },
+    }
+  }
 >
-  <span
-    data-type="jsx"
+  <YozoraCodeEmbed
+    CodeRenderer={[Function]}
+    lang="jsx"
+    value="
+      const a = 1 + 2;
+      return a * a
+    "
   >
-    9
-  </span>
-  <div
-    class="c1"
-    hidden=""
-  />
-</div>
+    <styled.div
+      $hasError={false}
+      theme={
+        Object {
+          "yozora": Object {
+            "codeEmbed": Object {
+              "background": "transparent",
+              "border": "none",
+              "color": "inherit",
+              "errorBackground": "#ff5555",
+              "errorColor": "#f8f8f2",
+              "errorFontFamily": "Consolas, \\"Source Code Pro\\", monospace, sans-serif",
+              "errorFontSize": "0.9em",
+              "padding": "0",
+            },
+          },
+        }
+      }
+    >
+      <div
+        className="c0"
+      >
+        <JsxRenderer
+          lang="jsx"
+          onError={[Function]}
+          value="
+      const a = 1 + 2;
+      return a * a
+    "
+        >
+          <span
+            data-type="jsx"
+          >
+            9
+          </span>
+        </JsxRenderer>
+        <styled.div
+          hidden={true}
+        >
+          <div
+            className="c1"
+            hidden={true}
+          >
+            <YozoraCodeEmbedError
+              error={null}
+            />
+          </div>
+        </styled.div>
+      </div>
+    </styled.div>
+  </YozoraCodeEmbed>
+</Component>
 `;

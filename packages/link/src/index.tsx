@@ -1,4 +1,4 @@
 import './styled-components'
 export * from './theme'
-export { LinkProps, Link, default } from './anchor'
+export { LinkProps, Link, LinkClasses, default } from './anchor'
 export { RouteLink } from './route'
