@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import type { EditorProps, EditorState } from './types'
-import { classes, getLines } from './util'
+import type { EditorProps, EditorState } from '../types'
+import { classes, getLines } from '../util'
 
 
 type OperationRecord = {

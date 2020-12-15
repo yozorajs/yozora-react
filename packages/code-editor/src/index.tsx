@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import CodeHighlighter from '@yozora/react-code-highlighter'
-import SimpleCodeEditor from './editor.no-cover'
+import SimpleCodeEditor from './no-cover/editor'
 
 
 /**
