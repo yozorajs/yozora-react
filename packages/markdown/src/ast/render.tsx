@@ -19,50 +19,48 @@ import ThematicBreak from '@yozora/react-thematic-break'
 import CustomCodeEmbed from '../block/code/embed'
 import Code from '../block/code/literal'
 import CustomCodeLive from '../block/code/live'
-import type { MdastPropsNode, MdastPropsRoot } from './types'
+import type { MdastPropsNode } from './types'
 
 
-export interface MdastRendererProps {
-  ast: MdastPropsRoot
+/**
+ *
+ */
+export interface MdastNodeRendererProps {
+  /**
+   *
+   */
+  ast: MdastPropsNode
 }
 
 
-export function createMdastRenderer(
+export function createMdastNodeRenderer(
   rendererMap: Record<string, React.ElementType<any>>,
-  displayName = 'MdastRenderer',
-): {
-  MdastRenderer: (props: MdastRendererProps) => React.ReactElement,
-  renderMdastNode: (props: MdastPropsNode, key?: string | number) => React.ReactElement,
-} {
-
-  function renderMdastNode(props: MdastPropsNode, key?: string | number): React.ReactElement {
-    const Component = rendererMap[props.type]
+  displayName = 'MdastNodeRenderer',
+): React.FC<MdastNodeRendererProps> {
+  function MdastNodeRenderer({ ast: node }: MdastNodeRendererProps): React.ReactElement {
+    const Component = rendererMap[node.type]
     if (Component == null) {
       return (
-        <Code key={ key } lang="json" value={ JSON.stringify(props, null, 2) } />
+        <Code lang="json" value={ JSON.stringify(node, null, 2) } />
       )
     }
 
-    if (props.children != null) {
-      const children = props.children
+    if (node.children != null) {
+      const children = node.children
       if (Array.isArray(children)) {
         // eslint-disable-next-line no-param-reassign
-        props.children = children.map((o, index) => renderMdastNode(o, index))
+        node.children = children.map((o, index) => <MdastNodeRenderer key={ index } ast={ o } />)
       } else {
         // eslint-disable-next-line no-param-reassign
-        props.children = renderMdastNode(children)
+        node.children = <MdastNodeRenderer ast={ children } />
       }
     }
 
-    return <Component key={ key } { ...props } />
+    return <Component { ...node } />
   }
 
-  function MdastRenderer({ ast: node }: MdastRendererProps): React.ReactElement {
-    return renderMdastNode(node)
-  }
-
-  MdastRenderer.displayName = displayName
-  return { MdastRenderer, renderMdastNode }
+  MdastNodeRenderer.displayName = displayName
+  return MdastNodeRenderer
 }
 
 
@@ -96,5 +94,5 @@ export const defaultMdastRendererMap: Record<string, React.ElementType<any>> = {
 }
 
 
-export const { MdastRenderer, renderMdastNode } = createMdastRenderer(defaultMdastRendererMap)
-export default MdastRenderer
+export const MdastNodeRenderer = createMdastNodeRenderer(defaultMdastRendererMap)
+export default MdastNodeRenderer

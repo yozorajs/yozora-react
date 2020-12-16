@@ -2,7 +2,7 @@ import React from 'react'
 import MathJax from 'react-mathjax'
 import PropTypes from 'prop-types'
 import styled, { DefaultTheme, ThemeProvider } from 'styled-components'
-import MdastRenderer, { MdastRendererProps } from './ast/render'
+import MdastRenderer, { MdastNodeRendererProps } from './ast/render'
 import type { MdastPropsRoot } from './ast/types'
 import { defaultTheme } from './theme'
 export * from './ast/render'
@@ -25,7 +25,7 @@ interface MarkdownProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Markdown renderer
    */
-  render?: (props: MdastRendererProps) => React.ReactElement
+  render?: React.FC<MdastNodeRendererProps>
 }
 
 
