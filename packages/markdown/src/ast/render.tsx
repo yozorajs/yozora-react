@@ -29,9 +29,13 @@ export interface MdastRendererProps {
 
 export function createMdastRenderer(
   rendererMap: Record<string, React.ElementType<any>>,
-  displayName = 'ReactMarkdown',
-): (props: MdastRendererProps) => React.ReactElement {
-  function render(props: MdastPropsNode, key?: string | number) {
+  displayName = 'MdastRenderer',
+): {
+  MdastRenderer: (props: MdastRendererProps) => React.ReactElement,
+  renderMdastNode: (props: MdastPropsNode, key?: string | number) => React.ReactElement,
+} {
+
+  function renderMdastNode(props: MdastPropsNode, key?: string | number): React.ReactElement {
     const Component = rendererMap[props.type]
     if (Component == null) {
       return (
@@ -43,22 +47,22 @@ export function createMdastRenderer(
       const children = props.children
       if (Array.isArray(children)) {
         // eslint-disable-next-line no-param-reassign
-        props.children = children.map((o, index) => render(o, index))
+        props.children = children.map((o, index) => renderMdastNode(o, index))
       } else {
         // eslint-disable-next-line no-param-reassign
-        props.children = render(children)
+        props.children = renderMdastNode(children)
       }
     }
 
     return <Component key={ key } { ...props } />
   }
 
-  function ReactMarkdown({ ast: node }: MdastRendererProps): React.ReactElement {
-    return render(node)
+  function MdastRenderer({ ast: node }: MdastRendererProps): React.ReactElement {
+    return renderMdastNode(node)
   }
 
-  ReactMarkdown.displayName = displayName
-  return ReactMarkdown
+  MdastRenderer.displayName = displayName
+  return { MdastRenderer, renderMdastNode }
 }
 
 
@@ -92,5 +96,5 @@ export const defaultMdastRendererMap: Record<string, React.ElementType<any>> = {
 }
 
 
-export const MdastRenderer = createMdastRenderer(defaultMdastRendererMap, 'MdastRenderer')
+export const { MdastRenderer, renderMdastNode } = createMdastRenderer(defaultMdastRendererMap)
 export default MdastRenderer
