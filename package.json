@@ -35,10 +35,10 @@
     "styled-components": "5.2.1"
   },
   "devDependencies": {
-    "@barusu-react/eslint-config": "0.0.13",
-    "@barusu-react/rollup-config": "0.0.13",
-    "@barusu/tool-find-inconsistent": "0.0.40",
-    "@barusu/tool-sort-imports": "0.0.40",
+    "@barusu-react/eslint-config": "^0.0.19",
+    "@barusu-react/rollup-config": "^0.0.19",
+    "@barusu/tool-find-inconsistent": "^0.0.43",
+    "@barusu/tool-sort-imports": "^0.0.43",
     "@types/enzyme": "3.10.8",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "26.0.15",
