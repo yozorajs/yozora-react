@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic rendering case snapshot 1`] = `
+.c0 {
+  color: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<a
+  class="c0"
+  href="/home"
+  rel="noreferrer"
+  style="color:orange;font-size:16px"
+  target="_blank"
+  title="home"
+>
+  some text1
+  <span>
+    some text2
+  </span>
+</a>
+`;
+
+exports[`basic rendering case snapshot with theme 1`] = `
+.c0 {
+  color: blue;
+  font-size: inherit;
+  font-style: italic;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<Component
+  theme={
+    Object {
+      "yozora": Object {
+        "link": Object {
+          "color": "blue",
+          "fontSize": undefined,
+          "fontStyle": "italic",
+          "textDecoration": "none",
+        },
+      },
+    }
+  }
+>
+  <YozoraExternalLink
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+    title="home"
+    url="/home"
+  >
+    <styled.a
+      href="/home"
+      rel="noreferrer"
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
+      target="_blank"
+      theme={
+        Object {
+          "yozora": Object {
+            "link": Object {
+              "color": "inherit",
+              "fontSize": "inherit",
+              "fontStyle": "inherit",
+              "textDecoration": "none",
+            },
+          },
+        }
+      }
+      title="home"
+    >
+      <a
+        className="c0"
+        href="/home"
+        rel="noreferrer"
+        style={
+          Object {
+            "color": "orange",
+            "fontSize": "16px",
+          }
+        }
+        target="_blank"
+        title="home"
+      >
+        some text1
+        <span>
+          some text2
+        </span>
+      </a>
+    </styled.a>
+  </YozoraExternalLink>
+</Component>
+`;

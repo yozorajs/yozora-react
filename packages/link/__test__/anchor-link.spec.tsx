@@ -1,8 +1,7 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { mount, render } from 'enzyme'
 import { DefaultTheme, ThemeProvider } from 'styled-components'
-import { RouteLink as Link } from '../src'
+import { ExternalLink as Link } from '../src'
 
 
 describe('basic rendering case', () => {
@@ -19,9 +18,7 @@ describe('basic rendering case', () => {
   it('render a simple content', () => {
     const text = 'Hello, world!'
     const wrapper = render(
-      <Router>
-        <Link url="#">{ text }</Link>
-      </Router>
+      <Link url="#">{ text }</Link>
     )
     expect(wrapper.text()).toEqual(text)
   })
@@ -30,11 +27,9 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const className = 'custom-link'
     const wrapper = render(
-      <Router>
-        <Link url="#" className={ className }>
-          <span>{ text }</span>
-        </Link>
-      </Router>
+      <Link url="#" className={ className }>
+        <span>{ text }</span>
+      </Link>
     )
     expect(wrapper.hasClass(className)).toEqual(true)
     expect(wrapper.text()).toEqual(text)
@@ -43,19 +38,12 @@ describe('basic rendering case', () => {
   it('url and children both are required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(
-          <Router>
-            <Link url={ value }>link text</Link>
-          </Router>
+        render(<Link url={ value }>link text</Link>
         )
       }).toThrow(/Failed prop type: The prop `url` is marked as required/i)
 
       expect(() => {
-        render(
-          <Router>
-            <Link url="/home">{ value }</Link>
-          </Router>
-        )
+        render(<Link url="/home">{ value }</Link>)
       }).toThrow(/Failed prop type: The prop `children` is marked as required/i)
     }
   })
@@ -63,15 +51,13 @@ describe('basic rendering case', () => {
   it('forward ref', () => {
     const ref = React.createRef<HTMLAnchorElement>()
     const wrapper = mount(
-      <Router>
-        <Link
-          ref={ ref }
-          url="/home"
-          data-value="waw"
-        >
-          1
-        </Link>
-      </Router>
+      <Link
+        ref={ ref }
+        url="/home"
+        data-value="waw"
+      >
+        1
+      </Link>
     )
 
     const o = wrapper.getDOMNode()
@@ -81,16 +67,14 @@ describe('basic rendering case', () => {
 
   it('snapshot', () => {
     const wrapper = render(
-      <Router>
-        <Link
-          url="/home"
-          title="home"
-          style={{ color: 'orange', fontSize: '16px' }}
-        >
-          some text1
-          <span>some text2</span>
-        </Link>
-      </Router>
+      <Link
+        url="/home"
+        title="home"
+        style={{ color: 'orange', fontSize: '16px' }}
+      >
+        some text1
+        <span>some text2</span>
+      </Link>
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -108,18 +92,16 @@ describe('basic rendering case', () => {
     }
 
     const wrapper = mount(
-      <Router>
-        <ThemeProvider theme={ theme }>
-          <Link
-            url="/home"
-            title="home"
-            style={{ color: 'orange', fontSize: '16px' }}
-          >
-            some text1
-            <span>some text2</span>
-          </Link>
-        </ThemeProvider>
-      </Router>
+      <ThemeProvider theme={ theme }>
+        <Link
+          url="/home"
+          title="home"
+          style={{ color: 'orange', fontSize: '16px' }}
+        >
+          some text1
+          <span>some text2</span>
+        </Link>
+      </ThemeProvider>
     )
     expect(wrapper).toMatchSnapshot()
   })
