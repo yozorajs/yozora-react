@@ -43,7 +43,7 @@ describe('basic rendering case', () => {
   it('forward ref', () => {
     const ref = React.createRef<HTMLTableElement>()
     const wrapper = mount(
-      <Table ref={ ref } data-value="waw" >
+      <Table ref={ ref } data-value="waw">
         { rows }
       </Table>
     )
@@ -55,7 +55,7 @@ describe('basic rendering case', () => {
 
   it('snapshot', () => {
     const wrapper = render(
-      <Table style={ { color: 'orange', fontSize: '16px' } }>
+      <Table style={{ color: 'orange', fontSize: '16px' }}>
         { rows }
       </Table>
     )
@@ -75,7 +75,7 @@ describe('basic rendering case', () => {
 
     const wrapper = mount(
       <ThemeProvider theme={ theme }>
-        <Table style={ { color: 'orange', fontSize: '16px' } }>
+        <Table style={{ color: 'orange', fontSize: '16px' }}>
           { rows }
         </Table>
       </ThemeProvider>

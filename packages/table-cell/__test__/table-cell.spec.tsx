@@ -85,7 +85,7 @@ describe('basic rendering case', () => {
       <table>
         <tbody>
           <tr>
-            <TableCell style={ { color: 'orange', fontSize: '16px' } }>
+            <TableCell style={{ color: 'orange', fontSize: '16px' }}>
               some text1
               <span>some text2</span>
             </TableCell>
@@ -111,7 +111,7 @@ describe('basic rendering case', () => {
         <table>
           <tbody>
             <tr>
-              <TableCell style={ { color: 'orange', fontSize: '16px' } }>
+              <TableCell style={{ color: 'orange', fontSize: '16px' }}>
                 some text1
                 <span>some text2</span>
               </TableCell>

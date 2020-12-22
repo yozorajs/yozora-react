@@ -47,7 +47,7 @@ describe('basic rendering case', () => {
         render(
           <List ordered={ true } start={ 1 } data-value="waw">
             { value }
-          </List >
+          </List>
         )
       }).toThrow(/Failed prop type: The prop `children` is marked as required/i)
     }

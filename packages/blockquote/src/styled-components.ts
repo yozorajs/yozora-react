@@ -1,5 +1,5 @@
-import 'styled-components'
 import type { YozoraBlockquoteTheme } from './theme'
+import 'styled-components'
 
 
 declare module 'styled-components' {

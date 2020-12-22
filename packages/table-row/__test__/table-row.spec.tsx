@@ -74,7 +74,7 @@ describe('basic rendering case', () => {
     const wrapper = render(
       <table>
         <tbody>
-          <TableRow style={ { color: 'orange', fontSize: '16px' } }>
+          <TableRow style={{ color: 'orange', fontSize: '16px' }}>
             <td>
               some text1
               <span>some text2</span>
@@ -100,7 +100,7 @@ describe('basic rendering case', () => {
       <ThemeProvider theme={ theme }>
         <table>
           <tbody>
-            <TableRow style={ { color: 'orange', fontSize: '16px' } }>
+            <TableRow style={{ color: 'orange', fontSize: '16px' }}>
               <td>
                 some text1
                 <span>some text2</span>

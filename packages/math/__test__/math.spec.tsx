@@ -35,7 +35,7 @@ describe('basic rendering case', () => {
   it('forward ref', () => {
     const ref = React.createRef<HTMLDivElement>()
     const wrapper = mount(
-      <Math ref={ ref } data-value="waw" value=""/>
+      <Math ref={ ref } data-value="waw" value="" />
     )
 
     const o = wrapper.getDOMNode()
@@ -58,7 +58,7 @@ describe('basic rendering case', () => {
     const wrapper = mount(
       <Math
         value={ code }
-        style={ { color: 'orange', fontSize: '16px' } }
+        style={{ color: 'orange', fontSize: '16px' }}
       />
     )
     expect(wrapper).toMatchSnapshot()
@@ -92,7 +92,7 @@ describe('basic rendering case', () => {
       <ThemeProvider theme={ theme }>
         <Math
           value={ code }
-          style={ { color: 'orange', fontSize: '16px' } }
+          style={{ color: 'orange', fontSize: '16px' }}
         />
       </ThemeProvider>
     )

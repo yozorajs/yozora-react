@@ -1,5 +1,5 @@
-import 'styled-components'
 import type { YozoraThematicBreakTheme } from './theme'
+import 'styled-components'
 
 
 declare module 'styled-components' {

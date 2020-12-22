@@ -58,7 +58,7 @@ describe('basic rendering case', () => {
 
   it('snapshot', () => {
     const wrapper = render(
-      <Emphasis style={ { color: 'orange', fontSize: '16px' } }>
+      <Emphasis style={{ color: 'orange', fontSize: '16px' }}>
         some text1
         <span>some text2</span>
       </Emphasis>

@@ -53,7 +53,7 @@ export const Heading = React.forwardRef<HTMLDivElement, HeadingProps>(
 
     const H: any = 'h' + props.level as keyof JSX.IntrinsicElements
     return (
-      <Container { ...htmlProps } ref={ forwardRef } >
+      <Container { ...htmlProps } ref={ forwardRef }>
         <a
           id={ identifier }
           className={ linkClassName }
@@ -62,7 +62,7 @@ export const Heading = React.forwardRef<HTMLDivElement, HeadingProps>(
           { linkIcon }
         </a>
         <H>{ children }</H>
-      </Container >
+      </Container>
     )
   }
 )

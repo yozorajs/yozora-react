@@ -1,3 +1,4 @@
+import type { MdastPropsNode } from './types'
 import React from 'react'
 import Blockquote from '@yozora/react-blockquote'
 import Delete from '@yozora/react-delete'
@@ -19,7 +20,6 @@ import ThematicBreak from '@yozora/react-thematic-break'
 import CustomCodeEmbed from '../block/code/embed'
 import Code from '../block/code/literal'
 import CustomCodeLive from '../block/code/live'
-import type { MdastPropsNode } from './types'
 
 
 /**

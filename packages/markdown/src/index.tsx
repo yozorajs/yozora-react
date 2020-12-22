@@ -1,9 +1,9 @@
+import type { MdastPropsNode } from './ast/types'
 import React from 'react'
 import MathJax from 'react-mathjax'
 import PropTypes from 'prop-types'
 import styled, { DefaultTheme, ThemeProvider } from 'styled-components'
 import MdastRenderer, { MdastNodeRendererProps } from './ast/render'
-import type { MdastPropsRoot } from './ast/types'
 import { defaultTheme } from './theme'
 export * from './ast/render'
 export * from './ast/types'
@@ -17,7 +17,7 @@ interface MarkdownProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Markdown content
    */
-  ast: MdastPropsRoot
+  ast: MdastPropsNode
   /**
    * Styled-components theme for @yozora/react-* components
    */

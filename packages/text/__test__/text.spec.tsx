@@ -44,7 +44,7 @@ describe('basic rendering case', () => {
   it('forward ref', () => {
     const ref = React.createRef<HTMLSpanElement>()
     const wrapper = mount(
-      <Text ref={ ref } data-value="waw" value=""/>
+      <Text ref={ ref } data-value="waw" value="" />
     )
 
     const o = wrapper.getDOMNode()
@@ -56,7 +56,7 @@ describe('basic rendering case', () => {
     const wrapper = render(
       <Text
         value="Hello, world!"
-        style={ { color: 'orange', fontSize: '16px' } }
+        style={{ color: 'orange', fontSize: '16px' }}
       />
     )
     expect(wrapper).toMatchSnapshot()
@@ -75,7 +75,7 @@ describe('basic rendering case', () => {
       <ThemeProvider theme={ theme }>
         <Text
           value="Hello, world!"
-          style={ { color: 'orange', fontSize: '16px' } }
+          style={{ color: 'orange', fontSize: '16px' }}
         />
       </ThemeProvider>
     )

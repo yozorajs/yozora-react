@@ -71,7 +71,7 @@
   "@barusu/tool-sort-imports": {
     "logLevel": "verbose",
     "pattern": [
-      "{packages}/*/{src,__test__}/**/*.{ts,tsx}",
+      "packages/*/{src,__test__}/**/*.{ts,tsx}",
       "!**/{__test__}/cases",
       "!**/node_modules/"
     ],

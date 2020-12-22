@@ -79,7 +79,7 @@ describe('basic rendering case', () => {
       <Heading
         level={ level }
         identifier={ `heading-${ level }` }
-        style={ { color: 'orange', fontSize: '16px' } }
+        style={{ color: 'orange', fontSize: '16px' }}
       >
         Waw -- { level }, 中文标题“这”
       </Heading>
@@ -116,7 +116,7 @@ describe('basic rendering case', () => {
         <Heading
           level={ level }
           identifier={ `heading-${ level }` }
-          style={ { color: 'orange', fontSize: '16px' } }
+          style={{ color: 'orange', fontSize: '16px' }}
         >
           Waw -- { level }, 中文标题“这”
         </Heading>

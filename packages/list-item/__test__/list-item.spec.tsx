@@ -62,7 +62,7 @@ describe('basic rendering case', () => {
 
   it('snapshot', () => {
     const wrapper = render(
-      <ListItem status="done" style={ { color: 'orange', fontSize: '16px' } }>
+      <ListItem status="done" style={{ color: 'orange', fontSize: '16px' }}>
         some text1
         <span>some text2</span>
       </ListItem>
@@ -84,7 +84,7 @@ describe('basic rendering case', () => {
 
     const wrapper = mount(
       <ThemeProvider theme={ theme }>
-        <ListItem status="doing" style={ { color: 'orange', fontSize: '16px' } }>
+        <ListItem status="doing" style={{ color: 'orange', fontSize: '16px' }}>
           some text1
           <span>some text2</span>
         </ListItem>

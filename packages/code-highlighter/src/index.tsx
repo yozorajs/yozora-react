@@ -1,9 +1,9 @@
+import type { RenderProps } from './types'
 import React, { useEffect, useMemo } from 'react'
 import Highlight, { Prism, PrismTheme } from 'prism-react-renderer'
 import defaultTheme from 'prism-react-renderer/themes/vsDark'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import type { RenderProps } from './types'
 export * from './theme'
 
 
