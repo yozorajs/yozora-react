@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-blockquote",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "render markdown blockquote in react",
   "author": {
     "name": "guanghechen",
