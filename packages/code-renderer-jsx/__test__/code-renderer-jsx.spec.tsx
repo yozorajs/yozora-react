@@ -23,11 +23,11 @@ describe('basic rendering case', () => {
           <CodeRendererJsx
             code={ props.code }
             inline={ props.inline }
-            scope={ { styled } }
+            scope={{ styled }}
             onError={ setError }
           />
           <pre>{ error }</pre>
-        </div >
+        </div>
       )
     }
 

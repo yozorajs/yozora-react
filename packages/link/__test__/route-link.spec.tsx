@@ -70,7 +70,7 @@ describe('basic rendering case', () => {
           data-value="waw"
         >
           1
-      </Link>
+        </Link>
       </Router>
     )
 
@@ -85,10 +85,10 @@ describe('basic rendering case', () => {
         <Link
           url="/home"
           title="home"
-          style={ { color: 'orange', fontSize: '16px' } }
+          style={{ color: 'orange', fontSize: '16px' }}
         >
           some text1
-        <span>some text2</span>
+          <span>some text2</span>
         </Link>
       </Router>
     )
@@ -113,10 +113,10 @@ describe('basic rendering case', () => {
           <Link
             url="/home"
             title="home"
-            style={ { color: 'orange', fontSize: '16px' } }
+            style={{ color: 'orange', fontSize: '16px' }}
           >
             some text1
-          <span>some text2</span>
+            <span>some text2</span>
           </Link>
         </ThemeProvider>
       </Router>

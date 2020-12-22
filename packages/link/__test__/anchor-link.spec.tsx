@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount, render } from 'enzyme'
 import { DefaultTheme, ThemeProvider } from 'styled-components'
-import ListItem from '../src'
+import { ExternalLink as Link } from '../src'
 
 
 describe('basic rendering case', () => {
@@ -18,41 +18,46 @@ describe('basic rendering case', () => {
   it('render a simple content', () => {
     const text = 'Hello, world!'
     const wrapper = render(
-      <ListItem>
-        <span>
-          <ListItem>{ text }</ListItem>
-        </span>
-      </ListItem>
+      <Link url="#">{ text }</Link>
     )
     expect(wrapper.text()).toEqual(text)
   })
 
   it('render with custom className', () => {
     const text = 'Hello, world!'
-    const className = 'custom-list-item'
+    const className = 'custom-link'
     const wrapper = render(
-      <ListItem className={ className }>
+      <Link url="#" className={ className }>
         <span>{ text }</span>
-      </ListItem>
+      </Link>
     )
     expect(wrapper.hasClass(className)).toEqual(true)
     expect(wrapper.text()).toEqual(text)
   })
 
-  it('children is required', () => {
+  it('url and children both are required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(<ListItem>{ value }</ListItem>)
+        render(<Link url={ value }>link text</Link>
+        )
+      }).toThrow(/Failed prop type: The prop `url` is marked as required/i)
+
+      expect(() => {
+        render(<Link url="/home">{ value }</Link>)
       }).toThrow(/Failed prop type: The prop `children` is marked as required/i)
     }
   })
 
   it('forward ref', () => {
-    const ref = React.createRef<HTMLLIElement>()
+    const ref = React.createRef<HTMLAnchorElement>()
     const wrapper = mount(
-      <ListItem ref={ ref } data-value="waw">
+      <Link
+        ref={ ref }
+        url="/home"
+        data-value="waw"
+      >
         1
-      </ListItem>
+      </Link>
     )
 
     const o = wrapper.getDOMNode()
@@ -62,10 +67,14 @@ describe('basic rendering case', () => {
 
   it('snapshot', () => {
     const wrapper = render(
-      <ListItem status="done" style={{ color: 'orange', fontSize: '16px' }}>
+      <Link
+        url="/home"
+        title="home"
+        style={{ color: 'orange', fontSize: '16px' }}
+      >
         some text1
         <span>some text2</span>
-      </ListItem>
+      </Link>
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -73,21 +82,25 @@ describe('basic rendering case', () => {
   it('snapshot with theme', () => {
     const theme: DefaultTheme = {
       yozora: {
-        listItem: {
-          color: 'red',
-          padding: '0 1rem',
-          margin: 18,
-          // lineHeight: 1.5,
+        link: {
+          color: 'blue',
+          fontSize: undefined,
+          fontStyle: 'italic',
+          textDecoration: 'none',
         }
       }
     }
 
     const wrapper = mount(
       <ThemeProvider theme={ theme }>
-        <ListItem status="doing" style={{ color: 'orange', fontSize: '16px' }}>
+        <Link
+          url="/home"
+          title="home"
+          style={{ color: 'orange', fontSize: '16px' }}
+        >
           some text1
           <span>some text2</span>
-        </ListItem>
+        </Link>
       </ThemeProvider>
     )
     expect(wrapper).toMatchSnapshot()

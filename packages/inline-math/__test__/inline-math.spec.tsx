@@ -35,7 +35,7 @@ describe('basic rendering case', () => {
   it('forward ref', () => {
     const ref = React.createRef<HTMLSpanElement>()
     const wrapper = mount(
-      <InlineMath ref={ ref } data-value="waw" value=""/>
+      <InlineMath ref={ ref } data-value="waw" value="" />
     )
 
     const o = wrapper.getDOMNode()
@@ -47,7 +47,7 @@ describe('basic rendering case', () => {
     const wrapper = mount(
       <InlineMath
         value="x^2 + y^2 = z^2"
-        style={ { color: 'orange', fontSize: '16px' } }
+        style={{ color: 'orange', fontSize: '16px' }}
       />
     )
     expect(wrapper).toMatchSnapshot()
@@ -70,7 +70,7 @@ describe('basic rendering case', () => {
       <ThemeProvider theme={ theme }>
         <InlineMath
           value="x^2 + y^2 = z^2"
-          style={ { color: 'orange', fontSize: '16px' } }
+          style={{ color: 'orange', fontSize: '16px' }}
         />
       </ThemeProvider>
     )

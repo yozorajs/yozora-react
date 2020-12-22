@@ -36,7 +36,7 @@ describe('basic rendering case', () => {
 
   it('snapshot', () => {
     const wrapper = render(
-      <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
+      <ThematicBreak style={{ color: 'orange', fontSize: '16px' }} />
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -54,7 +54,7 @@ describe('basic rendering case', () => {
 
     const wrapper = mount(
       <ThemeProvider theme={ theme }>
-        <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
+        <ThematicBreak style={{ color: 'orange', fontSize: '16px' }} />
       </ThemeProvider>
     )
     expect(wrapper).toMatchSnapshot()

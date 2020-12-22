@@ -56,11 +56,13 @@ export function CodeRenderer(props: CodeRendererProps): React.ReactElement | nul
  * @param props
  */
 export function CustomCodeEmbed(props: CodeEmbedProps): React.ReactElement | null {
-  return <CodeEmbed
-    lang={ props.lang }
-    value={ props.value }
-    CodeRenderer={ CodeRenderer }
-  />
+  return (
+    <CodeEmbed
+      lang={ props.lang }
+      value={ props.value }
+      CodeRenderer={ CodeRenderer }
+    />
+)
 }
 
 

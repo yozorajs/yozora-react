@@ -1,5 +1,5 @@
-import 'styled-components'
 import type { YozoraInlineCodeTheme } from './theme'
+import 'styled-components'
 
 
 declare module 'styled-components' {

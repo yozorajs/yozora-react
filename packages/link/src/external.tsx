@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { Container, LinkProps } from './_base'
 
@@ -9,34 +8,37 @@ import { Container, LinkProps } from './_base'
  *
  * @param props
  */
-export const RouteLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
+export const ExternalLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
   (props, forwardRef): React.ReactElement => {
     const {
       url,
       href,
       title,
+      target = '_blank',
+      rel = 'noreferrer',
       ...htmlProps
     } = props
 
     return (
       <Container
         { ...htmlProps }
-        as={ Link }
         ref={ forwardRef }
         title={ title }
-        to={{ pathname: url }}
+        href={ url }
+        target={ target }
+        rel={ rel }
       />
     )
   }
 )
 
 
-RouteLink.propTypes = {
+ExternalLink.propTypes = {
   url: PropTypes.string.isRequired,
   title: PropTypes.string,
   children: PropTypes.node.isRequired,
 }
 
 
-RouteLink.displayName = 'YozoraRouteLink'
-export default RouteLink
+ExternalLink.displayName = 'YozoraExternalLink'
+export default ExternalLink
