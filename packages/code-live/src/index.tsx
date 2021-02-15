@@ -1,3 +1,4 @@
+import type { PrismTheme } from 'prism-react-renderer'
 import React, { useMemo, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
@@ -28,6 +29,15 @@ export interface CodeLiveProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   CodeRenderer: (props: CodeRendererProps) => React.ReactElement | null
   /**
+   * If true, use vscDarkTheme as default theme,
+   * otherwise use vscLightTheme as default theme.
+   */
+  darken?: boolean
+  /**
+   * Code highlight theme.
+   */
+  theme?: PrismTheme
+  /**
    * CSS class name for CodeLiveError
    */
   errorClassName?: string
@@ -47,6 +57,8 @@ export const CodeLive = React.forwardRef<HTMLDivElement, CodeLiveProps>(
     const {
       CodeRenderer,
       lang,
+      darken,
+      theme,
       errorClassName,
       editorTextareaClassName,
       editorPreClassName,
@@ -65,6 +77,8 @@ export const CodeLive = React.forwardRef<HTMLDivElement, CodeLiveProps>(
             lang={ lang }
             code={ value }
             onChange={ handleChange }
+            darken={ darken }
+            theme={ theme }
             textareaClassName={ editorTextareaClassName }
             preClassName={ editorPreClassName }
           />

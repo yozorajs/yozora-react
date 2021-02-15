@@ -1,10 +1,12 @@
 import type { RenderProps } from './types'
 import React, { useEffect, useMemo } from 'react'
 import Highlight, { Prism, PrismTheme } from 'prism-react-renderer'
-import defaultTheme from 'prism-react-renderer/themes/vsDark'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-export * from './theme'
+import vscDarkTheme from './theme/vsc-dark'
+import vscLightTheme from './theme/vsc-light'
+export { vscDarkTheme } from './theme/vsc-dark'
+export { vscLightTheme } from './theme/vsc-light'
 
 
 /**
@@ -20,7 +22,13 @@ export interface CodeHighlighterProps {
    */
   lang?: string
   /**
-   *
+   * If true, use vscDarkTheme as default theme,
+   * otherwise use vscLightTheme as default theme.
+   * @default true
+   */
+  darken?: boolean
+  /**
+   * Highlight prism theme.
    */
   theme?: PrismTheme
   /**
@@ -46,12 +54,15 @@ export function CodeHighlighter(props: CodeHighlighterProps): React.ReactElement
   const {
     lang,
     value: code,
-    theme = defaultTheme,
     linenoWidth = 0,
     linenoColor = '#858585',
     onLineCountChange,
+    darken = true,
   } = props
 
+  const theme: PrismTheme = props.theme == null
+    ? (darken ? vscDarkTheme : vscLightTheme)
+    : props.theme
   const result = useMemo<React.ReactElement | null>(() => {
     return (
       <Highlight

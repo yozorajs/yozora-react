@@ -54,7 +54,7 @@ exports[`basic rendering case snapshot 1`] = `
   <pre>
     <div
       class="c1 token-line"
-      style="color:#9CDCFE"
+      style="color:#d4d4d4"
     >
       <span
         class="c2"
@@ -74,7 +74,7 @@ exports[`basic rendering case snapshot 1`] = `
       </span>
       <span
         class="token punctuation"
-        style="color:rgb(212, 212, 212)"
+        style="color:rgb(106, 153, 85)"
       >
         :
       </span>
@@ -85,7 +85,7 @@ exports[`basic rendering case snapshot 1`] = `
       </span>
       <span
         class="token builtin"
-        style="color:rgb(86, 156, 214)"
+        style="color:rgb(79, 193, 255)"
       >
         number
       </span>
@@ -135,7 +135,7 @@ exports[`basic rendering case snapshot 1`] = `
       </span>
       <span
         class="token punctuation"
-        style="color:rgb(212, 212, 212)"
+        style="color:rgb(106, 153, 85)"
       >
         ;
       </span>
@@ -198,7 +198,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
   <pre>
     <div
       class="c1 token-line"
-      style="color:#9CDCFE"
+      style="color:#d4d4d4"
     >
       <span
         class="c2"
@@ -212,7 +212,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
     </div>
     <div
       class="c1 token-line"
-      style="color:#9CDCFE"
+      style="color:#d4d4d4"
     >
       <span
         class="c2"
@@ -254,7 +254,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
       </span>
       <span
         class="token punctuation"
-        style="color:rgb(212, 212, 212)"
+        style="color:rgb(106, 153, 85)"
       >
         ,
       </span>
@@ -282,7 +282,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
       </span>
       <span
         class="token punctuation"
-        style="color:rgb(212, 212, 212)"
+        style="color:rgb(106, 153, 85)"
       >
         ,
       </span>
@@ -314,7 +314,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
     </div>
     <div
       class="c1 token-line"
-      style="color:#9CDCFE"
+      style="color:#d4d4d4"
     >
       <span
         class="c2"
@@ -450,7 +450,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
     </div>
     <div
       class="c1 token-line"
-      style="color:#9CDCFE"
+      style="color:#d4d4d4"
     >
       <span
         class="c2"
@@ -470,19 +470,19 @@ exports[`basic rendering case snapshot with theme 1`] = `
       </span>
       <span
         class="token punctuation"
-        style="color:rgb(212, 212, 212)"
+        style="color:rgb(106, 153, 85)"
       >
         .
       </span>
       <span
         class="token method function property-access"
-        style="color:rgb(220, 220, 170)"
+        style="color:rgb(86, 156, 214)"
       >
         log
       </span>
       <span
         class="token punctuation"
-        style="color:rgb(212, 212, 212)"
+        style="color:rgb(106, 153, 85)"
       >
         (
       </span>
@@ -494,7 +494,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
       </span>
       <span
         class="token punctuation"
-        style="color:rgb(212, 212, 212)"
+        style="color:rgb(106, 153, 85)"
       >
         ,
       </span>
@@ -505,7 +505,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
       </span>
       <span
         class="token punctuation"
-        style="color:rgb(212, 212, 212)"
+        style="color:rgb(106, 153, 85)"
       >
         )
       </span>
@@ -515,7 +515,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
     </div>
     <div
       class="c1 token-line"
-      style="color:#9CDCFE"
+      style="color:#d4d4d4"
     >
       <span
         class="c2"

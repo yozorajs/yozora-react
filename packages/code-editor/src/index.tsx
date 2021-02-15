@@ -1,3 +1,4 @@
+import type { PrismTheme } from 'prism-react-renderer'
 import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import CodeHighlighter from '@yozora/react-code-highlighter'
@@ -17,9 +18,18 @@ export interface CodeEditorProps {
    */
   code: string
   /**
-   * Trigger when the code changed
+   * Triggered when the code changed.
    */
   onChange: (code: string) => void
+  /**
+   * If true, use vscDarkTheme as default theme,
+   * otherwise use vscLightTheme as default theme.
+   */
+  darken?: boolean
+  /**
+   * Code highlight theme.
+   */
+  theme?: PrismTheme
   /**
    * CSS class name for the underlying textarea
    */
@@ -61,6 +71,8 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
     onChange,
     className,
     style,
+    darken,
+    theme,
   } = props
 
   const [code, setCode] = useState<string>(props.code)
@@ -71,10 +83,12 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
     <CodeHighlighter
       lang={ lang }
       value={ code }
+      darken={ darken }
+      theme={ theme }
       linenoWidth={ linenoWidth }
       onLineCountChange={ setLineCount }
     />
-  ), [lang, linenoWidth])
+  ), [lang, linenoWidth, darken, theme])
 
   const handleChange = useCallback((nextCode: string) => {
     setCode(nextCode)
@@ -115,7 +129,6 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
       }}
       className={ className }
       style={{
-
         ...style,
       }}
     />
