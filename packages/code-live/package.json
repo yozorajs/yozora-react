@@ -43,7 +43,8 @@
   },
   "dependencies": {
     "@yozora/react-code-editor": "^0.0.7",
-    "@yozora/react-code-embed": "^0.0.7"
+    "@yozora/react-code-embed": "^0.0.7",
+    "prism-react-renderer": "^1.1.1"
   },
   "peerDependencies": {
     "@types/react": "^16.9.55",

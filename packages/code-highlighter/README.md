@@ -50,14 +50,15 @@ This package is designed to highlight [mdast code][] type data
 
   * Props
 
-     Name                 | Type                           | Required  | Default    | Description
-    :--------------------:|:------------------------------:|:---------:|:----------:|:-------------
-     `value`              | `string`                       | `true`    | -          | Code content
-     `lang`               | `string`                       | `false`   | -          | Code language
-     `theme`              | `PrismTheme`                   | `false`   | vsDark     | Code highlight theme
-     `linenoWidth`        | `React.CSSProperties['width']` | `false`   | `0`        | Code line number width
-     `linenoColor`        | `React.CSSProperties['color']` | `false`   | `#858585`  | Code line number color
-     `onLineCountChange`  | `(lineCount: number) => void`  | `false`   | -          | Callback of Code line count changing
+     Name                 | Type                            | Required  | Default             | Description
+    :--------------------:|:-------------------------------:|:---------:|:-------------------:|:-------------
+     `value`              | `string`                        | `true`    | -                   | Code content
+     `lang`               | `string`                        | `false`   | -                   | Code language
+     `darken`             | `boolean`                       | `false`   | -                   | Specify the default theme (vcsDarkTheme / vscLightTheme)
+     `theme`              | `PrismTheme`                    | `false`   | Depends on `darken` | Code highlight theme
+     `linenoWidth`        | `React.CSSProperties['width']`  | `false`   | `0`                 | Code line number width
+     `linenoColor`        | `React.CSSProperties['color']`  | `false`   | `#858585`           | Code line number color
+     `onLineCountChange`  | `(lineCount: number) => void`   | `false`   | -                   | Callback of Code line count changing
 
 
 # References

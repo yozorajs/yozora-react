@@ -37,16 +37,19 @@ as it's seems not been updated for several months.
 
   * Props
 
-     Name                 | Type                  | Required  | Default   | Description
-    :--------------------:|:---------------------:|:---------:|:---------:|:-------------
-     `lang`               | `string`              | `true`    | -         | Code language
-     `code`               | `string`              | `true`    | -         | Code content
-     `textareaClassName`  | `string`              | `false`   | -         | CSS class name for the underlying textarea
-     `textareaStyle`      | `React.CSSProperties` | `false`   | -         | CSS style object for the underlying textarea
-     `preClassName`       | `string`              | `false`   | -         | CSS class name for the underlying pre
-     `preStyle`           | `React.CSSProperties` | `false`   | -         | CSS style object for the underlying textarea
-     `className`          | `string`              | `false`   | -         | CSS class name for the container
-     `style`              | `React.CSSProperties` | `false`   | -         | CSS style object for the container
+     Name                 | Type                        | Required  | Default             | Description
+    :--------------------:|:---------------------------:|:---------:|:-------------------:|:-------------
+     `lang`               | `string`                    | `true`    | -                   | Code language
+     `code`               | `string`                    | `true`    | -                   | Code content
+     `onChange`           | `(content: string) => void` | `true`    | -                   | Triggered when code changed.
+     `darken`             | `boolean`                   | `false`   | `true`              | Specify the default theme (vcsDarkTheme / vscLightTheme)
+     `theme`              | `PrismTheme`                | `false`   | Depends on `darken` | Highlight prism theme.
+     `textareaClassName`  | `string`                    | `false`   | -                   | CSS class name for the underlying textarea
+     `textareaStyle`      | `React.CSSProperties`       | `false`   | -                   | CSS style object for the underlying textarea
+     `preClassName`       | `string`                    | `false`   | -                   | CSS class name for the underlying pre
+     `preStyle`           | `React.CSSProperties`       | `false`   | -                   | CSS style object for the underlying textarea
+     `className`          | `string`                    | `false`   | -                   | CSS class name for the container
+     `style`              | `React.CSSProperties`       | `false`   | -                   | CSS style object for the container
 
 
 # References

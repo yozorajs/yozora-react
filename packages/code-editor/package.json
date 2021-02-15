@@ -41,7 +41,8 @@
     "lint:fix": "eslint '{src,__test__}/**/*.{ts,tsx}' --fix"
   },
   "dependencies": {
-    "@yozora/react-code-highlighter": "^0.0.7"
+    "@yozora/react-code-highlighter": "^0.0.7",
+    "prism-react-renderer": "^1.1.1"
   },
   "peerDependencies": {
     "@types/react": "^16.9.55",

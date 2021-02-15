@@ -6,7 +6,7 @@ import type { PrismTheme } from 'prism-react-renderer'
  *
  * @see https://github.com/FormidableLabs/prism-react-renderer/blob/95025358684be04865669bb912e8cf6203c1a391/tools/themeFromVsCode/README.md
  */
-export const vscDarkPlusTheme: PrismTheme = {
+export const vscDarkTheme: PrismTheme = {
   plain: {
     color: '#d4d4d4',
     backgroundColor: '#1e1e1e'
@@ -76,4 +76,4 @@ export const vscDarkPlusTheme: PrismTheme = {
 }
 
 
-export default vscDarkPlusTheme
+export default vscDarkTheme

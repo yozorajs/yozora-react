@@ -88,14 +88,16 @@ Create a code live container.
 
   * Props
 
-     Name                       | Type                | Required  | Default | Description
-    :--------------------------:|:-------------------:|:---------:|:-------:|:-------------
-     `lang`                     | `string`            | `true`    | -       | Code language
-     `value`                    | `string`            | `true`    | -       | Code content
-     `CodeRenderer`             | `React.ElementType` | `true`    | -       | Code renderer
-     `errorClassName`           | `string`            | `false`   | -       | CSS class name for CodeLiveError
-     `editorTextareaClassName`  | `string`            | `false`   | -       | CSS class name for the editor's textarea element
-     `editorPreClassName`       | `string`            | `false`   | -       | CSS class name for the editor's pre element
+     Name                       | Type                | Required  | Default             | Description
+    :--------------------------:|:-------------------:|:---------:|:-------------------:|:-------------
+     `lang`                     | `string`            | `true`    | -                   | Code language
+     `value`                    | `string`            | `true`    | -                   | Code content
+     `darken`                   | `boolean`           | `false`   | -                   | Specify the default theme (vcsDarkTheme / vscLightTheme)
+     `theme`                    | `PrismTheme`        | `false`   | Depends on `darken` | Highlight prism theme.
+     `CodeRenderer`             | `React.ElementType` | `true`    | -                   | Code renderer
+     `errorClassName`           | `string`            | `false`   | -                   | CSS class name for CodeLiveError
+     `editorTextareaClassName`  | `string`            | `false`   | -                   | CSS class name for the editor's textarea element
+     `editorPreClassName`       | `string`            | `false`   | -                   | CSS class name for the editor's pre element
 
     CodeLiveProps inherited all attributes of `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`
 

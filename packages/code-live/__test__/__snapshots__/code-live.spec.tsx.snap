@@ -158,7 +158,7 @@ exports[`basic rendering case snapshot 1`] = `
       >
         <div
           class="c5 token-line"
-          style="color:#9CDCFE"
+          style="color:#d4d4d4"
         >
           <span
             class="c6"
@@ -172,7 +172,7 @@ exports[`basic rendering case snapshot 1`] = `
         </div>
         <div
           class="c5 token-line"
-          style="color:#9CDCFE"
+          style="color:#d4d4d4"
         >
           <span
             class="c6"
@@ -236,7 +236,7 @@ exports[`basic rendering case snapshot 1`] = `
           </span>
           <span
             class="token punctuation"
-            style="color:rgb(212, 212, 212)"
+            style="color:rgb(106, 153, 85)"
           >
             ;
           </span>
@@ -246,7 +246,7 @@ exports[`basic rendering case snapshot 1`] = `
         </div>
         <div
           class="c5 token-line"
-          style="color:#9CDCFE"
+          style="color:#d4d4d4"
         >
           <span
             class="c6"
@@ -283,7 +283,7 @@ exports[`basic rendering case snapshot 1`] = `
         </div>
         <div
           class="c5 token-line"
-          style="color:#9CDCFE"
+          style="color:#d4d4d4"
         >
           <span
             class="c6"
@@ -477,7 +477,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
       >
         <div
           class="c5 token-line"
-          style="color:#9CDCFE"
+          style="color:#d4d4d4"
         >
           <span
             class="c6"
@@ -491,7 +491,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
         </div>
         <div
           class="c5 token-line"
-          style="color:#9CDCFE"
+          style="color:#d4d4d4"
         >
           <span
             class="c6"
@@ -555,7 +555,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
           </span>
           <span
             class="token punctuation"
-            style="color:rgb(212, 212, 212)"
+            style="color:rgb(106, 153, 85)"
           >
             ;
           </span>
@@ -565,7 +565,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
         </div>
         <div
           class="c5 token-line"
-          style="color:#9CDCFE"
+          style="color:#d4d4d4"
         >
           <span
             class="c6"
@@ -602,7 +602,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
         </div>
         <div
           class="c5 token-line"
-          style="color:#9CDCFE"
+          style="color:#d4d4d4"
         >
           <span
             class="c6"
