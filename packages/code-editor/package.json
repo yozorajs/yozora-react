@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-editor",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "simple code editor",
   "author": {
     "name": "guanghechen",
@@ -41,7 +41,7 @@
     "lint:fix": "eslint '{src,__test__}/**/*.{ts,tsx}' --fix"
   },
   "dependencies": {
-    "@yozora/react-code-highlighter": "^0.0.8",
+    "@yozora/react-code-highlighter": "^0.0.9",
     "prism-react-renderer": "^1.1.1"
   },
   "peerDependencies": {
