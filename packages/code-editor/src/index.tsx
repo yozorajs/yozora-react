@@ -102,7 +102,7 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
     whiteSpace: 'pre-wrap',
     overflowWrap: 'break-word',
     wordSpacing: 'normal',
-    wordBreak: 'normal',
+    wordBreak: 'break-all',
     wordWrap: 'break-word',
     lineHeight: 'inherit',
     tabSize: 2,
