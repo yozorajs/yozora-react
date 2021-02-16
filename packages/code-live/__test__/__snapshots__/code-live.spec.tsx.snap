@@ -145,7 +145,7 @@ exports[`basic rendering case snapshot 1`] = `
         class="c4"
         data-gramm="false"
         spellcheck="false"
-        style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:2;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:normal;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:2.5em;word-spacing:normal;word-wrap:break-word"
+        style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:2;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:break-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:2.5em;word-spacing:normal;word-wrap:break-word"
       >
         
       const a = 1 + 2;
@@ -154,7 +154,7 @@ exports[`basic rendering case snapshot 1`] = `
       </textarea>
       <pre
         aria-hidden="true"
-        style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:2;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:normal;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:0;word-spacing:normal;word-wrap:break-word"
+        style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:2;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:break-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:0;word-spacing:normal;word-wrap:break-word"
       >
         <div
           class="c5 token-line"
@@ -464,7 +464,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
         class="c4"
         data-gramm="false"
         spellcheck="false"
-        style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:2;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:normal;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:2.5em;word-spacing:normal;word-wrap:break-word"
+        style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:2;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:break-all;overflow-wrap:break-word;position:absolute;top:0;left:0;height:100%;width:100%;resize:none;color:inherit;overflow:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-text-fill-color:transparent;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:2.5em;word-spacing:normal;word-wrap:break-word"
       >
         
       const a = 1 + 2;
@@ -473,7 +473,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
       </textarea>
       <pre
         aria-hidden="true"
-        style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:2;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:normal;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:0;word-spacing:normal;word-wrap:break-word"
+        style="margin:0;border:0;background:none;box-sizing:inherit;display:inherit;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;tab-size:2;text-indent:inherit;text-rendering:inherit;text-transform:inherit;white-space:pre-wrap;word-break:break-all;overflow-wrap:break-word;position:relative;pointer-events:none;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:0;word-spacing:normal;word-wrap:break-word"
       >
         <div
           class="c5 token-line"

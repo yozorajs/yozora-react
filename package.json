@@ -22,6 +22,7 @@
     "build": "lerna run --concurrency 1 build",
     "rebuild": "yarn clean && yarn build",
     "test": "lerna run --parallel test",
+    "test:fix": "lerna exec --parallel 'yarn test -u'",
     "clean": "lerna clean --yes && yarn install",
     "format": "yarn find-inconsistent && yarn sort-imports && yarn lint:fix",
     "lint:fix": "lerna run --parallel lint:fix",
