@@ -1,9 +1,8 @@
+import CodeHighlighter from '@yozora/react-code-highlighter'
 import type { PrismTheme } from 'prism-react-renderer'
 import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import CodeHighlighter from '@yozora/react-code-highlighter'
 import SimpleCodeEditor from './no-cover/editor'
-
 
 /**
  * Props for creating CodeEditor
@@ -20,7 +19,7 @@ export interface CodeEditorProps {
   /**
    * Triggered when the code changed.
    */
-  onChange: (code: string) => void
+  onChange(code: string): void
   /**
    * If true, use vscDarkTheme as default theme,
    * otherwise use vscLightTheme as default theme.
@@ -56,7 +55,6 @@ export interface CodeEditorProps {
   style?: React.CSSProperties
 }
 
-
 /**
  * Simple live code editor
  * @param props
@@ -78,22 +76,28 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
   const [code, setCode] = useState<string>(props.code)
   const [lineCount, setLineCount] = useState<number>(0)
 
-  const linenoWidth = `${ Math.max(2, lineCount.toString(10).length) + 0.5 }em`
-  const highlightCode = useCallback<React.FC<string>>((code) => (
-    <CodeHighlighter
-      lang={ lang }
-      value={ code }
-      darken={ darken }
-      theme={ theme }
-      linenoWidth={ linenoWidth }
-      onLineCountChange={ setLineCount }
-    />
-  ), [lang, linenoWidth, darken, theme])
+  const linenoWidth = `${Math.max(2, lineCount.toString(10).length) + 0.5}em`
+  const highlightCode = useCallback<React.FC<string>>(
+    code => (
+      <CodeHighlighter
+        lang={lang}
+        value={code}
+        darken={darken}
+        theme={theme}
+        linenoWidth={linenoWidth}
+        onLineCountChange={setLineCount}
+      />
+    ),
+    [lang, linenoWidth, darken, theme],
+  )
 
-  const handleChange = useCallback((nextCode: string) => {
-    setCode(nextCode)
-    onChange(nextCode)
-  }, [onChange])
+  const handleChange = useCallback(
+    (nextCode: string) => {
+      setCode(nextCode)
+      onChange(nextCode)
+    },
+    [onChange],
+  )
 
   // Reset code if the props.code has changed
   useEffect((): void => setCode(props.code), [props.code])
@@ -110,24 +114,24 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
 
   return (
     <Container
-      value={ code }
-      padding={ 10 }
-      highlight={ highlightCode }
-      onValueChange={ handleChange }
-      insertSpaces={ true }
-      textareaClassName={ textareaClassName }
+      value={code}
+      padding={10}
+      highlight={highlightCode}
+      onValueChange={handleChange}
+      insertSpaces={true}
+      textareaClassName={textareaClassName}
       textareaStyle={{
         ...wordStyle,
         ...textareaStyle,
         paddingLeft: linenoWidth,
       }}
-      preClassName={ preClassName }
+      preClassName={preClassName}
       preStyle={{
         ...wordStyle,
         ...preStyle,
         paddingLeft: 0,
       }}
-      className={ className }
+      className={className}
       style={{
         ...style,
       }}
@@ -135,10 +139,8 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
   )
 }
 
-
 CodeEditor.displayName = 'YozoraCodeEditor'
 export default CodeEditor
-
 
 const Container = styled(SimpleCodeEditor)`
   white-space: pre;
@@ -155,7 +157,6 @@ const Container = styled(SimpleCodeEditor)`
   }
 `
 
-
 export const CodeEditorClasses = {
-  container: `${ Container }`,
+  container: `${Container}`,
 }

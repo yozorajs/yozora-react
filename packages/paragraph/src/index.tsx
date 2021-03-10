@@ -1,21 +1,21 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 import './styled-components'
 import { defaultParagraphTheme, getParagraphStyle } from './theme'
-export * from './theme'
 
+export * from './theme'
 
 /**
  * Props for creating Paragraph
  */
-export interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
+export interface ParagraphProps
+  extends React.HTMLAttributes<HTMLParagraphElement> {
   /**
    * Paragraph content
    */
   children: React.ReactNode
 }
-
 
 /**
  * Render `paragraph` content
@@ -24,35 +24,28 @@ export interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElemen
  */
 export const Paragraph = React.forwardRef<HTMLParagraphElement, ParagraphProps>(
   (props, forwardRef): React.ReactElement => {
-    return (
-      <Container { ...props } ref={ forwardRef } />
-    )
-  }
+    return <Container {...props} ref={forwardRef} />
+  },
 )
-
 
 Paragraph.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-
 Paragraph.displayName = 'YozoraParagraph'
 export default Paragraph
 
-
 const Container = styled.p`
-  padding: ${ getParagraphStyle('padding') };
-  margin: ${ getParagraphStyle('margin') };
-  line-height: ${ getParagraphStyle('lineHeight') };
-  color: ${ getParagraphStyle('color') };
+  padding: ${getParagraphStyle('padding')};
+  margin: ${getParagraphStyle('margin')};
+  line-height: ${getParagraphStyle('lineHeight')};
+  color: ${getParagraphStyle('color')};
 `
 
-
 Container.defaultProps = {
-  theme: { yozora: { paragraph: defaultParagraphTheme } }
+  theme: { yozora: { paragraph: defaultParagraphTheme } },
 }
 
-
 export const ParagraphClasses = {
-  container: `${ Container}`,
+  container: `${Container}`,
 }

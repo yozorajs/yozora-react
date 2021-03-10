@@ -1,16 +1,15 @@
-import type { EditorProps, EditorState } from '../types'
 import React from 'react'
 import styled from 'styled-components'
+import type { EditorProps, EditorState } from '../types'
 import { classes, getLines } from '../util'
 
-
-type OperationRecord = {
+interface OperationRecord {
   value: string
   selectionStart: number
   selectionEnd: number
 }
 
-type History = {
+interface History {
   stack: Array<OperationRecord & { timestamp: number }>
   offset: number
 }
@@ -30,15 +29,9 @@ const KEYCODE_ESCAPE = 27
 const HISTORY_LIMIT = 100
 const HISTORY_TIME_GAP = 3000
 
-const isWindows = (
-  'navigator' in global &&
-  /Win/i.test(navigator.platform)
-)
-const isMacLike = (
-  'navigator' in global &&
-  /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)
-)
-
+const isWindows = 'navigator' in global && /Win/i.test(navigator.platform)
+const isMacLike =
+  'navigator' in global && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)
 
 const Textarea = styled.textarea`
   /**
@@ -67,12 +60,14 @@ const Textarea = styled.textarea`
   }
 `
 
-
 /**
  *
  * @see https://github.com/satya164/react-simple-code-editor
  */
-export class SimpleCodeEditor extends React.Component<EditorProps, EditorState> {
+export class SimpleCodeEditor extends React.Component<
+  EditorProps,
+  EditorState
+> {
   public static readonly defaultProps = {
     tabSize: 2,
     insertSpaces: true,
@@ -83,7 +78,7 @@ export class SimpleCodeEditor extends React.Component<EditorProps, EditorState> 
   protected readonly inputRef = React.createRef<HTMLTextAreaElement>()
   protected _history: History = { stack: [], offset: -1 }
 
-  public constructor(props: EditorProps) {
+  constructor(props: EditorProps) {
     super(props)
     this.state = { capture: true }
   }
@@ -146,41 +141,41 @@ export class SimpleCodeEditor extends React.Component<EditorProps, EditorState> 
     const highlighted = highlight(value)
 
     return (
-      <div { ...restProps } style={{ ...classes.container, ...style }}>
+      <div {...restProps} style={{ ...classes.container, ...style }}>
         <Textarea
-          ref={ this.inputRef }
+          ref={this.inputRef}
           style={{
             ...classes.editor,
             ...classes.textarea,
             ...contentStyle,
             ...textareaStyle,
           }}
-          className={ (textareaClassName ? ` ${ textareaClassName }` : '') }
-          id={ textareaId }
-          value={ value }
-          onChange={ this._handleChange }
-          onKeyDown={ this._handleKeyDown }
-          onClick={ onClick }
-          onKeyUp={ onKeyUp }
-          onFocus={ onFocus }
-          onBlur={ onBlur }
-          disabled={ disabled }
-          form={ form }
-          maxLength={ maxLength }
-          minLength={ minLength }
-          name={ name }
-          placeholder={ placeholder }
-          readOnly={ readOnly }
-          required={ required }
-          autoFocus={ autoFocus }
+          className={textareaClassName ? ` ${textareaClassName}` : ''}
+          id={textareaId}
+          value={value}
+          onChange={this._handleChange}
+          onKeyDown={this._handleKeyDown}
+          onClick={onClick}
+          onKeyUp={onKeyUp}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          disabled={disabled}
+          form={form}
+          maxLength={maxLength}
+          minLength={minLength}
+          name={name}
+          placeholder={placeholder}
+          readOnly={readOnly}
+          required={required}
+          autoFocus={autoFocus}
           autoCapitalize="off"
           autoComplete="off"
           autoCorrect="off"
-          spellCheck={ false }
-          data-gramm={ false }
+          spellCheck={false}
+          data-gramm={false}
         />
         <pre
-          className={ preClassName }
+          className={preClassName}
           aria-hidden="true"
           style={{
             ...classes.editor,
@@ -188,9 +183,9 @@ export class SimpleCodeEditor extends React.Component<EditorProps, EditorState> 
             ...contentStyle,
             ...preStyle,
           }}
-          { ...(typeof highlighted === 'string'
+          {...(typeof highlighted === 'string'
             ? { dangerouslySetInnerHTML: { __html: highlighted + '<br />' } }
-            : { children: highlighted }) }
+            : { children: highlighted })}
         />
       </div>
     )
@@ -210,7 +205,10 @@ export class SimpleCodeEditor extends React.Component<EditorProps, EditorState> 
     })
   }
 
-  protected _recordChange = (record: OperationRecord, overwrite = false): void => {
+  protected _recordChange = (
+    record: OperationRecord,
+    overwrite = false,
+  ): void => {
     const { stack, offset } = this._history
 
     if (stack.length && offset > -1) {
@@ -321,7 +319,9 @@ export class SimpleCodeEditor extends React.Component<EditorProps, EditorState> 
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  protected _handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>): void => {
+  protected _handleKeyDown = (
+    e: React.KeyboardEvent<HTMLTextAreaElement>,
+  ): void => {
     const { tabSize, insertSpaces, ignoreTabKey, onKeyDown } = this.props
     const target = e.target as HTMLTextAreaElement
 
@@ -486,7 +486,7 @@ export class SimpleCodeEditor extends React.Component<EditorProps, EditorState> 
         if (e.shiftKey) {
           chars = ['"', '"']
         } else {
-          chars = ['\'', '\'']
+          chars = ["'", "'"]
         }
       } else if (e.keyCode === KEYCODE_BACK_QUOTE && !e.shiftKey) {
         chars = ['`', '`']
@@ -511,9 +511,9 @@ export class SimpleCodeEditor extends React.Component<EditorProps, EditorState> 
     } else if (
       (isMacLike
         ? // Trigger undo with ⌘+Z on Mac
-        e.metaKey && e.keyCode === KEYCODE_Z
+          e.metaKey && e.keyCode === KEYCODE_Z
         : // Trigger undo with Ctrl+Z on other platforms
-        e.ctrlKey && e.keyCode === KEYCODE_Z) &&
+          e.ctrlKey && e.keyCode === KEYCODE_Z) &&
       !e.shiftKey &&
       !e.altKey
     ) {
@@ -523,11 +523,11 @@ export class SimpleCodeEditor extends React.Component<EditorProps, EditorState> 
     } else if (
       (isMacLike
         ? // Trigger redo with ⌘+Shift+Z on Mac
-        e.metaKey && e.keyCode === KEYCODE_Z && e.shiftKey
+          e.metaKey && e.keyCode === KEYCODE_Z && e.shiftKey
         : isWindows
-          ? // Trigger redo with Ctrl+Y on Windows
+        ? // Trigger redo with Ctrl+Y on Windows
           e.ctrlKey && e.keyCode === KEYCODE_Y
-          : // Trigger redo with Ctrl+Shift+Z on other platforms
+        : // Trigger redo with Ctrl+Shift+Z on other platforms
           e.ctrlKey && e.keyCode === KEYCODE_Z && e.shiftKey) &&
       !e.altKey
     ) {
@@ -548,13 +548,14 @@ export class SimpleCodeEditor extends React.Component<EditorProps, EditorState> 
     }
   }
 
-  protected _handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
+  protected _handleChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>,
+  ): void => {
     const { value, selectionStart, selectionEnd } = e.target
     const nextRecord: OperationRecord = { value, selectionStart, selectionEnd }
     this._recordChange(nextRecord, true)
     this.props.onValueChange(value)
   }
 }
-
 
 export default SimpleCodeEditor

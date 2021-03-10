@@ -1,18 +1,34 @@
 [![npm version](https://img.shields.io/npm/v/@yozora/react-inline-code.svg)](https://www.npmjs.com/package/@yozora/react-inline-code)
 [![npm download](https://img.shields.io/npm/dm/@yozora/react-inline-code.svg)](https://www.npmjs.com/package/@yozora/react-inline-code)
 [![npm license](https://img.shields.io/npm/l/@yozora/react-inline-code.svg)](https://www.npmjs.com/package/@yozora/react-inline-code)
+[![module formats: cjs, esm](https://img.shields.io/badge/module_formats-cjs%2C%20esm-green.svg)](#install)
+[![Node Version](https://img.shields.io/node/v/@yozora/react-inline-code)](https://github.com/nodejs/node)
+[![React version](https://img.shields.io/npm/dependency-version/@yozora/react-inline-code/peer/react)](https://github.com/facebook/react)
+[![styled-components version](https://img.shields.io/npm/dependency-version/@yozora/react-inline-code/peer/styled-components)](https://github.com/styled-components/styled-components)
+[![Tested With Jest](https://img.shields.io/badge/tested_with-jest-9c465e.svg)](https://github.com/facebook/jest)
+[![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+
+# `@yozora/react-inline-code`
 
 This package is designed to render [mdast inlineCode][] type data
 
 
-# Install
+## Install
 
-  ```shell
+* npm
+
+  ```bash
+  npm install --save @yozora/react-inline-code
+  ```
+
+* yarn
+
+  ```bash
   yarn add @yozora/react-inline-code
   ```
 
-# Usage
+## Usage
   * Use in React project
 
     - Pure
@@ -92,7 +108,7 @@ This package is designed to render [mdast inlineCode][] type data
     See [YozoraInlineCodeTheme][] for details.
 
 
-# References
+## References
 
   - [mdast inlineCode][]
 

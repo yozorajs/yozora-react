@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `strong` theme
  */
@@ -27,7 +26,6 @@ export interface YozoraStrongTheme {
   fontStyle?: CSSProperties['fontStyle'] | string
 }
 
-
 /**
  * Default yozora `strong` theme
  */
@@ -38,7 +36,6 @@ export const defaultStrongTheme: YozoraStrongTheme = {
   fontStyle: 'inherit',
 }
 
-
 /**
  * Get `strong` style
  * @param key
@@ -47,15 +44,11 @@ export const defaultStrongTheme: YozoraStrongTheme = {
 export function getStrongStyle(
   key: keyof YozoraStrongTheme,
   defaultTheme: YozoraStrongTheme = defaultStrongTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraStrongTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
-    if (
-      yozora == null ||
-      yozora.strong == null ||
-      yozora.strong[key] == null
-    ) return defaultTheme[key]
+    if (yozora == null || yozora.strong == null || yozora.strong[key] == null)
+      return defaultTheme[key]
     return yozora.strong[key]
   }
 }

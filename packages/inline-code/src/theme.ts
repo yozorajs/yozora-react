@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `inlineCode` theme
  */
@@ -62,7 +61,6 @@ export interface YozoraInlineCodeTheme {
   whiteSpace?: CSSProperties['whiteSpace'] | string
 }
 
-
 /**
  * Default yozora `inlineCode` theme
  */
@@ -80,7 +78,6 @@ export const defaultInlineCodeTheme: YozoraInlineCodeTheme = {
   whiteSpace: 'normal',
 }
 
-
 /**
  * Get `inlineCode` style
  * @param key
@@ -89,15 +86,15 @@ export const defaultInlineCodeTheme: YozoraInlineCodeTheme = {
 export function getInlineCodeStyle(
   key: keyof YozoraInlineCodeTheme,
   defaultTheme: YozoraInlineCodeTheme = defaultInlineCodeTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraInlineCodeTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
     if (
       yozora == null ||
       yozora.inlineCode == null ||
       yozora.inlineCode[key] == null
-    ) return defaultTheme[key]
+    )
+      return defaultTheme[key]
     return yozora.inlineCode[key]
   }
 }

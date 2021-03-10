@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import CodeHighlighter from '@yozora/react-code-highlighter'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import styled from 'styled-components'
 import './styled-components'
 import { defaultCodeTheme, getCodeStyle } from './theme'
-export * from './theme'
 
+export * from './theme'
 
 /**
  * Props for Code
@@ -21,7 +21,6 @@ export interface CodeProps extends React.HTMLAttributes<HTMLDivElement> {
   lang?: string
 }
 
-
 /**
  * Render `code` content
  *
@@ -31,44 +30,41 @@ export const Code = React.forwardRef<HTMLDivElement, CodeProps>(
   (props, forwardRef): React.ReactElement => {
     const { lang, value, ...htmlProps } = props
     const [lineCount, setLineCount] = useState<number>(0)
-    const linenoWidth = `${ Math.max(2, ('' + lineCount).length) + 0.5 }em`
+    const linenoWidth = `${Math.max(2, ('' + lineCount).length) + 0.5}em`
 
     return (
-      <Container { ...htmlProps } ref={ forwardRef }>
+      <Container {...htmlProps} ref={forwardRef}>
         <pre>
           <CodeHighlighter
-            lang={ lang }
-            value={ value }
-            linenoWidth={ linenoWidth }
-            onLineCountChange={ setLineCount }
+            lang={lang}
+            value={value}
+            linenoWidth={linenoWidth}
+            onLineCountChange={setLineCount}
           />
         </pre>
       </Container>
     )
-  }
+  },
 )
-
 
 Code.propTypes = {
   value: PropTypes.string.isRequired,
   lang: PropTypes.string,
 }
 
-
 Code.displayName = 'YozoraCode'
 export default Code
 
-
 const Container = styled.div`
-  padding: ${ getCodeStyle('padding') };
-  border: ${ getCodeStyle('border') };
-  margin: ${ getCodeStyle('margin') };
-  background: ${ getCodeStyle('background') };
-  font-family: ${ getCodeStyle('fontFamily') };
-  line-height: ${ getCodeStyle('lineHeight') };
+  padding: ${getCodeStyle('padding')};
+  border: ${getCodeStyle('border')};
+  margin: ${getCodeStyle('margin')};
+  background: ${getCodeStyle('background')};
+  font-family: ${getCodeStyle('fontFamily')};
+  line-height: ${getCodeStyle('lineHeight')};
   pre {
     line-height: inherit;
-    font-family: ${ getCodeStyle('fontFamily') };
+    font-family: ${getCodeStyle('fontFamily')};
     code, span {
       line-height: inherit;
     }
@@ -78,17 +74,15 @@ const Container = styled.div`
       padding: 0;
     }
     ::selection {
-      background: ${ getCodeStyle('selectionBackground') };
+      background: ${getCodeStyle('selectionBackground')};
     }
   }
 `
 
-
 Container.defaultProps = {
-  theme: { yozora: { code: defaultCodeTheme } }
+  theme: { yozora: { code: defaultCodeTheme } },
 }
 
-
 export const CodeClasses = {
-  container: `${ Container }`,
+  container: `${Container}`,
 }

@@ -25,7 +25,6 @@ export interface EditorTextareaProps {
   required?: boolean
 }
 
-
 /**
  * Props for the hightlighted code’s pre element
  */
@@ -40,16 +39,17 @@ export interface EditorPreProps {
   preStyle?: React.CSSProperties
 }
 
-
 /**
  * Editor props
  */
-export interface EditorProps extends
-  React.HTMLAttributes<HTMLElement>, EditorTextareaProps, EditorPreProps {
+export interface EditorProps
+  extends React.HTMLAttributes<HTMLElement>,
+    EditorTextareaProps,
+    EditorPreProps {
   // Props for the component
   value: string
-  onValueChange: (value: string) => void
-  highlight: (value: string) => React.ReactNode
+  onValueChange(value: string): void
+  highlight(value: string): React.ReactNode
   tabSize: number
   insertSpaces: boolean
   ignoreTabKey: boolean
@@ -61,7 +61,6 @@ export interface EditorProps extends
   onKeyUp?: React.KeyboardEventHandler<HTMLTextAreaElement>
   onKeyDown?: React.KeyboardEventHandler<HTMLTextAreaElement>
 }
-
 
 /**
  * Editor state

@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `codeEmbed` theme
  */
@@ -47,7 +46,6 @@ export interface YozoraCodeEmbedTheme {
   errorFontFamily?: CSSProperties['fontFamily'] | string
 }
 
-
 /**
  * Default yozora `codeEmbed` theme
  */
@@ -62,7 +60,6 @@ export const defaultCodeEmbedTheme: YozoraCodeEmbedTheme = {
   errorFontFamily: 'Consolas, "Source Code Pro", monospace, sans-serif',
 }
 
-
 /**
  * Get `codeEmbed` style
  * @param key
@@ -71,15 +68,15 @@ export const defaultCodeEmbedTheme: YozoraCodeEmbedTheme = {
 export function getCodeEmbedStyle(
   key: keyof YozoraCodeEmbedTheme,
   defaultTheme: YozoraCodeEmbedTheme = defaultCodeEmbedTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraCodeEmbedTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
     if (
       yozora == null ||
       yozora.codeEmbed == null ||
       yozora.codeEmbed[key] == null
-    ) return defaultTheme[key]
+    )
+      return defaultTheme[key]
     return yozora.codeEmbed[key]
   }
 }

@@ -1,18 +1,34 @@
 [![npm version](https://img.shields.io/npm/v/@yozora/react-code-highlighter.svg)](https://www.npmjs.com/package/@yozora/react-code-highlighter)
 [![npm download](https://img.shields.io/npm/dm/@yozora/react-code-highlighter.svg)](https://www.npmjs.com/package/@yozora/react-code-highlighter)
 [![npm license](https://img.shields.io/npm/l/@yozora/react-code-highlighter.svg)](https://www.npmjs.com/package/@yozora/react-code-highlighter)
+[![module formats: cjs, esm](https://img.shields.io/badge/module_formats-cjs%2C%20esm-green.svg)](#install)
+[![Node Version](https://img.shields.io/node/v/@yozora/react-code-highlighter)](https://github.com/nodejs/node)
+[![React version](https://img.shields.io/npm/dependency-version/@yozora/react-code-highlighter/peer/react)](https://github.com/facebook/react)
+[![styled-components version](https://img.shields.io/npm/dependency-version/@yozora/react-code-highlighter/peer/styled-components)](https://github.com/styled-components/styled-components)
+[![Tested With Jest](https://img.shields.io/badge/tested_with-jest-9c465e.svg)](https://github.com/facebook/jest)
+[![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+
+# `@yozora/react-code-highlighter`
 
 This package is designed to highlight [mdast code][] type data
 
 
-# Install
+## Install
 
-  ```shell
+* npm
+
+  ```bash
+  npm install --save @yozora/react-code-highlighter
+  ```
+
+* yarn
+
+  ```bash
   yarn add @yozora/react-code-highlighter
   ```
 
-# Usage
+## Usage
   * Use in React project
 
     ```tsx
@@ -61,7 +77,7 @@ This package is designed to highlight [mdast code][] type data
      `onLineCountChange`  | `(lineCount: number) => void`   | `false`   | -                   | Callback of Code line count changing
 
 
-# References
+## References
 
   - [mdast code][]
 

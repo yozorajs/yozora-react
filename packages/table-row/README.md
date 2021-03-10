@@ -1,18 +1,34 @@
 [![npm version](https://img.shields.io/npm/v/@yozora/react-table-row.svg)](https://www.npmjs.com/package/@yozora/react-table-row)
 [![npm download](https://img.shields.io/npm/dm/@yozora/react-table-row.svg)](https://www.npmjs.com/package/@yozora/react-table-row)
 [![npm license](https://img.shields.io/npm/l/@yozora/react-table-row.svg)](https://www.npmjs.com/package/@yozora/react-table-row)
+[![module formats: cjs, esm](https://img.shields.io/badge/module_formats-cjs%2C%20esm-green.svg)](#install)
+[![Node Version](https://img.shields.io/node/v/@yozora/react-table-row)](https://github.com/nodejs/node)
+[![React version](https://img.shields.io/npm/dependency-version/@yozora/react-table-row/peer/react)](https://github.com/facebook/react)
+[![styled-components version](https://img.shields.io/npm/dependency-version/@yozora/react-table-row/peer/styled-components)](https://github.com/styled-components/styled-components)
+[![Tested With Jest](https://img.shields.io/badge/tested_with-jest-9c465e.svg)](https://github.com/facebook/jest)
+[![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+
+# `@yozora/react-table-row`
 
 This package is designed to render [mdast table row][] type data
 
 
-# Install
+## Install
 
-  ```shell
+* npm
+
+  ```bash
+  npm install --save @yozora/react-table-row
+  ```
+
+* yarn
+
+  ```bash
   yarn add @yozora/react-table-row
   ```
 
-# Usage
+## Usage
   * Use in React project
 
     - Pure
@@ -86,7 +102,7 @@ This package is designed to render [mdast table row][] type data
     See [YozoraTableRowTheme][] for details.
 
 
-# References
+## References
 
   - [mdast table][]
   - [mdast table row][]

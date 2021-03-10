@@ -1,16 +1,17 @@
-import type { PrismTheme } from 'prism-react-renderer'
-import React, { useMemo, useState } from 'react'
-import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
 import CodeLiveEditor from '@yozora/react-code-editor'
-import CodeEmbed, { CodeRendererProps } from '@yozora/react-code-embed'
+import type { CodeRendererProps } from '@yozora/react-code-embed'
+import CodeEmbed from '@yozora/react-code-embed'
+import type { PrismTheme } from 'prism-react-renderer'
+import PropTypes from 'prop-types'
+import React, { useMemo, useState } from 'react'
+import styled, { css } from 'styled-components'
 import './styled-components'
 import { defaultCodeLiveTheme, getCodeLiveStyle } from './theme'
 import { debounce } from './util'
+
 export type { CodeRendererProps } from '@yozora/react-code-embed'
 export * from './theme'
 export * from './util'
-
 
 /**
  * Live mode block code
@@ -27,7 +28,7 @@ export interface CodeLiveProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * render code
    */
-  CodeRenderer: (props: CodeRendererProps) => React.ReactElement | null
+  CodeRenderer(props: CodeRendererProps): React.ReactElement | null
   /**
    * If true, use vscDarkTheme as default theme,
    * otherwise use vscLightTheme as default theme.
@@ -51,7 +52,6 @@ export interface CodeLiveProps extends React.HTMLAttributes<HTMLDivElement> {
   editorPreClassName?: string
 }
 
-
 export const CodeLive = React.forwardRef<HTMLDivElement, CodeLiveProps>(
   (props, forwardRef) => {
     const {
@@ -71,35 +71,36 @@ export const CodeLive = React.forwardRef<HTMLDivElement, CodeLiveProps>(
     const handleChange = useMemo(() => debounce(setValue, 300), [])
 
     return (
-      <Container { ...htmlProps } ref={ forwardRef } layout={ layout }>
+      <Container {...htmlProps} ref={forwardRef} layout={layout}>
         <EditorContainer>
           <CodeLiveEditor
-            lang={ lang }
-            code={ value }
-            onChange={ handleChange }
-            darken={ darken }
-            theme={ theme }
-            textareaClassName={ editorTextareaClassName }
-            preClassName={ editorPreClassName }
+            lang={lang}
+            code={value}
+            onChange={handleChange}
+            darken={darken}
+            theme={theme}
+            textareaClassName={editorTextareaClassName}
+            preClassName={editorPreClassName}
           />
         </EditorContainer>
         <EmbedContainer>
           <WrappedCodeEmbed
-            lang={ lang }
-            value={ value }
-            errorClassName={ errorClassName }
-            CodeRenderer={ CodeRenderer }
+            lang={lang}
+            value={value}
+            errorClassName={errorClassName}
+            CodeRenderer={CodeRenderer}
           />
         </EmbedContainer>
       </Container>
     )
-  }
+  },
 )
-
 
 CodeLive.propTypes = {
   lang: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
+  darken: PropTypes.bool,
+  theme: PropTypes.any,
   CodeRenderer: PropTypes.oneOfType<any>([
     PropTypes.elementType,
     PropTypes.func,
@@ -109,75 +110,68 @@ CodeLive.propTypes = {
   editorTextareaClassName: PropTypes.string,
 }
 
-
 CodeLive.displayName = 'YozoraCodeLive'
 export default CodeLive
-
 
 const EditorContainer = styled.div`
   flex: 0 0 auto;
   overflow: auto;
-  padding: ${ getCodeLiveStyle('editorPadding') };
-  background: ${ getCodeLiveStyle('editorBackground') };
-  caret-color: ${ getCodeLiveStyle('editorCaretColor') };
-  font-size: ${ getCodeLiveStyle('editorFontSize') };
-  font-family: ${ getCodeLiveStyle('editorFontFamily') };
+  padding: ${getCodeLiveStyle('editorPadding')};
+  background: ${getCodeLiveStyle('editorBackground')};
+  caret-color: ${getCodeLiveStyle('editorCaretColor')};
+  font-size: ${getCodeLiveStyle('editorFontSize')};
+  font-family: ${getCodeLiveStyle('editorFontFamily')};
   pre, textarea {
     ::selection {
-      background: ${ getCodeLiveStyle('editorSelectionBackground') };
+      background: ${getCodeLiveStyle('editorSelectionBackground')};
     }
   }
 `
 
-
 const WrappedCodeEmbed = styled(CodeEmbed)`
   width: 100%;
   height: 100%;
-  border: ${ getCodeLiveStyle('previewBorder') };
-  padding: ${ getCodeLiveStyle('previewPadding') };
+  border: ${getCodeLiveStyle('previewBorder')};
+  padding: ${getCodeLiveStyle('previewPadding')};
 `
-
 
 const EmbedContainer = styled.div`
   flex: 0 0 auto;
   display: block;
   overflow: auto;
-  color: ${ getCodeLiveStyle('previewColor') };
-  background: ${ getCodeLiveStyle('previewBackground') };
+  color: ${getCodeLiveStyle('previewColor')};
+  background: ${getCodeLiveStyle('previewBackground')};
 `
-
 
 const horizontalContainer = css`
   flex-direction: row;
   align-items: stretch;
-  ${ EditorContainer }, ${ EmbedContainer } {
+  ${EditorContainer}, ${EmbedContainer} {
     flex: 1 1 0;
     width: 50%;
   }
 `
 const verticalContainer = css`
   flex-direction: column;
-  ${ EditorContainer }, ${ EmbedContainer } {
+  ${EditorContainer}, ${EmbedContainer} {
     flex: 1 1 auto;
     width: 100%;
   }
 `
 
-
 const Container = styled.div<{ layout: 'horizontal' | 'vertical' }>`
   display: flex;
-  ${ props => props.layout === 'horizontal' ? horizontalContainer : verticalContainer };
+  ${props =>
+    props.layout === 'horizontal' ? horizontalContainer : verticalContainer};
 `
 
-
 Container.defaultProps = {
-  theme: { yozora: { codeLive: defaultCodeLiveTheme } }
+  theme: { yozora: { codeLive: defaultCodeLiveTheme } },
 }
 
-
 export const CodeLiveClasses = {
-  container: `${ Container }`,
-  editorContainer: `${ EditorContainer }`,
-  embedContainer: `${ EmbedContainer }`,
-  wrappedCodeEmbed: `${ WrappedCodeEmbed }`,
+  container: `${Container}`,
+  editorContainer: `${EditorContainer}`,
+  embedContainer: `${EmbedContainer}`,
+  wrappedCodeEmbed: `${WrappedCodeEmbed}`,
 }

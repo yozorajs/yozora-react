@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 /**
  * Create a error boundary component
  *
@@ -26,6 +25,5 @@ export function errorBoundary(
 
   return ErrorBoundary
 }
-
 
 export default errorBoundary

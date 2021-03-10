@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `blockquote` theme
  */
@@ -32,7 +31,6 @@ export interface YozoraBlockquoteTheme {
   color?: CSSProperties['color'] | string
 }
 
-
 /**
  * Default yozora `blockquote` theme
  */
@@ -44,7 +42,6 @@ export const defaultBlockquoteTheme: YozoraBlockquoteTheme = {
   color: 'inherit',
 }
 
-
 /**
  * Get `blockquote` style
  * @param key
@@ -53,15 +50,15 @@ export const defaultBlockquoteTheme: YozoraBlockquoteTheme = {
 export function getBlockquoteStyle(
   key: keyof YozoraBlockquoteTheme,
   defaultTheme: YozoraBlockquoteTheme = defaultBlockquoteTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraBlockquoteTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
     if (
       yozora == null ||
       yozora.blockquote == null ||
       yozora.blockquote[key] == null
-    ) return defaultTheme[key]
+    )
+      return defaultTheme[key]
     return yozora.blockquote[key]
   }
 }

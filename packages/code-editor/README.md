@@ -1,19 +1,35 @@
 [![npm version](https://img.shields.io/npm/v/@yozora/react-code-editor.svg)](https://www.npmjs.com/package/@yozora/react-code-editor)
 [![npm download](https://img.shields.io/npm/dm/@yozora/react-code-editor.svg)](https://www.npmjs.com/package/@yozora/react-code-editor)
 [![npm license](https://img.shields.io/npm/l/@yozora/react-code-editor.svg)](https://www.npmjs.com/package/@yozora/react-code-editor)
+[![module formats: cjs, esm](https://img.shields.io/badge/module_formats-cjs%2C%20esm-green.svg)](#install)
+[![Node Version](https://img.shields.io/node/v/@yozora/react-code-editor)](https://github.com/nodejs/node)
+[![React version](https://img.shields.io/npm/dependency-version/@yozora/react-code-editor/peer/react)](https://github.com/facebook/react)
+[![styled-components version](https://img.shields.io/npm/dependency-version/@yozora/react-code-editor/peer/styled-components)](https://github.com/styled-components/styled-components)
+[![Tested With Jest](https://img.shields.io/badge/tested_with-jest-9c465e.svg)](https://github.com/facebook/jest)
+[![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+
+# `@yozora/react-code-editor`
 
 Simple no-frills code editor with syntax highlighting, forked from [react-simple-code-editor][]
 as it's seems not been updated for several months.
 
 
-# Install
+## Install
 
-  ```shell
+* npm
+
+  ```bash
+  npm install --save @yozora/react-code-editor
+  ```
+
+* yarn
+
+  ```bash
   yarn add @yozora/react-code-editor
   ```
 
-# Usage
+## Usage
   * Use in React project
 
     ```tsx
@@ -52,7 +68,7 @@ as it's seems not been updated for several months.
      `style`              | `React.CSSProperties`       | `false`   | -                   | CSS style object for the container
 
 
-# References
+## References
 
   - [react-simple-code-editor][]
 

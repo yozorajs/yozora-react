@@ -1,10 +1,10 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 import './styled-components'
 import { defaultListItemTheme, getListItemStyle } from './theme'
-export * from './theme'
 
+export * from './theme'
 
 /**
  * Props for creating ListItem
@@ -20,7 +20,6 @@ export interface ListItemProps extends React.LiHTMLAttributes<HTMLSpanElement> {
   children: React.ReactNode
 }
 
-
 /**
  * Render ListItem content
  *
@@ -29,40 +28,33 @@ export interface ListItemProps extends React.LiHTMLAttributes<HTMLSpanElement> {
 export const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(
   (props, forwardRef): React.ReactElement => {
     const { status, ...htmlProps } = props
-    return (
-      <Container { ...htmlProps } ref={ forwardRef } />
-    )
-  }
+    return <Container {...htmlProps} ref={forwardRef} />
+  },
 )
-
 
 ListItem.propTypes = {
   status: PropTypes.oneOf<'todo' | 'doing' | 'done'>(['todo', 'doing', 'done']),
   children: PropTypes.node.isRequired,
 }
 
-
 ListItem.displayName = 'YozoraListItem'
 export default ListItem
 
-
 const Container = styled.li`
-  color: ${ getListItemStyle('color') };
-  padding: ${ getListItemStyle('padding') };
-  margin: ${ getListItemStyle('margin') };
-  line-height: ${ getListItemStyle('lineHeight') };
+  color: ${getListItemStyle('color')};
+  padding: ${getListItemStyle('padding')};
+  margin: ${getListItemStyle('margin')};
+  line-height: ${getListItemStyle('lineHeight')};
 
   & > :first-child {
     margin-bottom: 0
   }
 `
 
-
 Container.defaultProps = {
-  theme: { yozora: { listItem: defaultListItemTheme } }
+  theme: { yozora: { listItem: defaultListItemTheme } },
 }
 
-
 export const ListItemClasses = {
-  container: `${ Container }`,
+  container: `${Container}`,
 }

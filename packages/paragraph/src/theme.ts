@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `paragraph` theme
  */
@@ -27,7 +26,6 @@ export interface YozoraParagraphTheme {
   color?: CSSProperties['color'] | string
 }
 
-
 /**
  * Default yozora `paragraph` theme
  */
@@ -38,7 +36,6 @@ export const defaultParagraphTheme: YozoraParagraphTheme = {
   color: 'inherit',
 }
 
-
 /**
  * Get `paragraph` style
  * @param key
@@ -47,15 +44,15 @@ export const defaultParagraphTheme: YozoraParagraphTheme = {
 export function getParagraphStyle(
   key: keyof YozoraParagraphTheme,
   defaultTheme: YozoraParagraphTheme = defaultParagraphTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraParagraphTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
     if (
       yozora == null ||
       yozora.paragraph == null ||
       yozora.paragraph[key] == null
-    ) return defaultTheme[key]
+    )
+      return defaultTheme[key]
     return yozora.paragraph[key]
   }
 }

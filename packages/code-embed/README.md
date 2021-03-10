@@ -1,18 +1,34 @@
 [![npm version](https://img.shields.io/npm/v/@yozora/react-code-embed.svg)](https://www.npmjs.com/package/@yozora/react-code-embed)
 [![npm download](https://img.shields.io/npm/dm/@yozora/react-code-embed.svg)](https://www.npmjs.com/package/@yozora/react-code-embed)
 [![npm license](https://img.shields.io/npm/l/@yozora/react-code-embed.svg)](https://www.npmjs.com/package/@yozora/react-code-embed)
+[![module formats: cjs, esm](https://img.shields.io/badge/module_formats-cjs%2C%20esm-green.svg)](#install)
+[![Node Version](https://img.shields.io/node/v/@yozora/react-code-embed)](https://github.com/nodejs/node)
+[![React version](https://img.shields.io/npm/dependency-version/@yozora/react-code-embed/peer/react)](https://github.com/facebook/react)
+[![styled-components version](https://img.shields.io/npm/dependency-version/@yozora/react-code-embed/peer/styled-components)](https://github.com/styled-components/styled-components)
+[![Tested With Jest](https://img.shields.io/badge/tested_with-jest-9c465e.svg)](https://github.com/facebook/jest)
+[![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+
+# `@yozora/react-code-embed`
 
 Render [mdast code][] type data with particular components.
 
 
-# Install
+## Install
 
-  ```shell
+* npm
+
+  ```bash
+  npm install --save @yozora/react-code-embed
+  ```
+
+* yarn
+
+  ```bash
   yarn add @yozora/react-code-embed
   ```
 
-# Usage
+## Usage
   * Use in React project
 
     - Pure
@@ -113,7 +129,7 @@ Render [mdast code][] type data with particular components.
     See [YozoraCodeEmbedTheme][] for details.
 
 
-# References
+## References
 
   - [mdast code][]
 

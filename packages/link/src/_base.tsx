@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { defaultLinkTheme, getLinkStyle } from './theme'
 
-
 /**
  * Props for creating link
  */
-export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface LinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * Link url
    */
@@ -20,15 +20,13 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
   children: React.ReactNode
 }
 
-
 export const Container = styled.a`
-  color: ${ getLinkStyle('color') };
-  font-size: ${ getLinkStyle('fontSize') };
-  font-style: ${ getLinkStyle('fontStyle') };
-  text-decoration: ${ getLinkStyle('textDecoration') };
+  color: ${getLinkStyle('color')};
+  font-size: ${getLinkStyle('fontSize')};
+  font-style: ${getLinkStyle('fontStyle')};
+  text-decoration: ${getLinkStyle('textDecoration')};
 `
 
-
 Container.defaultProps = {
-  theme: { yozora: { link: defaultLinkTheme } }
+  theme: { yozora: { link: defaultLinkTheme } },
 }

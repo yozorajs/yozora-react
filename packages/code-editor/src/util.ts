@@ -1,19 +1,14 @@
 import type { CSSProperties } from 'react'
 
-
 /**
  * Calc lines
  *
  * @param text
  * @param endPos
  */
-export function getLines(
-  text: string,
-  endPos: number
-): string[] {
+export function getLines(text: string, endPos: number): string[] {
   return text.substring(0, endPos).split('\n')
 }
-
 
 interface Styles {
   container: CSSProperties
@@ -21,7 +16,6 @@ interface Styles {
   highlight: CSSProperties
   editor: CSSProperties
 }
-
 
 export const classes: Styles = {
   container: {

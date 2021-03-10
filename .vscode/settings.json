@@ -12,17 +12,26 @@
     "buble",
     "downlevel",
     "esnext",
+    "gitmoji",
     "guanghechen",
+    "lcov",
     "lightgray",
     "mathjax",
     "mdast",
     "monospace",
     "olist",
+    "pinst",
+    "postpublish",
     "prebuild",
     "rgba",
+    "setext",
     "styl",
     "ulist",
     "unist",
     "yozora"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.associations": {
+    ".prettierrc": "yaml"
+  }
 }

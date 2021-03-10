@@ -49,7 +49,7 @@ describe('basic rendering case', () => {
             { value }
           </List>
         )
-      }).toThrow(/Failed prop type: The prop `children` is marked as required/i)
+      }).toThrow(/The prop `children` is marked as required/i)
     }
   })
 

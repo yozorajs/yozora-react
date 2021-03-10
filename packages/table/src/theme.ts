@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `table` theme
  */
@@ -32,7 +31,6 @@ export interface YozoraTableTheme {
   borderCollapse?: CSSProperties['borderCollapse'] | string
 }
 
-
 /**
  * Default yozora `table` theme
  */
@@ -44,7 +42,6 @@ export const defaultTableTheme: YozoraTableTheme = {
   borderCollapse: 'collapse',
 }
 
-
 /**
  * Get `table` style
  * @param key
@@ -53,15 +50,11 @@ export const defaultTableTheme: YozoraTableTheme = {
 export function getTableStyle(
   key: keyof YozoraTableTheme,
   defaultTheme: YozoraTableTheme = defaultTableTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraTableTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
-    if (
-      yozora == null ||
-      yozora.table == null ||
-      yozora.table[key] == null
-    ) return defaultTheme[key]
+    if (yozora == null || yozora.table == null || yozora.table[key] == null)
+      return defaultTheme[key]
     return yozora.table[key]
   }
 }

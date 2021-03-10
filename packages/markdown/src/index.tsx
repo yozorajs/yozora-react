@@ -1,14 +1,16 @@
-import type { MdastPropsNode } from './ast/types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import MathJax from 'react-mathjax'
-import PropTypes from 'prop-types'
-import styled, { DefaultTheme, ThemeProvider } from 'styled-components'
-import MdastRenderer, { MdastNodeRendererProps } from './ast/render'
+import type { DefaultTheme } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
+import type { MdastNodeRendererProps } from './ast/render'
+import MdastRenderer from './ast/render'
+import type { MdastPropsNode } from './ast/types'
 import { defaultTheme } from './theme'
+
 export * from './ast/render'
 export * from './ast/types'
 export * from './theme'
-
 
 /**
  * Props for Markdown
@@ -28,7 +30,6 @@ interface MarkdownProps extends React.HTMLAttributes<HTMLDivElement> {
   render?: React.FC<MdastNodeRendererProps>
 }
 
-
 /**
  *
  * @param props
@@ -42,31 +43,25 @@ export const Markdown = React.forwardRef<HTMLDivElement, MarkdownProps>(
       ...htmlProps
     } = props
     return (
-      <Container { ...htmlProps } ref={ forwardRef }>
-        <ThemeProvider theme={ theme }>
+      <Container {...htmlProps} ref={forwardRef}>
+        <ThemeProvider theme={theme}>
           <MathJax.Provider>
-            <Renderer ast={ ast } />
+            <Renderer ast={ast} />
           </MathJax.Provider>
         </ThemeProvider>
       </Container>
     )
-  }
+  },
 )
-
 
 Markdown.propTypes = {
   ast: PropTypes.any.isRequired,
   theme: PropTypes.any,
-  render: PropTypes.oneOfType<any>([
-    PropTypes.elementType,
-    PropTypes.func,
-  ]),
+  render: PropTypes.oneOfType<any>([PropTypes.elementType, PropTypes.func]),
 }
-
 
 Markdown.displayName = 'YozoraMarkdown'
 export default Markdown
-
 
 const Container = styled.div`
   display: block;
@@ -77,7 +72,6 @@ const Container = styled.div`
   }
 `
 
-
 export const MarkdownClasses = {
-  container: `${ Container }`,
+  container: `${Container}`,
 }

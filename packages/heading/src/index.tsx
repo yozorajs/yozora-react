@@ -1,12 +1,12 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 import { HeadingLinkIcon } from './icon'
 import './styled-components'
 import { defaultHeadingTheme, getHeadingStyle } from './theme'
+
 export * from './icon'
 export * from './theme'
-
 
 /**
  * Props for creating Heading
@@ -34,7 +34,6 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLDivElement> {
   linkClassName?: string
 }
 
-
 /**
  * Render `heading` content
  *
@@ -51,22 +50,17 @@ export const Heading = React.forwardRef<HTMLDivElement, HeadingProps>(
       ...htmlProps
     } = props
 
-    const H: any = 'h' + props.level as keyof JSX.IntrinsicElements
+    const H: any = ('h' + props.level) as keyof JSX.IntrinsicElements
     return (
-      <Container { ...htmlProps } ref={ forwardRef }>
-        <a
-          id={ identifier }
-          className={ linkClassName }
-          href={ '#' + identifier }
-        >
-          { linkIcon }
+      <Container {...htmlProps} ref={forwardRef}>
+        <a id={identifier} className={linkClassName} href={'#' + identifier}>
+          {linkIcon}
         </a>
-        <H>{ children }</H>
+        <H>{children}</H>
       </Container>
     )
-  }
+  },
 )
-
 
 Heading.propTypes = {
   level: PropTypes.oneOf<1 | 2 | 3 | 4 | 5 | 6>([1, 2, 3, 4, 5, 6]).isRequired,
@@ -76,44 +70,42 @@ Heading.propTypes = {
   linkClassName: PropTypes.string,
 }
 
-
 Heading.displayName = 'YozoraHeading'
 export default Heading
-
 
 const Container = styled.header`
   position: relative;
   display: block;
-  margin: ${ getHeadingStyle('margin') };
-  padding: ${ getHeadingStyle('padding') };
-  line-height: ${ getHeadingStyle('lineHeight') };
-  font-family: ${ getHeadingStyle('fontFamily') };
+  margin: ${getHeadingStyle('margin')};
+  padding: ${getHeadingStyle('padding')};
+  line-height: ${getHeadingStyle('lineHeight')};
+  font-family: ${getHeadingStyle('fontFamily')};
   h1, h2, h3, h4, h5, h6 {
-    color: ${ getHeadingStyle('color') };
-    font-style: ${ getHeadingStyle('fontStyle') };
+    color: ${getHeadingStyle('color')};
+    font-style: ${getHeadingStyle('fontStyle')};
   }
   h1, h2 {
     padding: 0.3em 0;
-    border-bottom: 1px solid ${ getHeadingStyle('borderColor') };
+    border-bottom: 1px solid ${getHeadingStyle('borderColor')};
     margin: 0.9em 0 1em;
   }
   h1 {
-    font-size: ${ getHeadingStyle('h1FontSize') };
+    font-size: ${getHeadingStyle('h1FontSize')};
   }
   h2 {
-    font-size: ${ getHeadingStyle('h2FontSize') };
+    font-size: ${getHeadingStyle('h2FontSize')};
   }
   h3 {
-    font-size: ${ getHeadingStyle('h3FontSize') };
+    font-size: ${getHeadingStyle('h3FontSize')};
   }
   h4 {
-    font-size: ${ getHeadingStyle('h4FontSize') };
+    font-size: ${getHeadingStyle('h4FontSize')};
   }
   h5 {
-    font-size: ${ getHeadingStyle('h5FontSize') };
+    font-size: ${getHeadingStyle('h5FontSize')};
   }
   h6 {
-    font-size: ${ getHeadingStyle('h6FontSize') };
+    font-size: ${getHeadingStyle('h6FontSize')};
   }
   & > a {
     position: absolute;
@@ -125,7 +117,7 @@ const Container = styled.header`
     padding-right: 0.25em;
     font-size: 1.25em;
     line-height: 1;
-    color: ${ getHeadingStyle('linkColor') };
+    color: ${getHeadingStyle('linkColor')};
     user-select: none;
     text-decoration: none;
     visibility: hidden;
@@ -138,18 +130,16 @@ const Container = styled.header`
     fill: currentColor;
   }
   &:hover > a {
-    color: ${ getHeadingStyle('hoverLinkColor') };
+    color: ${getHeadingStyle('hoverLinkColor')};
     visibility: visible;
     opacity: 1;
   }
 `
 
-
 Container.defaultProps = {
-  theme: { yozora: { heading: defaultHeadingTheme } }
+  theme: { yozora: { heading: defaultHeadingTheme } },
 }
 
-
 export const HeadingClasses = {
-  container: `${ Container }`,
+  container: `${Container}`,
 }

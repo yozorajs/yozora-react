@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `listItem` theme
  */
@@ -27,7 +26,6 @@ export interface YozoraListItemTheme {
   color?: CSSProperties['color'] | string
 }
 
-
 /**
  * Default yozora `listItem` theme
  */
@@ -38,7 +36,6 @@ export const defaultListItemTheme: YozoraListItemTheme = {
   color: 'inherit',
 }
 
-
 /**
  * Get `listItem` style
  * @param key
@@ -47,15 +44,15 @@ export const defaultListItemTheme: YozoraListItemTheme = {
 export function getListItemStyle(
   key: keyof YozoraListItemTheme,
   defaultTheme: YozoraListItemTheme = defaultListItemTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraListItemTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
     if (
       yozora == null ||
       yozora.listItem == null ||
       yozora.listItem[key] == null
-    ) return defaultTheme[key]
+    )
+      return defaultTheme[key]
     return yozora.listItem[key]
   }
 }

@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/guanghechen/yozora-react.git"
+    "url": "https://github.com/guanghechen/yozora-react.git",
+    "directory": "packages/thematic-break"
   },
   "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/thematic-break#readme",
   "keywords": [
@@ -25,35 +26,25 @@
   },
   "files": [
     "lib/",
+    "!lib/**/*.js.map",
+    "!lib/**/*.d.ts.map",
+    "package.json",
     "CHANGELOG.md",
     "LICENSE",
-    "README.md",
-    "package.json",
-    "tsconfig.json",
-    "!lib/**/*.js.map",
-    "!lib/**/*.d.ts.map"
+    "README.md"
   ],
   "scripts": {
-    "start": "rollup -w -c rollup.config.js",
+    "start": "rollup -w -c ../../rollup.config.js",
+    "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
     "prebuild": "rimraf lib/",
-    "build": "cross-env NODE_ENV=production rollup -c rollup.config.js",
-    "prepublishOnly": "cross-env ROLLUP_USE_SOURCE_MAP=false yarn build",
-    "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir .",
-    "lint:fix": "eslint '{src,__test__}/**/*.{ts,tsx}' --fix"
+    "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
+    "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "peerDependencies": {
-    "@types/react": "^16.9.55",
+    "@types/react": "^17.0.3",
     "@types/styled-components": "^5.1.4",
     "prop-types": "^15.7.2",
-    "react": "^16.14.0",
-    "styled-components": "^5.2.1"
-  },
-  "devDependencies": {
-    "@types/react": "^16.9.55",
-    "@types/styled-components": "^5.1.4",
-    "prop-types": "^15.7.2",
-    "react": "^16.14.0",
-    "rollup": "2.35.1",
+    "react": "^17.0.1",
     "styled-components": "^5.2.1"
   },
   "browserslist": [

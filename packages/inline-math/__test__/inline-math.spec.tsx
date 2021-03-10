@@ -28,7 +28,7 @@ describe('basic rendering case', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
         render(<InlineMath value={ value } />)
-      }).toThrow(/Failed prop type: The prop `value` is marked as required/i)
+      }).toThrow(/The prop `value` is marked as required/i)
     }
   })
 

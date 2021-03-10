@@ -1,10 +1,10 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 import './styled-components'
 import { defaultEmphasisTheme, getEmphasisStyle } from './theme'
-export * from './theme'
 
+export * from './theme'
 
 /**
  * Props for creating Emphasis
@@ -16,7 +16,6 @@ export interface EmphasisProps extends React.HTMLAttributes<HTMLSpanElement> {
   children: React.ReactNode
 }
 
-
 /**
  * Render `emphasis` content
  *
@@ -24,35 +23,28 @@ export interface EmphasisProps extends React.HTMLAttributes<HTMLSpanElement> {
  */
 export const Emphasis = React.forwardRef<HTMLSpanElement, EmphasisProps>(
   (props, forwardRef): React.ReactElement => {
-    return (
-      <Container { ...props } ref={ forwardRef } />
-    )
-  }
+    return <Container {...props} ref={forwardRef} />
+  },
 )
-
 
 Emphasis.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-
 Emphasis.displayName = 'YozoraEmphasis'
 export default Emphasis
 
-
 const Container = styled.em`
-  color: ${ getEmphasisStyle('color') };
-  font-size: ${ getEmphasisStyle('fontSize') };
-  font-weight: ${ getEmphasisStyle('fontWeight') };
-  font-style: ${ getEmphasisStyle('fontStyle') };
+  color: ${getEmphasisStyle('color')};
+  font-size: ${getEmphasisStyle('fontSize')};
+  font-weight: ${getEmphasisStyle('fontWeight')};
+  font-style: ${getEmphasisStyle('fontStyle')};
 `
 
-
 Container.defaultProps = {
-  theme: { yozora: { emphasis: defaultEmphasisTheme } }
+  theme: { yozora: { emphasis: defaultEmphasisTheme } },
 }
 
-
 export const EmphasisClasses = {
-  container: `${ Container }`,
+  container: `${Container}`,
 }

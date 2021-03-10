@@ -1,8 +1,7 @@
+import Code from '@yozora/react-code'
 import React from 'react'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import styled from 'styled-components'
-import Code from '@yozora/react-code'
-
 
 /**
  * Props for CodeLiteral
@@ -18,31 +17,30 @@ export interface CodeLiteralProps {
   value: string
 }
 
-
 /**
  *
  * @param props
  */
-export function CodeLiteral(props: CodeLiteralProps): React.ReactElement | null {
+export function CodeLiteral(
+  props: CodeLiteralProps,
+): React.ReactElement | null {
   const { lang, value } = props
   return (
     <Container>
       <OverlayContainer>
         <CopyButton>
-          <CopyToClipboard text={ value }>
+          <CopyToClipboard text={value}>
             <span>copy</span>
           </CopyToClipboard>
         </CopyButton>
       </OverlayContainer>
-      <CodePreview lang={ lang } value={ value } />
+      <CodePreview lang={lang} value={value} />
     </Container>
   )
 }
 
-
 CodeLiteral.displayName = 'CodeLiteral'
 export default CodeLiteral
-
 
 const Container = styled.div`
   --md-code-literal-border-color: lightgray;
@@ -59,7 +57,6 @@ const Container = styled.div`
   border-radius: var(--md-code-literal-border-radius);
   background: var(--md-code-literal-background-primary);
 `
-
 
 const OverlayContainer = styled.div`
   position: absolute;
@@ -79,14 +76,12 @@ const OverlayContainer = styled.div`
   }
 `
 
-
 const CopyButton = styled.span`
   display: inline-block;
   margin: 0 1rem 0 auto;
   user-select: none;
   cursor: pointer;
 `
-
 
 const CodePreview = styled(Code)`
   overflow: auto;;;;
