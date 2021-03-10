@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/guanghechen/yozora-react.git"
+    "url": "https://github.com/guanghechen/yozora-react.git",
+    "directory": "packages/code-embed"
   },
   "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/code-embed#readme",
   "keywords": [
@@ -25,13 +26,12 @@
   },
   "files": [
     "lib/",
+    "!lib/**/*.js.map",
+    "!lib/**/*.d.ts.map",
+    "package.json",
     "CHANGELOG.md",
     "LICENSE",
-    "README.md",
-    "package.json",
-    "tsconfig.json",
-    "!lib/**/*.js.map",
-    "!lib/**/*.d.ts.map"
+    "README.md"
   ],
   "scripts": {
     "start": "rollup -w -c ../../rollup.config.js",
@@ -41,13 +41,6 @@
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "peerDependencies": {
-    "@types/react": "^16.9.55",
-    "@types/styled-components": "^5.1.4",
-    "prop-types": "^15.7.2",
-    "react": "^16.14.0",
-    "styled-components": "^5.2.1"
-  },
-  "devDependencies": {
     "@types/react": "^16.9.55",
     "@types/styled-components": "^5.1.4",
     "prop-types": "^15.7.2",

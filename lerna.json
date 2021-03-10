@@ -6,8 +6,11 @@
     "publish": {
       "graphType": "all",
       "verifyAccess": false,
-      "ignoreChanges": [],
-      "message": ":bookmark:  chore(release): publish %s",
+      "ignoreChanges": [
+        "*.md",
+        "**/__test__/**/*"
+      ],
+      "message": ":bookmark:  release: publish %s",
       "push": false,
       "private": false,
       "forcePublish": true
