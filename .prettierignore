@@ -22,10 +22,12 @@
 !**/src/**/*.jsx
 !**/src/**/*.ts
 !**/src/**/*.tsx
-!**/.eslintrc
-!**/rollup.config.js
 !**/index.js
 !**/package.json
 !**/tsconfig.json
 !**/tsconfig.settings.json
 !**/tsconfig.src.json
+!.eslintrc
+!rollup.config.js
+!jest.config.js
+!jest.setupEnzyme.ts

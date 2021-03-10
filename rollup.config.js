@@ -37,28 +37,28 @@ export async function rollupConfig() {
     },
     preprocessOptions: fs.existsSync(paths.styleFile)
       ? {
-        input: paths.styleFile,
-        pluginOptions: {
-          multiEntryOptions: {
-            exports: false,
-          },
-          postcssOptions: {
-            modules: {
-              localsConvention: 'camelCase',
-              generateScopedName: 'barusu-[local]',
+          input: paths.styleFile,
+          pluginOptions: {
+            multiEntryOptions: {
+              exports: false,
             },
-            postcssUrlOptions: {
-              url: 'inline',
-              maxSize: 0.5, // 0.5 KB
-              assetsPath: paths.assetPath,
-              fallback: 'copy',
-              basePath: paths.basePath,
-              useHash: false,
+            postcssOptions: {
+              modules: {
+                localsConvention: 'camelCase',
+                generateScopedName: 'barusu-[local]',
+              },
+              postcssUrlOptions: {
+                url: 'inline',
+                maxSize: 0.5, // 0.5 KB
+                assetsPath: paths.assetPath,
+                fallback: 'copy',
+                basePath: paths.basePath,
+                useHash: false,
+              },
             },
           },
-        },
-      }
-      : undefined
+        }
+      : undefined,
   })
   return configs
 }
