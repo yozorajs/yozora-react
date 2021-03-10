@@ -34,10 +34,10 @@
     "!lib/**/*.d.ts.map"
   ],
   "scripts": {
-    "start": "rollup -w -c rollup.config.js",
+    "start": "rollup -w -c ../../rollup.config.js",
+    "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
     "prebuild": "rimraf lib/",
-    "build": "cross-env NODE_ENV=production rollup -c rollup.config.js",
-    "prepublishOnly": "cross-env ROLLUP_USE_SOURCE_MAP=false yarn build",
+    "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "peerDependencies": {
@@ -55,7 +55,6 @@
     "@types/styled-components": "^5.1.4",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
-    "rollup": "2.35.1",
     "styled-components": "^5.2.1"
   },
   "browserslist": [
