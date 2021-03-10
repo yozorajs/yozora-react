@@ -1,7 +1,7 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import { Container, LinkProps } from './_base'
-
+import React from 'react'
+import type { LinkProps } from './_base'
+import { Container } from './_base'
 
 /**
  * Render `link` content
@@ -21,24 +21,25 @@ export const ExternalLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
 
     return (
       <Container
-        { ...htmlProps }
-        ref={ forwardRef }
-        title={ title }
-        href={ url }
-        target={ target }
-        rel={ rel }
+        {...htmlProps}
+        ref={forwardRef}
+        title={title}
+        href={url}
+        target={target}
+        rel={rel}
       />
     )
-  }
+  },
 )
-
 
 ExternalLink.propTypes = {
   url: PropTypes.string.isRequired,
   title: PropTypes.string,
   children: PropTypes.node.isRequired,
+  href: PropTypes.string,
+  target: PropTypes.string,
+  rel: PropTypes.string,
 }
-
 
 ExternalLink.displayName = 'YozoraExternalLink'
 export default ExternalLink

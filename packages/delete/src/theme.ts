@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `delete` theme
  */
@@ -32,7 +31,6 @@ export interface YozoraDeleteTheme {
   textDecoration?: CSSProperties['textDecoration'] | string
 }
 
-
 /**
  * Default yozora `delete` theme
  */
@@ -44,7 +42,6 @@ export const defaultDeleteTheme: YozoraDeleteTheme = {
   textDecoration: 'line-through',
 }
 
-
 /**
  * Get `delete` style
  * @param key
@@ -53,15 +50,11 @@ export const defaultDeleteTheme: YozoraDeleteTheme = {
 export function getDeleteStyle(
   key: keyof YozoraDeleteTheme,
   defaultTheme: YozoraDeleteTheme = defaultDeleteTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraDeleteTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
-    if (
-      yozora == null ||
-      yozora.delete == null ||
-      yozora.delete[key] == null
-    ) return defaultTheme[key]
+    if (yozora == null || yozora.delete == null || yozora.delete[key] == null)
+      return defaultTheme[key]
     return yozora.delete[key]
   }
 }

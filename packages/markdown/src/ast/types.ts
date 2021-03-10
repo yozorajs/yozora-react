@@ -12,7 +12,6 @@ export interface MdastPropsNode {
   [key: string]: any
 }
 
-
 /**
  * Mdast props ast
  */

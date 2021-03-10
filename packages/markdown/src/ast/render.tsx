@@ -1,5 +1,3 @@
-import type { MdastPropsNode } from './types'
-import React from 'react'
 import Blockquote from '@yozora/react-blockquote'
 import Delete from '@yozora/react-delete'
 import Emphasis from '@yozora/react-emphasis'
@@ -17,10 +15,11 @@ import TableCell from '@yozora/react-table-cell'
 import TableRow from '@yozora/react-table-row'
 import Text from '@yozora/react-text'
 import ThematicBreak from '@yozora/react-thematic-break'
+import React from 'react'
 import CustomCodeEmbed from '../block/code/embed'
 import Code from '../block/code/literal'
 import CustomCodeLive from '../block/code/live'
-
+import type { MdastPropsNode } from './types'
 
 /**
  *
@@ -32,39 +31,39 @@ export interface MdastNodeRendererProps {
   ast: MdastPropsNode
 }
 
-
 export function createMdastNodeRenderer(
-  rendererMap: Record<string, React.ElementType<any>>,
+  rendererMap: Record<string, React.ElementType>,
   displayName = 'MdastNodeRenderer',
 ): React.FC<MdastNodeRendererProps> {
-  function MdastNodeRenderer({ ast: node }: MdastNodeRendererProps): React.ReactElement {
+  function MdastNodeRenderer({
+    ast: node,
+  }: MdastNodeRendererProps): React.ReactElement {
     const Component = rendererMap[node.type]
     if (Component == null) {
-      return (
-        <Code lang="json" value={ JSON.stringify(node, null, 2) } />
-      )
+      return <Code lang="json" value={JSON.stringify(node, null, 2)} />
     }
 
     if (node.children != null) {
       const children = node.children
       if (Array.isArray(children)) {
         // eslint-disable-next-line no-param-reassign
-        node.children = children.map((o, index) => <MdastNodeRenderer key={ index } ast={ o } />)
+        node.children = children.map((o, index) => (
+          <MdastNodeRenderer key={index} ast={o} />
+        ))
       } else {
         // eslint-disable-next-line no-param-reassign
-        node.children = <MdastNodeRenderer ast={ children } />
+        node.children = <MdastNodeRenderer ast={children} />
       }
     }
 
-    return <Component { ...node } />
+    return <Component {...node} />
   }
 
   MdastNodeRenderer.displayName = displayName
   return MdastNodeRenderer
 }
 
-
-export const defaultMdastRendererMap: Record<string, React.ElementType<any>> = {
+export const defaultMdastRendererMap: Record<string, React.ElementType> = {
   root: 'div',
   blockquote: Blockquote,
   code: Code,
@@ -93,6 +92,7 @@ export const defaultMdastRendererMap: Record<string, React.ElementType<any>> = {
   text: Text,
 }
 
-
-export const MdastNodeRenderer = createMdastNodeRenderer(defaultMdastRendererMap)
+export const MdastNodeRenderer = createMdastNodeRenderer(
+  defaultMdastRendererMap,
+)
 export default MdastNodeRenderer

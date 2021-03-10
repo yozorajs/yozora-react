@@ -41,6 +41,7 @@
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "dependencies": {
+    "@types/react-mathjax": "^1.0.0",
     "react-mathjax": "^1.0.1"
   },
   "peerDependencies": {

@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `inlineMath` theme
  */
@@ -32,7 +31,6 @@ export interface YozoraInlineMathTheme {
   color?: CSSProperties['color'] | string
 }
 
-
 /**
  * Default yozora `inlineMath` theme
  */
@@ -44,7 +42,6 @@ export const defaultInlineMathTheme: YozoraInlineMathTheme = {
   color: 'inherit',
 }
 
-
 /**
  * Get `inlineMath` style
  * @param key
@@ -53,15 +50,15 @@ export const defaultInlineMathTheme: YozoraInlineMathTheme = {
 export function getInlineMathStyle(
   key: keyof YozoraInlineMathTheme,
   defaultTheme: YozoraInlineMathTheme = defaultInlineMathTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraInlineMathTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
     if (
       yozora == null ||
       yozora.inlineMath == null ||
       yozora.inlineMath[key] == null
-    ) return defaultTheme[key]
+    )
+      return defaultTheme[key]
     return yozora.inlineMath[key]
   }
 }

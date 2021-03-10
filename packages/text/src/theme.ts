@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `text` theme
  */
@@ -12,14 +11,12 @@ export interface YozoraTextTheme {
   lineHeight?: CSSProperties['lineHeight'] | string
 }
 
-
 /**
  * Default yozora `text` theme
  */
 export const defaultTextTheme: YozoraTextTheme = {
   lineHeight: 'inherit',
 }
-
 
 /**
  * Get `text` style
@@ -29,15 +26,11 @@ export const defaultTextTheme: YozoraTextTheme = {
 export function getTextStyle(
   key: keyof YozoraTextTheme,
   defaultTheme: YozoraTextTheme = defaultTextTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraTextTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
-    if (
-      yozora == null ||
-      yozora.text == null ||
-      yozora.text[key] == null
-    ) return defaultTheme[key]
+    if (yozora == null || yozora.text == null || yozora.text[key] == null)
+      return defaultTheme[key]
     return yozora.text[key]
   }
 }

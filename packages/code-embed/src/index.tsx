@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { CodeEmbedError, CodeEmbedErrorClasses } from './error'
 import './styled-components'
 import { defaultCodeEmbedTheme, getCodeEmbedStyle } from './theme'
+
 export * from './error'
 export * from './theme'
-
 
 /**
  * Props of CodeRenderer
@@ -23,9 +23,8 @@ export interface CodeRendererProps {
   /**
    * Error callback
    */
-  onError: (error: string | null) => void
+  onError(error: string | null): void
 }
-
 
 /**
  * Embed mode block code
@@ -42,13 +41,12 @@ export interface CodeEmbedProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * render code
    */
-  CodeRenderer: (props: CodeRendererProps) => React.ReactElement | null
+  CodeRenderer(props: CodeRendererProps): React.ReactElement | null
   /**
    * CSS class name for CodeEmbedError
    */
   errorClassName?: string
 }
-
 
 export const CodeEmbed = React.forwardRef<HTMLDivElement, CodeEmbedProps>(
   (props, forwardRef) => {
@@ -57,23 +55,15 @@ export const CodeEmbed = React.forwardRef<HTMLDivElement, CodeEmbedProps>(
     const [error, setError] = useState<string | null>(null)
 
     return (
-      <Container { ...htmlProps } ref={ forwardRef } $hasError={ error != null }>
-        <CodeRenderer
-          lang={ lang }
-          value={ value }
-          onError={ setError }
-        />
-        <ErrorContainer hidden={ error == null }>
-          <CodeEmbedError
-            className={ errorClassName }
-            error={ error }
-          />
+      <Container {...htmlProps} ref={forwardRef} $hasError={error != null}>
+        <CodeRenderer lang={lang} value={value} onError={setError} />
+        <ErrorContainer hidden={error == null}>
+          <CodeEmbedError className={errorClassName} error={error} />
         </ErrorContainer>
       </Container>
     )
-  }
+  },
 )
-
 
 CodeEmbed.propTypes = {
   lang: PropTypes.string.isRequired,
@@ -85,26 +75,23 @@ CodeEmbed.propTypes = {
   errorClassName: PropTypes.string,
 }
 
-
 CodeEmbed.displayName = 'YozoraCodeEmbed'
 export default CodeEmbed
-
 
 const ErrorContainer = styled.div<{ hidden: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
-  display: ${ props => props.hidden ? 'none' : 'block' };
+  display: ${props => (props.hidden ? 'none' : 'block')};
   width: 100%;
   height: 100%;
   overflow-y: auto;
 `
 
-
 const Container = styled.div<{ $hasError: boolean }>`
   position: relative;
-  ${
-    props => props.$hasError
+  ${props =>
+    props.$hasError
       ? css`
         && {
           border: none;
@@ -112,22 +99,19 @@ const Container = styled.div<{ $hasError: boolean }>`
         }
       `
       : css`
-        border: ${ getCodeEmbedStyle('border') };
-        padding: ${ getCodeEmbedStyle('padding') };
-      `
-  }
-  background: ${ getCodeEmbedStyle('background') };
-  color: ${ getCodeEmbedStyle('color') };
+        border: ${getCodeEmbedStyle('border')};
+        padding: ${getCodeEmbedStyle('padding')};
+      `}
+  background: ${getCodeEmbedStyle('background')};
+  color: ${getCodeEmbedStyle('color')};
 `
 
-
 Container.defaultProps = {
-  theme: { yozora: { codeEmbed: defaultCodeEmbedTheme } }
+  theme: { yozora: { codeEmbed: defaultCodeEmbedTheme } },
 }
 
-
 export const CodeEmbedClasses = {
-  container: `${ Container }`,
-  errorContainer: `${ ErrorContainer }`,
-  error: `${ CodeEmbedErrorClasses.container }`,
+  container: `${Container}`,
+  errorContainer: `${ErrorContainer}`,
+  error: `${CodeEmbedErrorClasses.container}`,
 }

@@ -1,13 +1,14 @@
-import type { RenderProps } from './types'
-import React, { useEffect, useMemo } from 'react'
-import Highlight, { Prism, PrismTheme } from 'prism-react-renderer'
+import type { PrismTheme } from 'prism-react-renderer'
+import Highlight, { Prism } from 'prism-react-renderer'
 import PropTypes from 'prop-types'
+import React, { useEffect, useMemo } from 'react'
 import styled from 'styled-components'
 import vscDarkTheme from './theme/vsc-dark'
 import vscLightTheme from './theme/vsc-light'
+import type { RenderProps } from './types'
+
 export { vscDarkTheme } from './theme/vsc-dark'
 export { vscLightTheme } from './theme/vsc-light'
-
 
 /**
  * Props of CodeHighlighter
@@ -42,15 +43,16 @@ export interface CodeHighlighterProps {
   /**
    * Line count change callback
    */
-  onLineCountChange?: (lineCount: number) => void
+  onLineCountChange?(lineCount: number): void
 }
-
 
 /**
  *
  * @param props
  */
-export function CodeHighlighter(props: CodeHighlighterProps): React.ReactElement | null {
+export function CodeHighlighter(
+  props: CodeHighlighterProps,
+): React.ReactElement | null {
   const {
     lang,
     value: code,
@@ -60,34 +62,25 @@ export function CodeHighlighter(props: CodeHighlighterProps): React.ReactElement
     darken = true,
   } = props
 
-  const theme: PrismTheme = props.theme == null
-    ? (darken ? vscDarkTheme : vscLightTheme)
-    : props.theme
+  const theme: PrismTheme =
+    props.theme == null ? (darken ? vscDarkTheme : vscLightTheme) : props.theme
   const result = useMemo<React.ReactElement | null>(() => {
     return (
-      <Highlight
-        Prism={ Prism }
-        code={ code }
-        theme={ theme }
-        language={ lang as any }
-      >
-        {
-          props => (
-            <HighlightContent
-              { ...props }
-              linenoWidth={ linenoWidth }
-              linenoColor={ linenoColor }
-              onLineCountChange={ onLineCountChange }
-            />
-          )
-        }
+      <Highlight Prism={Prism} code={code} theme={theme} language={lang as any}>
+        {props => (
+          <HighlightContent
+            {...props}
+            linenoWidth={linenoWidth}
+            linenoColor={linenoColor}
+            onLineCountChange={onLineCountChange}
+          />
+        )}
       </Highlight>
     )
   }, [code, theme, lang, linenoWidth, linenoColor, onLineCountChange])
 
   return result
 }
-
 
 CodeHighlighter.propTypes = {
   value: PropTypes.string.isRequired,
@@ -97,17 +90,14 @@ CodeHighlighter.propTypes = {
   onLineCountChange: PropTypes.func,
 }
 
-
 CodeHighlighter.displayName = 'YozoraCodeHighlighter'
 export default CodeHighlighter
 
-
 type HighlightContentProps = RenderProps & {
-  linenoWidth: React.CSSProperties['width'],
+  linenoWidth: React.CSSProperties['width']
   linenoColor: React.CSSProperties['color']
-  onLineCountChange?: (lineCount: number) => void
+  onLineCountChange?(lineCount: number): void
 }
-
 
 /**
  * Content of CodeHighlighter
@@ -132,56 +122,55 @@ function HighlightContent(props: HighlightContentProps): React.ReactElement {
 
   return (
     <React.Fragment>
-      { tokens.map((line, i) => (
-        <Line { ...getLineProps({ line, key: i }) } linenoWidth={ linenoWidth }>
+      {tokens.map((line, i) => (
+        <Line
+          key={i}
+          {...getLineProps({ line, key: i })}
+          linenoWidth={linenoWidth}
+        >
           <LineNo
             key="line-number"
-            linenoWidth={ linenoWidth }
-            linenoColor={ linenoColor }
+            linenoWidth={linenoWidth}
+            linenoColor={linenoColor}
           >
-            { i + 1 }
+            {i + 1}
           </LineNo>
-          {
-            line.map((token, key) => (
-              <span { ...getTokenProps({ token, key }) } />
-            ))
-          }
+          {line.map((token, key) => (
+            <span key={key} {...getTokenProps({ token, key })} />
+          ))}
         </Line>
-      )) }
+      ))}
     </React.Fragment>
   )
 }
-
 
 /**
  * Code line
  */
 const Line = styled.div<{
-  linenoWidth: React.CSSProperties['width'],
+  linenoWidth: React.CSSProperties['width']
 }>`
-  text-indent: -${ (props) => props.linenoWidth };
-  padding-left: ${ (props) => props.linenoWidth };
+  text-indent: -${props => props.linenoWidth};
+  padding-left: ${props => props.linenoWidth};
 `
-
 
 /**
  * Code line number
  */
 const LineNo = styled.span<{
-  linenoWidth: React.CSSProperties['width'],
-  linenoColor: React.CSSProperties['color'],
+  linenoWidth: React.CSSProperties['width']
+  linenoColor: React.CSSProperties['color']
 }>`
   display: inline-block;
-  width: ${ (props) => props.linenoWidth };
+  width: ${props => props.linenoWidth};
   padding-right: 0.6em;
-  color: ${ (props) => props.linenoColor };
+  color: ${props => props.linenoColor};
   cursor: default;
   user-select: none;
   text-align: right;
 `
 
-
 export const CodeHighlighterClasses = {
-  line: `${ Line }`,
-  lineNo: `${ LineNo }`,
+  line: `${Line}`,
+  lineNo: `${LineNo}`,
 }

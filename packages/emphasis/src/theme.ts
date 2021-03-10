@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `emphasis` theme
  */
@@ -27,7 +26,6 @@ export interface YozoraEmphasisTheme {
   fontStyle?: CSSProperties['fontStyle'] | string
 }
 
-
 /**
  * Default yozora `emphasis` theme
  */
@@ -38,7 +36,6 @@ export const defaultEmphasisTheme: YozoraEmphasisTheme = {
   fontStyle: 'italic',
 }
 
-
 /**
  * Get `emphasis` style
  * @param key
@@ -47,15 +44,15 @@ export const defaultEmphasisTheme: YozoraEmphasisTheme = {
 export function getEmphasisStyle(
   key: keyof YozoraEmphasisTheme,
   defaultTheme: YozoraEmphasisTheme = defaultEmphasisTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraEmphasisTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
     if (
       yozora == null ||
       yozora.emphasis == null ||
       yozora.emphasis[key] == null
-    ) return defaultTheme[key]
+    )
+      return defaultTheme[key]
     return yozora.emphasis[key]
   }
 }

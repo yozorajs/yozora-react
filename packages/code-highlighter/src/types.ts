@@ -1,15 +1,12 @@
-type Token = {
+interface Token {
   types: string[]
   content: string
   empty?: boolean
 }
 
+type StyleObj = Record<string, string | number | null>
 
-type StyleObj = {
-  [key: string]: string | number | null
-}
-
-type LineInputProps = {
+interface LineInputProps {
   key?: React.Key
   style?: StyleObj
   className?: string
@@ -17,14 +14,14 @@ type LineInputProps = {
   [otherProp: string]: any
 }
 
-type LineOutputProps = {
+interface LineOutputProps {
   key?: React.Key
   style?: StyleObj
   className: string
   [otherProps: string]: any
 }
 
-type TokenInputProps = {
+interface TokenInputProps {
   key?: React.Key
   style?: StyleObj
   className?: string
@@ -32,7 +29,7 @@ type TokenInputProps = {
   [otherProp: string]: any
 }
 
-type TokenOutputProps = {
+interface TokenOutputProps {
   key?: React.Key
   style?: StyleObj
   className: string
@@ -40,10 +37,10 @@ type TokenOutputProps = {
   [otherProp: string]: any
 }
 
-export type RenderProps = {
+export interface RenderProps {
   tokens: Token[][]
   className: string
   style: StyleObj
-  getLineProps: (input: LineInputProps) => LineOutputProps
-  getTokenProps: (input: TokenInputProps) => TokenOutputProps
+  getLineProps(input: LineInputProps): LineOutputProps
+  getTokenProps(input: TokenInputProps): TokenOutputProps
 }

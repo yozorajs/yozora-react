@@ -1,7 +1,6 @@
-import React from 'react'
 import { CodeLive } from '@yozora/react-code-live'
+import React from 'react'
 import { CodeRenderer } from './embed'
-
 
 /**
  * Props for code live
@@ -21,23 +20,17 @@ export interface CodeLiveRendererProps {
   args?: Record<string, unknown>
 }
 
-
 /**
  *
  * @param props
  */
-export function CodeLiveRenderer(props: CodeLiveRendererProps): React.ReactElement | null {
+export function CodeLiveRenderer(
+  props: CodeLiveRendererProps,
+): React.ReactElement | null {
   const { lang, value } = props
 
-  return (
-    <CodeLive
-      lang={ lang }
-      value={ value }
-      CodeRenderer={ CodeRenderer }
-    />
-  )
+  return <CodeLive lang={lang} value={value} CodeRenderer={CodeRenderer} />
 }
-
 
 CodeLiveRenderer.displayName = 'CodeLiveRenderer'
 export default CodeLiveRenderer

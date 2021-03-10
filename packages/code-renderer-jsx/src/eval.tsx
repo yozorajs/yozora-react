@@ -2,7 +2,6 @@ import React from 'react'
 import errorBoundary from './error-boundary'
 import transform, { _poly, _polyKey } from './transform'
 
-
 /**
  * Eval Jsx code
  *
@@ -11,7 +10,10 @@ import transform, { _poly, _polyKey } from './transform'
  *
  * @see https://github.com/FormidableLabs/react-live/blob/2d8246b920813e4725a6037c94d9a4d00dd8cd2a/src/utils/transpile/evalCode.js
  */
-export function evalCode(code: string, scope: Record<string, unknown>): React.ReactElement {
+export function evalCode(
+  code: string,
+  scope: Record<string, unknown>,
+): React.ReactElement {
   const scopeKeys = Object.keys(scope)
   const scopeValues = scopeKeys.map(key => scope[key])
 
@@ -19,7 +21,6 @@ export function evalCode(code: string, scope: Record<string, unknown>): React.Re
   const f = new Function(_polyKey, 'React', ...scopeKeys, code)
   return f(_poly, React, ...scopeValues)
 }
-
 
 /**
  * render single jsx component
@@ -37,10 +38,9 @@ export function renderElement(
   const codeTrimmed = code.trim().replace(/;$/, '')
 
   // NOTE: Workaround for classes and arrow functions.
-  const transformed = transform(`return (${ codeTrimmed })`).trim()
+  const transformed = transform(`return (${codeTrimmed})`).trim()
   return errorBoundary(evalCode(transformed, scope), onError)
 }
-
 
 /**
  * render multiple line jsx code, the main entry is `render()`
@@ -55,19 +55,17 @@ export function renderElementAsync(
   onError: (error?: any) => void,
   onSuccess: (ErrorBoundary: React.ComponentClass) => void,
 ): void {
-  const render = (element: React.FC | React.ReactNode) => {
+  const render = (element: React.FC | React.ReactNode): void => {
     if (typeof element === 'undefined') {
-      onError(
-        new SyntaxError('`render` must be called with valid JSX.')
-      )
+      onError(new SyntaxError('`render` must be called with valid JSX.'))
     } else {
       onSuccess(errorBoundary(element, onError))
     }
   }
 
   if (!/\brender\s*\(/.test(code)) {
-    return onError(
-      new SyntaxError('No-Inline evaluations must call `render`.')
+    return void onError(
+      new SyntaxError('No-Inline evaluations must call `render`.'),
     )
   }
 

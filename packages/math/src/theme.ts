@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `math` theme
  */
@@ -32,7 +31,6 @@ export interface YozoraMathTheme {
   color?: CSSProperties['color'] | string
 }
 
-
 /**
  * Default yozora `math` theme
  */
@@ -44,7 +42,6 @@ export const defaultMathTheme: YozoraMathTheme = {
   color: 'inherit',
 }
 
-
 /**
  * Get `math` style
  * @param key
@@ -53,15 +50,11 @@ export const defaultMathTheme: YozoraMathTheme = {
 export function getMathStyle(
   key: keyof YozoraMathTheme,
   defaultTheme: YozoraMathTheme = defaultMathTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraMathTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
-    if (
-      yozora == null ||
-      yozora.math == null ||
-      yozora.math[key] == null
-    ) return defaultTheme[key]
+    if (yozora == null || yozora.math == null || yozora.math[key] == null)
+      return defaultTheme[key]
     return yozora.math[key]
   }
 }

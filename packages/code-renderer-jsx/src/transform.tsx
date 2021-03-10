@@ -1,18 +1,15 @@
 import { transform as _transform } from 'buble'
 
-
 export const _polyKey = 'poly'
 export const _poly = { assign: Object.assign }
 
-
 const opts = {
-  objectAssign: `${ _polyKey }.assign`,
+  objectAssign: `${_polyKey}.assign`,
   transforms: {
     dangerousForOf: true,
-    dangerousTaggedTemplateString: true
-  }
+    dangerousTaggedTemplateString: true,
+  },
 }
-
 
 /**
  * Transpile jsx
@@ -23,6 +20,5 @@ const opts = {
 export function transform(code: string): string {
   return _transform(code, opts).code
 }
-
 
 export default transform

@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `codeLive` theme
  */
@@ -62,7 +61,6 @@ export interface YozoraCodeLiveTheme {
   previewColor?: CSSProperties['background'] | string
 }
 
-
 /**
  * Default yozora `codeLive` theme
  */
@@ -80,7 +78,6 @@ export const defaultCodeLiveTheme: YozoraCodeLiveTheme = {
   previewColor: '#000',
 }
 
-
 /**
  * Get `codeLive` style
  * @param key
@@ -89,15 +86,15 @@ export const defaultCodeLiveTheme: YozoraCodeLiveTheme = {
 export function getCodeLiveStyle(
   key: keyof YozoraCodeLiveTheme,
   defaultTheme: YozoraCodeLiveTheme = defaultCodeLiveTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraCodeLiveTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
     if (
       yozora == null ||
       yozora.codeLive == null ||
       yozora.codeLive[key] == null
-    ) return defaultTheme[key]
+    )
+      return defaultTheme[key]
     return yozora.codeLive[key]
   }
 }

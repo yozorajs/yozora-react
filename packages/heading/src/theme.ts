@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `heading` theme
  */
@@ -82,7 +81,6 @@ export interface YozoraHeadingTheme {
   hoverLinkColor?: CSSProperties['color'] | string
 }
 
-
 /**
  * Default yozora `heading` theme
  */
@@ -104,7 +102,6 @@ export const defaultHeadingTheme: YozoraHeadingTheme = {
   hoverLinkColor: undefined,
 }
 
-
 /**
  * Get `heading` style
  * @param key
@@ -113,15 +110,11 @@ export const defaultHeadingTheme: YozoraHeadingTheme = {
 export function getHeadingStyle(
   key: keyof YozoraHeadingTheme,
   defaultTheme: YozoraHeadingTheme = defaultHeadingTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraHeadingTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
-    if (
-      yozora == null ||
-      yozora.heading == null ||
-      yozora.heading[key] == null
-    ) return defaultTheme[key]
+    if (yozora == null || yozora.heading == null || yozora.heading[key] == null)
+      return defaultTheme[key]
     return yozora.heading[key]
   }
 }

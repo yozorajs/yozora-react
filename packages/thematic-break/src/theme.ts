@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `thematicBreak` theme
  */
@@ -22,16 +21,14 @@ export interface YozoraThematicBreakTheme {
   margin?: CSSProperties['margin'] | string
 }
 
-
 /**
  * Default yozora `thematicBreak` theme
  */
 export const defaultThematicBreakTheme: YozoraThematicBreakTheme = {
   borderColor: 'lightgray',
   outline: 0,
-  margin: '1.5em 0'
+  margin: '1.5em 0',
 }
-
 
 /**
  * Get `thematicBreak` style
@@ -41,15 +38,15 @@ export const defaultThematicBreakTheme: YozoraThematicBreakTheme = {
 export function getThematicBreakStyle(
   key: keyof YozoraThematicBreakTheme,
   defaultTheme: YozoraThematicBreakTheme = defaultThematicBreakTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraThematicBreakTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
     if (
       yozora == null ||
       yozora.thematicBreak == null ||
       yozora.thematicBreak[key] == null
-    ) return defaultTheme[key]
+    )
+      return defaultTheme[key]
     return yozora.thematicBreak[key]
   }
 }

@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `code` theme
  */
@@ -41,7 +40,6 @@ export interface YozoraCodeTheme {
   selectionBackground?: CSSProperties['background'] | string
 }
 
-
 /**
  * Default yozora `code` theme
  */
@@ -55,7 +53,6 @@ export const defaultCodeTheme: YozoraCodeTheme = {
   selectionBackground: 'none',
 }
 
-
 /**
  * Get `code` style
  * @param key
@@ -64,15 +61,11 @@ export const defaultCodeTheme: YozoraCodeTheme = {
 export function getCodeStyle(
   key: keyof YozoraCodeTheme,
   defaultTheme: YozoraCodeTheme = defaultCodeTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraCodeTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
-    if (
-      yozora == null ||
-      yozora.code == null ||
-      yozora.code[key] == null
-    ) return defaultTheme[key]
+    if (yozora == null || yozora.code == null || yozora.code[key] == null)
+      return defaultTheme[key]
     return yozora.code[key]
   }
 }

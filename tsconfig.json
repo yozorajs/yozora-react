@@ -3,78 +3,30 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@yozora/react-blockquote": [
-        "./packages/blockquote/src"
-      ],
-      "@yozora/react-code": [
-        "./packages/code/src"
-      ],
-      "@yozora/react-code-editor": [
-        "./packages/code-editor/src"
-      ],
-      "@yozora/react-code-embed": [
-        "./packages/code-embed/src"
-      ],
-      "@yozora/react-code-highlighter": [
-        "./packages/code-highlighter/src"
-      ],
-      "@yozora/react-code-live": [
-        "./packages/code-live/src"
-      ],
-      "@yozora/react-code-renderer-jsx": [
-        "./packages/code-renderer-jsx/src"
-      ],
-      "@yozora/react-delete": [
-        "./packages/delete/src"
-      ],
-      "@yozora/react-emphasis": [
-        "./packages/emphasis/src"
-      ],
-      "@yozora/react-heading": [
-        "./packages/heading/src"
-      ],
-      "@yozora/react-inline-code": [
-        "./packages/inline-code/src"
-      ],
-      "@yozora/react-inline-math": [
-        "./packages/inline-math/src"
-      ],
-      "@yozora/react-link": [
-        "./packages/link/src"
-      ],
-      "@yozora/react-list": [
-        "./packages/list/src"
-      ],
-      "@yozora/react-list-item": [
-        "./packages/list-item/src"
-      ],
-      "@yozora/react-math": [
-        "./packages/math/src"
-      ],
-      "@yozora/react-markdown": [
-        "./packages/react-markdown/src"
-      ],
-      "@yozora/react-paragraph": [
-        "./packages/paragraph/src"
-      ],
-      "@yozora/react-strong": [
-        "./packages/strong/src"
-      ],
-      "@yozora/react-table": [
-        "./packages/table/src"
-      ],
-      "@yozora/react-table-row": [
-        "./packages/table-row/src"
-      ],
-      "@yozora/react-table-cell": [
-        "./packages/table-cell/src"
-      ],
-      "@yozora/react-text": [
-        "./packages/text/src"
-      ],
-      "@yozora/react-thematic-break": [
-        "./packages/thematic-break/src"
-      ]
+      "@yozora/react-blockquote": ["./packages/blockquote/src"],
+      "@yozora/react-code": ["./packages/code/src"],
+      "@yozora/react-code-editor": ["./packages/code-editor/src"],
+      "@yozora/react-code-embed": ["./packages/code-embed/src"],
+      "@yozora/react-code-highlighter": ["./packages/code-highlighter/src"],
+      "@yozora/react-code-live": ["./packages/code-live/src"],
+      "@yozora/react-code-renderer-jsx": ["./packages/code-renderer-jsx/src"],
+      "@yozora/react-delete": ["./packages/delete/src"],
+      "@yozora/react-emphasis": ["./packages/emphasis/src"],
+      "@yozora/react-heading": ["./packages/heading/src"],
+      "@yozora/react-inline-code": ["./packages/inline-code/src"],
+      "@yozora/react-inline-math": ["./packages/inline-math/src"],
+      "@yozora/react-link": ["./packages/link/src"],
+      "@yozora/react-list": ["./packages/list/src"],
+      "@yozora/react-list-item": ["./packages/list-item/src"],
+      "@yozora/react-math": ["./packages/math/src"],
+      "@yozora/react-markdown": ["./packages/react-markdown/src"],
+      "@yozora/react-paragraph": ["./packages/paragraph/src"],
+      "@yozora/react-strong": ["./packages/strong/src"],
+      "@yozora/react-table": ["./packages/table/src"],
+      "@yozora/react-table-row": ["./packages/table-row/src"],
+      "@yozora/react-table-cell": ["./packages/table-cell/src"],
+      "@yozora/react-text": ["./packages/text/src"],
+      "@yozora/react-thematic-break": ["./packages/thematic-break/src"]
     }
   }
 }

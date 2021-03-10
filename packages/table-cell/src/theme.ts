@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * yozora `tableCell` theme
  */
@@ -17,7 +16,6 @@ export interface YozoraTableCellTheme {
   borderColor?: CSSProperties['borderColor'] | string
 }
 
-
 /**
  * Default yozora `tableCell` theme
  */
@@ -25,7 +23,6 @@ export const defaultTableCellTheme: YozoraTableCellTheme = {
   padding: '0.4rem 0.8rem',
   borderColor: 'transparent',
 }
-
 
 /**
  * Get `tableCell` style
@@ -35,15 +32,15 @@ export const defaultTableCellTheme: YozoraTableCellTheme = {
 export function getTableCellStyle(
   key: keyof YozoraTableCellTheme,
   defaultTheme: YozoraTableCellTheme = defaultTableCellTheme,
-) {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  return (props: { theme: DefaultTheme }) => {
+): (props: { theme: DefaultTheme }) => YozoraTableCellTheme[typeof key] {
+  return props => {
     const { yozora } = props.theme
     if (
       yozora == null ||
       yozora.tableCell == null ||
       yozora.tableCell[key] == null
-    ) return defaultTheme[key]
+    )
+      return defaultTheme[key]
     return yozora.tableCell[key]
   }
 }
