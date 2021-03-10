@@ -1,18 +1,34 @@
 [![npm version](https://img.shields.io/npm/v/@yozora/react-link.svg)](https://www.npmjs.com/package/@yozora/react-link)
 [![npm download](https://img.shields.io/npm/dm/@yozora/react-link.svg)](https://www.npmjs.com/package/@yozora/react-link)
 [![npm license](https://img.shields.io/npm/l/@yozora/react-link.svg)](https://www.npmjs.com/package/@yozora/react-link)
+[![module formats: cjs, esm](https://img.shields.io/badge/module_formats-cjs%2C%20esm-green.svg)](#install)
+[![Node Version](https://img.shields.io/node/v/@yozora/react-link)](https://github.com/nodejs/node)
+[![React version](https://img.shields.io/npm/dependency-version/@yozora/react-link/peer/react)](https://github.com/facebook/react)
+[![styled-components version](https://img.shields.io/npm/dependency-version/@yozora/react-link/peer/styled-components)](https://github.com/styled-components/styled-components)
+[![Tested With Jest](https://img.shields.io/badge/tested_with-jest-9c465e.svg)](https://github.com/facebook/jest)
+[![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+
+# `@yozora/react-link`
 
 This package is designed to render [mdast link][] type data
 
 
-# Install
+## Install
 
-  ```shell
+* npm
+
+  ```bash
+  npm install --save @yozora/react-link
+  ```
+
+* yarn
+
+  ```bash
   yarn add @yozora/react-link
   ```
 
-# Usage
+## Usage
   * Use in React project
 
     - Pure
@@ -111,7 +127,7 @@ This package is designed to render [mdast link][] type data
     See [YozoraLinkTheme][] for details.
 
 
-# References
+## References
 
   - [mdast link][]
 
