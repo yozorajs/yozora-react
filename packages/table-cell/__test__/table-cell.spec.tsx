@@ -57,7 +57,7 @@ describe('basic rendering case', () => {
             </tr>
           </table>
         )
-      }).toThrow(/Failed prop type: The prop `children` is marked as required/i)
+      }).toThrow(/The prop `children` is marked as required/i)
     }
   })
 

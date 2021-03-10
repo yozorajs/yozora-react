@@ -43,7 +43,7 @@ describe('basic rendering case', () => {
             heading { level }
           </Heading>
         )
-      }).toThrow(/Failed prop type: Invalid prop `level`/i)
+      }).toThrow(/Invalid prop `level`/i)
     }
   })
 
@@ -55,7 +55,7 @@ describe('basic rendering case', () => {
             { value }
           </Heading>
         )
-      }).toThrow(/Failed prop type: The prop `children` is marked as required/i)
+      }).toThrow(/The prop `children` is marked as required/i)
     }
   })
 
