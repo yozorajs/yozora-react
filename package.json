@@ -25,12 +25,14 @@
     "format:prettier": "prettier --write .",
     "prepublishOnly": "pinst --disable",
     "postinstall": "run-p postinstall:**",
+    "postinstall:main": "yarn update:lock",
     "postinstall:dev": "is-ci || husky install",
     "postpublish": "pinst --enable",
     "rebuild": "yarn clean && yarn build",
     "start": "lerna run start --parallel",
     "test": "lerna run --parallel test",
-    "test:coverage": "lerna run test --parallel -- --coverage"
+    "test:coverage": "lerna run test --parallel -- --coverage",
+    "update:lock": "yarn-deduplicate"
   },
   "workspaces": [
     "packages/*"
@@ -84,7 +86,8 @@
     "ts-jest": "26.5.2",
     "ts-node": "9.1.1",
     "tsconfig-paths": "3.9.0",
-    "typescript": "4.2.2"
+    "typescript": "4.2.2",
+    "yarn-deduplicate": "3.1.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
