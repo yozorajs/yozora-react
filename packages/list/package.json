@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-list",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "render markdown list in react",
   "author": {
     "name": "guanghechen",
