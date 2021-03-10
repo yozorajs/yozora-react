@@ -18,6 +18,8 @@
     "mdast",
     "monospace",
     "olist",
+    "pinst",
+    "postpublish",
     "prebuild",
     "rgba",
     "setext",
