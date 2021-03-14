@@ -1,12 +1,64 @@
-[![License](https://img.shields.io/github/license/guanghechen/yozora-react)](#license)
-[![Package version](https://img.shields.io/github/v/tag/guanghechen/yozora-react?include_prereleases&sort=semver)](https://github.com/guanghechen/yozora-react/tags)
-[![Github Top Language](https://img.shields.io/github/languages/top/guanghechen/yozora-react)](https://github.com/guanghechen/yozora-react/search?l=typescript)
-[![Node Version](https://img.shields.io/node/v/@yozora/react-blockquote)](https://github.com/nodejs/node)
-[![React version](https://img.shields.io/npm/dependency-version/@yozora/react-blockquote/peer/react)](https://github.com/facebook/react)
-[![styled-components version](https://img.shields.io/npm/dependency-version/@yozora/react-blockquote/peer/styled-components)](https://github.com/styled-components/styled-components)
-[![Tested With Jest](https://img.shields.io/badge/tested_with-jest-9c465e.svg)](https://github.com/facebook/jest)
-[![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-
+<header>
+  <h1 align="center">
+    <a href="https://github.com/guanghechen/yozora-react#readme">Yozora React</a>
+  </h1>
+  <div align="center">
+    <a href="#license">
+      <img
+        alt="License"
+        src="https://img.shields.io/github/license/guanghechen/yozora-react"
+      />
+    </a>
+    <a href="https://github.com/guanghechen/yozora-react/tags">
+      <img
+        alt="Package Version"
+        src="https://img.shields.io/github/v/tag/guanghechen/yozora-react?include_prereleases&sort=semver"
+      />
+    </a>
+    <a href="https://github.com/guanghechen/yozora-react/search?l=typescript">
+      <img
+        alt="Github Top Language"
+        src="https://img.shields.io/github/languages/top/guanghechen/yozora-react"
+      />
+    </a>
+    <a href="https://github.com/nodejs/node">
+      <img
+        alt="Node.js Version"
+        src="https://img.shields.io/node/v/@yozora/react-blockquote"
+      />
+    </a>
+    <a href="https://github.com/guanghechen/yozora-react/actions/workflows/ci.yml">
+      <img
+        alt="CI Workflow"
+        src="https://github.com/guanghechen/yozora-react/workflows/Build/badge.svg?branch=master"
+      />
+    </a>
+    <a href="https://github.com/facebook/react">
+      <img
+        alt="React version"
+        src="https://img.shields.io/npm/dependency-version/@yozora/react-blockquote/peer/react"
+      />
+    </a>
+    <a href="https://github.com/styled-components/styled-components">
+      <img
+        alt="Styled-Components version"
+        src="https://img.shields.io/npm/dependency-version/@yozora/react-blockquote/peer/styled-components"
+      />
+    </a>
+    <a href="https://github.com/facebook/jest">
+      <img
+        alt="Tested with Jest"
+        src="https://img.shields.io/badge/tested_with-jest-9c465e.svg"
+      />
+    </a>
+    <a href="https://github.com/prettier/prettier">
+      <img
+        alt="Code Style: prettier"
+        src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"
+      />
+    </a>
+  </div>
+</header>
 
 A monorepo contains react components render [yozora tokens][yozora/autolink]. See https://yozora.guanghechen.com for details.
 
