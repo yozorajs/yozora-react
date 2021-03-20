@@ -1,9 +1,9 @@
+import { mount, render } from 'enzyme'
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import Link from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -20,8 +20,8 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const wrapper = render(
       <Router>
-        <Link url="#">{ text }</Link>
-      </Router>
+        <Link url="#">{text}</Link>
+      </Router>,
     )
     expect(wrapper.text()).toEqual(text)
   })
@@ -31,10 +31,10 @@ describe('basic rendering case', () => {
     const className = 'custom-link'
     const wrapper = render(
       <Router>
-        <Link url="https://www.github.com" className={ className }>
-          <span>{ text }</span>
+        <Link url="https://www.github.com" className={className}>
+          <span>{text}</span>
         </Link>
-      </Router>
+      </Router>,
     )
     expect(wrapper.hasClass(className)).toEqual(true)
     expect(wrapper.text()).toEqual(text)
@@ -45,16 +45,16 @@ describe('basic rendering case', () => {
       expect(() => {
         render(
           <Router>
-            <Link url={ value }>link text</Link>
-          </Router>
+            <Link url={value}>link text</Link>
+          </Router>,
         )
       }).toThrow(/The prop `url` is marked as required/i)
 
       expect(() => {
         render(
           <Router>
-            <Link url="/home">{ value }</Link>
-          </Router>
+            <Link url="/home">{value}</Link>
+          </Router>,
         )
       }).toThrow(/The prop `children` is marked as required/i)
     }
@@ -64,14 +64,10 @@ describe('basic rendering case', () => {
     const ref = React.createRef<HTMLAnchorElement>()
     const wrapper = mount(
       <Router>
-        <Link
-          ref={ ref }
-          url="https://www.github.com"
-          data-value="waw"
-        >
+        <Link ref={ref} url="https://www.github.com" data-value="waw">
           1
         </Link>
-      </Router>
+      </Router>,
     )
 
     const o = wrapper.getDOMNode()
@@ -90,7 +86,7 @@ describe('basic rendering case', () => {
           some text1
           <span>some text2</span>
         </Link>
-      </Router>
+      </Router>,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -103,13 +99,13 @@ describe('basic rendering case', () => {
           fontSize: undefined,
           fontStyle: 'italic',
           textDecoration: 'none',
-        }
-      }
+        },
+      },
     }
 
     const wrapper = mount(
       <Router>
-        <ThemeProvider theme={ theme }>
+        <ThemeProvider theme={theme}>
           <Link
             url="https://www.github.com"
             title="home"
@@ -119,7 +115,7 @@ describe('basic rendering case', () => {
             <span>some text2</span>
           </Link>
         </ThemeProvider>
-      </Router>
+      </Router>,
     )
     expect(wrapper).toMatchSnapshot()
   })

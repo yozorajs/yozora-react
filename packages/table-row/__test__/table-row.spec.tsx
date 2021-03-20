@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import TableRow from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -20,9 +20,11 @@ describe('basic rendering case', () => {
     const wrapper = render(
       <table>
         <TableRow>
-          <th><span>{ text }</span></th>
+          <th>
+            <span>{text}</span>
+          </th>
         </TableRow>
-      </table>
+      </table>,
     )
     expect(wrapper.text()).toEqual(text)
   })
@@ -33,9 +35,11 @@ describe('basic rendering case', () => {
     const wrapper = render(
       <table>
         <TableRow>
-          <td className={ className }><span>{ text }</span></td>
+          <td className={className}>
+            <span>{text}</span>
+          </td>
         </TableRow>
-      </table>
+      </table>,
     )
     expect(wrapper.find('.' + className) != null).toEqual(true)
     expect(wrapper.text()).toEqual(text)
@@ -46,8 +50,8 @@ describe('basic rendering case', () => {
       expect(() => {
         render(
           <table>
-            <TableRow>{ value }</TableRow>
-          </table>
+            <TableRow>{value}</TableRow>
+          </table>,
         )
       }).toThrow(/The prop `children` is marked as required/i)
     }
@@ -58,11 +62,11 @@ describe('basic rendering case', () => {
     const wrapper = mount(
       <table>
         <tbody>
-          <TableRow ref={ ref } data-value="waw">
+          <TableRow ref={ref} data-value="waw">
             <td>1</td>
           </TableRow>
         </tbody>
-      </table>
+      </table>,
     )
 
     const o = wrapper.find('tr').getDOMNode()
@@ -81,7 +85,7 @@ describe('basic rendering case', () => {
             </td>
           </TableRow>
         </tbody>
-      </table>
+      </table>,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -92,12 +96,12 @@ describe('basic rendering case', () => {
         tableRow: {
           // background: 'red',
           evenBackground: 'blue',
-        }
-      }
+        },
+      },
     }
 
     const wrapper = mount(
-      <ThemeProvider theme={ theme }>
+      <ThemeProvider theme={theme}>
         <table>
           <tbody>
             <TableRow style={{ color: 'orange', fontSize: '16px' }}>
@@ -108,7 +112,7 @@ describe('basic rendering case', () => {
             </TableRow>
           </tbody>
         </table>
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import Strong from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -20,9 +20,9 @@ describe('basic rendering case', () => {
     const wrapper = render(
       <Strong>
         <span>
-          <Strong>{ text }</Strong>
+          <Strong>{text}</Strong>
         </span>
-      </Strong>
+      </Strong>,
     )
     expect(wrapper.text()).toEqual(text)
   })
@@ -31,9 +31,9 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const className = 'custom-text'
     const wrapper = render(
-      <Strong className={ className }>
-        <span>{ text }</span>
-      </Strong>
+      <Strong className={className}>
+        <span>{text}</span>
+      </Strong>,
     )
     expect(wrapper.hasClass(className)).toEqual(true)
     expect(wrapper.text()).toEqual(text)
@@ -42,7 +42,7 @@ describe('basic rendering case', () => {
   it('children is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(<Strong>{ value }</Strong>)
+        render(<Strong>{value}</Strong>)
       }).toThrow(/The prop `children` is marked as required/i)
     }
   })
@@ -50,9 +50,9 @@ describe('basic rendering case', () => {
   it('forward ref', () => {
     const ref = React.createRef<HTMLSpanElement>()
     const wrapper = mount(
-      <Strong ref={ ref } data-value="waw">
+      <Strong ref={ref} data-value="waw">
         1
-      </Strong>
+      </Strong>,
     )
 
     const o = wrapper.getDOMNode()
@@ -65,7 +65,7 @@ describe('basic rendering case', () => {
       <Strong style={{ color: 'orange', fontSize: '16px' }}>
         some text1
         <span>some text2</span>
-      </Strong>
+      </Strong>,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -78,17 +78,17 @@ describe('basic rendering case', () => {
           fontSize: 18,
           // fontWeight: 'bold',
           fontStyle: 'oblique',
-        }
-      }
+        },
+      },
     }
 
     const wrapper = mount(
-      <ThemeProvider theme={ theme }>
+      <ThemeProvider theme={theme}>
         <Strong>
           some text1
           <span>some text2</span>
         </Strong>
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

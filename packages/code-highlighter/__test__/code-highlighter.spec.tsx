@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
 import { mount, render } from 'enzyme'
+import React, { useEffect, useState } from 'react'
 import CodeHighlighter from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -15,34 +14,37 @@ describe('basic rendering case', () => {
   })
 
   it('test lineno change', () => {
-    function Wrapper() {
+    function Wrapper(): React.ReactElement {
       const [code, setCode] = useState<string>('let a: number = 1 + 2;')
       const [lineCount, setLineCount] = useState<number>(0)
-      const lineNoWidth = `${ Math.max(2, ('' + lineCount).length) + 0.5 }em`
+      const lineNoWidth = `${Math.max(2, ('' + lineCount).length) + 0.5}em`
 
       useEffect(() => {
-        const nextCode = (
+        const nextCode =
           'let a = 1, b = 2\n' +
-          Array.from(new Array(100)).map((x, i) => '// ' + i).join('\n') +
-          '\nlet c = 3\nconsole.log(\'c:\', c)'
-        )
+          Array.from(new Array(100))
+            .map((x, i) => '// ' + i)
+            .join('\n') +
+          "\nlet c = 3\nconsole.log('c:', c)"
         setCode(nextCode)
       }, [])
 
       return (
-        <pre data-line-count={ lineCount }>
+        <pre data-line-count={lineCount}>
           <CodeHighlighter
             lang="typescript"
-            value={ code }
-            linenoWidth={ lineNoWidth }
-            onLineCountChange={ setLineCount }
+            value={code}
+            linenoWidth={lineNoWidth}
+            onLineCountChange={setLineCount}
           />
         </pre>
       )
     }
 
     const wrapper = mount(<Wrapper />)
-    expect(wrapper.getDOMNode().getAttribute('data-line-count')).toEqual(String(103))
+    expect(wrapper.getDOMNode().getAttribute('data-line-count')).toEqual(
+      String(103),
+    )
 
     const lines = wrapper.find({ linenoWidth: '2.5em' })
     for (let i = 0; i < lines.length; ++i) {
@@ -60,7 +62,7 @@ describe('basic rendering case', () => {
           value="let a: number = 1 + 2;"
           linenoWidth="2em"
         />
-      </pre>
+      </pre>,
     )
     expect(wrapper).toMatchSnapshot()
   })

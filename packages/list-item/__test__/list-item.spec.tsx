@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import ListItem from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -20,9 +20,9 @@ describe('basic rendering case', () => {
     const wrapper = render(
       <ListItem>
         <span>
-          <ListItem>{ text }</ListItem>
+          <ListItem>{text}</ListItem>
         </span>
-      </ListItem>
+      </ListItem>,
     )
     expect(wrapper.text()).toEqual(text)
   })
@@ -31,9 +31,9 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const className = 'custom-list-item'
     const wrapper = render(
-      <ListItem className={ className }>
-        <span>{ text }</span>
-      </ListItem>
+      <ListItem className={className}>
+        <span>{text}</span>
+      </ListItem>,
     )
     expect(wrapper.hasClass(className)).toEqual(true)
     expect(wrapper.text()).toEqual(text)
@@ -42,7 +42,7 @@ describe('basic rendering case', () => {
   it('children is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(<ListItem>{ value }</ListItem>)
+        render(<ListItem>{value}</ListItem>)
       }).toThrow(/The prop `children` is marked as required/i)
     }
   })
@@ -50,9 +50,9 @@ describe('basic rendering case', () => {
   it('forward ref', () => {
     const ref = React.createRef<HTMLLIElement>()
     const wrapper = mount(
-      <ListItem ref={ ref } data-value="waw">
+      <ListItem ref={ref} data-value="waw">
         1
-      </ListItem>
+      </ListItem>,
     )
 
     const o = wrapper.getDOMNode()
@@ -65,7 +65,7 @@ describe('basic rendering case', () => {
       <ListItem status="done" style={{ color: 'orange', fontSize: '16px' }}>
         some text1
         <span>some text2</span>
-      </ListItem>
+      </ListItem>,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -78,17 +78,17 @@ describe('basic rendering case', () => {
           padding: '0 1rem',
           margin: 18,
           // lineHeight: 1.5,
-        }
-      }
+        },
+      },
     }
 
     const wrapper = mount(
-      <ThemeProvider theme={ theme }>
+      <ThemeProvider theme={theme}>
         <ListItem status="doing" style={{ color: 'orange', fontSize: '16px' }}>
           some text1
           <span>some text2</span>
         </ListItem>
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

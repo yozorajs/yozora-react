@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import Emphasis from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -17,9 +17,7 @@ describe('basic rendering case', () => {
 
   it('render a simple content', () => {
     const text = 'Hello, world!'
-    const wrapper = render(
-      <Emphasis>{ text }</Emphasis>
-    )
+    const wrapper = render(<Emphasis>{text}</Emphasis>)
     expect(wrapper.text()).toEqual(text)
   })
 
@@ -27,9 +25,9 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const className = 'custom-text'
     const wrapper = render(
-      <Emphasis className={ className }>
-        <span>{ text }</span>
-      </Emphasis>
+      <Emphasis className={className}>
+        <span>{text}</span>
+      </Emphasis>,
     )
     expect(wrapper.hasClass(className)).toEqual(true)
     expect(wrapper.text()).toEqual(text)
@@ -38,7 +36,7 @@ describe('basic rendering case', () => {
   it('children is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(<Emphasis>{ value }</Emphasis>)
+        render(<Emphasis>{value}</Emphasis>)
       }).toThrow(/The prop `children` is marked as required/i)
     }
   })
@@ -46,9 +44,9 @@ describe('basic rendering case', () => {
   it('forward ref', () => {
     const ref = React.createRef<HTMLSpanElement>()
     const wrapper = mount(
-      <Emphasis ref={ ref } data-value="waw">
+      <Emphasis ref={ref} data-value="waw">
         1
-      </Emphasis>
+      </Emphasis>,
     )
 
     const o = wrapper.getDOMNode()
@@ -61,7 +59,7 @@ describe('basic rendering case', () => {
       <Emphasis style={{ color: 'orange', fontSize: '16px' }}>
         some text1
         <span>some text2</span>
-      </Emphasis>
+      </Emphasis>,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -74,17 +72,17 @@ describe('basic rendering case', () => {
           fontSize: 18,
           fontWeight: undefined,
           fontStyle: 'oblique',
-        }
-      }
+        },
+      },
     }
 
     const wrapper = mount(
-      <ThemeProvider theme={ theme }>
+      <ThemeProvider theme={theme}>
         <Emphasis>
           some text1
           <span>some text2</span>
         </Emphasis>
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

@@ -47,6 +47,9 @@
     "react": "^17.0.1",
     "styled-components": "^5.2.1"
   },
+  "devDependencies": {
+    "enzyme": "3.11.0"
+  },
   "browserslist-item": [
     "last 2 versions",
     "Firefox ESR",

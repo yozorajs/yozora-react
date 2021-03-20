@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import Code from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -18,16 +18,14 @@ describe('basic rendering case', () => {
   it('render with custom className', () => {
     const code = 'let a = 1'
     const className = 'custom-code'
-    const wrapper = render(
-      <Code className={ className } value={ code } />
-    )
+    const wrapper = render(<Code className={className} value={code} />)
     expect(wrapper.hasClass(className)).toEqual(true)
   })
 
   it('value is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(<Code value={ value } />)
+        render(<Code value={value} />)
       }).toThrow(/The prop `value` is marked as required/i)
     }
   })
@@ -35,7 +33,7 @@ describe('basic rendering case', () => {
   it('forward ref', () => {
     const ref = React.createRef<HTMLDivElement>()
     const wrapper = mount(
-      <Code ref={ ref } data-value="waw" value="let a: number = 1 + 2;" />
+      <Code ref={ref} data-value="waw" value="let a: number = 1 + 2;" />,
     )
 
     const o = wrapper.getDOMNode()
@@ -45,10 +43,7 @@ describe('basic rendering case', () => {
 
   it('snapshot', () => {
     const wrapper = render(
-      <Code
-        lang="typescript"
-        value="let a: number = 1 + 2;"
-      />
+      <Code lang="typescript" value="let a: number = 1 + 2;" />,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -61,8 +56,8 @@ describe('basic rendering case', () => {
           border: '1px solid blue',
           // margin: '0 2px',
           background: 'hsla(210deg, 13%, 12%, 0.05)',
-        }
-      }
+        },
+      },
     }
 
     const code = `
@@ -72,9 +67,9 @@ describe('basic rendering case', () => {
     `
 
     const wrapper = render(
-      <ThemeProvider theme={ theme }>
-        <Code lang="typescript" value={ code } />
-      </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Code lang="typescript" value={code} />
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

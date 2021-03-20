@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import { ExternalLink as Link } from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -17,9 +17,7 @@ describe('basic rendering case', () => {
 
   it('render a simple content', () => {
     const text = 'Hello, world!'
-    const wrapper = render(
-      <Link url="#">{ text }</Link>
-    )
+    const wrapper = render(<Link url="#">{text}</Link>)
     expect(wrapper.text()).toEqual(text)
   })
 
@@ -27,9 +25,9 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const className = 'custom-link'
     const wrapper = render(
-      <Link url="#" className={ className }>
-        <span>{ text }</span>
-      </Link>
+      <Link url="#" className={className}>
+        <span>{text}</span>
+      </Link>,
     )
     expect(wrapper.hasClass(className)).toEqual(true)
     expect(wrapper.text()).toEqual(text)
@@ -38,12 +36,11 @@ describe('basic rendering case', () => {
   it('url and children both are required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(<Link url={ value }>link text</Link>
-        )
+        render(<Link url={value}>link text</Link>)
       }).toThrow(/The prop `url` is marked as required/i)
 
       expect(() => {
-        render(<Link url="/home">{ value }</Link>)
+        render(<Link url="/home">{value}</Link>)
       }).toThrow(/The prop `children` is marked as required/i)
     }
   })
@@ -51,13 +48,9 @@ describe('basic rendering case', () => {
   it('forward ref', () => {
     const ref = React.createRef<HTMLAnchorElement>()
     const wrapper = mount(
-      <Link
-        ref={ ref }
-        url="/home"
-        data-value="waw"
-      >
+      <Link ref={ref} url="/home" data-value="waw">
         1
-      </Link>
+      </Link>,
     )
 
     const o = wrapper.getDOMNode()
@@ -74,7 +67,7 @@ describe('basic rendering case', () => {
       >
         some text1
         <span>some text2</span>
-      </Link>
+      </Link>,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -87,12 +80,12 @@ describe('basic rendering case', () => {
           fontSize: undefined,
           fontStyle: 'italic',
           textDecoration: 'none',
-        }
-      }
+        },
+      },
     }
 
     const wrapper = mount(
-      <ThemeProvider theme={ theme }>
+      <ThemeProvider theme={theme}>
         <Link
           url="/home"
           title="home"
@@ -101,7 +94,7 @@ describe('basic rendering case', () => {
           some text1
           <span>some text2</span>
         </Link>
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

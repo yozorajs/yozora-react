@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import Heading from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -18,7 +18,9 @@ describe('basic rendering case', () => {
   it('render a simple content', () => {
     const text = 'Hello, world!'
     const wrapper = render(
-      <Heading level={ 3 } identifier="heading-22">{ text }</Heading>
+      <Heading level={3} identifier="heading-22">
+        {text}
+      </Heading>,
     )
     expect(wrapper.text()).toEqual(text)
   })
@@ -27,9 +29,9 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const className = 'custom-heading'
     const wrapper = render(
-      <Heading level={ 1 } identifier="heading-33" className={ className }>
-        <span>{ text }</span>
-      </Heading>
+      <Heading level={1} identifier="heading-33" className={className}>
+        <span>{text}</span>
+      </Heading>,
     )
     expect(wrapper.hasClass(className)).toEqual(true)
     expect(wrapper.text()).toEqual(text)
@@ -39,9 +41,9 @@ describe('basic rendering case', () => {
     for (const level of [0, '1', 1.2, 7] as any[]) {
       expect(() => {
         render(
-          <Heading level={ level } identifier={ `heading-${ level }` }>
-            heading { level }
-          </Heading>
+          <Heading level={level} identifier={`heading-${level}`}>
+            heading {level}
+          </Heading>,
         )
       }).toThrow(/Invalid prop `level`/i)
     }
@@ -51,9 +53,9 @@ describe('basic rendering case', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
         render(
-          <Heading level={ 1 } identifier="heading-1">
-            { value }
-          </Heading>
+          <Heading level={1} identifier="heading-1">
+            {value}
+          </Heading>,
         )
       }).toThrow(/The prop `children` is marked as required/i)
     }
@@ -63,9 +65,14 @@ describe('basic rendering case', () => {
     const ref = React.createRef<HTMLDivElement>()
     const level = 1
     const wrapper = mount(
-      <Heading level={ level } ref={ ref } identifier={ `heading-${ level }` } data-value="waw">
-        Heading { level }
-      </Heading>
+      <Heading
+        level={level}
+        ref={ref}
+        identifier={`heading-${level}`}
+        data-value="waw"
+      >
+        Heading {level}
+      </Heading>,
     )
 
     const o = wrapper.getDOMNode()
@@ -77,14 +84,14 @@ describe('basic rendering case', () => {
     const level = 2
     const wrapper = render(
       <Heading
-        level={ level }
-        identifier={ `heading-${ level }` }
+        level={level}
+        identifier={`heading-${level}`}
         style={{ color: 'orange', fontSize: '16px' }}
       >
-        Waw -- { level }, 中文标题“这”
-      </Heading>
+        Waw -- {level}, 中文标题“这”
+      </Heading>,
     )
-    expect(wrapper).toMatchSnapshot(`level ${ level }`)
+    expect(wrapper).toMatchSnapshot(`level ${level}`)
   })
 
   it('snapshot with theme', () => {
@@ -106,21 +113,21 @@ describe('basic rendering case', () => {
           h6FontSize: '0.85em',
           linkColor: 'blue',
           hoverLinkColor: 'cyan',
-        }
-      }
+        },
+      },
     }
 
     const level = 1
     const wrapper = mount(
-      <ThemeProvider theme={ theme }>
+      <ThemeProvider theme={theme}>
         <Heading
-          level={ level }
-          identifier={ `heading-${ level }` }
+          level={level}
+          identifier={`heading-${level}`}
           style={{ color: 'orange', fontSize: '16px' }}
         >
-          Waw -- { level }, 中文标题“这”
+          Waw -- {level}, 中文标题“这”
         </Heading>
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

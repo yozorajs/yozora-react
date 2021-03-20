@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import Math from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -18,25 +18,21 @@ describe('basic rendering case', () => {
   it('render with custom className', () => {
     const code = 'x^2 + y^2 = z^2'
     const className = 'custom-math'
-    const wrapper = render(
-      <Math className={ className } value={ code } />
-    )
+    const wrapper = render(<Math className={className} value={code} />)
     expect(wrapper.hasClass(className)).toEqual(true)
   })
 
   it('value is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(<Math value={ value } />)
+        render(<Math value={value} />)
       }).toThrow(/The prop `value` is marked as required/i)
     }
   })
 
   it('forward ref', () => {
     const ref = React.createRef<HTMLDivElement>()
-    const wrapper = mount(
-      <Math ref={ ref } data-value="waw" value="" />
-    )
+    const wrapper = mount(<Math ref={ref} data-value="waw" value="" />)
 
     const o = wrapper.getDOMNode()
     expect(o).toEqual(ref.current)
@@ -56,10 +52,7 @@ describe('basic rendering case', () => {
     `
 
     const wrapper = mount(
-      <Math
-        value={ code }
-        style={{ color: 'orange', fontSize: '16px' }}
-      />
+      <Math value={code} style={{ color: 'orange', fontSize: '16px' }} />,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -73,8 +66,8 @@ describe('basic rendering case', () => {
           // margin: '0 2px',
           background: 'hsla(210deg, 13%, 12%, 0.05)',
           color: '#d81848',
-        }
-      }
+        },
+      },
     }
 
     const code = `
@@ -89,12 +82,9 @@ describe('basic rendering case', () => {
     `
 
     const wrapper = mount(
-      <ThemeProvider theme={ theme }>
-        <Math
-          value={ code }
-          style={{ color: 'orange', fontSize: '16px' }}
-        />
-      </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Math value={code} style={{ color: 'orange', fontSize: '16px' }} />
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

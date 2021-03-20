@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import Paragraph from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -20,9 +20,9 @@ describe('basic rendering case', () => {
     const wrapper = render(
       <Paragraph>
         <span>
-          <Paragraph>{ text }</Paragraph>
+          <Paragraph>{text}</Paragraph>
         </span>
-      </Paragraph>
+      </Paragraph>,
     )
     expect(wrapper.text()).toEqual(text)
   })
@@ -31,9 +31,9 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const className = 'custom-text'
     const wrapper = render(
-      <Paragraph className={ className }>
-        <span>{ text }</span>
-      </Paragraph>
+      <Paragraph className={className}>
+        <span>{text}</span>
+      </Paragraph>,
     )
     expect(wrapper.hasClass(className)).toEqual(true)
     expect(wrapper.text()).toEqual(text)
@@ -42,7 +42,7 @@ describe('basic rendering case', () => {
   it('children is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(<Paragraph>{ value }</Paragraph>)
+        render(<Paragraph>{value}</Paragraph>)
       }).toThrow(/The prop `children` is marked as required/i)
     }
   })
@@ -50,9 +50,9 @@ describe('basic rendering case', () => {
   it('forward ref', () => {
     const ref = React.createRef<HTMLParagraphElement>()
     const wrapper = mount(
-      <Paragraph ref={ ref } data-value="waw">
+      <Paragraph ref={ref} data-value="waw">
         1
-      </Paragraph>
+      </Paragraph>,
     )
 
     const o = wrapper.getDOMNode()
@@ -65,7 +65,7 @@ describe('basic rendering case', () => {
       <Paragraph style={{ color: 'orange', fontSize: '16px' }}>
         some text1
         <span>some text2</span>
-      </Paragraph>
+      </Paragraph>,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -78,17 +78,17 @@ describe('basic rendering case', () => {
           padding: '0 1rem',
           margin: 18,
           // lineHeight: 1.5,
-        }
-      }
+        },
+      },
     }
 
     const wrapper = mount(
-      <ThemeProvider theme={ theme }>
+      <ThemeProvider theme={theme}>
         <Paragraph>
           some text1
           <span>some text2</span>
         </Paragraph>
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

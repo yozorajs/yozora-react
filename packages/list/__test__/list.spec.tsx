@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import List from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -19,9 +19,9 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     for (const ordered of [false, true]) {
       const wrapper = render(
-        <List ordered={ ordered } start={ 0 }>
-          <li key={ 0 }>{ text }</li>
-        </List>
+        <List ordered={ordered} start={0}>
+          <li key={0}>{text}</li>
+        </List>,
       )
       expect(wrapper.text()).toEqual(text)
     }
@@ -32,9 +32,11 @@ describe('basic rendering case', () => {
     const className = 'custom-list'
     for (const ordered of [false, true]) {
       const wrapper = render(
-        <List ordered={ ordered } start={ 0 } className={ className }>
-          <li key={ 0 }><span>{ text }</span></li>
-        </List>
+        <List ordered={ordered} start={0} className={className}>
+          <li key={0}>
+            <span>{text}</span>
+          </li>
+        </List>,
       )
       expect(wrapper.hasClass(className)).toEqual(true)
       expect(wrapper.text()).toEqual(text)
@@ -45,9 +47,9 @@ describe('basic rendering case', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
         render(
-          <List ordered={ true } start={ 1 } data-value="waw">
-            { value }
-          </List>
+          <List ordered={true} start={1} data-value="waw">
+            {value}
+          </List>,
         )
       }).toThrow(/The prop `children` is marked as required/i)
     }
@@ -57,10 +59,10 @@ describe('basic rendering case', () => {
     for (const ordered of [false, true]) {
       const ref = React.createRef<HTMLUListElement | HTMLOListElement>()
       const wrapper = mount(
-        <List ordered={ ordered } ref={ ref } start={ 1 } type="a" data-value="waw">
-          <li key={ 0 }>First: Good afternoon!</li>
-          <li key={ 1 }>Second: Good night!</li>
-        </List>
+        <List ordered={ordered} ref={ref} start={1} type="a" data-value="waw">
+          <li key={0}>First: Good afternoon!</li>
+          <li key={1}>Second: Good night!</li>
+        </List>,
       )
       expect(wrapper.getDOMNode()).toEqual(ref.current)
       expect(wrapper.getDOMNode().getAttribute('data-value')).toEqual('waw')
@@ -70,11 +72,11 @@ describe('basic rendering case', () => {
   it('snapshot', () => {
     for (const ordered of [false, true]) {
       const wrapper = render(
-        <List ordered={ ordered } start={ 3 } type="a">
-          <li key={ 0 }>apple</li>
-          <li key={ 1 }>banana</li>
-          <li key={ 2 }>cat</li>
-        </List>
+        <List ordered={ordered} start={3} type="a">
+          <li key={0}>apple</li>
+          <li key={1}>banana</li>
+          <li key={2}>cat</li>
+        </List>,
       )
       expect(wrapper).toMatchSnapshot(ordered ? 'ol' : 'ul')
     }
@@ -88,19 +90,19 @@ describe('basic rendering case', () => {
           padding: '0 1rem',
           margin: 18,
           // lineHeight: 1.5,
-        }
-      }
+        },
+      },
     }
 
     for (const ordered of [false, true]) {
       const wrapper = mount(
-        <ThemeProvider theme={ theme }>
-          <List ordered={ ordered } start={ 3 } type="a">
-            <li key={ 0 }>apple</li>
-            <li key={ 1 }>banana</li>
-            <li key={ 2 }>cat</li>
+        <ThemeProvider theme={theme}>
+          <List ordered={ordered} start={3} type="a">
+            <li key={0}>apple</li>
+            <li key={1}>banana</li>
+            <li key={2}>cat</li>
           </List>
-        </ThemeProvider>
+        </ThemeProvider>,
       )
       expect(wrapper).toMatchSnapshot(ordered ? 'ol' : 'ul')
     }

@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import Text from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -17,18 +17,14 @@ describe('basic rendering case', () => {
 
   it('render a text value', () => {
     const text = 'Hello, world!'
-    const wrapper = render(
-      <Text value={ text } />
-    )
+    const wrapper = render(<Text value={text} />)
     expect(wrapper.text()).toEqual(text)
   })
 
   it('render with custom className', () => {
     const text = 'Hello, world!'
     const className = 'custom-text'
-    const wrapper = render(
-      <Text className={ className } value={ text } />
-    )
+    const wrapper = render(<Text className={className} value={text} />)
     expect(wrapper.hasClass(className)).toEqual(true)
     expect(wrapper.text()).toEqual(text)
   })
@@ -36,16 +32,14 @@ describe('basic rendering case', () => {
   it('value is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(<Text value={ value } />)
+        render(<Text value={value} />)
       }).toThrow(/The prop `value` is marked as required/i)
     }
   })
 
   it('forward ref', () => {
     const ref = React.createRef<HTMLSpanElement>()
-    const wrapper = mount(
-      <Text ref={ ref } data-value="waw" value="" />
-    )
+    const wrapper = mount(<Text ref={ref} data-value="waw" value="" />)
 
     const o = wrapper.getDOMNode()
     expect(o).toEqual(ref.current)
@@ -57,7 +51,7 @@ describe('basic rendering case', () => {
       <Text
         value="Hello, world!"
         style={{ color: 'orange', fontSize: '16px' }}
-      />
+      />,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -67,17 +61,17 @@ describe('basic rendering case', () => {
       yozora: {
         text: {
           lineHeight: '2',
-        }
-      }
+        },
+      },
     }
 
     const wrapper = mount(
-      <ThemeProvider theme={ theme }>
+      <ThemeProvider theme={theme}>
         <Text
           value="Hello, world!"
           style={{ color: 'orange', fontSize: '16px' }}
         />
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

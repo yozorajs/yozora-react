@@ -1,8 +1,9 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
-import CodeEmbed, { CodeRendererProps } from '../src'
-
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
+import type { CodeRendererProps } from '../src'
+import CodeEmbed from '../src'
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -19,19 +20,19 @@ describe('basic rendering case', () => {
     // eslint-disable-next-line no-new-func
     const f = new Function(value)
     const v = f()
-    return <span data-type="jsx">{ v }</span>
+    return <span data-type="jsx">{v}</span>
   }
 
   it('forward ref', () => {
     const ref = React.createRef<HTMLDivElement>()
     const wrapper = mount(
       <CodeEmbed
-        ref={ ref }
+        ref={ref}
         lang="jsx"
         value="const a = 1 + 2; return a;"
-        CodeRenderer={ JsxRenderer }
+        CodeRenderer={JsxRenderer}
         data-value="waw"
-      />
+      />,
     )
 
     const o = wrapper.getDOMNode()
@@ -46,11 +47,7 @@ describe('basic rendering case', () => {
     `
 
     const wrapper = render(
-      <CodeEmbed
-        lang="jsx"
-        value={ code }
-        CodeRenderer={ JsxRenderer }
-      />
+      <CodeEmbed lang="jsx" value={code} CodeRenderer={JsxRenderer} />,
     )
 
     expect(wrapper.find('[data-type="jsx"]').text()).toEqual('9')
@@ -68,8 +65,8 @@ describe('basic rendering case', () => {
           errorBackground: 'red',
           errorColor: '#f8f8f2',
           errorFontSize: '0.9em',
-        }
-      }
+        },
+      },
     }
 
     const code = `
@@ -78,13 +75,9 @@ describe('basic rendering case', () => {
     `
 
     const wrapper = mount(
-      <ThemeProvider theme={ theme }>
-        <CodeEmbed
-          lang="jsx"
-          value={ code }
-          CodeRenderer={ JsxRenderer }
-        />
-      </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <CodeEmbed lang="jsx" value={code} CodeRenderer={JsxRenderer} />
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

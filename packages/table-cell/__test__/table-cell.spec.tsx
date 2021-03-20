@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import TableCell from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -20,11 +20,11 @@ describe('basic rendering case', () => {
     const wrapper = render(
       <table>
         <tr>
-          <TableCell isHeader={ true }>
-            <span>{ text }</span>
+          <TableCell isHeader={true}>
+            <span>{text}</span>
           </TableCell>
         </tr>
-      </table>
+      </table>,
     )
     expect(wrapper.text()).toEqual(text)
   })
@@ -35,11 +35,11 @@ describe('basic rendering case', () => {
     const wrapper = render(
       <table>
         <tr>
-          <TableCell isHeader={ false } className={ className }>
-            <span>{ text }</span>
+          <TableCell isHeader={false} className={className}>
+            <span>{text}</span>
           </TableCell>
         </tr>
-      </table>
+      </table>,
     )
     expect(wrapper.find('.' + className) != null).toEqual(true)
     expect(wrapper.text()).toEqual(text)
@@ -51,11 +51,9 @@ describe('basic rendering case', () => {
         mount(
           <table>
             <tr>
-              <TableCell isHeader={ true }>
-                { value }
-              </TableCell>
+              <TableCell isHeader={true}>{value}</TableCell>
             </tr>
-          </table>
+          </table>,
         )
       }).toThrow(/The prop `children` is marked as required/i)
     }
@@ -67,12 +65,12 @@ describe('basic rendering case', () => {
       <table>
         <tbody>
           <tr>
-            <TableCell ref={ ref } data-value="waw">
+            <TableCell ref={ref} data-value="waw">
               1
             </TableCell>
           </tr>
         </tbody>
-      </table>
+      </table>,
     )
 
     const o = wrapper.find('td').getDOMNode()
@@ -91,7 +89,7 @@ describe('basic rendering case', () => {
             </TableCell>
           </tr>
         </tbody>
-      </table>
+      </table>,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -102,12 +100,12 @@ describe('basic rendering case', () => {
         tableCell: {
           // padding: '0.4rem',
           borderColor: 'red',
-        }
-      }
+        },
+      },
     }
 
     const wrapper = mount(
-      <ThemeProvider theme={ theme }>
+      <ThemeProvider theme={theme}>
         <table>
           <tbody>
             <tr>
@@ -118,7 +116,7 @@ describe('basic rendering case', () => {
             </tr>
           </tbody>
         </table>
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import ThematicBreak from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -17,17 +17,13 @@ describe('basic rendering case', () => {
 
   it('render with custom className', () => {
     const className = 'custom-thematic-break'
-    const wrapper = render(
-      <ThematicBreak className={ className } />
-    )
+    const wrapper = render(<ThematicBreak className={className} />)
     expect(wrapper.hasClass(className)).toEqual(true)
   })
 
   it('forward ref', () => {
     const ref = React.createRef<HTMLHRElement>()
-    const wrapper = mount(
-      <ThematicBreak ref={ ref } data-value="waw" />
-    )
+    const wrapper = mount(<ThematicBreak ref={ref} data-value="waw" />)
 
     const o = wrapper.getDOMNode()
     expect(o).toEqual(ref.current)
@@ -36,7 +32,7 @@ describe('basic rendering case', () => {
 
   it('snapshot', () => {
     const wrapper = render(
-      <ThematicBreak style={{ color: 'orange', fontSize: '16px' }} />
+      <ThematicBreak style={{ color: 'orange', fontSize: '16px' }} />,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -48,14 +44,14 @@ describe('basic rendering case', () => {
           borderColor: 'orange',
           // outline: '1px dash red',
           margin: '2rem 0',
-        }
-      }
+        },
+      },
     }
 
     const wrapper = mount(
-      <ThemeProvider theme={ theme }>
+      <ThemeProvider theme={theme}>
         <ThematicBreak style={{ color: 'orange', fontSize: '16px' }} />
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

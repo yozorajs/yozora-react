@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
 import { mount } from 'enzyme'
+import React, { useState } from 'react'
 import CodeEditor from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -18,22 +17,19 @@ describe('basic rendering case', () => {
     const code1 = 'let a: number = 1 + 2;'
     const code2 = 'let a: boolean = true;'
 
-    function Wrapper() {
+    function Wrapper(): React.ReactElement {
       const [code, setCode] = useState<string>(code1)
 
-      return (
-        <CodeEditor
-          lang="typescript"
-          code={ code }
-          onChange={ setCode }
-        />
-      )
+      return <CodeEditor lang="typescript" code={code} onChange={setCode} />
     }
 
     const wrapper = mount(<Wrapper />)
     expect(wrapper.find('textarea').text()).toEqual(code1)
     expect(wrapper.find('pre').text()).toEqual(
-      code1.split(/\n/g).map((x, i) => '' + (i + 1) + x).join('\n')
+      code1
+        .split(/\n/g)
+        .map((x, i) => '' + (i + 1) + x)
+        .join('\n'),
     )
 
     // change code
@@ -41,7 +37,10 @@ describe('basic rendering case', () => {
 
     expect(wrapper.find('textarea').text()).toEqual(code2)
     expect(wrapper.find('pre').text()).toEqual(
-      code2.split(/\n/g).map((x, i) => '' + (i + 1) + x).join('\n')
+      code2
+        .split(/\n/g)
+        .map((x, i) => '' + (i + 1) + x)
+        .join('\n'),
     )
   })
 })

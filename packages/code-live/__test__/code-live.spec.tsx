@@ -1,9 +1,10 @@
+import { mount, render } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
-import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
-import CodeLive, { CodeRendererProps } from '../src'
-
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
+import type { CodeRendererProps } from '../src'
+import CodeLive from '../src'
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -20,19 +21,19 @@ describe('basic rendering case', () => {
     // eslint-disable-next-line no-new-func
     const f = new Function(value)
     const v = f()
-    return <span data-type="jsx">{ v }</span>
+    return <span data-type="jsx">{v}</span>
   }
 
   it('forward ref', () => {
     const ref = React.createRef<HTMLDivElement>()
     const wrapper = mount(
       <CodeLive
-        ref={ ref }
+        ref={ref}
         lang="jsx"
         value="const a = 1 + 2; return a;"
-        CodeRenderer={ JsxRenderer }
+        CodeRenderer={JsxRenderer}
         data-value="waw"
-      />
+      />,
     )
 
     const o = wrapper.getDOMNode()
@@ -45,11 +46,7 @@ describe('basic rendering case', () => {
     const code2 = 'return 4'
 
     const wrapper = mount(
-      <CodeLive
-        lang="jsx"
-        value={ code1 }
-        CodeRenderer={ JsxRenderer }
-      />
+      <CodeLive lang="jsx" value={code1} CodeRenderer={JsxRenderer} />,
     )
 
     expect(wrapper.find('textarea').text()).toEqual(code1)
@@ -75,11 +72,7 @@ describe('basic rendering case', () => {
     `
 
     const wrapper = render(
-      <CodeLive
-        lang="jsx"
-        value={ code }
-        CodeRenderer={ JsxRenderer }
-      />
+      <CodeLive lang="jsx" value={code} CodeRenderer={JsxRenderer} />,
     )
 
     expect(wrapper.find('textarea').text()).toEqual(code)
@@ -98,8 +91,8 @@ describe('basic rendering case', () => {
         },
         codeEmbed: {
           errorBackground: 'red',
-        }
-      }
+        },
+      },
     }
 
     const code = `
@@ -108,13 +101,9 @@ describe('basic rendering case', () => {
     `
 
     const wrapper = render(
-      <ThemeProvider theme={ theme }>
-        <CodeLive
-          lang="jsx"
-          value={ code }
-          CodeRenderer={ JsxRenderer }
-        />
-      </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <CodeLive lang="jsx" value={code} CodeRenderer={JsxRenderer} />
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

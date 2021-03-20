@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import Table from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -16,17 +16,23 @@ describe('basic rendering case', () => {
   })
 
   const rows: React.ReactNode[] = [
-    (<tr key="0"><th>Name</th></tr>),
-    (<tr key="1"><td>Alice</td></tr>),
-    (<tr key="2"><td>Bob</td></tr>),
+    <tr key="0">
+      <th>Name</th>
+    </tr>,
+    <tr key="1">
+      <td>Alice</td>
+    </tr>,
+    <tr key="2">
+      <td>Bob</td>
+    </tr>,
   ]
 
   it('render with custom className', () => {
     const className = 'custom-list-item'
     const wrapper = render(
-      <Table className={ className } data-value="waw">
-        { rows }
-      </Table>
+      <Table className={className} data-value="waw">
+        {rows}
+      </Table>,
     )
     expect(wrapper.find('.' + className) != null).toEqual(true)
     expect(wrapper.text()).toEqual('NameAliceBob')
@@ -35,7 +41,7 @@ describe('basic rendering case', () => {
   it('children is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(<Table>{ value }</Table>)
+        render(<Table>{value}</Table>)
       }).toThrow(/The prop `children` is marked as required/i)
     }
   })
@@ -43,9 +49,9 @@ describe('basic rendering case', () => {
   it('forward ref', () => {
     const ref = React.createRef<HTMLTableElement>()
     const wrapper = mount(
-      <Table ref={ ref } data-value="waw">
-        { rows }
-      </Table>
+      <Table ref={ref} data-value="waw">
+        {rows}
+      </Table>,
     )
 
     const o = wrapper.getDOMNode()
@@ -55,9 +61,7 @@ describe('basic rendering case', () => {
 
   it('snapshot', () => {
     const wrapper = render(
-      <Table style={{ color: 'orange', fontSize: '16px' }}>
-        { rows }
-      </Table>
+      <Table style={{ color: 'orange', fontSize: '16px' }}>{rows}</Table>,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -69,16 +73,14 @@ describe('basic rendering case', () => {
           width: '100%',
           overflow: 'hidden auto',
           margin: 18,
-        }
-      }
+        },
+      },
     }
 
     const wrapper = mount(
-      <ThemeProvider theme={ theme }>
-        <Table style={{ color: 'orange', fontSize: '16px' }}>
-          { rows }
-        </Table>
-      </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Table style={{ color: 'orange', fontSize: '16px' }}>{rows}</Table>
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

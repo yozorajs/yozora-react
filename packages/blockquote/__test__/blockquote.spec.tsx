@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import Blockquote from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -20,9 +20,9 @@ describe('basic rendering case', () => {
     const wrapper = render(
       <Blockquote>
         <span>
-          <Blockquote>{ text }</Blockquote>
+          <Blockquote>{text}</Blockquote>
         </span>
-      </Blockquote>
+      </Blockquote>,
     )
     expect(wrapper.text()).toEqual(text)
   })
@@ -31,9 +31,9 @@ describe('basic rendering case', () => {
     const text = 'Hello, world!'
     const className = 'custom-text'
     const wrapper = render(
-      <Blockquote className={ className }>
-        <span>{ text }</span>
-      </Blockquote>
+      <Blockquote className={className}>
+        <span>{text}</span>
+      </Blockquote>,
     )
     expect(wrapper.hasClass(className)).toEqual(true)
     expect(wrapper.text()).toEqual(text)
@@ -42,7 +42,7 @@ describe('basic rendering case', () => {
   it('children is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(<Blockquote>{ value }</Blockquote>)
+        render(<Blockquote>{value}</Blockquote>)
       }).toThrow(/The prop `children` is marked as required/i)
     }
   })
@@ -50,9 +50,9 @@ describe('basic rendering case', () => {
   it('forward ref', () => {
     const ref = React.createRef<HTMLDivElement>()
     const wrapper = mount(
-      <Blockquote ref={ ref } data-value="waw">
+      <Blockquote ref={ref} data-value="waw">
         1
-      </Blockquote>
+      </Blockquote>,
     )
 
     const o = wrapper.getDOMNode()
@@ -65,7 +65,7 @@ describe('basic rendering case', () => {
       <Blockquote style={{ color: 'orange', fontSize: '16px' }}>
         some text1
         <span>some text2</span>
-      </Blockquote>
+      </Blockquote>,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -79,17 +79,17 @@ describe('basic rendering case', () => {
           // borderColor: 'orange',
           margin: 18,
           background: 'rgba(0, 0, 0, 0.15)',
-        }
-      }
+        },
+      },
     }
 
     const wrapper = mount(
-      <ThemeProvider theme={ theme }>
+      <ThemeProvider theme={theme}>
         <Blockquote>
           some text1
           <span>some text2</span>
         </Blockquote>
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })

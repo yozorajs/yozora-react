@@ -1,8 +1,8 @@
-import React from 'react'
 import { mount, render } from 'enzyme'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import React from 'react'
+import type { DefaultTheme } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import InlineMath from '../src'
-
 
 describe('basic rendering case', () => {
   const errorLogger = jest
@@ -18,25 +18,21 @@ describe('basic rendering case', () => {
   it('render with custom className', () => {
     const code = 'x^2 + y^2 = z^2'
     const className = 'custom-inline-math'
-    const wrapper = render(
-      <InlineMath className={ className } value={ code } />
-    )
+    const wrapper = render(<InlineMath className={className} value={code} />)
     expect(wrapper.hasClass(className)).toEqual(true)
   })
 
   it('value is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(<InlineMath value={ value } />)
+        render(<InlineMath value={value} />)
       }).toThrow(/The prop `value` is marked as required/i)
     }
   })
 
   it('forward ref', () => {
     const ref = React.createRef<HTMLSpanElement>()
-    const wrapper = mount(
-      <InlineMath ref={ ref } data-value="waw" value="" />
-    )
+    const wrapper = mount(<InlineMath ref={ref} data-value="waw" value="" />)
 
     const o = wrapper.getDOMNode()
     expect(o).toEqual(ref.current)
@@ -48,7 +44,7 @@ describe('basic rendering case', () => {
       <InlineMath
         value="x^2 + y^2 = z^2"
         style={{ color: 'orange', fontSize: '16px' }}
-      />
+      />,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -62,17 +58,17 @@ describe('basic rendering case', () => {
           // margin: '0 2px',
           background: 'hsla(210deg, 13%, 12%, 0.05)',
           color: '#d81848',
-        }
-      }
+        },
+      },
     }
 
     const wrapper = mount(
-      <ThemeProvider theme={ theme }>
+      <ThemeProvider theme={theme}>
         <InlineMath
           value="x^2 + y^2 = z^2"
           style={{ color: 'orange', fontSize: '16px' }}
         />
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     expect(wrapper).toMatchSnapshot()
   })
