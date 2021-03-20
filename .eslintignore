@@ -1,5 +1,6 @@
 **/.vscode/
 **/__tmp__/
+**/__test__/fixtures/
 **/coverage/
 **/demo/
 **/dist/
@@ -9,26 +10,15 @@
 **/node_modules/
 **/resource/
 **/resources/
+**/test/
 **/*.styl.d.ts
-*.tsbuildinfo
 
-**/__test__/**
-!**/__test__/*.spec.ts
 
 **/*.*
-!**/__test__/*.spec.ts
-!**/src/**/*.js
-!**/src/**/*.jsx
-!**/src/**/*.ts
-!**/src/**/*.tsx
-!**/.eslintrc
-!**/cli.js
-!**/index.js
-!**/package.json
-!**/tsconfig.json
-!**/tsconfig.settings.json
-!**/tsconfig.src.json
+!**/*.ts
+!**/*.tsx
+!**/*.js
+!**/*.jsx
+!**/*.json
+!.eslintignore
 !.eslintrc
-!rollup.config.js
-!jest.config.js
-!jest.setupEnzyme.ts
