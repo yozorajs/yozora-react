@@ -1,88 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic rendering case snapshot 1`] = `
-.c0 {
-  overflow: hidden;
-  display: block;
-  box-sizing: content-box;
-  height: 0;
-  width: 100%;
-  padding: 0;
-  border: 0;
-  border-bottom: 1px solid lightgray;
-  outline: 0;
-  margin: 1.5em 0;
-}
-
+exports[`snapshot children is not allowed 1`] = `
 <hr
-  class="c0"
-  style="color:orange;font-size:16px"
+  class="custom-class"
+  data-name="yozora-thematic-break"
+  style="color:orange"
 />
 `;
 
-exports[`basic rendering case snapshot with theme 1`] = `
-.c0 {
-  overflow: hidden;
-  display: block;
-  box-sizing: content-box;
-  height: 0;
-  width: 100%;
-  padding: 0;
-  border: 0;
-  border-bottom: 1px solid orange;
-  outline: 0;
-  margin: 2rem 0;
-}
+exports[`snapshot custom 1`] = `
+<hr
+  class="custom-class"
+  data-name="yozora-thematic-break"
+  style="color:orange"
+/>
+`;
 
-<Component
-  theme={
-    Object {
-      "yozora": Object {
-        "thematicBreak": Object {
-          "borderColor": "orange",
-          "margin": "2rem 0",
-        },
-      },
-    }
-  }
->
-  <YozoraThematicBreak
-    style={
-      Object {
-        "color": "orange",
-        "fontSize": "16px",
-      }
-    }
-  >
-    <styled.hr
-      style={
-        Object {
-          "color": "orange",
-          "fontSize": "16px",
-        }
-      }
-      theme={
-        Object {
-          "yozora": Object {
-            "thematicBreak": Object {
-              "borderColor": "lightgray",
-              "margin": "1.5em 0",
-              "outline": 0,
-            },
-          },
-        }
-      }
-    >
-      <hr
-        className="c0"
-        style={
-          Object {
-            "color": "orange",
-            "fontSize": "16px",
-          }
-        }
-      />
-    </styled.hr>
-  </YozoraThematicBreak>
-</Component>
+exports[`snapshot default 1`] = `
+<hr
+  class="yozora-thematic-break"
+/>
 `;

@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-thematic-break/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-thematic-break/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -61,7 +55,7 @@
 </header>
 <br/>
 
-This package is designed to render [mdast thematicBreak][] type data
+This package is designed to render data of [@yozora/tokenizer-thematic-break][].
 
 
 ## Install
@@ -79,66 +73,35 @@ This package is designed to render [mdast thematicBreak][] type data
   ```
 
 ## Usage
-  * Use in React project
 
-    - Pure
+* Use in React project
 
-      ```tsx
-      import React from 'react'
-      import ThematicBreak from '@yozora/react-thematic-break'
+    ```tsx
+    import React from 'react'
+    import ThematicBreak from '@yozora/react-thematic-break'
 
-      const wrapper = (
-        <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
-      )
-      ```
+    const wrapper = (
+      <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
+    )
+    ```
 
-    - With theme
+* Props
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import ThematicBreak from '@yozora/react-thematic-break'
+  Name        | Type      | Required  | Default                   | Description
+  :----------:|:---------:|:---------:|:-------------------------:|:-------------
+  `ref`       | See below | `false`   | -                         | Forwarded ref callback
+  `className` | `string`  | `true`    | `"yozora-thematic-break"` | Root css class of the component
 
-      const theme: DefaultTheme = {
-        yozora: {
-          thematicBreak: {
-            borderColor: 'orange',
-            // outline: '1px dash red',
-            margin: '2rem 0',
-          }
-        }
-      }
+  - `ref` type is `React.RefObject<HTMLHRElement>`
 
-      const wrapper = (
-      <ThemeProvider theme={ theme }>
-        <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
-      </ThemeProvider>
-      )
-      ```
+  - `ThematicBreakProps` inherited all (except `children`) attributes of
+    `HTMLHRElement` (`React.HTMLAttributes<HTMLHRElement>`)
 
-  * Props
+## Related
 
-     Name     | Type                              | Required  | Default | Description
-    :--------:|:---------------------------------:|:---------:|:-------:|:-------------
-     `ref`    | `React.RefObject<HTMLHRElement>`  | `false`   | -       | Forwarded ref callback
-
-    ThematicBreakProps inherited all attributes of `HTMLHRElement` (`React.HTMLAttributes<HTMLHRElement>`)
-
-  * Theme
-
-     Prop Name    | Default
-    :------------:|:-----------
-     borderColor  | `lightgray`
-     outline      | `0`
-     margin       | `1.5em 0`
-
-    See [YozoraThematicBreakTheme][] for details.
+* [@yozora/tokenizer-thematic-break][]
+* [ThematicBreak | Mdast][mdast]
 
 
-## References
-
-  - [mdast thematicBreak][]
-
-
-[mdast thematicBreak]: https://github.com/syntax-tree/mdast#thematicbreak
-[YozoraThematicBreakTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/thematic-break/src/theme.ts
+[mdast]: https://github.com/syntax-tree/mdast#thematicbreak
+[@yozora/tokenizer-thematic-break]: https://www.npmjs.com/package/@yozora/tokenizer-thematic-break
