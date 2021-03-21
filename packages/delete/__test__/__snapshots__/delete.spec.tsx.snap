@@ -1,18 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic rendering case snapshot 1`] = `
-.c0 {
-  color: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  font-style: inherit;
-  -webkit-text-decoration: line-through;
-  text-decoration: line-through;
-}
-
+exports[`snapshot custom 1`] = `
 <del
-  class="c0"
-  style="color:orange;font-size:16px"
+  class="custom-class"
+  data-name="yozora-delete"
+  style="color:orange"
 >
   some text1
   <span>
@@ -21,55 +13,13 @@ exports[`basic rendering case snapshot 1`] = `
 </del>
 `;
 
-exports[`basic rendering case snapshot with theme 1`] = `
-.c0 {
-  color: red;
-  font-size: 18;
-  font-weight: inherit;
-  font-style: inherit;
-  -webkit-text-decoration: dashed;
-  text-decoration: dashed;
-}
-
-<Component
-  theme={
-    Object {
-      "yozora": Object {
-        "delete": Object {
-          "color": "red",
-          "fontSize": 18,
-          "fontWeight": undefined,
-          "textDecoration": "dashed",
-        },
-      },
-    }
-  }
+exports[`snapshot default 1`] = `
+<del
+  class="yozora-delete"
 >
-  <YozoraDelete>
-    <styled.del
-      theme={
-        Object {
-          "yozora": Object {
-            "delete": Object {
-              "color": "inherit",
-              "fontSize": "inherit",
-              "fontStyle": "inherit",
-              "fontWeight": "inherit",
-              "textDecoration": "line-through",
-            },
-          },
-        }
-      }
-    >
-      <del
-        className="c0"
-      >
-        some text1
-        <span>
-          some text2
-        </span>
-      </del>
-    </styled.del>
-  </YozoraDelete>
-</Component>
+  some text1
+  <span>
+    some text2
+  </span>
+</del>
 `;

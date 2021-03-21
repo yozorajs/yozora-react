@@ -7,7 +7,7 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
    */
   value: string
   /**
-   * Root css class of the component
+   * Root css class of the component.
    * @default 'yozora-text'
    */
   className?: string

@@ -4,7 +4,7 @@ import React from 'react'
 export interface ThematicBreakProps
   extends React.HTMLAttributes<HTMLHRElement> {
   /**
-   * Root css class of the component
+   * Root css class of the component.
    * @default 'yozora-thematic-break'
    */
   className?: string

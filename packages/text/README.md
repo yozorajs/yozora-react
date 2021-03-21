@@ -100,8 +100,8 @@ This package is designed to render data of [@yozora/tokenizer-text][].
 ## Related
 
 * [@yozora/tokenizer-text][]
-* [Text | Mdast][mdast-text]
+* [Text | Mdast][mdast]
 
 
-[mdast-text]: https://github.com/syntax-tree/mdast#text
+[mdast]: https://github.com/syntax-tree/mdast#text
 [@yozora/tokenizer-text]: https://www.npmjs.com/package/@yozora/tokenizer-text

@@ -76,14 +76,14 @@ This package is designed to render data of [@yozora/tokenizer-thematic-break][].
 
 * Use in React project
 
-    ```tsx
-    import React from 'react'
-    import ThematicBreak from '@yozora/react-thematic-break'
+  ```tsx
+  import React from 'react'
+  import ThematicBreak from '@yozora/react-thematic-break'
 
-    const wrapper = (
-      <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
-    )
-    ```
+  const wrapper = (
+    <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
+  )
+  ```
 
 * Props
 
