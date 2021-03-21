@@ -1,52 +1,38 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-import './styled-components'
-import { defaultBlockquoteTheme, getBlockquoteStyle } from './theme'
 
-export * from './theme'
-
-/**
- * Props for creating Blockquote
- */
 export interface BlockquoteProps
   extends React.BlockquoteHTMLAttributes<HTMLDivElement> {
   /**
-   * Blockquote content
+   * Blockquote content.
    */
   children: React.ReactNode
+  /**
+   * Root css class of the component.
+   * @default 'yozora-blockquote'
+   */
+  className?: string
 }
 
 /**
- * Render Blockquote content
- *
- * @param props
+ * Render yozora `blockquote`.
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-blockquote
  */
-export const Blockquote = React.forwardRef<HTMLDivElement, BlockquoteProps>(
+export const Blockquote = React.forwardRef<HTMLElement, BlockquoteProps>(
   (props, forwardRef): React.ReactElement => {
-    return <Container {...props} ref={forwardRef} />
+    const { className = 'yozora-blockquote', children, ...htmlProps } = props
+    return (
+      <blockquote {...htmlProps} ref={forwardRef} className={className}>
+        {children}
+      </blockquote>
+    )
   },
 )
 
 Blockquote.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 }
 
 Blockquote.displayName = 'YozoraBlockquote'
 export default Blockquote
-
-const Container = styled.blockquote`
-  padding: ${getBlockquoteStyle('padding')};
-  border-left: 0.25em solid ${getBlockquoteStyle('borderColor')};
-  margin: ${getBlockquoteStyle('margin')};
-  background:  ${getBlockquoteStyle('background')};
-  color: ${getBlockquoteStyle('color')};
-`
-
-Container.defaultProps = {
-  theme: { yozora: { blockquote: defaultBlockquoteTheme } },
-}
-
-export const BlockquoteClasses = {
-  container: `${Container}`,
-}
