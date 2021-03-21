@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-text/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-text/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -79,65 +73,37 @@ This package is designed to render [mdast text][] type data
   ```
 
 ## Usage
-  * Use in React project
 
-    - Pure
+* Use in React project
 
-      ```tsx
-      import React from 'react'
-      import Text from '@yozora/react-text'
+  ```tsx
+  import React from 'react'
+  import Text from '@yozora/react-text'
 
-      const wrapper = (
-        <Text value="Hello, world!" />
-      )
+  const wrapper = (
+    <Text value="Hello, world!" />
+  )
+  ```
 
-    - With theme
+* Props
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import Text from '@yozora/react-text'
+    Name         | Type      | Required  | Default       | Description
+  :------------:|:----------|:---------:|:-------------:|:-------------
+    `ref`        | See below | `false`   | -             | Forwarded ref callback
+    `value`      | `string`  | `true`    | -             | Text content
+    `className`  | `string`  | `true`    | `yozora-text` | Text content
 
-      const theme: DefaultTheme = {
-        yozora: {
-          text: {
-            lineHeight: '2',
-          }
-        }
-      }
+  - `ref` type is `React.RefObject<HTMLSpanElement>`
 
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <Text
-            value="Hello, world!"
-            style={ { color: 'orange', fontSize: '16px' } }
-          />
-        </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name     | Type                                | Required  | Default | Description
-    :--------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `ref`    | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
-     `value`  | `string`                            | `true`    | -       | Text content
-
-    TextProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
-
-  * Theme
-
-     Prop Name  | Default
-    :----------:|:--------------
-     lineHeight | `inherit`
-
-    See [YozoraTextTheme][] for details.
+  - `TextProps` inherited all (except `children`) attributes of
+    `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
 
 
-## References
+## Related
 
-  - [mdast text][]
+  - [@yozora/tokenizer-text][]
+  - [Mdast][mdast-text]
 
 
-[mdast text]: https://github.com/syntax-tree/mdast#text
-[YozoraTextTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/text/src/theme.ts
+[mdast-text]: https://github.com/syntax-tree/mdast#text
+[@yozora/tokenizer-text]: https://www.npmjs.com/package/@yozora/tokenizer-text
