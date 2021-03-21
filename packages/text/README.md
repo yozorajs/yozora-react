@@ -72,6 +72,7 @@ This package is designed to render data of [@yozora/tokenizer-text][].
   yarn add @yozora/react-text
   ```
 
+
 ## Usage
 
 * Use in React project
@@ -88,8 +89,8 @@ This package is designed to render data of [@yozora/tokenizer-text][].
   Name        | Type      | Required  | Default         | Description
   :----------:|:---------:|:---------:|:---------------:|:-------------
   `ref`       | See below | `false`   | -               | Forwarded ref callback
+  `className` | `string`  | `false`   | `"yozora-text"` | Root css class of the component
   `value`     | `string`  | `true`    | -               | Text content
-  `className` | `string`  | `true`    | `"yozora-text"` | Root css class of the component
 
   - `ref` type is `React.RefObject<HTMLSpanElement>`
 

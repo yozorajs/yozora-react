@@ -72,6 +72,7 @@ This package is designed to render data of [@yozora/tokenizer-thematic-break][].
   yarn add @yozora/react-thematic-break
   ```
 
+
 ## Usage
 
 * Use in React project
@@ -90,12 +91,13 @@ This package is designed to render data of [@yozora/tokenizer-thematic-break][].
   Name        | Type      | Required  | Default                   | Description
   :----------:|:---------:|:---------:|:-------------------------:|:-------------
   `ref`       | See below | `false`   | -                         | Forwarded ref callback
-  `className` | `string`  | `true`    | `"yozora-thematic-break"` | Root css class of the component
+  `className` | `string`  | `false`   | `"yozora-thematic-break"` | Root css class of the component
 
   - `ref` type is `React.RefObject<HTMLHRElement>`
 
   - `ThematicBreakProps` inherited all (except `children`) attributes of
     `HTMLHRElement` (`React.HTMLAttributes<HTMLHRElement>`)
+
 
 ## Related
 

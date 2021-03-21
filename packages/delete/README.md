@@ -72,7 +72,9 @@ This package is designed to render data of [@yozora/tokenizer-delete][].
   yarn add @yozora/react-delete
   ```
 
+
 ## Usage
+
 * Use in React project
 
   ```tsx
@@ -92,8 +94,8 @@ This package is designed to render data of [@yozora/tokenizer-delete][].
   Name        | Type              | Required  | Default           | Description
   :----------:|:-----------------:|:---------:|:-----------------:|:-------------
   `ref`       | See below         | `false`   | -                 | Forwarded ref callback
+  `className` | `string`          | `false`   | `"yozora-delete"` | Root css class of the component
   `children`  | `React.ReactNode` | `true`    | -                 | Deleted contents
-  `className` | `string`          | `true`    | `"yozora-delete"` | Root css class of the component
 
 
   - `ref` type is `React.RefObject<HTMLElement>`
@@ -101,7 +103,8 @@ This package is designed to render data of [@yozora/tokenizer-delete][].
   - `DeleteProps` inherited all attributes of
     `HTMLElement` (`React.DelHTMLAttributes<HTMLElement>`)
 
-## Related
+
+# Related
 
 * [@yozora/tokenizer-delete][]
 * [Delete | Mdast][mdast]
