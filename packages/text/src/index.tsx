@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-/**
- * Props for creating Text
- */
 export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * Literal text.
@@ -18,7 +15,6 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 /**
  * Render yozora `text`.
- * @param props
  * @see https://www.npmjs.com/package/@yozora/tokenizer-text
  */
 export const Text = React.forwardRef<HTMLSpanElement, TextProps>(

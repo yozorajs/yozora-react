@@ -55,7 +55,7 @@
 </header>
 <br/>
 
-This package is designed to render [mdast text][] type data
+This package is designed to render data of [@yozora/tokenizer-text][].
 
 
 ## Install
@@ -80,18 +80,16 @@ This package is designed to render [mdast text][] type data
   import React from 'react'
   import Text from '@yozora/react-text'
 
-  const wrapper = (
-    <Text value="Hello, world!" />
-  )
+  const wrapper = (<Text value="Hello, world!" />)
   ```
 
 * Props
 
-    Name         | Type      | Required  | Default       | Description
-  :------------:|:----------|:---------:|:-------------:|:-------------
-    `ref`        | See below | `false`   | -             | Forwarded ref callback
-    `value`      | `string`  | `true`    | -             | Text content
-    `className`  | `string`  | `true`    | `yozora-text` | Text content
+  Name        | Type      | Required  | Default         | Description
+  :----------:|:---------:|:---------:|:---------------:|:-------------
+  `ref`       | See below | `false`   | -               | Forwarded ref callback
+  `value`     | `string`  | `true`    | -               | Text content
+  `className` | `string`  | `true`    | `"yozora-text"` | Root css class of the component
 
   - `ref` type is `React.RefObject<HTMLSpanElement>`
 
@@ -101,8 +99,8 @@ This package is designed to render [mdast text][] type data
 
 ## Related
 
-  - [@yozora/tokenizer-text][]
-  - [Mdast][mdast-text]
+* [@yozora/tokenizer-text][]
+* [Text | Mdast][mdast-text]
 
 
 [mdast-text]: https://github.com/syntax-tree/mdast#text
