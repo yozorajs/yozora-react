@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-emphasis/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-emphasis/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -79,74 +73,41 @@ This package is designed to render [mdast emphasis][] type data
   ```
 
 ## Usage
-  * Use in React project
-    - Pure
 
-      ```tsx
-      import React from 'react'
-      import Emphasis from '@yozora/react-emphasis'
+* Use in React project
 
-      const wrapper = (
-        <Emphasis style={ { color: 'orange', fontSize: '16px' } }>
-          some text1
-          <span>some text2</span>
-        </Emphasis>
-      )
-      ```
+  ```tsx
+  import React from 'react'
+  import Emphasis from '@yozora/react-emphasis'
 
-    - With theme
+  const wrapper = (
+    <Emphasis style={{ color: 'orange', fontSize: '16px' }}>
+      some text1
+      <span>some text2</span>
+    </Emphasis>
+  )
+  ```
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import Emphasis from '@yozora/react-emphasis'
+* Props
 
-      const theme: DefaultTheme = {
-        yozora: {
-          emphasis: {
-            color: 'red',
-            fontSize: 18,
-            fontWeight: undefined,
-            fontStyle: 'oblique',
-          }
-        }
-      }
-
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <Emphasis>
-            some text1
-            <span>some text2</span>
-          </Emphasis>
-        </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name       | Type                                | Required  | Default | Description
-    :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
-     `children` | `React.ReactNode`                   | `true`    | -       | Emphasis content
-
-    EmphasisProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
-
-  * Theme
-
-     Prop Name  | Default
-    :----------:|:--------------
-     color      | `inherit`
-     fontSize   | `inherit`
-     fontWeight | `inherit`
-     fontStyle  | `italic`
-
-    See [YozoraEmphasisTheme][] for details.
+  Name        | Type              | Required  | Default           | Description
+  :----------:|:-----------------:|:---------:|:-----------------:|:-------------
+  `ref`       | See below         | `false`   | -                 | Forwarded ref callback
+  `className` | `string`          | `false`   | `"yozora-emphasis"` | Root css class of the component
+  `children`  | `React.ReactNode` | `true`    | -                 | Emphasisd contents
 
 
-## References
+  - `ref` type is `React.RefObject<HTMLElement>`
 
-  - [mdast emphasis][]
+  - `EmphasisProps` inherited all attributes of
+    `HTMLElement` (`React.HTMLAttributes<HTMLElement>`)
+
+# Related
+
+* [@yozora/tokenizer-emphasis][]
+* [Emphasis | Mdast][mdast]
 
 
-[mdast emphasis]: https://github.com/syntax-tree/mdast#emphasis
-[YozoraEmphasisTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/emphasis/src/theme.ts
+
+[mdast]: https://github.com/syntax-tree/mdast#emphasis
+[@yozora/tokenizer-emphasis]: https://www.npmjs.com/package/@yozora/tokenizer-emphasis
