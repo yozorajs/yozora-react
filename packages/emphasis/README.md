@@ -94,7 +94,7 @@ This package is designed to render [mdast emphasis][] type data
   :----------:|:-----------------:|:---------:|:-----------------:|:-------------
   `ref`       | See below         | `false`   | -                 | Forwarded ref callback
   `className` | `string`          | `false`   | `"yozora-emphasis"` | Root css class of the component
-  `children`  | `React.ReactNode` | `true`    | -                 | Emphasisd contents
+  `children`  | `React.ReactNode` | `true`    | -                 | Emphasis contents
 
 
   - `ref` type is `React.RefObject<HTMLElement>`

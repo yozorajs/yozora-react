@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-strong/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-strong/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -79,75 +73,41 @@ This package is designed to render [mdast strong][] type data
   ```
 
 ## Usage
-  * Use in React project
 
-    - Pure
+* Use in React project
 
-      ```tsx
-      import React from 'react'
-      import Strong from '@yozora/react-strong'
+  ```tsx
+  import React from 'react'
+  import Strong from '@yozora/react-strong'
 
-      const wrapper = (
-        <Strong style={{ color: 'orange', fontSize: '16px' }}>
-          some text1
-          <span>some text2</span>
-        </Strong>
-      )
-      ```
+  const wrapper = (
+    <Strong style={{ color: 'orange', fontSize: '16px' }}>
+      some text1
+      <span>some text2</span>
+    </Strong>
+  )
+  ```
 
-    - With theme
+* Props
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import Strong from '@yozora/react-strong'
-
-      const theme: DefaultTheme = {
-        yozora: {
-          strong: {
-            color: 'red',
-            fontSize: 18,
-            // fontWeight: 'bold',
-            fontStyle: 'oblique',
-          }
-        }
-      }
-
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <Strong>
-            some text1
-            <span>some text2</span>
-          </Strong>
-        </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name       | Type                                | Required  | Default | Description
-    :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
-     `children` | `React.ReactNode`                   | `true`    | -       | strong content
-
-    StrongProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
-
-  * Theme
-
-     Prop Name    | Default
-    :------------:|:--------------
-     color        | `inherit`
-     fontSize     | `inherit`
-     fontWeight   | `600`
-     fontStyle    | `inherit`
-
-    See [YozoraStrongTheme][] for details.
+  Name        | Type              | Required  | Default           | Description
+  :----------:|:-----------------:|:---------:|:-----------------:|:-------------
+  `ref`       | See below         | `false`   | -                 | Forwarded ref callback
+  `className` | `string`          | `false`   | `"yozora-strong"` | Root css class of the component
+  `children`  | `React.ReactNode` | `true`    | -                 | Strong contents
 
 
-## References
+  - `ref` type is `React.RefObject<HTMLElement>`
 
-  - [mdast strong][]
+  - `StrongProps` inherited all attributes of
+    `HTMLElement` (`React.HTMLAttributes<HTMLElement>`)
+
+# Related
+
+* [@yozora/tokenizer-strong][]
+* [Strong | Mdast][mdast]
 
 
-[mdast strong]: https://github.com/syntax-tree/mdast#strong
-[YozoraStrongTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/strong/src/theme.ts
+
+[mdast]: https://github.com/syntax-tree/mdast#strong
+[@yozora/tokenizer-strong]: https://www.npmjs.com/package/@yozora/tokenizer-strong
