@@ -85,6 +85,7 @@
     "rimraf": "3.0.2",
     "rollup": "2.40.0",
     "styled-components": "^5.2.1",
+    "stylus": "^0.54.8",
     "ts-jest": "26.5.2",
     "ts-node": "9.1.1",
     "tsconfig-paths": "3.9.0",

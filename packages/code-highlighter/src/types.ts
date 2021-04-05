@@ -6,7 +6,7 @@ interface Token {
 
 type StyleObj = Record<string, string | number | null>
 
-interface LineInputProps {
+export interface LineInputProps {
   key?: React.Key
   style?: StyleObj
   className?: string
@@ -14,14 +14,14 @@ interface LineInputProps {
   [otherProp: string]: any
 }
 
-interface LineOutputProps {
+export interface LineOutputProps {
   key?: React.Key
   style?: StyleObj
   className: string
   [otherProps: string]: any
 }
 
-interface TokenInputProps {
+export interface TokenInputProps {
   key?: React.Key
   style?: StyleObj
   className?: string
@@ -29,7 +29,7 @@ interface TokenInputProps {
   [otherProp: string]: any
 }
 
-interface TokenOutputProps {
+export interface TokenOutputProps {
   key?: React.Key
   style?: StyleObj
   className: string
