@@ -16,8 +16,6 @@ describe('basic rendering case', () => {
   it('test lineno change', () => {
     function Wrapper(): React.ReactElement {
       const [code, setCode] = useState<string>('let a: number = 1 + 2;')
-      const [lineCount, setLineCount] = useState<number>(0)
-      const lineNoWidth = `${Math.max(2, ('' + lineCount).length) + 0.5}em`
 
       useEffect(() => {
         const nextCode =
@@ -30,13 +28,8 @@ describe('basic rendering case', () => {
       }, [])
 
       return (
-        <pre data-line-count={lineCount}>
-          <CodeHighlighter
-            lang="typescript"
-            value={code}
-            linenoWidth={lineNoWidth}
-            onLineCountChange={setLineCount}
-          />
+        <pre data-line-count={code.split(/\r\n|\n|\r/g).length}>
+          <CodeHighlighter lang="typescript" value={code} />
         </pre>
       )
     }
@@ -57,11 +50,7 @@ describe('basic rendering case', () => {
   it('snapshot', () => {
     const wrapper = render(
       <pre>
-        <CodeHighlighter
-          lang="typescript"
-          value="let a: number = 1 + 2;"
-          linenoWidth="2em"
-        />
+        <CodeHighlighter lang="typescript" value="let a: number = 1 + 2;" />
       </pre>,
     )
     expect(wrapper).toMatchSnapshot()

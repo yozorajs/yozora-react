@@ -2,111 +2,144 @@
 
 exports[`basic rendering case snapshot 1`] = `
 .c0 {
-  text-indent: -2em;
-  padding-left: 2em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
 }
 
 .c1 {
-  display: inline-block;
-  width: 2em;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   padding-right: 0.6em;
-  color: #858585;
   cursor: default;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   text-align: right;
+  border-right: 1px solid #666;
+}
+
+.c1 > span {
+  display: inline-block;
+  width: 100%;
+}
+
+.c2 {
+  -webkit-flex: 1 1 0;
+  -ms-flex: 1 1 0;
+  flex: 1 1 0;
+  overflow: auto;
+  padding-left: 0.6em;
 }
 
 <pre>
   <div
-    class="c0 token-line"
-    style="color:#d4d4d4"
+    class="c0 yozora-code-highlighter-content"
   >
-    <span
-      class="c1"
+    <div
+      class="c1 yozora-code-highlighter-linenos"
+      style="width:2.5em"
     >
-      1
-    </span>
-    <span
-      class="token keyword"
-      style="color:rgb(86, 156, 214)"
+      <div
+        class="token-line"
+        style="color:#d4d4d4"
+      >
+        <span>
+          1
+        </span>
+      </div>
+    </div>
+    <div
+      class="c2 yozora-code-highlighter-codes"
     >
-      let
-    </span>
-    <span
-      class="token plain"
-    >
-       a
-    </span>
-    <span
-      class="token punctuation"
-      style="color:rgb(106, 153, 85)"
-    >
-      :
-    </span>
-    <span
-      class="token plain"
-    >
-       
-    </span>
-    <span
-      class="token builtin"
-      style="color:rgb(79, 193, 255)"
-    >
-      number
-    </span>
-    <span
-      class="token plain"
-    >
-       
-    </span>
-    <span
-      class="token operator"
-      style="color:rgb(212, 212, 212)"
-    >
-      =
-    </span>
-    <span
-      class="token plain"
-    >
-       
-    </span>
-    <span
-      class="token number"
-      style="color:rgb(181, 206, 168)"
-    >
-      1
-    </span>
-    <span
-      class="token plain"
-    >
-       
-    </span>
-    <span
-      class="token operator"
-      style="color:rgb(212, 212, 212)"
-    >
-      +
-    </span>
-    <span
-      class="token plain"
-    >
-       
-    </span>
-    <span
-      class="token number"
-      style="color:rgb(181, 206, 168)"
-    >
-      2
-    </span>
-    <span
-      class="token punctuation"
-      style="color:rgb(106, 153, 85)"
-    >
-      ;
-    </span>
+      <div
+        class="token-line"
+        style="color:#d4d4d4"
+      >
+        <span
+          class="token keyword"
+          style="color:rgb(86, 156, 214)"
+        >
+          let
+        </span>
+        <span
+          class="token plain"
+        >
+           a
+        </span>
+        <span
+          class="token operator"
+          style="color:rgb(212, 212, 212)"
+        >
+          :
+        </span>
+        <span
+          class="token plain"
+        >
+           
+        </span>
+        <span
+          class="token builtin"
+          style="color:rgb(79, 193, 255)"
+        >
+          number
+        </span>
+        <span
+          class="token plain"
+        >
+           
+        </span>
+        <span
+          class="token operator"
+          style="color:rgb(212, 212, 212)"
+        >
+          =
+        </span>
+        <span
+          class="token plain"
+        >
+           
+        </span>
+        <span
+          class="token number"
+          style="color:rgb(181, 206, 168)"
+        >
+          1
+        </span>
+        <span
+          class="token plain"
+        >
+           
+        </span>
+        <span
+          class="token operator"
+          style="color:rgb(212, 212, 212)"
+        >
+          +
+        </span>
+        <span
+          class="token plain"
+        >
+           
+        </span>
+        <span
+          class="token number"
+          style="color:rgb(181, 206, 168)"
+        >
+          2
+        </span>
+        <span
+          class="token punctuation"
+          style="color:rgb(106, 153, 85)"
+        >
+          ;
+        </span>
+      </div>
+    </div>
   </div>
 </pre>
 `;
