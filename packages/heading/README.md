@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-heading</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/heading#readme">@yozora/react-heading</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-heading">
@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-heading/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-heading/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -61,7 +55,7 @@
 </header>
 <br/>
 
-This package is designed to render [mdast heading][] type data
+This package is designed to render data of [@yozora/tokenizer-heading][].
 
 
 ## Install
@@ -79,108 +73,46 @@ This package is designed to render [mdast heading][] type data
   ```
 
 ## Usage
-  * Use in React project
 
-    - Pure
+* Use in React project
 
-      ```tsx
-      import React from 'react'
-      import Heading from '@yozora/react-heading'
+    ```tsx
+    import React from 'react'
+    import Heading from '@yozora/react-heading'
 
-      const wrapper = (
-        <Heading
-          level={ 2 }
-          identifier="heading-waw"
-          style={ { color: 'orange', fontSize: '16px' } }
-        >
-          Waw -- { 2 }, 中文标题“这”
-        </Heading>
-      )
-      ```
+    const wrapper = (
+      <Heading
+        level={ 2 }
+        identifier="heading-waw"
+        style={ { color: 'orange', fontSize: '16px' } }
+      >
+        Waw -- { 2 }, 中文标题“这”
+      </Heading>
+    )
+    ```
 
-    - With theme
+* Props
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import Heading from '@yozora/react-heading'
+  Name          | Type              | Required  | Default             | Description
+  :------------:|:-----------------:|:---------:|:-------------------:|:-------------
+  `ref`         | See below         | `false`   | -                   | Forwarded ref callback
+  `className`   | `string`          | `false`   | `"yozora-heading"`  | Root css class of the component
+  `children`    | `React.ReactNode` | `false`   | -                   | Heading contents
+  `level`       | `1|2|3|4|5|6`     | `true`    | -                   | Heading level
+  `linkIcon`    | `React.ReactNode` | `false`   | `<HeadingIcon />`   | Heading link icon
+  `identifier`  | `string`          | `false`   | -                   | Heading identifier
 
-      const theme: DefaultTheme = {
-        yozora: {
-          heading: {
-            fontStyle: 'italic',
-            color: '#ccc',
-            padding: '0 2em',
-            borderColor: 'lightgray',
-            // margin: '1.2em -2em 1em',
-            lineHeight: 1.25,
-            fontFamily: 'inherit',
-            h1FontSize: '2em',
-            h2FontSize: '1.5em',
-            h3FontSize: '1.25em',
-            h4FontSize: '1em',
-            h5FontSize: '0.875em',
-            h6FontSize: '0.85em',
-            linkColor: 'blue',
-            hoverLinkColor: 'cyan',
-          }
-        }
-      }
+  - `ref` type is `React.RefObject<HTMLDivElement>`
 
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <Heading
-            level={ 1 }
-            identifier="heading-waw"
-            style={ { color: 'orange', fontSize: '16px' } }
-          >
-            Waw -- { 1 }, 中文标题“这”
-          </Heading>
-        </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name               | Type                                | Required  | Default                     | Description
-    :------------------:|:-----------------------------------:|:---------:|:---------------------------:|:-------------
-     `ref`              | `React.RefObject<HTMLDivElement>`   | `false`   | -                           | Forwarded ref callback
-     `children`         | `React.ReactNode`                   | `true`    | -                           | Heading content
-     `level`            | `1|2|3|4|5|6`                       | `true`    | -                           | Heading level
-     `identifier`       | `string`                            | `false`   | `heading-{e.textContent}`   | Heading identifier
-     `headingIcon`      | `React.ReactNode`                   | `false`   | `<HeadingHeadingIcon />`    | Heading heading icon
-     `headingClassName` | `string`                            | `false`   | -                           | css className for heading heading
-     `calcIdentifer`    | `(h: HTMLHeadingElement) => string` | `false`   | `calcIdentifierForHeading`  | generate identifier if it not specified
-
-    HeadingProps inherited all attributes of `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`)
-
-  * Theme
-
-     Prop Name      | Default
-    :--------------:|:--------------
-     color          | `inherit`
-     padding        | `0 2em`
-     borderColor    | `lightgray`
-     margin         | `1.2em -2em 1em`
-     lineHeight     | 1.25
-     fontFamily     | `inherit`
-     fontStyle      | `normal`
-     h1FontSize     | `2em`
-     h2FontSize     | `1.5em`
-     h3FontSize     | `1.25em`
-     h4FontSize     | `1em`
-     h5FontSize     | `0.875em`
-     h6FontSize     | `0.85em`
-     linkColor      | -
-     hoverLinkColor | -
-
-    See [YozoraHeadingTheme][] for details.
+  - `HeadingProps` inherited all attributes of
+    `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`)
 
 
-## References
+## Related
 
-  - [mdast heading][]
+* [@yozora/tokenizer-heading][]
+* [Heading | Mdast][mdast]
 
 
-[mdast heading]: https://github.com/syntax-tree/mdast#heading
-[YozoraHeadingTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/heading/src/theme.ts
+[mdast]: https://github.com/syntax-tree/mdast#heading
+[@yozora/tokenizer-heading]: https://www.npmjs.com/package/@yozora/tokenizer-heading

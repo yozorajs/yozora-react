@@ -1,40 +1,59 @@
 import { mount, render } from 'enzyme'
 import React from 'react'
-import type { DefaultTheme } from 'styled-components'
-import { ThemeProvider } from 'styled-components'
 import Heading from '../src'
 
-describe('basic rendering case', () => {
-  const errorLogger = jest
-    .spyOn(global.console, 'error')
-    .mockImplementation((...args) => {
+describe('prop types', function () {
+  beforeEach(() => {
+    jest.spyOn(global.console, 'error').mockImplementation((...args) => {
       throw new Error(args.join(' '))
     })
-
-  afterAll(() => {
-    errorLogger.mockRestore()
   })
 
-  it('render a simple content', () => {
-    const text = 'Hello, world!'
-    const wrapper = render(
-      <Heading level={3} identifier="heading-22">
-        {text}
+  it('forward ref', () => {
+    const ref = React.createRef<HTMLDivElement>()
+    const level = 1
+    const wrapper = mount(
+      <Heading
+        level={level}
+        ref={ref}
+        identifier={`heading-${level}`}
+        data-name="yozora-heading"
+      >
+        Heading {level}
       </Heading>,
     )
-    expect(wrapper.text()).toEqual(text)
+
+    const o = wrapper.getDOMNode()
+    expect(o).toEqual(ref.current)
+    expect(o.getAttribute('data-name')).toEqual('yozora-heading')
   })
 
-  it('render with custom className', () => {
-    const text = 'Hello, world!'
-    const className = 'custom-heading'
-    const wrapper = render(
-      <Heading level={1} identifier="heading-33" className={className}>
-        <span>{text}</span>
-      </Heading>,
-    )
-    expect(wrapper.hasClass(className)).toEqual(true)
-    expect(wrapper.text()).toEqual(text)
+  it('children is optional', () => {
+    for (const value of [undefined, null] as any[]) {
+      expect(() => {
+        render(
+          <Heading level={1} identifier="heading-1">
+            {value}
+          </Heading>,
+        )
+      }).not.toThrow()
+    }
+  })
+
+  it('className is optional', function () {
+    expect(
+      render(<Heading level={1}>Heading contents.</Heading>).hasClass(
+        'yozora-heading',
+      ),
+    ).toEqual(true)
+
+    expect(
+      render(
+        <Heading level={1} className="my-heading">
+          Heading contents.
+        </Heading>,
+      ).hasClass('my-heading'),
+    ).toEqual(true)
   })
 
   it('level is a required enum number', () => {
@@ -48,39 +67,10 @@ describe('basic rendering case', () => {
       }).toThrow(/Invalid prop `level`/i)
     }
   })
+})
 
-  it('children is required', () => {
-    for (const value of [undefined, null] as any[]) {
-      expect(() => {
-        render(
-          <Heading level={1} identifier="heading-1">
-            {value}
-          </Heading>,
-        )
-      }).toThrow(/The prop `children` is marked as required/i)
-    }
-  })
-
-  it('forward ref', () => {
-    const ref = React.createRef<HTMLDivElement>()
-    const level = 1
-    const wrapper = mount(
-      <Heading
-        level={level}
-        ref={ref}
-        identifier={`heading-${level}`}
-        data-value="waw"
-      >
-        Heading {level}
-      </Heading>,
-    )
-
-    const o = wrapper.getDOMNode()
-    expect(o).toEqual(ref.current)
-    expect(o.getAttribute('data-value')).toEqual('waw')
-  })
-
-  it('snapshot', () => {
+describe('snapshot', function () {
+  it('default', () => {
     const level = 2
     const wrapper = render(
       <Heading
@@ -94,40 +84,18 @@ describe('basic rendering case', () => {
     expect(wrapper).toMatchSnapshot(`level ${level}`)
   })
 
-  it('snapshot with theme', () => {
-    const theme: DefaultTheme = {
-      yozora: {
-        heading: {
-          fontStyle: 'italic',
-          color: '#ccc',
-          padding: '0 2em',
-          borderColor: 'lightgray',
-          // margin: '1.2em -2em 1em',
-          lineHeight: 1.25,
-          fontFamily: 'inherit',
-          h1FontSize: '2em',
-          h2FontSize: '1.5em',
-          h3FontSize: '1.25em',
-          h4FontSize: '1em',
-          h5FontSize: '0.875em',
-          h6FontSize: '0.85em',
-          linkColor: 'blue',
-          hoverLinkColor: 'cyan',
-        },
-      },
-    }
-
+  it('custom', () => {
     const level = 1
     const wrapper = mount(
-      <ThemeProvider theme={theme}>
-        <Heading
-          level={level}
-          identifier={`heading-${level}`}
-          style={{ color: 'orange', fontSize: '16px' }}
-        >
-          Waw -- {level}, 中文标题“这”
-        </Heading>
-      </ThemeProvider>,
+      <Heading
+        level={level}
+        identifier={`heading-${level}`}
+        className="custom-class"
+        data-name="yozora-heading"
+        style={{ color: 'orange', fontSize: '16px' }}
+      >
+        Waw -- {level}, 中文标题“这”
+      </Heading>,
     )
     expect(wrapper).toMatchSnapshot()
   })

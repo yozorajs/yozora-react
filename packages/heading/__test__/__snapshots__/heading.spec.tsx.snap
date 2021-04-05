@@ -1,119 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic rendering case snapshot with theme 1`] = `
-.c0 {
-  position: relative;
-  display: block;
-  margin: 1.2em -2em 1em;
-  padding: 0 2em;
-  line-height: 1.25;
-  font-family: inherit;
-}
-
-.c0 h1,
-.c0 h2,
-.c0 h3,
-.c0 h4,
-.c0 h5,
-.c0 h6 {
-  color: #ccc;
-  font-style: italic;
-}
-
-.c0 h1,
-.c0 h2 {
-  padding: 0.3em 0;
-  border-bottom: 1px solid lightgray;
-  margin: 0.9em 0 1em;
-}
-
-.c0 h1 {
-  font-size: 2em;
-}
-
-.c0 h2 {
-  font-size: 1.5em;
-}
-
-.c0 h3 {
-  font-size: 1.25em;
-}
-
-.c0 h4 {
-  font-size: 1em;
-}
-
-.c0 h5 {
-  font-size: 0.875em;
-}
-
-.c0 h6 {
-  font-size: 0.85em;
-}
-
-.c0 > a {
-  position: absolute;
-  top: 50%;
-  left: 0.25em;
-  -webkit-transform: translate(0,-50%);
-  -ms-transform: translate(0,-50%);
-  transform: translate(0,-50%);
-  display: inline-block;
-  height: 1.25em;
-  padding-right: 0.25em;
-  font-size: 1.25em;
-  line-height: 1;
-  color: blue;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.c0 > a > svg {
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: middle;
-  fill: currentColor;
-}
-
-.c0:hover > a {
-  color: cyan;
-  visibility: visible;
-  opacity: 1;
-}
-
-<Component
-  theme={
+exports[`snapshot custom 1`] = `
+<YozoraHeading
+  className="custom-class"
+  data-name="yozora-heading"
+  identifier="heading-1"
+  level={1}
+  style={
     Object {
-      "yozora": Object {
-        "heading": Object {
-          "borderColor": "lightgray",
-          "color": "#ccc",
-          "fontFamily": "inherit",
-          "fontStyle": "italic",
-          "h1FontSize": "2em",
-          "h2FontSize": "1.5em",
-          "h3FontSize": "1.25em",
-          "h4FontSize": "1em",
-          "h5FontSize": "0.875em",
-          "h6FontSize": "0.85em",
-          "hoverLinkColor": "cyan",
-          "lineHeight": 1.25,
-          "linkColor": "blue",
-          "padding": "0 2em",
-        },
-      },
+      "color": "orange",
+      "fontSize": "16px",
     }
   }
 >
-  <YozoraHeading
-    identifier="heading-1"
-    level={1}
+  <div
+    className="custom-class"
+    data-name="yozora-heading"
     style={
       Object {
         "color": "orange",
@@ -121,163 +23,37 @@ exports[`basic rendering case snapshot with theme 1`] = `
       }
     }
   >
-    <styled.header
-      style={
-        Object {
-          "color": "orange",
-          "fontSize": "16px",
-        }
-      }
-      theme={
-        Object {
-          "yozora": Object {
-            "heading": Object {
-              "borderColor": "lightgray",
-              "color": "inherit",
-              "fontFamily": "inherit",
-              "fontStyle": "normal",
-              "h1FontSize": "2em",
-              "h2FontSize": "1.5em",
-              "h3FontSize": "1.25em",
-              "h4FontSize": "1em",
-              "h5FontSize": "0.875em",
-              "h6FontSize": "0.85em",
-              "hoverLinkColor": undefined,
-              "lineHeight": 1.25,
-              "linkColor": undefined,
-              "margin": "1.2em -2em 1em",
-              "padding": "0 2em",
-            },
-          },
-        }
-      }
+    <a
+      href="#heading-1"
+      id="heading-1"
     >
-      <header
-        className="c0"
-        style={
-          Object {
-            "color": "orange",
-            "fontSize": "16px",
-          }
-        }
-      >
-        <a
-          href="#heading-1"
-          id="heading-1"
+      <HeadingLinkIcon>
+        <svg
+          aria-hidden="true"
+          height="16"
+          version="1.1"
+          viewBox="0 0 16 16"
+          width="16"
         >
-          <HeadingLinkIcon>
-            <svg
-              aria-hidden="true"
-              height="16"
-              version="1.1"
-              viewBox="0 0 16 16"
-              width="16"
-            >
-              <path
-                d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"
-                fillRule="evenodd"
-              />
-            </svg>
-          </HeadingLinkIcon>
-        </a>
-        <h1>
-          Waw -- 
-          1
-          , 中文标题“这”
-        </h1>
-      </header>
-    </styled.header>
-  </YozoraHeading>
-</Component>
+          <path
+            d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"
+            fillRule="evenodd"
+          />
+        </svg>
+      </HeadingLinkIcon>
+    </a>
+    <h1>
+      Waw -- 
+      1
+      , 中文标题“这”
+    </h1>
+  </div>
+</YozoraHeading>
 `;
 
-exports[`basic rendering case snapshot: level 2 1`] = `
-.c0 {
-  position: relative;
-  display: block;
-  margin: 1.2em -2em 1em;
-  padding: 0 2em;
-  line-height: 1.25;
-  font-family: inherit;
-}
-
-.c0 h1,
-.c0 h2,
-.c0 h3,
-.c0 h4,
-.c0 h5,
-.c0 h6 {
-  color: inherit;
-  font-style: normal;
-}
-
-.c0 h1,
-.c0 h2 {
-  padding: 0.3em 0;
-  border-bottom: 1px solid lightgray;
-  margin: 0.9em 0 1em;
-}
-
-.c0 h1 {
-  font-size: 2em;
-}
-
-.c0 h2 {
-  font-size: 1.5em;
-}
-
-.c0 h3 {
-  font-size: 1.25em;
-}
-
-.c0 h4 {
-  font-size: 1em;
-}
-
-.c0 h5 {
-  font-size: 0.875em;
-}
-
-.c0 h6 {
-  font-size: 0.85em;
-}
-
-.c0 > a {
-  position: absolute;
-  top: 50%;
-  left: 0.25em;
-  -webkit-transform: translate(0,-50%);
-  -ms-transform: translate(0,-50%);
-  transform: translate(0,-50%);
-  display: inline-block;
-  height: 1.25em;
-  padding-right: 0.25em;
-  font-size: 1.25em;
-  line-height: 1;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.c0 > a > svg {
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: middle;
-  fill: currentColor;
-}
-
-.c0:hover > a {
-  visibility: visible;
-  opacity: 1;
-}
-
-<header
-  class="c0"
+exports[`snapshot default: level 2 1`] = `
+<div
+  class="yozora-heading"
   style="color:orange;font-size:16px"
 >
   <a
@@ -300,5 +76,5 @@ exports[`basic rendering case snapshot: level 2 1`] = `
   <h2>
     Waw -- 2, 中文标题“这”
   </h2>
-</header>
+</div>
 `;
