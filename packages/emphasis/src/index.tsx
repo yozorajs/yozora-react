@@ -5,7 +5,7 @@ export interface EmphasisProps extends React.HTMLAttributes<HTMLElement> {
   /**
    * Emphasis contents.
    */
-  children: React.ReactNode
+  children?: React.ReactNode
   /**
    * Root css class of the component.
    * @default 'yozora-emphasis'
@@ -29,7 +29,7 @@ export const Emphasis = React.forwardRef<HTMLElement, EmphasisProps>(
 )
 
 Emphasis.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
 }
 

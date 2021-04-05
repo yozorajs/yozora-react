@@ -5,7 +5,7 @@ export interface StrongProps extends React.HTMLAttributes<HTMLElement> {
   /**
    * Strong contents.
    */
-  children: React.ReactNode
+  children?: React.ReactNode
   /**
    * Root css class of the component.
    * @default 'yozora-strong'
@@ -29,7 +29,7 @@ export const Strong = React.forwardRef<HTMLElement, StrongProps>(
 )
 
 Strong.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
 }
 

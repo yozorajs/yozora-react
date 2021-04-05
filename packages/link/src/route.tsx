@@ -28,7 +28,7 @@ export const RouteLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
 RouteLink.propTypes = {
   url: PropTypes.string.isRequired,
   title: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   href: PropTypes.string,
 }
 

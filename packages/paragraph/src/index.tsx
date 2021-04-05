@@ -6,7 +6,7 @@ export interface ParagraphProps
   /**
    * Paragraph content.
    */
-  children: React.ReactNode
+  children?: React.ReactNode
   /**
    * Root css class of the component.
    * @default 'yozora-paragraph'
@@ -30,7 +30,7 @@ export const Paragraph = React.forwardRef<HTMLParagraphElement, ParagraphProps>(
 )
 
 Paragraph.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
 }
 

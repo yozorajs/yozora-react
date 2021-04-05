@@ -5,7 +5,7 @@ export interface DeleteProps extends React.DelHTMLAttributes<HTMLElement> {
   /**
    * Delete contents.
    */
-  children: React.ReactNode
+  children?: React.ReactNode
   /**
    * Root css class of the component.
    * @default 'yozora-delete'
@@ -29,7 +29,7 @@ export const Delete = React.forwardRef<HTMLElement, DeleteProps>(
 )
 
 Delete.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
 }
 

@@ -22,7 +22,7 @@ export interface ListProps
   /**
    * List content
    */
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 /**
@@ -49,7 +49,7 @@ export const List = React.forwardRef<
 List.propTypes = {
   ordered: PropTypes.bool.isRequired,
   start: PropTypes.number,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 }
 
 List.displayName = 'YozoraList'

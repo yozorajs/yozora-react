@@ -14,7 +14,7 @@ export interface TableRowProps
   /**
    * tableRow row content
    */
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 /**
@@ -28,7 +28,7 @@ export const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(
 )
 
 TableRow.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 }
 
 TableRow.displayName = 'YozoraTableRow'

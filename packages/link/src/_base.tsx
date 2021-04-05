@@ -17,7 +17,7 @@ export interface LinkProps
   /**
    * link content
    */
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 export const Container = styled.a`

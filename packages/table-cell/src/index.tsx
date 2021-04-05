@@ -16,7 +16,7 @@ export interface TableCellProps
   /**
    * Content of the table cell
    */
-  children: React.ReactNode
+  children?: React.ReactNode
   /**
    * Whether is the table header cell
    */
@@ -48,7 +48,7 @@ export const TableCell = React.forwardRef<
 )
 
 TableCell.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   isHeader: PropTypes.bool,
   align: PropTypes.oneOf<'left' | 'center' | 'right'>([
     'left',

@@ -35,7 +35,7 @@ export const ExternalLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
 ExternalLink.propTypes = {
   url: PropTypes.string.isRequired,
   title: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   href: PropTypes.string,
   target: PropTypes.string,
   rel: PropTypes.string,

@@ -1,60 +1,42 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-import './styled-components'
-import { defaultListItemTheme, getListItemStyle } from './theme'
 
-export * from './theme'
-
-/**
- * Props for creating ListItem
- */
-export interface ListItemProps extends React.LiHTMLAttributes<HTMLSpanElement> {
+export interface ListItemProps extends React.LiHTMLAttributes<HTMLLIElement> {
+  /**
+   * ListItem content
+   */
+  children?: React.ReactNode
   /**
    * Whether if is a TODO item, and given its status
    */
   status?: 'todo' | 'doing' | 'done'
   /**
-   * ListItem content
+   * Root css class of the component.
+   * @default 'yozora-list-item'
    */
-  children: React.ReactNode
+  className?: string
 }
 
 /**
- * Render ListItem content
- *
- * @param props
+ * Render yozora `listItem`.
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-list-item
  */
 export const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(
   (props, forwardRef): React.ReactElement => {
-    const { status, ...htmlProps } = props
-    return <Container {...htmlProps} ref={forwardRef} />
+    const { className = 'yozora-list-item', children, ...htmlProps } = props
+    return (
+      <li {...htmlProps} ref={forwardRef} className={className}>
+        {children}
+      </li>
+    )
   },
 )
 
 ListItem.propTypes = {
+  children: PropTypes.node,
   status: PropTypes.oneOf<'todo' | 'doing' | 'done'>(['todo', 'doing', 'done']),
-  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 }
 
 ListItem.displayName = 'YozoraListItem'
 export default ListItem
-
-const Container = styled.li`
-  color: ${getListItemStyle('color')};
-  padding: ${getListItemStyle('padding')};
-  margin: ${getListItemStyle('margin')};
-  line-height: ${getListItemStyle('lineHeight')};
-
-  & > :first-child {
-    margin-bottom: 0
-  }
-`
-
-Container.defaultProps = {
-  theme: { yozora: { listItem: defaultListItemTheme } },
-}
-
-export const ListItemClasses = {
-  container: `${Container}`,
-}

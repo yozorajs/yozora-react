@@ -6,7 +6,7 @@ export interface BlockquoteProps
   /**
    * Blockquote content.
    */
-  children: React.ReactNode
+  children?: React.ReactNode
   /**
    * Root css class of the component.
    * @default 'yozora-blockquote'
@@ -30,7 +30,7 @@ export const Blockquote = React.forwardRef<HTMLElement, BlockquoteProps>(
 )
 
 Blockquote.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
 }
 

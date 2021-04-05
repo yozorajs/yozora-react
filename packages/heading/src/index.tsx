@@ -19,7 +19,7 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Heading content
    */
-  children: React.ReactNode
+  children?: React.ReactNode
   /**
    * Heading identifier
    */
@@ -64,7 +64,7 @@ export const Heading = React.forwardRef<HTMLDivElement, HeadingProps>(
 
 Heading.propTypes = {
   level: PropTypes.oneOf<1 | 2 | 3 | 4 | 5 | 6>([1, 2, 3, 4, 5, 6]).isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   identifier: PropTypes.string.isRequired,
   linkIcon: PropTypes.node,
   linkClassName: PropTypes.string,
