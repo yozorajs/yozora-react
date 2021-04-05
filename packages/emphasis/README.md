@@ -55,7 +55,7 @@
 </header>
 <br/>
 
-This package is designed to render [mdast emphasis][] type data
+This package is designed to render data of [@yozora/tokenizer-emphasis][].
 
 
 ## Install

@@ -55,7 +55,7 @@
 </header>
 <br/>
 
-This package is designed to render [mdast strong][] type data
+This package is designed to render data of [@yozora/tokenizer-strong][].
 
 
 ## Install
@@ -107,7 +107,6 @@ This package is designed to render [mdast strong][] type data
 
 * [@yozora/tokenizer-strong][]
 * [Strong | Mdast][mdast]
-
 
 
 [mdast]: https://github.com/syntax-tree/mdast#strong

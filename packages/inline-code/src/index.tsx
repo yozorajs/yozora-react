@@ -1,63 +1,43 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-import './styled-components'
-import { defaultInlineCodeTheme, getInlineCodeStyle } from './theme'
 
-export * from './theme'
-
-/**
- * Props for creating InlineCode
- */
-export interface InlineCodeProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface InlineCodeProps extends React.HTMLAttributes<HTMLElement> {
   /**
-   * inline code content
+   * Literal inline-code.
    */
   value: string
+  /**
+   * Root css class of the component.
+   * @default 'yozora-inline-code'
+   */
+  className?: string
 }
 
 /**
- * Render `inlineCode` content
- *
- * @param props
+ * Render yozora `inline-code`.
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-inline-code
  */
-export const InlineCode = React.forwardRef<HTMLSpanElement, InlineCodeProps>(
+export const InlineCode = React.forwardRef<HTMLElement, InlineCodeProps>(
   (props, forwardRef): React.ReactElement => {
-    const { children, value, ...htmlProps } = props
+    const {
+      className = 'yozora-inline-code',
+      // eslint-disable-next-line react/prop-types
+      children: _, // children is not allowed.
+      value,
+      ...htmlProps
+    } = props
     return (
-      <Container {...htmlProps} ref={forwardRef}>
+      <code {...htmlProps} ref={forwardRef} className={className}>
         {value}
-      </Container>
+      </code>
     )
   },
 )
 
 InlineCode.propTypes = {
   value: PropTypes.string.isRequired,
-  children: PropTypes.node,
+  className: PropTypes.string,
 }
 
 InlineCode.displayName = 'YozoraInlineCode'
 export default InlineCode
-
-const Container = styled.code`
-  padding: ${getInlineCodeStyle('padding')};
-  border-radius: ${getInlineCodeStyle('borderRadius')};
-  margin: ${getInlineCodeStyle('margin')};
-  background: ${getInlineCodeStyle('background')};
-  line-height: ${getInlineCodeStyle('lineHeight')};
-  color: ${getInlineCodeStyle('color')};
-  font-family: ${getInlineCodeStyle('fontFamily')};
-  font-size: ${getInlineCodeStyle('fontSize')};
-  font-weight: ${getInlineCodeStyle('fontWeight')};
-  font-style: ${getInlineCodeStyle('fontStyle')};
-  white-space: ${getInlineCodeStyle('whiteSpace')};
-`
-
-Container.defaultProps = {
-  theme: { yozora: { inlineCode: defaultInlineCodeTheme } },
-}
-
-export const InlineCodeClasses = {
-  container: `${Container}`,
-}

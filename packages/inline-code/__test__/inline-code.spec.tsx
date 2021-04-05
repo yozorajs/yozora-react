@@ -1,32 +1,23 @@
 import { mount, render } from 'enzyme'
 import React from 'react'
-import type { DefaultTheme } from 'styled-components'
-import { ThemeProvider } from 'styled-components'
 import InlineCode from '../src'
 
-describe('basic rendering case', () => {
-  const errorLogger = jest
-    .spyOn(global.console, 'error')
-    .mockImplementation((...args) => {
+describe('prop types', function () {
+  beforeEach(() => {
+    jest.spyOn(global.console, 'error').mockImplementation((...args) => {
       throw new Error(args.join(' '))
     })
-
-  afterAll(() => {
-    errorLogger.mockRestore()
   })
 
-  it('render a text value', () => {
-    const text = 'Hello, world!'
-    const wrapper = render(<InlineCode value={text} />)
-    expect(wrapper.text()).toEqual(text)
-  })
+  it('forward ref', () => {
+    const ref = React.createRef<HTMLSpanElement>()
+    const wrapper = mount(
+      <InlineCode ref={ref} data-name="yozora-inline-code" value="" />,
+    )
 
-  it('render with custom className', () => {
-    const text = 'Hello, world!'
-    const className = 'custom-text'
-    const wrapper = render(<InlineCode className={className} value={text} />)
-    expect(wrapper.hasClass(className)).toEqual(true)
-    expect(wrapper.text()).toEqual(text)
+    const o = wrapper.getDOMNode()
+    expect(o).toEqual(ref.current)
+    expect(o.getAttribute('data-name')).toEqual('yozora-inline-code')
   })
 
   it('value is required', () => {
@@ -37,16 +28,21 @@ describe('basic rendering case', () => {
     }
   })
 
-  it('forward ref', () => {
-    const ref = React.createRef<HTMLSpanElement>()
-    const wrapper = mount(<InlineCode ref={ref} data-value="waw" value="" />)
+  it('className is optional', function () {
+    expect(
+      render(<InlineCode value="" />).hasClass('yozora-inline-code'),
+    ).toEqual(true)
 
-    const o = wrapper.getDOMNode()
-    expect(o).toEqual(ref.current)
-    expect(o.getAttribute('data-value')).toEqual('waw')
+    expect(
+      render(<InlineCode className="my-inline-code" value="" />).hasClass(
+        'my-inline-code',
+      ),
+    ).toEqual(true)
   })
+})
 
-  it('snapshot', () => {
+describe('snapshot', function () {
+  it('default', () => {
     const wrapper = render(
       <InlineCode
         value="Hello, world!"
@@ -56,32 +52,14 @@ describe('basic rendering case', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('snapshot with theme', () => {
-    const theme: DefaultTheme = {
-      yozora: {
-        inlineCode: {
-          padding: '2px',
-          borderRadius: '3px',
-          margin: '0 2px',
-          background: 'hsla(210deg, 13%, 12%, 0.05)',
-          lineHeight: 1.5,
-          color: '#d81848',
-          fontFamily: 'Consolas, monospace, sans-serif',
-          fontSize: '1em',
-          fontWeight: 'inherit',
-          fontStyle: undefined,
-          // whiteSpace: undefined,
-        },
-      },
-    }
-
-    const wrapper = mount(
-      <ThemeProvider theme={theme}>
-        <InlineCode
-          value="Hello, world!"
-          style={{ color: 'orange', fontSize: '16px' }}
-        />
-      </ThemeProvider>,
+  it('custom', () => {
+    const wrapper = render(
+      <InlineCode
+        value="Hello, world!"
+        className="custom-class"
+        style={{ color: 'orange' }}
+        data-name="yozora-inline-code"
+      />,
     )
     expect(wrapper).toMatchSnapshot()
   })

@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-inline-code</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/inline-code#readme">@yozora/react-inline-code</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-inline-code">
@@ -61,7 +61,7 @@
 </header>
 <br/>
 
-This package is designed to render [mdast inlineCode][] type data
+This package is designed to render data of [@yozora/tokenizer-inline-code][].
 
 
 ## Install
@@ -79,89 +79,40 @@ This package is designed to render [mdast inlineCode][] type data
   ```
 
 ## Usage
-  * Use in React project
 
-    - Pure
+* Use in React project
 
-      ```tsx
-      import React from 'react'
-      import InlineCode from '@yozora/react-inline-code'
+  ```tsx
+  import React from 'react'
+  import InlineCode from '@yozora/react-inline-code'
 
-      const wrapper = (
-        <InlineCode
-          value="Hello, world!"
-          style={ { color: 'orange', fontSize: '16px' } }
-        />
-      )
-      ```
+  const wrapper = (
+    <InlineCode
+      value="Hello, world!"
+      style={ { color: 'orange', fontSize: '16px' } }
+    />
+  )
+  ```
 
-    - With theme
+* Props
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import InlineCode from '@yozora/react-inline-code'
+  Name        | Type      | Required  | Default                 | Description
+  :----------:|:---------:|:---------:|:-----------------------:|:-------------
+  `ref`       | See below | `false`   | -                       | Forwarded ref callback
+  `value`     | `string`  | `true`    | -                       | InlineCode content
+  `className` | `string`  | `false`   | `"yozora-inline-code"`  | Root css class of the component
 
-      const theme: DefaultTheme = {
-        yozora: {
-          inlineCode: {
-            padding: '2px',
-            borderRadius: '3px',
-            margin: '0 2px',
-            background: 'hsla(210deg, 13%, 12%, 0.05)',
-            lineHeight: 1.5,
-            color: '#d81848',
-            fontFamily: 'Consolas, monospace, sans-serif',
-            fontSize: '1em',
-            fontWeight: 'inherit',
-            fontStyle: undefined,
-            // whiteSpace: undefined,
-          }
-        }
-      }
+  - `ref` type is `React.RefObject<HTMLElement>`
 
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <InlineCode
-            value="Hello, world!"
-            style={ { color: 'orange', fontSize: '16px' } }
-          />
-        </ThemeProvider>
-      )
-      ```
+  - `InlineCodeProps` inherited all attributes of
+    `HTMLElement` (`React.HTMLAttributes<HTMLElement>`)
+## Related
 
-  * Props
-
-     Name     | Type                                | Required  | Default | Description
-    :--------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `ref`    | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
-     `value`  | `string`                            | `true`    | -       | InlineCode content
-
-    InlineCodeProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
-
-  * Theme
-
-     Prop Name    | Default
-    :------------:|:--------------
-     padding      | `4px`
-     borderRadius | `2px`
-     margin       | `0`
-     background   | `none`
-     lineHeight   | `1.375`
-     color        | `inherit`
-     fontFamily   | `Consolas, monospace, sans-serif`
-     fontSize     | `1em`
-     fontWeight   | `inherit`
-     fontStyle    | `inherit`
-     whiteSpace   | `normal`
-
-    See [YozoraInlineCodeTheme][] for details.
+* [@yozora/tokenizer-inline-code][]
+* [inlineCode | Mdast][mdast]
 
 
-## References
 
-  - [mdast inlineCode][]
+[mdast]: https://github.com/syntax-tree/mdast#inlinecode
+[@yozora/tokenizer-inline-code]: https://www.npmjs.com/package/@yozora/tokenizer-inline-code
 
-
-[mdast inlineCode]: https://github.com/syntax-tree/mdast#inlinecode
-[YozoraInlineCodeTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/inline-code/src/theme.ts
