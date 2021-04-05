@@ -95,7 +95,7 @@ This package is designed to render data of [@yozora/tokenizer-paragraph][].
   :----------:|:-----------------:|:---------:|:---------------------:|:-------------
   `ref`       | See below         | `false`   | -                     | Forwarded ref callback
   `className` | `string`          | `false`   | `"yozora-paragraph"`  | Root css class of the component
-  `children`  | `React.ReactNode` | `true`    | -                     | Paragraph contents
+  `children`  | `React.ReactNode` | `false`   | -                     | Paragraph contents
 
   - `ref` type is `React.RefObject<HTMLParagraphElement>`
 

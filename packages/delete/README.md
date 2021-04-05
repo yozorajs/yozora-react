@@ -95,7 +95,7 @@ This package is designed to render data of [@yozora/tokenizer-delete][].
   :----------:|:-----------------:|:---------:|:-----------------:|:-------------
   `ref`       | See below         | `false`   | -                 | Forwarded ref callback
   `className` | `string`          | `false`   | `"yozora-delete"` | Root css class of the component
-  `children`  | `React.ReactNode` | `true`    | -                 | Deleted contents
+  `children`  | `React.ReactNode` | `false`   | -                 | Deleted contents
 
 
   - `ref` type is `React.RefObject<HTMLElement>`

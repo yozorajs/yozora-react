@@ -94,7 +94,7 @@ This package is designed to render [mdast strong][] type data
   :----------:|:-----------------:|:---------:|:-----------------:|:-------------
   `ref`       | See below         | `false`   | -                 | Forwarded ref callback
   `className` | `string`          | `false`   | `"yozora-strong"` | Root css class of the component
-  `children`  | `React.ReactNode` | `true`    | -                 | Strong contents
+  `children`  | `React.ReactNode` | `false`   | -                 | Strong contents
 
 
   - `ref` type is `React.RefObject<HTMLElement>`

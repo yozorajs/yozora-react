@@ -95,7 +95,7 @@ This package is designed to render data of [@yozora/tokenizer-blockquote][].
   :----------:|:-----------------:|:---------:|:---------------------:|:-------------
   `ref`       | See below         | `false`   | -                     | Forwarded ref callback
   `className` | `string`          | `false`   | `"yozora-blockquote"` | Root css class of the component
-  `children`  | `React.ReactNode` | `true`    | -                     | Blockquote contents
+  `children`  | `React.ReactNode` | `false`   | -                     | Blockquote contents
 
   - `ref` type is `React.RefObject<HTMLElement>`
 
