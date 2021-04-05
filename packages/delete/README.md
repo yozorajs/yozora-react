@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-delete</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/delete#readme">@yozora/react-delete</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-delete">
@@ -104,7 +104,7 @@ This package is designed to render data of [@yozora/tokenizer-delete][].
     `HTMLElement` (`React.DelHTMLAttributes<HTMLElement>`)
 
 
-# Related
+## Related
 
 * [@yozora/tokenizer-delete][]
 * [Delete | Mdast][mdast]

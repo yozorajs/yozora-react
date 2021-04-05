@@ -22,11 +22,11 @@ describe('prop types', function () {
     expect(o.getAttribute('data-name')).toEqual('yozora-delete')
   })
 
-  it('children is required', function () {
+  it('children is optional', function () {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
         render(<Delete>{value}</Delete>)
-      }).toThrow(/The prop `children` is marked as required/i)
+      }).not.toThrow()
     }
 
     expect(render(<Delete>Hello, world!</Delete>).text()).toEqual(

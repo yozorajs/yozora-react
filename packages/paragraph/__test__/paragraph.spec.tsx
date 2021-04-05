@@ -22,11 +22,11 @@ describe('prop types', function () {
     expect(o.getAttribute('data-name')).toEqual('yozora-paragraph')
   })
 
-  it('children is required', function () {
+  it('children is optional', function () {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
         render(<Paragraph>{value}</Paragraph>)
-      }).toThrow(/The prop `children` is marked as required/i)
+      }).not.toThrow()
     }
 
     expect(render(<Paragraph>Hello, world!</Paragraph>).text()).toEqual(

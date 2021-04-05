@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-strong</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/strong#readme">@yozora/react-strong</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-strong">
@@ -102,7 +102,8 @@ This package is designed to render [mdast strong][] type data
   - `StrongProps` inherited all attributes of
     `HTMLElement` (`React.HTMLAttributes<HTMLElement>`)
 
-# Related
+
+## Related
 
 * [@yozora/tokenizer-strong][]
 * [Strong | Mdast][mdast]

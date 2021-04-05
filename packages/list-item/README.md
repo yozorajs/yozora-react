@@ -102,7 +102,7 @@ This package is designed to render data of [@yozora/tokenizer-list-item][].
       `HTMLLIElement` (`React.LiHTMLAttributes<HTMLLIElement>`)
 
 
-## References
+## Related
 
 * [@yozora/tokenizer-list-item][]
 * [ListItem | Mdast][mdast]

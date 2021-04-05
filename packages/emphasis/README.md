@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-emphasis</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/emphasis#readme">@yozora/react-emphasis</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-emphasis">
@@ -102,7 +102,7 @@ This package is designed to render [mdast emphasis][] type data
   - `EmphasisProps` inherited all attributes of
     `HTMLElement` (`React.HTMLAttributes<HTMLElement>`)
 
-# Related
+## Related
 
 * [@yozora/tokenizer-emphasis][]
 * [Emphasis | Mdast][mdast]

@@ -22,11 +22,9 @@ describe('prop types', function () {
     expect(o.getAttribute('data-name')).toEqual('yozora-emphasis')
   })
 
-  it('children is required', function () {
+  it('children is optional', function () {
     for (const value of [undefined, null] as any[]) {
-      expect(() => {
-        render(<Emphasis>{value}</Emphasis>)
-      }).toThrow(/The prop `children` is marked as required/i)
+      expect(() => render(<Emphasis>{value}</Emphasis>)).not.toThrow()
     }
 
     expect(render(<Emphasis>Hello, world!</Emphasis>).text()).toEqual(

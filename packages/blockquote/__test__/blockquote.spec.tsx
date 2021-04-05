@@ -22,11 +22,9 @@ describe('prop types', function () {
     expect(o.getAttribute('data-name')).toEqual('yozora-blockquote')
   })
 
-  it('children is required', function () {
+  it('children is optional', function () {
     for (const value of [undefined, null] as any[]) {
-      expect(() => {
-        render(<Blockquote>{value}</Blockquote>)
-      }).toThrow(/The prop `children` is marked as required/i)
+      expect(() => render(<Blockquote>{value}</Blockquote>)).not.toThrow()
     }
 
     expect(render(<Blockquote>Hello, world!</Blockquote>).text()).toEqual(
