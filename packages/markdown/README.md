@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-markdown</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/markdown#readme">@yozora/react-markdown</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-markdown">

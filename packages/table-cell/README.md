@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-table-cell</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/table-cell#readme">@yozora/react-table-cell</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-table-cell">

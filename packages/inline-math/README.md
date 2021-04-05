@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-inline-math</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/inline-math#readme">@yozora/react-inline-math</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-inline-math">
@@ -37,12 +37,6 @@
       <img
         alt="React version"
         src="https://img.shields.io/npm/dependency-version/@yozora/react-inline-math/peer/react"
-      />
-    </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-inline-math/peer/styled-components"
       />
     </a>
     <a href="https://github.com/facebook/jest">
