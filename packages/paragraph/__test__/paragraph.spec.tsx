@@ -1,68 +1,58 @@
 import { mount, render } from 'enzyme'
 import React from 'react'
-import type { DefaultTheme } from 'styled-components'
-import { ThemeProvider } from 'styled-components'
 import Paragraph from '../src'
 
-describe('basic rendering case', () => {
-  const errorLogger = jest
-    .spyOn(global.console, 'error')
-    .mockImplementation((...args) => {
+describe('prop types', function () {
+  beforeEach(() => {
+    jest.spyOn(global.console, 'error').mockImplementation((...args) => {
       throw new Error(args.join(' '))
     })
-
-  afterAll(() => {
-    errorLogger.mockRestore()
   })
 
-  it('render a simple content', () => {
-    const text = 'Hello, world!'
-    const wrapper = render(
-      <Paragraph>
-        <span>
-          <Paragraph>{text}</Paragraph>
-        </span>
-      </Paragraph>,
-    )
-    expect(wrapper.text()).toEqual(text)
-  })
-
-  it('render with custom className', () => {
-    const text = 'Hello, world!'
-    const className = 'custom-text'
-    const wrapper = render(
-      <Paragraph className={className}>
-        <span>{text}</span>
-      </Paragraph>,
-    )
-    expect(wrapper.hasClass(className)).toEqual(true)
-    expect(wrapper.text()).toEqual(text)
-  })
-
-  it('children is required', () => {
-    for (const value of [undefined, null] as any[]) {
-      expect(() => {
-        render(<Paragraph>{value}</Paragraph>)
-      }).toThrow(/The prop `children` is marked as required/i)
-    }
-  })
-
-  it('forward ref', () => {
-    const ref = React.createRef<HTMLParagraphElement>()
+  it('forward ref', function () {
+    const ref = React.createRef<HTMLHRElement>()
     const wrapper = mount(
-      <Paragraph ref={ref} data-value="waw">
-        1
+      <Paragraph ref={ref} data-name="yozora-paragraph">
+        Paragraph contents.
       </Paragraph>,
     )
 
     const o = wrapper.getDOMNode()
     expect(o).toEqual(ref.current)
-    expect(o.getAttribute('data-value')).toEqual('waw')
+    expect(o.getAttribute('data-name')).toEqual('yozora-paragraph')
   })
 
-  it('snapshot', () => {
+  it('children is required', function () {
+    for (const value of [undefined, null] as any[]) {
+      expect(() => {
+        render(<Paragraph>{value}</Paragraph>)
+      }).toThrow(/The prop `children` is marked as required/i)
+    }
+
+    expect(render(<Paragraph>Hello, world!</Paragraph>).text()).toEqual(
+      'Hello, world!',
+    )
+  })
+
+  it('className is optional', function () {
+    expect(
+      render(<Paragraph>Paragraph contents.</Paragraph>).hasClass(
+        'yozora-paragraph',
+      ),
+    ).toEqual(true)
+
+    expect(
+      render(
+        <Paragraph className="my-paragraph">Paragraph contents.</Paragraph>,
+      ).hasClass('my-paragraph'),
+    ).toEqual(true)
+  })
+})
+
+describe('snapshot', function () {
+  it('default', function () {
     const wrapper = render(
-      <Paragraph style={{ color: 'orange', fontSize: '16px' }}>
+      <Paragraph>
         some text1
         <span>some text2</span>
       </Paragraph>,
@@ -70,25 +60,17 @@ describe('basic rendering case', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('snapshot with theme', () => {
-    const theme: DefaultTheme = {
-      yozora: {
-        paragraph: {
-          color: 'red',
-          padding: '0 1rem',
-          margin: 18,
-          // lineHeight: 1.5,
-        },
-      },
-    }
-
-    const wrapper = mount(
-      <ThemeProvider theme={theme}>
-        <Paragraph>
-          some text1
-          <span>some text2</span>
-        </Paragraph>
-      </ThemeProvider>,
+  it('custom', function () {
+    const wrapper = render(
+      <Paragraph
+        className="custom-class"
+        data-name="yozora-paragraph"
+        style={{ color: 'orange' }}
+      >
+        some text1
+        <span>some text2</span>
+        <Paragraph>some text3</Paragraph>
+      </Paragraph>,
     )
     expect(wrapper).toMatchSnapshot()
   })

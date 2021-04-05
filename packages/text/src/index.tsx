@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface TextProps extends React.HTMLAttributes<HTMLElement> {
   /**
    * Literal text.
    */
@@ -17,13 +17,13 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
  * Render yozora `text`.
  * @see https://www.npmjs.com/package/@yozora/tokenizer-text
  */
-export const Text = React.forwardRef<HTMLSpanElement, TextProps>(
+export const Text = React.forwardRef<HTMLElement, TextProps>(
   (props, forwardRef): React.ReactElement => {
     const {
-      value,
       className = 'yozora-text',
       // eslint-disable-next-line react/prop-types
       children: _, // children is not allowed.
+      value,
       ...htmlProps
     } = props
     return (
