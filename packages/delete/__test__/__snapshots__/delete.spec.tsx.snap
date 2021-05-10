@@ -2,8 +2,7 @@
 
 exports[`snapshot custom 1`] = `
 <del
-  class="custom-class"
-  data-name="yozora-delete"
+  class="yozora-delete custom-class"
   style="color:orange"
 >
   some text1

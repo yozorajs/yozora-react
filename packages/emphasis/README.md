@@ -95,8 +95,8 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   Name        | Type                  | Required  | Default | Description
   :----------:|:---------------------:|:---------:|:-------:|:-------------
   `children`  | `React.ReactNode`     | `false`   | -       | Emphasis contents
-  `className` | `string`              | `false`   | -       | Root css class of the component
-  `style`     | `React.CSSProperties` | `false`   | -       | Text content
+  `className` | `string`              | `false`   | -       | Root css class
+  `style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
   - `className`: The root element of this component will always bind with the
     CSS class `'yozora-emphasis'`
@@ -104,8 +104,11 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
 ## Related
 
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
 * [@yozora/tokenizer-emphasis][]
 * [Emphasis | Mdast][mdast]
+
 
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#emphasis
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown

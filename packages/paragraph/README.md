@@ -96,8 +96,8 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   Name        | Type                  | Required  | Default | Description
   :----------:|:---------------------:|:---------:|:-------:|:-------------
   `children`  | `React.ReactNode`     | `false`   | -       | Paragraph contents
-  `className` | `string`              | `false`   | -       | Root css class of the component
-  `style`     | `React.CSSProperties` | `false`   | -       | Text content
+  `className` | `string`              | `false`   | -       | Root css class
+  `style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
   - `className`: The root element of this component will always bind with the
     CSS class `'yozora-paragraph'`

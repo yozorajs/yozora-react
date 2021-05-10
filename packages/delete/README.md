@@ -55,7 +55,9 @@
 </header>
 <br/>
 
-This package is designed to render data of [@yozora/tokenizer-delete][].
+This component is for rendering the [Delete][@yozora/ast] data produced by
+[@yozora/tokenizer-delete][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -89,26 +91,27 @@ This package is designed to render data of [@yozora/tokenizer-delete][].
   )
   ```
 
-* Props
+### Props
 
-  Name        | Type              | Required  | Default           | Description
-  :----------:|:-----------------:|:---------:|:-----------------:|:-------------
-  `ref`       | See below         | `false`   | -                 | Forwarded ref callback
-  `className` | `string`          | `false`   | `"yozora-delete"` | Root css class of the component
-  `children`  | `React.ReactNode` | `false`   | -                 | Deleted contents
+  Name        | Type                  | Required  | Default | Description
+  :----------:|:---------------------:|:---------:|:-------:|:-------------
+  `children`  | `React.ReactNode`     | `false`   | -       | Emphasis contents
+  `className` | `string`              | `false`   | -       | Root css class
+  `style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
-
-  - `ref` type is `React.RefObject<HTMLElement>`
-
-  - `DeleteProps` inherited all attributes of
-    `HTMLElement` (`React.DelHTMLAttributes<HTMLElement>`)
+  - `className`: The root element of this component will always bind with the
+    CSS class `'yozora-delete'`
 
 
 ## Related
 
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
 * [@yozora/tokenizer-delete][]
 * [Delete | Mdast][mdast]
 
 
-[mdast]: https://github.com/syntax-tree/mdast#delete
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#delete
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-delete]: https://www.npmjs.com/package/@yozora/tokenizer-delete
+[mdast]: https://github.com/syntax-tree/mdast#delete
