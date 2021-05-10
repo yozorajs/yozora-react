@@ -2,8 +2,7 @@
 
 exports[`snapshot custom 1`] = `
 <strong
-  class="custom-class"
-  data-name="yozora-strong"
+  class="yozora-strong custom-class"
   style="color:orange"
 >
   some text1
@@ -21,5 +20,6 @@ exports[`snapshot default 1`] = `
   <span>
     some text2
   </span>
+   
 </strong>
 `;

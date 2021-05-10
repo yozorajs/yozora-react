@@ -55,7 +55,9 @@
 </header>
 <br/>
 
-This package is designed to render data of [@yozora/tokenizer-strong][].
+This component is for rendering the [Strong][@yozora/ast] data produced by
+[@yozora/tokenizer-emphasis][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -81,33 +83,34 @@ This package is designed to render data of [@yozora/tokenizer-strong][].
   import Strong from '@yozora/react-strong'
 
   const wrapper = (
-    <Strong style={{ color: 'orange', fontSize: '16px' }}>
+    <Strong style={{ color: 'orange' }}>
       some text1
       <span>some text2</span>
     </Strong>
   )
   ```
 
-* Props
+### Props
 
-  Name        | Type              | Required  | Default           | Description
-  :----------:|:-----------------:|:---------:|:-----------------:|:-------------
-  `ref`       | See below         | `false`   | -                 | Forwarded ref callback
-  `className` | `string`          | `false`   | `"yozora-strong"` | Root css class of the component
-  `children`  | `React.ReactNode` | `false`   | -                 | Strong contents
+  Name        | Type                  | Required  | Default | Description
+  :----------:|:---------------------:|:---------:|:-------:|:-------------
+  `children`  | `React.ReactNode`     | `false`   | -       | Strong contents
+  `className` | `string`              | `false`   | -       | Root css class of the component
+  `style`     | `React.CSSProperties` | `false`   | -       | Text content
 
-
-  - `ref` type is `React.RefObject<HTMLElement>`
-
-  - `StrongProps` inherited all attributes of
-    `HTMLElement` (`React.HTMLAttributes<HTMLElement>`)
+  - `className`: The root element of this component will always bind with the
+    CSS class `'yozora-strong'`.
 
 
 ## Related
 
-* [@yozora/tokenizer-strong][]
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
+* [@yozora/tokenizer-emphasis][]
 * [Strong | Mdast][mdast]
 
 
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#strong
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-emphasis]: https://www.npmjs.com/package/@yozora/tokenizer-emphasis
 [mdast]: https://github.com/syntax-tree/mdast#strong
-[@yozora/tokenizer-strong]: https://www.npmjs.com/package/@yozora/tokenizer-strong

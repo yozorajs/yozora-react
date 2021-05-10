@@ -1,36 +1,39 @@
+import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export interface StrongProps extends React.HTMLAttributes<HTMLElement> {
+export interface StrongProps {
   /**
    * Strong contents.
    */
   children?: React.ReactNode
   /**
    * Root css class of the component.
-   * @default 'yozora-strong'
    */
   className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
 }
 
 /**
  * Render yozora `strong`.
  * @see https://www.npmjs.com/package/@yozora/tokenizer-strong
  */
-export const Strong = React.forwardRef<HTMLElement, StrongProps>(
-  (props, forwardRef): React.ReactElement => {
-    const { className = 'yozora-strong', children, ...htmlProps } = props
-    return (
-      <strong {...htmlProps} ref={forwardRef} className={className}>
-        {children}
-      </strong>
-    )
-  },
-)
+export function Strong(props: StrongProps): React.ReactElement {
+  const { children, className, style } = props
+  return (
+    <strong className={cn('yozora-strong', className)} style={style}>
+      {children}
+    </strong>
+  )
+}
 
 Strong.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  style: PropTypes.object,
 }
 
 Strong.displayName = 'YozoraStrong'
