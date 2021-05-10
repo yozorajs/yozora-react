@@ -21,6 +21,7 @@ export interface InlineMathProps {
 /**
  * Render yozora `inline-math`.
  * @see https://www.npmjs.com/package/@yozora/tokenizer-inline-math
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-math
  */
 export function InlineMath(props: InlineMathProps): React.ReactElement {
   const { value, className, style } = props
@@ -33,8 +34,8 @@ export function InlineMath(props: InlineMathProps): React.ReactElement {
 
 InlineMath.propTypes = {
   className: PropTypes.string,
-  value: PropTypes.string.isRequired,
   style: PropTypes.object,
+  value: PropTypes.string.isRequired,
 }
 
 InlineMath.displayName = 'YozoraInlineMath'

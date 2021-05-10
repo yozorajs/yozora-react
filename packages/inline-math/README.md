@@ -85,7 +85,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   const wrapper = (
     <InlineMath
       value="x^2 + y^2 = z^2"
-      style={ { color: 'orange', fontSize: '16px' } }
+      style={{ color: 'orange', fontSize: '16px' }}
     />
   )
   ```
@@ -106,12 +106,14 @@ Name        | Type                  | Required  | Default | Description
 
 * [@yozora/ast][]
 * [@yozora/react-markdown][]
+* [@yozora/react-math][]
 * [@yozora/tokenizer-inline-math][]
 * [@yozora/tokenizer-math][]
 * [mathjax][]
 
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#inlinemath
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/react-math]: https://www.npmjs.com/package/@yozora/react-inline-mathjax
 [@yozora/tokenizer-inline-math]: https://www.npmjs.com/package/@yozora/tokenizer-inline-math
 [@yozora/tokenizer-math]: https://www.npmjs.com/package/@yozora/tokenizer-math
 [mathjax]: https://www.mathjax.org/
