@@ -1,25 +1,19 @@
-import { mount, render } from 'enzyme'
+import { render } from 'enzyme'
 import React from 'react'
 import Paragraph from '../src'
+
+const children = (
+  <React.Fragment>
+    some text1
+    <span>some text2</span>
+  </React.Fragment>
+)
 
 describe('prop types', function () {
   beforeEach(() => {
     jest.spyOn(global.console, 'error').mockImplementation((...args) => {
       throw new Error(args.join(' '))
     })
-  })
-
-  it('forward ref', function () {
-    const ref = React.createRef<HTMLHRElement>()
-    const wrapper = mount(
-      <Paragraph ref={ref} data-name="yozora-paragraph">
-        Paragraph contents.
-      </Paragraph>,
-    )
-
-    const o = wrapper.getDOMNode()
-    expect(o).toEqual(ref.current)
-    expect(o.getAttribute('data-name')).toEqual('yozora-paragraph')
   })
 
   it('children is optional', function () {
@@ -34,42 +28,40 @@ describe('prop types', function () {
     )
   })
 
-  it('className is optional', function () {
-    expect(
-      render(<Paragraph>Paragraph contents.</Paragraph>).hasClass(
-        'yozora-paragraph',
-      ),
-    ).toEqual(true)
+  describe('className is optional', function () {
+    it('default', function () {
+      const node = render(<Paragraph>{children}</Paragraph>)
+      expect(node.hasClass('yozora-paragraph')).toEqual(true)
+    })
 
-    expect(
-      render(
-        <Paragraph className="my-paragraph">Paragraph contents.</Paragraph>,
-      ).hasClass('my-paragraph'),
-    ).toEqual(true)
+    it('custom', function () {
+      const node = render(
+        <Paragraph className="my-paragraph">{children}</Paragraph>,
+      )
+      expect(node.hasClass('yozora-paragraph')).toEqual(true)
+      expect(node.hasClass('my-paragraph')).toEqual(true)
+    })
+  })
+
+  it('custom', function () {
+    const node = render(
+      <Paragraph className="my-paragraph">{children}</Paragraph>,
+    )
+    expect(node.hasClass('yozora-paragraph')).toEqual(true)
+    expect(node.hasClass('my-paragraph')).toEqual(true)
   })
 })
 
 describe('snapshot', function () {
   it('default', function () {
-    const wrapper = render(
-      <Paragraph>
-        some text1
-        <span>some text2</span>
-      </Paragraph>,
-    )
+    const wrapper = render(<Paragraph>{children}</Paragraph>)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('custom', function () {
     const wrapper = render(
-      <Paragraph
-        className="custom-class"
-        data-name="yozora-paragraph"
-        style={{ color: 'orange' }}
-      >
-        some text1
-        <span>some text2</span>
-        <Paragraph>some text3</Paragraph>
+      <Paragraph className="custom-class" style={{ color: 'orange' }}>
+        {children}
       </Paragraph>,
     )
     expect(wrapper).toMatchSnapshot()

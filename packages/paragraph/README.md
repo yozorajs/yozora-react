@@ -55,7 +55,9 @@
 </header>
 <br/>
 
-This package is designed to render data of [@yozora/tokenizer-paragraph][].
+This component is for rendering the [Paragraph][@yozora/ast] data produced by
+[@yozora/tokenizer-paragraph][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -89,25 +91,27 @@ This package is designed to render data of [@yozora/tokenizer-paragraph][].
   )
   ```
 
-* Props
+### Props
 
-  Name        | Type              | Required  | Default               | Description
-  :----------:|:-----------------:|:---------:|:---------------------:|:-------------
-  `ref`       | See below         | `false`   | -                     | Forwarded ref callback
-  `className` | `string`          | `false`   | `"yozora-paragraph"`  | Root css class of the component
-  `children`  | `React.ReactNode` | `false`   | -                     | Paragraph contents
+  Name        | Type                  | Required  | Default | Description
+  :----------:|:---------------------:|:---------:|:-------:|:-------------
+  `children`  | `React.ReactNode`     | `false`   | -       | Paragraph contents
+  `className` | `string`              | `false`   | -       | Root css class of the component
+  `style`     | `React.CSSProperties` | `false`   | -       | Text content
 
-  - `ref` type is `React.RefObject<HTMLParagraphElement>`
-
-  - `ParagraphProps` inherited all attributes of
-    `HTMLParagraphElement` (`React.ParagraphHTMLAttributes<HTMLParagraphElement>`)
+  - `className`: The root element of this component will always bind with the
+    CSS class `'yozora-paragraph'`
 
 
 ## Related
 
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
 * [@yozora/tokenizer-paragraph][]
 * [Paragraph | Mdast][mdast]
 
 
-[mdast]: https://github.com/syntax-tree/mdast#paragraph
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#paragraph
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-paragraph]: https://www.npmjs.com/package/@yozora/tokenizer-paragraph
+[mdast]: https://github.com/syntax-tree/mdast#paragraph

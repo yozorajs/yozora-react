@@ -1,24 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot custom 1`] = `
-Array [
-  <p
-    class="custom-class"
-    data-name="yozora-paragraph"
-    style="color:orange"
-  >
-    some text1
-    <span>
-      some text2
-    </span>
-  </p>,
-  <p
-    class="yozora-paragraph"
-  >
-    some text3
-  </p>,
-  <p />,
-]
+<p
+  class="yozora-paragraph custom-class"
+  style="color:orange"
+>
+  some text1
+  <span>
+    some text2
+  </span>
+</p>
 `;
 
 exports[`snapshot default 1`] = `
