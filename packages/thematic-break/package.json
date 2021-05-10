@@ -1,7 +1,7 @@
 {
   "name": "@yozora/react-thematic-break",
   "version": "0.0.10",
-  "description": "render markdown thematicBreak in react",
+  "description": "render markdown thematicBreak node in react",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -13,8 +13,8 @@
   },
   "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/thematic-break#readme",
   "keywords": [
-    "mdast node renderer",
-    "markdown thematicBreak"
+    "mdast renderer",
+    "thematicBreak"
   ],
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
@@ -41,6 +41,7 @@
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "peerDependencies": {
+    "clsx": "^1.1.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1"
   },

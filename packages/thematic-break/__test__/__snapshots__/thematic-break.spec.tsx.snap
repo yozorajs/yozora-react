@@ -1,17 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot children is not allowed 1`] = `
-<hr
-  class="custom-class"
-  data-name="yozora-thematic-break"
-  style="color:orange"
-/>
-`;
-
 exports[`snapshot custom 1`] = `
 <hr
-  class="custom-class"
-  data-name="yozora-thematic-break"
+  class="yozora-thematic-break custom-class"
   style="color:orange"
 />
 `;

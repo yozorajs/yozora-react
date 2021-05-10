@@ -1,4 +1,4 @@
-import { mount, render } from 'enzyme'
+import { render } from 'enzyme'
 import React from 'react'
 import ThematicBreak from '../src'
 
@@ -9,27 +9,22 @@ describe('prop types', function () {
     })
   })
 
-  it('forward ref', function () {
-    const ref = React.createRef<HTMLHRElement>()
-    const wrapper = mount(
-      <ThematicBreak ref={ref} data-name="yozora-thematic-break" />,
-    )
+  describe('className is optional', function () {
+    it('default', function () {
+      const node = render(<ThematicBreak />)
+      expect(node.hasClass('yozora-thematic-break')).toEqual(true)
+    })
 
-    const o = wrapper.getDOMNode()
-    expect(o).toEqual(ref.current)
-    expect(o.getAttribute('data-name')).toEqual('yozora-thematic-break')
+    it('custom', function () {
+      const node = render(<ThematicBreak className="my-thematic-break" />)
+      expect(node.hasClass('yozora-thematic-break')).toEqual(true)
+      expect(node.hasClass('my-thematic-break')).toEqual(true)
+    })
   })
 
-  it('className is optional', function () {
-    expect(render(<ThematicBreak />).hasClass('yozora-thematic-break')).toEqual(
-      true,
-    )
-
-    expect(
-      render(<ThematicBreak className="my-thematic-break" />).hasClass(
-        'my-thematic-break',
-      ),
-    ).toEqual(true)
+  it('style is optional', function () {
+    const node = render(<ThematicBreak style={{ color: 'orange' }} />)
+    expect(node.css('color')).toEqual('orange')
   })
 })
 
@@ -41,24 +36,7 @@ describe('snapshot', function () {
 
   it('custom', function () {
     const wrapper = render(
-      <ThematicBreak
-        className="custom-class"
-        data-name="yozora-thematic-break"
-        style={{ color: 'orange' }}
-      />,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  it('children is not allowed', function () {
-    const wrapper = render(
-      <ThematicBreak
-        className="custom-class"
-        data-name="yozora-thematic-break"
-        style={{ color: 'orange' }}
-      >
-        <em>Children Content will be ignored.</em>
-      </ThematicBreak>,
+      <ThematicBreak className="custom-class" style={{ color: 'orange' }} />,
     )
     expect(wrapper).toMatchSnapshot()
   })
