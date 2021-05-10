@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/delete#readme",
   "keywords": [
-    "mdast node renderer",
+    "mdast renderer",
     "markdown delete"
   ],
   "main": "lib/cjs/index.js",

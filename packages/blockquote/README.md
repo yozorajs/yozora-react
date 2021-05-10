@@ -55,7 +55,9 @@
 </header>
 <br/>
 
-This package is designed to render data of [@yozora/tokenizer-blockquote][].
+This component is for rendering the [Blockquote][@yozora/ast] data produced by
+[@yozora/tokenizer-blockquote][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -89,25 +91,27 @@ This package is designed to render data of [@yozora/tokenizer-blockquote][].
   )
   ```
 
-* Props
+### Props
 
-  Name        | Type              | Required  | Default               | Description
-  :----------:|:-----------------:|:---------:|:---------------------:|:-------------
-  `ref`       | See below         | `false`   | -                     | Forwarded ref callback
-  `className` | `string`          | `false`   | `"yozora-blockquote"` | Root css class of the component
-  `children`  | `React.ReactNode` | `false`   | -                     | Blockquote contents
+  Name        | Type                  | Required  | Default | Description
+  :----------:|:---------------------:|:---------:|:-------:|:-------------
+  `children`  | `React.ReactNode`     | `false`   | -       | Blockquote contents
+  `className` | `string`              | `false`   | -       | Root css class
+  `style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
-  - `ref` type is `React.RefObject<HTMLElement>`
-
-  - `BlockquoteProps` inherited all attributes of
-    `HTMLElement` (`React.BlockquoteHTMLAttributes<HTMLElement>`)
+  - `className`: The root element of this component will always bind with the
+    CSS class `'yozora-blockquote'`
 
 
 ## Related
 
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
 * [@yozora/tokenizer-blockquote][]
 * [Blockquote | Mdast][mdast]
 
 
-[mdast]: https://github.com/syntax-tree/mdast#blockquote
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#blockquote
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-blockquote]: https://www.npmjs.com/package/@yozora/tokenizer-blockquote
+[mdast]: https://github.com/syntax-tree/mdast#blockquote

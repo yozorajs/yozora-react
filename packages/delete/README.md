@@ -95,7 +95,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
   Name        | Type                  | Required  | Default | Description
   :----------:|:---------------------:|:---------:|:-------:|:-------------
-  `children`  | `React.ReactNode`     | `false`   | -       | Emphasis contents
+  `children`  | `React.ReactNode`     | `false`   | -       | Deleted contents
   `className` | `string`              | `false`   | -       | Root css class
   `style`     | `React.CSSProperties` | `false`   | -       | Root css style
 

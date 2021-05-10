@@ -2,14 +2,15 @@
 
 exports[`snapshot custom 1`] = `
 <blockquote
-  class="custom-class"
-  data-name="yozora-blockquote"
+  class="yozora-blockquote custom-class"
   style="color:orange"
 >
-  some text1
-  <span>
-    some text2
-  </span>
+  <p>
+    some text1
+    <span>
+      some text2
+    </span>
+  </p>
   <blockquote
     class="yozora-blockquote"
   >
@@ -22,9 +23,16 @@ exports[`snapshot default 1`] = `
 <blockquote
   class="yozora-blockquote"
 >
-  some text1
-  <span>
-    some text2
-  </span>
+  <p>
+    some text1
+    <span>
+      some text2
+    </span>
+  </p>
+  <blockquote
+    class="yozora-blockquote"
+  >
+    some text3
+  </blockquote>
 </blockquote>
 `;

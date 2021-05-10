@@ -1,37 +1,39 @@
+import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export interface BlockquoteProps
-  extends React.BlockquoteHTMLAttributes<HTMLDivElement> {
+export interface BlockquoteProps {
   /**
    * Blockquote content.
    */
   children?: React.ReactNode
   /**
    * Root css class of the component.
-   * @default 'yozora-blockquote'
    */
   className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
 }
 
 /**
  * Render yozora `blockquote`.
  * @see https://www.npmjs.com/package/@yozora/tokenizer-blockquote
  */
-export const Blockquote = React.forwardRef<HTMLElement, BlockquoteProps>(
-  (props, forwardRef): React.ReactElement => {
-    const { className = 'yozora-blockquote', children, ...htmlProps } = props
-    return (
-      <blockquote {...htmlProps} ref={forwardRef} className={className}>
-        {children}
-      </blockquote>
-    )
-  },
-)
+export function Blockquote(props: BlockquoteProps): React.ReactElement {
+  const { children, className, style } = props
+  return (
+    <blockquote className={cn('yozora-blockquote', className)} style={style}>
+      {children}
+    </blockquote>
+  )
+}
 
 Blockquote.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  style: PropTypes.object,
 }
 
 Blockquote.displayName = 'YozoraBlockquote'
