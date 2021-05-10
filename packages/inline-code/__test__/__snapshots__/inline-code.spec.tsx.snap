@@ -2,11 +2,10 @@
 
 exports[`snapshot custom 1`] = `
 <code
-  class="custom-class"
-  data-name="yozora-inline-code"
+  class="yozora-inline-code custom-class"
   style="color:orange"
 >
-  Hello, world!
+  const message = "Hello, world!"
 </code>
 `;
 
@@ -15,6 +14,6 @@ exports[`snapshot default 1`] = `
   class="yozora-inline-code"
   style="color:orange;font-size:16px"
 >
-  Hello, world!
+  const message = "Hello, world!"
 </code>
 `;

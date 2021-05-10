@@ -1,42 +1,39 @@
+import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export interface InlineCodeProps extends React.HTMLAttributes<HTMLElement> {
+export interface InlineCodeProps {
   /**
    * Literal inline-code.
    */
   value: string
   /**
    * Root css class of the component.
-   * @default 'yozora-inline-code'
    */
   className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
 }
 
 /**
  * Render yozora `inline-code`.
  * @see https://www.npmjs.com/package/@yozora/tokenizer-inline-code
  */
-export const InlineCode = React.forwardRef<HTMLElement, InlineCodeProps>(
-  (props, forwardRef): React.ReactElement => {
-    const {
-      className = 'yozora-inline-code',
-      // eslint-disable-next-line react/prop-types
-      children: _, // children is not allowed.
-      value,
-      ...htmlProps
-    } = props
-    return (
-      <code {...htmlProps} ref={forwardRef} className={className}>
-        {value}
-      </code>
-    )
-  },
-)
+export function InlineCode(props: InlineCodeProps): React.ReactElement {
+  const { value, className, style } = props
+  return (
+    <code className={cn('yozora-inline-code', className)} style={style}>
+      {value}
+    </code>
+  )
+}
 
 InlineCode.propTypes = {
   value: PropTypes.string.isRequired,
   className: PropTypes.string,
+  style: PropTypes.object,
 }
 
 InlineCode.displayName = 'YozoraInlineCode'

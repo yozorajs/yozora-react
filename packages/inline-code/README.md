@@ -55,7 +55,9 @@
 </header>
 <br/>
 
-This package is designed to render data of [@yozora/tokenizer-inline-code][].
+This component is for rendering the [InlineCode][@yozora/ast] data produced by
+[@yozora/tokenizer-inline-code][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -88,25 +90,27 @@ This package is designed to render data of [@yozora/tokenizer-inline-code][].
   )
   ```
 
-* Props
+### Props
+  Name        | Type                  | Required  | Default | Description
+  :----------:|:---------------------:|:---------:|:-------:|:-------------
+  `className` | `string`              | `false`   | -       | Root css class
+  `style`     | `React.CSSProperties` | `false`   | -       | Root css style
+  `value`     | `string`              | `true`    | -       | Source codes
 
-  Name        | Type      | Required  | Default                 | Description
-  :----------:|:---------:|:---------:|:-----------------------:|:-------------
-  `ref`       | See below | `false`   | -                       | Forwarded ref callback
-  `value`     | `string`  | `true`    | -                       | InlineCode content
-  `className` | `string`  | `false`   | `"yozora-inline-code"`  | Root css class of the component
+  - `className`: The root element of this component will always bind with the
+    CSS class `'yozora-inline-code'`.
 
-  - `ref` type is `React.RefObject<HTMLElement>`
 
-  - `InlineCodeProps` inherited all attributes of
-    `HTMLElement` (`React.HTMLAttributes<HTMLElement>`)
 ## Related
 
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
 * [@yozora/tokenizer-inline-code][]
 * [inlineCode | Mdast][mdast]
 
 
-
-[mdast]: https://github.com/syntax-tree/mdast#inlinecode
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#inlinecode
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-inline-code]: https://www.npmjs.com/package/@yozora/tokenizer-inline-code
+[mdast]: https://github.com/syntax-tree/mdast#inlinecode
 

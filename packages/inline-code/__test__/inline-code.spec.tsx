@@ -1,23 +1,14 @@
-import { mount, render } from 'enzyme'
+import { render } from 'enzyme'
 import React from 'react'
 import InlineCode from '../src'
+
+const code = 'const message = "Hello, world!"'
 
 describe('prop types', function () {
   beforeEach(() => {
     jest.spyOn(global.console, 'error').mockImplementation((...args) => {
       throw new Error(args.join(' '))
     })
-  })
-
-  it('forward ref', () => {
-    const ref = React.createRef<HTMLSpanElement>()
-    const wrapper = mount(
-      <InlineCode ref={ref} data-name="yozora-inline-code" value="" />,
-    )
-
-    const o = wrapper.getDOMNode()
-    expect(o).toEqual(ref.current)
-    expect(o.getAttribute('data-name')).toEqual('yozora-inline-code')
   })
 
   it('value is required', () => {
@@ -28,26 +19,29 @@ describe('prop types', function () {
     }
   })
 
-  it('className is optional', function () {
-    expect(
-      render(<InlineCode value="" />).hasClass('yozora-inline-code'),
-    ).toEqual(true)
+  describe('className is optional', function () {
+    it('default', function () {
+      const node = render(<InlineCode value={code} />)
+      expect(node.hasClass('yozora-inline-code')).toEqual(true)
+    })
 
-    expect(
-      render(<InlineCode className="my-inline-code" value="" />).hasClass(
-        'my-inline-code',
-      ),
-    ).toEqual(true)
+    it('custom', function () {
+      const node = render(<InlineCode value={code} className="my-code" />)
+      expect(node.hasClass('yozora-inline-code')).toEqual(true)
+      expect(node.hasClass('my-code')).toEqual(true)
+    })
+  })
+
+  it('style is optional', function () {
+    const node = render(<InlineCode value={code} style={{ color: 'orange' }} />)
+    expect(node.css('color')).toEqual('orange')
   })
 })
 
 describe('snapshot', function () {
   it('default', () => {
     const wrapper = render(
-      <InlineCode
-        value="Hello, world!"
-        style={{ color: 'orange', fontSize: '16px' }}
-      />,
+      <InlineCode value={code} style={{ color: 'orange', fontSize: '16px' }} />,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -55,10 +49,9 @@ describe('snapshot', function () {
   it('custom', () => {
     const wrapper = render(
       <InlineCode
-        value="Hello, world!"
+        value={code}
         className="custom-class"
         style={{ color: 'orange' }}
-        data-name="yozora-inline-code"
       />,
     )
     expect(wrapper).toMatchSnapshot()
