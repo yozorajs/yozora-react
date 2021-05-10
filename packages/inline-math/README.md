@@ -92,14 +92,14 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
 ### Props
 
-  Name        | Type                  | Required  | Default | Description
-  :----------:|:---------------------:|:---------:|:-------:|:-------------
-  `className` | `string`              | `false`   | -       | Root css class
-  `style`     | `React.CSSProperties` | `false`   | -       | Root css style
-  `value`     | `string`              | `true`    | -       | Mathjax codes
+Name        | Type                  | Required  | Default | Description
+:----------:|:---------------------:|:---------:|:-------:|:-------------
+`className` | `string`              | `false`   | -       | Root css class
+`style`     | `React.CSSProperties` | `false`   | -       | Root css style
+`value`     | `string`              | `true`    | -       | Mathjax codes
 
-  - `className`: The root element of this component will always bind with the
-    CSS class `'yozora-inline-math'`.
+- `className`: The root element of this component will always bind with the
+  CSS class `'yozora-inline-math'`.
 
 
 ## References

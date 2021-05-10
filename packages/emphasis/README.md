@@ -92,14 +92,14 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
 ### Props
 
-  Name        | Type                  | Required  | Default | Description
-  :----------:|:---------------------:|:---------:|:-------:|:-------------
-  `children`  | `React.ReactNode`     | `false`   | -       | Emphasis contents
-  `className` | `string`              | `false`   | -       | Root css class
-  `style`     | `React.CSSProperties` | `false`   | -       | Root css style
+Name        | Type                  | Required  | Default | Description
+:----------:|:---------------------:|:---------:|:-------:|:-------------
+`children`  | `React.ReactNode`     | `false`   | -       | Emphasis contents
+`className` | `string`              | `false`   | -       | Root css class
+`style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
-  - `className`: The root element of this component will always bind with the
-    CSS class `'yozora-emphasis'`
+- `className`: The root element of this component will always bind with the
+  CSS class `'yozora-emphasis'`
 
 
 ## Related
