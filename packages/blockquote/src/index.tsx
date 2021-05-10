@@ -19,6 +19,8 @@ export interface BlockquoteProps {
 
 /**
  * Render yozora `blockquote`.
+ *
+ * @see https://www.npmjs.com/package/@yozora/ast#blockquote
  * @see https://www.npmjs.com/package/@yozora/tokenizer-blockquote
  */
 export function Blockquote(props: BlockquoteProps): React.ReactElement {

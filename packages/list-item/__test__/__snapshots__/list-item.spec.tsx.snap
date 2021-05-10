@@ -1,14 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`snapshot custom 1`] = `
+<li
+  class="yozora-list-item custom-list-item"
+  style="color:orange"
+>
+  <p>
+    some text1
+    <span>
+      some text2
+    </span>
+  </p>
+  <blockquote
+    class="yozora-blockquote"
+  >
+    some text3
+  </blockquote>
+</li>
+`;
+
 exports[`snapshot default 1`] = `
 <li
-  class="yozora-list-item"
-  status="done"
+  class="yozora-list-item yozora-list-item"
   style="color:orange;font-size:16px"
 >
-  some text1
-  <span>
-    some text2
-  </span>
+  <p>
+    some text1
+    <span>
+      some text2
+    </span>
+  </p>
+  <blockquote
+    class="yozora-blockquote"
+  >
+    some text3
+  </blockquote>
 </li>
 `;

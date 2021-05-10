@@ -19,6 +19,8 @@ export interface ParagraphProps {
 
 /**
  * Render yozora `paragraph`.
+ *
+ * @see https://www.npmjs.com/package/@yozora/ast#paragraph
  * @see https://www.npmjs.com/package/@yozora/tokenizer-paragraph
  */
 export function Paragraph(props: ParagraphProps): React.ReactElement {

@@ -19,6 +19,8 @@ export interface InlineCodeProps {
 
 /**
  * Render yozora `inline-code`.
+ *
+ * @see https://www.npmjs.com/package/@yozora/ast#inlinecode
  * @see https://www.npmjs.com/package/@yozora/tokenizer-inline-code
  */
 export function InlineCode(props: InlineCodeProps): React.ReactElement {

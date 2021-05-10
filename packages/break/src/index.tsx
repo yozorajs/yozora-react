@@ -15,6 +15,8 @@ export interface BreakProps {
 
 /**
  * Render yozora `Break`.
+ *
+ * @see https://www.npmjs.com/package/@yozora/ast#break
  * @see https://www.npmjs.com/package/@yozora/tokenizer-break
  */
 export function Break(props: BreakProps): React.ReactElement {

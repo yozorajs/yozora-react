@@ -27,6 +27,8 @@ export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 
 /**
  * Render yozora `image`.
+ *
+ * @see https://www.npmjs.com/package/@yozora/ast#image
  * @see https://www.npmjs.com/package/@yozora/tokenizer-image
  */
 export function Image(props: ImageProps): React.ReactElement {

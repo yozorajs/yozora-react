@@ -19,6 +19,8 @@ export interface EmphasisProps {
 
 /**
  * Render yozora `emphasis`.
+ *
+ * @see https://www.npmjs.com/package/@yozora/ast#emphasis
  * @see https://www.npmjs.com/package/@yozora/tokenizer-emphasis
  */
 export function Emphasis(props: EmphasisProps): React.ReactElement {

@@ -15,6 +15,8 @@ export interface ThematicBreakProps {
 
 /**
  * Render yozora `thematicBreak`.
+ *
+ * @see https://www.npmjs.com/package/@yozora/ast#thematicBreak
  * @see https://www.npmjs.com/package/@yozora/tokenizer-thematic-break
  */
 export function ThematicBreak(props: ThematicBreakProps): React.ReactElement {

@@ -19,6 +19,8 @@ export interface TextProps {
 
 /**
  * Render yozora `text`.
+ *
+ * @see https://www.npmjs.com/package/@yozora/ast#text
  * @see https://www.npmjs.com/package/@yozora/tokenizer-text
  */
 export function Text(props: TextProps): React.ReactElement {

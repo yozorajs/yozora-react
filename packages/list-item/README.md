@@ -55,7 +55,9 @@
 </header>
 <br/>
 
-This package is designed to render data of [@yozora/tokenizer-list-item][].
+This component is for rendering the [ListItem][@yozora/ast] data produced by
+[@yozora/tokenizer-list-item][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -74,40 +76,43 @@ This package is designed to render data of [@yozora/tokenizer-list-item][].
 
 ## Usage
 
-  * Use in React project
+* Use in React project
 
-    ```tsx
-    import React from 'react'
-    import ListItem from '@yozora/react-list-item'
+  ```tsx
+  import React from 'react'
+  import ListItem from '@yozora/react-list-item'
 
-    const wrapper = (
-      <ListItem status="done" style={ { color: 'orange', fontSize: '16px' } }>
-        some text1
-        <span>some text2</span>
-      </ListItem
-    )
-    ```
+  const wrapper = (
+    <ListItem status="done" style={ { color: 'orange', fontSize: '16px' } }>
+      some text1
+      <span>some text2</span>
+    </ListItem
+  )
+  ```
 
-  * Props
+### Props
 
-     Name       | Type                                | Required  | Default | Description
-    :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `ref`      | `React.RefObject<HTMLLIElement>`    | `false`   | -       | Forwarded ref callback
-     `children` | `React.ReactNode`                   | `true`    | -       | ListItem content
-     `status`   | `'todo'|'doing'|'done'`             | `false`   | -       | Whether if it is a TODO item, and given its status
+Name        | Type                    | Required  | Default | Description
+:----------:|:-----------------------:|:---------:|:-------:|:-------------
+`status`    | `'todo'|'doing'|'done'` | `false`   | -       | Status of TODO item
+`children`  | `React.ReactNode`       | `false`   | -       | List item contents
+`className` | `string`                | `false`   | -       | Root css class
+`style`     | `React.CSSProperties`   | `false`   | -       | Root css style
 
-    - `ref` type is `React.RefObject<HTMLParagraphElement>`
-
-    - `ListItemProps` inherited all attributes of
-      `HTMLLIElement` (`React.LiHTMLAttributes<HTMLLIElement>`)
+- `className`: The root element of this component will always bind with the
+  CSS class `'yozora-list-item'`
 
 
 ## Related
 
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
 * [@yozora/tokenizer-list-item][]
 * [ListItem | Mdast][mdast]
 
 
-[mdast]: https://github.com/syntax-tree/mdast#listitem
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#listitem
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-list-item]: https://www.npmjs.com/package/@yozora/tokenizer-list-item
+[mdast]: https://github.com/syntax-tree/mdast#listitem
 

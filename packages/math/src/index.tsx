@@ -20,7 +20,8 @@ export interface MathProps {
 
 /**
  * Render yozora `math`.
- * @see https://www.npmjs.com/package/@yozora/tokenizer-inline-math
+ *
+ * @see https://www.npmjs.com/package/@yozora/ast#math
  * @see https://www.npmjs.com/package/@yozora/tokenizer-math
  */
 export function Math(props: MathProps): React.ReactElement {

@@ -19,6 +19,8 @@ export interface DeleteProps {
 
 /**
  * Render yozora `delete`.
+ *
+ * @see https://www.npmjs.com/package/@yozora/ast#delete
  * @see https://www.npmjs.com/package/@yozora/tokenizer-delete
  */
 export function Delete(props: DeleteProps): React.ReactElement {
