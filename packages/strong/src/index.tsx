@@ -19,7 +19,7 @@ export interface StrongProps {
 
 /**
  * Render yozora `strong`.
- * @see https://www.npmjs.com/package/@yozora/tokenizer-strong
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-emphasis
  */
 export function Strong(props: StrongProps): React.ReactElement {
   const { children, className, style } = props

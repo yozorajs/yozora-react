@@ -42,16 +42,14 @@ describe('prop types', function () {
   })
 
   it('style is optional', function () {
-    const node = render(
-      <Strong style={{ color: 'orange' }}>{children} </Strong>,
-    )
+    const node = render(<Strong style={{ color: 'orange' }}>{children}</Strong>)
     expect(node.css('color')).toEqual('orange')
   })
 })
 
 describe('snapshot', function () {
   it('default', function () {
-    const wrapper = render(<Strong>{children} </Strong>)
+    const wrapper = render(<Strong>{children}</Strong>)
     expect(wrapper).toMatchSnapshot()
   })
 

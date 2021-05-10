@@ -43,12 +43,11 @@ describe('prop types', function () {
     })
   })
 
-  it('custom', function () {
+  it('style is optional', function () {
     const node = render(
-      <Paragraph className="my-paragraph">{children}</Paragraph>,
+      <Paragraph style={{ color: 'orange' }}>{children}</Paragraph>,
     )
-    expect(node.hasClass('yozora-paragraph')).toEqual(true)
-    expect(node.hasClass('my-paragraph')).toEqual(true)
+    expect(node.css('color')).toEqual('orange')
   })
 })
 

@@ -2,8 +2,7 @@
 
 exports[`snapshot custom 1`] = `
 <em
-  class="custom-class"
-  data-name="yozora-emphasis"
+  class="yozora-emphasis custom-class"
   style="color:orange"
 >
   some text1

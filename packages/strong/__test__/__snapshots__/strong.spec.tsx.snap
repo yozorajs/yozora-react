@@ -20,6 +20,5 @@ exports[`snapshot default 1`] = `
   <span>
     some text2
   </span>
-   
 </strong>
 `;
