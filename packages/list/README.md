@@ -55,7 +55,9 @@
 </header>
 <br/>
 
-This package is designed to render data of [@yozora/tokenizer-list][].
+This component is for rendering the [List][@yozora/ast] data produced by
+[@yozora/tokenizer-list][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -90,27 +92,30 @@ This package is designed to render data of [@yozora/tokenizer-list][].
   )
   ```
 
-* Props
+### Props
 
-  Name        | Type              | Required  | Default               | Description
-  :----------:|:-----------------:|:---------:|:---------------------:|:-------------
-  `ref`       | See below         | `false`   | -                     | Forwarded ref callback
-  `className` | `string`          | `false`   | `"yozora-list"`       | Root css class of the component
-  `ordered`   | `boolean`         | `true`    | -                     | Flag used  to distinguish ordered and unordered list
-  `start`     | `number`          | `false`   | -                     | Start number of ordered list
-  `children`  | `React.ReactNode` | `false`   | -                     | List items
+Name        | Type                  | Required  | Default | Description
+:----------:|:---------------------:|:---------:|:-------:|:-------------
+`children`  | `React.ReactNode`     | `false`   | -       | List items
+`className` | `string`              | `false`   | -       | Root css class
+`ordered`   | `boolean`             | `true`    | -       | Indicate an ordered list
+`start`     | `number`              | `false`   | -       | Start number of ordered list
+`style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
-  - `ref` type is `React.RefObject<HTMLOListElement | HTMLUListElement>`
-
-  - `ListProps` inherited all attributes of
-    `HTMLOListElement | HTMLUListElement`
-    (`React.OlHTMLAttributes<HTMLOListElement | HTMLUListElement>`)
+- `className`: The root element of this component will always bind with the
+  CSS class `'yozora-list'`
 
 ## Related
 
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
 * [@yozora/tokenizer-list][]
+* [@yozora/tokenizer-list-item][]
 * [Paragraph | Mdast][mdast]
 
 
-[mdast]: https://github.com/syntax-tree/mdast#list
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#list
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-list]: https://www.npmjs.com/package/@yozora/tokenizer-list
+[@yozora/tokenizer-list-item]: https://www.npmjs.com/package/@yozora/tokenizer-list-item
 [@yozora/tokenizer-list]: https://www.npmjs.com/package/@yozora/tokenizer-list

@@ -2,10 +2,9 @@
 
 exports[`snapshot custom: ol 1`] = `
 <ol
-  class="custom-list-item"
-  data-name="yozora-list"
+  class="yozora-list custom-list-item"
+  start="3"
   style="color:orange"
-  type="a"
 >
   <li>
     apple
@@ -21,10 +20,8 @@ exports[`snapshot custom: ol 1`] = `
 
 exports[`snapshot custom: ul 1`] = `
 <ul
-  class="custom-list-item"
-  data-name="yozora-list"
+  class="yozora-list custom-list-item"
   style="color:orange"
-  type="a"
 >
   <li>
     apple
@@ -41,7 +38,7 @@ exports[`snapshot custom: ul 1`] = `
 exports[`snapshot default: ol 1`] = `
 <ol
   class="yozora-list"
-  type="a"
+  start="3"
 >
   <li>
     apple
@@ -58,7 +55,6 @@ exports[`snapshot default: ol 1`] = `
 exports[`snapshot default: ul 1`] = `
 <ul
   class="yozora-list"
-  type="a"
 >
   <li>
     apple

@@ -1,6 +1,14 @@
-import { mount, render } from 'enzyme'
+import { render } from 'enzyme'
 import React from 'react'
 import List from '../src'
+
+const children = (
+  <React.Fragment>
+    <li key={0}>apple</li>
+    <li key={1}>banana</li>
+    <li key={2}>cat</li>
+  </React.Fragment>
+)
 
 describe('prop types', function () {
   beforeEach(() => {
@@ -9,51 +17,57 @@ describe('prop types', function () {
     })
   })
 
-  it('forward ref', () => {
-    for (const ordered of [false, true]) {
-      const ref = React.createRef<HTMLUListElement | HTMLOListElement>()
-      const wrapper = mount(
-        <List ordered={ordered} ref={ref} start={1} data-name="yozora-list">
-          <li key={0}>First: Good afternoon!</li>
-          <li key={1}>Second: Good night!</li>
-        </List>,
-      )
-
-      const o = wrapper.getDOMNode()
-      expect(o).toEqual(ref.current)
-      expect(o.getAttribute('data-name')).toEqual('yozora-list')
+  it('ordered is required', function () {
+    for (const value of [undefined, null] as any[]) {
+      expect(() => {
+        render(<List ordered={value} />)
+      }).toThrow(/The prop `ordered` is marked as required/i)
     }
   })
 
   it('children is optional', () => {
-    for (const value of [undefined, null] as any[]) {
-      expect(() => {
-        render(
-          <List ordered={true} start={1} data-value="waw">
-            {value}
-          </List>,
-        )
-      }).not.toThrow()
+    for (const ordered of [false, true]) {
+      for (const value of [undefined, null] as any[]) {
+        expect(() =>
+          render(<List ordered={ordered}>{value}</List>),
+        ).not.toThrow()
+      }
+
+      const text = 'Hello, world!'
+      const wrapper = render(<List ordered={ordered}>{text}</List>)
+      expect(wrapper.text()).toEqual(text)
     }
   })
 
-  it('className is optional', function () {
-    for (const ordered of [false, true]) {
-      expect(
-        render(
-          <List ordered={ordered} start={1}>
-            <li>list item1</li>
-          </List>,
-        ).hasClass('yozora-list'),
-      ).toEqual(true)
+  describe('className is optional', function () {
+    it('default', function () {
+      for (const ordered of [false, true]) {
+        const node = render(<List ordered={ordered}>{children}</List>)
+        expect(node.hasClass('yozora-list')).toEqual(true)
+      }
+    })
 
-      expect(
-        render(
-          <List ordered={ordered} start={1} className="my-list">
-            <li>list item1.</li>
+    it('custom', function () {
+      for (const ordered of [false, true]) {
+        const node = render(
+          <List ordered={ordered} className="my-list">
+            {children}
           </List>,
-        ).hasClass('my-list'),
-      ).toEqual(true)
+        )
+        expect(node.hasClass('yozora-list')).toEqual(true)
+        expect(node.hasClass('my-list')).toEqual(true)
+      }
+    })
+  })
+
+  it('style is optional', function () {
+    for (const ordered of [false, true]) {
+      const node = render(
+        <List ordered={ordered} style={{ color: 'orange' }}>
+          {children}
+        </List>,
+      )
+      expect(node.css('color')).toEqual('orange')
     }
   })
 })
@@ -62,10 +76,8 @@ describe('snapshot', function () {
   it('default', () => {
     for (const ordered of [false, true]) {
       const wrapper = render(
-        <List ordered={ordered} start={3} type="a">
-          <li key={0}>apple</li>
-          <li key={1}>banana</li>
-          <li key={2}>cat</li>
+        <List ordered={ordered} start={3}>
+          {children}
         </List>,
       )
       expect(wrapper).toMatchSnapshot(ordered ? 'ol' : 'ul')
@@ -81,12 +93,8 @@ describe('snapshot', function () {
           ordered={ordered}
           className={className}
           style={{ color: 'orange' }}
-          data-name="yozora-list"
-          type="a"
         >
-          <li key={0}>apple</li>
-          <li key={1}>banana</li>
-          <li key={2}>cat</li>
+          {children}
         </List>,
       )
       expect(wrapper).toMatchSnapshot(ordered ? 'ol' : 'ul')

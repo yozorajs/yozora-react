@@ -107,12 +107,14 @@ Name        | Type                    | Required  | Default | Description
 
 * [@yozora/ast][]
 * [@yozora/react-markdown][]
+* [@yozora/tokenizer-list][]
 * [@yozora/tokenizer-list-item][]
 * [ListItem | Mdast][mdast]
 
 
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#listitem
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-list]: https://www.npmjs.com/package/@yozora/tokenizer-list
 [@yozora/tokenizer-list-item]: https://www.npmjs.com/package/@yozora/tokenizer-list-item
 [mdast]: https://github.com/syntax-tree/mdast#listitem
 

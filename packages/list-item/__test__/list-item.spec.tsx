@@ -23,9 +23,7 @@ describe('prop types', function () {
 
   it('children is optional', () => {
     for (const value of [undefined, null] as any[]) {
-      expect(() => {
-        render(<ListItem>{value}</ListItem>)
-      }).not.toThrow()
+      expect(() => render(<ListItem>{value}</ListItem>)).not.toThrow()
     }
 
     const text = 'Hello, world!'
@@ -46,6 +44,13 @@ describe('prop types', function () {
       expect(node.hasClass('yozora-list-item')).toEqual(true)
       expect(node.hasClass('my-list-item')).toEqual(true)
     })
+  })
+
+  it('style is optional', function () {
+    const node = render(
+      <ListItem style={{ color: 'orange' }}>{children}</ListItem>,
+    )
+    expect(node.css('color')).toEqual('orange')
   })
 })
 

@@ -1,12 +1,8 @@
+import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export interface ListProps
-  extends React.OlHTMLAttributes<HTMLOListElement | HTMLUListElement> {
-  /**
-   * List content.
-   */
-  children?: React.ReactNode
+export interface ListProps {
   /**
    * Flag used  to distinguish ordered and unordered list
    */
@@ -16,43 +12,49 @@ export interface ListProps
    */
   start?: number
   /**
+   * List content.
+   */
+  children?: React.ReactNode
+  /**
    * Root css class of the component.
-   * @default 'yozora-list'
    */
   className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
 }
 
 /**
  * Render yozora `list`.
+ *
+ * @see https://www.npmjs.com/package/@yozora/ast#list
  * @see https://www.npmjs.com/package/@yozora/tokenizer-list
  */
-export const List = React.forwardRef<
-  HTMLOListElement | HTMLUListElement,
-  ListProps
->(
-  (props, forwardRef): React.ReactElement => {
-    const {
-      className = 'yozora-list',
-      children,
-      ordered,
-      start,
-      ...htmlProps
-    } = props
-    const L = ordered ? 'ol' : 'ul'
+export function List(props: ListProps): React.ReactElement {
+  const { className, style, children, ordered, start } = props
 
+  if (ordered) {
     return (
-      <L {...htmlProps} ref={forwardRef as any} className={className}>
+      <ol start={start} className={cn('yozora-list', className)} style={style}>
         {children}
-      </L>
+      </ol>
     )
-  },
-)
+  }
+
+  return (
+    <ul className={cn('yozora-list', className)} style={style}>
+      {children}
+    </ul>
+  )
+}
 
 List.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
   ordered: PropTypes.bool.isRequired,
   start: PropTypes.number,
-  className: PropTypes.string,
+  style: PropTypes.object,
 }
 
 List.displayName = 'YozoraList'
