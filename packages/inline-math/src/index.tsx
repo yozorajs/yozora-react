@@ -1,58 +1,41 @@
+import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
 import MathJax from 'react-mathjax'
-import styled from 'styled-components'
-import './styled-components'
-import { defaultInlineMathTheme, getInlineMathStyle } from './theme'
 
-export * from './theme'
-
-/**
- * Props for creating InlineMath
- */
-export interface InlineMathProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface InlineMathProps {
   /**
-   * inline math content
+   * Literal inline-math.
    */
   value: string
+  /**
+   * Root css class of the component.
+   */
+  className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
 }
 
 /**
- * Render `inlineMath` content
- *
- * @param props
+ * Render yozora `inline-math`.
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-inline-math
  */
-export const InlineMath = React.forwardRef<HTMLSpanElement, InlineMathProps>(
-  (props, forwardRef): React.ReactElement => {
-    const { children, value, ...htmlProps } = props
-    return (
-      <Container {...htmlProps} ref={forwardRef}>
-        <MathJax.Node inline={true} formula={value} />
-      </Container>
-    )
-  },
-)
+export function InlineMath(props: InlineMathProps): React.ReactElement {
+  const { value, className, style } = props
+  return (
+    <span className={cn('yozora-inline-math', className)} style={style}>
+      <MathJax.Node inline={true} formula={value} />
+    </span>
+  )
+}
 
 InlineMath.propTypes = {
+  className: PropTypes.string,
   value: PropTypes.string.isRequired,
-  children: PropTypes.node,
+  style: PropTypes.object,
 }
 
 InlineMath.displayName = 'YozoraInlineMath'
 export default InlineMath
-
-const Container = styled.span`
-  padding: ${getInlineMathStyle('padding')};
-  border: ${getInlineMathStyle('border')};
-  margin: ${getInlineMathStyle('margin')};
-  background: ${getInlineMathStyle('background')};
-  color: ${getInlineMathStyle('color')};
-`
-
-Container.defaultProps = {
-  theme: { yozora: { inlineMath: defaultInlineMathTheme } },
-}
-
-export const InlineMathClasses = {
-  container: `${Container}`,
-}

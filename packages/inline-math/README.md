@@ -55,7 +55,9 @@
 </header>
 <br/>
 
-This package is designed to render [inlineMath][mathjax] type data
+This component is for rendering the [InlineMath][@yozora/ast] data produced by
+[@yozora/tokenizer-inline-math][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -73,77 +75,43 @@ This package is designed to render [inlineMath][mathjax] type data
   ```
 
 ## Usage
-  * Use in React project
 
-    - Pure
+* Use in React project
 
-      ```tsx
-      import React from 'react'
-      import InlineMath from '@yozora/react-inline-math'
+  ```tsx
+  import React from 'react'
+  import InlineMath from '@yozora/react-inline-math'
 
-      const wrapper = (
-        <InlineMath
-          value="x^2 + y^2 = z^2"
-          style={ { color: 'orange', fontSize: '16px' } }
-        />
-      )
-      ```
+  const wrapper = (
+    <InlineMath
+      value="x^2 + y^2 = z^2"
+      style={ { color: 'orange', fontSize: '16px' } }
+    />
+  )
+  ```
 
-    - With theme
+### Props
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import InlineMath from '@yozora/react-inline-math'
+  Name        | Type                  | Required  | Default | Description
+  :----------:|:---------------------:|:---------:|:-------:|:-------------
+  `className` | `string`              | `false`   | -       | Root css class
+  `style`     | `React.CSSProperties` | `false`   | -       | Root css style
+  `value`     | `string`              | `true`    | -       | Mathjax codes
 
-      const theme: DefaultTheme = {
-        yozora: {
-          inlineMath: {
-            padding: '2px',
-            border: '1px solid blue',
-            // margin: '0 2px',
-            background: 'hsla(210deg, 13%, 12%, 0.05)',
-            color: '#d81848',
-          }
-        }
-      }
-
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <InlineMath
-            value="x^2 + y^2 = z^2"
-            style={ { color: 'orange', fontSize: '16px' } }
-          />
-        </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name     | Type                                | Required  | Default | Description
-    :--------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `ref`    | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
-     `value`  | `string`                            | `true`    | -       | InlineMath content
-
-    InlineMathProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
-
-  * Theme
-
-     Prop Name    | Default
-    :------------:|:--------------
-     padding      | `0`
-     border       | `none`
-     margin       | `0`
-     background   | `none`
-     color        | `inherit`
-
-    See [YozoraInlineMathTheme][] for details.
+  - `className`: The root element of this component will always bind with the
+    CSS class `'yozora-inline-math'`.
 
 
 ## References
 
-  - [mathjax][]
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
+* [@yozora/tokenizer-inline-math][]
+* [@yozora/tokenizer-math][]
+* [mathjax][]
 
-
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#inlinemath
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-inline-math]: https://www.npmjs.com/package/@yozora/tokenizer-inline-math
+[@yozora/tokenizer-math]: https://www.npmjs.com/package/@yozora/tokenizer-math
 [mathjax]: https://www.mathjax.org/
-[YozoraInlineMathTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/inline-math/src/theme.ts

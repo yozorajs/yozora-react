@@ -91,14 +91,15 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```
 
 ### Props
-  Name        | Type                  | Required  | Default | Description
-  :----------:|:---------------------:|:---------:|:-------:|:-------------
-  `className` | `string`              | `false`   | -       | Root css class
-  `style`     | `React.CSSProperties` | `false`   | -       | Root css style
-  `value`     | `string`              | `true`    | -       | Source codes
 
-  - `className`: The root element of this component will always bind with the
-    CSS class `'yozora-inline-code'`.
+Name        | Type                  | Required  | Default | Description
+:----------:|:---------------------:|:---------:|:-------:|:-------------
+`className` | `string`              | `false`   | -       | Root css class
+`style`     | `React.CSSProperties` | `false`   | -       | Root css style
+`value`     | `string`              | `true`    | -       | Source codes
+
+- `className`: The root element of this component will always bind with the
+  CSS class `'yozora-inline-code'`.
 
 
 ## Related
