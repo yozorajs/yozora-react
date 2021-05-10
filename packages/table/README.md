@@ -61,8 +61,9 @@
 </header>
 <br/>
 
-This package is designed to render [mdast table][] type data
-
+This component is for rendering the [Table][@yozora/ast#table], [TableRow][@yozora/ast#tablerow], [TableCell][@yozora/ast#tablecell] data produced by
+[@yozora/tokenizer-table][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 ## Install
 
@@ -78,91 +79,63 @@ This package is designed to render [mdast table][] type data
   yarn add @yozora/react-table
   ```
 
-## Usage
-  * Use in React project
+ ## Usage
 
-    - Pure
+* Use in React project
 
-      ```tsx
-      import React from 'react'
-      import Table from '@yozora/react-table'
+  ```tsx
+  import React from 'react'
+  import Table from '@yozora/react-table'
 
-      const rows: React.ReactNode[] = [
-        (<tr key="0"><th>Name</th></tr>),
-        (<tr key="1"><td>Alice</td></tr>),
-        (<tr key="2"><td>Bob</td></tr>),
-      ]
+  const ths: React.ReactNode[] = ['Name', 'Age']
 
-      const wrapper = (
-        <Table style={ { color: 'orange', fontSize: '16px' } }>
-          { rows }
-        </Table>
-      )
-      ```
+  const tds: React.ReactNode[][] = [
+    ['Alice', 18],
+    ['Bob', 19],
+  ]
 
-    - With theme
+  const wrapper = (
+    <Table
+      aligns={[ 'center', 'right' ]}
+      ths={ths}
+      tds={tds}
+      style={{ color: 'orange', fontSize: '16px' }}
+    />
+  )
+  ```
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import Table from '@yozora/react-table'
+### Props
 
-      const theme: DefaultTheme = {
-        yozora: {
-          table: {
-            width: '100%',
-            overflow: 'hidden auto',
-            margin: 18,
-          }
-        }
-      }
+Name        | Type                    | Required  | Default | Description
+:----------:|:-----------------------:|:---------:|:-------:|:-------------
+`aligns`    | `(string|undefined)[]>` | `true`    | -       | Table cells in thead
+`ths`       | `React.ReactNode[]`     | `true`    | -       | Table cells in thead
+`tds`       | `React.ReactNode[]`     | `true`    | -       | Table cells in tbody
+`className` | `string`                | `false`   | -       | Root css class
+`style`     | `React.CSSProperties`   | `false`   | -       | Root css style
 
-      const rows: React.ReactNode[] = [
-        (<tr key="0"><th>Name</th></tr>),
-        (<tr key="1"><td>Alice</td></tr>),
-        (<tr key="2"><td>Bob</td></tr>),
-      ]
+* `aligns`: `Array<'left'|'center'|'right'|undefined>`
 
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <Table style={ { color: 'orange', fontSize: '16px' } }>
-            { rows }
-          </Table>
-        </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name       | Type                                | Required  | Default | Description
-    :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `ref`      | `React.RefObject<HTMLTableElement>` | `false`   | -       | Forwarded ref callback
-     `head`     | `React.ReactNode`                   | `true`    | -       | table head rows
-     `body`     | `React.ReactNode`                   | `false`   | -       | table body rows
-
-    TableProps inherited all attributes of `HTMLTableElement` (`React.TableHTMLAttributes<HTMLTableElement>`)
-
-  * Theme
-
-     Prop Name      | Default
-    :--------------:|:--------------
-     width          | `max-width`
-     overflow       | `auto`
-     margin         | `margin`
-     borderSpacing  | `0`
-     borderCollapse | `collapse`
-
-    See [YozoraTableTheme][] for details.
+* `className`: The root element of this component will always bind with the
+  CSS class `'yozora-table'`.
 
 
 ## References
 
-  - [mdast table][]
-  - [mdast table row][]
-  - [mdast table cell][]
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
+* [@yozora/tokenizer-table][]
+* [mdast table][]
+* [mdast table row][]
+* [mdast table cell][]
 
 
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#table
+[@yozora/ast#table]: https://www.npmjs.com/package/@yozora/ast#table
+[@yozora/ast#tablerow]: https://www.npmjs.com/package/@yozora/ast#tablerow
+[@yozora/ast#tablecell]: https://www.npmjs.com/package/@yozora/ast#tablecell
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-table]: https://www.npmjs.com/package/@yozora/tokenizer-table
 [mdast table]: https://github.com/syntax-tree/mdast#table
 [mdast table row]: https://github.com/syntax-tree/mdast#tablecell
 [mdast table cell]: https://github.com/syntax-tree/mdast#tablerow
-[YozoraTableTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/table/src/theme.ts
