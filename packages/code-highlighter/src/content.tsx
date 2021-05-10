@@ -1,82 +1,99 @@
-import React from 'react'
-import styled from 'styled-components'
-import type { RenderProps } from './types'
-
-export interface HighlightContentProps extends RenderProps {
-  /**
-   * CSS class name of the highlight code content.
-   */
-  contentClassName?: string
-  /**
-   * CSS class name of lineNos.
-   */
-  lineNosClassName?: string
-  /**
-   * CSS class name of codes
-   */
-  codesClassName?: string
-}
-
-const Container = styled.div`
-  display: flex;
-  width: 100%;
-`
-
-const LineNoContainer = styled.div`
-  flex: 0 0 auto;
-  padding-right: 0.6em;
-  cursor: default;
-  user-select: none;
-  text-align: right;
-  border-right: 1px solid #666;
-  & > span {
-    display: inline-block;
-    width: 100%;
-  }
-`
-
-const CodesContainer = styled.div`
-  flex: 1 1 0;
-  overflow: auto;
-  padding-left: 0.6em;
-`
+import cn from 'clsx'
+import React, { useEffect } from 'react'
+import { Container } from './style'
+import type { HighlightContentProps } from './types'
+import { calcHeight } from './util'
 
 /**
  * Content of CodeHighlighter.
  */
-function HighlighterContent(props: HighlightContentProps): React.ReactElement {
-  const { tokens, getLineProps, getTokenProps } = props
-  const lines = tokens.map((line, key) => getLineProps({ line, key }))
-  const linenoWidth = `${Math.max(2, ('' + tokens.length).length) + 0.5}em`
-
+export function HighlighterContent(
+  props: HighlightContentProps,
+): React.ReactElement {
   const {
-    contentClassName = 'yozora-code-highlighter-content',
-    lineNosClassName = 'yozora-code-highlighter-linenos',
-    codesClassName = 'yozora-code-highlighter-codes',
+    contentRef,
+    codesRef,
+    highlightLinenos = [],
+    collapsed = false,
+    maxLines = -1,
+    lineHeight = '1.8rem',
+    showLinenos = true,
+    tokens,
+    getLineProps,
+    getTokenProps,
+    onLinenoWidthChange,
+    className,
+    style: _style,
   } = props
 
+  const linenoWidth = showLinenos
+    ? `${Math.max(2, ('' + tokens.length).length) * 1.1}em`
+    : undefined
+
+  useEffect(() => {
+    if (onLinenoWidthChange == null) return
+    onLinenoWidthChange(linenoWidth)
+  }, [linenoWidth, onLinenoWidthChange])
+
+  // Sync lineno width.
+  const style: React.CSSProperties = { ..._style, lineHeight, maxHeight: 0 }
+  if (!collapsed) {
+    const countOfLines = maxLines > 0 ? maxLines : tokens.length
+    const maxHeight = calcHeight(lineHeight, countOfLines + 0.5)
+    style.maxHeight = maxHeight
+    style.minHeight = maxHeight
+  }
+
   return (
-    <Container className={contentClassName}>
-      <LineNoContainer
-        key="lineNos"
-        className={lineNosClassName}
-        style={{ width: linenoWidth }}
+    <Container ref={contentRef} className={className} style={style}>
+      {showLinenos && (
+        <div
+          key="linenos"
+          className="yozora-code-highlighter__linenos"
+          style={{ width: linenoWidth }}
+        >
+          {tokens.map((_, lineNo) => {
+            const isHighlight = highlightLinenos.includes(lineNo + 1)
+            return (
+              <div
+                key={lineNo}
+                className={cn('yozora-code-highlighter__line', {
+                  'yozora-code-highlighter__line--highlight': isHighlight,
+                })}
+              >
+                <span key={lineNo}>{lineNo + 1}</span>
+              </div>
+            )
+          })}
+        </div>
+      )}
+      <div
+        ref={codesRef}
+        key="codes"
+        className="yozora-code-highlighter__codes"
       >
-        {tokens.map((line, lineNo) => (
-          <div key={lineNo} {...lines[lineNo]}>
-            <span key={lineNo}>{lineNo + 1}</span>
-          </div>
-        ))}
-      </LineNoContainer>
-      <CodesContainer key="codes" className={codesClassName}>
-        {tokens.map((line, lineNo) => (
-          <div key={lineNo} {...lines[lineNo]}>
-            {line.map((token, key) => (
-              <span key={key} {...getTokenProps({ token, key: key })} />
-            ))}
-          </div>
-        ))}
-      </CodesContainer>
+        {tokens.map((line, lineNo) => {
+          const isHighlight = highlightLinenos.includes(lineNo + 1)
+          const lineProps = getLineProps({ line })
+          return (
+            <div
+              {...lineProps}
+              key={lineNo}
+              className={cn(
+                'yozora-code-highlighter__line',
+                {
+                  'yozora-code-highlighter__line--highlight': isHighlight,
+                },
+                lineProps.className,
+              )}
+            >
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token })} key={key} />
+              ))}
+            </div>
+          )
+        })}
+      </div>
     </Container>
   )
 }
