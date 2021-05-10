@@ -1,21 +1,14 @@
-import { mount, render } from 'enzyme'
+import { render } from 'enzyme'
 import React from 'react'
 import Text from '../src'
+
+const text = 'Hello, world!'
 
 describe('prop types', function () {
   beforeEach(() => {
     jest.spyOn(global.console, 'error').mockImplementation((...args) => {
       throw new Error(args.join(' '))
     })
-  })
-
-  it('forward ref', function () {
-    const ref = React.createRef<HTMLSpanElement>()
-    const wrapper = mount(<Text ref={ref} value="" data-name="yozora-text" />)
-
-    const o = wrapper.getDOMNode()
-    expect(o).toEqual(ref.current)
-    expect(o.getAttribute('data-name')).toEqual('yozora-text')
   })
 
   it('value is required', function () {
@@ -28,44 +21,38 @@ describe('prop types', function () {
     expect(render(<Text value="hello" />).text()).toEqual('hello')
   })
 
-  it('className is optional', function () {
-    const text = 'Hello, world!'
-    expect(render(<Text value={text} />).hasClass('yozora-text')).toEqual(true)
+  describe('className is optional', function () {
+    it('default', function () {
+      const node = render(<Text value={text} />)
+      expect(node.hasClass('yozora-text')).toEqual(true)
+    })
 
-    expect(
-      render(<Text value={text} className="my-text" />).hasClass('my-text'),
-    ).toEqual(true)
+    it('custom', function () {
+      const node = render(<Text value={text} className="my-text" />)
+      expect(node.hasClass('yozora-text')).toEqual(true)
+      expect(node.hasClass('my-text')).toEqual(true)
+    })
+  })
+
+  it('style is optional', function () {
+    const node = render(<Text value={text} style={{ color: 'orange' }} />)
+    expect(node.css('color')).toEqual('orange')
   })
 })
 
 describe('snapshot', function () {
   it('default', function () {
-    const wrapper = render(<Text value="Hello, world!" />)
+    const wrapper = render(<Text value={text} />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('custom', function () {
     const wrapper = render(
       <Text
-        value="Hello, world!"
+        value={text}
         className="custom-class"
-        data-name="yozora-text"
         style={{ color: 'orange' }}
       />,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  it('children is not allowed', function () {
-    const wrapper = render(
-      <Text
-        value="Hello, world!"
-        className="custom-class"
-        data-name="yozora-text"
-        style={{ color: 'orange' }}
-      >
-        <em>Children Content will be ignored.</em>
-      </Text>,
     )
     expect(wrapper).toMatchSnapshot()
   })

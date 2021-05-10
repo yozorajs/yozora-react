@@ -1,19 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot children is not allowed 1`] = `
-<span
-  class="custom-class"
-  data-name="yozora-text"
-  style="color:orange"
->
-  Hello, world!
-</span>
-`;
-
 exports[`snapshot custom 1`] = `
 <span
-  class="custom-class"
-  data-name="yozora-text"
+  class="yozora-text custom-class"
   style="color:orange"
 >
   Hello, world!

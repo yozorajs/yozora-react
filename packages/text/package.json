@@ -1,7 +1,7 @@
 {
   "name": "@yozora/react-text",
   "version": "0.0.10",
-  "description": "render markdown text in react",
+  "description": "render markdown text node in react",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -13,8 +13,8 @@
   },
   "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/text#readme",
   "keywords": [
-    "mdast node renderer",
-    "markdown text"
+    "mdast renderer",
+    "text"
   ],
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
@@ -41,6 +41,7 @@
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "peerDependencies": {
+    "clsx": "^1.1.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1"
   },
