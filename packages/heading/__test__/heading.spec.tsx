@@ -1,4 +1,4 @@
-import { mount, render } from 'enzyme'
+import { render } from 'enzyme'
 import React from 'react'
 import Heading from '../src'
 
@@ -9,23 +9,20 @@ describe('prop types', function () {
     })
   })
 
-  it('forward ref', () => {
-    const ref = React.createRef<HTMLDivElement>()
-    const level = 1
-    const wrapper = mount(
-      <Heading
-        level={level}
-        ref={ref}
-        identifier={`heading-${level}`}
-        data-name="yozora-heading"
-      >
-        Heading {level}
-      </Heading>,
-    )
+  it('level is required', () => {
+    for (const level of [0, '1', 1.2, 7] as any[]) {
+      expect(() => {
+        render(
+          <Heading level={level} identifier={`heading-${level}`}>
+            heading {level}
+          </Heading>,
+        )
+      }).toThrow(/Invalid prop `level`/i)
+    }
 
-    const o = wrapper.getDOMNode()
-    expect(o).toEqual(ref.current)
-    expect(o.getAttribute('data-name')).toEqual('yozora-heading')
+    for (let level = 1; level <= 6; ++level) {
+      expect(() => render(<Heading level={level as any} />)).not.toThrow()
+    }
   })
 
   it('children is optional', () => {
@@ -40,32 +37,40 @@ describe('prop types', function () {
     }
   })
 
-  it('className is optional', function () {
-    expect(
-      render(<Heading level={1}>Heading contents.</Heading>).hasClass(
-        'yozora-heading',
-      ),
-    ).toEqual(true)
+  it('identifier is optional', () => {
+    const node = render(<Heading level={1} identifier="waw" />)
+    expect(node.attr('id')).toEqual('waw')
+  })
 
-    expect(
-      render(
+  it('linkIcon is optional', () => {
+    const node = render(<Heading level={1} identifier="waw" linkIcon="lol" />)
+    expect(node.find('.yozora-heading__anchor').text()).toEqual('lol')
+  })
+
+  describe('className is optional', function () {
+    it('default', function () {
+      const node = render(<Heading level={1}>Heading contents.</Heading>)
+      expect(node.hasClass('yozora-heading')).toEqual(true)
+    })
+
+    it('custom', function () {
+      const node = render(
         <Heading level={1} className="my-heading">
           Heading contents.
         </Heading>,
-      ).hasClass('my-heading'),
-    ).toEqual(true)
+      )
+      expect(node.hasClass('yozora-heading')).toEqual(true)
+      expect(node.hasClass('my-heading')).toEqual(true)
+    })
   })
 
-  it('level is a required enum number', () => {
-    for (const level of [0, '1', 1.2, 7] as any[]) {
-      expect(() => {
-        render(
-          <Heading level={level} identifier={`heading-${level}`}>
-            heading {level}
-          </Heading>,
-        )
-      }).toThrow(/Invalid prop `level`/i)
-    }
+  it('style is optional', function () {
+    const node = render(
+      <Heading level={2} style={{ color: 'orange' }}>
+        Heading contents
+      </Heading>,
+    )
+    expect(node.css('color')).toEqual('orange')
   })
 })
 
@@ -86,7 +91,7 @@ describe('snapshot', function () {
 
   it('custom', () => {
     const level = 1
-    const wrapper = mount(
+    const wrapper = render(
       <Heading
         level={level}
         identifier={`heading-${level}`}

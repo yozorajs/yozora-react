@@ -1,8 +1,8 @@
+import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { HeadingLinkIcon } from './icon'
 
-export interface HeadingProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface HeadingProps {
   /**
    * Heading level
    */
@@ -16,49 +16,65 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   identifier?: string
   /**
-   * Root css class of the component.
-   * @default 'yozora-heading'
-   */
-  className?: string
-  /**
    * Heading link icon
    */
   linkIcon?: React.ReactNode
+  /**
+   * Root css class of the component.
+   */
+  className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
 }
 
 /**
  * Render `heading` content.
+ *
+ * @see https://www.npmjs.com/package/@yozora/ast#heading
  * @see https://www.npmjs.com/package/@yozora/tokenizer-heading
  */
-export const Heading = React.forwardRef<HTMLDivElement, HeadingProps>(
-  (props, forwardRef): React.ReactElement => {
-    const {
-      className = 'yozora-heading',
-      children,
-      identifier,
-      level,
-      linkIcon = <HeadingLinkIcon />,
-      ...htmlProps
-    } = props
+export function Heading(props: HeadingProps): React.ReactElement {
+  const {
+    className,
+    style,
+    children,
+    identifier,
+    level,
+    linkIcon = '¶',
+  } = props
 
-    const H: any = ('h' + props.level) as keyof JSX.IntrinsicElements
-    return (
-      <div {...htmlProps} ref={forwardRef} className={className}>
-        <a id={identifier} href={'#' + identifier}>
+  const id = identifier == null ? undefined : encodeURIComponent(identifier)
+  const H: any = ('h' + level) as keyof JSX.IntrinsicElements
+  return (
+    <H
+      id={id}
+      className={cn(
+        'yozora-heading',
+        { 'yozora-heading--toc': identifier != null },
+        className,
+      )}
+      style={style}
+    >
+      <p className="yozora-heading__content">{children}</p>
+      {identifier && (
+        <a className="yozora-heading__anchor" href={'#' + id}>
           {linkIcon}
         </a>
-        <H>{children}</H>
-      </div>
-    )
-  },
-)
+      )}
+    </H>
+  )
+}
 
 Heading.propTypes = {
-  level: PropTypes.oneOf<1 | 2 | 3 | 4 | 5 | 6>([1, 2, 3, 4, 5, 6]).isRequired,
+  anchorClassName: PropTypes.string,
   children: PropTypes.node,
-  identifier: PropTypes.string,
   className: PropTypes.string,
+  identifier: PropTypes.string,
+  level: PropTypes.oneOf<1 | 2 | 3 | 4 | 5 | 6>([1, 2, 3, 4, 5, 6]).isRequired,
   linkIcon: PropTypes.node,
+  style: PropTypes.object,
 }
 
 Heading.displayName = 'YozoraHeading'
