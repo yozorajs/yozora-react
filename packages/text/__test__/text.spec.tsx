@@ -18,7 +18,7 @@ describe('prop types', function () {
       }).toThrow(/The prop `value` is marked as required/i)
     }
 
-    expect(render(<Text value="hello" />).text()).toEqual('hello')
+    expect(render(<Text value={text} />).text()).toEqual(text)
   })
 
   describe('className is optional', function () {

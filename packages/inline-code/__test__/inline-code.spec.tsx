@@ -17,6 +17,8 @@ describe('prop types', function () {
         render(<InlineCode value={value} />)
       }).toThrow(/The prop `value` is marked as required/i)
     }
+
+    expect(render(<InlineCode value={code} />).text()).toEqual(code)
   })
 
   describe('className is optional', function () {
