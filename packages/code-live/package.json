@@ -19,7 +19,7 @@
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/types/index.d.ts",
-  "source": "src/index.tsx",
+  "source": "src/index.ts",
   "license": "MIT",
   "engines": {
     "node": ">= 14.15.0"
@@ -42,13 +42,13 @@
   "dependencies": {
     "@yozora/react-code-editor": "^0.0.10",
     "@yozora/react-code-embed": "^0.0.10",
-    "prism-react-renderer": "^1.1.1"
+    "@yozora/react-common-copy-button": "^0.0.10",
+    "@yozora/react-common-light-buttons": "^0.0.10"
   },
   "peerDependencies": {
-    "@types/react": "^17.0.3",
-    "@types/styled-components": "^5.1.4",
+    "clsx": "^1.1.1",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
+    "react": ">= 17.0.0",
     "styled-components": "^5.2.1"
   },
   "browserslist": [

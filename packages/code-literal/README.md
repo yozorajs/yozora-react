@@ -126,6 +126,7 @@ Name                | Type                  | Required  | Default | Description
 [@yozora/react-code]: https://www.npmjs.com/package/@yozora/react-code
 [@yozora/react-code-embed]: https://www.npmjs.com/package/@yozora/react-code-embed
 [@yozora/react-code-highlighter]: https://www.npmjs.com/package/@yozora/react-code-highlighter
+[@yozora/react-code-literal]: https://www.npmjs.com/package/@yozora/react-code-literal
 [@yozora/react-code-live]: https://www.npmjs.com/package/@yozora/react-code-live
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-indented-code]: https://www.npmjs.com/package/@yozora/tokenizer-indented-code

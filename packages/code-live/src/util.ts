@@ -1,5 +1,4 @@
 /**
- *
  * @param func
  * @param wait
  * @param immediate   execute immediate
@@ -18,12 +17,12 @@ export function debounce<T extends DebounceFunc = DebounceFunc>(
     const context = this
 
     if (timeout != null) clearTimeout(timeout)
-    timeout = setTimeout(function () {
+    timeout = (setTimeout(function () {
       timeout = null
       if (!immediate) {
         func.apply(context, args)
       }
-    }, wait)
+    }, wait) as unknown) as number
 
     if (immediate && timeout == null) {
       func.apply(context, args)
