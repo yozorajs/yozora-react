@@ -101,26 +101,36 @@ as it's seems not been updated for several months.
     const wrapper = (<Wrapper />)
     ```
 
-  * Props
+### Props
 
-     Name                 | Type                        | Required  | Default             | Description
-    :--------------------:|:---------------------------:|:---------:|:-------------------:|:-------------
-     `lang`               | `string`                    | `true`    | -                   | Code language
-     `code`               | `string`                    | `true`    | -                   | Code content
-     `onChange`           | `(content: string) => void` | `true`    | -                   | Triggered when code changed.
-     `darken`             | `boolean`                   | `false`   | `true`              | Specify the default theme (vcsDarkTheme / vscLightTheme)
-     `theme`              | `PrismTheme`                | `false`   | Depends on `darken` | Highlight prism theme.
-     `textareaClassName`  | `string`                    | `false`   | -                   | CSS class name for the underlying textarea
-     `textareaStyle`      | `React.CSSProperties`       | `false`   | -                   | CSS style object for the underlying textarea
-     `preClassName`       | `string`                    | `false`   | -                   | CSS class name for the underlying pre
-     `preStyle`           | `React.CSSProperties`       | `false`   | -                   | CSS style object for the underlying textarea
-     `className`          | `string`                    | `false`   | -                   | CSS class name for the container
-     `style`              | `React.CSSProperties`       | `false`   | -                   | CSS style object for the container
+Name                | Type                            | Required  | Default   | Description
+:------------------:|:-------------------------------:|:---------:|:---------:|:-------------
+`autoFocus`         | `boolean`                       | `false`   | -         | Set the editor focus in default
+`className`         | `string`                        | `false`   | -         | CSS class name for the container
+`code`              | `string`                        | `true`    | -         | Code content
+`darken`            | `boolean`                       | `false`   | `true`    | Dark mode (vcsDarkTheme / vscLightTheme)
+`lang`              | `string`                        | `true`    | -         | Code language
+`lineHeight`        | `React.CSSProperties['height']` | `false`   | `'1.8em'` | line height
+`onChange`          | `(content: string) => void`     | `true`    | -         | Triggered when code changed.
+`preClassName`      | `string`                        | `false`   | -         | CSS class name for the underlying pre
+`preStyle`          | `React.CSSProperties`           | `false`   | -         | CSS style object for the underlying textarea
+`showLinenos`       | `boolean`                       | `false`   | `true`    | Display line numbers
+`style`             | `React.CSSProperties`           | `false`   | -         | CSS style object for the container
+`textareaClassName` | `string`                        | `false`   | -         | CSS class name for the underlying textarea
+`textareaStyle`     | `React.CSSProperties`           | `false`   | -         | CSS style object for the underlying textarea
+`theme`             | `PrismTheme`                    | `false`   | See below | Highlight prism theme.
+
+* `className`: The root element of this component will always bind with the
+  CSS class `'yozora-code-editor'`
+
+* `theme`: Default theme depends on the value of `darken`.
 
 
-## References
+## Related
 
-  - [react-simple-code-editor][]
+* [@yozora/react-code-highlighter][]
+* [react-simple-code-editor][]
 
 
+[@yozora/react-code-highlighter]: https://www.npmjs.com/package/@yozora/react-code-highlighter
 [react-simple-code-editor]: https://github.com/satya164/react-simple-code-editor

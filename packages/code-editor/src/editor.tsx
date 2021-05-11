@@ -1,67 +1,25 @@
+import cn from 'clsx'
 import React from 'react'
 import styled from 'styled-components'
-import type { EditorProps, EditorState } from '../types'
-import { classes, getLines } from '../util'
-
-interface OperationRecord {
-  value: string
-  selectionStart: number
-  selectionEnd: number
-}
-
-interface History {
-  stack: Array<OperationRecord & { timestamp: number }>
-  offset: number
-}
-
-const KEYCODE_ENTER = 13
-const KEYCODE_TAB = 9
-const KEYCODE_BACKSPACE = 8
-const KEYCODE_Y = 89
-const KEYCODE_Z = 90
-const KEYCODE_M = 77
-const KEYCODE_PARENS = 57
-const KEYCODE_BRACKETS = 219
-const KEYCODE_QUOTE = 222
-const KEYCODE_BACK_QUOTE = 192
-const KEYCODE_ESCAPE = 27
-
-const HISTORY_LIMIT = 100
-const HISTORY_TIME_GAP = 3000
-
-const isWindows = 'navigator' in global && /Win/i.test(navigator.platform)
-const isMacLike =
-  'navigator' in global && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)
-
-const Textarea = styled.textarea`
-  /**
-   * Reset the text fill color so that placeholder is visible
-   */
-  &:empty {
-    -webkit-text-fill-color: inherit !important;
-  }
-  /**
-   * Hack to apply on some CSS on IE10 and IE11
-   */
-  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    /**
-      * IE doesn't support '-webkit-text-fill-color'
-      * So we use 'color: transparent' to make the text transparent on IE
-      * Unlike other browsers, it doesn't affect caret color in IE
-      */
-    & {
-      color: transparent !important;
-    }
-
-    &::selection {
-      background-color: #accef7 !important;
-      color: transparent !important;
-    }
-  }
-`
+import type {
+  EditorHistory,
+  EditorOperationRecord,
+  EditorProps,
+  EditorState,
+} from './types'
+import {
+  HISTORY_LIMIT,
+  HISTORY_TIME_GAP,
+  KeyboardCodes,
+  KeyboardKeys,
+  getLines,
+  isMacLike,
+  isWindows,
+  regexps,
+} from './util'
 
 /**
- *
+ * Based on react-simple-code-editor, developed by satya164
  * @see https://github.com/satya164/react-simple-code-editor
  */
 export class SimpleCodeEditor extends React.Component<
@@ -76,20 +34,20 @@ export class SimpleCodeEditor extends React.Component<
   }
 
   protected readonly inputRef = React.createRef<HTMLTextAreaElement>()
-  protected _history: History = { stack: [], offset: -1 }
+  protected _history: EditorHistory = { stack: [], offset: -1 }
 
   constructor(props: EditorProps) {
     super(props)
     this.state = { capture: true }
   }
 
-  public get session(): { history: History } {
+  public get session(): { history: EditorHistory } {
     return {
       history: this._history,
     }
   }
 
-  public set session(session: { history: History }) {
+  public set session(session: { history: EditorHistory }) {
     this._history = session.history
   }
 
@@ -100,8 +58,8 @@ export class SimpleCodeEditor extends React.Component<
   public render(): React.ReactElement {
     const {
       value,
+      linenoWidth,
       style,
-      padding,
       highlight,
       textareaId,
       textareaClassName,
@@ -121,6 +79,7 @@ export class SimpleCodeEditor extends React.Component<
       onKeyUp,
       /* eslint-disable no-unused-vars */
       onKeyDown,
+      onScroll,
       onValueChange,
       tabSize,
       insertSpaces,
@@ -128,66 +87,53 @@ export class SimpleCodeEditor extends React.Component<
       /* eslint-enable no-unused-vars */
       preClassName,
       preStyle,
-      ...restProps
+      ...htmlProps
     } = this.props
 
-    const contentStyle = {
-      paddingTop: padding,
-      paddingRight: padding,
-      paddingBottom: padding,
-      paddingLeft: padding,
-    }
-
     const highlighted = highlight(value)
-
     return (
-      <div {...restProps} style={{ ...classes.container, ...style }}>
-        <Textarea
-          ref={this.inputRef}
-          style={{
-            ...classes.editor,
-            ...classes.textarea,
-            ...contentStyle,
-            ...textareaStyle,
-          }}
-          className={textareaClassName ? ` ${textareaClassName}` : ''}
-          id={textareaId}
-          value={value}
-          onChange={this._handleChange}
-          onKeyDown={this._handleKeyDown}
-          onClick={onClick}
-          onKeyUp={onKeyUp}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          disabled={disabled}
-          form={form}
-          maxLength={maxLength}
-          minLength={minLength}
-          name={name}
-          placeholder={placeholder}
-          readOnly={readOnly}
-          required={required}
-          autoFocus={autoFocus}
-          autoCapitalize="off"
-          autoComplete="off"
-          autoCorrect="off"
-          spellCheck={false}
-          data-gramm={false}
-        />
+      <Container {...htmlProps} style={{ ...style, tabSize }}>
+        <div
+          className="code-editor__textarea-wrapper"
+          style={{ paddingLeft: linenoWidth }}
+        >
+          <textarea
+            ref={this.inputRef}
+            id={textareaId}
+            style={textareaStyle}
+            className={cn('code-editor__textarea', textareaClassName)}
+            value={value}
+            onChange={this._handleChange}
+            onKeyDown={this._handleKeyDown}
+            onClick={onClick}
+            onKeyUp={onKeyUp}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onScroll={onScroll}
+            disabled={disabled}
+            form={form}
+            maxLength={maxLength}
+            minLength={minLength}
+            name={name}
+            placeholder={placeholder}
+            readOnly={readOnly}
+            required={required}
+            autoFocus={autoFocus}
+            autoCapitalize="off"
+            autoComplete="off"
+            autoCorrect="off"
+            spellCheck={false}
+          />
+        </div>
         <pre
-          className={preClassName}
+          className={cn('code-editor__previewer', preClassName)}
+          style={preStyle}
           aria-hidden="true"
-          style={{
-            ...classes.editor,
-            ...classes.highlight,
-            ...contentStyle,
-            ...preStyle,
-          }}
           {...(typeof highlighted === 'string'
             ? { dangerouslySetInnerHTML: { __html: highlighted + '<br />' } }
             : { children: highlighted })}
         />
-      </div>
+      </Container>
     )
   }
 
@@ -206,7 +152,7 @@ export class SimpleCodeEditor extends React.Component<
   }
 
   protected _recordChange = (
-    record: OperationRecord,
+    record: EditorOperationRecord,
     overwrite = false,
   ): void => {
     const { stack, offset } = this._history
@@ -235,17 +181,17 @@ export class SimpleCodeEditor extends React.Component<
         // A previous entry exists and was in short interval
 
         // Match the last word in the line
-        const re = /[^a-z0-9]([a-z0-9]+)$/i
+        const regex = regexps.lastWordOfLine
 
         // Get the previous line
         const previous = getLines(last.value, last.selectionStart)
           .pop()!
-          .match(re)
+          .match(regex)
 
         // Get the current line
         const current = getLines(record.value, record.selectionStart)
           .pop()!
-          .match(re)
+          .match(regex)
 
         if (previous && current && current[1].startsWith(previous[1])) {
           // The last word of the previous line and current line match
@@ -262,7 +208,7 @@ export class SimpleCodeEditor extends React.Component<
     this._history.offset += 1
   }
 
-  protected _updateInput = (record: OperationRecord): void => {
+  protected _updateInput = (record: EditorOperationRecord): void => {
     const input = this.inputRef.current
     if (!input) return
 
@@ -274,7 +220,7 @@ export class SimpleCodeEditor extends React.Component<
     this.props.onValueChange(record.value)
   }
 
-  protected _applyEdits = (record: OperationRecord): void => {
+  protected _applyEdits = (record: EditorOperationRecord): void => {
     // Save last selection state
     const input = this.inputRef.current
     const last = this._history.stack[this._history.offset]
@@ -333,7 +279,7 @@ export class SimpleCodeEditor extends React.Component<
       }
     }
 
-    if (e.keyCode === KEYCODE_ESCAPE) {
+    if (e.key === KeyboardKeys.ESCAPE) {
       target.blur()
     }
 
@@ -341,7 +287,7 @@ export class SimpleCodeEditor extends React.Component<
 
     const tabCharacter = (insertSpaces ? ' ' : '\t').repeat(tabSize)
 
-    if (e.keyCode === KEYCODE_TAB && !ignoreTabKey && this.state.capture) {
+    if (e.key === KeyboardKeys.TAB && !ignoreTabKey && this.state.capture) {
       // Prevent focus change
       e.preventDefault()
 
@@ -420,7 +366,7 @@ export class SimpleCodeEditor extends React.Component<
           selectionEnd: updatedSelection,
         })
       }
-    } else if (e.keyCode === KEYCODE_BACKSPACE) {
+    } else if (e.key === KeyboardKeys.BACKSPACE) {
       const hasSelection = selectionStart !== selectionEnd
       const textBeforeCaret = value.substring(0, selectionStart)
 
@@ -440,7 +386,7 @@ export class SimpleCodeEditor extends React.Component<
           selectionEnd: updatedSelection,
         })
       }
-    } else if (e.keyCode === KEYCODE_ENTER) {
+    } else if (e.key === KeyboardKeys.ENTER) {
       // Ignore selections
       if (selectionStart === selectionEnd) {
         // Get the current line
@@ -467,29 +413,38 @@ export class SimpleCodeEditor extends React.Component<
         }
       }
     } else if (
-      e.keyCode === KEYCODE_PARENS ||
-      e.keyCode === KEYCODE_BRACKETS ||
-      e.keyCode === KEYCODE_QUOTE ||
-      e.keyCode === KEYCODE_BACK_QUOTE
+      e.key === KeyboardKeys.ANGLE_LEFT ||
+      e.key === KeyboardKeys.PARENS_LEFT ||
+      e.key === KeyboardKeys.BRACE_LEFT ||
+      e.key === KeyboardKeys.BRACKET_LEFT ||
+      e.key === KeyboardKeys.QUOTE ||
+      e.key === KeyboardKeys.DOUBLE_QUOTE ||
+      e.key === KeyboardKeys.BACK_QUOTE
     ) {
-      let chars
+      let chars: string[] | null = null
 
-      if (e.keyCode === KEYCODE_PARENS && e.shiftKey) {
-        chars = ['(', ')']
-      } else if (e.keyCode === KEYCODE_BRACKETS) {
-        if (e.shiftKey) {
-          chars = ['{', '}']
-        } else {
+      switch (e.key) {
+        case KeyboardKeys.ANGLE_LEFT:
+          chars = ['<', '>']
+          break
+        case KeyboardKeys.PARENS_LEFT:
+          chars = ['(', ')']
+          break
+        case KeyboardKeys.BRACKET_LEFT:
           chars = ['[', ']']
-        }
-      } else if (e.keyCode === KEYCODE_QUOTE) {
-        if (e.shiftKey) {
-          chars = ['"', '"']
-        } else {
+          break
+        case KeyboardKeys.BRACE_LEFT:
+          chars = ['{', '}']
+          break
+        case KeyboardKeys.QUOTE:
           chars = ["'", "'"]
-        }
-      } else if (e.keyCode === KEYCODE_BACK_QUOTE && !e.shiftKey) {
-        chars = ['`', '`']
+          break
+        case KeyboardKeys.DOUBLE_QUOTE:
+          chars = ['"', '"']
+          break
+        case KeyboardKeys.BACK_QUOTE:
+          chars = ['`', '`']
+          break
       }
 
       // If text is selected, wrap them in the characters
@@ -511,9 +466,9 @@ export class SimpleCodeEditor extends React.Component<
     } else if (
       (isMacLike
         ? // Trigger undo with ⌘+Z on Mac
-          e.metaKey && e.keyCode === KEYCODE_Z
+          e.metaKey && e.code === KeyboardCodes.Z
         : // Trigger undo with Ctrl+Z on other platforms
-          e.ctrlKey && e.keyCode === KEYCODE_Z) &&
+          e.ctrlKey && e.code === KeyboardCodes.Z) &&
       !e.shiftKey &&
       !e.altKey
     ) {
@@ -523,19 +478,19 @@ export class SimpleCodeEditor extends React.Component<
     } else if (
       (isMacLike
         ? // Trigger redo with ⌘+Shift+Z on Mac
-          e.metaKey && e.keyCode === KEYCODE_Z && e.shiftKey
+          e.metaKey && e.code === KeyboardCodes.Z && e.shiftKey
         : isWindows
         ? // Trigger redo with Ctrl+Y on Windows
-          e.ctrlKey && e.keyCode === KEYCODE_Y
+          e.ctrlKey && e.code === KeyboardCodes.Y
         : // Trigger redo with Ctrl+Shift+Z on other platforms
-          e.ctrlKey && e.keyCode === KEYCODE_Z && e.shiftKey) &&
+          e.ctrlKey && e.code === KeyboardCodes.Z && e.shiftKey) &&
       !e.altKey
     ) {
       e.preventDefault()
 
       this._redoEdit()
     } else if (
-      e.keyCode === KEYCODE_M &&
+      e.code === KeyboardCodes.M &&
       e.ctrlKey &&
       (isMacLike ? e.shiftKey : true)
     ) {
@@ -552,10 +507,81 @@ export class SimpleCodeEditor extends React.Component<
     e: React.ChangeEvent<HTMLTextAreaElement>,
   ): void => {
     const { value, selectionStart, selectionEnd } = e.target
-    const nextRecord: OperationRecord = { value, selectionStart, selectionEnd }
+    const nextRecord: EditorOperationRecord = {
+      value,
+      selectionStart,
+      selectionEnd,
+    }
     this._recordChange(nextRecord, true)
     this.props.onValueChange(value)
   }
 }
 
 export default SimpleCodeEditor
+
+export const Container = styled.div`
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0;
+  text-align: left;
+  tab-size: 2;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: always;
+  white-space: pre;
+  word-break: keep-all;
+  word-spacing: normal;
+  word-wrap: normal;
+
+  .code-editor__textarea-wrapper,
+  .code-editor__textarea,
+  .code-editor__previewer {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    outline: none;
+    background: none;
+    box-sizing: inherit;
+    display: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-variant-ligatures: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    overflow-wrap: inherit;
+    tab-size: inherit;
+    text-indent: inherit;
+    text-rendering: inherit;
+    text-transform: inherit;
+    white-space: inherit;
+    word-break: inherit;
+    word-spacing: inherit;
+    word-wrap: inherit;
+  }
+  .code-editor__textarea-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .code-editor__textarea {
+    resize: none;
+    color: transparent;
+    caret-color: var(--code-caret-color, hsl(0deg, 83%, 78%));
+    -webkit-text-fill-color: transparent;
+
+    // Reset the text fill color so that placeholder is visible
+    &:empty {
+      color: inherit;
+      -webkit-text-fill-color: inherit;
+    }
+  }
+  .code-editor__previewer {
+    position: relative;
+    pointer-events: none;
+  }
+`
