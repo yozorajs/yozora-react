@@ -88,4 +88,3 @@ CodeRendererJsx.propTypes = {
 }
 
 CodeRendererJsx.displayName = 'YozoraCodeRendererJsx'
-export default CodeRendererJsx

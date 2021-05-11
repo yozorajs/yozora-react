@@ -23,7 +23,7 @@
     "pretty": false,
     "removeComments": false,
     "resolveJsonModule": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "strict": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,

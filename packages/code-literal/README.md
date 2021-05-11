@@ -119,7 +119,7 @@ Name                | Type                  | Required  | Default | Description
 * [@yozora/react-markdown][]
 * [@yozora/tokenizer-indented-code][]
 * [@yozora/tokenizer-fenced-code][]
-* [ThematicBreak | Mdast][mdast]
+* [Code | Mdast][mdast]
 
 
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#code
@@ -130,4 +130,4 @@ Name                | Type                  | Required  | Default | Description
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-indented-code]: https://www.npmjs.com/package/@yozora/tokenizer-indented-code
 [@yozora/tokenizer-fenced-code]: https://www.npmjs.com/package/@yozora/tokenizer-fenced-code
-[mdast]: https://github.com/syntax-tree/mdast#thematicbreak
+[mdast]: https://github.com/syntax-tree/mdast#code

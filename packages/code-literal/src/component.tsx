@@ -7,6 +7,16 @@ import React, { useState } from 'react'
 import { Container } from './style'
 import type { CodeLiteralProps } from './types'
 
+/**
+ * Render yozora `code`
+ *
+ * @see https://www.npmjs.com/package/@yozora/ast#code
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-indented-code
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-fenced-code
+ * @see https://www.npmjs.com/package/@yozora/react-code
+ * @see https://www.npmjs.com/package/@yozora/react-code-embed
+ * @see https://www.npmjs.com/package/@yozora/react-code-live
+ */
 export function CodeLiteral(props: CodeLiteralProps): React.ReactElement {
   const {
     value,

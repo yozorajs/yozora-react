@@ -1,83 +1,88 @@
-import { mount, render } from 'enzyme'
+import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
+import { render } from 'enzyme'
 import React from 'react'
-import type { DefaultTheme } from 'styled-components'
-import { ThemeProvider } from 'styled-components'
-import type { CodeRendererProps } from '../src'
+import type { CodeRunnerProps } from '../src'
 import CodeEmbed from '../src'
 
-describe('basic rendering case', () => {
-  const errorLogger = jest
-    .spyOn(global.console, 'error')
-    .mockImplementation((...args) => {
+const code = `
+  function Counter() {
+    const [count, setCount] = React.useState(0)
+    return (
+      <div>
+        <button onClick={() => setCount(c => c + 1)}>+</button>
+        <span>{count}</span>
+        <button onClick={() => setCount(c => c - 1)}>-</button>
+      </div>
+    )
+  }
+`
+
+const JsxRunner = ({ value }: CodeRunnerProps): React.ReactElement => {
+  return (
+    <CodeRendererJsx
+      code={value}
+      inline={true}
+      onError={error => {
+        console.log(error)
+      }}
+    />
+  )
+}
+
+describe('prop types', function () {
+  beforeEach(() => {
+    jest.spyOn(global.console, 'error').mockImplementation((...args) => {
       throw new Error(args.join(' '))
     })
-
-  afterAll(() => {
-    errorLogger.mockRestore()
   })
 
-  const JsxRenderer = ({ value }: CodeRendererProps): React.ReactElement => {
-    // eslint-disable-next-line no-new-func
-    const f = new Function(value)
-    const v = f()
-    return <span data-type="jsx">{v}</span>
-  }
+  it('value is required', function () {
+    for (const value of [undefined, null] as any[]) {
+      expect(() => {
+        render(<CodeEmbed lang="jsx" value={value} CodeRunner={JsxRunner} />)
+      }).toThrow(/The prop `value` is marked as required/i)
+    }
+  })
 
-  it('forward ref', () => {
-    const ref = React.createRef<HTMLDivElement>()
-    const wrapper = mount(
+  describe('className is optional', function () {
+    it('default', function () {
+      const node = render(
+        <CodeEmbed lang="jsx" value={code} CodeRunner={JsxRunner} />,
+      )
+      expect(node.hasClass('yozora-code-embed')).toEqual(true)
+    })
+
+    it('custom', function () {
+      const node = render(
+        <CodeEmbed
+          lang="jsx"
+          value={code}
+          CodeRunner={JsxRunner}
+          className="my-code-embed"
+        />,
+      )
+      expect(node.hasClass('yozora-code-embed')).toEqual(true)
+      expect(node.hasClass('my-code-embed')).toEqual(true)
+    })
+  })
+
+  it('style is optional', function () {
+    const node = render(
       <CodeEmbed
-        ref={ref}
         lang="jsx"
-        value="const a = 1 + 2; return a;"
-        CodeRenderer={JsxRenderer}
-        data-value="waw"
+        value={code}
+        CodeRunner={JsxRunner}
+        style={{ color: 'orange' }}
       />,
     )
-
-    const o = wrapper.getDOMNode()
-    expect(o).toEqual(ref.current)
-    expect(o.getAttribute('data-value')).toEqual('waw')
+    expect(node.css('color')).toEqual('orange')
   })
+})
 
-  it('snapshot', () => {
-    const code = `
-      const a = 1 + 2;
-      return a * a
-    `
-
+describe('snapshot', function () {
+  it('basic', () => {
     const wrapper = render(
-      <CodeEmbed lang="jsx" value={code} CodeRenderer={JsxRenderer} />,
-    )
-
-    expect(wrapper.find('[data-type="jsx"]').text()).toEqual('9')
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  it('snapshot with theme', () => {
-    const theme: DefaultTheme = {
-      yozora: {
-        codeEmbed: {
-          padding: '2px',
-          border: 'none',
-          background: '#fff',
-          color: '#ccc',
-          errorBackground: 'red',
-          errorColor: '#f8f8f2',
-          errorFontSize: '0.9em',
-        },
-      },
-    }
-
-    const code = `
-      const a = 1 + 2;
-      return a * a
-    `
-
-    const wrapper = mount(
-      <ThemeProvider theme={theme}>
-        <CodeEmbed lang="jsx" value={code} CodeRenderer={JsxRenderer} />
-      </ThemeProvider>,
+      <CodeEmbed lang="jsx" value={code} CodeRunner={JsxRunner} />,
     )
     expect(wrapper).toMatchSnapshot()
   })
