@@ -59,8 +59,6 @@
     "@yozora/react-paragraph": "^0.0.10",
     "@yozora/react-strong": "^0.0.10",
     "@yozora/react-table": "^0.0.10",
-    "@yozora/react-table-cell": "^0.0.10",
-    "@yozora/react-table-row": "^0.0.10",
     "@yozora/react-text": "^0.0.10",
     "@yozora/react-thematic-break": "^0.0.10",
     "react-copy-to-clipboard": "^5.0.2",

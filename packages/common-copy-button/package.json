@@ -1,7 +1,7 @@
 {
-  "name": "@yozora/react-emphasis",
+  "name": "@yozora/react-common-copy-button",
   "version": "0.0.10",
-  "description": "render markdown emphasis in react",
+  "description": "",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -9,13 +9,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/guanghechen/yozora-react.git",
-    "directory": "packages/emphasis"
+    "directory": "packages/common-copy-button"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/emphasis#readme",
-  "keywords": [
-    "mdast node renderer",
-    "markdown emphasis"
-  ],
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/common-copy-button#readme",
+  "keywords": [],
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/types/index.d.ts",
@@ -36,13 +33,13 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
     "prebuild": "rimraf lib/",
-    "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
-    "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
+    "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
   "peerDependencies": {
     "clsx": "^1.1.1",
     "prop-types": "^15.7.2",
-    "react": ">= 17.0.0"
+    "react": ">= 17.0.0",
+    "styled-components": "^5.2.1"
   },
   "browserslist": [
     "last 2 versions",
