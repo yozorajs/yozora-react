@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Blockquote from '@yozora/react-blockquote'
 import { render } from 'enzyme'
 import React from 'react'

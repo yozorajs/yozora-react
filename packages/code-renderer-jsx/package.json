@@ -51,9 +51,6 @@
     "@types/buble": "^0.19.2",
     "buble": "^0.20.0"
   },
-  "devDependencies": {
-    "enzyme": "3.11.0"
-  },
   "browserslist": [
     "last 2 versions",
     "Firefox ESR",

@@ -50,9 +50,6 @@
     "prism-react-renderer": "^1.2.0",
     "prismjs": "^1.23.0"
   },
-  "devDependencies": {
-    "enzyme": "3.11.0"
-  },
   "browserslist": [
     "last 2 versions",
     "Firefox ESR",
