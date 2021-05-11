@@ -11,6 +11,7 @@
     "blockquote",
     "browserslist",
     "buble",
+    "builtins",
     "clsx",
     "downlevel",
     "esnext",

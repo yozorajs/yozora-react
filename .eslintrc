@@ -20,6 +20,13 @@
   "overrides": [
     {
       "files": ["**/*.ts", "**/*.tsx"],
+      "extends": ["@guanghechen/jsx", "@guanghechen/ts", "prettier"],
+      "rules": {
+        "no-prototype-builtins": 0
+      }
+    },
+    {
+      "files": ["**/__test__/*.spec.ts", "**/__test__/*.spec.tsx"],
       "extends": [
         "@guanghechen/jsx",
         "@guanghechen/ts",
@@ -27,6 +34,7 @@
         "prettier"
       ],
       "rules": {
+        "import/no-extraneous-dependencies": 0,
         "no-prototype-builtins": 0
       }
     }
