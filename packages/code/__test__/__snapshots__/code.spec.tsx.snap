@@ -1,533 +1,1504 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic rendering case snapshot 1`] = `
-.c1 {
-  text-indent: -2.5em;
-  padding-left: 2.5em;
+exports[`snapshot embed 1`] = `
+.c0 {
+  position: relative;
+  border: none;
+  padding: 0;
+  background: transparent;
 }
 
-.c2 {
-  display: inline-block;
-  width: 2.5em;
-  padding-right: 0.6em;
-  color: #858585;
+.c0 .yozora-code-embed__error-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.c0 .yozora-code-embed__error {
+  display: block;
+  width: 100%;
+  min-height: 100%;
+  padding: 0.5rem;
+  background: transparent;
+  white-space: pre-wrap;
+  text-align: left;
+}
+
+<div
+  class="c0 yozora-code-embed"
+/>
+`;
+
+exports[`snapshot literal 1`] = `
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  width: 100%;
+  overflow: hidden auto;
+  -webkit-transition: max-height 0.5s ease-in-out;
+  transition: max-height 0.5s ease-in-out;
+  tab-size: 2;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: always;
+  white-space: pre;
+  word-break: keep-all;
+  word-spacing: normal;
+  word-wrap: normal;
+}
+
+.c6 .yozora-code-highlighter__linenos {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  overflow: hidden;
   cursor: default;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   text-align: right;
+  border-right: 1px solid var(--code-color-border,hsla(0deg,0%,30%,0.8));
+}
+
+.c6 .yozora-code-highlighter__codes {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  overflow: auto hidden;
+}
+
+.c6 .yozora-code-highlighter__line {
+  display: block;
+  padding: 0 0.6em;
+  min-width: 100%;
+  -webkit-letter-spacing: inherit;
+  -moz-letter-spacing: inherit;
+  -ms-letter-spacing: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  overflow-wrap: inherit;
+  tab-size: inherit;
+  text-indent: inherit;
+  text-rendering: inherit;
+  text-transform: inherit;
+  white-space: inherit;
+  word-break: inherit;
+  word-spacing: inherit;
+  word-wrap: inherit;
+}
+
+.c6 .yozora-code-highlighter__line.yozora-code-highlighter__line--highlight {
+  background: var(--code-bg-highlight,hsla(210deg,100%,84%,0.2));
+  border-color: transparent;
+}
+
+.c5 {
+  display: inline-block;
+  padding: 0.4rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  color: hsl(0deg,0%,80%);
+}
+
+.c5:hover {
+  color: hsl(0deg,0%,100%);
+}
+
+.c5:active {
+  color: hsl(0deg,0%,90%);
+}
+
+.c2 {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin-left: 8px;
+  background-color: #ed6c60;
+}
+
+.c3 {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin-left: 8px;
+  background-color: #f7c151;
+}
+
+.c4 {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin-left: 8px;
+  background-color: #64c856;
+}
+
+.c1 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .c0 {
-  padding: 0;
-  border: none;
-  margin: 0;
-  background: none;
-  font-family: Consolas,"Source Code Pro",monospace,sans-serif;
-  line-height: 1.33;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  border: 1px solid #d3d3d3;
 }
 
-.c0 pre {
-  line-height: inherit;
-  font-family: Consolas,"Source Code Pro",monospace,sans-serif;
+.c0 > .yozora-code-literal__toolbar {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 2rem;
+  width: 100%;
+  border-bottom: 1px solid var(--code-color-border,hsla(0deg,0%,30%,0.8));
+  background: var(--code-bg-color,#1e1e1e);
 }
 
-.c0 pre code,
-.c0 pre span {
-  line-height: inherit;
+.c0 > .yozora-code-literal__toolbar .yozora-code-literal__title {
+  margin-left: 1rem;
+  font-family: var(--code-heading-font-family,'Comic Sans MS','lucida grande','lucida sans unicode',lucida,'Hiragino Sans GB','Helvetica Neue','Microsoft Yahei','WenQuanYi Micro Hei',sans-serif);
+  font-size: 0.9em;
+  color: hsla(0deg,0%,90%,0.8);
 }
 
-.c0 pre code {
-  background: transparent;
-  margin: 0;
-  padding: 0;
+.c0 > .yozora-code-literal__toolbar .yozora-code-literal__copy-button {
+  position: absolute;
+  right: 1rem;
+  display: inline-block;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity .2s ease-in-out;
+  transition: opacity .2s ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.c0 pre::selection {
-  background: none;
+.c0:hover .yozora-code-literal__copy-button {
+  visibility: visible;
+  opacity: 1;
 }
 
 <div
-  class="c0"
+  class="c0 yozora-code-literal"
 >
-  <pre>
-    <div
-      class="c1 token-line"
-      style="color:#d4d4d4"
+  <div
+    class="yozora-code-literal__toolbar"
+  >
+    <span
+      class="c1 yozora-common-light-buttons"
     >
       <span
         class="c2"
-      >
-        1
-      </span>
+        title="close"
+        type="close"
+      />
       <span
-        class="token keyword"
-        style="color:rgb(86, 156, 214)"
-      >
-        let
-      </span>
+        class="c3"
+        title="minimize"
+        type="minimize"
+      />
       <span
-        class="token plain"
+        class="c4"
+        title="maximize"
+        type="maximize"
+      />
+    </span>
+    <span
+      class="yozora-code-literal__title"
+      title="/home/demo/a.tsx"
+    >
+      /home/demo/a.tsx
+    </span>
+    <span
+      class="yozora-code-literal__copy-button"
+    >
+      <button
+        aria-label="Copy to clipboard"
+        class="c5 yozora-common-copy-button"
+        color="hsl(0deg, 0%, 80%)"
+        type="button"
       >
-         a
-      </span>
-      <span
-        class="token punctuation"
-        style="color:rgb(106, 153, 85)"
+        copy
+      </button>
+    </span>
+  </div>
+  <code>
+    <pre>
+      <div
+        class="c6 prism-code language-jsx"
+        style="color:#d4d4d4;background-color:#1e1e1e;line-height:1.8rem;max-height:0"
       >
-        :
-      </span>
-      <span
-        class="token plain"
-      >
-         
-      </span>
-      <span
-        class="token builtin"
-        style="color:rgb(79, 193, 255)"
-      >
-        number
-      </span>
-      <span
-        class="token plain"
-      >
-         
-      </span>
-      <span
-        class="token operator"
-        style="color:rgb(212, 212, 212)"
-      >
-        =
-      </span>
-      <span
-        class="token plain"
-      >
-         
-      </span>
-      <span
-        class="token number"
-        style="color:rgb(181, 206, 168)"
-      >
-        1
-      </span>
-      <span
-        class="token plain"
-      >
-         
-      </span>
-      <span
-        class="token operator"
-        style="color:rgb(212, 212, 212)"
-      >
-        +
-      </span>
-      <span
-        class="token plain"
-      >
-         
-      </span>
-      <span
-        class="token number"
-        style="color:rgb(181, 206, 168)"
-      >
-        2
-      </span>
-      <span
-        class="token punctuation"
-        style="color:rgb(106, 153, 85)"
-      >
-        ;
-      </span>
-    </div>
-  </pre>
+        <div
+          class="yozora-code-highlighter__linenos"
+          style="width:2.2em"
+        >
+          <div
+            class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight"
+          >
+            <span>
+              1
+            </span>
+          </div>
+          <div
+            class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight"
+          >
+            <span>
+              2
+            </span>
+          </div>
+          <div
+            class="yozora-code-highlighter__line"
+          >
+            <span>
+              3
+            </span>
+          </div>
+          <div
+            class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight"
+          >
+            <span>
+              4
+            </span>
+          </div>
+          <div
+            class="yozora-code-highlighter__line"
+          >
+            <span>
+              5
+            </span>
+          </div>
+          <div
+            class="yozora-code-highlighter__line"
+          >
+            <span>
+              6
+            </span>
+          </div>
+        </div>
+        <div
+          class="yozora-code-highlighter__codes"
+        >
+          <div
+            class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight token-line"
+            style="color:#d4d4d4"
+          >
+            <span
+              class="token keyword"
+              style="color:rgb(86, 156, 214)"
+            >
+              function
+            </span>
+            <span
+              class="token plain"
+            >
+               
+            </span>
+            <span
+              class="token punctuation"
+              style="color:rgb(106, 153, 85)"
+            >
+              (
+            </span>
+            <span
+              class="token punctuation"
+              style="color:rgb(106, 153, 85)"
+            >
+              )
+            </span>
+            <span
+              class="token plain"
+            >
+               
+            </span>
+            <span
+              class="token punctuation"
+              style="color:rgb(106, 153, 85)"
+            >
+              {
+            </span>
+            <span
+              class="token plain"
+            />
+          </div>
+          <div
+            class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight token-line"
+            style="color:#d4d4d4"
+          >
+            <span
+              class="token plain"
+            >
+                    
+            </span>
+            <span
+              class="token keyword"
+              style="color:rgb(86, 156, 214)"
+            >
+              const
+            </span>
+            <span
+              class="token plain"
+            >
+               a 
+            </span>
+            <span
+              class="token operator"
+              style="color:rgb(212, 212, 212)"
+            >
+              =
+            </span>
+            <span
+              class="token plain"
+            >
+               
+            </span>
+            <span
+              class="token number"
+              style="color:rgb(181, 206, 168)"
+            >
+              1
+            </span>
+            <span
+              class="token punctuation"
+              style="color:rgb(106, 153, 85)"
+            >
+              ;
+            </span>
+            <span
+              class="token plain"
+            />
+          </div>
+          <div
+            class="yozora-code-highlighter__line token-line"
+            style="color:#d4d4d4"
+          >
+            <span
+              class="token plain"
+            >
+                    
+            </span>
+            <span
+              class="token keyword"
+              style="color:rgb(86, 156, 214)"
+            >
+              const
+            </span>
+            <span
+              class="token plain"
+            >
+               b 
+            </span>
+            <span
+              class="token operator"
+              style="color:rgb(212, 212, 212)"
+            >
+              =
+            </span>
+            <span
+              class="token plain"
+            >
+               
+            </span>
+            <span
+              class="token number"
+              style="color:rgb(181, 206, 168)"
+            >
+              2
+            </span>
+            <span
+              class="token punctuation"
+              style="color:rgb(106, 153, 85)"
+            >
+              ;
+            </span>
+            <span
+              class="token plain"
+            />
+          </div>
+          <div
+            class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight token-line"
+            style="color:#d4d4d4"
+          >
+            <span
+              class="token plain"
+            >
+                    
+            </span>
+            <span
+              class="token keyword"
+              style="color:rgb(86, 156, 214)"
+            >
+              const
+            </span>
+            <span
+              class="token plain"
+            >
+               c 
+            </span>
+            <span
+              class="token operator"
+              style="color:rgb(212, 212, 212)"
+            >
+              =
+            </span>
+            <span
+              class="token plain"
+            >
+               a 
+            </span>
+            <span
+              class="token operator"
+              style="color:rgb(212, 212, 212)"
+            >
+              *
+            </span>
+            <span
+              class="token plain"
+            >
+               a 
+            </span>
+            <span
+              class="token operator"
+              style="color:rgb(212, 212, 212)"
+            >
+              +
+            </span>
+            <span
+              class="token plain"
+            >
+               b 
+            </span>
+            <span
+              class="token operator"
+              style="color:rgb(212, 212, 212)"
+            >
+              *
+            </span>
+            <span
+              class="token plain"
+            >
+               b
+            </span>
+            <span
+              class="token punctuation"
+              style="color:rgb(106, 153, 85)"
+            >
+              ;
+            </span>
+            <span
+              class="token plain"
+            />
+          </div>
+          <div
+            class="yozora-code-highlighter__line token-line"
+            style="color:#d4d4d4"
+          >
+            <span
+              class="token plain"
+            >
+                    
+            </span>
+            <span
+              class="token keyword"
+              style="color:rgb(86, 156, 214)"
+            >
+              return
+            </span>
+            <span
+              class="token plain"
+            >
+               
+            </span>
+            <span
+              class="token tag punctuation"
+              style="color:rgb(106, 153, 85)"
+            >
+              &lt;
+            </span>
+            <span
+              class="token tag"
+              style="color:rgb(86, 156, 214)"
+            >
+              span
+            </span>
+            <span
+              class="token tag punctuation"
+              style="color:rgb(106, 153, 85)"
+            >
+              &gt;
+            </span>
+            <span
+              class="token plain"
+            >
+              Answer
+            </span>
+            <span
+              class="token operator"
+              style="color:rgb(212, 212, 212)"
+            >
+              :
+            </span>
+            <span
+              class="token plain"
+            >
+               
+            </span>
+            <span
+              class="token punctuation"
+              style="color:rgb(106, 153, 85)"
+            >
+              {
+            </span>
+            <span
+              class="token plain"
+            >
+              c
+            </span>
+            <span
+              class="token punctuation"
+              style="color:rgb(106, 153, 85)"
+            >
+              }
+            </span>
+            <span
+              class="token tag punctuation"
+              style="color:rgb(106, 153, 85)"
+            >
+              &lt;/
+            </span>
+            <span
+              class="token tag"
+              style="color:rgb(86, 156, 214)"
+            >
+              span
+            </span>
+            <span
+              class="token tag punctuation"
+              style="color:rgb(106, 153, 85)"
+            >
+              &gt;
+            </span>
+            <span
+              class="token plain"
+            />
+          </div>
+          <div
+            class="yozora-code-highlighter__line token-line"
+            style="color:#d4d4d4"
+          >
+            <span
+              class="token plain"
+            >
+                  
+            </span>
+            <span
+              class="token punctuation"
+              style="color:rgb(106, 153, 85)"
+            >
+              }
+            </span>
+          </div>
+        </div>
+      </div>
+    </pre>
+  </code>
 </div>
 `;
 
-exports[`basic rendering case snapshot with theme 1`] = `
-.c1 {
-  text-indent: -2.5em;
-  padding-left: 2.5em;
+exports[`snapshot live 1`] = `
+.c9 {
+  position: relative;
+  border: none;
+  padding: 0;
+  background: transparent;
 }
 
-.c2 {
-  display: inline-block;
-  width: 2.5em;
-  padding-right: 0.6em;
-  color: #858585;
+.c9 .yozora-code-embed__error-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.c9 .yozora-code-embed__error {
+  display: block;
+  width: 100%;
+  min-height: 100%;
+  padding: 0.5rem;
+  background: transparent;
+  white-space: pre-wrap;
+  text-align: left;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  width: 100%;
+  overflow: hidden auto;
+  -webkit-transition: max-height 0.5s ease-in-out;
+  transition: max-height 0.5s ease-in-out;
+  tab-size: 2;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: always;
+  white-space: pre;
+  word-break: keep-all;
+  word-spacing: normal;
+  word-wrap: normal;
+}
+
+.c8 .yozora-code-highlighter__linenos {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  overflow: hidden;
   cursor: default;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   text-align: right;
+  border-right: 1px solid var(--code-color-border,hsla(0deg,0%,30%,0.8));
+}
+
+.c8 .yozora-code-highlighter__codes {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  overflow: auto hidden;
+}
+
+.c8 .yozora-code-highlighter__line {
+  display: block;
+  padding: 0 0.6em;
+  min-width: 100%;
+  -webkit-letter-spacing: inherit;
+  -moz-letter-spacing: inherit;
+  -ms-letter-spacing: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  overflow-wrap: inherit;
+  tab-size: inherit;
+  text-indent: inherit;
+  text-rendering: inherit;
+  text-transform: inherit;
+  white-space: inherit;
+  word-break: inherit;
+  word-spacing: inherit;
+  word-wrap: inherit;
+}
+
+.c8 .yozora-code-highlighter__line.yozora-code-highlighter__line--highlight {
+  background: var(--code-bg-highlight,hsla(210deg,100%,84%,0.2));
+  border-color: transparent;
+}
+
+.c5 {
+  display: inline-block;
+  padding: 0.4rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  color: hsl(0deg,0%,80%);
+}
+
+.c5:hover {
+  color: hsl(0deg,0%,100%);
+}
+
+.c5:active {
+  color: hsl(0deg,0%,90%);
+}
+
+.c2 {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin-left: 8px;
+  background-color: #ed6c60;
+}
+
+.c3 {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin-left: 8px;
+  background-color: #f7c151;
+}
+
+.c4 {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin-left: 8px;
+  background-color: #64c856;
+}
+
+.c1 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c6 {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0;
+  text-align: left;
+  tab-size: 2;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: always;
+  white-space: pre;
+  word-break: keep-all;
+  word-spacing: normal;
+  word-wrap: normal;
+}
+
+.c6 .code-editor__textarea-wrapper,
+.c6 .code-editor__textarea,
+.c6 .code-editor__previewer {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  outline: none;
+  background: none;
+  box-sizing: inherit;
+  display: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-variant-ligatures: inherit;
+  font-weight: inherit;
+  -webkit-letter-spacing: inherit;
+  -moz-letter-spacing: inherit;
+  -ms-letter-spacing: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  overflow-wrap: inherit;
+  tab-size: inherit;
+  text-indent: inherit;
+  text-rendering: inherit;
+  text-transform: inherit;
+  white-space: inherit;
+  word-break: inherit;
+  word-spacing: inherit;
+  word-wrap: inherit;
+}
+
+.c6 .code-editor__textarea-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.c6 .code-editor__textarea {
+  resize: none;
+  color: transparent;
+  caret-color: var(--code-caret-color,hsl(0deg,83%,78%));
+  -webkit-text-fill-color: transparent;
+}
+
+.c6 .code-editor__textarea:empty {
+  color: inherit;
+  -webkit-text-fill-color: inherit;
+}
+
+.c6 .code-editor__previewer {
+  position: relative;
+  pointer-events: none;
+}
+
+.c7 {
+  font-family: var(--code-font-family,Consolas,'Source Code Pro',monospace,sans-serif);
+  border: 1px solid var(--code-color-border,lightgray);
+  border-radius: 4px;
+}
+
+.c7 > pre code,
+.c7 > pre span {
+  line-height: inherit;
+}
+
+.c7 > pre code {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.c7 .yozora-code-highlighter__codes {
+  overflow-x: hidden;
 }
 
 .c0 {
-  padding: 2px;
-  border: 1px solid blue;
-  margin: 0;
-  background: hsla(210deg,13%,12%,0.05);
-  font-family: Consolas,"Source Code Pro",monospace,sans-serif;
-  line-height: 1.33;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  border: 1px solid #d3d3d3;
 }
 
-.c0 pre {
-  line-height: inherit;
-  font-family: Consolas,"Source Code Pro",monospace,sans-serif;
+.c0 > .yozora-code-live__toolbar {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 2rem;
+  width: 100%;
+  border-bottom: 1px solid var(--code-color-border,hsla(0deg,0%,30%,0.8));
+  background: var(--code-bg-color,#1e1e1e);
 }
 
-.c0 pre code,
-.c0 pre span {
-  line-height: inherit;
+.c0 > .yozora-code-live__toolbar .yozora-code-live__title {
+  margin-left: 1rem;
+  font-family: var(--code-heading-font-family,'Comic Sans MS','lucida grande','lucida sans unicode',lucida,'Hiragino Sans GB','Helvetica Neue','Microsoft Yahei','WenQuanYi Micro Hei',sans-serif);
+  font-size: 0.9em;
+  color: hsla(0deg,0%,90%,0.8);
 }
 
-.c0 pre code {
-  background: transparent;
-  margin: 0;
+.c0 > .yozora-code-live__toolbar .yozora-code-live__copy-button {
+  position: absolute;
+  right: 1rem;
+  display: inline-block;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity .2s ease-in-out;
+  transition: opacity .2s ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c0 > .yozora-code-live__main {
+  -webkit-flex: 1 1 0;
+  -ms-flex: 1 1 0;
+  flex: 1 1 0;
+  min-height: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.c0 > .yozora-code-live__main > .yozora-code-live__editor {
+  -webkit-flex: 1 1 0;
+  -ms-flex: 1 1 0;
+  flex: 1 1 0;
+  position: relative;
+  box-sizing: border-box;
+  overflow: auto;
   padding: 0;
+  margin: 0;
+  caret-color: #aeafad;
+  font-family: var(--code-font-family,'Consolas, monospace, sans-serif');
+  background: var(--code-bg-color,#1e1e1e);
 }
 
-.c0 pre::selection {
-  background: none;
+.c0 > .yozora-code-live__main > .yozora-code-live__editor::selection {
+  background: var(--code-bg-selection,hsla(200deg,30%,70%,0.3));
+}
+
+.c0 > .yozora-code-live__main > .yozora-code-live__editor > .yozora-code-editor {
+  border: none;
+  border-radius: 0px;
+}
+
+.c0 > .yozora-code-live__main > .yozora-code-live__previewer {
+  -webkit-flex: 1 1 0;
+  -ms-flex: 1 1 0;
+  flex: 1 1 0;
+  box-sizing: border-box;
+  overflow: auto;
+  display: block;
+  padding: 0;
+  margin: 0;
+  color: #000;
+  background: var(--code-live-previewer-bg,#fff);
+}
+
+.c0 > .yozora-code-live__main > .yozora-code-live__previewer.yozora-code-live__previewer--center > .yozora-code-embed {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0 > .yozora-code-live__main.yozora-code-live__main--vertical {
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c0 > .yozora-code-live__main.yozora-code-live__main--vertical > .yozora-code-live__editor {
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  max-height: 50%;
+}
+
+.c0 > .yozora-code-live__main.yozora-code-live__main--vertical > .yozora-code-live__previewer {
+  -webkit-flex: 1 1 0;
+  -ms-flex: 1 1 0;
+  flex: 1 1 0;
+}
+
+.c0:hover .yozora-code-live__copy-button {
+  visibility: visible;
+  opacity: 1;
 }
 
 <div
-  class="c0"
+  class="c0 yozora-code-live"
 >
-  <pre>
-    <div
-      class="c1 token-line"
-      style="color:#d4d4d4"
+  <div
+    class="yozora-code-live__toolbar"
+  >
+    <span
+      class="c1 yozora-common-light-buttons"
     >
       <span
         class="c2"
-      >
-        1
-      </span>
+        title="close"
+        type="close"
+      />
       <span
-        class="token plain"
-        style="display:inline-block"
+        class="c3"
+        title="minimize"
+        type="minimize"
+      />
+      <span
+        class="c4"
+        title="maximize"
+        type="maximize"
+      />
+    </span>
+    <span
+      class="yozora-code-live__title"
+      title=""
+    />
+    <span
+      class="yozora-code-live__copy-button"
+    >
+      <button
+        aria-label="Copy to clipboard"
+        class="c5 yozora-common-copy-button"
+        color="hsl(0deg, 0%, 80%)"
+        type="button"
+      >
+        copy
+      </button>
+    </span>
+  </div>
+  <div
+    class="yozora-code-live__main yozora-code-live__main--vertical"
+  >
+    <div
+      class="yozora-code-live__editor"
+    >
+      <div
+        class="c6 c7 yozora-code-editor"
+        style="line-height:1.8em;tab-size:2"
+      >
+        <div
+          class="code-editor__textarea-wrapper"
+        >
+          <textarea
+            autocapitalize="off"
+            autocomplete="off"
+            autocorrect="off"
+            class="code-editor__textarea"
+            spellcheck="false"
+            style="tab-size:2;white-space:pre;border-left:undefined solid transparent;padding:0 0.6em"
+          >
+            function () {
+      const a = 1;
+      const b = 2;
+      const c = a * a + b * b;
+      return &lt;span&gt;Answer: {c}&lt;/span&gt;
+    }
+          </textarea>
+        </div>
+        <pre
+          aria-hidden="true"
+          class="code-editor__previewer"
+          style="tab-size:2;white-space:pre"
+        >
+          <div
+            class="c8 prism-code language-jsx"
+            style="color:#d4d4d4;background-color:#1e1e1e;line-height:1.8em;max-height:8.1em;min-height:8.1em"
+          >
+            <div
+              class="yozora-code-highlighter__linenos"
+              style="width:2.2em"
+            >
+              <div
+                class="yozora-code-highlighter__line"
+              >
+                <span>
+                  1
+                </span>
+              </div>
+              <div
+                class="yozora-code-highlighter__line"
+              >
+                <span>
+                  2
+                </span>
+              </div>
+              <div
+                class="yozora-code-highlighter__line"
+              >
+                <span>
+                  3
+                </span>
+              </div>
+              <div
+                class="yozora-code-highlighter__line"
+              >
+                <span>
+                  4
+                </span>
+              </div>
+              <div
+                class="yozora-code-highlighter__line"
+              >
+                <span>
+                  5
+                </span>
+              </div>
+              <div
+                class="yozora-code-highlighter__line"
+              >
+                <span>
+                  6
+                </span>
+              </div>
+            </div>
+            <div
+              class="yozora-code-highlighter__codes"
+            >
+              <div
+                class="yozora-code-highlighter__line token-line"
+                style="color:#d4d4d4"
+              >
+                <span
+                  class="token keyword"
+                  style="color:rgb(86, 156, 214)"
+                >
+                  function
+                </span>
+                <span
+                  class="token plain"
+                >
+                   
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color:rgb(106, 153, 85)"
+                >
+                  (
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color:rgb(106, 153, 85)"
+                >
+                  )
+                </span>
+                <span
+                  class="token plain"
+                >
+                   
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color:rgb(106, 153, 85)"
+                >
+                  {
+                </span>
+                <span
+                  class="token plain"
+                />
+              </div>
+              <div
+                class="yozora-code-highlighter__line token-line"
+                style="color:#d4d4d4"
+              >
+                <span
+                  class="token plain"
+                >
+                        
+                </span>
+                <span
+                  class="token keyword"
+                  style="color:rgb(86, 156, 214)"
+                >
+                  const
+                </span>
+                <span
+                  class="token plain"
+                >
+                   a 
+                </span>
+                <span
+                  class="token operator"
+                  style="color:rgb(212, 212, 212)"
+                >
+                  =
+                </span>
+                <span
+                  class="token plain"
+                >
+                   
+                </span>
+                <span
+                  class="token number"
+                  style="color:rgb(181, 206, 168)"
+                >
+                  1
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color:rgb(106, 153, 85)"
+                >
+                  ;
+                </span>
+                <span
+                  class="token plain"
+                />
+              </div>
+              <div
+                class="yozora-code-highlighter__line token-line"
+                style="color:#d4d4d4"
+              >
+                <span
+                  class="token plain"
+                >
+                        
+                </span>
+                <span
+                  class="token keyword"
+                  style="color:rgb(86, 156, 214)"
+                >
+                  const
+                </span>
+                <span
+                  class="token plain"
+                >
+                   b 
+                </span>
+                <span
+                  class="token operator"
+                  style="color:rgb(212, 212, 212)"
+                >
+                  =
+                </span>
+                <span
+                  class="token plain"
+                >
+                   
+                </span>
+                <span
+                  class="token number"
+                  style="color:rgb(181, 206, 168)"
+                >
+                  2
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color:rgb(106, 153, 85)"
+                >
+                  ;
+                </span>
+                <span
+                  class="token plain"
+                />
+              </div>
+              <div
+                class="yozora-code-highlighter__line token-line"
+                style="color:#d4d4d4"
+              >
+                <span
+                  class="token plain"
+                >
+                        
+                </span>
+                <span
+                  class="token keyword"
+                  style="color:rgb(86, 156, 214)"
+                >
+                  const
+                </span>
+                <span
+                  class="token plain"
+                >
+                   c 
+                </span>
+                <span
+                  class="token operator"
+                  style="color:rgb(212, 212, 212)"
+                >
+                  =
+                </span>
+                <span
+                  class="token plain"
+                >
+                   a 
+                </span>
+                <span
+                  class="token operator"
+                  style="color:rgb(212, 212, 212)"
+                >
+                  *
+                </span>
+                <span
+                  class="token plain"
+                >
+                   a 
+                </span>
+                <span
+                  class="token operator"
+                  style="color:rgb(212, 212, 212)"
+                >
+                  +
+                </span>
+                <span
+                  class="token plain"
+                >
+                   b 
+                </span>
+                <span
+                  class="token operator"
+                  style="color:rgb(212, 212, 212)"
+                >
+                  *
+                </span>
+                <span
+                  class="token plain"
+                >
+                   b
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color:rgb(106, 153, 85)"
+                >
+                  ;
+                </span>
+                <span
+                  class="token plain"
+                />
+              </div>
+              <div
+                class="yozora-code-highlighter__line token-line"
+                style="color:#d4d4d4"
+              >
+                <span
+                  class="token plain"
+                >
+                        
+                </span>
+                <span
+                  class="token keyword"
+                  style="color:rgb(86, 156, 214)"
+                >
+                  return
+                </span>
+                <span
+                  class="token plain"
+                >
+                   
+                </span>
+                <span
+                  class="token tag punctuation"
+                  style="color:rgb(106, 153, 85)"
+                >
+                  &lt;
+                </span>
+                <span
+                  class="token tag"
+                  style="color:rgb(86, 156, 214)"
+                >
+                  span
+                </span>
+                <span
+                  class="token tag punctuation"
+                  style="color:rgb(106, 153, 85)"
+                >
+                  &gt;
+                </span>
+                <span
+                  class="token plain"
+                >
+                  Answer
+                </span>
+                <span
+                  class="token operator"
+                  style="color:rgb(212, 212, 212)"
+                >
+                  :
+                </span>
+                <span
+                  class="token plain"
+                >
+                   
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color:rgb(106, 153, 85)"
+                >
+                  {
+                </span>
+                <span
+                  class="token plain"
+                >
+                  c
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color:rgb(106, 153, 85)"
+                >
+                  }
+                </span>
+                <span
+                  class="token tag punctuation"
+                  style="color:rgb(106, 153, 85)"
+                >
+                  &lt;/
+                </span>
+                <span
+                  class="token tag"
+                  style="color:rgb(86, 156, 214)"
+                >
+                  span
+                </span>
+                <span
+                  class="token tag punctuation"
+                  style="color:rgb(106, 153, 85)"
+                >
+                  &gt;
+                </span>
+                <span
+                  class="token plain"
+                />
+              </div>
+              <div
+                class="yozora-code-highlighter__line token-line"
+                style="color:#d4d4d4"
+              >
+                <span
+                  class="token plain"
+                >
+                      
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color:rgb(106, 153, 85)"
+                >
+                  }
+                </span>
+              </div>
+            </div>
+          </div>
+        </pre>
+      </div>
+    </div>
+    <div
+      class="yozora-code-live__previewer yozora-code-live__previewer--center"
+    >
+      <div
+        class="c9 yozora-code-embed"
       />
     </div>
-    <div
-      class="c1 token-line"
-      style="color:#d4d4d4"
-    >
-      <span
-        class="c2"
-      >
-        2
-      </span>
-      <span
-        class="token plain"
-      >
-              
-      </span>
-      <span
-        class="token keyword"
-        style="color:rgb(86, 156, 214)"
-      >
-        const
-      </span>
-      <span
-        class="token plain"
-      >
-         a 
-      </span>
-      <span
-        class="token operator"
-        style="color:rgb(212, 212, 212)"
-      >
-        =
-      </span>
-      <span
-        class="token plain"
-      >
-         
-      </span>
-      <span
-        class="token number"
-        style="color:rgb(181, 206, 168)"
-      >
-        1
-      </span>
-      <span
-        class="token punctuation"
-        style="color:rgb(106, 153, 85)"
-      >
-        ,
-      </span>
-      <span
-        class="token plain"
-      >
-         b 
-      </span>
-      <span
-        class="token operator"
-        style="color:rgb(212, 212, 212)"
-      >
-        =
-      </span>
-      <span
-        class="token plain"
-      >
-         
-      </span>
-      <span
-        class="token number"
-        style="color:rgb(181, 206, 168)"
-      >
-        2
-      </span>
-      <span
-        class="token punctuation"
-        style="color:rgb(106, 153, 85)"
-      >
-        ,
-      </span>
-      <span
-        class="token plain"
-      >
-         c 
-      </span>
-      <span
-        class="token operator"
-        style="color:rgb(212, 212, 212)"
-      >
-        =
-      </span>
-      <span
-        class="token plain"
-      >
-         
-      </span>
-      <span
-        class="token number"
-        style="color:rgb(181, 206, 168)"
-      >
-        3
-      </span>
-      <span
-        class="token plain"
-      />
-    </div>
-    <div
-      class="c1 token-line"
-      style="color:#d4d4d4"
-    >
-      <span
-        class="c2"
-      >
-        3
-      </span>
-      <span
-        class="token plain"
-      >
-              
-      </span>
-      <span
-        class="token keyword"
-        style="color:rgb(86, 156, 214)"
-      >
-        const
-      </span>
-      <span
-        class="token plain"
-      >
-         result 
-      </span>
-      <span
-        class="token operator"
-        style="color:rgb(212, 212, 212)"
-      >
-        =
-      </span>
-      <span
-        class="token plain"
-      >
-         
-      </span>
-      <span
-        class="token number"
-        style="color:rgb(181, 206, 168)"
-      >
-        3
-      </span>
-      <span
-        class="token plain"
-      >
-         
-      </span>
-      <span
-        class="token operator"
-        style="color:rgb(212, 212, 212)"
-      >
-        *
-      </span>
-      <span
-        class="token plain"
-      >
-         a 
-      </span>
-      <span
-        class="token operator"
-        style="color:rgb(212, 212, 212)"
-      >
-        *
-      </span>
-      <span
-        class="token plain"
-      >
-         a 
-      </span>
-      <span
-        class="token operator"
-        style="color:rgb(212, 212, 212)"
-      >
-        *
-      </span>
-      <span
-        class="token plain"
-      >
-         a 
-      </span>
-      <span
-        class="token operator"
-        style="color:rgb(212, 212, 212)"
-      >
-        +
-      </span>
-      <span
-        class="token plain"
-      >
-         
-      </span>
-      <span
-        class="token number"
-        style="color:rgb(181, 206, 168)"
-      >
-        2
-      </span>
-      <span
-        class="token plain"
-      >
-         
-      </span>
-      <span
-        class="token operator"
-        style="color:rgb(212, 212, 212)"
-      >
-        *
-      </span>
-      <span
-        class="token plain"
-      >
-         b 
-      </span>
-      <span
-        class="token operator"
-        style="color:rgb(212, 212, 212)"
-      >
-        *
-      </span>
-      <span
-        class="token plain"
-      >
-         b 
-      </span>
-      <span
-        class="token operator"
-        style="color:rgb(212, 212, 212)"
-      >
-        +
-      </span>
-      <span
-        class="token plain"
-      >
-         c
-      </span>
-    </div>
-    <div
-      class="c1 token-line"
-      style="color:#d4d4d4"
-    >
-      <span
-        class="c2"
-      >
-        4
-      </span>
-      <span
-        class="token plain"
-      >
-              
-      </span>
-      <span
-        class="token console class-name"
-        style="color:rgb(78, 201, 176)"
-      >
-        console
-      </span>
-      <span
-        class="token punctuation"
-        style="color:rgb(106, 153, 85)"
-      >
-        .
-      </span>
-      <span
-        class="token method function property-access"
-        style="color:rgb(86, 156, 214)"
-      >
-        log
-      </span>
-      <span
-        class="token punctuation"
-        style="color:rgb(106, 153, 85)"
-      >
-        (
-      </span>
-      <span
-        class="token string"
-        style="color:rgb(206, 145, 120)"
-      >
-        'result:'
-      </span>
-      <span
-        class="token punctuation"
-        style="color:rgb(106, 153, 85)"
-      >
-        ,
-      </span>
-      <span
-        class="token plain"
-      >
-         result
-      </span>
-      <span
-        class="token punctuation"
-        style="color:rgb(106, 153, 85)"
-      >
-        )
-      </span>
-      <span
-        class="token plain"
-      />
-    </div>
-    <div
-      class="c1 token-line"
-      style="color:#d4d4d4"
-    >
-      <span
-        class="c2"
-      >
-        5
-      </span>
-      <span
-        class="token plain"
-      >
-            
-      </span>
-    </div>
-  </pre>
+  </div>
 </div>
 `;

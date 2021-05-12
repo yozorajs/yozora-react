@@ -1,18 +1,12 @@
-import { mount, render } from 'enzyme'
+import { render } from 'enzyme'
 import React from 'react'
-import type { DefaultTheme } from 'styled-components'
-import { ThemeProvider } from 'styled-components'
 import Code from '../src'
 
-describe('basic rendering case', () => {
-  const errorLogger = jest
-    .spyOn(global.console, 'error')
-    .mockImplementation((...args) => {
+describe('prop types', function () {
+  beforeEach(() => {
+    jest.spyOn(global.console, 'error').mockImplementation((...args) => {
       throw new Error(args.join(' '))
     })
-
-  afterAll(() => {
-    errorLogger.mockRestore()
   })
 
   it('render with custom className', () => {
@@ -29,47 +23,38 @@ describe('basic rendering case', () => {
       }).toThrow(/The prop `value` is marked as required/i)
     }
   })
+})
 
-  it('forward ref', () => {
-    const ref = React.createRef<HTMLDivElement>()
-    const wrapper = mount(
-      <Code ref={ref} data-value="waw" value="let a: number = 1 + 2;" />,
-    )
+describe('snapshot', function () {
+  const code = `
+    function () {
+      const a = 1;
+      const b = 2;
+      const c = a * a + b * b;
+      return <span>Answer: {c}</span>
+    }
+  `.trim()
+  const lang = 'jsx'
 
-    const o = wrapper.getDOMNode()
-    expect(o).toEqual(ref.current)
-    expect(o.getAttribute('data-value')).toEqual('waw')
-  })
-
-  it('snapshot', () => {
+  it('live', () => {
     const wrapper = render(
-      <Code lang="typescript" value="let a: number = 1 + 2;" />,
+      <Code meta="live maxlines=4" lang={lang} value={code} />,
     )
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('snapshot with theme', () => {
-    const theme: DefaultTheme = {
-      yozora: {
-        code: {
-          padding: '2px',
-          border: '1px solid blue',
-          // margin: '0 2px',
-          background: 'hsla(210deg, 13%, 12%, 0.05)',
-        },
-      },
-    }
+  it('embed', () => {
+    const wrapper = render(<Code meta="embed" lang={lang} value={code} />)
+    expect(wrapper).toMatchSnapshot()
+  })
 
-    const code = `
-      const a = 1, b = 2, c = 3
-      const result = 3 * a * a * a + 2 * b * b + c
-      console.log('result:', result)
-    `
-
+  it('literal', () => {
     const wrapper = render(
-      <ThemeProvider theme={theme}>
-        <Code lang="typescript" value={code} />
-      </ThemeProvider>,
+      <Code
+        meta={`literal {1-2,2-1,4} title="/home/demo/a.tsx" collapsed`}
+        lang={lang}
+        value={code}
+      />,
     )
     expect(wrapper).toMatchSnapshot()
   })

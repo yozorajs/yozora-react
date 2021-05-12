@@ -21,6 +21,7 @@
     "lcov",
     "lightgray",
     "mathjax",
+    "maxlines",
     "mdast",
     "monospace",
     "olist",
