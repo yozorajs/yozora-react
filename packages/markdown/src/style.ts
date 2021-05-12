@@ -197,34 +197,6 @@ export const Container = styled.div`
     margin: 0 0 1rem;
     line-height: 1.25;
     font-family: var(--heading-font-family);
-
-    h1&, h2&, h3&, h4&, h5&, h6& {
-      font-style: normal;
-      font-weight: 500;
-    }
-
-    h1&, h2& {
-      padding: 0.3rem 0;
-      border-bottom: 1px solid var(--color-border-secondary);
-    }
-    h1& {
-      font-size: 2rem;
-    }
-    h2& {
-      font-size: 1.5rem;
-    }
-    h3& {
-      font-size: 1.25rem;
-    }
-    h4& {
-      font-size: 1rem;
-    }
-    h5& {
-      font-size: 0.875rem;
-    }
-    h6& {
-      font-size: 0.85rem;
-    }
     .yozora-heading__content {
       flex: 0 1 auto;
       min-width: 0;
@@ -255,6 +227,39 @@ export const Container = styled.div`
       color: var(--link-color-hover);
       opacity: 1;
     }
+  }
+
+  h1.yozora-heading,
+  h2.yozora-heading,
+  h3.yozora-heading,
+  h4.yozora-heading,
+  h5.yozora-heading,
+  h6.yozora-heading {
+    font-style: normal;
+    font-weight: 500;
+  }
+  h1.yozora-heading,
+  h2.yozora-heading {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--color-border-secondary);
+  }
+  h1.yozora-heading {
+    font-size: 2rem;
+  }
+  h2.yozora-heading {
+    font-size: 1.5rem;
+  }
+  h3.yozora-heading {
+    font-size: 1.25rem;
+  }
+  h4.yozora-heading {
+    font-size: 1rem;
+  }
+  h5.yozora-heading {
+    font-size: 0.875rem;
+  }
+  h6.yozora-heading {
+    font-size: 0.85rem;
   }
 
   .yozora-inline-code {
@@ -310,9 +315,6 @@ export const Container = styled.div`
   .yozora-list-item {
     padding: 0;
     margin: 0 0 0.5em;
-    > :first-child {
-      margin-bottom: 0;
-    }
   }
 
   .yozora-math {
@@ -375,7 +377,9 @@ export const Container = styled.div`
   }
 
   .yozora-text {
-    box-sizing: content-box;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smooth: always;
   }
 
   .yozora-thematic-break {
