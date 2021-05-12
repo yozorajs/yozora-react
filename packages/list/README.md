@@ -102,7 +102,7 @@ Name        | Type                  | Required  | Default | Description
 `start`     | `number`              | `false`   | -       | Start number of ordered list
 `style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
-- `className`: The root element of this component will always bind with the
+* `className`: The root element of this component will always bind with the
   CSS class `'yozora-list'`
 
 ## Related

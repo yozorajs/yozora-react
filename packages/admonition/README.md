@@ -101,7 +101,7 @@ Name        | Type                  | Required  | Default | Description
 `title`     | `string`              | `false`   | -       | Admonition title
 `style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
-- `className`: The root element of this component will always bind with the
+* `className`: The root element of this component will always bind with the
   CSS class `'yozora-admonition'`
 
 

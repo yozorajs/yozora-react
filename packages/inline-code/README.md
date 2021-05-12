@@ -98,7 +98,7 @@ Name        | Type                  | Required  | Default | Description
 `style`     | `React.CSSProperties` | `false`   | -       | Root css style
 `value`     | `string`              | `true`    | -       | Source codes
 
-- `className`: The root element of this component will always bind with the
+* `className`: The root element of this component will always bind with the
   CSS class `'yozora-inline-code'`.
 
 

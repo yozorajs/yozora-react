@@ -99,7 +99,7 @@ Name        | Type                  | Required  | Default | Description
 `onMinimize`| `function`            | `false`   | -       | Called when the minimize button clicked.
 `style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
-- `className`: The root element of this component will always bind with the
+* `className`: The root element of this component will always bind with the
   CSS class `'yozora-common-light-buttons'`.
 
 

@@ -105,7 +105,7 @@ Name                | Type                  | Required  | Default | Description
 `title`             | `string`              | `false`   | -       | Code title
 `value`             | `string`              | `true`    | -       | Literal source codes
 
-- `className`: The root element of this component will always bind with the
+* `className`: The root element of this component will always bind with the
   CSS class `'yozora-code-literal'`.
 
 

@@ -104,7 +104,7 @@ Name          | Type                  | Required  | Default | Description
 `linkIcon`    | `React.ReactNode`     | `false`   | `'¶'`   | Heading link icon
 `style`       | `React.CSSProperties` | `false`   | -       | Root css style
 
-- `className`: The root element of this component will always bind with the
+* `className`: The root element of this component will always bind with the
   CSS class `'yozora-heading'`
 
 

@@ -103,7 +103,7 @@ Name        | Type                  | Required  | Default | Description
 
 - `identifier`: The prefix `reference-` will be added automatically.
 
-- `className`: The root element of this component will always bind with the
+* `className`: The root element of this component will always bind with the
   CSS class `'yozora-footnote-reference'`
 
 
