@@ -33,15 +33,15 @@ describe('prop types', function () {
   describe('className is optional', function () {
     it('default', function () {
       const node = render(<ListItem>{children}</ListItem>)
-      expect(node.hasClass('yozora-list-item')).toEqual(true)
+      expect(node.hasClass('yozora-list-item')).toBeTruthy()
     })
 
     it('custom', function () {
       const node = render(
         <ListItem className="my-list-item">{children}</ListItem>,
       )
-      expect(node.hasClass('yozora-list-item')).toEqual(true)
-      expect(node.hasClass('my-list-item')).toEqual(true)
+      expect(node.hasClass('yozora-list-item')).toBeTruthy()
+      expect(node.hasClass('my-list-item')).toBeTruthy()
     })
   })
 

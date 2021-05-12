@@ -13,7 +13,7 @@ describe('prop types', function () {
     const code = 'let a = 1'
     const className = 'custom-code'
     const wrapper = render(<Code className={className} value={code} />)
-    expect(wrapper.hasClass(className)).toEqual(true)
+    expect(wrapper.hasClass(className)).toBeTruthy()
   })
 
   it('value is required', () => {

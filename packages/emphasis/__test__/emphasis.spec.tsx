@@ -29,15 +29,15 @@ describe('prop types', function () {
   describe('className is optional', function () {
     it('default', function () {
       const node = render(<Emphasis>{children}</Emphasis>)
-      expect(node.hasClass('yozora-emphasis')).toEqual(true)
+      expect(node.hasClass('yozora-emphasis')).toBeTruthy()
     })
 
     it('custom', function () {
       const node = render(
         <Emphasis className="my-emphasis">{children}</Emphasis>,
       )
-      expect(node.hasClass('yozora-emphasis')).toEqual(true)
-      expect(node.hasClass('my-emphasis')).toEqual(true)
+      expect(node.hasClass('yozora-emphasis')).toBeTruthy()
+      expect(node.hasClass('my-emphasis')).toBeTruthy()
     })
   })
 

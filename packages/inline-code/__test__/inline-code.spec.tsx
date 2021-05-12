@@ -24,13 +24,13 @@ describe('prop types', function () {
   describe('className is optional', function () {
     it('default', function () {
       const node = render(<InlineCode value={code} />)
-      expect(node.hasClass('yozora-inline-code')).toEqual(true)
+      expect(node.hasClass('yozora-inline-code')).toBeTruthy()
     })
 
     it('custom', function () {
       const node = render(<InlineCode value={code} className="my-code" />)
-      expect(node.hasClass('yozora-inline-code')).toEqual(true)
-      expect(node.hasClass('my-code')).toEqual(true)
+      expect(node.hasClass('yozora-inline-code')).toBeTruthy()
+      expect(node.hasClass('my-code')).toBeTruthy()
     })
   })
 

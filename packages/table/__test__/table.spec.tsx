@@ -22,7 +22,7 @@ describe('prop types', function () {
   describe('className is optional', () => {
     it('default', function () {
       const node = render(<Table aligns={aligns} ths={ths} tds={tds} />)
-      expect(node.hasClass('yozora-table')).toEqual(true)
+      expect(node.hasClass('yozora-table')).toBeTruthy()
     })
 
     it('custom', function () {
@@ -30,8 +30,8 @@ describe('prop types', function () {
         <Table aligns={aligns} ths={ths} tds={tds} className="my-table" />,
       )
 
-      expect(node.hasClass('yozora-table')).toEqual(true)
-      expect(node.hasClass('my-table')).toEqual(true)
+      expect(node.hasClass('yozora-table')).toBeTruthy()
+      expect(node.hasClass('my-table')).toBeTruthy()
     })
   })
 

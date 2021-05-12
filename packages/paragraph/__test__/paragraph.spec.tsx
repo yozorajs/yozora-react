@@ -31,15 +31,15 @@ describe('prop types', function () {
   describe('className is optional', function () {
     it('default', function () {
       const node = render(<Paragraph>{children}</Paragraph>)
-      expect(node.hasClass('yozora-paragraph')).toEqual(true)
+      expect(node.hasClass('yozora-paragraph')).toBeTruthy()
     })
 
     it('custom', function () {
       const node = render(
         <Paragraph className="my-paragraph">{children}</Paragraph>,
       )
-      expect(node.hasClass('yozora-paragraph')).toEqual(true)
-      expect(node.hasClass('my-paragraph')).toEqual(true)
+      expect(node.hasClass('yozora-paragraph')).toBeTruthy()
+      expect(node.hasClass('my-paragraph')).toBeTruthy()
     })
   })
 

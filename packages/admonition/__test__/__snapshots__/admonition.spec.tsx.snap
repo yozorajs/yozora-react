@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot custom 1`] = `
+<div
+  class="yozora-admonition yozora-admonition--warning custom-class"
+  style="color:orange"
+>
+  <div
+    class="yozora-admonition__heading"
+  >
+    <h5 />
+  </div>
+  <div
+    class="yozora-admonition__body"
+  >
+    <p>
+      some text1
+      <span>
+        some text2
+      </span>
+    </p>
+    <blockquote>
+      some text3
+    </blockquote>
+  </div>
+</div>
+`;
+
+exports[`snapshot default 1`] = `
+<div
+  class="yozora-admonition yozora-admonition--default"
+>
+  <div
+    class="yozora-admonition__heading"
+  >
+    <h5 />
+  </div>
+  <div
+    class="yozora-admonition__body"
+  >
+    <p>
+      some text1
+      <span>
+        some text2
+      </span>
+    </p>
+    <blockquote>
+      some text3
+    </blockquote>
+  </div>
+</div>
+`;

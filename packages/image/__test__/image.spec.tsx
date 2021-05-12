@@ -24,13 +24,13 @@ describe('prop types', function () {
   describe('className is optional', function () {
     it('default', function () {
       const node = render(<Image src={imageSrc} />)
-      expect(node.hasClass('yozora-image')).toEqual(true)
+      expect(node.hasClass('yozora-image')).toBeTruthy()
     })
 
     it('custom', function () {
       const node = render(<Image src={imageSrc} className="my-image" />)
-      expect(node.hasClass('yozora-image')).toEqual(true)
-      expect(node.hasClass('my-image')).toEqual(true)
+      expect(node.hasClass('yozora-image')).toBeTruthy()
+      expect(node.hasClass('my-image')).toBeTruthy()
     })
   })
 

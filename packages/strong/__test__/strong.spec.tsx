@@ -31,13 +31,13 @@ describe('prop types', function () {
   describe('className is optional', function () {
     it('default', function () {
       const node = render(<Strong>{children}</Strong>)
-      expect(node.hasClass('yozora-strong')).toEqual(true)
+      expect(node.hasClass('yozora-strong')).toBeTruthy()
     })
 
     it('custom', function () {
       const node = render(<Strong className="my-strong">{children}</Strong>)
-      expect(node.hasClass('yozora-strong')).toEqual(true)
-      expect(node.hasClass('my-strong')).toEqual(true)
+      expect(node.hasClass('yozora-strong')).toBeTruthy()
+      expect(node.hasClass('my-strong')).toBeTruthy()
     })
   })
 

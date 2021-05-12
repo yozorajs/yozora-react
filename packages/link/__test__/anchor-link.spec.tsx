@@ -29,7 +29,7 @@ describe('basic rendering case', () => {
         <span>{text}</span>
       </Link>,
     )
-    expect(wrapper.hasClass(className)).toEqual(true)
+    expect(wrapper.hasClass(className)).toBeTruthy()
     expect(wrapper.text()).toEqual(text)
   })
 

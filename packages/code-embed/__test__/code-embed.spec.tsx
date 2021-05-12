@@ -49,7 +49,7 @@ describe('prop types', function () {
       const node = render(
         <CodeEmbed lang="jsx" value={code} CodeRunner={JsxRunner} />,
       )
-      expect(node.hasClass('yozora-code-embed')).toEqual(true)
+      expect(node.hasClass('yozora-code-embed')).toBeTruthy()
     })
 
     it('custom', function () {
@@ -61,8 +61,8 @@ describe('prop types', function () {
           className="my-code-embed"
         />,
       )
-      expect(node.hasClass('yozora-code-embed')).toEqual(true)
-      expect(node.hasClass('my-code-embed')).toEqual(true)
+      expect(node.hasClass('yozora-code-embed')).toBeTruthy()
+      expect(node.hasClass('my-code-embed')).toBeTruthy()
     })
   })
 

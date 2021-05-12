@@ -50,7 +50,7 @@ describe('prop types', function () {
   describe('className is optional', function () {
     it('default', function () {
       const node = render(<Heading level={1}>Heading contents.</Heading>)
-      expect(node.hasClass('yozora-heading')).toEqual(true)
+      expect(node.hasClass('yozora-heading')).toBeTruthy()
     })
 
     it('custom', function () {
@@ -59,8 +59,8 @@ describe('prop types', function () {
           Heading contents.
         </Heading>,
       )
-      expect(node.hasClass('yozora-heading')).toEqual(true)
-      expect(node.hasClass('my-heading')).toEqual(true)
+      expect(node.hasClass('yozora-heading')).toBeTruthy()
+      expect(node.hasClass('my-heading')).toBeTruthy()
     })
   })
 

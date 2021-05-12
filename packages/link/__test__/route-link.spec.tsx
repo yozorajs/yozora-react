@@ -36,7 +36,7 @@ describe('basic rendering case', () => {
         </Link>
       </Router>,
     )
-    expect(wrapper.hasClass(className)).toEqual(true)
+    expect(wrapper.hasClass(className)).toBeTruthy()
     expect(wrapper.text()).toEqual(text)
   })
 

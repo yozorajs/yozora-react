@@ -32,15 +32,15 @@ describe('prop types', function () {
   describe('className is optional', function () {
     it('default', function () {
       const node = render(<Blockquote>{children}</Blockquote>)
-      expect(node.hasClass('yozora-blockquote')).toEqual(true)
+      expect(node.hasClass('yozora-blockquote')).toBeTruthy()
     })
 
     it('custom', function () {
       const node = render(
         <Blockquote className="my-blockquote">{children}</Blockquote>,
       )
-      expect(node.hasClass('yozora-blockquote')).toEqual(true)
-      expect(node.hasClass('my-blockquote')).toEqual(true)
+      expect(node.hasClass('yozora-blockquote')).toBeTruthy()
+      expect(node.hasClass('my-blockquote')).toBeTruthy()
     })
   })
 

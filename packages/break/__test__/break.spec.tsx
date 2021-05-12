@@ -12,13 +12,13 @@ describe('prop types', function () {
   describe('className is optional', function () {
     it('default', function () {
       const node = render(<Break />)
-      expect(node.hasClass('yozora-break')).toEqual(true)
+      expect(node.hasClass('yozora-break')).toBeTruthy()
     })
 
     it('custom', function () {
       const node = render(<Break className="my-break" />)
-      expect(node.hasClass('yozora-break')).toEqual(true)
-      expect(node.hasClass('my-break')).toEqual(true)
+      expect(node.hasClass('yozora-break')).toBeTruthy()
+      expect(node.hasClass('my-break')).toBeTruthy()
     })
   })
 

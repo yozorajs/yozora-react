@@ -43,7 +43,7 @@ describe('prop types', function () {
     it('default', function () {
       for (const ordered of [false, true]) {
         const node = render(<List ordered={ordered}>{children}</List>)
-        expect(node.hasClass('yozora-list')).toEqual(true)
+        expect(node.hasClass('yozora-list')).toBeTruthy()
       }
     })
 
@@ -54,8 +54,8 @@ describe('prop types', function () {
             {children}
           </List>,
         )
-        expect(node.hasClass('yozora-list')).toEqual(true)
-        expect(node.hasClass('my-list')).toEqual(true)
+        expect(node.hasClass('yozora-list')).toBeTruthy()
+        expect(node.hasClass('my-list')).toBeTruthy()
       }
     })
   })

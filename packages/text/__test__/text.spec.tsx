@@ -24,13 +24,13 @@ describe('prop types', function () {
   describe('className is optional', function () {
     it('default', function () {
       const node = render(<Text value={text} />)
-      expect(node.hasClass('yozora-text')).toEqual(true)
+      expect(node.hasClass('yozora-text')).toBeTruthy()
     })
 
     it('custom', function () {
       const node = render(<Text value={text} className="my-text" />)
-      expect(node.hasClass('yozora-text')).toEqual(true)
-      expect(node.hasClass('my-text')).toEqual(true)
+      expect(node.hasClass('yozora-text')).toBeTruthy()
+      expect(node.hasClass('my-text')).toBeTruthy()
     })
   })
 

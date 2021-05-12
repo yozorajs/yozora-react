@@ -12,13 +12,13 @@ describe('prop types', function () {
   describe('className is optional', function () {
     it('default', function () {
       const node = render(<ThematicBreak />)
-      expect(node.hasClass('yozora-thematic-break')).toEqual(true)
+      expect(node.hasClass('yozora-thematic-break')).toBeTruthy()
     })
 
     it('custom', function () {
       const node = render(<ThematicBreak className="my-thematic-break" />)
-      expect(node.hasClass('yozora-thematic-break')).toEqual(true)
-      expect(node.hasClass('my-thematic-break')).toEqual(true)
+      expect(node.hasClass('yozora-thematic-break')).toBeTruthy()
+      expect(node.hasClass('my-thematic-break')).toBeTruthy()
     })
   })
 

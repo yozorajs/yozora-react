@@ -31,13 +31,13 @@ describe('prop types', function () {
   describe('className is optional', function () {
     it('default', function () {
       const node = render(<Delete>{children}</Delete>)
-      expect(node.hasClass('yozora-delete')).toEqual(true)
+      expect(node.hasClass('yozora-delete')).toBeTruthy()
     })
 
     it('custom', function () {
       const node = render(<Delete className="my-delete">{children}</Delete>)
-      expect(node.hasClass('yozora-delete')).toEqual(true)
-      expect(node.hasClass('my-delete')).toEqual(true)
+      expect(node.hasClass('yozora-delete')).toBeTruthy()
+      expect(node.hasClass('my-delete')).toBeTruthy()
     })
   })
 
