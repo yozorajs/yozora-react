@@ -2030,6 +2030,24 @@
   resolved "https://registry.npmjs.org/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
+"@yozora/ast-util@^1.0.0-alpha.21":
+  version "1.0.0-alpha.21"
+  resolved "https://registry.npmjs.org/@yozora/ast-util/-/ast-util-1.0.0-alpha.21.tgz#757a456a8de40c0ebbbcd536d3211a289cad97f8"
+  integrity sha512-QyrIc/JpVryUGvUh/LJaijFdTEpDEd15k3L0H71005dETXU2A7TEXSe5bVX37cFEYoam1plmzJhnbVXwWXAKSA==
+  dependencies:
+    "@yozora/ast" "^1.0.0-alpha.21"
+    "@yozora/character" "^1.0.0-alpha.21"
+
+"@yozora/ast@^1.0.0-alpha.21":
+  version "1.0.0-alpha.21"
+  resolved "https://registry.npmjs.org/@yozora/ast/-/ast-1.0.0-alpha.21.tgz#1dff5db62b7548908824ec9a52c5dd7464dbd1d4"
+  integrity sha512-viKhjpC+YGHnaUAgVaFowNorPEajPF3Rs3wmLDuTiqkh1RDOFZhCwLw+RfjUerqNkzSc9XoZPt4NdV4rUqPeLg==
+
+"@yozora/character@^1.0.0-alpha.21":
+  version "1.0.0-alpha.21"
+  resolved "https://registry.npmjs.org/@yozora/character/-/character-1.0.0-alpha.21.tgz#e97e1f69ad0bb224700547369d6d67e833b85da9"
+  integrity sha512-XY5D8xBFOhbnyfJgpL1ly62eAnBAgad5mHytpOJNWvvtYG6AaC1GiB8SeGdkW2oDlA7gWNjnxTKFnTL/aPbAIg==
+
 JSONStream@^1.0.4, JSONStream@^1.3.4:
   version "1.3.5"
   resolved "https://registry.npmjs.org/JSONStream/-/JSONStream-1.3.5.tgz#3208c1f08d3a4d99261ab64f92302bc15e111ca0"

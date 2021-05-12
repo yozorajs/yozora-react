@@ -18,7 +18,7 @@
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/types/index.d.ts",
-  "source": "src/index.tsx",
+  "source": "src/index.ts",
   "license": "MIT",
   "engines": {
     "node": ">= 14.15.0"
@@ -40,7 +40,9 @@
   "dependencies": {
     "@types/react-copy-to-clipboard": "^4.3.0",
     "@types/react-mathjax": "^1.0.0",
+    "@yozora/react-admonition": "^0.0.10",
     "@yozora/react-blockquote": "^0.0.10",
+    "@yozora/react-break": "^0.0.10",
     "@yozora/react-code": "^0.0.10",
     "@yozora/react-code-editor": "^0.0.10",
     "@yozora/react-code-embed": "^0.0.10",
@@ -49,7 +51,10 @@
     "@yozora/react-code-renderer-jsx": "^0.0.10",
     "@yozora/react-delete": "^0.0.10",
     "@yozora/react-emphasis": "^0.0.10",
+    "@yozora/react-footnote-reference": "^0.0.10",
+    "@yozora/react-footnote-definitions": "^0.0.10",
     "@yozora/react-heading": "^0.0.10",
+    "@yozora/react-image": "^0.0.10",
     "@yozora/react-inline-code": "^0.0.10",
     "@yozora/react-inline-math": "^0.0.10",
     "@yozora/react-link": "^0.0.10",
@@ -65,8 +70,9 @@
     "react-mathjax": "^1.0.1"
   },
   "peerDependencies": {
-    "@types/react": "^17.0.3",
-    "@types/styled-components": "^5.1.4",
+    "@yozora/ast": "^1.0.0-alpha.21",
+    "@yozora/ast-util": "^1.0.0-alpha.21",
+    "clsx": "^1.1.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "styled-components": "^5.2.1"

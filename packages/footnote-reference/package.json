@@ -1,7 +1,7 @@
 {
-  "name": "@yozora/react-footnote-definition",
+  "name": "@yozora/react-footnote-reference",
   "version": "0.0.10",
-  "description": "render markdown footnote-definition in react",
+  "description": "render markdown footnote-reference in react",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -9,12 +9,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/guanghechen/yozora-react.git",
-    "directory": "packages/footnote-definition"
+    "directory": "packages/footnote-reference"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/footnote-definition#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/footnote-reference#readme",
   "keywords": [
     "mdast node renderer",
-    "markdown footnote-definition"
+    "markdown footnote-reference"
   ],
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
