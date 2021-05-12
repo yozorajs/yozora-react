@@ -1,120 +1,70 @@
-import { mount, render } from 'enzyme'
+import { render } from 'enzyme'
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-import type { DefaultTheme } from 'styled-components'
-import { ThemeProvider } from 'styled-components'
 import Link from '../src'
 
-describe('basic rendering case', () => {
-  const errorLogger = jest
-    .spyOn(global.console, 'error')
-    .mockImplementation((...args) => {
+const url = 'https://github.com/guanghechen'
+const children = (
+  <React.Fragment>
+    Some link text
+    <span>Some link text2</span>
+  </React.Fragment>
+)
+
+describe('prop types', function () {
+  beforeEach(() => {
+    jest.spyOn(global.console, 'error').mockImplementation((...args) => {
       throw new Error(args.join(' '))
     })
-
-  afterAll(() => {
-    errorLogger.mockRestore()
   })
 
-  it('render a simple content', () => {
-    const text = 'Hello, world!'
-    const wrapper = render(
-      <Router>
-        <Link url="#">{text}</Link>
-      </Router>,
-    )
-    expect(wrapper.text()).toEqual(text)
-  })
-
-  it('render with custom className', () => {
-    const text = 'Hello, world!'
-    const className = 'custom-link'
-    const wrapper = render(
-      <Router>
-        <Link url="https://www.github.com" className={className}>
-          <span>{text}</span>
-        </Link>
-      </Router>,
-    )
-    expect(wrapper.hasClass(className)).toBeTruthy()
-    expect(wrapper.text()).toEqual(text)
-  })
-
-  it('url and children both are required', () => {
+  it('url is required', () => {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(
-          <Router>
-            <Link url={value}>link text</Link>
-          </Router>,
-        )
+        render(<Link url={value}>{children}</Link>)
       }).toThrow(/The prop `url` is marked as required/i)
-
-      expect(() => {
-        render(
-          <Router>
-            <Link url="/home">{value}</Link>
-          </Router>,
-        )
-      }).toThrow(/The prop `children` is marked as required/i)
     }
   })
 
-  it('forward ref', () => {
-    const ref = React.createRef<HTMLAnchorElement>()
-    const wrapper = mount(
-      <Router>
-        <Link ref={ref} url="https://www.github.com" data-value="waw">
-          1
-        </Link>
-      </Router>,
-    )
+  describe('className is optional', function () {
+    it('default', function () {
+      const node = render(<Link url={url}>{children}</Link>)
+      expect(node.hasClass('yozora-link')).toBeTruthy()
+    })
 
-    const o = wrapper.getDOMNode()
-    expect(o).toEqual(ref.current)
-    expect(o.getAttribute('data-value')).toEqual('waw')
+    it('custom', function () {
+      const node = render(
+        <Link url={url} className="my-code">
+          {children}
+        </Link>,
+      )
+      expect(node.hasClass('yozora-link')).toBeTruthy()
+      expect(node.hasClass('my-code')).toBeTruthy()
+    })
   })
 
-  it('snapshot', () => {
+  it('style is optional', function () {
+    const node = render(
+      <Link url={url} style={{ color: 'orange' }}>
+        {children}
+      </Link>,
+    )
+    expect(node.css('color')).toEqual('orange')
+  })
+})
+
+describe('snapshot', function () {
+  it('basic', () => {
     const wrapper = render(
       <Router>
         <Link
-          url="/home"
+          url={url}
           title="home"
           style={{ color: 'orange', fontSize: '16px' }}
         >
           some text1
           <span>some text2</span>
         </Link>
-      </Router>,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  it('snapshot with theme', () => {
-    const theme: DefaultTheme = {
-      yozora: {
-        link: {
-          color: 'blue',
-          fontSize: undefined,
-          fontStyle: 'italic',
-          textDecoration: 'none',
-        },
-      },
-    }
-
-    const wrapper = mount(
-      <Router>
-        <ThemeProvider theme={theme}>
-          <Link
-            url="https://www.github.com"
-            title="home"
-            style={{ color: 'orange', fontSize: '16px' }}
-          >
-            some text1
-            <span>some text2</span>
-          </Link>
-        </ThemeProvider>
       </Router>,
     )
     expect(wrapper).toMatchSnapshot()
