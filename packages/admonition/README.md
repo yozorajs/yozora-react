@@ -110,7 +110,7 @@ Name        | Type                  | Required  | Default | Description
 * [@yozora/ast][]
 * [@yozora/react-markdown][]
 * [@yozora/tokenizer-admonition][]
-* [remark-admonitions][mdast]
+* [remark-admonitions][]
 
 
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#admonition

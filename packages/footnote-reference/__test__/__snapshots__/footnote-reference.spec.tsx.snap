@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot basic 1`] = `
+<sup
+  class="yozora-footnote-reference custom-footnote"
+  id="reference-identifier"
+  style="font-size:16px"
+>
+  <a
+    href="#identifier"
+    title="1"
+  >
+    [1]
+  </a>
+</sup>
+`;
