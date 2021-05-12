@@ -19,6 +19,10 @@
       ],
       "@yozora/react-delete": ["./packages/delete/src"],
       "@yozora/react-emphasis": ["./packages/emphasis/src"],
+      "@yozora/react-footnote-reference": ["./packages/footnote-reference/src"],
+      "@yozora/react-footnote-definitions": [
+        "./packages/footnote-definitions/src"
+      ],
       "@yozora/react-heading": ["./packages/heading/src"],
       "@yozora/react-image": ["./packages/image/src"],
       "@yozora/react-inline-code": ["./packages/inline-code/src"],

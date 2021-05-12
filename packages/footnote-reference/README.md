@@ -101,6 +101,8 @@ Name        | Type                  | Required  | Default | Description
 `label`     | `string`              | `true`    | -       | Footnote reference label
 `style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
+- `identifier`: The prefix `reference-` will be added automatically.
+
 - `className`: The root element of this component will always bind with the
   CSS class `'yozora-footnote-reference'`
 
@@ -108,6 +110,7 @@ Name        | Type                  | Required  | Default | Description
 ## Related
 
 * [@yozora/ast][]
+* [@yozora/react-footnote-definitions][]
 * [@yozora/react-markdown][]
 * [@yozora/tokenizer-footnote][]
 * [@yozora/tokenizer-footnote-definition][]
@@ -116,7 +119,7 @@ Name        | Type                  | Required  | Default | Description
 
 
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#footnote-reference
-
+[@yozora/react-footnote-definitions]: https://www.npmjs.com/package/@yozora/react-footnote-definitions
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-footnote]: https://www.npmjs.com/package/@yozora/tokenizer-footnote
 [@yozora/tokenizer-footnote-definition]: https://www.npmjs.com/package/@yozora/tokenizer-footnote-definition
