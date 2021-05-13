@@ -1,3 +1,12 @@
+**/*.*
+!**/*.ts
+!**/*.tsx
+!**/*.js
+!**/*.jsx
+!**/*.json
+!.eslintignore
+!.eslintrc
+
 **/.vscode/
 **/__tmp__/
 **/__test__/fixtures/
@@ -12,13 +21,3 @@
 **/resources/
 **/test/
 **/*.styl.d.ts
-
-
-**/*.*
-!**/*.ts
-!**/*.tsx
-!**/*.js
-!**/*.jsx
-!**/*.json
-!.eslintignore
-!.eslintrc

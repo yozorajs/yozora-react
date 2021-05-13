@@ -61,8 +61,10 @@
 </header>
 <br/>
 
+This component is for rendering the [Code][@yozora/ast] data produced by
+[@yozora/tokenizer-indented-code][] and [@yozora/tokenizer-fenced-code].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
-This package is designed to render [mdast code][] type data
 
 ## Install
 
@@ -79,82 +81,75 @@ This package is designed to render [mdast code][] type data
   ```
 
 ## Usage
-  * Use in React project
 
-    - Pure
+* Basic:
 
-      ```tsx
-      import React from 'react'
-      import Code from '@yozora/react-code'
+  ```tsx
+  import React from 'react'
+  import Code from '@yozora/react-code'
 
-      const wrapper = (
-        <Code
-          lang="typescript"
-          value="let a: number = 1 + 2;"
-        />
-      )
-      ```
+  const wrapper = (
+    <Code
+      lang="typescript"
+      value="let a: number = 1 + 2;"
+    />
+  )
+  ```
 
-    - With theme
+### Props
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import Code from '@yozora/react-code'
+Name                | Type                  | Required  | Default   | Description
+:------------------:|:---------------------:|:---------:|:---------:|:-------------
+`className`         | `string`              | `false`   | -         | Root css class
+`lang`              | `string`              | `false`   | -         | Language of the source codes
+`meta`              | `string`              | `false`   | -         | Meta data of the code block
+`runners`           | `CodeRunnerItem[]`    | `false`   | See below | Code runners.
+`style`             | `React.CSSProperties` | `false`   | -         | Root css style
+`value`             | `string`              | `true`    | -         | Literal source codes
 
-      const theme: DefaultTheme = {
-        yozora: {
-          code: {
-            padding: '2px',
-            border: '1px solid blue',
-            // margin: '0 2px',
-            background: 'hsla(210deg, 13%, 12%, 0.05)',
-          }
-        }
-      }
+- `runners`:
 
-      const code = `
-        const a = 1, b = 2, c = 3
-        const result = 3 * a * a * a + 2 * b * b + c
-        console.log('result:', result)
-      `
+  ```typescript
+  import JsxRenderer from '@yozora/react-code-renderer-jsx'
 
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <Code lang="typescript" value={ code } />
-        </ThemeProvider>
-      )
-      ```
+  const defaultRunners: CodeRunnerItem[] = [
+    {
+      title: 'jsx',
+      pattern: /^jsx$/,
+      runner: function JsxRunner(props: CodeRunnerProps): React.ReactElement {
+        const { value, scope, onError } = props
+        return (
+          <JsxRenderer
+            code={value}
+            inline={true}
+            scope={scope}
+            onError={onError}
+          />
+        )
+      },
+    },
+  ]
+  ```
 
-  * Props
+## Related
 
-     Name     | Type                                | Required  | Default | Description
-    :--------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `value`  | `string`                            | `true`    | -       | code content
-     `ref`    | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
-
-    CodeProps inherited all attributes of `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`)
-
-  * Theme
-
-     Prop Name            | Default
-    :--------------------:|:--------------
-     padding              | `0`
-     border               | `none`
-     margin               | `0`
-     lineHeight           | `1.33`
-     background           | `none`
-     fontFamily           | `Consolas, "Source Code Pro", monospace, sans-serif`
-     selectionBackground  | `none`
-
-    See [YozoraCodeTheme][] for details.
+* [@yozora/ast][]
+* [@yozora/react-code-embed][]
+* [@yozora/react-code-highlighter][]
+* [@yozora/react-code-literal][]
+* [@yozora/react-code-live][]
+* [@yozora/react-markdown][]
+* [@yozora/tokenizer-indented-code][]
+* [@yozora/tokenizer-fenced-code][]
+* [Code | Mdast][mdast]
 
 
-## References
-
-  - [mdast code][]
-  - [YozoraCodeTheme][]
-
-
-[mdast code]: https://github.com/syntax-tree/mdast#code
-[YozoraCodeTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/code/src/theme.ts
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#code
+[@yozora/react-code-embed]: https://www.npmjs.com/package/@yozora/react-code-embed
+[@yozora/react-code-highlighter]: https://www.npmjs.com/package/@yozora/react-code-highlighter
+[@yozora/react-code-literal]: https://www.npmjs.com/package/@yozora/react-code-literal
+[@yozora/react-code-live]: https://www.npmjs.com/package/@yozora/react-code-live
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-indented-code]: https://www.npmjs.com/package/@yozora/tokenizer-indented-code
+[@yozora/tokenizer-fenced-code]: https://www.npmjs.com/package/@yozora/tokenizer-fenced-code
+[mdast]: https://github.com/syntax-tree/mdast#code

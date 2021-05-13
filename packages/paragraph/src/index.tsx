@@ -1,51 +1,42 @@
+import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-import './styled-components'
-import { defaultParagraphTheme, getParagraphStyle } from './theme'
 
-export * from './theme'
-
-/**
- * Props for creating Paragraph
- */
-export interface ParagraphProps
-  extends React.HTMLAttributes<HTMLParagraphElement> {
+export interface ParagraphProps {
   /**
-   * Paragraph content
+   * Paragraph content.
    */
-  children: React.ReactNode
+  children?: React.ReactNode
+  /**
+   * Root css class of the component.
+   */
+  className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
 }
 
 /**
- * Render `paragraph` content
+ * Render yozora `paragraph`.
  *
- * @param props
+ * @see https://www.npmjs.com/package/@yozora/ast#paragraph
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-paragraph
  */
-export const Paragraph = React.forwardRef<HTMLParagraphElement, ParagraphProps>(
-  (props, forwardRef): React.ReactElement => {
-    return <Container {...props} ref={forwardRef} />
-  },
-)
+export function Paragraph(props: ParagraphProps): React.ReactElement {
+  const { children, className, style } = props
+  return (
+    <p className={cn('yozora-paragraph', className)} style={style}>
+      {children}
+    </p>
+  )
+}
 
 Paragraph.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  style: PropTypes.object,
 }
 
 Paragraph.displayName = 'YozoraParagraph'
 export default Paragraph
-
-const Container = styled.p`
-  padding: ${getParagraphStyle('padding')};
-  margin: ${getParagraphStyle('margin')};
-  line-height: ${getParagraphStyle('lineHeight')};
-  color: ${getParagraphStyle('color')};
-`
-
-Container.defaultProps = {
-  theme: { yozora: { paragraph: defaultParagraphTheme } },
-}
-
-export const ParagraphClasses = {
-  container: `${Container}`,
-}

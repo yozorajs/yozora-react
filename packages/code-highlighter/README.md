@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-code-highlighter</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code-highlighter#readme">@yozora/react-code-highlighter</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-code-highlighter">
@@ -79,7 +79,7 @@ This package is designed to highlight [mdast code][] type data
   ```
 
 ## Usage
-  * Use in React project
+  * Basic:
 
     ```tsx
     import React, { useEffect, useState } from 'react'
@@ -127,7 +127,7 @@ This package is designed to highlight [mdast code][] type data
      `onLineCountChange`  | `(lineCount: number) => void`   | `false`   | -                   | Callback of Code line count changing
 
 
-## References
+## Related
 
   - [mdast code][]
 

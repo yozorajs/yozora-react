@@ -1,58 +1,43 @@
+import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
 import MathJax from 'react-mathjax'
-import styled from 'styled-components'
-import './styled-components'
-import { defaultMathTheme, getMathStyle } from './theme'
 
-export * from './theme'
-
-/**
- * Props for creating Math
- */
-export interface MathProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface MathProps {
   /**
-   * math content
+   * Literal math.
    */
   value: string
+  /**
+   * Root css class of the component.
+   */
+  className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
 }
 
 /**
- * Render `math` content
+ * Render yozora `math`.
  *
- * @param props
+ * @see https://www.npmjs.com/package/@yozora/ast#math
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-math
  */
-export const Math = React.forwardRef<HTMLDivElement, MathProps>(
-  (props, forwardRef): React.ReactElement => {
-    const { children, value, ...htmlProps } = props
-    return (
-      <Container {...htmlProps} ref={forwardRef}>
-        <MathJax.Node inline={false} formula={value} />
-      </Container>
-    )
-  },
-)
+export function Math(props: MathProps): React.ReactElement {
+  const { value, className, style } = props
+  return (
+    <span className={cn('yozora-math', className)} style={style}>
+      <MathJax.Node inline={false} formula={value} />
+    </span>
+  )
+}
 
 Math.propTypes = {
+  className: PropTypes.string,
+  style: PropTypes.object,
   value: PropTypes.string.isRequired,
-  children: PropTypes.node,
 }
 
 Math.displayName = 'YozoraMath'
 export default Math
-
-const Container = styled.div`
-  padding: ${getMathStyle('padding')};
-  border: ${getMathStyle('border')};
-  margin: ${getMathStyle('margin')};
-  background: ${getMathStyle('background')};
-  color: ${getMathStyle('color')};
-`
-
-Container.defaultProps = {
-  theme: { yozora: { math: defaultMathTheme } },
-}
-
-export const MathClasses = {
-  container: `${Container}`,
-}

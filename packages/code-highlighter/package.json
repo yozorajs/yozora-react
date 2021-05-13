@@ -19,7 +19,7 @@
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/types/index.d.ts",
-  "source": "src/index.tsx",
+  "source": "src/index.ts",
   "license": "MIT",
   "engines": {
     "node": ">= 14.15.0"
@@ -34,24 +34,20 @@
     "README.md"
   ],
   "scripts": {
-    "start": "rollup -w -c ../../rollup.config.js",
     "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
     "prebuild": "rimraf lib/",
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "peerDependencies": {
-    "@types/react": "^17.0.3",
-    "@types/styled-components": "^5.1.4",
+    "clsx": "^1.1.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "styled-components": "^5.2.1"
   },
   "dependencies": {
-    "prism-react-renderer": "^1.1.1"
-  },
-  "devDependencies": {
-    "enzyme": "3.11.0"
+    "prism-react-renderer": "^1.2.0",
+    "prismjs": "^1.23.0"
   },
   "browserslist": [
     "last 2 versions",

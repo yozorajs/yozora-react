@@ -68,9 +68,7 @@ export function CodeRendererJsx(
     [inline, scope, onError],
   )
 
-  useEffect(() => {
-    transpile(code)
-  }, [code, transpile])
+  useEffect((): void => transpile(code), [code, transpile])
 
   if (Element == null) return null
   return <Element />
@@ -88,4 +86,3 @@ CodeRendererJsx.propTypes = {
 }
 
 CodeRendererJsx.displayName = 'YozoraCodeRendererJsx'
-export default CodeRendererJsx

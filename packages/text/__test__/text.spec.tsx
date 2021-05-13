@@ -1,77 +1,58 @@
-import { mount, render } from 'enzyme'
+import { render } from 'enzyme'
 import React from 'react'
-import type { DefaultTheme } from 'styled-components'
-import { ThemeProvider } from 'styled-components'
 import Text from '../src'
 
-describe('basic rendering case', () => {
-  const errorLogger = jest
-    .spyOn(global.console, 'error')
-    .mockImplementation((...args) => {
+const text = 'Hello, world!'
+
+describe('prop types', function () {
+  beforeEach(() => {
+    jest.spyOn(global.console, 'error').mockImplementation((...args) => {
       throw new Error(args.join(' '))
     })
-
-  afterAll(() => {
-    errorLogger.mockRestore()
   })
 
-  it('render a text value', () => {
-    const text = 'Hello, world!'
-    const wrapper = render(<Text value={text} />)
-    expect(wrapper.text()).toEqual(text)
-  })
-
-  it('render with custom className', () => {
-    const text = 'Hello, world!'
-    const className = 'custom-text'
-    const wrapper = render(<Text className={className} value={text} />)
-    expect(wrapper.hasClass(className)).toEqual(true)
-    expect(wrapper.text()).toEqual(text)
-  })
-
-  it('value is required', () => {
+  it('value is required', function () {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
         render(<Text value={value} />)
       }).toThrow(/The prop `value` is marked as required/i)
     }
+
+    expect(render(<Text value={text} />).text()).toEqual(text)
   })
 
-  it('forward ref', () => {
-    const ref = React.createRef<HTMLSpanElement>()
-    const wrapper = mount(<Text ref={ref} data-value="waw" value="" />)
+  describe('className is optional', function () {
+    it('default', function () {
+      const node = render(<Text value={text} />)
+      expect(node.hasClass('yozora-text')).toBeTruthy()
+    })
 
-    const o = wrapper.getDOMNode()
-    expect(o).toEqual(ref.current)
-    expect(o.getAttribute('data-value')).toEqual('waw')
+    it('custom', function () {
+      const node = render(<Text value={text} className="my-text" />)
+      expect(node.hasClass('yozora-text')).toBeTruthy()
+      expect(node.hasClass('my-text')).toBeTruthy()
+    })
   })
 
-  it('snapshot', () => {
-    const wrapper = render(
-      <Text
-        value="Hello, world!"
-        style={{ color: 'orange', fontSize: '16px' }}
-      />,
-    )
+  it('style is optional', function () {
+    const node = render(<Text value={text} style={{ color: 'orange' }} />)
+    expect(node.css('color')).toEqual('orange')
+  })
+})
+
+describe('snapshot', function () {
+  it('default', function () {
+    const wrapper = render(<Text value={text} />)
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('snapshot with theme', () => {
-    const theme: DefaultTheme = {
-      yozora: {
-        text: {
-          lineHeight: '2',
-        },
-      },
-    }
-
-    const wrapper = mount(
-      <ThemeProvider theme={theme}>
-        <Text
-          value="Hello, world!"
-          style={{ color: 'orange', fontSize: '16px' }}
-        />
-      </ThemeProvider>,
+  it('custom', function () {
+    const wrapper = render(
+      <Text
+        value={text}
+        className="custom-class"
+        style={{ color: 'orange' }}
+      />,
     )
     expect(wrapper).toMatchSnapshot()
   })

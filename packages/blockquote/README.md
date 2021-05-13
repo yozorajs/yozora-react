@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-blockquote/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-blockquote/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -61,8 +55,10 @@
 </header>
 <br/>
 
+This component is for rendering the [Blockquote][@yozora/ast] data produced by
+[@yozora/tokenizer-blockquote][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
-This package is designed to render [mdast blockquote][] type data
 
 ## Install
 
@@ -78,78 +74,44 @@ This package is designed to render [mdast blockquote][] type data
   yarn add @yozora/react-blockquote
   ```
 
+
 ## Usage
-  * Use in React project
 
-    - Pure
+* Basic:
 
-      ```tsx
-      import React from 'react'
-      import Blockquote from '@yozora/react-blockquote'
+  ```tsx
+  import React from 'react'
+  import Blockquote from '@yozora/react-blockquote'
 
-      const wrapper = (
-        <Blockquote style={{ color: 'orange', fontSize: '16px' }}>
-          some text1
-          <span>some text2</span>
-        </Blockquote>
-      )
-      ```
+  const wrapper = (
+    <Blockquote style={{ color: 'orange', fontSize: '16px' }}>
+      some text1
+      <span>some text2</span>
+    </Blockquote>
+  )
+  ```
 
-    - With theme
+### Props
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import Blockquote from '@yozora/react-blockquote'
+Name        | Type                  | Required  | Default | Description
+:----------:|:---------------------:|:---------:|:-------:|:-------------
+`children`  | `React.ReactNode`     | `false`   | -       | Blockquote contents
+`className` | `string`              | `false`   | -       | Root css class
+`style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
-      const theme: DefaultTheme = {
-        yozora: {
-          blockquote: {
-            padding: '0 1rem',
-            borderColor: 'orange',
-            margin: 18,
-            background: 'rgba(0, 0, 0, 0.15)',
-            color: 'red',
-          }
-        }
-      }
-
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <Blockquote>
-            some text1
-            <span>some text2</span>
-          </Blockquote>
-        </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name       | Type                              | Required  | Default | Description
-    :----------:|:---------------------------------:|:---------:|:-------:|:-------------
-     `ref`      | `React.RefObject<HTMLDivElement>` | `false`   | -       | Forwarded ref callback
-     `children` | `React.ReactNode`                 | `true`    | -       | Blockquote content
-
-    BlockquoteProps inherited all attributes of `HTMLDivElement` (`React.BlockquoteHTMLAttributes<HTMLDivElement>`)
-
-  * Theme
-
-     Prop Name    | Default
-    :------------:|:--------------
-     padding      | `0.625em 1em`
-     borderColor  | `transparent`
-     margin       | `0 0 1.25em`
-     background   | `none`
-     color        | `inherit`
-
-    See [YozoraBlockquoteTheme][] for details.
+* `className`: The root element of this component will always bind with the
+  CSS class `'yozora-blockquote'`
 
 
-## References
+## Related
 
-  - [mdast blockquote][]
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
+* [@yozora/tokenizer-blockquote][]
+* [Blockquote | Mdast][mdast]
 
 
-[mdast blockquote]: https://github.com/syntax-tree/mdast#blockquote
-[YozoraBlockquoteTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/blockquote/src/theme.ts
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#blockquote
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-blockquote]: https://www.npmjs.com/package/@yozora/tokenizer-blockquote
+[mdast]: https://github.com/syntax-tree/mdast#blockquote

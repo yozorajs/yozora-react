@@ -1,51 +1,42 @@
+import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-import './styled-components'
-import { defaultDeleteTheme, getDeleteStyle } from './theme'
 
-export * from './theme'
-
-/**
- * Props for creating Delete
- */
-export interface DeleteProps extends React.DelHTMLAttributes<HTMLSpanElement> {
+export interface DeleteProps {
   /**
-   * Delete content
+   * Delete contents.
    */
-  children: React.ReactNode
+  children?: React.ReactNode
+  /**
+   * Root css class of the component.
+   */
+  className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
 }
 
 /**
- * Render `delete` content
+ * Render yozora `delete`.
  *
- * @param props
+ * @see https://www.npmjs.com/package/@yozora/ast#delete
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-delete
  */
-export const Delete = React.forwardRef<HTMLSpanElement, DeleteProps>(
-  (props, forwardRef): React.ReactElement => {
-    return <Container {...props} ref={forwardRef} />
-  },
-)
+export function Delete(props: DeleteProps): React.ReactElement {
+  const { children, className, style } = props
+  return (
+    <del className={cn('yozora-delete', className)} style={style}>
+      {children}
+    </del>
+  )
+}
 
 Delete.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  style: PropTypes.object,
 }
 
 Delete.displayName = 'YozoraDelete'
 export default Delete
-
-const Container = styled.del`
-  color: ${getDeleteStyle('color')};
-  font-size: ${getDeleteStyle('fontSize')};
-  font-weight: ${getDeleteStyle('fontWeight')};
-  font-style: ${getDeleteStyle('fontStyle')};
-  text-decoration: ${getDeleteStyle('textDecoration')};
-`
-
-Container.defaultProps = {
-  theme: { yozora: { delete: defaultDeleteTheme } },
-}
-
-export const DeleteClasses = {
-  container: `${Container}`,
-}

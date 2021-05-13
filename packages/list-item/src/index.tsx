@@ -1,15 +1,8 @@
+import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-import './styled-components'
-import { defaultListItemTheme, getListItemStyle } from './theme'
 
-export * from './theme'
-
-/**
- * Props for creating ListItem
- */
-export interface ListItemProps extends React.LiHTMLAttributes<HTMLSpanElement> {
+export interface ListItemProps {
   /**
    * Whether if is a TODO item, and given its status
    */
@@ -17,44 +10,40 @@ export interface ListItemProps extends React.LiHTMLAttributes<HTMLSpanElement> {
   /**
    * ListItem content
    */
-  children: React.ReactNode
+  children?: React.ReactNode
+  /**
+   * Root css class of the component.
+   */
+  className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
 }
 
 /**
- * Render ListItem content
+ * Render yozora `listItem`.
  *
- * @param props
+ * @see https://www.npmjs.com/package/@yozora/ast#listitem
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-list-item
  */
-export const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(
-  (props, forwardRef): React.ReactElement => {
-    const { status, ...htmlProps } = props
-    return <Container {...htmlProps} ref={forwardRef} />
-  },
-)
+export function ListItem(props: ListItemProps): React.ReactElement {
+  const { className = 'yozora-list-item', style, status, children } = props
+  const checkbox: React.ReactNode = null
+  return (
+    <li className={cn('yozora-list-item', className)} style={style}>
+      {checkbox}
+      {children}
+    </li>
+  )
+}
 
 ListItem.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
   status: PropTypes.oneOf<'todo' | 'doing' | 'done'>(['todo', 'doing', 'done']),
-  children: PropTypes.node.isRequired,
+  style: PropTypes.object,
 }
 
 ListItem.displayName = 'YozoraListItem'
 export default ListItem
-
-const Container = styled.li`
-  color: ${getListItemStyle('color')};
-  padding: ${getListItemStyle('padding')};
-  margin: ${getListItemStyle('margin')};
-  line-height: ${getListItemStyle('lineHeight')};
-
-  & > :first-child {
-    margin-bottom: 0
-  }
-`
-
-Container.defaultProps = {
-  theme: { yozora: { listItem: defaultListItemTheme } },
-}
-
-export const ListItemClasses = {
-  container: `${Container}`,
-}

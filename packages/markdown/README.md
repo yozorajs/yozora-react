@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-markdown</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/markdown#readme">@yozora/react-markdown</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-markdown">
@@ -61,7 +61,7 @@
 </header>
 <br/>
 
-This component is designed to render markdown data
+This component is designed to render data of [@yozora/ast][].
 
 
 ## Install
@@ -69,114 +69,351 @@ This component is designed to render markdown data
 * npm
 
   ```bash
-  npm install --save @yozora/react-markdown
+  npm install --save @yozora/react-markdown 
   ```
 
 * yarn
 
   ```bash
-  yarn add @yozora/react-markdown
+  yarn add @yozora/react-markdown @yozora/ast @yozora/ast-util
   ```
 
 ## Usage
-  * Use in React project
 
-    - Pure
+* This component supports to preview all images in markdown documents with 
+  [react-viewer][]. In order to be able to use [react-viewer] in React SSR, 
+  you will need the [@loadable/component].
 
-      ```tsx
-      import React from 'react'
-      import Markdown from '@yozora/react-markdown'
+  ```yarn
+  yarn add react-viewer @loadable/component
+  ```
 
-      const wrapper = (
-        <article className={ classes.compMarkdown }>
-          <Markdown ast={ props.ast } />
-        </article>
+  to use it with the following code snippet:
+
+  ```typescript
+  import loadable from '@loadable/component'
+  import Markdown from '@yozora/markdown'
+
+  const Viewer = loadable(() => import('react-viewer'))
+
+  <Markdown Viewer={Viewer} {...otherProps} />
+  ```
+
+* In additional, if you want to render a markdown source contents from scratch, 
+  you will need the [@yozora/parser][] to resolve the literal contents into mdast.
+
+  Then, you will need [@yozora/ast-util][] to collect the
+  [link definition][@yozora/tokenizer-definition] map and the
+  [footnote-definition][@yozora/tokenizer-footnote-definition] map.
+
+  ```yarn
+  yarn add @yozora/parser @yozora/ast-util @yozora/ast
+  ``` 
+
+  to integrated them with the following code snippet:
+
+  ```typescript
+  import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
+  import YozoraParser from '@yozora/parser'
+
+  const parser = new YozoraParser({
+    defaultParseOptions: { shouldReservePosition: false },
+  })
+
+  const ast = parser.parse(`source markdown contents`)
+  const definitionMap = calcDefinitionMap(ast)
+  const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
+
+  <Markdown 
+    ast={ast} 
+    definitionMap={definitionMap} 
+    footnoteDefinitionMap={footnoteDefinitionMap} 
+    {...otherProps} 
+  />
+  ```
+
+### Demo
+
+* Basic:
+
+  ```tsx
+  import React from 'react'
+  import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
+  import loadable from '@loadable/component'
+  import YozoraParser from '@yozora/parser'
+  import Markdown from '@yozora/react-markdown'
+
+  const Viewer = loadable(() => import('react-viewer'))
+
+  const parser = new YozoraParser({
+    defaultParseOptions: { shouldReservePosition: false },
+  })
+
+  const sourceContents = `markdown contents`
+  const ast = parser.parse(sourceContents)
+
+  const definitionMap = calcDefinitionMap(ast)
+  const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
+
+  const wrapper = (
+    <Markdown 
+      ast={ast} 
+      definitionMap={definitionMap} 
+      footnoteDefinitionMap={footnoteDefinitionMap}
+      Viewer={Viewer}
+    />
+  )
+  ```
+
+* Customize renderer map:
+
+  ```tsx
+  import React from 'react'
+  import { Route } from 'react-route-dom'
+  import { LinkReferenceType, LinkType } from '@yozora/ast'
+  import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
+  import YozoraParser from '@yozora/parser'
+  import type { LinkProps } from '@yozora/react-link'
+  import type { TokenRendererMap } from '@yozora/react-markdown'
+  import Markdown from '@yozora/react-markdown'
+
+  const parser = new YozoraParser({
+    defaultParseOptions: { shouldReservePosition: false },
+  })
+
+  const sourceContents = `markdown contents`
+  const ast = parser.parse(sourceContents)
+  const definitionMap = calcDefinitionMap(ast)
+  const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
+  const customRendererMap: Partial<TokenRendererMap> = {
+    [LinkType]: function renderLink(link, key, ctx) {
+      const { url, title } = link
+      return (
+        <InternalLink key={key} url={url} title={title}>
+          {ctx.renderNodes(link.children)}
+        </InternalLink>
       )
-      ```
-
-    - Custom render
-
-      ```tsx
-      import React from 'react'
-      import Blockquote from '@yozora/react-blockquote'
-      import Delete from '@yozora/react-delete'
-      import Emphasis from '@yozora/react-emphasis'
-      import Heading from '@yozora/react-heading'
-      import InlineCode from '@yozora/react-inline-code'
-      import InlineMath from '@yozora/react-inline-math'
-      import Link from '@yozora/react-link'
-      import List from '@yozora/react-list'
-      import ListItem from '@yozora/react-list-item'
-      import {
-        MdastRendererProps,
-        createMdastRenderer,
-        defaultMdastRendererMap,
-      } from '@yozora/react-markdown'
-      import Math from '@yozora/react-math'
-      import Paragraph from '@yozora/react-paragraph'
-      import Strong from '@yozora/react-strong'
-      import Table from '@yozora/react-table'
-      import TableCell from '@yozora/react-table-cell'
-      import TableRow from '@yozora/react-table-row'
-      import Text from '@yozora/react-text'
-      import ThematicBreak from '@yozora/react-thematic-break'
-      import CustomCodeEmbed from './block/code/embed'
-      import Code from './block/code/literal'
-      import CustomCodeLive from './block/code/live'
-
-      export const MarkdownRenderer: (props: MdastRendererProps) => React.ReactElement
-        = createMdastRenderer({
-          root: 'div',
-          blockquote: Blockquote,
-          code: defaultMdastRendererMap.Code,
-          codeEmbed: defaultMdastRendererMap.CodeEmbed,
-          codeLive: defaultMdastRendererMap.CodeLive,
-          definition: () => null,
-          heading: Heading,
-          listItem: ListItem,
-          list: List,
-          math: Math,
-          paragraph: Paragraph,
-          table: Table,
-          tableRow: TableRow,
-          tableCell: TableCell,
-          thematicBreak: ThematicBreak,
-          inlineCode: InlineCode,
-          inlineMath: InlineMath,
-          break: 'br',
-          delete: Delete,
-          emphasis: Emphasis,
-          link: Link,
-          image: 'img',
-          linkReference: 'a',
-          imageReference: 'img',
-          strong: Strong,
-          text: Text,
-        })
-
-      const wrapper = (
-        <article className={ classes.compMarkdown }>
-          <Markdown ast={ props.ast } render={ MarkdownRenderer } />
-        </article>
+    },
+    [LinkReferenceType]: function renderLinkReference(linkReference, key, ctx) {
+      const definition: Omit<Definition, 'type'> =
+        ctx.getDefinition(linkReference.identifier) ?? ({} as any)
+      const { url = '', title } = definition
+      return (
+        <InternalLink key={key} url={url} title={title}>
+          {ctx.renderNodes(linkReference.children)}
+        </InternalLink>
       )
-      ```
+    },
+  }
 
-  * Props
+  const wrapper = (
+    <Markdown 
+      rendererMap={ customRendererMap } 
+      definitionMap={definitionMap} 
+      footnoteDefinitionMap={footnoteDefinitionMap}
+      ast={ast} 
+    />
+  )
 
-     Name       | Type                                                | Required  | Default           | Description
-    :----------:|:---------------------------------------------------:|:---------:|:-----------------:|:-------------
-     `ref`      | `React.RefObject<HTMLDivElement>`                   | `false`   | -                 | Forwarded ref callback
-     `ast`      | [MdastPropsRoot][]                                  | `true`    | -                 | Component props one-to-one corresponding to mdast
-     `render`   | `(props: MdastRendererProps) => React.ReactElement` | `false`   | [MdastRenderer][] |
+  function InternalLink(props: LinkProps): React.ReactElement {
+    const { children, className, url, title, ...htmlProps } = props
+    return (
+      <Route
+        {...htmlProps}
+        className={cn('yozora-link', className)}
+        to={url}
+        title={title}
+        replace={true}
+      >
+        {children}
+      </Route>
+    )
+  }
+  ```
 
-    MarkdownProps inherited all attributes of `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`)
+### Props
 
 
-## References
+Name                    | Type                  | Required  | Default | Description
+:----------------------:|:---------------------:|:---------:|:-------:|:-------------
+`ast`                   | See below             | `true`    | -       | Root node of [@yozora/ast][]
+`definitionMap`         | See below             | `true`    | -       | Link / Image reference definitions
+`footnoteDefinitionMap` | See below             | `true`    | -       | Footnote reference definitions
+`className`             | `string`              | `false`   | -       | Root css class
+`rendererMap`           | See below             | `false`   | -       | [@yozora/ast] renderer map
+`style`                 | `React.CSSProperties` | `false`   | -       | Root css style
+`Viewer`                | [react-viewer][]      | `false`   | -       | Image previewer
 
-  - [mdast][]
+* `ast`: 
+
+  ```typescript
+  import type { Root } from '@yozora/ast'
+  const ast: Root
+
+  // Parse source contents into ast
+  import YozoraParser from '@yozora/parser'
+  const parser = new YozoraParser({
+    defaultParseOptions: { shouldReservePosition: false },
+  })
+  const ast = parser.parse(`source markdown contents`)
+  ```
+
+* `className`: The root element of this component will always bind with the
+  CSS class `'yozora-markdown'`.
+
+* `definitionMap`: 
+
+  ```typescript
+  import type { Definition } from '@yozora/ast'
+  const definitionMap: Record<string, Definition>
+
+  // Collect from ast
+  import { calcDefinitionMap } from '@yozora/ast-util'
+  const definitionMap = calcDefinitionMap(ast)
+  ```
+
+* `footnoteDefinitionMap`: 
+
+  ```typescript
+  import type { FootnoteDefinition } from '@yozora/ast'
+  const footnoteDefinitionMap: Record<string, FootnoteDefinition>
+
+  // Collect from ast
+  import { calcFootnoteDefinitionMap } from '@yozora/ast-util'
+  const definitionMap = calcFootnoteDefinitionMap(ast)
+  ```
+
+* `rendererMap`: 
+
+  ```typescript
+  import type { TokenRendererMap } from '@yozora/react-markdown'
+  const rendererMap: Partial<TokenRendererMap>
+  ```
+
+* `Viewer`
+
+  ```typescript
+  import loadable from '@loadable/component'
+  import Markdown from '@yozora/markdown'
+
+  const Viewer = loadable(() => import('react-viewer')
+  ```
+
+### Overview
+
+This component has some built-in sub-components for rendering data of [@yozora/ast]. 
+
+* [@yozora/react-admonition][]
+* [@yozora/react-blockquote][]
+* [@yozora/react-break][]
+* [@yozora/react-code][]
+* [@yozora/react-delete][]
+* [@yozora/react-emphasis][]
+* [@yozora/react-footnote-definitions][]
+* [@yozora/react-footnote-reference][]
+* [@yozora/react-heading][]
+* [@yozora/react-image][]
+* [@yozora/react-inline-code][]
+* [@yozora/react-inline-math][]
+* [@yozora/react-link][]
+* [@yozora/react-list][]
+* [@yozora/react-list-item][]
+* [@yozora/react-math][]
+* [@yozora/react-paragraph][]
+* [@yozora/react-strong][]
+* [@yozora/react-table][]
+* [@yozora/react-text][]
+* [@yozora/react-thematic-break][]
+
+## Related
+
+* [mdast][]
+* [@yozora/ast][]
+* [@yozora/tokenizer-admonition][]
+* [@yozora/tokenizer-autolink][]
+* [@yozora/tokenizer-autolink-extension][]
+* [@yozora/tokenizer-blockquote][]
+* [@yozora/tokenizer-break][]
+* [@yozora/tokenizer-definition][]
+* [@yozora/tokenizer-delete][]
+* [@yozora/tokenizer-emphasis][]
+* [@yozora/tokenizer-fenced-block][]
+* [@yozora/tokenizer-footnote][]
+* [@yozora/tokenizer-footnote-definition][]
+* [@yozora/tokenizer-footnote-reference][]
+* [@yozora/tokenizer-heading][]
+* [@yozora/tokenizer-image][]
+* [@yozora/tokenizer-image-reference][]
+* [@yozora/tokenizer-indented-block][]
+* [@yozora/tokenizer-inline-code][]
+* [@yozora/tokenizer-inline-math][]
+* [@yozora/tokenizer-link][]
+* [@yozora/tokenizer-link-reference][]
+* [@yozora/tokenizer-list][]
+* [@yozora/tokenizer-list-item][]
+* [@yozora/tokenizer-math][]
+* [@yozora/tokenizer-paragraph][]
+* [@yozora/tokenizer-setext-heading][]
+* [@yozora/tokenizer-table][]
+* [@yozora/tokenizer-text][]
+* [@yozora/tokenizer-thematic-break][]
 
 
 [mdast]: https://github.com/syntax-tree/mdast
 [MdastPropsRoot]: https://github.com/guanghechen/yozora-react/blob/master/packages/markdown/src/ast/types.ts
 [MdastRenderer]: https://github.com/guanghechen/yozora-react/blob/master/packages/markdown/src/ast/render.tsx
+[react-viewer]: https://github.com/infeng/react-viewer
+[@loadable/component]: https://github.com/gregberge/loadable-components
+
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast
+[@yozora/ast-util]: https://www.npmjs.com/package/@yozora/ast-util
+[@yozora/parser]: https://www.npmjs.com/package/@yozora/parser
+[@yozora/react-admonition]: https://www.npmjs.com/package/@yozora/react-admonition
+[@yozora/react-blockquote]: https://www.npmjs.com/package/@yozora/react-blockquote
+[@yozora/react-break]: https://www.npmjs.com/package/@yozora/react-break
+[@yozora/react-code]: https://www.npmjs.com/package/@yozora/react-code
+[@yozora/react-delete]: https://www.npmjs.com/package/@yozora/react-delete
+[@yozora/react-emphasis]: https://www.npmjs.com/package/@yozora/react-emphasis
+[@yozora/react-footnote-definitions]: https://www.npmjs.com/package/@yozora/react-footnote-definitions
+[@yozora/react-footnote-reference]: https://www.npmjs.com/package/@yozora/react-footnote-reference
+[@yozora/react-heading]: https://www.npmjs.com/package/@yozora/react-heading
+[@yozora/react-image]: https://www.npmjs.com/package/@yozora/react-image
+[@yozora/react-inline-code]: https://www.npmjs.com/package/@yozora/react-inline-code
+[@yozora/react-inline-math]: https://www.npmjs.com/package/@yozora/react-inline-math
+[@yozora/react-link]: https://www.npmjs.com/package/@yozora/react-link
+[@yozora/react-list]: https://www.npmjs.com/package/@yozora/react-list
+[@yozora/react-list-item]: https://www.npmjs.com/package/@yozora/react-list-item
+[@yozora/react-math]: https://www.npmjs.com/package/@yozora/react-math
+[@yozora/react-paragraph]: https://www.npmjs.com/package/@yozora/react-paragraph
+[@yozora/react-strong]: https://www.npmjs.com/package/@yozora/react-strong
+[@yozora/react-table]: https://www.npmjs.com/package/@yozora/react-table
+[@yozora/react-text]: https://www.npmjs.com/package/@yozora/react-text
+[@yozora/react-thematic-break]: https://www.npmjs.com/package/@yozora/react-thematic-break
+[@yozora/tokenizer-admonition]: https://www.npmjs.com/package/@yozora/tokenizer-admonition
+[@yozora/tokenizer-autolink]: https://www.npmjs.com/package/@yozora/tokenizer-autolink
+[@yozora/tokenizer-autolink-extension]: https://www.npmjs.com/package/@yozora/tokenizer-autolink-extension
+[@yozora/tokenizer-blockquote]: https://www.npmjs.com/package/@yozora/tokenizer-blockquote
+[@yozora/tokenizer-break]: https://www.npmjs.com/package/@yozora/tokenizer-break
+[@yozora/tokenizer-definition]: https://www.npmjs.com/package/@yozora/tokenizer-definition
+[@yozora/tokenizer-delete]: https://www.npmjs.com/package/@yozora/tokenizer-delete
+[@yozora/tokenizer-emphasis]: https://www.npmjs.com/package/@yozora/tokenizer-emphasis
+[@yozora/tokenizer-fenced-block]: https://www.npmjs.com/package/@yozora/tokenizer-fenced-block
+[@yozora/tokenizer-footnote]: https://www.npmjs.com/package/@yozora/tokenizer-footnote
+[@yozora/tokenizer-footnote-definition]: https://www.npmjs.com/package/@yozora/tokenizer-footnote-definition
+[@yozora/tokenizer-footnote-reference]: https://www.npmjs.com/package/@yozora/tokenizer-footnote-reference
+[@yozora/tokenizer-heading]: https://www.npmjs.com/package/@yozora/tokenizer-heading
+[@yozora/tokenizer-image]: https://www.npmjs.com/package/@yozora/tokenizer-image
+[@yozora/tokenizer-image-reference]: https://www.npmjs.com/package/@yozora/tokenizer-image-reference
+[@yozora/tokenizer-indented-block]: https://www.npmjs.com/package/@yozora/tokenizer-indented-block
+[@yozora/tokenizer-inline-code]: https://www.npmjs.com/package/@yozora/tokenizer-inline-code
+[@yozora/tokenizer-inline-math]: https://www.npmjs.com/package/@yozora/tokenizer-inline-math
+[@yozora/tokenizer-link]: https://www.npmjs.com/package/@yozora/tokenizer-link
+[@yozora/tokenizer-link-reference]: https://www.npmjs.com/package/@yozora/tokenizer-link-reference
+[@yozora/tokenizer-list]: https://www.npmjs.com/package/@yozora/tokenizer-list
+[@yozora/tokenizer-list-item]: https://www.npmjs.com/package/@yozora/tokenizer-list-item
+[@yozora/tokenizer-math]: https://www.npmjs.com/package/@yozora/tokenizer-math
+[@yozora/tokenizer-paragraph]: https://www.npmjs.com/package/@yozora/tokenizer-paragraph
+[@yozora/tokenizer-setext-heading]: https://www.npmjs.com/package/@yozora/tokenizer-setext-heading
+[@yozora/tokenizer-table]: https://www.npmjs.com/package/@yozora/tokenizer-table
+[@yozora/tokenizer-text]: https://www.npmjs.com/package/@yozora/tokenizer-text
+[@yozora/tokenizer-thematic-break]: https://www.npmjs.com/package/@yozora/tokenizer-thematic-break

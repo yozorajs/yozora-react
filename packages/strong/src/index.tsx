@@ -1,50 +1,42 @@
+import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-import './styled-components'
-import { defaultStrongTheme, getStrongStyle } from './theme'
 
-export * from './theme'
-
-/**
- * Props for creating Strong
- */
-export interface StrongProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface StrongProps {
   /**
-   * Strong content
+   * Strong contents.
    */
-  children: React.ReactNode
+  children?: React.ReactNode
+  /**
+   * Root css class of the component.
+   */
+  className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
 }
 
 /**
- * Render `strong` content
+ * Render yozora `strong`.
  *
- * @param props
+ * @see https://www.npmjs.com/package/@yozora/ast#strong
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-emphasis
  */
-export const Strong = React.forwardRef<HTMLSpanElement, StrongProps>(
-  (props, forwardRef): React.ReactElement => {
-    return <Container {...props} ref={forwardRef} />
-  },
-)
+export function Strong(props: StrongProps): React.ReactElement {
+  const { children, className, style } = props
+  return (
+    <strong className={cn('yozora-strong', className)} style={style}>
+      {children}
+    </strong>
+  )
+}
 
 Strong.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  style: PropTypes.object,
 }
 
 Strong.displayName = 'YozoraStrong'
 export default Strong
-
-const Container = styled.strong`
-  color: ${getStrongStyle('color')};
-  font-size: ${getStrongStyle('fontSize')};
-  font-weight: ${getStrongStyle('fontWeight')};
-  font-style: ${getStrongStyle('fontStyle')};
-`
-
-Container.defaultProps = {
-  theme: { yozora: { strong: defaultStrongTheme } },
-}
-
-export const StrongClasses = {
-  container: `${Container}`,
-}

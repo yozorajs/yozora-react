@@ -1,51 +1,33 @@
+import cn from 'clsx'
+import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-import './styled-components'
-import { defaultThematicBreakTheme, getThematicBreakStyle } from './theme'
 
-export * from './theme'
+export interface ThematicBreakProps {
+  /**
+   * Root css class of the component.
+   */
+  className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
+}
 
 /**
- * Props for creating thematic-break
- */
-export type ThematicBreakProps = React.HTMLAttributes<HTMLHRElement>
-
-/**
- * Render `thematicBreak` content
+ * Render yozora `thematicBreak`.
  *
- * @param props
+ * @see https://www.npmjs.com/package/@yozora/ast#thematicBreak
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-thematic-break
  */
-export const ThematicBreak = React.forwardRef<
-  HTMLHRElement,
-  ThematicBreakProps
->(
-  (props, forwardRef): React.ReactElement => {
-    return <Container {...props} ref={forwardRef} />
-  },
-)
+export function ThematicBreak(props: ThematicBreakProps): React.ReactElement {
+  const { className, style } = props
+  return <hr className={cn('yozora-thematic-break', className)} style={style} />
+}
 
-ThematicBreak.propTypes = {}
+ThematicBreak.propTypes = {
+  className: PropTypes.string,
+  style: PropTypes.object,
+}
 
 ThematicBreak.displayName = 'YozoraThematicBreak'
 export default ThematicBreak
-
-const Container = styled.hr`
-  overflow: hidden;
-  display: block;
-  box-sizing: content-box;
-  height: 0;
-  width: 100%;
-  padding: 0;
-  border: 0;
-  border-bottom: 1px solid ${getThematicBreakStyle('borderColor')};
-  outline: ${getThematicBreakStyle('outline')};
-  margin: ${getThematicBreakStyle('margin')};
-`
-
-Container.defaultProps = {
-  theme: { yozora: { thematicBreak: defaultThematicBreakTheme } },
-}
-
-export const ThematicBreakClasses = {
-  container: `${Container}`,
-}

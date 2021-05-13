@@ -1,50 +1,42 @@
+import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-import './styled-components'
-import { defaultEmphasisTheme, getEmphasisStyle } from './theme'
 
-export * from './theme'
-
-/**
- * Props for creating Emphasis
- */
-export interface EmphasisProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface EmphasisProps {
   /**
-   * Emphasis content
+   * Emphasis contents.
    */
-  children: React.ReactNode
+  children?: React.ReactNode
+  /**
+   * Root css class of the component.
+   */
+  className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
 }
 
 /**
- * Render `emphasis` content
+ * Render yozora `emphasis`.
  *
- * @param props
+ * @see https://www.npmjs.com/package/@yozora/ast#emphasis
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-emphasis
  */
-export const Emphasis = React.forwardRef<HTMLSpanElement, EmphasisProps>(
-  (props, forwardRef): React.ReactElement => {
-    return <Container {...props} ref={forwardRef} />
-  },
-)
+export function Emphasis(props: EmphasisProps): React.ReactElement {
+  const { children, className, style } = props
+  return (
+    <em className={cn('yozora-emphasis', className)} style={style}>
+      {children}
+    </em>
+  )
+}
 
 Emphasis.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  style: PropTypes.object,
 }
 
 Emphasis.displayName = 'YozoraEmphasis'
 export default Emphasis
-
-const Container = styled.em`
-  color: ${getEmphasisStyle('color')};
-  font-size: ${getEmphasisStyle('fontSize')};
-  font-weight: ${getEmphasisStyle('fontWeight')};
-  font-style: ${getEmphasisStyle('fontStyle')};
-`
-
-Container.defaultProps = {
-  theme: { yozora: { emphasis: defaultEmphasisTheme } },
-}
-
-export const EmphasisClasses = {
-  container: `${Container}`,
-}

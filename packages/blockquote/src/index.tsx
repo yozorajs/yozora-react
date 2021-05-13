@@ -1,52 +1,42 @@
+import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-import './styled-components'
-import { defaultBlockquoteTheme, getBlockquoteStyle } from './theme'
 
-export * from './theme'
-
-/**
- * Props for creating Blockquote
- */
-export interface BlockquoteProps
-  extends React.BlockquoteHTMLAttributes<HTMLDivElement> {
+export interface BlockquoteProps {
   /**
-   * Blockquote content
+   * Blockquote content.
    */
-  children: React.ReactNode
+  children?: React.ReactNode
+  /**
+   * Root css class of the component.
+   */
+  className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
 }
 
 /**
- * Render Blockquote content
+ * Render yozora `blockquote`.
  *
- * @param props
+ * @see https://www.npmjs.com/package/@yozora/ast#blockquote
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-blockquote
  */
-export const Blockquote = React.forwardRef<HTMLDivElement, BlockquoteProps>(
-  (props, forwardRef): React.ReactElement => {
-    return <Container {...props} ref={forwardRef} />
-  },
-)
+export function Blockquote(props: BlockquoteProps): React.ReactElement {
+  const { children, className, style } = props
+  return (
+    <blockquote className={cn('yozora-blockquote', className)} style={style}>
+      {children}
+    </blockquote>
+  )
+}
 
 Blockquote.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  style: PropTypes.object,
 }
 
 Blockquote.displayName = 'YozoraBlockquote'
 export default Blockquote
-
-const Container = styled.blockquote`
-  padding: ${getBlockquoteStyle('padding')};
-  border-left: 0.25em solid ${getBlockquoteStyle('borderColor')};
-  margin: ${getBlockquoteStyle('margin')};
-  background:  ${getBlockquoteStyle('background')};
-  color: ${getBlockquoteStyle('color')};
-`
-
-Container.defaultProps = {
-  theme: { yozora: { blockquote: defaultBlockquoteTheme } },
-}
-
-export const BlockquoteClasses = {
-  container: `${Container}`,
-}

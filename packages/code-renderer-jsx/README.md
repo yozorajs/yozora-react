@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-code-renderer-jsx</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code-renderer-jsx#readme">@yozora/react-code-renderer-jsx</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-code-renderer-jsx">
@@ -80,7 +80,7 @@ this component is implemented with reference to [react-live][])
   ```
 
 ## Usage
-  * Use in React project
+  * Basic:
 
     ```tsx
     import React from 'react'
@@ -149,7 +149,7 @@ this component is implemented with reference to [react-live][])
      `onError`  | `(error: string | null) => void`  | `true`    | -           | Error callback
 
 
-## References
+## Related
 
   - [mdast code][]
   - [react live][]

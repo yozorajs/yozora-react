@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-list</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/list#readme">@yozora/react-list</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-list">
@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-list/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-list/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -61,7 +55,9 @@
 </header>
 <br/>
 
-This package is designed to render [mdast list][] type data
+This component is for rendering the [List][@yozora/ast] data produced by
+[@yozora/tokenizer-list][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -79,95 +75,47 @@ This package is designed to render [mdast list][] type data
   ```
 
 ## Usage
-  * Use in React project
 
-    - Pure
+* Basic:
 
-      ```tsx
-      import React from 'react'
-      import List from '@yozora/react-list'
+  ```tsx
+  import React from 'react'
+  import List from '@yozora/react-list'
+  import ListItem from '@yozora/react-list-item'
 
-      const wrapper = (
-        <List ordered={ true } start={ 3 } type="a">
-          <li key={ 0 }>apple</li>
-          <li key={ 1 }>banana</li>
-          <li key={ 2 }>cat</li>
-        </List>
-      )
-      ```
+  const wrapper = (
+    <List ordered={ true } start={ 3 } type="a">
+      <ListItem key={ 0 }>apple</ListItem>
+      <ListItem key={ 1 }>banana</ListItem>
+      <ListItem key={ 2 }>cat</ListItem>
+    </List>
+  )
+  ```
 
-    - With theme
+### Props
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import List from '@yozora/react-list'
+Name        | Type                  | Required  | Default | Description
+:----------:|:---------------------:|:---------:|:-------:|:-------------
+`children`  | `React.ReactNode`     | `false`   | -       | List items
+`className` | `string`              | `false`   | -       | Root css class
+`ordered`   | `boolean`             | `true`    | -       | Indicate an ordered list
+`start`     | `number`              | `false`   | -       | Start number of ordered list
+`style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
-      const theme: DefaultTheme = {
-        yozora: {
-          list: {
-            color: 'red',
-            padding: '0 1rem',
-            margin: 18,
-            // lineHeight: 1.5,
-          }
-        }
-      }
+* `className`: The root element of this component will always bind with the
+  CSS class `'yozora-list'`
 
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <List ordered={ false }>
-            <li key={ 0 }>apple</li>
-            <li key={ 1 }>banana</li>
-            <li key={ 2 }>cat</li>
-          </List>
-        </ThemeProvider>>
-      )
-      ```
+## Related
 
-  * OrderedListProps
-
-     Name       | Type                                | Required  | Default | Description
-    :----------:|:---------------------------------:|:---------:|:-------:|:-------------
-     `ref`      | `React.RefObject<HTMLOListElement>` | `false`   | -       | Forwarded ref callback
-     `children` | `React.ReactNode`                   | `true`    | -       | OrderedList content
-     `start`    | `number`                            | `true`    | -       | OrderedList start number
-
-    OrderedListProps inherited all attributes of `HTMLOListElement` (`React.OlHTMLAttributes<HTMLOListElement>`)
-
-  * UnorderedListProps
-
-     Name       | Type                              | Required  | Default | Description
-    :----------:|:---------------------------------:|:---------:|:-------:|:-------------
-     `ref`      | `React.RefObject<HTMLDivElement>` | `false`   | -       | Forwarded ref callback
-     `children` | `React.ReactNode`                 | `true`    | -       | UnorderedList content
-
-    UnorderedListProps inherited all attributes of `HTMLUListElement` (`React.HTMLAttributes<HTMLUListElement>`)
-
-  * Props
-
-     Name       | Type      | Required  | Default | Description
-    :----------:|:---------:|:---------:|:-------:|:-------------
-     ordered    | `boolean` | true      | -       | Flag used  to distinguish ordered and unordered list
-
-    ListProps extends OrderedListProps and UnorderedListProps.
-
-  * Theme
-
-     Prop Name    | Default
-    :------------:|:--------------
-     padding      | `0 0 0 1.2em`
-     margin       | `0 0 1`
-     lineHeight   | `2`
-     borderColor  | `transparent`
-
-    See [YozoraListTheme][] for details.
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
+* [@yozora/tokenizer-list][]
+* [@yozora/tokenizer-list-item][]
+* [Paragraph | Mdast][mdast]
 
 
-## References
-
-  - [mdast list][]
-
-
-[mdast list]: https://github.com/syntax-tree/mdast#list
-[YozoraListTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/list/src/theme.ts
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#list
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-list]: https://www.npmjs.com/package/@yozora/tokenizer-list
+[@yozora/tokenizer-list-item]: https://www.npmjs.com/package/@yozora/tokenizer-list-item
+[@yozora/tokenizer-list]: https://www.npmjs.com/package/@yozora/tokenizer-list

@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-delete</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/delete#readme">@yozora/react-delete</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-delete">
@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-delete/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-delete/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -61,7 +55,9 @@
 </header>
 <br/>
 
-This package is designed to render [mdast delete][] type data
+This component is for rendering the [Delete][@yozora/ast] data produced by
+[@yozora/tokenizer-delete][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -78,78 +74,44 @@ This package is designed to render [mdast delete][] type data
   yarn add @yozora/react-delete
   ```
 
+
 ## Usage
-  * Use in React project
 
-    - Pure
+* Basic:
 
-      ```tsx
-      import React from 'react'
-      import Delete from '@yozora/react-delete'
+  ```tsx
+  import React from 'react'
+  import Delete from '@yozora/react-delete'
 
-      const wrapper = (
-        <Delete style={{ color: 'orange', fontSize: '16px' }}>
-          some text1
-          <span>some text2</span>
-        </Delete>
-      )
-      ```
+  const wrapper = (
+    <Delete style={{ color: 'orange', fontSize: '16px' }}>
+      some text1
+      <span>some text2</span>
+    </Delete>
+  )
+  ```
 
-    - With theme
+### Props
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import Delete from '@yozora/react-delete'
+Name        | Type                  | Required  | Default | Description
+:----------:|:---------------------:|:---------:|:-------:|:-------------
+`children`  | `React.ReactNode`     | `false`   | -       | Deleted contents
+`className` | `string`              | `false`   | -       | Root css class
+`style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
-      const theme: DefaultTheme = {
-        yozora: {
-          delete: {
-            color: 'red',
-            fontSize: 18,
-            fontWeight: undefined,
-            // fontStyle: 'oblique',
-            textDecoration: 'dashed',
-          }
-        }
-      }
-
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <Delete>
-            some text1
-            <span>some text2</span>
-          </Delete>
-        </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name       | Type                                | Required  | Default | Description
-    :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
-     `children` | `React.ReactNode`                   | `true`    | -       | Delete content
-
-    DeleteProps inherited all attributes of `HTMLSpanElement` (`React.DelHTMLAttributes<HTMLSpanElement>`)
-
-  * Theme
-
-     Prop Name      | Default
-    :--------------:|:--------------
-     color          | `inherit`
-     fontSize       | `inherit`
-     fontWeight     | `inherit`
-     fontStyle      | `inherit`
-     textDecoration | `line-through`
-
-    See [YozoraDeleteTheme][] for details.
+* `className`: The root element of this component will always bind with the
+  CSS class `'yozora-delete'`
 
 
-## References
+## Related
 
-  - [mdast delete][]
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
+* [@yozora/tokenizer-delete][]
+* [Delete | Mdast][mdast]
 
 
-[mdast delete]: https://github.com/syntax-tree/mdast#delete
-[YozoraDeleteTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/delete/src/theme.ts
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#delete
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-delete]: https://www.npmjs.com/package/@yozora/tokenizer-delete
+[mdast]: https://github.com/syntax-tree/mdast#delete

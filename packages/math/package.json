@@ -34,25 +34,16 @@
     "README.md"
   ],
   "scripts": {
-    "start": "rollup -w -c ../../rollup.config.js",
     "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
     "prebuild": "rimraf lib/",
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
-  "dependencies": {
-    "@types/react-mathjax": "^1.0.0",
-    "react-mathjax": "^1.0.1"
-  },
   "peerDependencies": {
-    "@types/react": "^17.0.3",
-    "@types/styled-components": "^5.1.4",
+    "clsx": "^1.1.1",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "styled-components": "^5.2.1"
-  },
-  "devDependencies": {
-    "enzyme": "3.11.0"
+    "react": ">= 17.0.0",
+    "react-mathjax": "^1.0.1"
   },
   "browserslist": [
     "last 2 versions",

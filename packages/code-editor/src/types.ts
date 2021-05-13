@@ -1,3 +1,5 @@
+import type React from 'react'
+
 /**
  * Props for the textarea
  */
@@ -46,14 +48,23 @@ export interface EditorProps
   extends React.HTMLAttributes<HTMLElement>,
     EditorTextareaProps,
     EditorPreProps {
-  // Props for the component
+  /**
+   * Contents of this simple editor.
+   */
   value: string
+  /**
+   * Width of the line numbers area.
+   */
+  linenoWidth?: React.CSSProperties['width']
   onValueChange(value: string): void
+  /**
+   * On textarea scrolling.
+   */
+  onScroll: React.UIEventHandler<HTMLTextAreaElement>
   highlight(value: string): React.ReactNode
   tabSize: number
   insertSpaces: boolean
   ignoreTabKey: boolean
-  padding: number | string
   style?: React.CSSProperties
   onClick?: React.MouseEventHandler<HTMLTextAreaElement>
   onFocus?: React.FocusEventHandler<HTMLTextAreaElement>
@@ -67,4 +78,21 @@ export interface EditorProps
  */
 export interface EditorState {
   capture: boolean
+}
+
+/**
+ * An operation record in editor.
+ */
+export interface EditorOperationRecord {
+  value: string
+  selectionStart: number
+  selectionEnd: number
+}
+
+/**
+ * Editor operation history.
+ */
+export interface EditorHistory {
+  stack: Array<EditorOperationRecord & { timestamp: number }>
+  offset: number
 }

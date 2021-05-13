@@ -1,87 +1,56 @@
-import { mount, render } from 'enzyme'
+import { render } from 'enzyme'
 import React from 'react'
-import type { DefaultTheme } from 'styled-components'
-import { ThemeProvider } from 'styled-components'
+import type { TableProps } from '../src'
 import Table from '../src'
 
-describe('basic rendering case', () => {
-  const errorLogger = jest
-    .spyOn(global.console, 'error')
-    .mockImplementation((...args) => {
+const aligns: TableProps['aligns'] = ['center', 'left']
+
+const ths: React.ReactNode[] = ['Name', 'Age']
+
+const tds: React.ReactNode[][] = [
+  ['Alice', 18],
+  ['Bob', 19],
+]
+
+describe('prop types', function () {
+  beforeEach(() => {
+    jest.spyOn(global.console, 'error').mockImplementation((...args) => {
       throw new Error(args.join(' '))
     })
-
-  afterAll(() => {
-    errorLogger.mockRestore()
   })
 
-  const rows: React.ReactNode[] = [
-    <tr key="0">
-      <th>Name</th>
-    </tr>,
-    <tr key="1">
-      <td>Alice</td>
-    </tr>,
-    <tr key="2">
-      <td>Bob</td>
-    </tr>,
-  ]
+  describe('className is optional', () => {
+    it('default', function () {
+      const node = render(<Table aligns={aligns} ths={ths} tds={tds} />)
+      expect(node.hasClass('yozora-table')).toBeTruthy()
+    })
 
-  it('render with custom className', () => {
-    const className = 'custom-list-item'
-    const wrapper = render(
-      <Table className={className} data-value="waw">
-        {rows}
-      </Table>,
+    it('custom', function () {
+      const node = render(
+        <Table aligns={aligns} ths={ths} tds={tds} className="my-table" />,
+      )
+
+      expect(node.hasClass('yozora-table')).toBeTruthy()
+      expect(node.hasClass('my-table')).toBeTruthy()
+    })
+  })
+
+  it('style is optional', function () {
+    const node = render(
+      <Table aligns={aligns} ths={ths} tds={tds} style={{ color: 'orange' }} />,
     )
-    expect(wrapper.find('.' + className) != null).toEqual(true)
-    expect(wrapper.text()).toEqual('NameAliceBob')
+    expect(node.css('color')).toEqual('orange')
   })
+})
 
-  it('children is required', () => {
-    for (const value of [undefined, null] as any[]) {
-      expect(() => {
-        render(<Table>{value}</Table>)
-      }).toThrow(/The prop `children` is marked as required/i)
-    }
-  })
-
-  it('forward ref', () => {
-    const ref = React.createRef<HTMLTableElement>()
-    const wrapper = mount(
-      <Table ref={ref} data-value="waw">
-        {rows}
-      </Table>,
-    )
-
-    const o = wrapper.getDOMNode()
-    expect(o).toEqual(ref.current)
-    expect(o.getAttribute('data-value')).toEqual('waw')
-  })
-
-  it('snapshot', () => {
-    const wrapper = render(
-      <Table style={{ color: 'orange', fontSize: '16px' }}>{rows}</Table>,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  it('snapshot with theme', () => {
-    const theme: DefaultTheme = {
-      yozora: {
-        table: {
-          width: '100%',
-          overflow: 'hidden auto',
-          margin: 18,
-        },
-      },
-    }
-
-    const wrapper = mount(
-      <ThemeProvider theme={theme}>
-        <Table style={{ color: 'orange', fontSize: '16px' }}>{rows}</Table>
-      </ThemeProvider>,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
+it('snapshot', function () {
+  const wrapper = render(
+    <Table
+      aligns={aligns}
+      ths={ths}
+      tds={tds}
+      style={{ color: 'orange', fontSize: '16px' }}
+    />,
+  )
+  expect(wrapper).toMatchSnapshot()
 })

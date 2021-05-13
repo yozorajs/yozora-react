@@ -1,14 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic rendering case snapshot 1`] = `
-.c0 {
-  padding: 0;
-  border: none;
-  margin: 0;
-  background: none;
-  color: inherit;
-}
+exports[`snapshot custom 1`] = `
+<YozoraMath
+  className="custom-class"
+  style={
+    Object {
+      "background": "hsla(210deg, 13%, 12%, 0.05)",
+      "border": "1px solid blue",
+      "color": "#d81848",
+      "margin": "0 2px",
+      "padding": "2px",
+    }
+  }
+  value="
+\\\\begin{align}
+  f(x) = \\\\left\\\\lbrace
+    \\\\begin{aligned}
+      &x^2, &x < 0 \\\\\\\\
+      &\\\\frac{1}{x^3}, &x > 0
+    \\\\end{aligned}
+  \\\\right.
+\\\\end{align}
+"
+>
+  <span
+    className="yozora-math custom-class"
+    style={
+      Object {
+        "background": "hsla(210deg, 13%, 12%, 0.05)",
+        "border": "1px solid blue",
+        "color": "#d81848",
+        "margin": "0 2px",
+        "padding": "2px",
+      }
+    }
+  >
+    <MathJaxNode
+      formula="
+\\\\begin{align}
+  f(x) = \\\\left\\\\lbrace
+    \\\\begin{aligned}
+      &x^2, &x < 0 \\\\\\\\
+      &\\\\frac{1}{x^3}, &x > 0
+    \\\\end{aligned}
+  \\\\right.
+\\\\end{align}
+"
+      inline={false}
+    />
+  </span>
+</YozoraMath>
+`;
 
+exports[`snapshot default 1`] = `
 <YozoraMath
   style={
     Object {
@@ -17,150 +61,38 @@ exports[`basic rendering case snapshot 1`] = `
     }
   }
   value="
-      \\\\begin{align}
-        f(x) = \\\\left\\\\lbrace
-          \\\\begin{aligned}
-            &x^2, &x < 0 \\\\\\\\
-            &\\\\frac{1}{x^3}, &x > 0
-          \\\\end{aligned}
-        \\\\right.
-      \\\\end{align}
-    "
+\\\\begin{align}
+  f(x) = \\\\left\\\\lbrace
+    \\\\begin{aligned}
+      &x^2, &x < 0 \\\\\\\\
+      &\\\\frac{1}{x^3}, &x > 0
+    \\\\end{aligned}
+  \\\\right.
+\\\\end{align}
+"
 >
-  <styled.div
+  <span
+    className="yozora-math"
     style={
       Object {
         "color": "orange",
         "fontSize": "16px",
       }
     }
-    theme={
-      Object {
-        "yozora": Object {
-          "math": Object {
-            "background": "none",
-            "border": "none",
-            "color": "inherit",
-            "margin": 0,
-            "padding": 0,
-          },
-        },
-      }
-    }
   >
-    <div
-      className="c0"
-      style={
-        Object {
-          "color": "orange",
-          "fontSize": "16px",
-        }
-      }
-    >
-      <MathJaxNode
-        formula="
-      \\\\begin{align}
-        f(x) = \\\\left\\\\lbrace
-          \\\\begin{aligned}
-            &x^2, &x < 0 \\\\\\\\
-            &\\\\frac{1}{x^3}, &x > 0
-          \\\\end{aligned}
-        \\\\right.
-      \\\\end{align}
-    "
-        inline={false}
-      />
-    </div>
-  </styled.div>
+    <MathJaxNode
+      formula="
+\\\\begin{align}
+  f(x) = \\\\left\\\\lbrace
+    \\\\begin{aligned}
+      &x^2, &x < 0 \\\\\\\\
+      &\\\\frac{1}{x^3}, &x > 0
+    \\\\end{aligned}
+  \\\\right.
+\\\\end{align}
+"
+      inline={false}
+    />
+  </span>
 </YozoraMath>
-`;
-
-exports[`basic rendering case snapshot with theme 1`] = `
-.c0 {
-  padding: 2px;
-  border: 1px solid blue;
-  margin: 0;
-  background: hsla(210deg,13%,12%,0.05);
-  color: #d81848;
-}
-
-<Component
-  theme={
-    Object {
-      "yozora": Object {
-        "math": Object {
-          "background": "hsla(210deg, 13%, 12%, 0.05)",
-          "border": "1px solid blue",
-          "color": "#d81848",
-          "padding": "2px",
-        },
-      },
-    }
-  }
->
-  <YozoraMath
-    style={
-      Object {
-        "color": "orange",
-        "fontSize": "16px",
-      }
-    }
-    value="
-      \\\\begin{align}
-        f(x) = \\\\left\\\\lbrace
-          \\\\begin{aligned}
-            &x^2, &x < 0 \\\\\\\\
-            &\\\\frac{1}{x^3}, &x > 0
-          \\\\end{aligned}
-        \\\\right.
-      \\\\end{align}
-    "
-  >
-    <styled.div
-      style={
-        Object {
-          "color": "orange",
-          "fontSize": "16px",
-        }
-      }
-      theme={
-        Object {
-          "yozora": Object {
-            "math": Object {
-              "background": "none",
-              "border": "none",
-              "color": "inherit",
-              "margin": 0,
-              "padding": 0,
-            },
-          },
-        }
-      }
-    >
-      <div
-        className="c0"
-        style={
-          Object {
-            "color": "orange",
-            "fontSize": "16px",
-          }
-        }
-      >
-        <MathJaxNode
-          formula="
-      \\\\begin{align}
-        f(x) = \\\\left\\\\lbrace
-          \\\\begin{aligned}
-            &x^2, &x < 0 \\\\\\\\
-            &\\\\frac{1}{x^3}, &x > 0
-          \\\\end{aligned}
-        \\\\right.
-      \\\\end{align}
-    "
-          inline={false}
-        />
-      </div>
-    </styled.div>
-  </YozoraMath>
-</Component>
 `;

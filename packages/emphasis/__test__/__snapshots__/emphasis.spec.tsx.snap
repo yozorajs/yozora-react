@@ -1,16 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic rendering case snapshot 1`] = `
-.c0 {
-  color: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  font-style: italic;
-}
-
+exports[`snapshot custom 1`] = `
 <em
-  class="c0"
-  style="color:orange;font-size:16px"
+  class="yozora-emphasis custom-class"
+  style="color:orange"
 >
   some text1
   <span>
@@ -19,52 +12,13 @@ exports[`basic rendering case snapshot 1`] = `
 </em>
 `;
 
-exports[`basic rendering case snapshot with theme 1`] = `
-.c0 {
-  color: red;
-  font-size: 18;
-  font-weight: inherit;
-  font-style: oblique;
-}
-
-<Component
-  theme={
-    Object {
-      "yozora": Object {
-        "emphasis": Object {
-          "color": "red",
-          "fontSize": 18,
-          "fontStyle": "oblique",
-          "fontWeight": undefined,
-        },
-      },
-    }
-  }
+exports[`snapshot default 1`] = `
+<em
+  class="yozora-emphasis"
 >
-  <YozoraEmphasis>
-    <styled.em
-      theme={
-        Object {
-          "yozora": Object {
-            "emphasis": Object {
-              "color": "inherit",
-              "fontSize": "inherit",
-              "fontStyle": "italic",
-              "fontWeight": "inherit",
-            },
-          },
-        }
-      }
-    >
-      <em
-        className="c0"
-      >
-        some text1
-        <span>
-          some text2
-        </span>
-      </em>
-    </styled.em>
-  </YozoraEmphasis>
-</Component>
+  some text1
+  <span>
+    some text2
+  </span>
+</em>
 `;

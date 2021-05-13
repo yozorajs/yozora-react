@@ -1,108 +1,101 @@
-import { mount, render } from 'enzyme'
+import { render } from 'enzyme'
 import React from 'react'
-import type { DefaultTheme } from 'styled-components'
-import { ThemeProvider } from 'styled-components'
 import List from '../src'
 
-describe('basic rendering case', () => {
-  const errorLogger = jest
-    .spyOn(global.console, 'error')
-    .mockImplementation((...args) => {
+const children = (
+  <React.Fragment>
+    <li key={0}>apple</li>
+    <li key={1}>banana</li>
+    <li key={2}>cat</li>
+  </React.Fragment>
+)
+
+describe('prop types', function () {
+  beforeEach(() => {
+    jest.spyOn(global.console, 'error').mockImplementation((...args) => {
       throw new Error(args.join(' '))
     })
-
-  afterAll(() => {
-    errorLogger.mockRestore()
   })
 
-  it('render a simple content', () => {
-    const text = 'Hello, world!'
-    for (const ordered of [false, true]) {
-      const wrapper = render(
-        <List ordered={ordered} start={0}>
-          <li key={0}>{text}</li>
-        </List>,
-      )
-      expect(wrapper.text()).toEqual(text)
-    }
-  })
-
-  it('render with custom className', () => {
-    const text = 'Hello, world!'
-    const className = 'custom-list'
-    for (const ordered of [false, true]) {
-      const wrapper = render(
-        <List ordered={ordered} start={0} className={className}>
-          <li key={0}>
-            <span>{text}</span>
-          </li>
-        </List>,
-      )
-      expect(wrapper.hasClass(className)).toEqual(true)
-      expect(wrapper.text()).toEqual(text)
-    }
-  })
-
-  it('children is required', () => {
+  it('ordered is required', function () {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(
-          <List ordered={true} start={1} data-value="waw">
-            {value}
+        render(<List ordered={value} />)
+      }).toThrow(/The prop `ordered` is marked as required/i)
+    }
+  })
+
+  it('children is optional', () => {
+    for (const ordered of [false, true]) {
+      for (const value of [undefined, null] as any[]) {
+        expect(() =>
+          render(<List ordered={ordered}>{value}</List>),
+        ).not.toThrow()
+      }
+
+      const text = 'Hello, world!'
+      const wrapper = render(<List ordered={ordered}>{text}</List>)
+      expect(wrapper.text()).toEqual(text)
+    }
+  })
+
+  describe('className is optional', function () {
+    it('default', function () {
+      for (const ordered of [false, true]) {
+        const node = render(<List ordered={ordered}>{children}</List>)
+        expect(node.hasClass('yozora-list')).toBeTruthy()
+      }
+    })
+
+    it('custom', function () {
+      for (const ordered of [false, true]) {
+        const node = render(
+          <List ordered={ordered} className="my-list">
+            {children}
           </List>,
         )
-      }).toThrow(/The prop `children` is marked as required/i)
-    }
+        expect(node.hasClass('yozora-list')).toBeTruthy()
+        expect(node.hasClass('my-list')).toBeTruthy()
+      }
+    })
   })
 
-  it('forward ref', () => {
+  it('style is optional', function () {
     for (const ordered of [false, true]) {
-      const ref = React.createRef<HTMLUListElement | HTMLOListElement>()
-      const wrapper = mount(
-        <List ordered={ordered} ref={ref} start={1} type="a" data-value="waw">
-          <li key={0}>First: Good afternoon!</li>
-          <li key={1}>Second: Good night!</li>
+      const node = render(
+        <List ordered={ordered} style={{ color: 'orange' }}>
+          {children}
         </List>,
       )
-      expect(wrapper.getDOMNode()).toEqual(ref.current)
-      expect(wrapper.getDOMNode().getAttribute('data-value')).toEqual('waw')
+      expect(node.css('color')).toEqual('orange')
     }
   })
+})
 
-  it('snapshot', () => {
+describe('snapshot', function () {
+  it('default', () => {
     for (const ordered of [false, true]) {
       const wrapper = render(
-        <List ordered={ordered} start={3} type="a">
-          <li key={0}>apple</li>
-          <li key={1}>banana</li>
-          <li key={2}>cat</li>
+        <List ordered={ordered} start={3}>
+          {children}
         </List>,
       )
       expect(wrapper).toMatchSnapshot(ordered ? 'ol' : 'ul')
     }
   })
 
-  it('snapshot with theme', () => {
-    const theme: DefaultTheme = {
-      yozora: {
-        list: {
-          color: 'red',
-          padding: '0 1rem',
-          margin: 18,
-          // lineHeight: 1.5,
-        },
-      },
-    }
-
+  it('custom', () => {
+    const className = 'custom-list-item'
     for (const ordered of [false, true]) {
-      const wrapper = mount(
-        <ThemeProvider theme={theme}>
-          <List ordered={ordered} start={3} type="a">
-            <li key={0}>apple</li>
-            <li key={1}>banana</li>
-            <li key={2}>cat</li>
-          </List>
-        </ThemeProvider>,
+      const wrapper = render(
+        <List
+          start={3}
+          ordered={ordered}
+          className={className}
+          style={{ color: 'orange' }}
+        >
+          {children}
+        </List>,
       )
       expect(wrapper).toMatchSnapshot(ordered ? 'ol' : 'ul')
     }

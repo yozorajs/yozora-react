@@ -1,53 +1,42 @@
+import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-import './styled-components'
-import { defaultTextTheme, getTextStyle } from './theme'
 
-export * from './theme'
-
-/**
- * Props for creating Text
- */
-export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface TextProps {
   /**
-   * text content
+   * Literal text.
    */
   value: string
+  /**
+   * Root css class of the component.
+   */
+  className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
 }
 
 /**
- * Render `text` content
+ * Render yozora `text`.
  *
- * @param props
+ * @see https://www.npmjs.com/package/@yozora/ast#text
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-text
  */
-export const Text = React.forwardRef<HTMLSpanElement, TextProps>(
-  (props, forwardRef): React.ReactElement => {
-    const { children, value, ...htmlProps } = props
-    return (
-      <Container {...htmlProps} ref={forwardRef}>
-        {value}
-      </Container>
-    )
-  },
-)
+export function Text(props: TextProps): React.ReactElement {
+  const { value, className, style } = props
+  return (
+    <span className={cn('yozora-text', className)} style={style}>
+      {value}
+    </span>
+  )
+}
 
 Text.propTypes = {
   value: PropTypes.string.isRequired,
-  children: PropTypes.node,
+  className: PropTypes.string,
+  style: PropTypes.object,
 }
 
 Text.displayName = 'YozoraText'
 export default Text
-
-const Container = styled.span`
-  line-height: ${getTextStyle('lineHeight')};
-`
-
-Container.defaultProps = {
-  theme: { yozora: { text: defaultTextTheme } },
-}
-
-export const TextClasses = {
-  container: `${Container}`,
-}

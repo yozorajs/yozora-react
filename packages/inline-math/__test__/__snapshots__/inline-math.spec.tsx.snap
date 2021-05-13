@@ -1,14 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic rendering case snapshot 1`] = `
-.c0 {
-  padding: 0;
-  border: none;
-  margin: 0;
-  background: none;
-  color: inherit;
-}
+exports[`snapshot custom 1`] = `
+<YozoraInlineMath
+  className="custom-class"
+  style={
+    Object {
+      "background": "hsla(210deg, 13%, 12%, 0.05)",
+      "border": "1px solid blue",
+      "color": "#d81848",
+      "margin": "0 2px",
+      "padding": "2px",
+    }
+  }
+  value="x^2 + y^2 = z^2"
+>
+  <span
+    className="yozora-inline-math custom-class"
+    style={
+      Object {
+        "background": "hsla(210deg, 13%, 12%, 0.05)",
+        "border": "1px solid blue",
+        "color": "#d81848",
+        "margin": "0 2px",
+        "padding": "2px",
+      }
+    }
+  >
+    <MathJaxNode
+      formula="x^2 + y^2 = z^2"
+      inline={true}
+    />
+  </span>
+</YozoraInlineMath>
+`;
 
+exports[`snapshot default 1`] = `
 <YozoraInlineMath
   style={
     Object {
@@ -18,113 +44,19 @@ exports[`basic rendering case snapshot 1`] = `
   }
   value="x^2 + y^2 = z^2"
 >
-  <styled.span
+  <span
+    className="yozora-inline-math"
     style={
       Object {
         "color": "orange",
         "fontSize": "16px",
       }
     }
-    theme={
-      Object {
-        "yozora": Object {
-          "inlineMath": Object {
-            "background": "none",
-            "border": "none",
-            "color": "inherit",
-            "margin": 0,
-            "padding": 0,
-          },
-        },
-      }
-    }
   >
-    <span
-      className="c0"
-      style={
-        Object {
-          "color": "orange",
-          "fontSize": "16px",
-        }
-      }
-    >
-      <MathJaxNode
-        formula="x^2 + y^2 = z^2"
-        inline={true}
-      />
-    </span>
-  </styled.span>
+    <MathJaxNode
+      formula="x^2 + y^2 = z^2"
+      inline={true}
+    />
+  </span>
 </YozoraInlineMath>
-`;
-
-exports[`basic rendering case snapshot with theme 1`] = `
-.c0 {
-  padding: 2px;
-  border: 1px solid blue;
-  margin: 0;
-  background: hsla(210deg,13%,12%,0.05);
-  color: #d81848;
-}
-
-<Component
-  theme={
-    Object {
-      "yozora": Object {
-        "inlineMath": Object {
-          "background": "hsla(210deg, 13%, 12%, 0.05)",
-          "border": "1px solid blue",
-          "color": "#d81848",
-          "padding": "2px",
-        },
-      },
-    }
-  }
->
-  <YozoraInlineMath
-    style={
-      Object {
-        "color": "orange",
-        "fontSize": "16px",
-      }
-    }
-    value="x^2 + y^2 = z^2"
-  >
-    <styled.span
-      style={
-        Object {
-          "color": "orange",
-          "fontSize": "16px",
-        }
-      }
-      theme={
-        Object {
-          "yozora": Object {
-            "inlineMath": Object {
-              "background": "none",
-              "border": "none",
-              "color": "inherit",
-              "margin": 0,
-              "padding": 0,
-            },
-          },
-        }
-      }
-    >
-      <span
-        className="c0"
-        style={
-          Object {
-            "color": "orange",
-            "fontSize": "16px",
-          }
-        }
-      >
-        <MathJaxNode
-          formula="x^2 + y^2 = z^2"
-          inline={true}
-        />
-      </span>
-    </styled.span>
-  </YozoraInlineMath>
-</Component>
 `;

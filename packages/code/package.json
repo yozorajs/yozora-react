@@ -19,7 +19,7 @@
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/types/index.d.ts",
-  "source": "src/index.tsx",
+  "source": "src/index.ts",
   "license": "MIT",
   "engines": {
     "node": ">= 14.15.0"
@@ -34,24 +34,21 @@
     "README.md"
   ],
   "scripts": {
-    "start": "rollup -w -c ../../rollup.config.js",
     "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
     "prebuild": "rimraf lib/",
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "dependencies": {
-    "@yozora/react-code-highlighter": "^0.0.10"
+    "@yozora/react-code-embed": "^0.0.10",
+    "@yozora/react-code-highlighter": "^0.0.10",
+    "@yozora/react-code-literal": "^0.0.10",
+    "@yozora/react-code-live": "^0.0.10",
+    "@yozora/react-code-renderer-jsx": "^0.0.10"
   },
   "peerDependencies": {
-    "@types/react": "^17.0.3",
-    "@types/styled-components": "^5.1.4",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "styled-components": "^5.2.1"
-  },
-  "devDependencies": {
-    "enzyme": "3.11.0"
+    "react": "^17.0.1"
   },
   "browserslist": [
     "last 2 versions",

@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-text</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/text#readme">@yozora/react-text</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-text">
@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-text/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-text/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -61,7 +55,9 @@
 </header>
 <br/>
 
-This package is designed to render [mdast text][] type data
+This component is for rendering the [Text][@yozora/ast] data produced by
+[@yozora/tokenizer-text][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -78,66 +74,39 @@ This package is designed to render [mdast text][] type data
   yarn add @yozora/react-text
   ```
 
+
 ## Usage
-  * Use in React project
 
-    - Pure
+* Basic:
 
-      ```tsx
-      import React from 'react'
-      import Text from '@yozora/react-text'
+  ```tsx
+  import React from 'react'
+  import Text from '@yozora/react-text'
 
-      const wrapper = (
-        <Text value="Hello, world!" />
-      )
+  const wrapper = (<Text value="Hello, world!" />)
+  ```
 
-    - With theme
+### Props
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import Text from '@yozora/react-text'
+Name        | Type                  | Required  | Default | Description
+:----------:|:---------------------:|:---------:|:-------:|:-------------
+`className` | `string`              | `false`   | -       | Root css class
+`style`     | `React.CSSProperties` | `false`   | -       | Root css style
+`value`     | `string`              | `true`    | -       | Textural content
 
-      const theme: DefaultTheme = {
-        yozora: {
-          text: {
-            lineHeight: '2',
-          }
-        }
-      }
-
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <Text
-            value="Hello, world!"
-            style={ { color: 'orange', fontSize: '16px' } }
-          />
-        </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name     | Type                                | Required  | Default | Description
-    :--------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `ref`    | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
-     `value`  | `string`                            | `true`    | -       | Text content
-
-    TextProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
-
-  * Theme
-
-     Prop Name  | Default
-    :----------:|:--------------
-     lineHeight | `inherit`
-
-    See [YozoraTextTheme][] for details.
+* `className`: The root element of this component will always bind with the
+  CSS class `'yozora-text'`.
 
 
-## References
+## Related
 
-  - [mdast text][]
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
+* [@yozora/tokenizer-text][]
+* [Text | Mdast][mdast]
 
 
-[mdast text]: https://github.com/syntax-tree/mdast#text
-[YozoraTextTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/text/src/theme.ts
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#text
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-text]: https://www.npmjs.com/package/@yozora/tokenizer-text
+[mdast]: https://github.com/syntax-tree/mdast#text

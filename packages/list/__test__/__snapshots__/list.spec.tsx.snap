@@ -1,155 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic rendering case snapshot with theme: ol 1`] = `
-.c0 {
-  color: red;
-  padding: 0 1rem;
-  margin: 18;
-  line-height: 2;
-}
-
-<Component
-  theme={
-    Object {
-      "yozora": Object {
-        "list": Object {
-          "color": "red",
-          "margin": 18,
-          "padding": "0 1rem",
-        },
-      },
-    }
-  }
->
-  <YozoraList
-    ordered={true}
-    start={3}
-    type="a"
-  >
-    <styled.ul
-      as="ol"
-      start={3}
-      theme={
-        Object {
-          "yozora": Object {
-            "list": Object {
-              "color": "inherit",
-              "lineHeight": 2,
-              "margin": "0 0 1em",
-              "padding": "0 0 0 1.2em",
-            },
-          },
-        }
-      }
-      type="a"
-    >
-      <ol
-        className="c0"
-        start={3}
-        type="a"
-      >
-        <li
-          key="0"
-        >
-          apple
-        </li>
-        <li
-          key="1"
-        >
-          banana
-        </li>
-        <li
-          key="2"
-        >
-          cat
-        </li>
-      </ol>
-    </styled.ul>
-  </YozoraList>
-</Component>
-`;
-
-exports[`basic rendering case snapshot with theme: ul 1`] = `
-.c0 {
-  color: red;
-  padding: 0 1rem;
-  margin: 18;
-  line-height: 2;
-}
-
-<Component
-  theme={
-    Object {
-      "yozora": Object {
-        "list": Object {
-          "color": "red",
-          "margin": 18,
-          "padding": "0 1rem",
-        },
-      },
-    }
-  }
->
-  <YozoraList
-    ordered={false}
-    start={3}
-    type="a"
-  >
-    <styled.ul
-      as="ul"
-      start={3}
-      theme={
-        Object {
-          "yozora": Object {
-            "list": Object {
-              "color": "inherit",
-              "lineHeight": 2,
-              "margin": "0 0 1em",
-              "padding": "0 0 0 1.2em",
-            },
-          },
-        }
-      }
-      type="a"
-    >
-      <ul
-        className="c0"
-        start={3}
-        type="a"
-      >
-        <li
-          key="0"
-        >
-          apple
-        </li>
-        <li
-          key="1"
-        >
-          banana
-        </li>
-        <li
-          key="2"
-        >
-          cat
-        </li>
-      </ul>
-    </styled.ul>
-  </YozoraList>
-</Component>
-`;
-
-exports[`basic rendering case snapshot: ol 1`] = `
-.c0 {
-  color: inherit;
-  padding: 0 0 0 1.2em;
-  margin: 0 0 1em;
-  line-height: 2;
-}
-
+exports[`snapshot custom: ol 1`] = `
 <ol
-  class="c0"
+  class="yozora-list custom-list-item"
   start="3"
-  type="a"
+  style="color:orange"
 >
   <li>
     apple
@@ -163,18 +18,43 @@ exports[`basic rendering case snapshot: ol 1`] = `
 </ol>
 `;
 
-exports[`basic rendering case snapshot: ul 1`] = `
-.c0 {
-  color: inherit;
-  padding: 0 0 0 1.2em;
-  margin: 0 0 1em;
-  line-height: 2;
-}
-
+exports[`snapshot custom: ul 1`] = `
 <ul
-  class="c0"
+  class="yozora-list custom-list-item"
+  style="color:orange"
+>
+  <li>
+    apple
+  </li>
+  <li>
+    banana
+  </li>
+  <li>
+    cat
+  </li>
+</ul>
+`;
+
+exports[`snapshot default: ol 1`] = `
+<ol
+  class="yozora-list"
   start="3"
-  type="a"
+>
+  <li>
+    apple
+  </li>
+  <li>
+    banana
+  </li>
+  <li>
+    cat
+  </li>
+</ol>
+`;
+
+exports[`snapshot default: ul 1`] = `
+<ul
+  class="yozora-list"
 >
   <li>
     apple

@@ -1,97 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic rendering case snapshot 1`] = `
-.c0 {
-  color: inherit;
-  padding: 0;
-  margin: 0 0 0.25em 0.25em;
-  line-height: inherit;
-}
-
-.c0 > :first-child {
-  margin-bottom: 0;
-}
-
+exports[`snapshot custom 1`] = `
 <li
-  class="c0"
-  style="color:orange;font-size:16px"
+  class="yozora-list-item custom-list-item"
+  style="color:orange"
 >
-  some text1
-  <span>
-    some text2
-  </span>
+  <p>
+    some text1
+    <span>
+      some text2
+    </span>
+  </p>
+  <blockquote
+    class="yozora-blockquote"
+  >
+    some text3
+  </blockquote>
 </li>
 `;
 
-exports[`basic rendering case snapshot with theme 1`] = `
-.c0 {
-  color: red;
-  padding: 0 1rem;
-  margin: 18;
-  line-height: inherit;
-}
-
-.c0 > :first-child {
-  margin-bottom: 0;
-}
-
-<Component
-  theme={
-    Object {
-      "yozora": Object {
-        "listItem": Object {
-          "color": "red",
-          "margin": 18,
-          "padding": "0 1rem",
-        },
-      },
-    }
-  }
+exports[`snapshot default 1`] = `
+<li
+  class="yozora-list-item yozora-list-item"
+  style="color:orange;font-size:16px"
 >
-  <YozoraListItem
-    status="doing"
-    style={
-      Object {
-        "color": "orange",
-        "fontSize": "16px",
-      }
-    }
+  <p>
+    some text1
+    <span>
+      some text2
+    </span>
+  </p>
+  <blockquote
+    class="yozora-blockquote"
   >
-    <styled.li
-      style={
-        Object {
-          "color": "orange",
-          "fontSize": "16px",
-        }
-      }
-      theme={
-        Object {
-          "yozora": Object {
-            "listItem": Object {
-              "color": "inherit",
-              "lineHeight": "inherit",
-              "margin": "0 0 0.25em 0.25em",
-              "padding": 0,
-            },
-          },
-        }
-      }
-    >
-      <li
-        className="c0"
-        style={
-          Object {
-            "color": "orange",
-            "fontSize": "16px",
-          }
-        }
-      >
-        some text1
-        <span>
-          some text2
-        </span>
-      </li>
-    </styled.li>
-  </YozoraListItem>
-</Component>
+    some text3
+  </blockquote>
+</li>
 `;

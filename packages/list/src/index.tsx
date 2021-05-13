@@ -1,16 +1,8 @@
+import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-import './styled-components'
-import { defaultListTheme, getListStyle } from './theme'
 
-export * from './theme'
-
-/**
- * Props for creating List
- */
-export interface ListProps
-  extends React.OlHTMLAttributes<HTMLOListElement | HTMLUListElement> {
+export interface ListProps {
   /**
    * Flag used  to distinguish ordered and unordered list
    */
@@ -20,52 +12,50 @@ export interface ListProps
    */
   start?: number
   /**
-   * List content
+   * List content.
    */
-  children: React.ReactNode
+  children?: React.ReactNode
+  /**
+   * Root css class of the component.
+   */
+  className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
 }
 
 /**
- * Render `list` content
+ * Render yozora `list`.
  *
- * @param props
+ * @see https://www.npmjs.com/package/@yozora/ast#list
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-list
  */
-export const List = React.forwardRef<
-  HTMLUListElement | HTMLOListElement,
-  ListProps
->(
-  (props, forwardRef): React.ReactElement => {
-    const { ordered, children, ...htmlProps } = props
-    const as = ordered ? 'ol' : 'ul'
+export function List(props: ListProps): React.ReactElement {
+  const { className, style, children, ordered, start } = props
 
+  if (ordered) {
     return (
-      <Container as={as} {...htmlProps} ref={forwardRef}>
+      <ol start={start} className={cn('yozora-list', className)} style={style}>
         {children}
-      </Container>
+      </ol>
     )
-  },
-)
+  }
+
+  return (
+    <ul className={cn('yozora-list', className)} style={style}>
+      {children}
+    </ul>
+  )
+}
 
 List.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
   ordered: PropTypes.bool.isRequired,
   start: PropTypes.number,
-  children: PropTypes.node.isRequired,
+  style: PropTypes.object,
 }
 
 List.displayName = 'YozoraList'
 export default List
-
-const Container = styled.ul`
-  color: ${getListStyle('color')};
-  padding: ${getListStyle('padding')};
-  margin: ${getListStyle('margin')};
-  line-height: ${getListStyle('lineHeight')};
-`
-
-Container.defaultProps = {
-  theme: { yozora: { list: defaultListTheme } },
-}
-
-export const ListClasses = {
-  container: `${Container}`,
-}

@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-emphasis</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/emphasis#readme">@yozora/react-emphasis</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-emphasis">
@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-emphasis/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-emphasis/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -61,7 +55,9 @@
 </header>
 <br/>
 
-This package is designed to render [mdast emphasis][] type data
+This component is for rendering the [Emphasis][@yozora/ast] data produced by
+[@yozora/tokenizer-emphasis][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -79,74 +75,42 @@ This package is designed to render [mdast emphasis][] type data
   ```
 
 ## Usage
-  * Use in React project
-    - Pure
 
-      ```tsx
-      import React from 'react'
-      import Emphasis from '@yozora/react-emphasis'
+* Basic:
 
-      const wrapper = (
-        <Emphasis style={ { color: 'orange', fontSize: '16px' } }>
-          some text1
-          <span>some text2</span>
-        </Emphasis>
-      )
-      ```
+  ```tsx
+  import React from 'react'
+  import Emphasis from '@yozora/react-emphasis'
 
-    - With theme
+  const wrapper = (
+    <Emphasis style={{ color: 'orange', fontSize: '16px' }}>
+      some text1
+      <span>some text2</span>
+    </Emphasis>
+  )
+  ```
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import Emphasis from '@yozora/react-emphasis'
+### Props
 
-      const theme: DefaultTheme = {
-        yozora: {
-          emphasis: {
-            color: 'red',
-            fontSize: 18,
-            fontWeight: undefined,
-            fontStyle: 'oblique',
-          }
-        }
-      }
+Name        | Type                  | Required  | Default | Description
+:----------:|:---------------------:|:---------:|:-------:|:-------------
+`children`  | `React.ReactNode`     | `false`   | -       | Emphasis contents
+`className` | `string`              | `false`   | -       | Root css class
+`style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <Emphasis>
-            some text1
-            <span>some text2</span>
-          </Emphasis>
-        </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name       | Type                                | Required  | Default | Description
-    :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
-     `children` | `React.ReactNode`                   | `true`    | -       | Emphasis content
-
-    EmphasisProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
-
-  * Theme
-
-     Prop Name  | Default
-    :----------:|:--------------
-     color      | `inherit`
-     fontSize   | `inherit`
-     fontWeight | `inherit`
-     fontStyle  | `italic`
-
-    See [YozoraEmphasisTheme][] for details.
+* `className`: The root element of this component will always bind with the
+  CSS class `'yozora-emphasis'`
 
 
-## References
+## Related
 
-  - [mdast emphasis][]
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
+* [@yozora/tokenizer-emphasis][]
+* [Emphasis | Mdast][mdast]
 
 
-[mdast emphasis]: https://github.com/syntax-tree/mdast#emphasis
-[YozoraEmphasisTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/emphasis/src/theme.ts
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#emphasis
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-emphasis]: https://www.npmjs.com/package/@yozora/tokenizer-emphasis
+[mdast]: https://github.com/syntax-tree/mdast#emphasis

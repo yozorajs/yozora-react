@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-code-live</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code-live#readme">@yozora/react-code-live</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-code-live">
@@ -61,7 +61,9 @@
 </header>
 <br/>
 
-Create a code live container.
+This component is for rendering the [Code][@yozora/ast] data produced by
+[@yozora/tokenizer-indented-code][] and [@yozora/tokenizer-fenced-code].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -79,7 +81,7 @@ Create a code live container.
   ```
 
 ## Usage
-  * Use in React project
+  * Basic:
 
     - Pure
 
@@ -108,88 +110,44 @@ Create a code live container.
       )
       ```
 
-    - With theme
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import CodeLive, { CodeRendererProps } from '@yozora/react-code-live'
+### Props
 
-      const JsxRenderer = ({ value }: CodeRendererProps): React.ReactElement => {
-        // eslint-disable-next-line no-new-func
-        const f = new Function(code)
-        const v = f()
-        return <span data-type="jsx">{ v }</span>
-      }
+Name                | Type                  | Required  | Default | Description
+:------------------:|:---------------------:|:---------:|:-------:|:-------------
+`className`         | `string`              | `false`   | -       | Root css class
+`collapsed`         | `boolean`             | `false`   | `false` | Collapse the code block
+`highlightLinenos`  | `number[]`            | `false`   | -       | Line number of Lines that should be highlighted
+`lang`              | `string`              | `false`   | -       | Language of the source codes
+`maxLines`          | `number`              | `number`  | -       | Maximum number of rows displayed
+`style`             | `React.CSSProperties` | `false`   | -       | Root css style
+`title`             | `string`              | `false`   | -       | Code title
+`value`             | `string`              | `true`    | -       | Literal source codes
 
-      const theme: DefaultTheme = {
-        yozora: {
-          codeLive: {
-            margin: '1rem 0',
-            editorBackground: 'pink',
-            editorCaretColor: 'white',
-            editorFontSize: '18px',
-          },
-          codeEmbed: {
-            errorBackground: 'red',
-          }
-        }
-      }
-
-      const code = `
-        const a = 1 + 2;
-        return a * a
-      `
-
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <CodeLive
-            lang="jsx"
-            value={ code }
-            CodeRenderer={ JsxRenderer }
-          />
-        </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name                       | Type                | Required  | Default             | Description
-    :--------------------------:|:-------------------:|:---------:|:-------------------:|:-------------
-     `lang`                     | `string`            | `true`    | -                   | Code language
-     `value`                    | `string`            | `true`    | -                   | Code content
-     `darken`                   | `boolean`           | `false`   | -                   | Specify the default theme (vcsDarkTheme / vscLightTheme)
-     `theme`                    | `PrismTheme`        | `false`   | Depends on `darken` | Highlight prism theme.
-     `CodeRenderer`             | `React.ElementType` | `true`    | -                   | Code renderer
-     `errorClassName`           | `string`            | `false`   | -                   | CSS class name for CodeLiveError
-     `editorTextareaClassName`  | `string`            | `false`   | -                   | CSS class name for the editor's textarea element
-     `editorPreClassName`       | `string`            | `false`   | -                   | CSS class name for the editor's pre element
-
-    CodeLiveProps inherited all attributes of `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`
-
-  * Theme
-
-     Prop Name                  | Default
-    :--------------------------:|:----------------------------------------------------
-     margin                     | `0 0 1rem`
-     editorPadding              | `0.8rem 0`
-     editorBackground           | `#1e1e1e`
-     editorCaretColor           | `#aeafad`
-     editorFontSize             | `1rem`
-     editorFontFamily           | `Consolas, "Source Code Pro", monospace, sans-serif`
-     editorSelectionBackground  | `none`
-     previewPadding             | `0`
-     previewBorder              | `none`
-     previewBackground          | `#fff`
-     previewColor               | `#000`
-
-    See [YozoraCodeLiveTheme][] for details.
+* `className`: The root element of this component will always bind with the
+  CSS class `'yozora-code-literal'`.
 
 
-## References
+## Related
 
-  - [mdast code][]
+* [@yozora/ast][]
+* [@yozora/react-code][]
+* [@yozora/react-code-embed][]
+* [@yozora/react-code-highlighter][]
+* [@yozora/react-code-literal][]
+* [@yozora/react-markdown][]
+* [@yozora/tokenizer-indented-code][]
+* [@yozora/tokenizer-fenced-code][]
+* [Code | Mdast][mdast]
 
 
-[mdast code]: https://github.com/syntax-tree/mdast#code
-[YozoraCodeLiveTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/code-live/src/theme.ts
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#code
+[@yozora/react-code]: https://www.npmjs.com/package/@yozora/react-code
+[@yozora/react-code-embed]: https://www.npmjs.com/package/@yozora/react-code-embed
+[@yozora/react-code-highlighter]: https://www.npmjs.com/package/@yozora/react-code-highlighter
+[@yozora/react-code-literal]: https://www.npmjs.com/package/@yozora/react-code-literal
+[@yozora/react-code-live]: https://www.npmjs.com/package/@yozora/react-code-live
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-indented-code]: https://www.npmjs.com/package/@yozora/tokenizer-indented-code
+[@yozora/tokenizer-fenced-code]: https://www.npmjs.com/package/@yozora/tokenizer-fenced-code
+[mdast]: https://github.com/syntax-tree/mdast#code

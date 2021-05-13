@@ -1,8 +1,9 @@
 import CodeHighlighter from '@yozora/react-code-highlighter'
+import cn from 'clsx'
 import type { PrismTheme } from 'prism-react-renderer'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import SimpleCodeEditor from './no-cover/editor'
+import SimpleCodeEditor from './editor'
 
 /**
  * Props for creating CodeEditor
@@ -20,6 +21,18 @@ export interface CodeEditorProps {
    * Triggered when the code changed.
    */
   onChange(code: string): void
+  /**
+   * Maximum number of rows displayed
+   */
+  maxLines?: number
+  /**
+   * Whether the code block is in a collapsed state.
+   */
+  collapsed?: boolean
+  /**
+   * Whether should display line numbers.
+   */
+  showLinenos?: boolean
   /**
    * If true, use vscDarkTheme as default theme,
    * otherwise use vscLightTheme as default theme.
@@ -46,13 +59,22 @@ export interface CodeEditorProps {
    */
   preStyle?: React.CSSProperties
   /**
-   * CSS class name for the container
+   * CSS class for the top container element.
    */
   className?: string
   /**
    * CSS style object for the container
    */
   style?: React.CSSProperties
+  /**
+   * Line height.
+   * @default '1.8em'
+   */
+  lineHeight?: React.CSSProperties['lineHeight']
+  /**
+   * Set the editor focus in default.
+   */
+  autoFocus?: boolean
 }
 
 /**
@@ -62,33 +84,44 @@ export interface CodeEditorProps {
 export function CodeEditor(props: CodeEditorProps): React.ReactElement {
   const {
     lang,
+    maxLines,
+    collapsed,
+    showLinenos,
     textareaClassName,
     textareaStyle,
     preClassName,
     preStyle,
     onChange,
-    className,
-    style,
     darken,
     theme,
+    autoFocus,
+    style,
+    className,
+    lineHeight = '1.8em',
   } = props
 
-  const [code, setCode] = useState<string>(props.code)
-  const [lineCount, setLineCount] = useState<number>(0)
+  const contentRef = useRef<HTMLDivElement>(null)
+  const codesRef = useRef<HTMLDivElement>(null)
 
-  const linenoWidth = `${Math.max(2, lineCount.toString(10).length) + 0.5}em`
+  const [code, setCode] = useState<string>(props.code)
+  const [linenoWidth, setLinenoWidth] = useState<React.CSSProperties['width']>()
   const highlightCode = useCallback<React.FC<string>>(
     code => (
       <CodeHighlighter
+        contentRef={contentRef}
+        codesRef={codesRef}
         lang={lang}
         value={code}
         darken={darken}
         theme={theme}
-        linenoWidth={linenoWidth}
-        onLineCountChange={setLineCount}
+        lineHeight={lineHeight}
+        maxLines={maxLines}
+        collapsed={collapsed}
+        showLinenos={showLinenos}
+        onLinenoWidthChange={setLinenoWidth}
       />
     ),
-    [lang, linenoWidth, darken, theme],
+    [lang, darken, theme, collapsed, showLinenos, lineHeight, maxLines],
   )
 
   const handleChange = useCallback(
@@ -102,14 +135,28 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
   // Reset code if the props.code has changed
   useEffect((): void => setCode(props.code), [props.code])
 
+  // Sync the scroll events.
+  /* istanbul ignore next */
+  const syncScrollEvents = useCallback<
+    React.UIEventHandler<HTMLTextAreaElement>
+  >(e => {
+    const textarea = e.target as HTMLTextAreaElement
+    if (textarea == null) return
+
+    const { scrollLeft, scrollTop } = textarea
+
+    if (codesRef.current != null) {
+      codesRef.current.scrollTo(scrollLeft, 0)
+    }
+
+    if (contentRef.current != null) {
+      contentRef.current.scrollTo(0, scrollTop)
+    }
+  }, [])
+
   const wordStyle: React.CSSProperties = {
-    whiteSpace: 'pre-wrap',
-    overflowWrap: 'break-word',
-    wordSpacing: 'normal',
-    wordBreak: 'break-all',
-    wordWrap: 'break-word',
-    lineHeight: 'inherit',
     tabSize: 2,
+    whiteSpace: 'pre',
   }
 
   return (
@@ -123,18 +170,15 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
       textareaStyle={{
         ...wordStyle,
         ...textareaStyle,
-        paddingLeft: linenoWidth,
+        borderLeft: `${linenoWidth} solid transparent`,
+        padding: '0 0.6em',
       }}
       preClassName={preClassName}
-      preStyle={{
-        ...wordStyle,
-        ...preStyle,
-        paddingLeft: 0,
-      }}
-      className={className}
-      style={{
-        ...style,
-      }}
+      preStyle={{ ...wordStyle, ...preStyle }}
+      className={cn('yozora-code-editor', className)}
+      style={{ ...style, lineHeight }}
+      autoFocus={autoFocus}
+      onScroll={syncScrollEvents}
     />
   )
 }
@@ -143,20 +187,22 @@ CodeEditor.displayName = 'YozoraCodeEditor'
 export default CodeEditor
 
 const Container = styled(SimpleCodeEditor)`
-  white-space: pre;
-  font-family: Consolas, "Source Code Pro", monospace, sans-serif;
+  font-family: var(--code-font-family, Consolas, 'Source Code Pro', monospace, sans-serif);
+  border: 1px solid var(--code-color-border, lightgray);
+  border-radius: 4px;
+
   & > pre {
     code, span {
-      line-height: inherit !important;
+      line-height: inherit;
     }
     code {
-      background: transparent !important;
-      margin: 0 !important;
-      padding: 0 !important;
+      padding: 0;
+      margin: 0;
+      background: transparent;
     }
   }
-`
 
-export const CodeEditorClasses = {
-  container: `${Container}`,
-}
+  .yozora-code-highlighter__codes {
+    overflow-x: hidden;
+  }
+`

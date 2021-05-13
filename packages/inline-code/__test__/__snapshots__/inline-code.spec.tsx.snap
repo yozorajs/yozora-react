@@ -1,111 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic rendering case snapshot 1`] = `
-.c0 {
-  padding: 4px;
-  border-radius: 2px;
-  margin: 0;
-  background: none;
-  line-height: 1.375;
-  color: inherit;
-  font-family: Consolas,monospace,sans-serif;
-  font-size: 1em;
-  font-weight: inherit;
-  font-style: inherit;
-  white-space: normal;
-}
-
+exports[`snapshot custom 1`] = `
 <code
-  class="c0"
-  style="color:orange;font-size:16px"
+  class="yozora-inline-code custom-class"
+  style="color:orange"
 >
-  Hello, world!
+  const message = "Hello, world!"
 </code>
 `;
 
-exports[`basic rendering case snapshot with theme 1`] = `
-.c0 {
-  padding: 2px;
-  border-radius: 3px;
-  margin: 0 2px;
-  background: hsla(210deg,13%,12%,0.05);
-  line-height: 1.5;
-  color: #d81848;
-  font-family: Consolas,monospace,sans-serif;
-  font-size: 1em;
-  font-weight: inherit;
-  font-style: inherit;
-  white-space: normal;
-}
-
-<Component
-  theme={
-    Object {
-      "yozora": Object {
-        "inlineCode": Object {
-          "background": "hsla(210deg, 13%, 12%, 0.05)",
-          "borderRadius": "3px",
-          "color": "#d81848",
-          "fontFamily": "Consolas, monospace, sans-serif",
-          "fontSize": "1em",
-          "fontStyle": undefined,
-          "fontWeight": "inherit",
-          "lineHeight": 1.5,
-          "margin": "0 2px",
-          "padding": "2px",
-        },
-      },
-    }
-  }
+exports[`snapshot default 1`] = `
+<code
+  class="yozora-inline-code"
+  style="color:orange;font-size:16px"
 >
-  <YozoraInlineCode
-    style={
-      Object {
-        "color": "orange",
-        "fontSize": "16px",
-      }
-    }
-    value="Hello, world!"
-  >
-    <styled.code
-      style={
-        Object {
-          "color": "orange",
-          "fontSize": "16px",
-        }
-      }
-      theme={
-        Object {
-          "yozora": Object {
-            "inlineCode": Object {
-              "background": "none",
-              "borderRadius": "2px",
-              "color": "inherit",
-              "fontFamily": "Consolas, monospace, sans-serif",
-              "fontSize": "1em",
-              "fontStyle": "inherit",
-              "fontWeight": "inherit",
-              "lineHeight": 1.375,
-              "margin": 0,
-              "padding": "4px",
-              "whiteSpace": "normal",
-            },
-          },
-        }
-      }
-    >
-      <code
-        className="c0"
-        style={
-          Object {
-            "color": "orange",
-            "fontSize": "16px",
-          }
-        }
-      >
-        Hello, world!
-      </code>
-    </styled.code>
-  </YozoraInlineCode>
-</Component>
+  const message = "Hello, world!"
+</code>
 `;

@@ -34,7 +34,6 @@
     "README.md"
   ],
   "scripts": {
-    "start": "rollup -w -c ../../rollup.config.js",
     "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
     "prebuild": "rimraf lib/",
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
@@ -50,9 +49,6 @@
   "dependencies": {
     "@types/buble": "^0.19.2",
     "buble": "^0.20.0"
-  },
-  "devDependencies": {
-    "enzyme": "3.11.0"
   },
   "browserslist": [
     "last 2 versions",

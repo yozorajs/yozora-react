@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-strong</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/strong#readme">@yozora/react-strong</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-strong">
@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-strong/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-strong/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -61,7 +55,9 @@
 </header>
 <br/>
 
-This package is designed to render [mdast strong][] type data
+This component is for rendering the [Strong][@yozora/ast] data produced by
+[@yozora/tokenizer-emphasis][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -79,75 +75,42 @@ This package is designed to render [mdast strong][] type data
   ```
 
 ## Usage
-  * Use in React project
 
-    - Pure
+* Basic:
 
-      ```tsx
-      import React from 'react'
-      import Strong from '@yozora/react-strong'
+  ```tsx
+  import React from 'react'
+  import Strong from '@yozora/react-strong'
 
-      const wrapper = (
-        <Strong style={{ color: 'orange', fontSize: '16px' }}>
-          some text1
-          <span>some text2</span>
-        </Strong>
-      )
-      ```
+  const wrapper = (
+    <Strong style={{ color: 'orange' }}>
+      some text1
+      <span>some text2</span>
+    </Strong>
+  )
+  ```
 
-    - With theme
+### Props
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import Strong from '@yozora/react-strong'
+Name        | Type                  | Required  | Default | Description
+:----------:|:---------------------:|:---------:|:-------:|:-------------
+`children`  | `React.ReactNode`     | `false`   | -       | Strong contents
+`className` | `string`              | `false`   | -       | Root css class
+`style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
-      const theme: DefaultTheme = {
-        yozora: {
-          strong: {
-            color: 'red',
-            fontSize: 18,
-            // fontWeight: 'bold',
-            fontStyle: 'oblique',
-          }
-        }
-      }
-
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <Strong>
-            some text1
-            <span>some text2</span>
-          </Strong>
-        </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name       | Type                                | Required  | Default | Description
-    :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `ref`      | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
-     `children` | `React.ReactNode`                   | `true`    | -       | strong content
-
-    StrongProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
-
-  * Theme
-
-     Prop Name    | Default
-    :------------:|:--------------
-     color        | `inherit`
-     fontSize     | `inherit`
-     fontWeight   | `600`
-     fontStyle    | `inherit`
-
-    See [YozoraStrongTheme][] for details.
+* `className`: The root element of this component will always bind with the
+  CSS class `'yozora-strong'`.
 
 
-## References
+## Related
 
-  - [mdast strong][]
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
+* [@yozora/tokenizer-emphasis][]
+* [Strong | Mdast][mdast]
 
 
-[mdast strong]: https://github.com/syntax-tree/mdast#strong
-[YozoraStrongTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/strong/src/theme.ts
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#strong
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-emphasis]: https://www.npmjs.com/package/@yozora/tokenizer-emphasis
+[mdast]: https://github.com/syntax-tree/mdast#strong

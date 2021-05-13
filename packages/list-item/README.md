@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-list-item</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/list-item#readme">@yozora/react-list-item</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-list-item">
@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-list-item/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-list-item/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -61,7 +55,9 @@
 </header>
 <br/>
 
-This package is designed to render [mdast list-item][] type data
+This component is for rendering the [ListItem][@yozora/ast] data produced by
+[@yozora/tokenizer-list-item][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -79,76 +75,46 @@ This package is designed to render [mdast list-item][] type data
   ```
 
 ## Usage
-  * Use in React project
 
-    - Pure
+* Basic:
 
-      ```tsx
-      import React from 'react'
-      import ListItem from '@yozora/react-list-item'
+  ```tsx
+  import React from 'react'
+  import ListItem from '@yozora/react-list-item'
 
-      const wrapper = (
-        <ListItem status="done" style={ { color: 'orange', fontSize: '16px' } }>
-          some text1
-          <span>some text2</span>
-        </ListItem
-      )
-      ```
+  const wrapper = (
+    <ListItem status="done" style={ { color: 'orange', fontSize: '16px' } }>
+      some text1
+      <span>some text2</span>
+    </ListItem
+  )
+  ```
 
-    - With theme
+### Props
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import ListItem from '@yozora/react-list-item'
+Name        | Type                    | Required  | Default | Description
+:----------:|:-----------------------:|:---------:|:-------:|:-------------
+`status`    | `'todo'|'doing'|'done'` | `false`   | -       | Status of TODO item
+`children`  | `React.ReactNode`       | `false`   | -       | List item contents
+`className` | `string`                | `false`   | -       | Root css class
+`style`     | `React.CSSProperties`   | `false`   | -       | Root css style
 
-      const theme: DefaultTheme = {
-        yozora: {
-          listItem: {
-            color: 'red',
-            padding: '0 1rem',
-            margin: 18,
-            // lineHeight: 1.5,
-          }
-        }
-      }
-
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <ListItem status="doing" style={ { color: 'orange', fontSize: '16px' } }>
-            some text1
-            <span>some text2</span>
-          </ListItem>
-        </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name       | Type                                | Required  | Default | Description
-    :----------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `ref`      | `React.RefObject<HTMLLIElement>`    | `false`   | -       | Forwarded ref callback
-     `children` | `React.ReactNode`                   | `true`    | -       | ListItem content
-     `status`   | `'todo'|'doing'|'done'`             | `false`   | -       | Whether if it is a TODO item, and given its status
-
-    ListItemProps inherited all attributes of `HTMLLIElement` (`React.LiHTMLAttributes<HTMLLIElement>`)
-
-  * Theme
-
-     Prop Name    | Default
-    :------------:|:--------------
-     padding      | `0 0 0 1.2em`
-     margin       | `transparent`
-     lineHeight   | `2`
-     color        | `inherit`
-
-    See [YozoraListItemTheme][] for details.
+* `className`: The root element of this component will always bind with the
+  CSS class `'yozora-list-item'`
 
 
-## References
+## Related
 
-  - [mdast list-item][]
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
+* [@yozora/tokenizer-list][]
+* [@yozora/tokenizer-list-item][]
+* [ListItem | Mdast][mdast]
 
 
-[mdast list-item]: https://github.com/syntax-tree/mdast#listitem
-[YozoraListItemTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/list-item/src/theme.ts
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#listitem
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-list]: https://www.npmjs.com/package/@yozora/tokenizer-list
+[@yozora/tokenizer-list-item]: https://www.npmjs.com/package/@yozora/tokenizer-list-item
+[mdast]: https://github.com/syntax-tree/mdast#listitem
+

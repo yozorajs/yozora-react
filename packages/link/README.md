@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-link</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/link#readme">@yozora/react-link</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-link">
@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-link/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-link/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -61,7 +55,10 @@
 </header>
 <br/>
 
-This package is designed to render [mdast link][] type data
+This component is for rendering the [Link][@yozora/ast] data produced by
+[@yozora/tokenizer-link][], [@yozora/tokenizer-autolink] and 
+[@yozora/tokenizer-autolink-extension].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -79,109 +76,52 @@ This package is designed to render [mdast link][] type data
   ```
 
 ## Usage
-  * Use in React project
 
-    - Pure
+* Basic:
 
-      ```tsx
-      import React from 'react'
-      import Link from '@yozora/react-link'
+  ```tsx
+  import React from 'react'
+  import Link from '@yozora/react-link'
 
-      const wrapper = (
-        <Link
-          url="/home"
-          title="home"
-          style={ { color: 'orange', fontSize: '16px' } }
-        >
-          some text1
-          <span>some text2</span>
-        </Link>
-      )
-      ```
-
-    - React router
-
-      ```tsx
-      import React from 'react'
-      import { BrowserRouter as Router } from 'react-router-dom'
-      import { RouteLink as Link } from '@yozora/react-link'
-
-      const wrapper = (
-        <Router>
-          <Link
-            url="/home"
-            title="home"
-            style={ { color: 'orange', fontSize: '16px' } }
-          >
-            some text1
-            <span>some text2</span>
-          </Link>
-        </Router>
-      )
-      ```
-
-    - With theme
-
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import Link from '@yozora/react-link'
-
-      const theme: DefaultTheme = {
-        yozora: {
-          link: {
-            color: 'blue',
-            fontSize: undefined,
-            fontStyle: 'italic',
-            textDecoration: 'none',
-          }
-        }
-      }
-
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <Link
-            url="/home"
-            title="home"
-            style={ { color: 'orange', fontSize: '16px' } }
-          >
-            some text1
-            <span>some text2</span>
-          </Link>
-        </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name       | Type                                  | Required      | Default | Description
-    :----------:|:-------------------------------------:|:-------------:|:-------:|:-------------
-     `ref`      | `React.RefObject<HTMLAnchorElement>`  | `false`       | -       | Forwarded ref callback
-     `children` | `React.ReactNode`                     | `true`        | -       | link content
-     `url`      | `string`                              | `true`        | -       | link url
-     `title`    | `string`                              | `false`       | -       | link title
-     `target`   | `string`                              | `_blank`      | -       |
-     `rel`      | `string`                              | `noreferrer`  | -       |
-
-    LinkProps inherited all attributes of `HTMLAnchorElement` (`React.AnchorHTMLAttributes<HTMLAnchorElement>`)
-
-  * Theme
-
-     Prop Name      | Default
-    :--------------:|:--------------
-     color          | `inherit`
-     fontSize       | `inherit`
-     fontStyle      | `inherit`
-     textDecoration | `none`
-
-    See [YozoraLinkTheme][] for details.
+  const wrapper = (
+    <Link
+      url="/home"
+      title="home"
+      style={ { color: 'orange', fontSize: '16px' } }
+    >
+      some text1
+      <span>some text2</span>
+    </Link>
+  )
+  ```
 
 
-## References
+### Props
 
-  - [mdast link][]
+Name        | Type                  | Required  | Default | Description
+:----------:|:---------------------:|:---------:|:-------:|:-------------
+`children`  | `React.ReactNode`     | `false`   | -       | Link contents
+`className` | `string`              | `false`   | -       | Root css class
+`style`     | `React.CSSProperties` | `false`   | -       | Root css style
+`title`     | `string`              | `false`   | -       | Link title
+`url`       | `string`              | `true`    | -       | Link url
+
+* `className`: The root element of this component will always bind with the
+  CSS class `'yozora-link'`.
 
 
-[mdast link]: https://github.com/syntax-tree/mdast#link
-[YozoraLinkTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/link/src/theme.ts
+## Related
 
+* [@yozora/ast][]
+* [@yozora/react-link][]
+* [@yozora/react-markdown][]
+* [@yozora/tokenizer-link][]
+* [@yozora/tokenizer-autolink][]
+* [@yozora/tokenizer-autolink-extension][]
+
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#link
+[@yozora/react-link]: https://www.npmjs.com/package/@yozora/react-link
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-link]: https://www.npmjs.com/package/@yozora/tokenizer-link
+[@yozora/tokenizer-autolink]: https://www.npmjs.com/package/@yozora/tokenizer-autolink
+[@yozora/tokenizer-autolink-extension]: https://www.npmjs.com/package/@yozora/tokenizer-autolink-extension

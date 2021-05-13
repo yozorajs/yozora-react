@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-code-embed</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code-embed#readme">@yozora/react-code-embed</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-code-embed">
@@ -61,8 +61,9 @@
 </header>
 <br/>
 
-Render [mdast code][] type data with particular components.
-
+This component is for rendering the [Code][@yozora/ast] data produced by
+[@yozora/tokenizer-indented-code][] and [@yozora/tokenizer-fenced-code].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 ## Install
 
@@ -79,110 +80,95 @@ Render [mdast code][] type data with particular components.
   ```
 
 ## Usage
-  * Use in React project
 
-    - Pure
+* Basic:
 
-      ```tsx
-      import React from 'react'
-      import CodeEmbed, { CodeRendererProps } from '@yozora/react-code-embed'
+  ```tsx
+  import React from 'react'
+  import CodeEmbed, { CodeRendererProps } from '@yozora/react-code-embed'
 
-      const JsxRenderer = ({ value }: CodeRendererProps): React.ReactElement => {
-        // eslint-disable-next-line no-new-func
-        const f = new Function(value)
-        const v = f()
-        return <span data-type="jsx">{ v }</span>
-      }
+  const JsxRenderer = ({ value }: CodeRendererProps): React.ReactElement => {
+    // eslint-disable-next-line no-new-func
+    const f = new Function(value)
+    const v = f()
+    return <span data-type="jsx">{ v }</span>
+  }
 
-      const code = `
-        const a = 1 + 2;
-        return a * a
-      `
+  const code = `
+    const a = 1 + 2;
+    return a * a
+  `
 
-      const wrapper = (
-        <CodeEmbed
-          lang="jsx"
-          value={ code }
-          CodeRenderer={ JsxRenderer }
-        />
-      )
-      ```
+  const wrapper = (
+    <CodeEmbed
+      lang="jsx"
+      value={ code }
+      CodeRenderer={ JsxRenderer }
+    />
+  )
+  ```
 
-    - With theme
+### Props
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import CodeEmbed, { CodeRendererProps } from '@yozora/react-code-embed'
+Name          | Type                  | Required  | Default | Description
+:------------:|:---------------------:|:---------:|:-------:|:-------------
+`className`   | `string`              | `false`   | -       | Root css class
+`CodeRunner`  | See below             | `true`    | -       | Interpreter for the codes
+`lang`        | `string`              | `true`    | -       | Language of the source codes
+`style`       | `React.CSSProperties` | `false`   | -       | Root css style
+`value`       | `string`              | `true`    | -       | source codes
 
-      const JsxRenderer = ({ value }: CodeRendererProps): React.ReactElement => {
-        // eslint-disable-next-line no-new-func
-        const f = new Function(value)
-        const v = f()
-        return <span data-type="jsx">{ v }</span>
-      }
+* `CodeRunner`
 
-      const theme: DefaultTheme = {
-        yozora: {
-          codeEmbed: {
-            padding: '2px',
-            border: 'none',
-            background: '#fff',
-            color: '#ccc',
-            errorBackground: 'red',
-            errorColor: '#f8f8f2',
-            errorFontSize: '0.9em',
-          }
-        }
-      }
+  ```typescript
+  type CodeRunner = (props: CodeRunnerProps) => React.ReactElement | null
 
-      const code = `
-        const a = 1 + 2;
-        return a * a
-      `
+  /**
+   * Props of CodeRunner
+  */
+  export interface CodeRunnerProps {
+    /**
+     * Code language
+     */
+    lang: string
+    /**
+     * Source code contents
+     */
+    value: string
+    /**
+     * Error callback
+     */
+    onError(error: string | null): void
+    /**
+     * Accessible context variables.
+     */
+    scope?: Record<string, unknown>
+  }
+  ```
 
-      const wrapper = (
-        <ThemeProvider theme={ theme }>
-          <CodeEmbed
-            lang="jsx"
-            value={ code }
-            CodeRenderer={ JsxRenderer }
-          />
-        </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name                       | Type                | Required  | Default | Description
-    :--------------------------:|:-------------------:|:---------:|:-------:|:-------------
-     `lang`                     | `string`            | `true`    | -       | Code language
-     `value`                    | `string`            | `true`    | -       | Code content
-     `CodeRenderer`             | `React.ElementType` | `true`    | -       | Code renderer
-     `errorClassName`           | `string`            | `false`   | -       | CSS class name for CodeEmbedError
-
-    CodeEmbedProps inherited all attributes of `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`
-
-  * Theme
-
-     Prop Name        | Default
-    :----------------:|:----------------------------------------------------
-     padding          | `0`
-     border           | `none`
-     background       | `transparent`
-     color            | `inherit`
-     errorBackground  | `#ff5555`
-     errorColor       | `#f8f8f2`
-     errorFontSize    | `0.9em`
-     errorFontFamily  | `Consolas, "Source Code Pro", monospace, sans-serif`
-
-    See [YozoraCodeEmbedTheme][] for details.
+* `className`: The root element of this component will always bind with the
+  CSS class `'yozora-code-embed'`.
 
 
-## References
+## Related
 
-  - [mdast code][]
+* [@yozora/ast][]
+* [@yozora/react-code][]
+* [@yozora/react-code-embed][]
+* [@yozora/react-code-highlighter][]
+* [@yozora/react-code-live][]
+* [@yozora/react-markdown][]
+* [@yozora/tokenizer-indented-code][]
+* [@yozora/tokenizer-fenced-code][]
+* [Code | Mdast][mdast]
 
 
-[mdast code]: https://github.com/syntax-tree/mdast#code
-[YozoraCodeEmbedTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/code-embed/src/theme.ts
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#code
+[@yozora/react-code]: https://www.npmjs.com/package/@yozora/react-code
+[@yozora/react-code-embed]: https://www.npmjs.com/package/@yozora/react-code-embed
+[@yozora/react-code-highlighter]: https://www.npmjs.com/package/@yozora/react-code-highlighter
+[@yozora/react-code-live]: https://www.npmjs.com/package/@yozora/react-code-live
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-indented-code]: https://www.npmjs.com/package/@yozora/tokenizer-indented-code
+[@yozora/tokenizer-fenced-code]: https://www.npmjs.com/package/@yozora/tokenizer-fenced-code
+[mdast]: https://github.com/syntax-tree/mdast#code

@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme">@yozora/react-thematic-break</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/thematic-break#readme">@yozora/react-thematic-break</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-thematic-break">
@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-thematic-break/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-thematic-break/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -61,7 +55,9 @@
 </header>
 <br/>
 
-This package is designed to render [mdast thematicBreak][] type data
+This component is for rendering the [ThematicBreak][@yozora/ast] data produced by
+[@yozora/tokenizer-thematic-break][].\
+This component has been built into [@yozora/react-markdown][], you can use it directly.
 
 
 ## Install
@@ -78,67 +74,38 @@ This package is designed to render [mdast thematicBreak][] type data
   yarn add @yozora/react-thematic-break
   ```
 
+
 ## Usage
-  * Use in React project
 
-    - Pure
+* Basic:
 
-      ```tsx
-      import React from 'react'
-      import ThematicBreak from '@yozora/react-thematic-break'
+  ```tsx
+  import React from 'react'
+  import ThematicBreak from '@yozora/react-thematic-break'
 
-      const wrapper = (
-        <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
-      )
-      ```
+  const wrapper = (<ThematicBreak style={ { color: 'orange' } } />)
+  ```
 
-    - With theme
+### Props
 
-      ```tsx
-      import React from 'react'
-      import { DefaultTheme, ThemeProvider } from 'styled-components'
-      import ThematicBreak from '@yozora/react-thematic-break'
+Name        | Type                  | Required  | Default | Description
+:----------:|:---------------------:|:---------:|:-------:|:-------------
+`className` | `string`              | `false`   | -       | Root css class
+`style`     | `React.CSSProperties` | `false`   | -       | Root css style
 
-      const theme: DefaultTheme = {
-        yozora: {
-          thematicBreak: {
-            borderColor: 'orange',
-            // outline: '1px dash red',
-            margin: '2rem 0',
-          }
-        }
-      }
-
-      const wrapper = (
-      <ThemeProvider theme={ theme }>
-        <ThematicBreak style={ { color: 'orange', fontSize: '16px' } } />
-      </ThemeProvider>
-      )
-      ```
-
-  * Props
-
-     Name     | Type                              | Required  | Default | Description
-    :--------:|:---------------------------------:|:---------:|:-------:|:-------------
-     `ref`    | `React.RefObject<HTMLHRElement>`  | `false`   | -       | Forwarded ref callback
-
-    ThematicBreakProps inherited all attributes of `HTMLHRElement` (`React.HTMLAttributes<HTMLHRElement>`)
-
-  * Theme
-
-     Prop Name    | Default
-    :------------:|:-----------
-     borderColor  | `lightgray`
-     outline      | `0`
-     margin       | `1.5em 0`
-
-    See [YozoraThematicBreakTheme][] for details.
+* `className`: The root element of this component will always bind with the
+  CSS class `'yozora-thematic-break'`.
 
 
-## References
+## Related
 
-  - [mdast thematicBreak][]
+* [@yozora/ast][]
+* [@yozora/react-markdown][]
+* [@yozora/tokenizer-thematic-break][]
+* [ThematicBreak | Mdast][mdast]
 
 
-[mdast thematicBreak]: https://github.com/syntax-tree/mdast#thematicbreak
-[YozoraThematicBreakTheme]: https://github.com/guanghechen/yozora-react/blob/master/packages/thematic-break/src/theme.ts
+[@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#thematicbreak
+[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/tokenizer-thematic-break]: https://www.npmjs.com/package/@yozora/tokenizer-thematic-break
+[mdast]: https://github.com/syntax-tree/mdast#thematicbreak
