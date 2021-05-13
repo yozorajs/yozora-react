@@ -1,89 +1,78 @@
-import styled from 'styled-components'
+import { css } from 'styled-components'
 
-export const Container = styled.div`
-  --color-default: #ebedf0;
-  --color-info: #54c7ec;
-  --color-success: #00a400;
-  --color-warning: #ffba00;
-  --color-danger: #fa383e;
-  --color-text-primary: #24292e;
-  --color-text-secondary: #586069;
-  --color-text-tertiary: #6a737d;
-  --color-border-primary: #e1e4e8;
-  --color-border-secondary: hsla(216deg, 20%, 80%, 0.92);
-  --color-border-tertiary: #d1d5da;
-  --color-border-table: #dfe2e5;
-  --color-bg-primary: #fff;
-  --color-bg-secondary: #fafbfa;
-  --color-bg-tertiary: #f6f8fa;
-  --font-family-primary: lucida grande, lucida sans unicode, lucida, Hiragino Sans GB, Helvetica Neue, Microsoft Yahei, WenQuanYi Micro Hei, sans-serif;
+/**
+ * CSS variables
+ *
+ *  * Colors
+ *
+ *    // background colors
+ *    --color-bg-primary
+ *    --color-bg-secondary
+ *    --color-bg-tertiary
+ *
+ *    // border colors
+ *    --color-border-primary
+ *    --color-border-secondary
+ *    --color-border-tertiary
+ *
+ *    // text colors
+ *    --color-text-primary
+ *    --color-text-secondary
+ *    --color-text-tertiary
+ *
+ *  * Customized styles
+ *
+ *    // Admonition styles
+ *    --admonition-bg-default
+ *    --admonition-bg-info
+ *    --admonition-bg-success
+ *    --admonition-bg-warning
+ *    --admonition-bg-danger
+ *
+ *    // Code styles
+ *    --code-bg-highlight
+ *    --code-bg-selection
+ *    --code-color-border
+ *    --code-font-family
+ *
+ *    // Heading styles
+ *    --heading-font-family
+ *
+ *    // Link styles
+ *    --link-color
+ *    --link-color-hover
+ *    --link-color-active
+ *
+ *    // Math styles
+ *    --math-color
+ *
+ *    // Table styles
+ *    --table-bg-thead
+ *    --table-bg-row
+ *    --table-bg-row-even
+ *    --table-color-border
+ */
 
-  --code-bg-highlight: hsla(210deg, 100%, 84%, 0.2);
-  --code-bg-selection: hsla(200deg, 30%, 70%, 0.3);
-  --code-color-border: hsla(0deg, 0%, 30%, 0.8);
-  --code-font-family: Consolas, monospace, lucida grande, lucida sans unicode, lucida, Hiragino Sans GB, Helvetica Neue, Microsoft Yahei, WenQuanYi Micro Hei, sans-serif;
-  --heading-font-family: Comic Sans MS, lucida grande, lucida sans unicode, lucida, Hiragino Sans GB, Helvetica Neue, Microsoft Yahei, WenQuanYi Micro Hei, sans-serif;
-  --math-color: hsl(220, 100%, 32%);
-
-  --link-color: #4682B4;
-  --link-color-hover: #5c9fd6;
-  --link-color-active: #5c9fd6;
-
-  * {
-    box-sizing: border-box;
-  }
-
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-  ::-webkit-scrollbar-thumb {
-    border: 3px solid hsl(0, 0%, 50%);
-    background: hsl(0, 0%, 60%);
-    border-radius: 4px;
-    &:hover {
-      border-color: hsl(0, 0%, 70%);
-    }
-  }
-
-  a {
-    color: var(--link-color);
-    text-decoration: none;
-    &:visited {
-      color: var(--link-color);
-    }
-    &:hover {
-      color: var(--link-color-hover);
-    }
-  }
-  color: var(--color-text-tertiary);
-  word-break: break-all;
-
+export const BaseCss = css`
   .yozora-admonition {
     padding: 1em;
     border-radius: 10px;
     margin: 0 0 1.25em;
-    background-color: var(--color-default);
+    background-color: var(--admonition-bg-default);
     color: #fff;
-    .yozora-inline-math,
-    .yozora-math {
-      color: #fff;
-    }
     &.yozora-admonition--info {
-      background-color: var(--color-info);
+      background-color: var(--admonition-bg-info);
     }
     &.yozora-admonition--success {
-      background-color: var(--color-success);
+      background-color: var(--admonition-bg-success);
     }
     &.yozora-admonition--warning {
-      background-color: var(--color-warning);
+      background-color: var(--admonition-bg-warning);
     }
     &.yozora-admonition--danger {
-      background-color: var(--color-danger);
+      background-color: var(--admonition-bg-danger);
     }
+
     .yozora-admonition__heading {
       h5 {
         font-size: 1.2em;
@@ -348,18 +337,24 @@ export const Container = styled.div`
     border-collapse: collapse;
     border-radius: 6px;
     border-spacing: 0;
-    border: 1px solid var(--color-border-table);
+    border: 1px solid var(--table-color-border);
     margin: 0 auto 1rem;
     line-height: 1.6;
 
     .yozora-table__thead {
-      background-color: var(--color-bg-table-head);
+      background-color: var(--table-bg-thead);
       border-bottom: 1px solid #f0f0f0;
     }
     .yozora-table__thead th,
     .yozora-table__tbody td {
       padding: 0.5rem 1rem;
-      border-left: 1px solid var(--color-border-table);
+      border-left: 1px solid var(--table-color-border);
+    }
+    .yozora-table__thead th {
+      word-break: normal;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .yozora-table__thead th:first-child,
     .yozora-table__tbody td:first-child {
@@ -367,10 +362,10 @@ export const Container = styled.div`
     }
     .yozora-table__tbody {
       tr {
-        background-color: var(--color-bg-primary);
-        border-top: 1px solid var(--color-border-table);
+        border-top: 1px solid var(--table-color-border);
+        background-color: var(--table-bg-row-odd, var(--color-bg-primary));
         &:nth-child(2n) {
-          background-color: var(--color-bg-tertiary);
+          background-color: var(--table-bg-row-even, var(--color-bg-tertiary));
         }
       }
     }

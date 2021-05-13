@@ -1,6 +1,6 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 export interface TableProps {
   /**
@@ -37,11 +37,22 @@ export interface TableProps {
  */
 export function Table(props: TableProps): React.ReactElement {
   const { aligns, className, style, ths, tds } = props
+  const headRowRef = useRef<HTMLTableRowElement>(null)
+
+  // Set title attribute.
+  useEffect(() => {
+    if (headRowRef.current == null) return
+    const ths = headRowRef.current.children
+    for (let i = 0; i < ths.length; ++i) {
+      const th = ths[i] as HTMLTableHeaderCellElement
+      th.setAttribute('title', th.innerText)
+    }
+  }, [headRowRef])
 
   return (
     <table className={cn('yozora-table', className)} style={style}>
-      <thead className="yozora-table__head">
-        <tr className="yozora-table-row">
+      <thead className="yozora-table__thead">
+        <tr ref={headRowRef} className="yozora-table-row">
           {ths.map((children, cellIndex) => (
             <th
               key={cellIndex}
