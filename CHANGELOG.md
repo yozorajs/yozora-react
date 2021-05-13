@@ -1,5 +1,89 @@
 # Changelog
 
+<a name="1.0.0-alpha.0"></a>
+## 1.0.0-alpha.0 (2021-05-13)
+
+### Added
+
+- ✅ test: update snapshots [[504629e](https://github.com/guanghechen/yozora-react/commit/504629efe0485ecb875d06413694e588585ae0ed)]
+- ✅ test: update tests [[134a865](https://github.com/guanghechen/yozora-react/commit/134a8657bb1d725060a46cdb64a327074c67aa69)]
+- ✨ feat: add new component @yozora/react-code-literal [[2b4f5d7](https://github.com/guanghechen/yozora-react/commit/2b4f5d790fb2a94c0ff25857841442c1c253d043)]
+- ✨ feat: add new component @yozora/react-common-copy-button and @yozora/react-common-light-buttons [[2ad830c](https://github.com/guanghechen/yozora-react/commit/2ad830cff9dfb19d111d5cc796b414f1926b63cf)]
+- ✨ feat: implement new component @yozora/react-break [[dd3643a](https://github.com/guanghechen/yozora-react/commit/dd3643aaea70ed278e33f1385d4c9bd06dcd3e17)]
+- ✅ test: update tests [[722e7ce](https://github.com/guanghechen/yozora-react/commit/722e7ce1534360c47904607c527a38d7b52094b8)]
+- ✨ feat: implement new component @yozora/react-image [[441905d](https://github.com/guanghechen/yozora-react/commit/441905d7c666e4dd15fc66a477df130b942582f8)]
+- ✅ test: children is optional [[987dc3b](https://github.com/guanghechen/yozora-react/commit/987dc3b0536b1c8c7d39102ddfbf324865ece3aa)]
+- ✅ [code-highlighter] tests: update tests [[73d9fe7](https://github.com/guanghechen/yozora-react/commit/73d9fe72c4bb9871466a3e2bab98b8a6840f0b0b)]
+
+### Changed
+
+- 💄 improve: tweak table ui [[e682205](https://github.com/guanghechen/yozora-react/commit/e68220515bdaf7f84edc9f019caeefeff7008e9b)]
+- 💄 improve: tweak ui style [[e0a1c3d](https://github.com/guanghechen/yozora-react/commit/e0a1c3d8ed9a746a16418e6fd4cf3136537ae817)]
+- 🔧 chore: update editorconfig [[35c33f5](https://github.com/guanghechen/yozora-react/commit/35c33f58d70e9b82b8a5ce19e8e532aa6d9574d9)]
+- 🔧 chore: update lint configs [[b28b822](https://github.com/guanghechen/yozora-react/commit/b28b8223f2477a65c7510a612dbbb8b36ccb5e7d)]
+- 🔧 chore: remove dev dependencies (lift to the top level of the workspace [[8ceb60a](https://github.com/guanghechen/yozora-react/commit/8ceb60ae43b6a7f6782c0b21b3484b4535c97c7c)]
+- 🔧 chore: update eslint config [[4413f7c](https://github.com/guanghechen/yozora-react/commit/4413f7c2d7b98e8af7f80f2bd6f5da862031d887)]
+- 🎨 improve: rewrite @yozora/react-code-editor [[9d6d841](https://github.com/guanghechen/yozora-react/commit/9d6d841724bd5373ec9e3911613857b73ccce7e6)]
+- 🎨 improve: rewrite code-highlighter [[f393d98](https://github.com/guanghechen/yozora-react/commit/f393d9841af447729254941023659c92d2bbc009)]
+- 🎨 improve: lint codes [[e5b41f6](https://github.com/guanghechen/yozora-react/commit/e5b41f63c3a006ded3ad7e36f14840685ee733b3)]
+- 🔧 chore: upgrade @guanghechen/* to v1.2.1 &amp; update lint configs [[c9f07e4](https://github.com/guanghechen/yozora-react/commit/c9f07e48462e6a60446b91dbae2ce84949c37095)]
+- 🔧 chore: update lint ignore patterns [[53127b7](https://github.com/guanghechen/yozora-react/commit/53127b7f858e051d3fc53edbbd34e211437e0c0c)]
+- 🔧 chore: add github workflow &amp; add .nvmrc [[2f40df6](https://github.com/guanghechen/yozora-react/commit/2f40df62032b33fab54dd2a36a3d6b18dbc7192e)]
+- ⬆️ chore: upgrade @guanghechen/* to v1.0.13 [[ba31568](https://github.com/guanghechen/yozora-react/commit/ba315682ca660dcc1f7ec5ed186b017fda5b171d)]
+
+### Breaking changes
+
+- 💥 improve: rewrite @yozora/react-link [[175d655](https://github.com/guanghechen/yozora-react/commit/175d655d21daf2a33511069ab990c262678a2ada)]
+- 💥 improve: rewrite @yozora/react-markdown [[9bbeadb](https://github.com/guanghechen/yozora-react/commit/9bbeadbb9a548411b8ab78ad17a1eee38efe6b4c)]
+- 💥 improve: rewrite @yozora/react-footnote-definitions [[f6770c2](https://github.com/guanghechen/yozora-react/commit/f6770c2428744702685c7c17465de290bea99c83)]
+- 💥 improve: rewrite @yozora/react-footnote-reference [[9b64294](https://github.com/guanghechen/yozora-react/commit/9b64294e8292c0490c43d4ade0d5432b85118ee5)]
+- 💥 improve: rewrite @yozora/react-admonition [[2c71e9b](https://github.com/guanghechen/yozora-react/commit/2c71e9b6979690fc5f26534cdd7c1c35d62f4411)]
+- 💥 improve: rewrite @yozora/react-code [[d2458e4](https://github.com/guanghechen/yozora-react/commit/d2458e49aa77f35dd92f97252329207cfc1548d3)]
+- 💥 improve: rewrite @yozora/react-code-live [[ea70e52](https://github.com/guanghechen/yozora-react/commit/ea70e52d123ec54ee6036a4f011e5d5bf90683f3)]
+- 💥 improve: rewrite @yozora/react-code-embed [[7fd1b19](https://github.com/guanghechen/yozora-react/commit/7fd1b1971b3147ea2b2b9cfefb26b4c211b33f36)]
+- 💥 feat: rewrite @yozora/react-table &amp; remove @yozora/react-table-row and @yozora/react-table-cell [[0f60506](https://github.com/guanghechen/yozora-react/commit/0f60506f743b3f8a539d3b8d488a93893b041b5f)]
+- 💥 feat: rewrite @yozora/react-heading [[8972b27](https://github.com/guanghechen/yozora-react/commit/8972b2748543e9002a9597fabb799229803f0c95)]
+- 💥 feat(text): rewrite @yozora/react-list [[d50c084](https://github.com/guanghechen/yozora-react/commit/d50c08410e4fda286b867f9d801b0679a6dd92a4)]
+- 💥 feat(text): rewrite @yozora/react-list-item [[614c118](https://github.com/guanghechen/yozora-react/commit/614c1184105a5099100222c1c3944d44fe98953f)]
+- 💥 feat: rewrite @yozora/react-math [[5c2dd2e](https://github.com/guanghechen/yozora-react/commit/5c2dd2e69f26e5b12ecb1e4d2248e88f4e9f71c2)]
+- 💥 feat: rewrite @yozora/react-inline-math [[2f38a3a](https://github.com/guanghechen/yozora-react/commit/2f38a3aa98e0fa4b4fc76d925223e51b9dc3c1cd)]
+- 💥 feat: rewrite @yozora/react-inline-code [[2eeb367](https://github.com/guanghechen/yozora-react/commit/2eeb3672f58662661c85ac9cf58cedcfbb93ce0b)]
+- 💥 feat: rewrite @yozora/react-blockquote [[7d8e398](https://github.com/guanghechen/yozora-react/commit/7d8e39870043455bfdfb03c21ff3c804d9df0a91)]
+- 💥 feat: rewrite @yozora/react-delete [[1e1bf11](https://github.com/guanghechen/yozora-react/commit/1e1bf113bb00982379a8d1f24a799b7be5702cb3)]
+- 💥 feat: rewrite @yozora/react-emphasis [[1978889](https://github.com/guanghechen/yozora-react/commit/19788893a04bc1d85416d54ac95faa6242e0419d)]
+- 💥 feat: rewrite @yozora/react-paragraph [[fbf2a3a](https://github.com/guanghechen/yozora-react/commit/fbf2a3a26a941b1c3cc695e60e5c8f9e392b0df2)]
+- 💥 feat: rewrite @yozora/react-strong [[0a4dccd](https://github.com/guanghechen/yozora-react/commit/0a4dccd3380ff14688ebe45a991456ec6f7b2cb5)]
+- 💥 feat: rewrite @yozora/react-thematic-break [[326bc5c](https://github.com/guanghechen/yozora-react/commit/326bc5cd91d0ed78129be29ac30b8b9794048136)]
+- 💥 feat(text): rewrite @yozora/react-text [[7e5e614](https://github.com/guanghechen/yozora-react/commit/7e5e614603e59473473576190a75d362b818ff64)]
+- 💥 feat(heading): rewrite without styled-components [[2fad6c8](https://github.com/guanghechen/yozora-react/commit/2fad6c858d794abae2905fac146f0fe358f4618a)]
+- 💥 feat(inline-code): rewrite without styled-components [[e18309d](https://github.com/guanghechen/yozora-react/commit/e18309d9c4219bac0ed93938ce6fc5b69474ce78)]
+- 💥 feat(list): rewrite without styled-components [[e0cb18a](https://github.com/guanghechen/yozora-react/commit/e0cb18a00abf999f0fe486e46acdbba5464abd72)]
+- 💥 feat(list-item): rewrite without styled-components [[ed0daf7](https://github.com/guanghechen/yozora-react/commit/ed0daf7f759890e50a643b85cc1b56a14492bebb)]
+- 💥 feat(paragraph): rewrite without styled-components [[3cecf0f](https://github.com/guanghechen/yozora-react/commit/3cecf0f6605b3f434b95592ae2be11807309b2a7)]
+- 💥 feat(strong): rewrite without styled-components [[74bc48a](https://github.com/guanghechen/yozora-react/commit/74bc48af0a97c08284459797f0d42104728e7461)]
+- 💥 feat(emphasis): rewrite without styled-components [[dcee7a0](https://github.com/guanghechen/yozora-react/commit/dcee7a0e2e6183e179abd25a723b463fdb097bd9)]
+- 💥 feat(blockquote): rewrite without styled-components [[80a5abb](https://github.com/guanghechen/yozora-react/commit/80a5abb6205f265244297eb49aece173065d4b71)]
+- 💥 feat(delete): rewrite without styled-components [[aa3cdda](https://github.com/guanghechen/yozora-react/commit/aa3cddaa580141b89b21460e48cc5df2cc6ec70d)]
+- 💥 feat(thematic-break): rewrite without styled-components [[4cb776f](https://github.com/guanghechen/yozora-react/commit/4cb776ff7b4152da0acf2f2dcd00d45a321461a0)]
+- 💥 feat(text): rewrite without styled-components [[78d5f2c](https://github.com/guanghechen/yozora-react/commit/78d5f2c5419c42bdcc6b2663b79e5f6d14937986)]
+
+### Miscellaneous
+
+- 🔨 wrench: update npm scripts [[db0d2ab](https://github.com/guanghechen/yozora-react/commit/db0d2ab754b4a760508489e59bf077806d745de7)]
+- 🔀 Merge branch &#x27;develop&#x27; [[6977e14](https://github.com/guanghechen/yozora-react/commit/6977e1478edb480c21e1aa0bfdc11459ba1e016c)]
+- 📝 docs: update READMEs [[468481a](https://github.com/guanghechen/yozora-react/commit/468481aa0c4d562d8dbded7232cc951ed583ad0b)]
+- 📝 docs: update READMEs [[cfd03d1](https://github.com/guanghechen/yozora-react/commit/cfd03d1307740ce59866852d04d69193b34cffd4)]
+- 🔨 chore: update rollup config &amp; upgrade dev dependencies [[3bbc3d0](https://github.com/guanghechen/yozora-react/commit/3bbc3d0fb37c1a7eba37b54f4d65bb3c9ab36160)]
+- 🚧 improve: rewrite @yozora/react-code-highlighter [[eeed802](https://github.com/guanghechen/yozora-react/commit/eeed802b2bd3103e705d50e25f0021e58f7feb29)]
+- 📝 docs: update READMEs [[4ed03d9](https://github.com/guanghechen/yozora-react/commit/4ed03d93d5b529df73a2e1a82c4081b625570a44)]
+- 📝 docs: update READMEs [[d21c43c](https://github.com/guanghechen/yozora-react/commit/d21c43c69a06b3333cab269f00488c2a869175dc)]
+- 📝 docs: update READMEs [[6a7d22c](https://github.com/guanghechen/yozora-react/commit/6a7d22c90e9d1d5f1614b80ab162c1a7e98d5500)]
+- 📝 docs(text): update code comments and README [[cf8a1ad](https://github.com/guanghechen/yozora-react/commit/cf8a1ad693a3f7afb3d8fb3be8b4aae4e2a26abb)]
+- 🙈 wrench: ignore coverage/ [[09ae83d](https://github.com/guanghechen/yozora-react/commit/09ae83d15b0d1e2c7fbeb46a6cf63e471d33dcbb)]
+- 📝 docs: update READMEs [[223a81f](https://github.com/guanghechen/yozora-react/commit/223a81f65dc910fb628e61127e5d8ea1c4bc594a)]
+- 📝 docs: add CHANGELOG [[cd5c9e0](https://github.com/guanghechen/yozora-react/commit/cd5c9e0df8b668cc4d10d61e8cf93dbadb935dab)]
+
+
 <a name="0.0.10"></a>
 ## 0.0.10 (2021-03-10)
 
