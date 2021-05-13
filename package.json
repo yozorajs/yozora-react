@@ -17,7 +17,8 @@
     "node": ">= 14.15.0"
   },
   "scripts": {
-    ":publish": "yarn test && lerna publish --no-private",
+    ":publish": "yarn test && lerna publish",
+    ":upgrade": "yarn upgrade-interactive --latest && run-s clean format build test",
     "build": "lerna run build --concurrency 1",
     "clean": "lerna clean --yes && yarn install",
     "format": "run-s format:lint:fix format:prettier",
@@ -28,11 +29,11 @@
     "postinstall:main": "yarn update:lock",
     "postinstall:dev": "is-ci || husky install",
     "postpublish": "pinst --enable",
-    "rebuild": "yarn clean && yarn build",
+    "rebuild": "run-s clean build",
     "start": "lerna run start --parallel",
-    "test": "lerna run --parallel test",
-    "test:coverage": "lerna run test --parallel -- --coverage",
-    "update:snapshot": "lerna run test --parallel -- -u",
+    "test": "lerna run test --concurrency 4",
+    "test:coverage": "lerna run test --concurrency 1 -- --coverage",
+    "test:update": "lerna run test --parallel -- -u",
     "update:changelog": "gitmoji-changelog update",
     "update:lock": "yarn-deduplicate"
   },
