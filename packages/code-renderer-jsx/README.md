@@ -80,7 +80,7 @@ this component is implemented with reference to [react-live][])
   ```
 
 ## Usage
-  * Use in React project
+  * Basic:
 
     ```tsx
     import React from 'react'
@@ -149,7 +149,7 @@ this component is implemented with reference to [react-live][])
      `onError`  | `(error: string | null) => void`  | `true`    | -           | Error callback
 
 
-## References
+## Related
 
   - [mdast code][]
   - [react live][]

@@ -80,7 +80,7 @@ as it's seems not been updated for several months.
   ```
 
 ## Usage
-  * Use in React project
+  * Basic:
 
     ```tsx
     import React, { useState } from 'react'

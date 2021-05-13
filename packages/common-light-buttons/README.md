@@ -74,7 +74,7 @@ Light buttons, imitate the window action icons in MacOS.
 
 ## Usage
 
-* Use in React project
+* Basic:
 
   ```tsx
   import React from 'react'

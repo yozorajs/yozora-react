@@ -74,7 +74,7 @@ Render a simple copy button.
 
 ## Usage
 
-* Use in React project
+* Basic:
 
   ```tsx
   import React from 'react'

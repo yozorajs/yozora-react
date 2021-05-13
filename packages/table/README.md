@@ -81,7 +81,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
  ## Usage
 
-* Use in React project
+* Basic:
 
   ```tsx
   import React from 'react'
@@ -120,7 +120,7 @@ Name        | Type                    | Required  | Default | Description
   CSS class `'yozora-table'`.
 
 
-## References
+## Related
 
 * [@yozora/ast][]
 * [@yozora/react-markdown][]
