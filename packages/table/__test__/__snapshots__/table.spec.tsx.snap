@@ -6,7 +6,7 @@ exports[`snapshot 1`] = `
   style="color:orange;font-size:16px"
 >
   <thead
-    class="yozora-table__head"
+    class="yozora-table__thead"
   >
     <tr
       class="yozora-table-row"
