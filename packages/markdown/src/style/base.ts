@@ -57,20 +57,19 @@ export const BaseCss = css`
   .yozora-admonition {
     padding: 1em;
     border-radius: 10px;
-    margin: 0 0 1.25em;
-    background-color: var(--admonition-bg-default);
+    background-color: var(--admonition-color-default);
     color: #fff;
     &.yozora-admonition--info {
-      background-color: var(--admonition-bg-info);
+      background-color: var(--admonition-color-info);
     }
     &.yozora-admonition--success {
-      background-color: var(--admonition-bg-success);
+      background-color: var(--admonition-color-success);
     }
     &.yozora-admonition--warning {
-      background-color: var(--admonition-bg-warning);
+      background-color: var(--admonition-color-warning);
     }
     &.yozora-admonition--danger {
-      background-color: var(--admonition-bg-danger);
+      background-color: var(--admonition-color-danger);
     }
 
     .yozora-admonition__heading {
