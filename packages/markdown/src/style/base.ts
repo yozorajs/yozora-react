@@ -20,6 +20,9 @@ import { css } from 'styled-components'
  *    --color-text-secondary
  *    --color-text-tertiary
  *
+ *    // box sizing
+ *    --margin-block-node
+ *
  *  * Customized styles
  *
  *    // Admonition styles
@@ -57,6 +60,7 @@ export const BaseCss = css`
   .yozora-admonition {
     padding: 1em;
     border-radius: 10px;
+    margin: var(--margin-block-node);
     background-color: var(--admonition-color-default);
     color: #fff;
     &.yozora-admonition--info {
@@ -90,7 +94,7 @@ export const BaseCss = css`
   .yozora-blockquote {
     padding: 0.625em 1em;
     border-left: 0.25em solid #dfe2e5;
-    margin: 0 0 1.25em;
+    margin: var(--margin-block-node);
     background: #fafaf9;
   }
 
@@ -101,7 +105,7 @@ export const BaseCss = css`
   .yozora-code {
     position: relative;
     padding: 0 0 0.2rem;
-    margin: 1rem 0;
+    margin: var(--margin-block-node);
     border-radius: 4px;
     background: #1e1e1e;
     caret-color: #aeafad;
@@ -145,6 +149,14 @@ export const BaseCss = css`
     }
   }
 
+  .yozora-code-literal {
+    margin: var(--margin-block-node);
+  }
+
+  .yozora-code-live {
+    margin: var(--margin-block-node);
+  }
+
   .yozora-delete {
     text-decoration: line-through;
   }
@@ -182,7 +194,7 @@ export const BaseCss = css`
     align-items: center;
     justify-content: start;
     padding: 0;
-    margin: 0 0 1rem;
+    margin: var(--margin-block-node);
     line-height: 1.25;
     font-family: var(--heading-font-family);
     .yozora-heading__content {
@@ -307,13 +319,14 @@ export const BaseCss = css`
 
   .yozora-math {
     border: none;
+    margin: var(--margin-block-node);
     color: var(--math-color);
     background: transparent;
   }
 
   .yozora-paragraph {
     padding: 0;
-    margin: 0 0 1em;
+    margin: var(--margin-block-node);
     line-height: 2;
     &.yozora-paragraph--display {
       display: flex;
@@ -337,7 +350,7 @@ export const BaseCss = css`
     border-radius: 6px;
     border-spacing: 0;
     border: 1px solid var(--table-color-border);
-    margin: 0 auto 1rem;
+    margin: var(--margin-block-node);
     line-height: 1.6;
 
     .yozora-table__thead {

@@ -33,6 +33,12 @@ export const Container = styled.div`
     }
   }
 
+  > .yozora-code-literal__content {
+    pre {
+      margin: 0;
+    }
+  }
+
   &:hover {
     .yozora-code-literal__copy-button {
       visibility: visible;

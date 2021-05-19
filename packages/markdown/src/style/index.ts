@@ -17,6 +17,9 @@ export const Container = styled.div`
   --color-text-secondary: #586069;
   --color-text-tertiary: #6a737d;
 
+  // box sizing
+  --margin-block-node: 0 0 1.25em
+
   // Admonition styles
   --admonition-color-default: #ebedf0;
   --admonition-color-info: #54c7ec;
