@@ -102,57 +102,7 @@ export const BaseCss = css`
     box-sizing: border-box;
   }
 
-  .yozora-code {
-    position: relative;
-    padding: 0 0 0.2rem;
-    margin: var(--margin-block-node);
-    border-radius: 4px;
-    background: #1e1e1e;
-    caret-color: #aeafad;
-    ::selection {
-      background: var(--code-bg-selection);
-    }
-    > code {
-      overflow: auto;
-      padding: 0;
-      border: none;
-      margin: 0;
-      font-family: var(--code-font-family);
-      font-size: 14px;
-      line-height: 1.33;
-      background: none;
-      text-shadow: 0 1px;
-      white-space: pre-wrap;
-      overflow-wrap: break-word;
-      word-spacing: normal;
-      word-break: break-all;
-      word-wrap: break-word;
-      letter-spacing: 1px;
-      line-height: inherit;
-      tab-size: 2;
-      > pre {
-        margin: 0;
-        font-family: var(--code-font-family);
-        line-height: inherit;
-        code, span {
-          line-height: inherit;
-        }
-        code {
-          padding: 0;
-          margin: 0;
-          background: transparent;
-        }
-        ::selection {
-          background: var(--code-bg-selection);
-        }
-      }
-    }
-  }
-
-  .yozora-code-literal {
-    margin: var(--margin-block-node);
-  }
-
+  .yozora-code-literal,
   .yozora-code-live {
     margin: var(--margin-block-node);
   }

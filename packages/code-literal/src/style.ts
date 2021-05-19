@@ -5,6 +5,10 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   border: 1px solid #d3d3d3;
+  caret-color: #aeafad;
+  ::selection {
+    background: var(--code-bg-selection);
+  }
 
   > .yozora-code-literal__toolbar {
     flex: 0 0 auto;
@@ -34,8 +38,38 @@ export const Container = styled.div`
   }
 
   > .yozora-code-literal__content {
-    pre {
+    overflow: auto;
+    padding: 0;
+    border: none;
+    margin: 0;
+    font-family: var(--code-font-family);
+    font-size: 14px;
+    line-height: 1.33;
+    background: none;
+    text-shadow: 0 1px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-spacing: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+    letter-spacing: 1px;
+    line-height: inherit;
+    tab-size: 2;
+    > pre {
       margin: 0;
+      font-family: var(--code-font-family);
+      line-height: inherit;
+      code, span {
+        line-height: inherit;
+      }
+      code {
+        padding: 0;
+        margin: 0;
+        background: transparent;
+      }
+      ::selection {
+        background: var(--code-bg-selection);
+      }
     }
   }
 
