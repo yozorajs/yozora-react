@@ -13,7 +13,8 @@ export function parseCodeMeta(meta: string): CodeMetaData {
   let collapsed: boolean | undefined = undefined
   const lineNos: number[] = []
 
-  const lineNoRangeRegex = /^\s*\{\s*((?:\d+|\d+-\d+)(?:\s*,\s*(?:\d+|\d+-\d+))*)\s*\}\s*/
+  const lineNoRangeRegex =
+    /^\s*\{\s*((?:\d+|\d+-\d+)(?:\s*,\s*(?:\d+|\d+-\d+))*)\s*\}\s*/
   function eatLineNo(): void {
     const match = lineNoRangeRegex.exec(input)
     if (match == null) return
@@ -39,7 +40,8 @@ export function parseCodeMeta(meta: string): CodeMetaData {
     }
   }
 
-  const attributeRegex = /^\s*([a-zA-Z_]\w+)(?:\s*=\s*"([^"]*)"|\s*=\s*([\S]*))?\s*/
+  const attributeRegex =
+    /^\s*([a-zA-Z_]\w+)(?:\s*=\s*"([^"]*)"|\s*=\s*([\S]*))?\s*/
   function eatAttribute(): [string, string | undefined] | null {
     const match = attributeRegex.exec(input)
     if (match == null) return null

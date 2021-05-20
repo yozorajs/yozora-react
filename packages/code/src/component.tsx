@@ -1,13 +1,13 @@
-import type { CodeRunnerProps } from '@yozora/react-code-embed'
 import CodeEmbed from '@yozora/react-code-embed'
 import CodeLiteral from '@yozora/react-code-literal'
-import type { CodeRunnerItem } from '@yozora/react-code-live'
 import CodeLive from '@yozora/react-code-live'
 import JsxRenderer from '@yozora/react-code-renderer-jsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import type { CodeProps } from './types'
+import type { CodeRunnerProps } from '@yozora/react-code-embed'
+import type { CodeRunnerItem } from '@yozora/react-code-live'
 import { parseCodeMeta } from './util'
+import type { CodeProps } from './types'
 
 const defaultRunners: CodeRunnerItem[] = [
   {
@@ -48,9 +48,8 @@ export function Code(props: CodeProps): React.ReactElement {
   } = props
 
   const runners = [...(_runners ?? []), ...defaultRunners]
-  const { highlightLinenos, maxLines, mode, title, collapsed } = parseCodeMeta(
-    meta,
-  )
+  const { highlightLinenos, maxLines, mode, title, collapsed } =
+    parseCodeMeta(meta)
 
   // Remove trailing line endings.
   const formattedValue = value.trim()

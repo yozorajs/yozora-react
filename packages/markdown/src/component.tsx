@@ -1,15 +1,15 @@
+import { collectFootnoteDefinitions } from '@yozora/ast-util'
+import YozoraFootnotesRenderer from '@yozora/react-footnote-definitions'
+import cn from 'clsx'
+import React, { useMemo, useState } from 'react'
+import MathJax from 'react-mathjax'
 import type {
   Definition,
   FootnoteDefinition,
   Root,
   YastNode,
 } from '@yozora/ast'
-import { collectFootnoteDefinitions } from '@yozora/ast-util'
 import type { FootnoteItem } from '@yozora/react-footnote-definitions'
-import YozoraFootnotesRenderer from '@yozora/react-footnote-definitions'
-import cn from 'clsx'
-import React, { useMemo, useState } from 'react'
-import MathJax from 'react-mathjax'
 import { createYozoraNodesRenderer } from './renderer'
 import { Container } from './style'
 import type {
@@ -100,10 +100,10 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [definitionMap, footnoteDefinitionMap])
 
-  const children = useMemo<React.ReactNode[]>(() => renderNodes(ast.children), [
-    renderNodes,
-    ast.children,
-  ])
+  const children = useMemo<React.ReactNode[]>(
+    () => renderNodes(ast.children),
+    [renderNodes, ast.children],
+  )
 
   const footnotes = useMemo<React.ReactNode>(() => {
     const nodes: FootnoteItem[] = collectFootnoteDefinitions(ast).map(item => ({

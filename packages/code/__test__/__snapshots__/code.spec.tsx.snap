@@ -171,6 +171,11 @@ exports[`snapshot literal 1`] = `
   -ms-flex-pack: start;
   justify-content: flex-start;
   border: 1px solid #d3d3d3;
+  caret-color: #aeafad;
+}
+
+.c0::selection {
+  background: var(--code-bg-selection);
 }
 
 .c0 > .yozora-code-literal__toolbar {
@@ -211,6 +216,50 @@ exports[`snapshot literal 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.c0 > .yozora-code-literal__content {
+  overflow: auto;
+  padding: 0;
+  border: none;
+  margin: 0;
+  font-family: var(--code-font-family);
+  font-size: 14px;
+  line-height: 1.33;
+  background: none;
+  text-shadow: 0 1px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-spacing: normal;
+  word-break: break-all;
+  word-wrap: break-word;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  line-height: inherit;
+  tab-size: 2;
+}
+
+.c0 > .yozora-code-literal__content > pre {
+  margin: 0;
+  font-family: var(--code-font-family);
+  line-height: inherit;
+}
+
+.c0 > .yozora-code-literal__content > pre code,
+.c0 > .yozora-code-literal__content > pre span {
+  line-height: inherit;
+}
+
+.c0 > .yozora-code-literal__content > pre code {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.c0 > .yozora-code-literal__content > pre::selection {
+  background: var(--code-bg-selection);
 }
 
 .c0:hover .yozora-code-literal__copy-button {
@@ -262,7 +311,9 @@ exports[`snapshot literal 1`] = `
       </button>
     </span>
   </div>
-  <code>
+  <code
+    class="yozora-code-literal__content"
+  >
     <pre>
       <div
         class="c6 prism-code language-jsx"
