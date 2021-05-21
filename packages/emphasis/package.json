@@ -11,7 +11,7 @@
     "url": "https://github.com/guanghechen/yozora-react.git",
     "directory": "packages/emphasis"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/emphasis#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/emphasis#readme",
   "keywords": [
     "mdast node renderer",
     "markdown emphasis"

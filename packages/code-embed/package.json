@@ -11,7 +11,7 @@
     "url": "https://github.com/guanghechen/yozora-react.git",
     "directory": "packages/code-embed"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/code-embed#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/code-embed#readme",
   "keywords": [
     "mdast node render",
     "code embed"

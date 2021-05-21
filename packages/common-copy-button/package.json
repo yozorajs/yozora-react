@@ -11,7 +11,7 @@
     "url": "https://github.com/guanghechen/yozora-react.git",
     "directory": "packages/common-copy-button"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/common-copy-button#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/common-copy-button#readme",
   "keywords": [],
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",

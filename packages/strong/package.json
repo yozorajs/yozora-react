@@ -11,7 +11,7 @@
     "url": "https://github.com/guanghechen/yozora-react.git",
     "directory": "packages/strong"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/strong#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/strong#readme",
   "keywords": [
     "mdast renderer",
     "strong",

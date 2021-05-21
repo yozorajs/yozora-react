@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/code-renderer-jsx#readme">@yozora/react-code-renderer-jsx</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/main/packages/code-renderer-jsx#readme">@yozora/react-code-renderer-jsx</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-code-renderer-jsx">

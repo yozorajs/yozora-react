@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/thematic-break#readme">@yozora/react-thematic-break</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/main/packages/thematic-break#readme">@yozora/react-thematic-break</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-thematic-break">

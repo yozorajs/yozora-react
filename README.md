@@ -30,7 +30,7 @@
     <a href="https://github.com/guanghechen/yozora-react/actions/workflows/ci.yml">
       <img
         alt="CI Workflow"
-        src="https://github.com/guanghechen/yozora-react/workflows/Build/badge.svg?branch=master"
+        src="https://github.com/guanghechen/yozora-react/workflows/Build/badge.svg?branch=main"
       />
     </a>
     <a href="https://github.com/facebook/react">
@@ -109,34 +109,34 @@ Component Name                    | Description
 [react-live]: https://github.com/FormidableLabs/react-live
 
 <!-- yozora component links -->
-[@yozora/react-admonition]: https://github.com/guanghechen/yozora-react/tree/master/packages/admonition#readme
-[@yozora/react-blockquote]: https://github.com/guanghechen/yozora-react/tree/master/packages/blockquote#readme
-[@yozora/react-break]: https://github.com/guanghechen/yozora-react/tree/master/packages/break#readme
-[@yozora/react-code]: https://github.com/guanghechen/yozora-react/tree/master/packages/code#readme
-[@yozora/react-code-editor]: https://github.com/guanghechen/yozora-react/tree/master/packages/code-editor#readme
-[@yozora/react-code-embed]: https://github.com/guanghechen/yozora-react/tree/master/packages/code-embed#readme
-[@yozora/react-code-highlighter]: https://github.com/guanghechen/yozora-react/tree/master/packages/code-highlighter#readme
-[@yozora/react-code-literal]: https://github.com/guanghechen/yozora-react/tree/master/packages/code-literal#readme
-[@yozora/react-code-live]: https://github.com/guanghechen/yozora-react/tree/master/packages/code-live#readme
-[@yozora/react-code-renderer-jsx]: https://github.com/guanghechen/yozora-react/tree/master/packages/code-renderer-jsx#readme
-[@yozora/react-delete]: https://github.com/guanghechen/yozora-react/tree/master/packages/delete#readme
-[@yozora/react-emphasis]: https://github.com/guanghechen/yozora-react/tree/master/packages/emphasis#readme
-[@yozora/react-footnote-reference]: https://github.com/guanghechen/yozora-react/tree/master/packages/footnote-reference#readme
-[@yozora/react-footnote-definitions]: https://github.com/guanghechen/yozora-react/tree/master/packages/footnote-definitions#readme
-[@yozora/react-heading]: https://github.com/guanghechen/yozora-react/tree/master/packages/heading#readme
-[@yozora/react-image]: https://github.com/guanghechen/yozora-react/tree/master/packages/image#readme
-[@yozora/react-inline-code]: https://github.com/guanghechen/yozora-react/tree/master/packages/inline-code#readme
-[@yozora/react-inline-math]: https://github.com/guanghechen/yozora-react/tree/master/packages/inline-math#readme
-[@yozora/react-link]: https://github.com/guanghechen/yozora-react/tree/master/packages/link#readme
-[@yozora/react-list]: https://github.com/guanghechen/yozora-react/tree/master/packages/list#readme
-[@yozora/react-list-item]: https://github.com/guanghechen/yozora-react/tree/master/packages/list-item#readme
-[@yozora/react-math]: https://github.com/guanghechen/yozora-react/tree/master/packages/math#readme
-[@yozora/react-paragraph]: https://github.com/guanghechen/yozora-react/tree/master/packages/paragraph#readme
-[@yozora/react-strong]: https://github.com/guanghechen/yozora-react/tree/master/packages/strong#readme
-[@yozora/react-table]: https://github.com/guanghechen/yozora-react/tree/master/packages/table#readme
-[@yozora/react-text]: https://github.com/guanghechen/yozora-react/tree/master/packages/text#readme
-[@yozora/react-thematic-break]: https://github.com/guanghechen/yozora-react/tree/master/packages/thematic-break#readme
-[@yozora/react-markdown]: https://github.com/guanghechen/yozora-react/tree/master/packages/markdown#readme
+[@yozora/react-admonition]: https://github.com/guanghechen/yozora-react/tree/main/packages/admonition#readme
+[@yozora/react-blockquote]: https://github.com/guanghechen/yozora-react/tree/main/packages/blockquote#readme
+[@yozora/react-break]: https://github.com/guanghechen/yozora-react/tree/main/packages/break#readme
+[@yozora/react-code]: https://github.com/guanghechen/yozora-react/tree/main/packages/code#readme
+[@yozora/react-code-editor]: https://github.com/guanghechen/yozora-react/tree/main/packages/code-editor#readme
+[@yozora/react-code-embed]: https://github.com/guanghechen/yozora-react/tree/main/packages/code-embed#readme
+[@yozora/react-code-highlighter]: https://github.com/guanghechen/yozora-react/tree/main/packages/code-highlighter#readme
+[@yozora/react-code-literal]: https://github.com/guanghechen/yozora-react/tree/main/packages/code-literal#readme
+[@yozora/react-code-live]: https://github.com/guanghechen/yozora-react/tree/main/packages/code-live#readme
+[@yozora/react-code-renderer-jsx]: https://github.com/guanghechen/yozora-react/tree/main/packages/code-renderer-jsx#readme
+[@yozora/react-delete]: https://github.com/guanghechen/yozora-react/tree/main/packages/delete#readme
+[@yozora/react-emphasis]: https://github.com/guanghechen/yozora-react/tree/main/packages/emphasis#readme
+[@yozora/react-footnote-reference]: https://github.com/guanghechen/yozora-react/tree/main/packages/footnote-reference#readme
+[@yozora/react-footnote-definitions]: https://github.com/guanghechen/yozora-react/tree/main/packages/footnote-definitions#readme
+[@yozora/react-heading]: https://github.com/guanghechen/yozora-react/tree/main/packages/heading#readme
+[@yozora/react-image]: https://github.com/guanghechen/yozora-react/tree/main/packages/image#readme
+[@yozora/react-inline-code]: https://github.com/guanghechen/yozora-react/tree/main/packages/inline-code#readme
+[@yozora/react-inline-math]: https://github.com/guanghechen/yozora-react/tree/main/packages/inline-math#readme
+[@yozora/react-link]: https://github.com/guanghechen/yozora-react/tree/main/packages/link#readme
+[@yozora/react-list]: https://github.com/guanghechen/yozora-react/tree/main/packages/list#readme
+[@yozora/react-list-item]: https://github.com/guanghechen/yozora-react/tree/main/packages/list-item#readme
+[@yozora/react-math]: https://github.com/guanghechen/yozora-react/tree/main/packages/math#readme
+[@yozora/react-paragraph]: https://github.com/guanghechen/yozora-react/tree/main/packages/paragraph#readme
+[@yozora/react-strong]: https://github.com/guanghechen/yozora-react/tree/main/packages/strong#readme
+[@yozora/react-table]: https://github.com/guanghechen/yozora-react/tree/main/packages/table#readme
+[@yozora/react-text]: https://github.com/guanghechen/yozora-react/tree/main/packages/text#readme
+[@yozora/react-thematic-break]: https://github.com/guanghechen/yozora-react/tree/main/packages/thematic-break#readme
+[@yozora/react-markdown]: https://github.com/guanghechen/yozora-react/tree/main/packages/markdown#readme
 
 [yozora/ast]: https://www.npmjs.com/package/@yozora/ast
 [yozora/admonition]: https://www.npmjs.com/package/@yozora/ast#admonition

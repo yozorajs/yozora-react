@@ -11,7 +11,7 @@
     "url": "https://github.com/guanghechen/yozora-react.git",
     "directory": "packages/inline-math"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/inline-math#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/inline-math#readme",
   "keywords": [
     "mdast node renderer",
     "markdown inlineMath"

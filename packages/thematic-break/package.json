@@ -11,7 +11,7 @@
     "url": "https://github.com/guanghechen/yozora-react.git",
     "directory": "packages/thematic-break"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/thematic-break#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/thematic-break#readme",
   "keywords": [
     "mdast renderer",
     "thematicBreak"

@@ -11,7 +11,7 @@
     "url": "https://github.com/guanghechen/yozora-react.git",
     "directory": "packages/footnote-definitions"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/footnote-definitions#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/footnote-definitions#readme",
   "keywords": [
     "mdast node renderer",
     "markdown footnote definitions"

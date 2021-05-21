@@ -11,7 +11,7 @@
     "url": "https://github.com/guanghechen/yozora-react.git",
     "directory": "packages/markdown"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/markdown#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/markdown#readme",
   "keywords": [
     "react markdown component"
   ],
