@@ -265,7 +265,7 @@ export const BaseCss = css`
 
   .yozora-list-item {
     padding: 0;
-    margin: 0 0 0.5em;
+    margin: 0;
   }
 
   .yozora-math {
