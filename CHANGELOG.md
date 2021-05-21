@@ -1,5 +1,29 @@
 # Changelog
 
+<a name="1.0.0-alpha.1"></a>
+## 1.0.0-alpha.1 (2021-05-21)
+
+### Changed
+
+- ⬆️ chore: upgrade devDependencies [[1a9ee96](https://github.com/guanghechen/yozora-react/commit/1a9ee9692dc617fe9fe07656d9390faeb4ac38ec)]
+- 💄 improve: tweak styles [[c7f1a19](https://github.com/guanghechen/yozora-react/commit/c7f1a19a6da07633ccc01fb0fd76dc1167113aa6)]
+- 🎨 style: lint codes [[85e9280](https://github.com/guanghechen/yozora-react/commit/85e92808d1776aa3ab80e8311e751212c3320900)]
+- 🔧 chore: rename the default branch to &#x27;main&#x27; instead of &#x27;master&#x27; &amp; trigger ci on new release tag created [[01621b6](https://github.com/guanghechen/yozora-react/commit/01621b6d66cbeea8ec4da55c7dc66347b7235e5b)]
+- 🔧 improve: upgrade dependencies &amp; upgrade postcss to v8 &amp; lint codes [[a7287be](https://github.com/guanghechen/yozora-react/commit/a7287bea8b643bb088f96ddf50f0eb55fa000126)]
+- 🔧 chore: add new npm script [[802344b](https://github.com/guanghechen/yozora-react/commit/802344bbe2c0b3a0033966a391fa49272617a7d2)]
+- 💄 improve(code-literal): tweak styles [[7861315](https://github.com/guanghechen/yozora-react/commit/7861315635e20335d5c908ff7775790ba7bddc32)]
+- 💄 improve: tweak margin of YAST block node [[464d79f](https://github.com/guanghechen/yozora-react/commit/464d79f142034372768b75c81814a1a0102613fc)]
+
+### Fixed
+
+- 🐛 fix(admonition): fix missing bg colors (spelling errors) [[4e6eeaf](https://github.com/guanghechen/yozora-react/commit/4e6eeaff305d6d9f30dcc3ffdeed2233d1e26e8a)]
+
+### Miscellaneous
+
+- 🔀 Merge branch &#x27;develop&#x27; [[857b28a](https://github.com/guanghechen/yozora-react/commit/857b28a5ed302bfdba20f1ee79d89de8748aaf3a)]
+- 📝 docs: update CHANGELOG [[4ac7a1d](https://github.com/guanghechen/yozora-react/commit/4ac7a1d817c6ebd94707cde4648ed051a4794b49)]
+
+
 <a name="1.0.0-alpha.0"></a>
 ## 1.0.0-alpha.0 (2021-05-13)
 
