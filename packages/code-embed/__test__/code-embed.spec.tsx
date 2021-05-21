@@ -1,8 +1,8 @@
 import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
 import { render } from 'enzyme'
 import React from 'react'
-import type { CodeRunnerProps } from '../src'
 import CodeEmbed from '../src'
+import type { CodeRunnerProps } from '../src'
 
 const code = `
   function Counter() {

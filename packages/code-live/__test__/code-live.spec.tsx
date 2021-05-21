@@ -2,8 +2,8 @@ import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
 import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
-import type { CodeRunnerItem, CodeRunnerProps } from '../src'
 import CodeLive from '../src'
+import type { CodeRunnerItem, CodeRunnerProps } from '../src'
 
 const code = `
   function Counter() {
