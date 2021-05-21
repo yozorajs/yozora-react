@@ -59,11 +59,11 @@ exports[`snapshot basic 1`] = `
 >
   <ul>
     <li
-      class="yozora-footnote-definition__item"
+      class="yozora-footnote-definitions__item"
       id="footnote-1"
     >
       <p
-        class="yozora-footnote-definition__item-title yozora-paragraph"
+        class="yozora-footnote-definitions__item-title yozora-paragraph"
       >
         <a
           href="#reference-footnote-1"
@@ -73,7 +73,7 @@ exports[`snapshot basic 1`] = `
           [1]:   
       </p>
       <div
-        class="yozora-footnote-definition__item-content"
+        class="yozora-footnote-definitions__item-content"
       >
         <span>
           waw
@@ -81,11 +81,11 @@ exports[`snapshot basic 1`] = `
       </div>
     </li>
     <li
-      class="yozora-footnote-definition__item"
+      class="yozora-footnote-definitions__item"
       id="footnote-2"
     >
       <p
-        class="yozora-footnote-definition__item-title yozora-paragraph"
+        class="yozora-footnote-definitions__item-title yozora-paragraph"
       >
         <a
           href="#reference-footnote-2"
@@ -95,7 +95,7 @@ exports[`snapshot basic 1`] = `
           [2]:   
       </p>
       <div
-        class="yozora-footnote-definition__item-content"
+        class="yozora-footnote-definitions__item-content"
       >
         <span>
           waw2

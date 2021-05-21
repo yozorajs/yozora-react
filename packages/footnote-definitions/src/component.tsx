@@ -29,13 +29,13 @@ export function FootnoteDefinitions(
           <li
             key={node.identifier}
             id={node.identifier}
-            className="yozora-footnote-definition__item"
+            className="yozora-footnote-definitions__item"
           >
-            <p className="yozora-footnote-definition__item-title yozora-paragraph">
+            <p className="yozora-footnote-definitions__item-title yozora-paragraph">
               <a href={'#reference-' + node.identifier}>&uarr;</a>
               &nbsp; [{node.label}]: &nbsp;&nbsp;
             </p>
-            <div className="yozora-footnote-definition__item-content">
+            <div className="yozora-footnote-definitions__item-content">
               {node.children}
             </div>
           </li>

@@ -131,20 +131,13 @@ export const BaseCss = css`
     }
   }
 
-  .yozora-html {
-    box-sizing: border-box;
-  }
-
-  .yozora-image {
-    box-sizing: border-box;
-  }
-
   .yozora-heading {
     display: flex;
     align-items: center;
     justify-content: start;
     padding: 0;
     margin: var(--margin-block-node);
+    margin-bottom: 1em;
     line-height: 1.25;
     font-family: var(--heading-font-family);
     .yozora-heading__content {
@@ -212,6 +205,14 @@ export const BaseCss = css`
     font-size: 0.85rem;
   }
 
+  .yozora-html {
+    box-sizing: border-box;
+  }
+
+  .yozora-image {
+    box-sizing: border-box;
+  }
+
   .yozora-inline-code {
     padding: 0.2em;
     border-radius: 2px;
@@ -277,6 +278,7 @@ export const BaseCss = css`
   .yozora-paragraph {
     padding: 0;
     margin: var(--margin-block-node);
+    margin-bottom: 1em;
     line-height: 2;
     &.yozora-paragraph--display {
       display: flex;
