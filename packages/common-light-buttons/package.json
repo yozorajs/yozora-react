@@ -11,7 +11,7 @@
     "url": "https://github.com/guanghechen/yozora-react.git",
     "directory": "packages/common-light-buttons"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/common-light-buttons#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/common-light-buttons#readme",
   "keywords": [],
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",

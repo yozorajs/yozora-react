@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/footnote-reference#readme">@yozora/react-footnote-reference</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/main/packages/footnote-reference#readme">@yozora/react-footnote-reference</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-footnote-reference">

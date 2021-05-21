@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/markdown#readme">@yozora/react-markdown</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/main/packages/markdown#readme">@yozora/react-markdown</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-markdown">
@@ -360,8 +360,8 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 
 
 [mdast]: https://github.com/syntax-tree/mdast
-[MdastPropsRoot]: https://github.com/guanghechen/yozora-react/blob/master/packages/markdown/src/ast/types.ts
-[MdastRenderer]: https://github.com/guanghechen/yozora-react/blob/master/packages/markdown/src/ast/render.tsx
+[MdastPropsRoot]: https://github.com/guanghechen/yozora-react/blob/main/packages/markdown/src/ast/types.ts
+[MdastRenderer]: https://github.com/guanghechen/yozora-react/blob/main/packages/markdown/src/ast/render.tsx
 [react-viewer]: https://github.com/infeng/react-viewer
 [@loadable/component]: https://github.com/gregberge/loadable-components
 

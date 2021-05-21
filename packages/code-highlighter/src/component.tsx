@@ -1,4 +1,3 @@
-import type { PrismTheme } from 'prism-react-renderer'
 import Highlight, { Prism } from 'prism-react-renderer'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -6,6 +5,7 @@ import HighlighterContent from './content'
 import vscDarkTheme from './theme/vsc-dark'
 import vscLightTheme from './theme/vsc-light'
 import type { CodeHighlighterProps } from './types'
+import type { PrismTheme } from 'prism-react-renderer'
 
 export function CodeHighlighter(
   props: CodeHighlighterProps,

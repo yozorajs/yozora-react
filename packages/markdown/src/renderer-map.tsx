@@ -1,4 +1,3 @@
-import type { Definition, Image, ImageReference } from '@yozora/ast'
 import {
   AdmonitionType,
   BlockquoteType,
@@ -48,6 +47,7 @@ import TableRenderer from '@yozora/react-table'
 import TextRenderer from '@yozora/react-text'
 import ThematicBreakRenderer from '@yozora/react-thematic-break'
 import React from 'react'
+import type { Definition, Image, ImageReference } from '@yozora/ast'
 import type { TokenRendererMap } from './types'
 
 /**
@@ -115,8 +115,14 @@ export const defaultRendererMap: TokenRendererMap = {
     return null
   },
   [ImageType]: function renderImage(image, key, ctx) {
-    const { url: src, alt, title, srcSet, sizes, loading } = image as Image &
-      React.ImgHTMLAttributes<HTMLElement>
+    const {
+      url: src,
+      alt,
+      title,
+      srcSet,
+      sizes,
+      loading,
+    } = image as Image & React.ImgHTMLAttributes<HTMLElement>
     ctx.addPreviewImage({ src, alt })
     return (
       <ImageRenderer

@@ -1,9 +1,9 @@
 import CodeHighlighter from '@yozora/react-code-highlighter'
 import cn from 'clsx'
-import type { PrismTheme } from 'prism-react-renderer'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import SimpleCodeEditor from './editor'
+import type { PrismTheme } from 'prism-react-renderer'
 
 /**
  * Props for creating CodeEditor

@@ -46,7 +46,7 @@ export function CodeLiteral(props: CodeLiteralProps): React.ReactElement {
           <CopyButton value={value} />
         </span>
       </div>
-      <code>
+      <code key="content" className="yozora-code-literal__content">
         <pre>
           <CodeHighlighter
             lang={lang}

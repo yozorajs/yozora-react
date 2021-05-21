@@ -20,6 +20,9 @@ import { css } from 'styled-components'
  *    --color-text-secondary
  *    --color-text-tertiary
  *
+ *    // box sizing
+ *    --margin-block-node
+ *
  *  * Customized styles
  *
  *    // Admonition styles
@@ -57,20 +60,20 @@ export const BaseCss = css`
   .yozora-admonition {
     padding: 1em;
     border-radius: 10px;
-    margin: 0 0 1.25em;
-    background-color: var(--admonition-bg-default);
+    margin: var(--margin-block-node);
+    background-color: var(--admonition-color-default);
     color: #fff;
     &.yozora-admonition--info {
-      background-color: var(--admonition-bg-info);
+      background-color: var(--admonition-color-info);
     }
     &.yozora-admonition--success {
-      background-color: var(--admonition-bg-success);
+      background-color: var(--admonition-color-success);
     }
     &.yozora-admonition--warning {
-      background-color: var(--admonition-bg-warning);
+      background-color: var(--admonition-color-warning);
     }
     &.yozora-admonition--danger {
-      background-color: var(--admonition-bg-danger);
+      background-color: var(--admonition-color-danger);
     }
 
     .yozora-admonition__heading {
@@ -91,7 +94,7 @@ export const BaseCss = css`
   .yozora-blockquote {
     padding: 0.625em 1em;
     border-left: 0.25em solid #dfe2e5;
-    margin: 0 0 1.25em;
+    margin: var(--margin-block-node);
     background: #fafaf9;
   }
 
@@ -99,51 +102,9 @@ export const BaseCss = css`
     box-sizing: border-box;
   }
 
-  .yozora-code {
-    position: relative;
-    padding: 0 0 0.2rem;
-    margin: 1rem 0;
-    border-radius: 4px;
-    background: #1e1e1e;
-    caret-color: #aeafad;
-    ::selection {
-      background: var(--code-bg-selection);
-    }
-    > code {
-      overflow: auto;
-      padding: 0;
-      border: none;
-      margin: 0;
-      font-family: var(--code-font-family);
-      font-size: 14px;
-      line-height: 1.33;
-      background: none;
-      text-shadow: 0 1px;
-      white-space: pre-wrap;
-      overflow-wrap: break-word;
-      word-spacing: normal;
-      word-break: break-all;
-      word-wrap: break-word;
-      letter-spacing: 1px;
-      line-height: inherit;
-      tab-size: 2;
-      > pre {
-        margin: 0;
-        font-family: var(--code-font-family);
-        line-height: inherit;
-        code, span {
-          line-height: inherit;
-        }
-        code {
-          padding: 0;
-          margin: 0;
-          background: transparent;
-        }
-        ::selection {
-          background: var(--code-bg-selection);
-        }
-      }
-    }
+  .yozora-code-literal,
+  .yozora-code-live {
+    margin: var(--margin-block-node);
   }
 
   .yozora-delete {
@@ -170,20 +131,13 @@ export const BaseCss = css`
     }
   }
 
-  .yozora-html {
-    box-sizing: border-box;
-  }
-
-  .yozora-image {
-    box-sizing: border-box;
-  }
-
   .yozora-heading {
     display: flex;
     align-items: center;
     justify-content: start;
     padding: 0;
-    margin: 0 0 1rem;
+    margin: var(--margin-block-node);
+    margin-bottom: 1em;
     line-height: 1.25;
     font-family: var(--heading-font-family);
     .yozora-heading__content {
@@ -251,6 +205,14 @@ export const BaseCss = css`
     font-size: 0.85rem;
   }
 
+  .yozora-html {
+    box-sizing: border-box;
+  }
+
+  .yozora-image {
+    box-sizing: border-box;
+  }
+
   .yozora-inline-code {
     padding: 0.2em;
     border-radius: 2px;
@@ -308,13 +270,15 @@ export const BaseCss = css`
 
   .yozora-math {
     border: none;
+    margin: var(--margin-block-node);
     color: var(--math-color);
     background: transparent;
   }
 
   .yozora-paragraph {
     padding: 0;
-    margin: 0 0 1em;
+    margin: var(--margin-block-node);
+    margin-bottom: 1em;
     line-height: 2;
     &.yozora-paragraph--display {
       display: flex;
@@ -338,7 +302,7 @@ export const BaseCss = css`
     border-radius: 6px;
     border-spacing: 0;
     border: 1px solid var(--table-color-border);
-    margin: 0 auto 1rem;
+    margin: var(--margin-block-node);
     line-height: 1.6;
 
     .yozora-table__thead {

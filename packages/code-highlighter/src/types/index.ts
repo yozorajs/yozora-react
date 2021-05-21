@@ -1,5 +1,5 @@
-import type { PrismTheme } from 'prism-react-renderer'
 import type { RenderProps } from './prism-react-renderer'
+import type { PrismTheme } from 'prism-react-renderer'
 
 export interface CodeHighlighterProps {
   /**

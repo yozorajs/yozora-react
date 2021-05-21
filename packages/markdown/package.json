@@ -11,7 +11,7 @@
     "url": "https://github.com/guanghechen/yozora-react.git",
     "directory": "packages/markdown"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/markdown#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/markdown#readme",
   "keywords": [
     "react markdown component"
   ],
@@ -38,7 +38,7 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
   "dependencies": {
-    "@types/react-copy-to-clipboard": "^4.3.0",
+    "@types/react-copy-to-clipboard": "^5.0.0",
     "@types/react-mathjax": "^1.0.0",
     "@yozora/react-admonition": "^1.0.0-alpha.0",
     "@yozora/react-blockquote": "^1.0.0-alpha.0",
@@ -66,7 +66,7 @@
     "@yozora/react-table": "^1.0.0-alpha.0",
     "@yozora/react-text": "^1.0.0-alpha.0",
     "@yozora/react-thematic-break": "^1.0.0-alpha.0",
-    "react-copy-to-clipboard": "^5.0.2",
+    "react-copy-to-clipboard": "^5.0.3",
     "react-mathjax": "^1.0.1"
   },
   "peerDependencies": {

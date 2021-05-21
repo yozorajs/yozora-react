@@ -1,7 +1,7 @@
 import { render } from 'enzyme'
 import React from 'react'
-import type { FootnoteItem } from '../src'
 import FootnoteDefinitions from '../src'
+import type { FootnoteItem } from '../src'
 
 const nodes: FootnoteItem[] = [
   {

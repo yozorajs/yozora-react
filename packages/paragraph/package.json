@@ -11,7 +11,7 @@
     "url": "https://github.com/guanghechen/yozora-react.git",
     "directory": "packages/paragraph"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/paragraph#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/paragraph#readme",
   "keywords": [
     "mdast renderer",
     "paragraph"

@@ -11,7 +11,7 @@
     "url": "https://github.com/guanghechen/yozora-react.git",
     "directory": "packages/delete"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/delete#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/delete#readme",
   "keywords": [
     "mdast renderer",
     "markdown delete"

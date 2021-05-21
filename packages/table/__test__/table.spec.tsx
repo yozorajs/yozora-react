@@ -1,7 +1,7 @@
 import { render } from 'enzyme'
 import React from 'react'
-import type { TableProps } from '../src'
 import Table from '../src'
+import type { TableProps } from '../src'
 
 const aligns: TableProps['aligns'] = ['center', 'left']
 

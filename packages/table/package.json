@@ -11,7 +11,7 @@
     "url": "https://github.com/guanghechen/yozora-react.git",
     "directory": "packages/table"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/table#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/table#readme",
   "keywords": [
     "mdast node renderer",
     "markdown table"

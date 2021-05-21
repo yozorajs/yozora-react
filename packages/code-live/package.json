@@ -11,7 +11,7 @@
     "url": "https://github.com/guanghechen/yozora-react.git",
     "directory": "packages/code-live"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/master/packages/code-live#readme",
+  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/code-live#readme",
   "keywords": [
     "mdast node render",
     "code live"

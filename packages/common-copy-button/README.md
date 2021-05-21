@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/master/packages/common-copy-button#readme">@yozora/react-common-copy-button</a>
+    <a href="https://github.com/guanghechen/yozora-react/tree/main/packages/common-copy-button#readme">@yozora/react-common-copy-button</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-common-copy-button">
