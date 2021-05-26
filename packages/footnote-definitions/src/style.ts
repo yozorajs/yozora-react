@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   position: relative;
-  margin-top: 4rem;
+  margin-top: 3rem;
   border-top: 1px solid var(--color-border-secondary);
   font-size: 0.8rem;
 
