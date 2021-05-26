@@ -1,5 +1,22 @@
 # Changelog
 
+<a name="1.0.0-alpha.2"></a>
+## 1.0.0-alpha.2 (2021-05-26)
+
+### Changed
+
+- 💄 improve: tweak margin [[80d9184](https://github.com/guanghechen/yozora-react/commit/80d91842fb1d2da65ed14bcab85b116a3f2b15eb)]
+
+### Fixed
+
+- 🐛 fix(code-highlighter): react ssr cannot support dynamic import(), but required() is supported [[14bb945](https://github.com/guanghechen/yozora-react/commit/14bb9459506083f3e9c6847fe968fc9143c9af92)]
+
+### Miscellaneous
+
+- 🔀 Merge branch &#x27;develop&#x27; [[b54f5da](https://github.com/guanghechen/yozora-react/commit/b54f5daff5af26018ef58dfcb7d17aa8b41fc273)]
+- 📝 docs: update CHANGELOG [[48a49e8](https://github.com/guanghechen/yozora-react/commit/48a49e88be23742d388ee536e4cb320fbc06f5da)]
+
+
 <a name="1.0.0-alpha.1"></a>
 ## 1.0.0-alpha.1 (2021-05-21)
 
