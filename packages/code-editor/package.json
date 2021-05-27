@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@yozora/react-code-highlighter": "^1.0.0-alpha.2",
-    "prism-react-renderer": "^1.1.1"
+    "prism-react-renderer": "^1.2.1"
   },
   "peerDependencies": {
     "clsx": "^1.1.1",
