@@ -1,4 +1,4 @@
-import CodeLiveEditor from '@yozora/react-code-editor'
+import CodeEditor from '@yozora/react-code-editor'
 import CodeEmbed from '@yozora/react-code-embed'
 import CopyButton from '@yozora/react-common-copy-button'
 import LightButtons from '@yozora/react-common-light-buttons'
@@ -65,7 +65,7 @@ export function CodeLive(props: CodeLiveProps): React.ReactElement {
         })}
       >
         <div key="editor" className="yozora-code-live__editor">
-          <CodeLiveEditor
+          <CodeEditor
             lang={lang}
             code={value}
             onChange={handleChange}
