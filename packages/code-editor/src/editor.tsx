@@ -94,14 +94,14 @@ export class SimpleCodeEditor extends React.Component<
     return (
       <Container {...htmlProps} style={{ ...style, tabSize }}>
         <div
-          className="code-editor__textarea-wrapper"
+          className="yozora-code-editor__textarea-wrapper"
           style={{ paddingLeft: linenoWidth }}
         >
           <textarea
             ref={this.inputRef}
             id={textareaId}
             style={textareaStyle}
-            className={cn('code-editor__textarea', textareaClassName)}
+            className={cn('yozora-code-editor__textarea', textareaClassName)}
             value={value}
             onChange={this._handleChange}
             onKeyDown={this._handleKeyDown}
@@ -126,7 +126,7 @@ export class SimpleCodeEditor extends React.Component<
           />
         </div>
         <pre
-          className={cn('code-editor__previewer', preClassName)}
+          className={cn('yozora-code-editor__previewer', preClassName)}
           style={preStyle}
           aria-hidden="true"
           {...(typeof highlighted === 'string'
@@ -534,9 +534,9 @@ export const Container = styled.div`
   word-spacing: normal;
   word-wrap: normal;
 
-  .code-editor__textarea-wrapper,
-  .code-editor__textarea,
-  .code-editor__previewer {
+  .yozora-code-editor__textarea-wrapper,
+  .yozora-code-editor__textarea,
+  .yozora-code-editor__previewer {
     height: 100%;
     width: 100%;
     padding: 0;
@@ -563,12 +563,12 @@ export const Container = styled.div`
     word-spacing: inherit;
     word-wrap: inherit;
   }
-  .code-editor__textarea-wrapper {
+  .yozora-code-editor__textarea-wrapper {
     position: absolute;
     left: 0;
     top: 0;
   }
-  .code-editor__textarea {
+  .yozora-code-editor__textarea {
     resize: none;
     color: transparent;
     caret-color: var(--code-caret-color, hsl(0deg, 83%, 78%));
@@ -580,7 +580,7 @@ export const Container = styled.div`
       -webkit-text-fill-color: inherit;
     }
   }
-  .code-editor__previewer {
+  .yozora-code-editor__previewer {
     position: relative;
     pointer-events: none;
   }

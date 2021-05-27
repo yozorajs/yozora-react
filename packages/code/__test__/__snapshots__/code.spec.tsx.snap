@@ -863,9 +863,9 @@ exports[`snapshot live 1`] = `
   word-wrap: normal;
 }
 
-.c6 .code-editor__textarea-wrapper,
-.c6 .code-editor__textarea,
-.c6 .code-editor__previewer {
+.c6 .yozora-code-editor__textarea-wrapper,
+.c6 .yozora-code-editor__textarea,
+.c6 .yozora-code-editor__previewer {
   height: 100%;
   width: 100%;
   padding: 0;
@@ -896,25 +896,25 @@ exports[`snapshot live 1`] = `
   word-wrap: inherit;
 }
 
-.c6 .code-editor__textarea-wrapper {
+.c6 .yozora-code-editor__textarea-wrapper {
   position: absolute;
   left: 0;
   top: 0;
 }
 
-.c6 .code-editor__textarea {
+.c6 .yozora-code-editor__textarea {
   resize: none;
   color: transparent;
   caret-color: var(--code-caret-color,hsl(0deg,83%,78%));
   -webkit-text-fill-color: transparent;
 }
 
-.c6 .code-editor__textarea:empty {
+.c6 .yozora-code-editor__textarea:empty {
   color: inherit;
   -webkit-text-fill-color: inherit;
 }
 
-.c6 .code-editor__previewer {
+.c6 .yozora-code-editor__previewer {
   position: relative;
   pointer-events: none;
 }
@@ -1142,13 +1142,13 @@ exports[`snapshot live 1`] = `
         style="line-height:1.8em;tab-size:2"
       >
         <div
-          class="code-editor__textarea-wrapper"
+          class="yozora-code-editor__textarea-wrapper"
         >
           <textarea
             autocapitalize="off"
             autocomplete="off"
             autocorrect="off"
-            class="code-editor__textarea"
+            class="yozora-code-editor__textarea"
             spellcheck="false"
             style="tab-size:2;white-space:pre;border-left:undefined solid transparent;padding:0 0.6em"
           >
@@ -1162,7 +1162,7 @@ exports[`snapshot live 1`] = `
         </div>
         <pre
           aria-hidden="true"
-          class="code-editor__previewer"
+          class="yozora-code-editor__previewer"
           style="tab-size:2;white-space:pre"
         >
           <div
