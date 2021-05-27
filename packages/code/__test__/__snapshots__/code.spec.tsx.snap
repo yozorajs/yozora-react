@@ -1167,7 +1167,7 @@ exports[`snapshot live 1`] = `
         >
           <div
             class="c8 prism-code language-jsx"
-            style="color:#d4d4d4;background-color:#1e1e1e;line-height:1.8em;max-height:8.1em;min-height:8.1em"
+            style="color:#d4d4d4;background-color:#1e1e1e;line-height:1.8em;max-height:8.1em;min-height:100%"
           >
             <div
               class="yozora-code-highlighter__linenos"

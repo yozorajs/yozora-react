@@ -73,7 +73,7 @@ exports[`basic rendering case snapshot 1`] = `
 <pre>
   <div
     class="c0 prism-code language-typescript"
-    style="color:#d4d4d4;background-color:#1e1e1e;line-height:1.8rem;max-height:2.7rem;min-height:2.7rem"
+    style="color:#d4d4d4;background-color:#1e1e1e;line-height:1.8rem;max-height:2.7rem;min-height:100%"
   >
     <div
       class="yozora-code-highlighter__linenos"
