@@ -1,5 +1,23 @@
 # Changelog
 
+<a name="1.0.0-alpha.3"></a>
+## 1.0.0-alpha.3 (2021-05-27)
+
+### Added
+
+- ✅ test: update snapshots due to the previous change [[79ca65b](https://github.com/guanghechen/yozora-react/commit/79ca65b34181d97c4d271d3f3dcf9ef1db5dec57)]
+
+### Changed
+
+- 💄 improve(code-highlighter): fill the parent container in vertical direction except it is collapsed [[e989199](https://github.com/guanghechen/yozora-react/commit/e989199ca99ea0d6e3bad74bddaa4ed4d0f81c36)]
+- 🔧 chore: upgrade dependencies [[1f1d46d](https://github.com/guanghechen/yozora-react/commit/1f1d46d5a84ca547756d8f0a11348cd7734ec9f8)]
+- 🎨 improve: rename inner variable names [[f514fc4](https://github.com/guanghechen/yozora-react/commit/f514fc44a62bf1025e7eeda3ce616f2d06ae887f)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[a958627](https://github.com/guanghechen/yozora-react/commit/a958627b5deabafa546c390ec50fc442e1d94671)]
+
+
 <a name="1.0.0-alpha.2"></a>
 ## 1.0.0-alpha.2 (2021-05-26)
 
