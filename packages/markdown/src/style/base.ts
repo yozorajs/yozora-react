@@ -211,6 +211,7 @@ export const BaseCss = css`
 
   .yozora-image {
     box-sizing: border-box;
+    max-width: 100%; // Prevent images from overflowing the container.
   }
 
   .yozora-inline-code {
