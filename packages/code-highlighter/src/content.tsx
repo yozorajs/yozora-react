@@ -46,7 +46,7 @@ export function HighlighterContent(
 
   if (!collapsed) {
     const countOfLines = maxLines > 0 ? maxLines : tokens.length
-    const maxHeight = calcHeight(lineHeight, countOfLines + 0.5)
+    const maxHeight = calcHeight(lineHeight, countOfLines + 0.2)
     style.maxHeight = maxHeight
     style.minHeight = '100%'
   }
