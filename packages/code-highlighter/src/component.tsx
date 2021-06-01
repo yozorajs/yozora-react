@@ -19,7 +19,6 @@ export function CodeHighlighter(
     lineHeight,
     collapsed,
     showLinenos,
-    contentRef,
     codesRef,
     onLinenoWidthChange,
   } = props
@@ -31,7 +30,6 @@ export function CodeHighlighter(
     <Highlight Prism={Prism} code={code} theme={theme} language={lang as any}>
       {({ tokens, getLineProps, getTokenProps, className, style }) => (
         <HighlighterContent
-          contentRef={contentRef}
           codesRef={codesRef}
           highlightLinenos={highlightLinenos}
           lineHeight={lineHeight}
@@ -56,7 +54,6 @@ export default CodeHighlighter
 CodeHighlighter.propTypes = {
   codesRef: PropTypes.any,
   collapsed: PropTypes.bool,
-  contentRef: PropTypes.any,
   darken: PropTypes.bool,
   highlightLinenos: PropTypes.arrayOf(PropTypes.number),
   lang: PropTypes.string,

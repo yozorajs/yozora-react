@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   align-items: stretch;
   width: 100%;
-  overflow: hidden auto;
+  overflow: hidden;
   transition: max-height 0.5s ease-in-out;
   tab-size: 2;
   -moz-osx-font-smoothing: grayscale;
@@ -25,7 +25,10 @@ export const Container = styled.div`
   }
   .yozora-code-highlighter__codes {
     flex: 1 1 auto;
-    overflow: auto hidden;
+    overflow: auto;
+    ::-webkit-scrollbar-corner {
+      display: none;
+    }
   }
   .yozora-code-highlighter__line {
     display: block;

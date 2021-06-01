@@ -41,12 +41,6 @@ export interface CodeHighlighterProps {
    */
   theme?: PrismTheme
   /**
-   * Ref of the highlight content element.
-   */
-  contentRef?:
-    | React.RefCallback<HTMLDivElement>
-    | React.RefObject<HTMLDivElement>
-  /**
    * Ref of the codes area.
    */
   codesRef?: React.RefCallback<HTMLDivElement> | React.RefObject<HTMLDivElement>
@@ -82,12 +76,6 @@ export interface HighlightContentProps extends RenderProps {
    * @default true
    */
   showLinenos?: boolean
-  /**
-   * Ref of the highlight content element.
-   */
-  contentRef?:
-    | React.RefCallback<HTMLDivElement>
-    | React.RefObject<HTMLDivElement>
   /**
    * Ref of the codes area.
    */

@@ -1,5 +1,5 @@
 import cn from 'clsx'
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 import { Container } from './style'
 import { calcHeight } from './util'
 import type { HighlightContentProps } from './types'
@@ -11,7 +11,6 @@ export function HighlighterContent(
   props: HighlightContentProps,
 ): React.ReactElement {
   const {
-    contentRef,
     codesRef,
     highlightLinenos = [],
     collapsed = false,
@@ -25,6 +24,8 @@ export function HighlighterContent(
     className,
     style: _style,
   } = props
+
+  const linenoRef = useRef<HTMLDivElement>(null)
 
   const linenoWidth = showLinenos
     ? `${Math.max(2, ('' + tokens.length).length) * 1.1}em`
@@ -44,13 +45,29 @@ export function HighlighterContent(
     style.minHeight = '100%'
   }
 
+  // Sync the scroll events.
+  /* istanbul ignore next */
+  const syncScrollEvents = useCallback<React.UIEventHandler<HTMLDivElement>>(
+    e => {
+      const codesArea = e.target as HTMLTextAreaElement
+      if (codesArea == null) return
+
+      const { scrollTop } = codesArea
+      if (linenoRef.current != null) {
+        linenoRef.current.scrollTo(0, scrollTop)
+      }
+    },
+    [],
+  )
+
   return (
-    <Container ref={contentRef} className={className} style={style}>
+    <Container className={className} style={style}>
       {showLinenos && (
         <div
           key="linenos"
           className="yozora-code-highlighter__linenos"
           style={{ width: linenoWidth }}
+          ref={linenoRef}
         >
           {tokens.map((_, lineNo) => {
             const isHighlight = highlightLinenos.includes(lineNo + 1)
@@ -68,9 +85,10 @@ export function HighlighterContent(
         </div>
       )}
       <div
-        ref={codesRef}
         key="codes"
+        ref={codesRef}
         className="yozora-code-highlighter__codes"
+        onScroll={syncScrollEvents}
       >
         {tokens.map((line, lineNo) => {
           const isHighlight = highlightLinenos.includes(lineNo + 1)

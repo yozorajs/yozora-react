@@ -100,15 +100,12 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
     lineHeight = '1.8em',
   } = props
 
-  const contentRef = useRef<HTMLDivElement>(null)
   const codesRef = useRef<HTMLDivElement>(null)
-
   const [code, setCode] = useState<string>(props.code)
   const [linenoWidth, setLinenoWidth] = useState<React.CSSProperties['width']>()
   const highlightCode = useCallback<React.FC<string>>(
     code => (
       <CodeHighlighter
-        contentRef={contentRef}
         codesRef={codesRef}
         lang={lang}
         value={code}
@@ -146,11 +143,7 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
     const { scrollLeft, scrollTop } = textarea
 
     if (codesRef.current != null) {
-      codesRef.current.scrollTo(scrollLeft, 0)
-    }
-
-    if (contentRef.current != null) {
-      contentRef.current.scrollTo(0, scrollTop)
+      codesRef.current.scrollTo(scrollLeft, scrollTop)
     }
   }, [])
 
