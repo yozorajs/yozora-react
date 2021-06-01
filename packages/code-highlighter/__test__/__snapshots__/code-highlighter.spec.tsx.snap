@@ -11,7 +11,7 @@ exports[`basic rendering case snapshot 1`] = `
   -ms-flex-align: stretch;
   align-items: stretch;
   width: 100%;
-  overflow: hidden auto;
+  overflow: hidden;
   -webkit-transition: max-height 0.5s ease-in-out;
   transition: max-height 0.5s ease-in-out;
   tab-size: 2;
@@ -42,7 +42,11 @@ exports[`basic rendering case snapshot 1`] = `
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  overflow: auto hidden;
+  overflow: auto;
+}
+
+.c0 .yozora-code-highlighter__codes::-webkit-scrollbar-corner {
+  display: none;
 }
 
 .c0 .yozora-code-highlighter__line {
@@ -73,7 +77,7 @@ exports[`basic rendering case snapshot 1`] = `
 <pre>
   <div
     class="c0 prism-code language-typescript"
-    style="color:#d4d4d4;background-color:#1e1e1e;line-height:1.8rem;max-height:2.7rem;min-height:100%"
+    style="color:#d4d4d4;background-color:none;line-height:1.8rem;max-height:2.7rem;min-height:100%"
   >
     <div
       class="yozora-code-highlighter__linenos"

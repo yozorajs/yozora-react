@@ -44,7 +44,7 @@ exports[`snapshot literal 1`] = `
   -ms-flex-align: stretch;
   align-items: stretch;
   width: 100%;
-  overflow: hidden auto;
+  overflow: hidden;
   -webkit-transition: max-height 0.5s ease-in-out;
   transition: max-height 0.5s ease-in-out;
   tab-size: 2;
@@ -75,7 +75,11 @@ exports[`snapshot literal 1`] = `
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  overflow: auto hidden;
+  overflow: auto;
+}
+
+.c6 .yozora-code-highlighter__codes::-webkit-scrollbar-corner {
+  display: none;
 }
 
 .c6 .yozora-code-highlighter__line {
@@ -317,7 +321,7 @@ exports[`snapshot literal 1`] = `
     <pre>
       <div
         class="c6 prism-code language-jsx"
-        style="color:#d4d4d4;background-color:#1e1e1e;line-height:1.8rem;max-height:0"
+        style="color:#d4d4d4;background-color:none;line-height:1.8rem;max-height:0"
       >
         <div
           class="yozora-code-highlighter__linenos"
@@ -733,7 +737,7 @@ exports[`snapshot live 1`] = `
   -ms-flex-align: stretch;
   align-items: stretch;
   width: 100%;
-  overflow: hidden auto;
+  overflow: hidden;
   -webkit-transition: max-height 0.5s ease-in-out;
   transition: max-height 0.5s ease-in-out;
   tab-size: 2;
@@ -764,7 +768,11 @@ exports[`snapshot live 1`] = `
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  overflow: auto hidden;
+  overflow: auto;
+}
+
+.c8 .yozora-code-highlighter__codes::-webkit-scrollbar-corner {
+  display: none;
 }
 
 .c8 .yozora-code-highlighter__line {
@@ -1167,7 +1175,7 @@ exports[`snapshot live 1`] = `
         >
           <div
             class="c8 prism-code language-jsx"
-            style="color:#d4d4d4;background-color:#1e1e1e;line-height:1.8em;max-height:8.1em;min-height:100%"
+            style="color:#d4d4d4;background-color:none;line-height:1.8em;max-height:8.1em;min-height:100%"
           >
             <div
               class="yozora-code-highlighter__linenos"
