@@ -8,20 +8,20 @@
     "jest": true,
     "node": true
   },
-  "rules": {
-    "no-prototype-builtins": 0
-  },
   "overrides": [
     {
       "files": ["**/*.ts", "**/*.tsx"],
-      "extends": ["@guanghechen/jsx", "@guanghechen/ts", "prettier"],
-      "rules": {
-        "no-prototype-builtins": 0
-      }
+      "extends": [
+        "@guanghechen",
+        "@guanghechen/jsx",
+        "@guanghechen/ts",
+        "prettier"
+      ]
     },
     {
       "files": ["**/__test__/*.spec.ts", "**/__test__/*.spec.tsx"],
       "extends": [
+        "@guanghechen",
         "@guanghechen/jsx",
         "@guanghechen/ts",
         "plugin:jest/recommended",
