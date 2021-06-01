@@ -1,5 +1,25 @@
 # Changelog
 
+<a name="1.0.0-alpha.5"></a>
+## 1.0.0-alpha.5 (2021-06-01)
+
+### Added
+
+- ✅ test: update tests [[058f766](https://github.com/guanghechen/yozora-react/commit/058f76625346566d0b188959bf72ab04763f33dd)]
+
+### Changed
+
+- 💄 improve(code-highlighter): tweak max height [[c7b1c62](https://github.com/guanghechen/yozora-react/commit/c7b1c62fd605d5c7e8ac76e5598991d88c33a67c)]
+
+### Fixed
+
+- 🐛 fix(code-literal) background color missing [[d1f50c5](https://github.com/guanghechen/yozora-react/commit/d1f50c5fd7e30d4dc1d7d1ab735db0ba51089656)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[5a81550](https://github.com/guanghechen/yozora-react/commit/5a8155018fcbd49c732433caa256e33f4396a1d0)]
+
+
 <a name="1.0.0-alpha.4"></a>
 ## 1.0.0-alpha.4 (2021-06-01)
 
