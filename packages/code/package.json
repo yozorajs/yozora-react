@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "render markdown code in react",
   "author": {
     "name": "guanghechen",
@@ -40,11 +40,11 @@
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "dependencies": {
-    "@yozora/react-code-embed": "^1.0.0-alpha.4",
-    "@yozora/react-code-highlighter": "^1.0.0-alpha.4",
-    "@yozora/react-code-literal": "^1.0.0-alpha.4",
-    "@yozora/react-code-live": "^1.0.0-alpha.4",
-    "@yozora/react-code-renderer-jsx": "^1.0.0-alpha.4"
+    "@yozora/react-code-embed": "^1.0.0-alpha.5",
+    "@yozora/react-code-highlighter": "^1.0.0-alpha.5",
+    "@yozora/react-code-literal": "^1.0.0-alpha.5",
+    "@yozora/react-code-live": "^1.0.0-alpha.5",
+    "@yozora/react-code-renderer-jsx": "^1.0.0-alpha.5"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
