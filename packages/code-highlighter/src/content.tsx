@@ -37,7 +37,13 @@ export function HighlighterContent(
   }, [linenoWidth, onLinenoWidthChange])
 
   // Sync lineno width.
-  const style: React.CSSProperties = { ..._style, lineHeight, maxHeight: 0 }
+  const style: React.CSSProperties = {
+    ..._style,
+    lineHeight,
+    maxHeight: 0,
+    backgroundColor: 'none',
+  }
+
   if (!collapsed) {
     const countOfLines = maxLines > 0 ? maxLines : tokens.length
     const maxHeight = calcHeight(lineHeight, countOfLines + 0.5)
