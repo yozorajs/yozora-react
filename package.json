@@ -87,7 +87,7 @@
     "react-mathjax": "^1.0.1",
     "react-router-dom": "^5.2.0",
     "rimraf": "3.0.2",
-    "rollup": "2.50.1",
+    "rollup": "2.50.5",
     "styled-components": "^5.3.0",
     "stylus": "^0.54.8",
     "ts-jest": "26.5.6",
