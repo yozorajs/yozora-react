@@ -33,6 +33,7 @@ import { css } from 'styled-components'
  *    --admonition-bg-danger
  *
  *    // Code styles
+ *    --code-bg-primary
  *    --code-bg-highlight
  *    --code-bg-selection
  *    --code-color-border

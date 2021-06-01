@@ -45,7 +45,7 @@ export const Container = styled.div`
     font-family: var(--code-font-family);
     font-size: 14px;
     line-height: 1.33;
-    background: none;
+    background: var(--code-bg-primary);
     text-shadow: 0 1px;
     white-space: pre-wrap;
     overflow-wrap: break-word;

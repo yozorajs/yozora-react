@@ -28,6 +28,7 @@ export const Container = styled.div`
   --admonition-color-danger: #fa383e;
 
   // Code styles
+  --code-bg-primary: #1e1e1e;
   --code-bg-highlight: hsla(210deg, 100%, 84%, 0.2);
   --code-bg-selection: hsla(200deg, 30%, 70%, 0.3);
   --code-color-border: hsla(0deg, 0%, 30%, 0.8);
