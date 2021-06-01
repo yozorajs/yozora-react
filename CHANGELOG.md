@@ -1,5 +1,28 @@
 # Changelog
 
+<a name="1.0.0-alpha.4"></a>
+## 1.0.0-alpha.4 (2021-06-01)
+
+### Added
+
+- ✅ test: update snapshots [[b04a041](https://github.com/guanghechen/yozora-react/commit/b04a041c1fa0b539cff1d4ac641dde20b264bd09)]
+
+### Changed
+
+- 🔧 chore: update configs [[4e28cc3](https://github.com/guanghechen/yozora-react/commit/4e28cc36a4252521cbd0291a0839f0c7a42c2c9d)]
+- 🔧 chore: upgrade devDependencies [[e46ef39](https://github.com/guanghechen/yozora-react/commit/e46ef399fa0615e928656dd745450d31e46c6be9)]
+
+### Fixed
+
+- 🐛 fix: cursor disappears in the editor [[bae779d](https://github.com/guanghechen/yozora-react/commit/bae779d3325d409e3d7f16d15f1143d011d1ba61)]
+- 🐛 fix: fix code-editor scroll issues [[9efb65f](https://github.com/guanghechen/yozora-react/commit/9efb65f1ae756094eda6f27747d573032a3813f4)]
+- 🐛 fix(image): prevent images from overflowing the container [[1a9425e](https://github.com/guanghechen/yozora-react/commit/1a9425e0d527c60097d47f3569047eed58b11fcd)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[c7e31c6](https://github.com/guanghechen/yozora-react/commit/c7e31c6d9549525ae458c913173d8513130d918e)]
+
+
 <a name="1.0.0-alpha.3"></a>
 ## 1.0.0-alpha.3 (2021-05-27)
 
