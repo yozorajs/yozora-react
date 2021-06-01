@@ -230,7 +230,7 @@ exports[`snapshot literal 1`] = `
   font-family: var(--code-font-family);
   font-size: 14px;
   line-height: 1.33;
-  background: none;
+  background: var(--code-bg-primary);
   text-shadow: 0 1px;
   white-space: pre-wrap;
   overflow-wrap: break-word;
@@ -1175,7 +1175,7 @@ exports[`snapshot live 1`] = `
         >
           <div
             class="c8 prism-code language-jsx"
-            style="color:#d4d4d4;background-color:none;line-height:1.8em;max-height:8.1em;min-height:100%"
+            style="color:#d4d4d4;background-color:none;line-height:1.8em;max-height:7.5600000000000005em;min-height:100%"
           >
             <div
               class="yozora-code-highlighter__linenos"
