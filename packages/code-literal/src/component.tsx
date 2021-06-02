@@ -3,7 +3,7 @@ import CopyButton from '@yozora/react-common-copy-button'
 import LightButtons from '@yozora/react-common-light-buttons'
 import cn from 'clsx'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container } from './style'
 import type { CodeLiteralProps } from './types'
 
@@ -30,6 +30,14 @@ export function CodeLiteral(props: CodeLiteralProps): React.ReactElement {
   } = props
 
   const [collapsed, setCollapsed] = useState<boolean>(_collapsed)
+  const [countOfLines, setCountOfLines] = useState<number | null>(() =>
+    collapsed ? value.split(/\r|\n|\n\r/g).length : null,
+  )
+
+  useEffect(() => {
+    if (countOfLines != null || !collapsed) return
+    setCountOfLines(value.split(/\r|\n|\n\r/g).length)
+  }, [collapsed])
 
   return (
     <Container className={cn('yozora-code-literal', className)} style={style}>
@@ -40,7 +48,11 @@ export function CodeLiteral(props: CodeLiteralProps): React.ReactElement {
           onMaximize={() => setCollapsed(false)}
         />
         <span key="title" className="yozora-code-literal__title" title={title}>
-          {title}
+          {title}{' '}
+          {title &&
+            collapsed &&
+            countOfLines &&
+            ' | ' + countOfLines + ' lines.'}
         </span>
         <span key="copy-btn" className="yozora-code-literal__copy-button">
           <CopyButton value={value} />
