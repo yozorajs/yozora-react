@@ -45,6 +45,7 @@ exports[`snapshot literal 1`] = `
   align-items: stretch;
   width: 100%;
   overflow: hidden;
+  padding-bottom: 0.3rem;
   -webkit-transition: max-height 0.5s ease-in-out;
   transition: max-height 0.5s ease-in-out;
   tab-size: 2;
@@ -198,7 +199,7 @@ exports[`snapshot literal 1`] = `
   height: 2rem;
   width: 100%;
   border-bottom: 1px solid var(--code-color-border,hsla(0deg,0%,30%,0.8));
-  background: var(--code-bg-color,#1e1e1e);
+  background: var(--code-bg-primary,#1e1e1e);
 }
 
 .c0 > .yozora-code-literal__toolbar .yozora-code-literal__title {
@@ -230,7 +231,7 @@ exports[`snapshot literal 1`] = `
   font-family: var(--code-font-family);
   font-size: 14px;
   line-height: 1.33;
-  background: var(--code-bg-primary);
+  background: var(--code-bg-primary,#1e1e1e);
   text-shadow: 0 1px;
   white-space: pre-wrap;
   overflow-wrap: break-word;
@@ -300,7 +301,7 @@ exports[`snapshot literal 1`] = `
       class="yozora-code-literal__title"
       title="/home/demo/a.tsx"
     >
-      /home/demo/a.tsx
+      /home/demo/a.tsx  | 6 lines.
     </span>
     <span
       class="yozora-code-literal__copy-button"
@@ -321,7 +322,7 @@ exports[`snapshot literal 1`] = `
     <pre>
       <div
         class="c6 prism-code language-jsx"
-        style="color:#d4d4d4;background-color:none;line-height:1.8rem;max-height:0"
+        style="color:#d4d4d4;background-color:none;line-height:1.6rem;max-height:0"
       >
         <div
           class="yozora-code-highlighter__linenos"
@@ -738,6 +739,7 @@ exports[`snapshot live 1`] = `
   align-items: stretch;
   width: 100%;
   overflow: hidden;
+  padding-bottom: 0.3rem;
   -webkit-transition: max-height 0.5s ease-in-out;
   transition: max-height 0.5s ease-in-out;
   tab-size: 2;
@@ -912,6 +914,7 @@ exports[`snapshot live 1`] = `
 
 .c6 .yozora-code-editor__textarea {
   resize: none;
+  padding-bottom: 0.3rem;
   color: transparent;
   caret-color: var(--code-caret-color,hsl(0deg,83%,78%));
   -webkit-text-fill-color: transparent;
@@ -979,7 +982,7 @@ exports[`snapshot live 1`] = `
   height: 2rem;
   width: 100%;
   border-bottom: 1px solid var(--code-color-border,hsla(0deg,0%,30%,0.8));
-  background: var(--code-bg-color,#1e1e1e);
+  background: var(--code-bg-primary,#1e1e1e);
 }
 
 .c0 > .yozora-code-live__toolbar .yozora-code-live__title {
@@ -1032,7 +1035,7 @@ exports[`snapshot live 1`] = `
   margin: 0;
   caret-color: #aeafad;
   font-family: var(--code-font-family,'Consolas, monospace, sans-serif');
-  background: var(--code-bg-color,#1e1e1e);
+  background: var(--code-bg-primary,#1e1e1e);
 }
 
 .c0 > .yozora-code-live__main > .yozora-code-live__editor::selection {
@@ -1147,7 +1150,7 @@ exports[`snapshot live 1`] = `
     >
       <div
         class="c6 c7 yozora-code-editor"
-        style="line-height:1.8em;tab-size:2"
+        style="line-height:1.6rem;tab-size:2"
       >
         <div
           class="yozora-code-editor__textarea-wrapper"
@@ -1175,7 +1178,7 @@ exports[`snapshot live 1`] = `
         >
           <div
             class="c8 prism-code language-jsx"
-            style="color:#d4d4d4;background-color:none;line-height:1.8em;max-height:7.5600000000000005em;min-height:100%"
+            style="color:#d4d4d4;background-color:none;line-height:1.6rem;max-height:6.720000000000001rem;min-height:100%"
           >
             <div
               class="yozora-code-highlighter__linenos"

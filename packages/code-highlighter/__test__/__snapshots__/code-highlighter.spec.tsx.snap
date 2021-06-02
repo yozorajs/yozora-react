@@ -12,6 +12,7 @@ exports[`basic rendering case snapshot 1`] = `
   align-items: stretch;
   width: 100%;
   overflow: hidden;
+  padding-bottom: 0.3rem;
   -webkit-transition: max-height 0.5s ease-in-out;
   transition: max-height 0.5s ease-in-out;
   tab-size: 2;
@@ -77,7 +78,7 @@ exports[`basic rendering case snapshot 1`] = `
 <pre>
   <div
     class="c0 prism-code language-typescript"
-    style="color:#d4d4d4;background-color:none;line-height:1.8rem;max-height:2.16rem;min-height:100%"
+    style="color:#d4d4d4;background-color:none;line-height:1.6rem;max-height:1.92rem;min-height:100%"
   >
     <div
       class="yozora-code-highlighter__linenos"
