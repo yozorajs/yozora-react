@@ -14,7 +14,7 @@ export const Container = styled.div`
     height: 2rem;
     width: 100%;
     border-bottom: 1px solid var(--code-color-border, hsla(0deg, 0%, 30%, 0.8));
-    background: var(--code-bg-color, #1e1e1e);
+    background: var(--code-bg-primary, #1e1e1e);
 
     .yozora-code-live__title {
       margin-left: 1rem;
@@ -55,7 +55,7 @@ export const Container = styled.div`
       margin: 0;
       caret-color: #aeafad;
       font-family: var(--code-font-family, 'Consolas, monospace, sans-serif');
-      background: var(--code-bg-color, #1e1e1e);
+      background: var(--code-bg-primary, #1e1e1e);
       ::selection {
         background: var(--code-bg-selection, hsla(200deg, 30%, 70%, 0.3));
       }

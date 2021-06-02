@@ -5,6 +5,7 @@ export const Container = styled.div`
   align-items: stretch;
   width: 100%;
   overflow: hidden;
+  padding-bottom: 0.3rem;
   transition: max-height 0.5s ease-in-out;
   tab-size: 2;
   -moz-osx-font-smoothing: grayscale;

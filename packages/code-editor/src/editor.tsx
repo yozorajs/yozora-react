@@ -570,6 +570,7 @@ export const Container = styled.div`
   }
   .yozora-code-editor__textarea {
     resize: none;
+    padding-bottom: 0.3rem;
     color: transparent;
     caret-color: var(--code-caret-color, hsl(0deg, 83%, 78%));
     -webkit-text-fill-color: transparent;

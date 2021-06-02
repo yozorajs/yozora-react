@@ -18,7 +18,7 @@ export const Container = styled.div`
     height: 2rem;
     width: 100%;
     border-bottom: 1px solid var(--code-color-border, hsla(0deg, 0%, 30%, 0.8));
-    background: var(--code-bg-color, #1e1e1e);
+    background: var(--code-bg-primary, #1e1e1e);
 
     .yozora-code-literal__title {
       margin-left: 1rem;
@@ -45,7 +45,7 @@ export const Container = styled.div`
     font-family: var(--code-font-family);
     font-size: 14px;
     line-height: 1.33;
-    background: var(--code-bg-primary);
+    background: var(--code-bg-primary, #1e1e1e);
     text-shadow: 0 1px;
     white-space: pre-wrap;
     overflow-wrap: break-word;
