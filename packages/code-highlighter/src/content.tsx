@@ -15,7 +15,7 @@ export function HighlighterContent(
     highlightLinenos = [],
     collapsed = false,
     maxLines = -1,
-    lineHeight = '1.8rem',
+    lineHeight = '1.6rem',
     showLinenos = true,
     tokens,
     getLineProps,

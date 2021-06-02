@@ -68,7 +68,7 @@ export interface CodeEditorProps {
   style?: React.CSSProperties
   /**
    * Line height.
-   * @default '1.8em'
+   * @default '1.6rem'
    */
   lineHeight?: React.CSSProperties['lineHeight']
   /**
@@ -97,7 +97,7 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
     autoFocus,
     style,
     className,
-    lineHeight = '1.8em',
+    lineHeight = '1.6rem',
   } = props
 
   const codesRef = useRef<HTMLDivElement>(null)

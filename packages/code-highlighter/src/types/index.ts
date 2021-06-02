@@ -68,7 +68,7 @@ export interface HighlightContentProps extends RenderProps {
   maxLines?: number
   /**
    * Line height.
-   * @default '1.8em'
+   * @default '1.6rem'
    */
   lineHeight?: React.CSSProperties['lineHeight']
   /**
