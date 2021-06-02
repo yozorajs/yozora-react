@@ -271,6 +271,7 @@ export const BaseCss = css`
   }
 
   .yozora-math {
+    overflow: auto;
     border: none;
     margin: var(--margin-block-node);
     color: var(--math-color);

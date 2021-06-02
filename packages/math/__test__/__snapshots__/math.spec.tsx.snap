@@ -23,7 +23,7 @@ exports[`snapshot custom 1`] = `
 \\\\end{align}
 "
 >
-  <span
+  <div
     className="yozora-math custom-class"
     style={
       Object {
@@ -48,7 +48,7 @@ exports[`snapshot custom 1`] = `
 "
       inline={false}
     />
-  </span>
+  </div>
 </YozoraMath>
 `;
 
@@ -71,7 +71,7 @@ exports[`snapshot default 1`] = `
 \\\\end{align}
 "
 >
-  <span
+  <div
     className="yozora-math"
     style={
       Object {
@@ -93,6 +93,6 @@ exports[`snapshot default 1`] = `
 "
       inline={false}
     />
-  </span>
+  </div>
 </YozoraMath>
 `;

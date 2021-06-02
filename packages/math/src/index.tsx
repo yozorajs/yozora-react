@@ -27,9 +27,9 @@ export interface MathProps {
 export function Math(props: MathProps): React.ReactElement {
   const { value, className, style } = props
   return (
-    <span className={cn('yozora-math', className)} style={style}>
+    <div className={cn('yozora-math', className)} style={style}>
       <MathJax.Node inline={false} formula={value} />
-    </span>
+    </div>
   )
 }
 
