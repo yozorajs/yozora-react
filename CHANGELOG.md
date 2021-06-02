@@ -1,5 +1,23 @@
 # Changelog
 
+<a name="1.0.0-alpha.6"></a>
+## 1.0.0-alpha.6 (2021-06-02)
+
+### Added
+
+- ✅ test: update snapshots [[7ef6e2d](https://github.com/guanghechen/yozora-react/commit/7ef6e2d3a84c4848e194416d97497fac08f7d985)]
+
+### Changed
+
+- 💄 improve(code-highlighter,code-editor): fix invalid css variables &amp; tweak padding-bottom [[ccf1af7](https://github.com/guanghechen/yozora-react/commit/ccf1af7107be95b73278ffe9331ce9a83590416e)]
+- 💄 improve(code-literal): show count of lines when collapsed [[463521d](https://github.com/guanghechen/yozora-react/commit/463521deba07c450c03ffbb24dc4e98c0a37ace9)]
+- 💄 improve(code-editor, code-highlighter: tweak line-height [[93f2818](https://github.com/guanghechen/yozora-react/commit/93f28183bf1e32bb3b29b6e25c1fed0869cbc136)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[cbad409](https://github.com/guanghechen/yozora-react/commit/cbad409cb0e572ccd0a7bc465b45be0f966cb738)]
+
+
 <a name="1.0.0-alpha.5"></a>
 ## 1.0.0-alpha.5 (2021-06-01)
 
