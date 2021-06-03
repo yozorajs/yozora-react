@@ -14,8 +14,10 @@ exports[`snapshot custom 1`] = `
   }
   value="x^2 + y^2 = z^2"
 >
-  <span
+  <MathJaxNode
     className="yozora-inline-math custom-class"
+    formula="x^2 + y^2 = z^2"
+    inline={true}
     style={
       Object {
         "background": "hsla(210deg, 13%, 12%, 0.05)",
@@ -26,11 +28,19 @@ exports[`snapshot custom 1`] = `
       }
     }
   >
-    <MathJaxNode
-      formula="x^2 + y^2 = z^2"
-      inline={true}
+    <span
+      className="yozora-inline-math custom-class"
+      style={
+        Object {
+          "background": "hsla(210deg, 13%, 12%, 0.05)",
+          "border": "1px solid blue",
+          "color": "#d81848",
+          "margin": "0 2px",
+          "padding": "2px",
+        }
+      }
     />
-  </span>
+  </MathJaxNode>
 </YozoraInlineMath>
 `;
 
@@ -44,8 +54,10 @@ exports[`snapshot default 1`] = `
   }
   value="x^2 + y^2 = z^2"
 >
-  <span
+  <MathJaxNode
     className="yozora-inline-math"
+    formula="x^2 + y^2 = z^2"
+    inline={true}
     style={
       Object {
         "color": "orange",
@@ -53,10 +65,15 @@ exports[`snapshot default 1`] = `
       }
     }
   >
-    <MathJaxNode
-      formula="x^2 + y^2 = z^2"
-      inline={true}
+    <span
+      className="yozora-inline-math"
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
     />
-  </span>
+  </MathJaxNode>
 </YozoraInlineMath>
 `;

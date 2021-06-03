@@ -23,8 +23,19 @@ exports[`snapshot custom 1`] = `
 \\\\end{align}
 "
 >
-  <div
+  <MathJaxNode
     className="yozora-math custom-class"
+    formula="
+\\\\begin{align}
+  f(x) = \\\\left\\\\lbrace
+    \\\\begin{aligned}
+      &x^2, &x < 0 \\\\\\\\
+      &\\\\frac{1}{x^3}, &x > 0
+    \\\\end{aligned}
+  \\\\right.
+\\\\end{align}
+"
+    inline={false}
     style={
       Object {
         "background": "hsla(210deg, 13%, 12%, 0.05)",
@@ -35,20 +46,19 @@ exports[`snapshot custom 1`] = `
       }
     }
   >
-    <MathJaxNode
-      formula="
-\\\\begin{align}
-  f(x) = \\\\left\\\\lbrace
-    \\\\begin{aligned}
-      &x^2, &x < 0 \\\\\\\\
-      &\\\\frac{1}{x^3}, &x > 0
-    \\\\end{aligned}
-  \\\\right.
-\\\\end{align}
-"
-      inline={false}
+    <div
+      className="yozora-math custom-class"
+      style={
+        Object {
+          "background": "hsla(210deg, 13%, 12%, 0.05)",
+          "border": "1px solid blue",
+          "color": "#d81848",
+          "margin": "0 2px",
+          "padding": "2px",
+        }
+      }
     />
-  </div>
+  </MathJaxNode>
 </YozoraMath>
 `;
 
@@ -71,17 +81,9 @@ exports[`snapshot default 1`] = `
 \\\\end{align}
 "
 >
-  <div
+  <MathJaxNode
     className="yozora-math"
-    style={
-      Object {
-        "color": "orange",
-        "fontSize": "16px",
-      }
-    }
-  >
-    <MathJaxNode
-      formula="
+    formula="
 \\\\begin{align}
   f(x) = \\\\left\\\\lbrace
     \\\\begin{aligned}
@@ -91,8 +93,23 @@ exports[`snapshot default 1`] = `
   \\\\right.
 \\\\end{align}
 "
-      inline={false}
+    inline={false}
+    style={
+      Object {
+        "color": "orange",
+        "fontSize": "16px",
+      }
+    }
+  >
+    <div
+      className="yozora-math"
+      style={
+        Object {
+          "color": "orange",
+          "fontSize": "16px",
+        }
+      }
     />
-  </div>
+  </MathJaxNode>
 </YozoraMath>
 `;

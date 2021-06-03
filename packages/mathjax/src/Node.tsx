@@ -108,7 +108,10 @@ export class MathJaxNode extends React.Component<
    */
   protected typeset(forceUpdate: boolean): void | never {
     const { MathJax } = this.context
-    if (MathJax == null) throw new TypeError(`Cannot find MathJax instance!`)
+    if (MathJax == null) {
+      console.warn(`Cannot find MathJax instance!`)
+      return
+    }
 
     if (forceUpdate) this.clear()
 

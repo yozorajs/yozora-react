@@ -1,8 +1,8 @@
 import { collectFootnoteDefinitions } from '@yozora/ast-util'
 import YozoraFootnotesRenderer from '@yozora/react-footnote-definitions'
+import { MathJaxProvider } from '@yozora/react-mathjax'
 import cn from 'clsx'
 import React, { useMemo, useState } from 'react'
-import MathJax from 'react-mathjax'
 import type {
   Definition,
   FootnoteDefinition,
@@ -117,10 +117,10 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
 
   return (
     <Container className={cn('yozora-markdown', className)} style={style}>
-      <MathJax.Provider>
+      <MathJaxProvider>
         <section>{children}</section>
         <footer>{footnotes}</footer>
-      </MathJax.Provider>
+      </MathJaxProvider>
       {Viewer != null && (
         <Viewer
           visible={visible}

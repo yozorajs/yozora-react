@@ -39,7 +39,6 @@
   },
   "dependencies": {
     "@types/react-copy-to-clipboard": "^5.0.0",
-    "@types/react-mathjax": "^1.0.0",
     "@yozora/react-admonition": "^1.0.0-alpha.6",
     "@yozora/react-blockquote": "^1.0.0-alpha.6",
     "@yozora/react-break": "^1.0.0-alpha.6",
@@ -61,13 +60,13 @@
     "@yozora/react-list": "^1.0.0-alpha.6",
     "@yozora/react-list-item": "^1.0.0-alpha.6",
     "@yozora/react-math": "^1.0.0-alpha.6",
+    "@yozora/react-mathjax": "^1.0.0-alpha.6",
     "@yozora/react-paragraph": "^1.0.0-alpha.6",
     "@yozora/react-strong": "^1.0.0-alpha.6",
     "@yozora/react-table": "^1.0.0-alpha.6",
     "@yozora/react-text": "^1.0.0-alpha.6",
     "@yozora/react-thematic-break": "^1.0.0-alpha.6",
-    "react-copy-to-clipboard": "^5.0.3",
-    "react-mathjax": "^1.0.1"
+    "react-copy-to-clipboard": "^5.0.3"
   },
   "peerDependencies": {
     "@yozora/ast": "^1.0.0-alpha.21",

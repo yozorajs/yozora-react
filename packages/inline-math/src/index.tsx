@@ -1,7 +1,7 @@
+import { MathJaxNode } from '@yozora/react-mathjax'
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import MathJax from 'react-mathjax'
 
 export interface InlineMathProps {
   /**
@@ -27,9 +27,12 @@ export interface InlineMathProps {
 export function InlineMath(props: InlineMathProps): React.ReactElement {
   const { value, className, style } = props
   return (
-    <span className={cn('yozora-inline-math', className)} style={style}>
-      <MathJax.Node inline={true} formula={value} />
-    </span>
+    <MathJaxNode
+      className={cn('yozora-inline-math', className)}
+      style={style}
+      inline={true}
+      formula={value}
+    />
   )
 }
 

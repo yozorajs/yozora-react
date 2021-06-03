@@ -27,14 +27,15 @@ export class MathJaxProvider extends React.Component<
 
   public static defaultProps = {
     loading: null,
-    mathjaxSrc: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_SVG',
+    mathjaxSrc:
+      'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_SVG',
     mathjaxConfig: {
       tex2jax: { inlineMath: [] },
       TeX: { equationNumbers: { autoNumber: 'AMS' } },
       SVG: { blacker: 1 },
       showMathMenu: false,
       showMathMenuMSIE: false,
-    }
+    },
   }
 
   public static childContextTypes = {
@@ -55,7 +56,9 @@ export class MathJaxProvider extends React.Component<
   }
 
   public render(): React.ReactNode {
-    if (!this.state.loaded) return this.props.loading
+    if (!this.state.loaded && this.props.loading !== null) {
+      return this.props.loading
+    }
     return this.props.children
   }
 

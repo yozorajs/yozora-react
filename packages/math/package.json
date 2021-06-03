@@ -40,10 +40,10 @@
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "peerDependencies": {
+    "@yozora/react-mathjax": "^1.0.0-alpha.6",
     "clsx": "^1.1.1",
     "prop-types": "^15.7.2",
-    "react": ">= 17.0.0",
-    "react-mathjax": "^1.0.1"
+    "react": ">= 17.0.0"
   },
   "browserslist": [
     "last 2 versions",
