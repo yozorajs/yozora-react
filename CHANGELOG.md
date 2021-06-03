@@ -1,5 +1,29 @@
 # Changelog
 
+<a name="1.0.0-alpha.7"></a>
+## 1.0.0-alpha.7 (2021-06-03)
+
+### Added
+
+- ✅ test: update tests [[d631021](https://github.com/guanghechen/yozora-react/commit/d631021de4fb44fcd55dccbd48f4854d9337d2bc)]
+- ✨ feat: created new sub-package @yozora/react-mathjax [[0d43342](https://github.com/guanghechen/yozora-react/commit/0d43342dbc2fc60544579146ccaaff98dd99810d)]
+
+### Changed
+
+- 🎨 improve(math, inline-math): use @yozora/react-mathjax instead of react-mathjax [[691a4fb](https://github.com/guanghechen/yozora-react/commit/691a4fb0efef85fc7de48671aa3abed6832a608a)]
+- 💄 improve(code-highlighter): fixed content overflow caused by scrollbars [[7fe6d54](https://github.com/guanghechen/yozora-react/commit/7fe6d54a15d3c2665f219ba453fe31f7a612ac56)]
+- 💄 improve(math): make math block overflow auto [[bccfd31](https://github.com/guanghechen/yozora-react/commit/bccfd318aa8aa658c18c30bbdc0332965baf1ff6)]
+
+### Fixed
+
+- 🐛 fix(mathjax): trigger children update when the context value changed [[b910078](https://github.com/guanghechen/yozora-react/commit/b91007890487acd20e93f986f5d97f1c0fc90109)]
+
+### Miscellaneous
+
+- 📝 docs: update READMEs [[b10d54d](https://github.com/guanghechen/yozora-react/commit/b10d54dede84fc0dab8cbba0479a86121d46b301)]
+- 📝 docs: udpate CHANGELOG [[16855d7](https://github.com/guanghechen/yozora-react/commit/16855d7a6989e7b3916acc2769a1a5b64520bb49)]
+
+
 <a name="1.0.0-alpha.6"></a>
 ## 1.0.0-alpha.6 (2021-06-02)
 
