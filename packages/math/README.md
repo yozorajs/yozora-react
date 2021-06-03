@@ -76,11 +76,15 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
 ## Usage
 
-* Basic:
+To use this component alone, You need to place it under the component `MathJaxProvider`
+(exported from [@yozora/react-mathjax][]).
+
+* Use it alone:
 
   ```tsx
   import React from 'react'
   import Math from '@yozora/react-math'
+  import { MathJaxProvider } from '@yozora/react-mathjax'
 
   const code = `
     \\begin{align}
@@ -94,12 +98,17 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   `
 
   const wrapper = (
-    <Math
-      value={ code }
-      style={{ color: 'orange', fontSize: '16px' }}
-    />
+    <MathJaxProvider>
+      <Math
+        value={ code }
+        style={{ color: 'orange', fontSize: '16px' }}
+      />
+    </MathJaxProvider>
   )
   ```
+
+* [@yozora/react-markdown][] has has built-in `MathJaxProvider`, so you don’t 
+  need to wrap it manually.
 
 ### Props
 
@@ -116,14 +125,16 @@ Name        | Type                  | Required  | Default | Description
 ## Related
 
 * [@yozora/ast][]
-* [@yozora/react-inline-mathjax][]
+* [@yozora/react-inline-math][]
 * [@yozora/react-markdown][]
 * [@yozora/tokenizer-inline-math][]
+* [@yozora/react-mathjax][]
 * [@yozora/tokenizer-math][]
 * [mathjax][]
 
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#inlinemath
-[@yozora/react-inline-math]: https://www.npmjs.com/package/@yozora/react-inline-mathjax
+[@yozora/react-inline-math]: https://www.npmjs.com/package/@yozora/react-inline-math
+[@yozora/react-mathjax]: https://www.npmjs.com/package/@yozora/react-inline-mathjax
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-inline-math]: https://www.npmjs.com/package/@yozora/tokenizer-inline-math
 [@yozora/tokenizer-math]: https://www.npmjs.com/package/@yozora/tokenizer-math

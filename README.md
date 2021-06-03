@@ -101,9 +101,10 @@ Component Name                    | Description
 [@yozora/react-code-embed]        | A simple code editor online.
 [@yozora/react-code-highlighter]  | Highlight codes.
 [@yozora/react-code-literal]      | Render literal code block.
-[@yozora/react-code-live]         | A live code editor, be similar to [react-live].
+[@yozora/react-code-live]         | A live code editor, be similar to [react-live][].
 [@yozora/react-code-renderer-jsx] | A component for renderer jsx directly in browser.
 [@yozora/react-markdown]          | A component for render markdown content with above Markdown Components.
+[@yozora/react-mathjax]           | Render formula with mathjax in react.
 
 
 [react-live]: https://github.com/FormidableLabs/react-live
@@ -137,6 +138,7 @@ Component Name                    | Description
 [@yozora/react-text]: https://github.com/guanghechen/yozora-react/tree/main/packages/text#readme
 [@yozora/react-thematic-break]: https://github.com/guanghechen/yozora-react/tree/main/packages/thematic-break#readme
 [@yozora/react-markdown]: https://github.com/guanghechen/yozora-react/tree/main/packages/markdown#readme
+[@yozora/react-mathjax]: https://github.com/guanghechen/yozora-react/tree/main/packages/mathjax#readme
 
 [yozora/ast]: https://www.npmjs.com/package/@yozora/ast
 [yozora/admonition]: https://www.npmjs.com/package/@yozora/ast#admonition
