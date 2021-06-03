@@ -32,6 +32,7 @@
       "@yozora/react-list-item": ["./packages/list-item/src"],
       "@yozora/react-markdown": ["./packages/react-markdown/src"],
       "@yozora/react-math": ["./packages/math/src"],
+      "@yozora/react-mathjax": ["./packages/mathjax/src"],
       "@yozora/react-paragraph": ["./packages/paragraph/src"],
       "@yozora/react-strong": ["./packages/strong/src"],
       "@yozora/react-table": ["./packages/table/src"],
