@@ -39,7 +39,9 @@ exports[`snapshot custom 1`] = `
           "padding": "2px",
         }
       }
-    />
+    >
+      x^2 + y^2 = z^2
+    </span>
   </MathJaxNode>
 </YozoraInlineMath>
 `;
@@ -73,7 +75,9 @@ exports[`snapshot default 1`] = `
           "fontSize": "16px",
         }
       }
-    />
+    >
+      x^2 + y^2 = z^2
+    </span>
   </MathJaxNode>
 </YozoraInlineMath>
 `;

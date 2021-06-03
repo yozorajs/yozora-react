@@ -57,7 +57,18 @@ exports[`snapshot custom 1`] = `
           "padding": "2px",
         }
       }
-    />
+    >
+      
+\\begin{align}
+  f(x) = \\left\\lbrace
+    \\begin{aligned}
+      &x^2, &x &lt; 0 \\\\
+      &\\frac{1}{x^3}, &x &gt; 0
+    \\end{aligned}
+  \\right.
+\\end{align}
+
+    </div>
   </MathJaxNode>
 </YozoraMath>
 `;
@@ -109,7 +120,18 @@ exports[`snapshot default 1`] = `
           "fontSize": "16px",
         }
       }
-    />
+    >
+      
+\\begin{align}
+  f(x) = \\left\\lbrace
+    \\begin{aligned}
+      &x^2, &x &lt; 0 \\\\
+      &\\frac{1}{x^3}, &x &gt; 0
+    \\end{aligned}
+  \\right.
+\\end{align}
+
+    </div>
   </MathJaxNode>
 </YozoraMath>
 `;
