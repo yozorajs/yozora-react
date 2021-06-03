@@ -26,7 +26,8 @@ export const Container = styled.div`
   }
   .yozora-code-highlighter__codes {
     flex: 1 1 auto;
-    overflow: auto;
+    overflow: auto;     // for css compatibility
+    overflow: overlay;
     ::-webkit-scrollbar-corner {
       display: none;
     }

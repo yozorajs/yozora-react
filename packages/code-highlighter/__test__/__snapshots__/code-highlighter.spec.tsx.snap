@@ -44,6 +44,7 @@ exports[`basic rendering case snapshot 1`] = `
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   overflow: auto;
+  overflow: overlay;
 }
 
 .c0 .yozora-code-highlighter__codes::-webkit-scrollbar-corner {

@@ -77,6 +77,7 @@ exports[`snapshot literal 1`] = `
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   overflow: auto;
+  overflow: overlay;
 }
 
 .c6 .yozora-code-highlighter__codes::-webkit-scrollbar-corner {
@@ -771,6 +772,7 @@ exports[`snapshot live 1`] = `
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   overflow: auto;
+  overflow: overlay;
 }
 
 .c8 .yozora-code-highlighter__codes::-webkit-scrollbar-corner {
