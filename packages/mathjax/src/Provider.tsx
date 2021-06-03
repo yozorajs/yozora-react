@@ -1,12 +1,9 @@
 /* eslint-disable new-cap */
 import PropTypes from 'prop-types'
 import React from 'react'
+import { MathJaxContext, initialMathJaxContextValue } from './Context'
 import { loadMathJax } from './util'
-import type {
-  MathJaxContextData,
-  MathJaxProviderProps,
-  MathJaxProviderState,
-} from './types'
+import type { MathJaxProviderProps, MathJaxProviderState } from './types'
 
 /**
  * Mathjax provider
@@ -38,28 +35,25 @@ export class MathJaxProvider extends React.Component<
     },
   }
 
-  public static childContextTypes = {
-    language: PropTypes.oneOf(['tex', 'asciimath']).isRequired,
-    MathJax: PropTypes.object,
-  }
-
   constructor(props: MathJaxProviderProps) {
     super(props)
-    this.state = { loaded: false, MathJax: null }
-  }
-
-  public getChildContext(): MathJaxContextData {
-    return {
-      language: this.props.mathjaxOptions?.language ?? 'tex',
-      MathJax: this.state.MathJax,
+    this.state = {
+      loaded: false,
+      context: { ...initialMathJaxContextValue },
     }
   }
 
   public render(): React.ReactNode {
-    if (!this.state.loaded && this.props.loading !== null) {
+    // Try to render loading animation / contents when the MathJax is not loaded.
+    if (!this.state.loaded && this.props.loading) {
       return this.props.loading
     }
-    return this.props.children
+
+    return (
+      <MathJaxContext.Provider value={this.state.context}>
+        {this.props.children}
+      </MathJaxContext.Provider>
+    )
   }
 
   public componentDidMount(): void {
@@ -75,7 +69,10 @@ export class MathJaxProvider extends React.Component<
 
         if (onLoad != null) onLoad(MathJax)
 
-        this.setState({ loaded: true, MathJax })
+        this.setState(state => ({
+          loaded: true,
+          context: { ...state.context, MathJax },
+        }))
       })
 
       MathJax.Hub.Register.MessageHook(

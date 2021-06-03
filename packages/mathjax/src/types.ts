@@ -65,12 +65,12 @@ export interface MathJaxProviderState {
    */
   loaded: boolean
   /**
-   * MathJax instance.
+   * MathJax context
    */
-  MathJax: MathJax | null
+  context: MathJaxContextValue
 }
 
-export interface MathJaxContextData {
+export interface MathJaxContextValue {
   /**
    * Type of the formula string.
    */
