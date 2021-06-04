@@ -1,5 +1,26 @@
 # Changelog
 
+<a name="1.0.0-alpha.8"></a>
+## 1.0.0-alpha.8 (2021-06-04)
+
+### Changed
+
+- 💄 improve: tweak code-highlighter padding [[8828365](https://github.com/guanghechen/yozora-react/commit/88283652ba77216ce375633e984140e0d9627d86)]
+- 💄 improve: tweak styles in small screens [[73e5b62](https://github.com/guanghechen/yozora-react/commit/73e5b6238d1d764b2b6902024b955d1ae937f64f)]
+- 💄 improve: tweak font family and font size [[4476b7a](https://github.com/guanghechen/yozora-react/commit/4476b7a7f4f730775cb1b915eba8f7d525298b43)]
+- 💄 improve(code-highlighter): tweak lineno align [[6518210](https://github.com/guanghechen/yozora-react/commit/6518210d8923a50f53e32344177137ffd17780ad)]
+- 💄 improve(math): tweak margin [[0a43b34](https://github.com/guanghechen/yozora-react/commit/0a43b34e749512090f212a1cc1ee3a13fc071bde)]
+
+### Fixed
+
+- 🐛 fix(common-copy-button): fix copy failure in mobile browsers [[df0357f](https://github.com/guanghechen/yozora-react/commit/df0357f42327c930db7bfeedf4465428e86b9edc)]
+
+### Miscellaneous
+
+- 🚧 improve: don&#x27;t display equation numbers [[5de528c](https://github.com/guanghechen/yozora-react/commit/5de528c078f05fe1cae507d64a6a83cd45fb4d14)]
+- 📝 docs: update CHANGELOG [[39bafb5](https://github.com/guanghechen/yozora-react/commit/39bafb5a9eac0f5187e6e3e2e3ee7d76ec944df0)]
+
+
 <a name="1.0.0-alpha.7"></a>
 ## 1.0.0-alpha.7 (2021-06-03)
 
