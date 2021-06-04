@@ -43,9 +43,9 @@ exports[`snapshot literal 1`] = `
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
-  width: 100%;
   overflow: hidden;
-  padding-bottom: 0.3rem;
+  width: 100%;
+  padding: 0;
   -webkit-transition: max-height 0.5s ease-in-out;
   transition: max-height 0.5s ease-in-out;
   tab-size: 2;
@@ -60,7 +60,10 @@ exports[`snapshot literal 1`] = `
 
 .c6 .yozora-code-highlighter__line {
   display: block;
-  min-width: 100%;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  width: 100%;
   -webkit-letter-spacing: inherit;
   -moz-letter-spacing: inherit;
   -ms-letter-spacing: inherit;
@@ -108,6 +111,12 @@ exports[`snapshot literal 1`] = `
   overflow: auto;
   overflow: overlay;
   padding: 0.5rem 0;
+}
+
+.c6 .yozora-code-highlighter__codes .yozora-code-highlighter__codes-wrapper {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .c6 .yozora-code-highlighter__codes .yozora-code-highlighter__line {
@@ -381,323 +390,327 @@ exports[`snapshot literal 1`] = `
           class="yozora-code-highlighter__codes"
         >
           <div
-            class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight token-line"
-            style="color:#d4d4d4"
+            class="yozora-code-highlighter__codes-wrapper"
           >
-            <span
-              class="token keyword"
-              style="color:rgb(86, 156, 214)"
+            <div
+              class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight token-line"
+              style="color:#d4d4d4"
             >
-              function
-            </span>
-            <span
-              class="token plain"
+              <span
+                class="token keyword"
+                style="color:rgb(86, 156, 214)"
+              >
+                function
+              </span>
+              <span
+                class="token plain"
+              >
+                 
+              </span>
+              <span
+                class="token punctuation"
+                style="color:rgb(106, 153, 85)"
+              >
+                (
+              </span>
+              <span
+                class="token punctuation"
+                style="color:rgb(106, 153, 85)"
+              >
+                )
+              </span>
+              <span
+                class="token plain"
+              >
+                 
+              </span>
+              <span
+                class="token punctuation"
+                style="color:rgb(106, 153, 85)"
+              >
+                {
+              </span>
+              <span
+                class="token plain"
+              />
+            </div>
+            <div
+              class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight token-line"
+              style="color:#d4d4d4"
             >
-               
-            </span>
-            <span
-              class="token punctuation"
-              style="color:rgb(106, 153, 85)"
+              <span
+                class="token plain"
+              >
+                      
+              </span>
+              <span
+                class="token keyword"
+                style="color:rgb(86, 156, 214)"
+              >
+                const
+              </span>
+              <span
+                class="token plain"
+              >
+                 a 
+              </span>
+              <span
+                class="token operator"
+                style="color:rgb(212, 212, 212)"
+              >
+                =
+              </span>
+              <span
+                class="token plain"
+              >
+                 
+              </span>
+              <span
+                class="token number"
+                style="color:rgb(181, 206, 168)"
+              >
+                1
+              </span>
+              <span
+                class="token punctuation"
+                style="color:rgb(106, 153, 85)"
+              >
+                ;
+              </span>
+              <span
+                class="token plain"
+              />
+            </div>
+            <div
+              class="yozora-code-highlighter__line token-line"
+              style="color:#d4d4d4"
             >
-              (
-            </span>
-            <span
-              class="token punctuation"
-              style="color:rgb(106, 153, 85)"
+              <span
+                class="token plain"
+              >
+                      
+              </span>
+              <span
+                class="token keyword"
+                style="color:rgb(86, 156, 214)"
+              >
+                const
+              </span>
+              <span
+                class="token plain"
+              >
+                 b 
+              </span>
+              <span
+                class="token operator"
+                style="color:rgb(212, 212, 212)"
+              >
+                =
+              </span>
+              <span
+                class="token plain"
+              >
+                 
+              </span>
+              <span
+                class="token number"
+                style="color:rgb(181, 206, 168)"
+              >
+                2
+              </span>
+              <span
+                class="token punctuation"
+                style="color:rgb(106, 153, 85)"
+              >
+                ;
+              </span>
+              <span
+                class="token plain"
+              />
+            </div>
+            <div
+              class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight token-line"
+              style="color:#d4d4d4"
             >
-              )
-            </span>
-            <span
-              class="token plain"
+              <span
+                class="token plain"
+              >
+                      
+              </span>
+              <span
+                class="token keyword"
+                style="color:rgb(86, 156, 214)"
+              >
+                const
+              </span>
+              <span
+                class="token plain"
+              >
+                 c 
+              </span>
+              <span
+                class="token operator"
+                style="color:rgb(212, 212, 212)"
+              >
+                =
+              </span>
+              <span
+                class="token plain"
+              >
+                 a 
+              </span>
+              <span
+                class="token operator"
+                style="color:rgb(212, 212, 212)"
+              >
+                *
+              </span>
+              <span
+                class="token plain"
+              >
+                 a 
+              </span>
+              <span
+                class="token operator"
+                style="color:rgb(212, 212, 212)"
+              >
+                +
+              </span>
+              <span
+                class="token plain"
+              >
+                 b 
+              </span>
+              <span
+                class="token operator"
+                style="color:rgb(212, 212, 212)"
+              >
+                *
+              </span>
+              <span
+                class="token plain"
+              >
+                 b
+              </span>
+              <span
+                class="token punctuation"
+                style="color:rgb(106, 153, 85)"
+              >
+                ;
+              </span>
+              <span
+                class="token plain"
+              />
+            </div>
+            <div
+              class="yozora-code-highlighter__line token-line"
+              style="color:#d4d4d4"
             >
-               
-            </span>
-            <span
-              class="token punctuation"
-              style="color:rgb(106, 153, 85)"
+              <span
+                class="token plain"
+              >
+                      
+              </span>
+              <span
+                class="token keyword"
+                style="color:rgb(86, 156, 214)"
+              >
+                return
+              </span>
+              <span
+                class="token plain"
+              >
+                 
+              </span>
+              <span
+                class="token tag punctuation"
+                style="color:rgb(106, 153, 85)"
+              >
+                &lt;
+              </span>
+              <span
+                class="token tag"
+                style="color:rgb(86, 156, 214)"
+              >
+                span
+              </span>
+              <span
+                class="token tag punctuation"
+                style="color:rgb(106, 153, 85)"
+              >
+                &gt;
+              </span>
+              <span
+                class="token plain"
+              >
+                Answer
+              </span>
+              <span
+                class="token operator"
+                style="color:rgb(212, 212, 212)"
+              >
+                :
+              </span>
+              <span
+                class="token plain"
+              >
+                 
+              </span>
+              <span
+                class="token punctuation"
+                style="color:rgb(106, 153, 85)"
+              >
+                {
+              </span>
+              <span
+                class="token plain"
+              >
+                c
+              </span>
+              <span
+                class="token punctuation"
+                style="color:rgb(106, 153, 85)"
+              >
+                }
+              </span>
+              <span
+                class="token tag punctuation"
+                style="color:rgb(106, 153, 85)"
+              >
+                &lt;/
+              </span>
+              <span
+                class="token tag"
+                style="color:rgb(86, 156, 214)"
+              >
+                span
+              </span>
+              <span
+                class="token tag punctuation"
+                style="color:rgb(106, 153, 85)"
+              >
+                &gt;
+              </span>
+              <span
+                class="token plain"
+              />
+            </div>
+            <div
+              class="yozora-code-highlighter__line token-line"
+              style="color:#d4d4d4"
             >
-              {
-            </span>
-            <span
-              class="token plain"
-            />
-          </div>
-          <div
-            class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight token-line"
-            style="color:#d4d4d4"
-          >
-            <span
-              class="token plain"
-            >
+              <span
+                class="token plain"
+              >
                     
-            </span>
-            <span
-              class="token keyword"
-              style="color:rgb(86, 156, 214)"
-            >
-              const
-            </span>
-            <span
-              class="token plain"
-            >
-               a 
-            </span>
-            <span
-              class="token operator"
-              style="color:rgb(212, 212, 212)"
-            >
-              =
-            </span>
-            <span
-              class="token plain"
-            >
-               
-            </span>
-            <span
-              class="token number"
-              style="color:rgb(181, 206, 168)"
-            >
-              1
-            </span>
-            <span
-              class="token punctuation"
-              style="color:rgb(106, 153, 85)"
-            >
-              ;
-            </span>
-            <span
-              class="token plain"
-            />
-          </div>
-          <div
-            class="yozora-code-highlighter__line token-line"
-            style="color:#d4d4d4"
-          >
-            <span
-              class="token plain"
-            >
-                    
-            </span>
-            <span
-              class="token keyword"
-              style="color:rgb(86, 156, 214)"
-            >
-              const
-            </span>
-            <span
-              class="token plain"
-            >
-               b 
-            </span>
-            <span
-              class="token operator"
-              style="color:rgb(212, 212, 212)"
-            >
-              =
-            </span>
-            <span
-              class="token plain"
-            >
-               
-            </span>
-            <span
-              class="token number"
-              style="color:rgb(181, 206, 168)"
-            >
-              2
-            </span>
-            <span
-              class="token punctuation"
-              style="color:rgb(106, 153, 85)"
-            >
-              ;
-            </span>
-            <span
-              class="token plain"
-            />
-          </div>
-          <div
-            class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight token-line"
-            style="color:#d4d4d4"
-          >
-            <span
-              class="token plain"
-            >
-                    
-            </span>
-            <span
-              class="token keyword"
-              style="color:rgb(86, 156, 214)"
-            >
-              const
-            </span>
-            <span
-              class="token plain"
-            >
-               c 
-            </span>
-            <span
-              class="token operator"
-              style="color:rgb(212, 212, 212)"
-            >
-              =
-            </span>
-            <span
-              class="token plain"
-            >
-               a 
-            </span>
-            <span
-              class="token operator"
-              style="color:rgb(212, 212, 212)"
-            >
-              *
-            </span>
-            <span
-              class="token plain"
-            >
-               a 
-            </span>
-            <span
-              class="token operator"
-              style="color:rgb(212, 212, 212)"
-            >
-              +
-            </span>
-            <span
-              class="token plain"
-            >
-               b 
-            </span>
-            <span
-              class="token operator"
-              style="color:rgb(212, 212, 212)"
-            >
-              *
-            </span>
-            <span
-              class="token plain"
-            >
-               b
-            </span>
-            <span
-              class="token punctuation"
-              style="color:rgb(106, 153, 85)"
-            >
-              ;
-            </span>
-            <span
-              class="token plain"
-            />
-          </div>
-          <div
-            class="yozora-code-highlighter__line token-line"
-            style="color:#d4d4d4"
-          >
-            <span
-              class="token plain"
-            >
-                    
-            </span>
-            <span
-              class="token keyword"
-              style="color:rgb(86, 156, 214)"
-            >
-              return
-            </span>
-            <span
-              class="token plain"
-            >
-               
-            </span>
-            <span
-              class="token tag punctuation"
-              style="color:rgb(106, 153, 85)"
-            >
-              &lt;
-            </span>
-            <span
-              class="token tag"
-              style="color:rgb(86, 156, 214)"
-            >
-              span
-            </span>
-            <span
-              class="token tag punctuation"
-              style="color:rgb(106, 153, 85)"
-            >
-              &gt;
-            </span>
-            <span
-              class="token plain"
-            >
-              Answer
-            </span>
-            <span
-              class="token operator"
-              style="color:rgb(212, 212, 212)"
-            >
-              :
-            </span>
-            <span
-              class="token plain"
-            >
-               
-            </span>
-            <span
-              class="token punctuation"
-              style="color:rgb(106, 153, 85)"
-            >
-              {
-            </span>
-            <span
-              class="token plain"
-            >
-              c
-            </span>
-            <span
-              class="token punctuation"
-              style="color:rgb(106, 153, 85)"
-            >
-              }
-            </span>
-            <span
-              class="token tag punctuation"
-              style="color:rgb(106, 153, 85)"
-            >
-              &lt;/
-            </span>
-            <span
-              class="token tag"
-              style="color:rgb(86, 156, 214)"
-            >
-              span
-            </span>
-            <span
-              class="token tag punctuation"
-              style="color:rgb(106, 153, 85)"
-            >
-              &gt;
-            </span>
-            <span
-              class="token plain"
-            />
-          </div>
-          <div
-            class="yozora-code-highlighter__line token-line"
-            style="color:#d4d4d4"
-          >
-            <span
-              class="token plain"
-            >
-                  
-            </span>
-            <span
-              class="token punctuation"
-              style="color:rgb(106, 153, 85)"
-            >
-              }
-            </span>
+              </span>
+              <span
+                class="token punctuation"
+                style="color:rgb(106, 153, 85)"
+              >
+                }
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -743,9 +756,9 @@ exports[`snapshot live 1`] = `
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
-  width: 100%;
   overflow: hidden;
-  padding-bottom: 0.3rem;
+  width: 100%;
+  padding: 0;
   -webkit-transition: max-height 0.5s ease-in-out;
   transition: max-height 0.5s ease-in-out;
   tab-size: 2;
@@ -760,7 +773,10 @@ exports[`snapshot live 1`] = `
 
 .c8 .yozora-code-highlighter__line {
   display: block;
-  min-width: 100%;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  width: 100%;
   -webkit-letter-spacing: inherit;
   -moz-letter-spacing: inherit;
   -ms-letter-spacing: inherit;
@@ -808,6 +824,12 @@ exports[`snapshot live 1`] = `
   overflow: auto;
   overflow: overlay;
   padding: 0.5rem 0;
+}
+
+.c8 .yozora-code-highlighter__codes .yozora-code-highlighter__codes-wrapper {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .c8 .yozora-code-highlighter__codes .yozora-code-highlighter__line {
@@ -926,7 +948,7 @@ exports[`snapshot live 1`] = `
 
 .c6 .yozora-code-editor__textarea {
   resize: none;
-  padding-bottom: 0.3rem;
+  padding: 0;
   color: transparent;
   caret-color: var(--code-caret-color,hsl(0deg,83%,78%));
   -webkit-text-fill-color: transparent;
@@ -1245,323 +1267,327 @@ exports[`snapshot live 1`] = `
               class="yozora-code-highlighter__codes"
             >
               <div
-                class="yozora-code-highlighter__line token-line"
-                style="color:#d4d4d4"
+                class="yozora-code-highlighter__codes-wrapper"
               >
-                <span
-                  class="token keyword"
-                  style="color:rgb(86, 156, 214)"
+                <div
+                  class="yozora-code-highlighter__line token-line"
+                  style="color:#d4d4d4"
                 >
-                  function
-                </span>
-                <span
-                  class="token plain"
+                  <span
+                    class="token keyword"
+                    style="color:rgb(86, 156, 214)"
+                  >
+                    function
+                  </span>
+                  <span
+                    class="token plain"
+                  >
+                     
+                  </span>
+                  <span
+                    class="token punctuation"
+                    style="color:rgb(106, 153, 85)"
+                  >
+                    (
+                  </span>
+                  <span
+                    class="token punctuation"
+                    style="color:rgb(106, 153, 85)"
+                  >
+                    )
+                  </span>
+                  <span
+                    class="token plain"
+                  >
+                     
+                  </span>
+                  <span
+                    class="token punctuation"
+                    style="color:rgb(106, 153, 85)"
+                  >
+                    {
+                  </span>
+                  <span
+                    class="token plain"
+                  />
+                </div>
+                <div
+                  class="yozora-code-highlighter__line token-line"
+                  style="color:#d4d4d4"
                 >
-                   
-                </span>
-                <span
-                  class="token punctuation"
-                  style="color:rgb(106, 153, 85)"
+                  <span
+                    class="token plain"
+                  >
+                          
+                  </span>
+                  <span
+                    class="token keyword"
+                    style="color:rgb(86, 156, 214)"
+                  >
+                    const
+                  </span>
+                  <span
+                    class="token plain"
+                  >
+                     a 
+                  </span>
+                  <span
+                    class="token operator"
+                    style="color:rgb(212, 212, 212)"
+                  >
+                    =
+                  </span>
+                  <span
+                    class="token plain"
+                  >
+                     
+                  </span>
+                  <span
+                    class="token number"
+                    style="color:rgb(181, 206, 168)"
+                  >
+                    1
+                  </span>
+                  <span
+                    class="token punctuation"
+                    style="color:rgb(106, 153, 85)"
+                  >
+                    ;
+                  </span>
+                  <span
+                    class="token plain"
+                  />
+                </div>
+                <div
+                  class="yozora-code-highlighter__line token-line"
+                  style="color:#d4d4d4"
                 >
-                  (
-                </span>
-                <span
-                  class="token punctuation"
-                  style="color:rgb(106, 153, 85)"
+                  <span
+                    class="token plain"
+                  >
+                          
+                  </span>
+                  <span
+                    class="token keyword"
+                    style="color:rgb(86, 156, 214)"
+                  >
+                    const
+                  </span>
+                  <span
+                    class="token plain"
+                  >
+                     b 
+                  </span>
+                  <span
+                    class="token operator"
+                    style="color:rgb(212, 212, 212)"
+                  >
+                    =
+                  </span>
+                  <span
+                    class="token plain"
+                  >
+                     
+                  </span>
+                  <span
+                    class="token number"
+                    style="color:rgb(181, 206, 168)"
+                  >
+                    2
+                  </span>
+                  <span
+                    class="token punctuation"
+                    style="color:rgb(106, 153, 85)"
+                  >
+                    ;
+                  </span>
+                  <span
+                    class="token plain"
+                  />
+                </div>
+                <div
+                  class="yozora-code-highlighter__line token-line"
+                  style="color:#d4d4d4"
                 >
-                  )
-                </span>
-                <span
-                  class="token plain"
+                  <span
+                    class="token plain"
+                  >
+                          
+                  </span>
+                  <span
+                    class="token keyword"
+                    style="color:rgb(86, 156, 214)"
+                  >
+                    const
+                  </span>
+                  <span
+                    class="token plain"
+                  >
+                     c 
+                  </span>
+                  <span
+                    class="token operator"
+                    style="color:rgb(212, 212, 212)"
+                  >
+                    =
+                  </span>
+                  <span
+                    class="token plain"
+                  >
+                     a 
+                  </span>
+                  <span
+                    class="token operator"
+                    style="color:rgb(212, 212, 212)"
+                  >
+                    *
+                  </span>
+                  <span
+                    class="token plain"
+                  >
+                     a 
+                  </span>
+                  <span
+                    class="token operator"
+                    style="color:rgb(212, 212, 212)"
+                  >
+                    +
+                  </span>
+                  <span
+                    class="token plain"
+                  >
+                     b 
+                  </span>
+                  <span
+                    class="token operator"
+                    style="color:rgb(212, 212, 212)"
+                  >
+                    *
+                  </span>
+                  <span
+                    class="token plain"
+                  >
+                     b
+                  </span>
+                  <span
+                    class="token punctuation"
+                    style="color:rgb(106, 153, 85)"
+                  >
+                    ;
+                  </span>
+                  <span
+                    class="token plain"
+                  />
+                </div>
+                <div
+                  class="yozora-code-highlighter__line token-line"
+                  style="color:#d4d4d4"
                 >
-                   
-                </span>
-                <span
-                  class="token punctuation"
-                  style="color:rgb(106, 153, 85)"
+                  <span
+                    class="token plain"
+                  >
+                          
+                  </span>
+                  <span
+                    class="token keyword"
+                    style="color:rgb(86, 156, 214)"
+                  >
+                    return
+                  </span>
+                  <span
+                    class="token plain"
+                  >
+                     
+                  </span>
+                  <span
+                    class="token tag punctuation"
+                    style="color:rgb(106, 153, 85)"
+                  >
+                    &lt;
+                  </span>
+                  <span
+                    class="token tag"
+                    style="color:rgb(86, 156, 214)"
+                  >
+                    span
+                  </span>
+                  <span
+                    class="token tag punctuation"
+                    style="color:rgb(106, 153, 85)"
+                  >
+                    &gt;
+                  </span>
+                  <span
+                    class="token plain"
+                  >
+                    Answer
+                  </span>
+                  <span
+                    class="token operator"
+                    style="color:rgb(212, 212, 212)"
+                  >
+                    :
+                  </span>
+                  <span
+                    class="token plain"
+                  >
+                     
+                  </span>
+                  <span
+                    class="token punctuation"
+                    style="color:rgb(106, 153, 85)"
+                  >
+                    {
+                  </span>
+                  <span
+                    class="token plain"
+                  >
+                    c
+                  </span>
+                  <span
+                    class="token punctuation"
+                    style="color:rgb(106, 153, 85)"
+                  >
+                    }
+                  </span>
+                  <span
+                    class="token tag punctuation"
+                    style="color:rgb(106, 153, 85)"
+                  >
+                    &lt;/
+                  </span>
+                  <span
+                    class="token tag"
+                    style="color:rgb(86, 156, 214)"
+                  >
+                    span
+                  </span>
+                  <span
+                    class="token tag punctuation"
+                    style="color:rgb(106, 153, 85)"
+                  >
+                    &gt;
+                  </span>
+                  <span
+                    class="token plain"
+                  />
+                </div>
+                <div
+                  class="yozora-code-highlighter__line token-line"
+                  style="color:#d4d4d4"
                 >
-                  {
-                </span>
-                <span
-                  class="token plain"
-                />
-              </div>
-              <div
-                class="yozora-code-highlighter__line token-line"
-                style="color:#d4d4d4"
-              >
-                <span
-                  class="token plain"
-                >
+                  <span
+                    class="token plain"
+                  >
                         
-                </span>
-                <span
-                  class="token keyword"
-                  style="color:rgb(86, 156, 214)"
-                >
-                  const
-                </span>
-                <span
-                  class="token plain"
-                >
-                   a 
-                </span>
-                <span
-                  class="token operator"
-                  style="color:rgb(212, 212, 212)"
-                >
-                  =
-                </span>
-                <span
-                  class="token plain"
-                >
-                   
-                </span>
-                <span
-                  class="token number"
-                  style="color:rgb(181, 206, 168)"
-                >
-                  1
-                </span>
-                <span
-                  class="token punctuation"
-                  style="color:rgb(106, 153, 85)"
-                >
-                  ;
-                </span>
-                <span
-                  class="token plain"
-                />
-              </div>
-              <div
-                class="yozora-code-highlighter__line token-line"
-                style="color:#d4d4d4"
-              >
-                <span
-                  class="token plain"
-                >
-                        
-                </span>
-                <span
-                  class="token keyword"
-                  style="color:rgb(86, 156, 214)"
-                >
-                  const
-                </span>
-                <span
-                  class="token plain"
-                >
-                   b 
-                </span>
-                <span
-                  class="token operator"
-                  style="color:rgb(212, 212, 212)"
-                >
-                  =
-                </span>
-                <span
-                  class="token plain"
-                >
-                   
-                </span>
-                <span
-                  class="token number"
-                  style="color:rgb(181, 206, 168)"
-                >
-                  2
-                </span>
-                <span
-                  class="token punctuation"
-                  style="color:rgb(106, 153, 85)"
-                >
-                  ;
-                </span>
-                <span
-                  class="token plain"
-                />
-              </div>
-              <div
-                class="yozora-code-highlighter__line token-line"
-                style="color:#d4d4d4"
-              >
-                <span
-                  class="token plain"
-                >
-                        
-                </span>
-                <span
-                  class="token keyword"
-                  style="color:rgb(86, 156, 214)"
-                >
-                  const
-                </span>
-                <span
-                  class="token plain"
-                >
-                   c 
-                </span>
-                <span
-                  class="token operator"
-                  style="color:rgb(212, 212, 212)"
-                >
-                  =
-                </span>
-                <span
-                  class="token plain"
-                >
-                   a 
-                </span>
-                <span
-                  class="token operator"
-                  style="color:rgb(212, 212, 212)"
-                >
-                  *
-                </span>
-                <span
-                  class="token plain"
-                >
-                   a 
-                </span>
-                <span
-                  class="token operator"
-                  style="color:rgb(212, 212, 212)"
-                >
-                  +
-                </span>
-                <span
-                  class="token plain"
-                >
-                   b 
-                </span>
-                <span
-                  class="token operator"
-                  style="color:rgb(212, 212, 212)"
-                >
-                  *
-                </span>
-                <span
-                  class="token plain"
-                >
-                   b
-                </span>
-                <span
-                  class="token punctuation"
-                  style="color:rgb(106, 153, 85)"
-                >
-                  ;
-                </span>
-                <span
-                  class="token plain"
-                />
-              </div>
-              <div
-                class="yozora-code-highlighter__line token-line"
-                style="color:#d4d4d4"
-              >
-                <span
-                  class="token plain"
-                >
-                        
-                </span>
-                <span
-                  class="token keyword"
-                  style="color:rgb(86, 156, 214)"
-                >
-                  return
-                </span>
-                <span
-                  class="token plain"
-                >
-                   
-                </span>
-                <span
-                  class="token tag punctuation"
-                  style="color:rgb(106, 153, 85)"
-                >
-                  &lt;
-                </span>
-                <span
-                  class="token tag"
-                  style="color:rgb(86, 156, 214)"
-                >
-                  span
-                </span>
-                <span
-                  class="token tag punctuation"
-                  style="color:rgb(106, 153, 85)"
-                >
-                  &gt;
-                </span>
-                <span
-                  class="token plain"
-                >
-                  Answer
-                </span>
-                <span
-                  class="token operator"
-                  style="color:rgb(212, 212, 212)"
-                >
-                  :
-                </span>
-                <span
-                  class="token plain"
-                >
-                   
-                </span>
-                <span
-                  class="token punctuation"
-                  style="color:rgb(106, 153, 85)"
-                >
-                  {
-                </span>
-                <span
-                  class="token plain"
-                >
-                  c
-                </span>
-                <span
-                  class="token punctuation"
-                  style="color:rgb(106, 153, 85)"
-                >
-                  }
-                </span>
-                <span
-                  class="token tag punctuation"
-                  style="color:rgb(106, 153, 85)"
-                >
-                  &lt;/
-                </span>
-                <span
-                  class="token tag"
-                  style="color:rgb(86, 156, 214)"
-                >
-                  span
-                </span>
-                <span
-                  class="token tag punctuation"
-                  style="color:rgb(106, 153, 85)"
-                >
-                  &gt;
-                </span>
-                <span
-                  class="token plain"
-                />
-              </div>
-              <div
-                class="yozora-code-highlighter__line token-line"
-                style="color:#d4d4d4"
-              >
-                <span
-                  class="token plain"
-                >
-                      
-                </span>
-                <span
-                  class="token punctuation"
-                  style="color:rgb(106, 153, 85)"
-                >
-                  }
-                </span>
+                  </span>
+                  <span
+                    class="token punctuation"
+                    style="color:rgb(106, 153, 85)"
+                  >
+                    }
+                  </span>
+                </div>
               </div>
             </div>
           </div>

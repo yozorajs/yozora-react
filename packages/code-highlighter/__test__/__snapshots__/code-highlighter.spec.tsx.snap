@@ -10,9 +10,9 @@ exports[`basic rendering case snapshot 1`] = `
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
-  width: 100%;
   overflow: hidden;
-  padding-bottom: 0.3rem;
+  width: 100%;
+  padding: 0;
   -webkit-transition: max-height 0.5s ease-in-out;
   transition: max-height 0.5s ease-in-out;
   tab-size: 2;
@@ -27,7 +27,10 @@ exports[`basic rendering case snapshot 1`] = `
 
 .c0 .yozora-code-highlighter__line {
   display: block;
-  min-width: 100%;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  width: 100%;
   -webkit-letter-spacing: inherit;
   -moz-letter-spacing: inherit;
   -ms-letter-spacing: inherit;
@@ -77,6 +80,12 @@ exports[`basic rendering case snapshot 1`] = `
   padding: 0.5rem 0;
 }
 
+.c0 .yozora-code-highlighter__codes .yozora-code-highlighter__codes-wrapper {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .c0 .yozora-code-highlighter__codes .yozora-code-highlighter__line {
   padding: 0 1rem 0 6px;
 }
@@ -102,87 +111,91 @@ exports[`basic rendering case snapshot 1`] = `
       class="yozora-code-highlighter__codes"
     >
       <div
-        class="yozora-code-highlighter__line token-line"
-        style="color:#d4d4d4"
+        class="yozora-code-highlighter__codes-wrapper"
       >
-        <span
-          class="token keyword"
-          style="color:rgb(86, 156, 214)"
+        <div
+          class="yozora-code-highlighter__line token-line"
+          style="color:#d4d4d4"
         >
-          let
-        </span>
-        <span
-          class="token plain"
-        >
-           a
-        </span>
-        <span
-          class="token operator"
-          style="color:rgb(212, 212, 212)"
-        >
-          :
-        </span>
-        <span
-          class="token plain"
-        >
-           
-        </span>
-        <span
-          class="token builtin"
-          style="color:rgb(79, 193, 255)"
-        >
-          number
-        </span>
-        <span
-          class="token plain"
-        >
-           
-        </span>
-        <span
-          class="token operator"
-          style="color:rgb(212, 212, 212)"
-        >
-          =
-        </span>
-        <span
-          class="token plain"
-        >
-           
-        </span>
-        <span
-          class="token number"
-          style="color:rgb(181, 206, 168)"
-        >
-          1
-        </span>
-        <span
-          class="token plain"
-        >
-           
-        </span>
-        <span
-          class="token operator"
-          style="color:rgb(212, 212, 212)"
-        >
-          +
-        </span>
-        <span
-          class="token plain"
-        >
-           
-        </span>
-        <span
-          class="token number"
-          style="color:rgb(181, 206, 168)"
-        >
-          2
-        </span>
-        <span
-          class="token punctuation"
-          style="color:rgb(106, 153, 85)"
-        >
-          ;
-        </span>
+          <span
+            class="token keyword"
+            style="color:rgb(86, 156, 214)"
+          >
+            let
+          </span>
+          <span
+            class="token plain"
+          >
+             a
+          </span>
+          <span
+            class="token operator"
+            style="color:rgb(212, 212, 212)"
+          >
+            :
+          </span>
+          <span
+            class="token plain"
+          >
+             
+          </span>
+          <span
+            class="token builtin"
+            style="color:rgb(79, 193, 255)"
+          >
+            number
+          </span>
+          <span
+            class="token plain"
+          >
+             
+          </span>
+          <span
+            class="token operator"
+            style="color:rgb(212, 212, 212)"
+          >
+            =
+          </span>
+          <span
+            class="token plain"
+          >
+             
+          </span>
+          <span
+            class="token number"
+            style="color:rgb(181, 206, 168)"
+          >
+            1
+          </span>
+          <span
+            class="token plain"
+          >
+             
+          </span>
+          <span
+            class="token operator"
+            style="color:rgb(212, 212, 212)"
+          >
+            +
+          </span>
+          <span
+            class="token plain"
+          >
+             
+          </span>
+          <span
+            class="token number"
+            style="color:rgb(181, 206, 168)"
+          >
+            2
+          </span>
+          <span
+            class="token punctuation"
+            style="color:rgb(106, 153, 85)"
+          >
+            ;
+          </span>
+        </div>
       </div>
     </div>
   </div>
