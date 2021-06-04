@@ -273,7 +273,7 @@ export const BaseCss = css`
   .yozora-math {
     overflow: auto;
     border: none;
-    margin: var(--margin-block-node);
+    margin: 0;
     color: var(--math-color);
     background: transparent;
   }
@@ -288,6 +288,10 @@ export const BaseCss = css`
       align-items: center;
       justify-content: center;
       padding: 1rem 0;
+    }
+
+    + .yozora-math {
+      margin-top: -1em;
     }
   }
 
