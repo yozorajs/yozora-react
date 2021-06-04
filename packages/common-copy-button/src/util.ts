@@ -17,10 +17,36 @@ export async function copyToClipboard(text: string): Promise<boolean> {
       return true
     }
 
+    if (copyThroughExecCommand(text)) return true
     console.error('Failed to write into clipboard. text:', text)
   } catch (error) {
     console.error('Failed to write into clipboard. error:', error)
   }
 
   return false
+}
+
+/**
+ * Try use `exec` command to writing text into system clipboard.
+ * @param text
+ * @returns
+ */
+function copyThroughExecCommand(text: string): boolean {
+  // Put the text to copy into a <textarea>
+  const textarea = document.createElement('textarea')
+  textarea.value = text
+  textarea.style.position = 'absolute'
+  textarea.style.opacity = '0'
+
+  document.body.appendChild(textarea)
+  textarea.select()
+
+  // Copy text to the clipboard
+  let success = false
+  try {
+    success = window.document.execCommand('copy')
+  } finally {
+    window.document.body.removeChild(textarea)
+  }
+  return success
 }
