@@ -28,7 +28,6 @@ export class MathJaxProvider extends React.Component<
       'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_SVG',
     mathjaxConfig: {
       tex2jax: { inlineMath: [] },
-      TeX: { equationNumbers: { autoNumber: 'AMS' } },
       SVG: { blacker: 1 },
       showMathMenu: false,
       showMathMenuMSIE: false,
