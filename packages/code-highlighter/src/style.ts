@@ -3,9 +3,9 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   align-items: stretch;
-  width: 100%;
   overflow: hidden;
-  padding-bottom: 0.3rem;
+  width: 100%;
+  padding: 0;
   transition: max-height 0.5s ease-in-out;
   tab-size: 2;
   -moz-osx-font-smoothing: grayscale;
