@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="1.0.0-alpha.9"></a>
+## 1.0.0-alpha.9 (2021-06-04)
+
+### Changed
+
+- 🔧 chore: update dependenceis [[3c76019](https://github.com/guanghechen/yozora-react/commit/3c760199ae2b03b9e16c729bbe90ec1c6c468225)]
+- 🔧 chore: update ci [[304b1d5](https://github.com/guanghechen/yozora-react/commit/304b1d5dde828b8b6a2b196f4a803289dae99530)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[a6d4bc8](https://github.com/guanghechen/yozora-react/commit/a6d4bc8e3053b9622e120fd3d79681d042f18992)]
+
+
 <a name="1.0.0-alpha.8"></a>
 ## 1.0.0-alpha.8 (2021-06-04)
 
