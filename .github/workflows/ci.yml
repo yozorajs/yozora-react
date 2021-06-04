@@ -28,6 +28,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Installation
         run: yarn || yarn || yarn # 3 attempts to avoid timeout errors...
+      - name: Clean
+        run: yarn clean || yarn clean || yarn clean # 3 attempts to avoid timeout errors...
       - name: Build
         run: yarn build
       - name: Test
