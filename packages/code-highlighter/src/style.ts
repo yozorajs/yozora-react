@@ -18,7 +18,8 @@ export const Container = styled.div`
 
   .yozora-code-highlighter__line {
     display: block;
-    min-width: 100%;
+    min-width: fit-content;
+    width: 100%;
     letter-spacing: inherit;
     line-height: inherit;
     overflow-wrap: inherit;
@@ -53,6 +54,9 @@ export const Container = styled.div`
     overflow: auto;     // for css compatibility
     overflow: overlay;
     padding: 0.5rem 0;
+    .yozora-code-highlighter__codes-wrapper {
+      width: fit-content;
+    }
     .yozora-code-highlighter__line {
       padding: 0 1rem 0 6px;
     }

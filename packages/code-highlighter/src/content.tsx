@@ -96,27 +96,29 @@ export function HighlighterContent(
         className="yozora-code-highlighter__codes"
         onScroll={syncScrollEvents}
       >
-        {tokens.map((line, lineNo) => {
-          const isHighlight = highlightLinenos.includes(lineNo + 1)
-          const lineProps = getLineProps({ line })
-          return (
-            <div
-              {...lineProps}
-              key={lineNo}
-              className={cn(
-                'yozora-code-highlighter__line',
-                {
-                  'yozora-code-highlighter__line--highlight': isHighlight,
-                },
-                lineProps.className,
-              )}
-            >
-              {line.map((token, key) => (
-                <span {...getTokenProps({ token })} key={key} />
-              ))}
-            </div>
-          )
-        })}
+        <div className="yozora-code-highlighter__codes-wrapper">
+          {tokens.map((line, lineNo) => {
+            const isHighlight = highlightLinenos.includes(lineNo + 1)
+            const lineProps = getLineProps({ line })
+            return (
+              <div
+                {...lineProps}
+                key={lineNo}
+                className={cn(
+                  'yozora-code-highlighter__line',
+                  {
+                    'yozora-code-highlighter__line--highlight': isHighlight,
+                  },
+                  lineProps.className,
+                )}
+              >
+                {line.map((token, key) => (
+                  <span {...getTokenProps({ token })} key={key} />
+                ))}
+              </div>
+            )
+          })}
+        </div>
       </div>
     </Container>
   )
