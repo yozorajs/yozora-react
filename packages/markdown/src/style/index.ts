@@ -32,7 +32,8 @@ export const Container = styled.div`
   --code-bg-highlight: hsla(210deg, 100%, 84%, 0.2);
   --code-bg-selection: hsla(200deg, 30%, 70%, 0.3);
   --code-color-border: hsla(0deg, 0%, 30%, 0.8);
-  --code-font-family: Consolas, monospace, lucida grande, lucida sans unicode, lucida, Hiragino Sans GB, Helvetica Neue, Microsoft Yahei, WenQuanYi Micro Hei, sans-serif;
+  --code-font-family: Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif;
+  --code-font-size: min(1rem, 18px);
 
   // Heading styles
   --heading-font-family: Comic Sans MS, lucida grande, lucida sans unicode, lucida, Hiragino Sans GB, Helvetica Neue, Microsoft Yahei, WenQuanYi Micro Hei, sans-serif;

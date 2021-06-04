@@ -55,6 +55,7 @@ export const Container = styled.div`
       margin: 0;
       caret-color: #aeafad;
       font-family: var(--code-font-family, 'Consolas, monospace, sans-serif');
+      font-size: var(--code-font-size, 1rem);
       background: var(--code-bg-primary, #1e1e1e);
       ::selection {
         background: var(--code-bg-selection, hsla(200deg, 30%, 70%, 0.3));

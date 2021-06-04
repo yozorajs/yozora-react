@@ -43,10 +43,9 @@ export const Container = styled.div`
     border: none;
     margin: 0;
     font-family: var(--code-font-family);
-    font-size: 14px;
+    font-size: var(--code-font-size, 1rem);
     line-height: 1.33;
     background: var(--code-bg-primary, #1e1e1e);
-    text-shadow: 0 1px;
     white-space: pre-wrap;
     overflow-wrap: break-word;
     word-spacing: normal;
@@ -58,6 +57,7 @@ export const Container = styled.div`
     > pre {
       margin: 0;
       font-family: var(--code-font-family);
+      font-size: var(--code-font-size, 1rem);
       line-height: inherit;
       code, span {
         line-height: inherit;

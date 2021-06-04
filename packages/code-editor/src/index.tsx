@@ -181,6 +181,7 @@ export default CodeEditor
 
 const Container = styled(SimpleCodeEditor)`
   font-family: var(--code-font-family, Consolas, 'Source Code Pro', monospace, sans-serif);
+  font-size: var(--code-font-size, 1rem);
   border: 1px solid var(--code-color-border, lightgray);
   border-radius: 4px;
 

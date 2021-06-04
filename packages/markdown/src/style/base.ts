@@ -38,6 +38,7 @@ import { css } from 'styled-components'
  *    --code-bg-selection
  *    --code-color-border
  *    --code-font-family
+ *    --code-font-size
  *
  *    // Heading styles
  *    --heading-font-family
@@ -223,6 +224,7 @@ export const BaseCss = css`
     line-height: 1.375;
     color: #d81848;
     font-family: var(--code-font-family);
+    font-size: var(--code-font-size, 1rem);
     font-size: 1em;
     font-weight: 500;
   }

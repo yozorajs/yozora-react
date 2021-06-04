@@ -237,10 +237,9 @@ exports[`snapshot literal 1`] = `
   border: none;
   margin: 0;
   font-family: var(--code-font-family);
-  font-size: 14px;
+  font-size: var(--code-font-size,1rem);
   line-height: 1.33;
   background: var(--code-bg-primary,#1e1e1e);
-  text-shadow: 0 1px;
   white-space: pre-wrap;
   overflow-wrap: break-word;
   word-spacing: normal;
@@ -257,6 +256,7 @@ exports[`snapshot literal 1`] = `
 .c0 > .yozora-code-literal__content > pre {
   margin: 0;
   font-family: var(--code-font-family);
+  font-size: var(--code-font-size,1rem);
   line-height: inherit;
 }
 
@@ -948,6 +948,7 @@ exports[`snapshot live 1`] = `
 
 .c7 {
   font-family: var(--code-font-family,Consolas,'Source Code Pro',monospace,sans-serif);
+  font-size: var(--code-font-size,1rem);
   border: 1px solid var(--code-color-border,lightgray);
   border-radius: 4px;
 }
@@ -1051,6 +1052,7 @@ exports[`snapshot live 1`] = `
   margin: 0;
   caret-color: #aeafad;
   font-family: var(--code-font-family,'Consolas, monospace, sans-serif');
+  font-size: var(--code-font-size,1rem);
   background: var(--code-bg-primary,#1e1e1e);
 }
 
