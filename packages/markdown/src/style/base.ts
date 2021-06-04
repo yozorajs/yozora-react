@@ -362,4 +362,21 @@ export const BaseCss = css`
     outline: 0;
     margin: 1.5em 0;
   }
+
+  @media screen and (max-width: 767px) {
+    ::-webkit-scrollbar {
+      height: 1px;
+      width: 1px;
+    }
+
+    .yozora-code-literal {
+      border-radius: 5px;
+      box-shadow: rgba(30, 30, 30, 73%) 0px 2px 10px;
+      overflow: hidden;
+      .yozora-code-highlighter__linenos {
+        display: none;
+        visibility: hidden;
+      }
+    }
+  }
 `

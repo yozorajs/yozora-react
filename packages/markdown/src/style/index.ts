@@ -52,10 +52,9 @@ export const Container = styled.div`
   --table-bg-row-even: #f6f8fa;
   --table-color-border: #dfe2e5;
 
-
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 4px;
+    height: 4px;
   }
   ::-webkit-scrollbar-track {
     background-color: transparent;

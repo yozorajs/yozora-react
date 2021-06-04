@@ -183,7 +183,8 @@ exports[`snapshot literal 1`] = `
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  border: 1px solid #d3d3d3;
+  border: 1px solid transparent;
+  background: var(--code-bg-primary,#1e1e1e);
   caret-color: #aeafad;
 }
 
@@ -207,7 +208,6 @@ exports[`snapshot literal 1`] = `
   height: 2rem;
   width: 100%;
   border-bottom: 1px solid var(--code-color-border,hsla(0deg,0%,30%,0.8));
-  background: var(--code-bg-primary,#1e1e1e);
 }
 
 .c0 > .yozora-code-literal__toolbar .yozora-code-literal__title {

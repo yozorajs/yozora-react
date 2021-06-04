@@ -4,7 +4,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border: 1px solid #d3d3d3;
+  border: 1px solid transparent;
+  background: var(--code-bg-primary, #1e1e1e);
   caret-color: #aeafad;
   ::selection {
     background: var(--code-bg-selection);
@@ -18,7 +19,6 @@ export const Container = styled.div`
     height: 2rem;
     width: 100%;
     border-bottom: 1px solid var(--code-color-border, hsla(0deg, 0%, 30%, 0.8));
-    background: var(--code-bg-primary, #1e1e1e);
 
     .yozora-code-literal__title {
       margin-left: 1rem;
