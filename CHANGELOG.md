@@ -1,5 +1,22 @@
 # Changelog
 
+<a name="1.0.0-alpha.10"></a>
+## 1.0.0-alpha.10 (2021-06-04)
+
+### Added
+
+- ✅ test: update snapshots [[63bc823](https://github.com/guanghechen/yozora-react/commit/63bc82371bb996e109955b476ff66434dc9f6439)]
+
+### Changed
+
+- 💄 fix(code-highlighter): highlighted lines should cover the entire line [[cabab2b](https://github.com/guanghechen/yozora-react/commit/cabab2b26b3abff9f58784a71905769d59aa8d95)]
+- 💄 fix(code-highlighter): remove excess gaps when collapsed [[66910bd](https://github.com/guanghechen/yozora-react/commit/66910bdfd241c2b14ef569406c78748c400489f6)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[4911b84](https://github.com/guanghechen/yozora-react/commit/4911b840978f0e5722996ed9d2a9b363fb271575)]
+
+
 <a name="1.0.0-alpha.9"></a>
 ## 1.0.0-alpha.9 (2021-06-04)
 
