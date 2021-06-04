@@ -16,25 +16,8 @@ export const Container = styled.div`
   word-spacing: normal;
   word-wrap: normal;
 
-  .yozora-code-highlighter__linenos {
-    flex: 0 0 auto;
-    overflow: hidden;
-    cursor: default;
-    user-select: none;
-    text-align: right;
-    border-right: 1px solid var(--code-color-border, hsla(0deg, 0%, 30%, 0.8));
-  }
-  .yozora-code-highlighter__codes {
-    flex: 1 1 auto;
-    overflow: auto;     // for css compatibility
-    overflow: overlay;
-    ::-webkit-scrollbar-corner {
-      display: none;
-    }
-  }
   .yozora-code-highlighter__line {
     display: block;
-    padding: 0 0.6em;
     min-width: 100%;
     letter-spacing: inherit;
     line-height: inherit;
@@ -50,6 +33,29 @@ export const Container = styled.div`
     &.yozora-code-highlighter__line--highlight {
       background: var(--code-bg-highlight, hsla(210deg, 100%, 84%, 0.2));
       border-color: transparent;
+    }
+  }
+
+  .yozora-code-highlighter__linenos {
+    flex: 0 0 auto;
+    overflow: hidden;
+    cursor: default;
+    user-select: none;
+    text-align: right;
+    border-right: 1px solid var(--code-color-border, hsla(0deg, 0%, 30%, 0.8));
+    .yozora-code-highlighter__line {
+      padding: 0 6px;
+    }
+  }
+  .yozora-code-highlighter__codes {
+    flex: 1 1 auto;
+    overflow: auto;     // for css compatibility
+    overflow: overlay;
+    ::-webkit-scrollbar-corner {
+      display: none;
+    }
+    .yozora-code-highlighter__line {
+      padding: 0 6px 0 1rem;
     }
   }
 `
