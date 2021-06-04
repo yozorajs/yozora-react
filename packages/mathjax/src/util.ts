@@ -1,9 +1,6 @@
 /* eslint-disable new-cap */
-// eslint-disable-next-line import/order
+import load from 'load-script'
 import type { MathJax } from './types'
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const load = require('load-script')
 
 let MathJaxPromise: Promise<MathJax> | null = null
 export function loadMathJax(src: string): Promise<MathJax> {

@@ -56,6 +56,9 @@ export const Container = styled.div`
     width: 4px;
     height: 4px;
   }
+  ::-webkit-scrollbar-corner {
+    display: none;
+  }
   ::-webkit-scrollbar-track {
     background-color: transparent;
   }

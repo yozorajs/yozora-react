@@ -87,6 +87,7 @@ exports[`snapshot literal 1`] = `
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   overflow: hidden;
+  padding: 0.5rem 0;
   cursor: default;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -106,14 +107,11 @@ exports[`snapshot literal 1`] = `
   flex: 1 1 auto;
   overflow: auto;
   overflow: overlay;
-}
-
-.c6 .yozora-code-highlighter__codes::-webkit-scrollbar-corner {
-  display: none;
+  padding: 0.5rem 0;
 }
 
 .c6 .yozora-code-highlighter__codes .yozora-code-highlighter__line {
-  padding: 0 6px 0 1rem;
+  padding: 0 1rem 0 6px;
 }
 
 .c5 {
@@ -789,6 +787,7 @@ exports[`snapshot live 1`] = `
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   overflow: hidden;
+  padding: 0.5rem 0;
   cursor: default;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -808,14 +807,11 @@ exports[`snapshot live 1`] = `
   flex: 1 1 auto;
   overflow: auto;
   overflow: overlay;
-}
-
-.c8 .yozora-code-highlighter__codes::-webkit-scrollbar-corner {
-  display: none;
+  padding: 0.5rem 0;
 }
 
 .c8 .yozora-code-highlighter__codes .yozora-code-highlighter__line {
-  padding: 0 6px 0 1rem;
+  padding: 0 1rem 0 6px;
 }
 
 .c5 {
@@ -1179,7 +1175,7 @@ exports[`snapshot live 1`] = `
             autocorrect="off"
             class="yozora-code-editor__textarea"
             spellcheck="false"
-            style="tab-size:2;white-space:pre;border-left:undefined solid transparent;padding:0 0.6em"
+            style="tab-size:2;white-space:pre;border-left:undefined solid transparent;padding:0.5rem 0.6em 0 6px"
           >
             function () {
       const a = 1;
@@ -1196,7 +1192,7 @@ exports[`snapshot live 1`] = `
         >
           <div
             class="c8 prism-code language-jsx"
-            style="color:#d4d4d4;background-color:none;line-height:1.6rem;max-height:6.720000000000001rem;min-height:100%"
+            style="color:#d4d4d4;background-color:none;line-height:1.6rem;max-height:8rem;min-height:100%"
           >
             <div
               class="yozora-code-highlighter__linenos"

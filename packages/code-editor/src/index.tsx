@@ -164,7 +164,7 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
         ...wordStyle,
         ...textareaStyle,
         borderLeft: `${linenoWidth} solid transparent`,
-        padding: '0 0.6em',
+        padding: '0.5rem 0.6em 0 6px',
       }}
       preClassName={preClassName}
       preStyle={{ ...wordStyle, ...preStyle }}

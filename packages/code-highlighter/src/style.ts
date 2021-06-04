@@ -39,6 +39,7 @@ export const Container = styled.div`
   .yozora-code-highlighter__linenos {
     flex: 0 0 auto;
     overflow: hidden;
+    padding: 0.5rem 0;
     cursor: default;
     user-select: none;
     text-align: right;
@@ -51,11 +52,9 @@ export const Container = styled.div`
     flex: 1 1 auto;
     overflow: auto;     // for css compatibility
     overflow: overlay;
-    ::-webkit-scrollbar-corner {
-      display: none;
-    }
+    padding: 0.5rem 0;
     .yozora-code-highlighter__line {
-      padding: 0 6px 0 1rem;
+      padding: 0 1rem 0 6px;
     }
   }
 `
