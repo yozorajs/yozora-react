@@ -114,6 +114,7 @@ exports[`snapshot literal 1`] = `
 }
 
 .c6 .yozora-code-highlighter__codes .yozora-code-highlighter__codes-wrapper {
+  min-width: 100%;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -827,6 +828,7 @@ exports[`snapshot live 1`] = `
 }
 
 .c8 .yozora-code-highlighter__codes .yozora-code-highlighter__codes-wrapper {
+  min-width: 100%;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;

@@ -55,6 +55,7 @@ export const Container = styled.div`
     overflow: overlay;
     padding: 0.5rem 0;
     .yozora-code-highlighter__codes-wrapper {
+      min-width: 100%;
       width: fit-content;
     }
     .yozora-code-highlighter__line {
