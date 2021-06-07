@@ -1,5 +1,19 @@
 # Changelog
 
+<a name="1.0.0-alpha.11"></a>
+## 1.0.0-alpha.11 (2021-06-07)
+
+### Changed
+
+- ⬆️ chore: upgrade dependencies [[ffaac9f](https://github.com/guanghechen/yozora-react/commit/ffaac9fee5206fceccb0042e984d9b6e140a3422)]
+- 🎨 improve: fix postcss warnings [[05f1fa9](https://github.com/guanghechen/yozora-react/commit/05f1fa96e4c61fe66ea087fc11ff7a4d91bee709)]
+- 💄 fix(code-highlighter): highlighted lines should cover the entire line [[7e7f9a2](https://github.com/guanghechen/yozora-react/commit/7e7f9a2de87e4818ec3056cf5aaac13173a234a2)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[7584397](https://github.com/guanghechen/yozora-react/commit/7584397a85054229a60fc69c8e3a7bf96aa165df)]
+
+
 <a name="1.0.0-alpha.10"></a>
 ## 1.0.0-alpha.10 (2021-06-04)
 
