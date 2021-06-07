@@ -111,6 +111,14 @@ export const defaultRendererMap: TokenRendererMap = {
       />
     )
   },
+  [HeadingType]: function renderHeading(heading, key, ctx) {
+    const { depth, identifier } = heading
+    return (
+      <HeadingRenderer key={key} identifier={identifier} level={depth}>
+        {ctx.renderNodes(heading.children)}
+      </HeadingRenderer>
+    )
+  },
   [HtmlType]: function renderHtml(html, key, ctx) {
     return null
   },
@@ -166,14 +174,6 @@ export const defaultRendererMap: TokenRendererMap = {
         loading={loading}
         onClick={() => ctx.setImageVisible(true)}
       />
-    )
-  },
-  [HeadingType]: function renderHeading(heading, key, ctx) {
-    const { depth, identifier } = heading
-    return (
-      <HeadingRenderer key={key} identifier={identifier} level={depth}>
-        {ctx.renderNodes(heading.children)}
-      </HeadingRenderer>
     )
   },
   [InlineCodeType]: function renderInlineCode(inlineCode, key) {

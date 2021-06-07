@@ -136,7 +136,7 @@ export const BaseCss = css`
   .yozora-heading {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     padding: 0;
     margin: var(--margin-block-node);
     margin-bottom: 1em;
