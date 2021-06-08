@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/guanghechen/yozora-react.git",
+    "url": "https://github.com/yozorajs/yozora-react.git",
     "directory": "packages/code-editor"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/code-editor#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/code-editor#readme",
   "keywords": [
     "simple code editor"
   ],

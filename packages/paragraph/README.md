@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/main/packages/paragraph#readme">@yozora/react-paragraph</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/paragraph#readme">@yozora/react-paragraph</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-paragraph">

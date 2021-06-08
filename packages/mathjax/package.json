@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/guanghechen/yozora-react.git",
+    "url": "https://github.com/yozorajs/yozora-react.git",
     "directory": "packages/mathjax"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/mathjax#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/mathjax#readme",
   "keywords": [
     "mathjax",
     "react"

@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/guanghechen/yozora-react.git",
+    "url": "https://github.com/yozorajs/yozora-react.git",
     "directory": "packages/list"
   },
-  "homepage": "https://github.com/guanghechen/yozora-react/tree/main/packages/list#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/list#readme",
   "keywords": [
     "mdast node renderer",
     "markdown list"

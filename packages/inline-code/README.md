@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/guanghechen/yozora-react/tree/main/packages/inline-code#readme">@yozora/react-inline-code</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/inline-code#readme">@yozora/react-inline-code</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-inline-code">
