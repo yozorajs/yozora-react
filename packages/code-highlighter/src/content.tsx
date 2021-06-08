@@ -1,8 +1,8 @@
 import cn from 'clsx'
 import React, { useCallback, useEffect, useRef } from 'react'
 import { Container } from './style'
-import { calcHeight } from './util'
 import type { HighlightContentProps } from './types'
+import { calcHeight } from './util'
 
 /**
  * Content of CodeHighlighter.

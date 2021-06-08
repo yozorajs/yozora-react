@@ -1,11 +1,11 @@
 import type { Definition, FootnoteDefinition, YastNode } from '@yozora/ast'
+import type React from 'react'
 import { defaultRendererMap } from './renderer-map'
 import type {
   PreviewImageApi,
   TokenRendererContext,
   TokenRendererMap,
 } from './types'
-import type React from 'react'
 
 /**
  * Render Yozora Markdown AST

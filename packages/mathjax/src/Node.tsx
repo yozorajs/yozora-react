@@ -2,8 +2,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { MathJaxContext } from './Context'
-import { processMathJax } from './util'
 import type { MathJax, MathJaxContextValue } from './types'
+import { processMathJax } from './util'
 
 export interface MathJaxNodeProps {
   /**

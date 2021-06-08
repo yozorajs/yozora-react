@@ -1,6 +1,12 @@
 import cn from 'clsx'
 import React from 'react'
 import styled from 'styled-components'
+import type {
+  EditorHistory,
+  EditorOperationRecord,
+  EditorProps,
+  EditorState,
+} from './types'
 import {
   HISTORY_LIMIT,
   HISTORY_TIME_GAP,
@@ -11,12 +17,6 @@ import {
   isWindows,
   regexps,
 } from './util'
-import type {
-  EditorHistory,
-  EditorOperationRecord,
-  EditorProps,
-  EditorState,
-} from './types'
 
 /**
  * Based on react-simple-code-editor, developed by satya164

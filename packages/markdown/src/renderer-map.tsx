@@ -26,6 +26,7 @@ import {
   TextType,
   ThematicBreakType,
 } from '@yozora/ast'
+import type { Definition, Image, ImageReference } from '@yozora/ast'
 import AdmonitionRenderer from '@yozora/react-admonition'
 import BlockquoteRenderer from '@yozora/react-blockquote'
 import BreakRenderer from '@yozora/react-break'
@@ -47,7 +48,6 @@ import TableRenderer from '@yozora/react-table'
 import TextRenderer from '@yozora/react-text'
 import ThematicBreakRenderer from '@yozora/react-thematic-break'
 import React from 'react'
-import type { Definition, Image, ImageReference } from '@yozora/ast'
 import type { TokenRendererMap } from './types'
 
 /**

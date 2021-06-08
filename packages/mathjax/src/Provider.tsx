@@ -2,8 +2,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { MathJaxContext, initialMathJaxContextValue } from './Context'
-import { loadMathJax } from './util'
 import type { MathJaxProviderProps, MathJaxProviderState } from './types'
+import { loadMathJax } from './util'
 
 /**
  * Mathjax provider

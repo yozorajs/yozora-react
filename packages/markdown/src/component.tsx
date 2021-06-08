@@ -1,15 +1,15 @@
-import { collectFootnoteDefinitions } from '@yozora/ast-util'
-import YozoraFootnotesRenderer from '@yozora/react-footnote-definitions'
-import { MathJaxProvider } from '@yozora/react-mathjax'
-import cn from 'clsx'
-import React, { useMemo, useState } from 'react'
 import type {
   Definition,
   FootnoteDefinition,
   Root,
   YastNode,
 } from '@yozora/ast'
+import { collectFootnoteDefinitions } from '@yozora/ast-util'
+import YozoraFootnotesRenderer from '@yozora/react-footnote-definitions'
 import type { FootnoteItem } from '@yozora/react-footnote-definitions'
+import { MathJaxProvider } from '@yozora/react-mathjax'
+import cn from 'clsx'
+import React, { useMemo, useState } from 'react'
 import { createYozoraNodesRenderer } from './renderer'
 import { Container } from './style'
 import type {

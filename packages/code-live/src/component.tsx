@@ -6,8 +6,8 @@ import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React, { useMemo, useState } from 'react'
 import { Container } from './style'
-import { debounce } from './util'
 import type { CodeLiveProps } from './types'
+import { debounce } from './util'
 
 /**
  * Render yozora `code` in live mode.
