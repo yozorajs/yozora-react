@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-text",
-  "version": "1.0.0-alpha.11",
+  "version": "1.0.0-alpha.12",
   "description": "render markdown text node in react",
   "author": {
     "name": "guanghechen",
