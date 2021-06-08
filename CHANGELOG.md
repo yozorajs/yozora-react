@@ -1,5 +1,19 @@
 # Changelog
 
+<a name="1.0.0-alpha.12"></a>
+## 1.0.0-alpha.12 (2021-06-08)
+
+### Changed
+
+- 🎨 style: format codes [[8390516](https://github.com/guanghechen/yozora-react/commit/83905164254d5e52e8eb69e2a01035446d7a5fbb)]
+- ⬆️ chore: upgrade dev dependencies [[3049d79](https://github.com/guanghechen/yozora-react/commit/3049d79ae33c7647c02a63d98498e09900a9db77)]
+
+### Miscellaneous
+
+-  Move repository from github.com/guanghechen to github.com/yozorajs [[e8a30f9](https://github.com/guanghechen/yozora-react/commit/e8a30f9c0bb61c2e70d18a00807d52330d25ea36)]
+- 📝 docs: update CHANGELOG [[b53f576](https://github.com/guanghechen/yozora-react/commit/b53f5763876a717ec51789d2c2cb5a3bfd66f698)]
+
+
 <a name="1.0.0-alpha.11"></a>
 ## 1.0.0-alpha.11 (2021-06-07)
 
