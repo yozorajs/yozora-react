@@ -57,7 +57,7 @@ export class MathJaxProvider extends React.Component<
 
   public componentDidMount(): void {
     // Waiting MathJax loaded.
-    loadMathJax(this.props.mathjaxSrc!).then(MathJax => {
+    void loadMathJax(this.props.mathjaxSrc!).then(MathJax => {
       const { mathjaxConfig, mathjaxOptions, onLoad } = this.props
       const { processSectionDelay = 0 } = mathjaxOptions ?? {}
 
