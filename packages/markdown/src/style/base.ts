@@ -311,7 +311,7 @@ export const BaseCss = css`
     border-radius: 6px;
     border-spacing: 0;
     border: 1px solid var(--table-color-border);
-    margin: var(--margin-block-node);
+    margin: 0 auto 1.25em;
     line-height: 1.6;
 
     .yozora-table__thead {
