@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-footnote-reference",
-  "version": "1.0.0-alpha.12",
+  "version": "1.0.0-alpha.13",
   "description": "render markdown footnote-reference in react",
   "author": {
     "name": "guanghechen",
