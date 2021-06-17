@@ -1,5 +1,20 @@
 # Changelog
 
+<a name="1.0.0-alpha.13"></a>
+## 1.0.0-alpha.13 (2021-06-17)
+
+### Changed
+
+- ⬆️ chore: upgrade dependencies [[f8f7abf](https://github.com/guanghechen/yozora-react/commit/f8f7abfec4362e8db5b374bb620d3dd391e4f3f0)]
+- 💄 improve: center the table horizontally [[3db95c4](https://github.com/guanghechen/yozora-react/commit/3db95c462dfa0fd3bdbeaf37d624dc1ba00e4923)]
+- 🔧 chore: don&#x27;t run &#x27;yarn-deduplicate&#x27; in ci environment [[a97fa45](https://github.com/guanghechen/yozora-react/commit/a97fa4569e96f5f09ed8d60e5487a276c42ca342)]
+- ⬆️ chore: upgrade dependencies &amp; fix lint errors [[93b39a2](https://github.com/guanghechen/yozora-react/commit/93b39a2f51057e6d6401e27f7220b60f502e2c50)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[65317e4](https://github.com/guanghechen/yozora-react/commit/65317e4247994bcb633757483a648e490e713a1d)]
+
+
 <a name="1.0.0-alpha.12"></a>
 ## 1.0.0-alpha.12 (2021-06-08)
 
