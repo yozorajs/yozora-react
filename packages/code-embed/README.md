@@ -110,13 +110,14 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
 ### Props
 
-Name          | Type                  | Required  | Default | Description
-:------------:|:---------------------:|:---------:|:-------:|:-------------
-`className`   | `string`              | `false`   | -       | Root css class
-`CodeRunner`  | See below             | `true`    | -       | Interpreter for the codes
-`lang`        | `string`              | `true`    | -       | Language of the source codes
-`style`       | `React.CSSProperties` | `false`   | -       | Root css style
-`value`       | `string`              | `true`    | -       | source codes
+Name          | Type                      | Required  | Default | Description
+:------------:|:-------------------------:|:---------:|:-------:|:-------------
+`className`   | `string`                  | `false`   | -       | Root css class
+`CodeRunner`  | See below                 | `true`    | -       | Interpreter for the codes
+`meta`        | `Record<string, unknown`  | `true`    | -       | Interpreter for the codes
+`lang`        | `string`                  | `true`    | -       | Language of the source codes
+`style`       | `React.CSSProperties`     | `false`   | -       | Root css style
+`value`       | `string`                  | `true`    | -       | source codes
 
 * `CodeRunner`
 
@@ -125,7 +126,7 @@ Name          | Type                  | Required  | Default | Description
 
   /**
    * Props of CodeRunner
-  */
+   */
   export interface CodeRunnerProps {
     /**
      * Code language
@@ -135,6 +136,12 @@ Name          | Type                  | Required  | Default | Description
      * Source code contents
      */
     value: string
+    /**
+     * Additional data (such as data parsed from info string of FencedCode).
+     * @see https://github.github.com/gfm/#info-string
+     * @see https://github.github.com/gfm/#example-113
+     */
+    meta: Record<string, unknown>
     /**
      * Error callback
      */

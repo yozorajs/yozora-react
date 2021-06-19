@@ -22,8 +22,9 @@ import { debounce } from './util'
 export function CodeLive(props: CodeLiveProps): React.ReactElement {
   const {
     runners,
-    value: _value,
     lang,
+    value: _value,
+    meta,
     title,
     maxLines,
     collapsed: _collapsed = false,
@@ -83,7 +84,12 @@ export function CodeLive(props: CodeLiveProps): React.ReactElement {
               'yozora-code-live__previewer--center': centerPreviewer,
             })}
           >
-            <CodeEmbed lang={lang} value={value} CodeRunner={runner.runner} />
+            <CodeEmbed
+              lang={lang}
+              value={value}
+              meta={meta}
+              CodeRunner={runner.runner}
+            />
           </div>
         )}
       </div>

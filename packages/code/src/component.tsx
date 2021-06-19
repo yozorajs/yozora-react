@@ -4,7 +4,12 @@ import CodeLive from '@yozora/react-code-live'
 import JsxRenderer from '@yozora/react-code-renderer-jsx'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
-import type { CodeProps, CodeRunnerItem, CodeRunnerProps } from './types'
+import type {
+  CodeMetaData,
+  CodeProps,
+  CodeRunnerItem,
+  CodeRunnerProps,
+} from './types'
 import { parseCodeMeta } from './util'
 
 const defaultRunners: CodeRunnerItem[] = [
@@ -36,14 +41,25 @@ const defaultRunners: CodeRunnerItem[] = [
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
 export function Code(props: CodeProps): React.ReactElement {
-  const { lang, value, meta = '', runners: _runners, className, style } = props
+  const {
+    lang,
+    value,
+    meta: infoString,
+    runners: _runners,
+    className,
+    style,
+  } = props
 
   const runners = useMemo<CodeRunnerItem[]>(
     () => [...(_runners ?? []), ...defaultRunners],
     [_runners],
   )
-  const { highlightLinenos, maxLines, mode, title, collapsed } =
-    parseCodeMeta(meta)
+
+  const meta = useMemo<CodeMetaData>(
+    () => parseCodeMeta(infoString ?? ''),
+    [infoString],
+  )
+  const { highlightLinenos, maxLines, mode, title, collapsed } = meta
 
   // Remove trailing line endings.
   const formattedValue = value.trim()
@@ -56,6 +72,7 @@ export function Code(props: CodeProps): React.ReactElement {
           <CodeLive
             lang={lang}
             value={formattedValue}
+            meta={meta}
             runners={runners}
             title={title}
             maxLines={maxLines}
@@ -73,6 +90,7 @@ export function Code(props: CodeProps): React.ReactElement {
             <CodeEmbed
               lang={lang}
               value={formattedValue}
+              meta={meta}
               CodeRunner={runner.runner}
               className={className}
               style={style}

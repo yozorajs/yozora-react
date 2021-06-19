@@ -1,5 +1,5 @@
 import cn from 'clsx'
-import type { GraphvizOptions } from 'd3-graphviz'
+import type { Engine, GraphvizOptions } from 'd3-graphviz'
 import { graphviz } from 'd3-graphviz'
 import React, { useEffect, useRef } from 'react'
 
@@ -9,6 +9,11 @@ export interface GraphvizRendererProps {
    * @see https://graphviz.org/doc/info/lang.html
    */
   code: string
+  /**
+   * Sets the Graphviz layout engine name to the specified engine string.
+   * @default 'dot'
+   */
+  engine?: Engine
   /**
    * Options to pass to the d3-graphviz.
    */
@@ -26,7 +31,7 @@ export interface GraphvizRendererProps {
 export function GraphvizRenderer(
   props: GraphvizRendererProps,
 ): React.ReactElement {
-  const { code, options, onError, className } = props
+  const { code, engine = 'dot', options, onError, className } = props
   const graphRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -39,6 +44,7 @@ export function GraphvizRenderer(
         zoom: false,
         ...options,
       })
+      .engine(engine)
       .renderDot(code)
   }, [code, options, onError])
 

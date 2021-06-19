@@ -47,7 +47,7 @@ export class YozoraCodeEmbed extends React.Component<
   }
 
   public override render(): React.ReactElement {
-    const { lang, value, CodeRunner, className, style } = this.props
+    const { lang, value, meta, CodeRunner, className, style } = this.props
     const { error } = this.state
 
     return (
@@ -59,8 +59,14 @@ export class YozoraCodeEmbed extends React.Component<
         )}
         style={style}
       >
-        <CodeRunner lang={lang} value={value} onError={this.setError} />
-        {error != null && (
+        {error == null ? (
+          <CodeRunner
+            lang={lang}
+            value={value}
+            meta={meta}
+            onError={this.setError}
+          />
+        ) : (
           <div className={'yozora-code-embed__error-wrapper'}>
             <div className="yozora-code-embed__error">{error as any}</div>
           </div>

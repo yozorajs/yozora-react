@@ -6,13 +6,16 @@ import type { CodeMetaData } from './types'
  * @returns
  */
 export function parseCodeMeta(meta: string): CodeMetaData {
-  let mode: CodeMetaData['mode'] = 'literal'
-  let maxLines = -1
-  let title = ''
-  let input: string = meta
-  let collapsed: boolean | undefined = undefined
-  const lineNos: number[] = []
+  const result: CodeMetaData = {
+    mode: 'literal',
+    highlightLinenos: [],
+    maxLines: -1,
+    title: '',
+    collapsed: undefined,
+  }
 
+  let input: string = meta
+  const lineNos: number[] = []
   const lineNoRangeRegex =
     /^\s*\{\s*((?:\d+|\d+-\d+)(?:\s*,\s*(?:\d+|\d+-\d+))*)\s*\}\s*/
   function eatLineNo(): void {
@@ -49,7 +52,6 @@ export function parseCodeMeta(meta: string): CodeMetaData {
     input = input.slice(match[0].length)
     return [match[1], match[2] ?? match[3]]
   }
-
   while (input.length > 0) {
     const currentInputLength = input.length
 
@@ -59,38 +61,34 @@ export function parseCodeMeta(meta: string): CodeMetaData {
     // Try to eat an attribute
     const attribute = eatAttribute()
     if (attribute != null) {
-      const [key, val] = attribute
+      const key = attribute[0].toLowerCase()
+      const val = attribute[1]
       switch (key.toLowerCase()) {
         case 'live':
-          mode = 'live'
+          result.mode = 'live'
           break
         case 'embed':
-          mode = 'embed'
+          result.mode = 'embed'
           break
         case 'maxlines': {
           const x = Number(val)
           if (!Number.isNaN(x) && x > 0) {
-            maxLines = x
+            result.maxLines = x
           }
           break
         }
         case 'title':
-          title = val ?? title
+          if (val != null) result.title = val
           break
         case 'collapsed':
-          collapsed = val == null || !/^false$/i.test(val)
+          result.collapsed = val == null ? true : !/^false$/i.test(val)
           break
+        default:
+          result[key] = val == null ? true : val
       }
     }
 
     if (currentInputLength <= input.length) break
   }
-
-  return {
-    mode,
-    maxLines,
-    highlightLinenos: Array.from(new Set(lineNos)),
-    title,
-    collapsed,
-  }
+  return result
 }

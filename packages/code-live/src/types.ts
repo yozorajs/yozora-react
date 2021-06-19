@@ -12,13 +12,19 @@ export interface CodeLiveProps {
    */
   runners: CodeRunnerItem[]
   /**
+   * Language of the source code.
+   */
+  lang: string
+  /**
    * Literal source codes.
    */
   value: string
   /**
-   * Language of the source code.
+   * Additional data (such as data parsed from info string of FencedCode).
+   * @see https://github.github.com/gfm/#info-string
+   * @see https://github.github.com/gfm/#example-113
    */
-  lang: string
+  meta: Record<string, unknown>
   /**
    * Code title
    */

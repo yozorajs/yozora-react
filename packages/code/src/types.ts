@@ -54,4 +54,8 @@ export interface CodeMetaData {
    * Whether to collapse the code component.
    */
   collapsed?: boolean
+  /**
+   * Unknown key / value pairs.
+   */
+  [key: string]: unknown
 }
