@@ -1,5 +1,39 @@
 # Changelog
 
+<a name="1.0.0-alpha.14"></a>
+## 1.0.0-alpha.14 (2021-06-19)
+
+### Added
+
+- ✅ test: update snapshots [[63b3d9c](https://github.com/guanghechen/yozora-react/commit/63b3d9cc7d28d30fc3e8a71f7dd28ab220f433c0)]
+- ✨ improve(code-renderer-graphviz): support to specify Graphviz layout engine [[ef84e5b](https://github.com/guanghechen/yozora-react/commit/ef84e5b17e31277c532073714889a54c385ff13d)]
+- ✨ feat: implemented new sub-package &#x27;@yozora/code-renderer-graphviz&#x27; [[30b2008](https://github.com/guanghechen/yozora-react/commit/30b2008e18dc9049efcb526bf5a3f1107626f000)]
+
+### Changed
+
+- 💄 improve: tweak margins [[b9e10f8](https://github.com/guanghechen/yozora-react/commit/b9e10f8b4794f8cb88146322e9898bae8a80d76a)]
+- 💄 improve: tweak styles [[edcb18d](https://github.com/guanghechen/yozora-react/commit/edcb18d7e04f84faff9fa16390654b61442af9c0)]
+- ⬆️ chore: upgrade dependencies [[a0c53cb](https://github.com/guanghechen/yozora-react/commit/a0c53cb715017b9e6f975b04df4234426cd3b190)]
+- 💄 improve: tweak margins [[e629071](https://github.com/guanghechen/yozora-react/commit/e6290714c5b0fb9087242dd77d50b0088f2a3852)]
+- ⚡ improve(code): tighten the conditions of triggering re-render [[4b2c378](https://github.com/guanghechen/yozora-react/commit/4b2c378d69721e3608b25150fb6b1f9221e4a704)]
+
+### Miscellaneous
+
+-  improve(code): use @guanghechen/parse-lineno to parse highglighted line numbers [[16e0b6c](https://github.com/guanghechen/yozora-react/commit/16e0b6c9c1b9646abbd9d5d18b500d35ca7cccce)]
+- 📝 docs: update README [[2ff45e7](https://github.com/guanghechen/yozora-react/commit/2ff45e738e9ec0669af73cb0b319374bb6a74754)]
+-  improve(code-embed): add error boundary [[5e782f6](https://github.com/guanghechen/yozora-react/commit/5e782f6237f00b10a55be94e4b39f7d9ba4136fb)]
+-  improve(code): re-export types from @yozora/react-code-live and @yozora/react-code-embed [[ed21ee4](https://github.com/guanghechen/yozora-react/commit/ed21ee402bd8606bffc13bad1593d37b28546025)]
+- 📝 docs: update CHANGELOG [[29deff8](https://github.com/guanghechen/yozora-react/commit/29deff883132d553e009fa225a4f0719ad937bf7)]
+
+
+<a name="0.0.0"></a>
+## 0.0.0 (2021-06-19)
+
+### Changed
+
+- 🔧 chore: update npm scripts [[0f9990e](https://github.com/guanghechen/yozora-react/commit/0f9990ee859f4644efc26e2f419352a1cd213910)]
+
+
 <a name="1.0.0-alpha.13"></a>
 ## 1.0.0-alpha.13 (2021-06-17)
 
