@@ -5,7 +5,7 @@ import CodeLive from '@yozora/react-code-live'
 import type { CodeRunnerItem } from '@yozora/react-code-live'
 import JsxRenderer from '@yozora/react-code-renderer-jsx'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useMemo } from 'react'
 import type { CodeProps } from './types'
 import { parseCodeMeta } from './util'
 
@@ -38,16 +38,12 @@ const defaultRunners: CodeRunnerItem[] = [
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
 export function Code(props: CodeProps): React.ReactElement {
-  const {
-    lang,
-    value,
-    meta = '',
-    runners: _runners = [],
-    className,
-    style,
-  } = props
+  const { lang, value, meta = '', runners: _runners, className, style } = props
 
-  const runners = [...(_runners ?? []), ...defaultRunners]
+  const runners = useMemo<CodeRunnerItem[]>(
+    () => [...(_runners ?? []), ...defaultRunners],
+    [_runners],
+  )
   const { highlightLinenos, maxLines, mode, title, collapsed } =
     parseCodeMeta(meta)
 
