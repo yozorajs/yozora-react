@@ -1,8 +1,8 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React from 'react'
 import { Container } from './style'
-import type { CodeEmbedProps } from './types'
+import type { YozoraCodeEmbedProps, YozoraCodeEmbedState } from './types'
 
 /**
  * Render yozora `code`
@@ -14,28 +14,49 @@ import type { CodeEmbedProps } from './types'
  * @see https://www.npmjs.com/package/@yozora/react-code-literal
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
-export function CodeEmbed(props: CodeEmbedProps): React.ReactElement {
-  const { lang, value, CodeRunner, className, style } = props
-  const [error, setError] = useState<string | null>(null)
+export class YozoraCodeEmbed extends React.Component<
+  YozoraCodeEmbedProps,
+  YozoraCodeEmbedState
+> {
+  public static propTypes = {
+    lang: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    CodeRunner: PropTypes.oneOfType<any>([
+      PropTypes.elementType,
+      PropTypes.func,
+    ]).isRequired,
+    className: PropTypes.string,
+    style: PropTypes.object,
+  }
 
-  return (
-    <Container className={cn('yozora-code-embed', className)} style={style}>
-      <CodeRunner lang={lang} value={value} onError={setError} />
-      {error != null && (
-        <div className={'yozora-code-embed__error-wrapper'}>
-          <div className="yozora-code-embed__error">{error}</div>
-        </div>
-      )}
-    </Container>
-  )
+  constructor(props: YozoraCodeEmbedProps) {
+    super(props)
+    this.state = { error: null }
+  }
+
+  public componentDidCatch(error: unknown): void {
+    this.setError(error)
+  }
+
+  public override render(): React.ReactElement {
+    const { lang, value, CodeRunner, className, style } = this.props
+    const { error } = this.state
+
+    return (
+      <Container className={cn('yozora-code-embed', className)} style={style}>
+        <CodeRunner lang={lang} value={value} onError={this.setError} />
+        {error != null && (
+          <div className={'yozora-code-embed__error-wrapper'}>
+            <div className="yozora-code-embed__error">{error as any}</div>
+          </div>
+        )}
+      </Container>
+    )
+  }
+
+  protected setError = (error: unknown): void => {
+    this.setState({ error })
+  }
 }
 
-CodeEmbed.displayName = 'YozoraCodeEmbed'
-CodeEmbed.propTypes = {
-  lang: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  CodeRunner: PropTypes.oneOfType<any>([PropTypes.elementType, PropTypes.func])
-    .isRequired,
-  className: PropTypes.string,
-  style: PropTypes.object,
-}
+export default YozoraCodeEmbed

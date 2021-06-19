@@ -23,7 +23,7 @@ export interface CodeRunnerProps {
 /**
  * Embed mode block code
  */
-export interface CodeEmbedProps {
+export interface YozoraCodeEmbedProps {
   /**
    * Code language
    */
@@ -44,4 +44,11 @@ export interface CodeEmbedProps {
    * Root css style.
    */
   style?: React.CSSProperties
+}
+
+export interface YozoraCodeEmbedState {
+  /**
+   *
+   */
+  error?: unknown
 }
