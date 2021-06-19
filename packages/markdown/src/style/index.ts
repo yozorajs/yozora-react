@@ -95,12 +95,8 @@ export const Container = styled.div`
   .yozora-admonition__body,
   .yozora-blockquote,
   .yozora-list,
-  .yozora-list-item,
   .yozora-paragraph {
-    &:first-child {
-      margin-top: 0;
-    }
-    &:last-child {
+    > *:last-child {
       margin-bottom: 0;
     }
   }

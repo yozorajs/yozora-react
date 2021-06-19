@@ -270,7 +270,7 @@ export const BaseCss = css`
 
   .yozora-list {
     padding: 0;
-    margin: 0 0 1em 1.2em;
+    margin: 0 0 1em 2em;
     line-height: 2;
   }
 
