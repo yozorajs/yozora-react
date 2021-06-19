@@ -95,16 +95,17 @@ Component Name                          | Token Name
 
 ### Other components
 
-Component Name                    | Description
-:--------------------------------:|:----------------------------------
-[@yozora/react-code-editor]       | A simple code editor.
-[@yozora/react-code-embed]        | A simple code editor online.
-[@yozora/react-code-highlighter]  | Highlight codes.
-[@yozora/react-code-literal]      | Render literal code block.
-[@yozora/react-code-live]         | A live code editor, be similar to [react-live][].
-[@yozora/react-code-renderer-jsx] | A component for renderer jsx directly in browser.
-[@yozora/react-markdown]          | A component for render markdown content with above Markdown Components.
-[@yozora/react-mathjax]           | Render formula with mathjax in react.
+Component Name                            | Description
+:----------------------------------------:|:----------------------------------
+[@yozora/react-code-editor][]             | A simple code editor.
+[@yozora/react-code-embed][]              | A simple code editor online.
+[@yozora/react-code-highlighter][]        | Highlight codes.
+[@yozora/react-code-literal][]            | Render literal code block.
+[@yozora/react-code-live][]               | A live code editor, be similar to [react-live][].
+[@yozora/react-code-renderer-jsx][]       | React component for rendering jsx directly in browser.
+[@yozora/react-code-renderer-graphviz][]  | React component for rendering graphviz (dot) directly in browser.
+[@yozora/react-markdown][]                | React component for rendering markdown content with above Markdown Components.
+[@yozora/react-mathjax][]                 | Render formula with mathjax in react.
 
 
 [react-live]: https://github.com/FormidableLabs/react-live
@@ -120,6 +121,7 @@ Component Name                    | Description
 [@yozora/react-code-literal]: https://github.com/yozorajs/yozora-react/tree/main/packages/code-literal#readme
 [@yozora/react-code-live]: https://github.com/yozorajs/yozora-react/tree/main/packages/code-live#readme
 [@yozora/react-code-renderer-jsx]: https://github.com/yozorajs/yozora-react/tree/main/packages/code-renderer-jsx#readme
+[@yozora/react-code-renderer-graphviz]: https://github.com/yozorajs/yozora-react/tree/main/packages/code-renderer-graphviz#readme
 [@yozora/react-delete]: https://github.com/yozorajs/yozora-react/tree/main/packages/delete#readme
 [@yozora/react-emphasis]: https://github.com/yozorajs/yozora-react/tree/main/packages/emphasis#readme
 [@yozora/react-footnote-reference]: https://github.com/yozorajs/yozora-react/tree/main/packages/footnote-reference#readme

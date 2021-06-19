@@ -61,8 +61,7 @@
 </header>
 <br/>
 
-This package is designed to live render jsx, like which [react live][] did. (In fact,
-this component is implemented with reference to [react-live][])
+This package is designed to live render jsx, inspired by [react live][]. 
 
 
 ## Install
@@ -80,73 +79,75 @@ this component is implemented with reference to [react-live][])
   ```
 
 ## Usage
-  * Basic:
 
-    ```tsx
-    import React from 'react'
-    import styled from 'styled-components'
-    import CodeRendererJsx from '../src'
+* Basic:
 
-    function JsxPreview(props: { code: string, inline: boolean }) {
-      const [error, setError] = React.useState<any>(null)
-      return (
-        <div>
-          <CodeRendererJsx
-            code={ props.code }
-            inline={ props.inline }
-            scope={ { styled } }
-            onError={ setError }
-          />
-          <pre>{ error }</pre>
-        </div >
-      )
-    }
-    ```
+  ```tsx
+  import React from 'react'
+  import styled from 'styled-components'
+  import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
 
-    - Inline code: Render `React.ReactNode` directly
+  function JsxPreview(props: { code: string, inline: boolean }) {
+    const [error, setError] = React.useState<any>(null)
+    return (
+      <div>
+        <CodeRendererJsx
+          code={ props.code }
+          inline={ props.inline }
+          scope={ { styled } }
+          onError={ setError }
+        />
+        <pre>{ error }</pre>
+      </div >
+    )
+  }
+  ```
 
-      ```tsx
-      const code = `
-        (
-          <div>
-            <span>Hello, world</span>
-          </div>
-        )
-      `
+* Inline code: Render `React.ReactNode` directly
 
-      const wrapper = (
-        <JsxPreview code={ code } inline={ true } >
-      )
-      ```
+  ```tsx
+  const code = `
+    (
+      <div>
+        <span>Hello, world</span>
+      </div>
+    )
+  `
 
-    - Block code: Call the `render()` function with `React.ReactNode` explicitly
+  const wrapper = (
+    <JsxPreview code={ code } inline={ true } >
+  )
+  ```
 
-      ```tsx
-      const code = `
-        const Container = styled.div\`
-          background: hsl(0deg, 10%, 90%);
-        \`
+* Block code: Call the `render()` function with `React.ReactNode` explicitly
 
-        render(
-          <Container>
-            <span style={{ color: 'orange' }}>Hello, world</span>
-          </Container>
-        )
-      `
+  ```tsx
+  const code = `
+    const Container = styled.div\`
+      background: hsl(0deg, 10%, 90%);
+    \`
 
-      const wrapper = (
-        <JsxPreview code={ code } inline={ false } />
-      )
-      ```
+    render(
+      <Container>
+        <span style={{ color: 'orange' }}>Hello, world</span>
+      </Container>
+    )
+  `
 
-  * Props
+  const wrapper = (
+    <JsxPreview code={ code } inline={ false } />
+  )
+  ```
 
-     Name       | Type                              | Required  | Default     | Description
-    :----------:|:---------------------------------:|:---------:|:-----------:|:-------------
-     `code`     | `string`                          | `true`    | -           | Source code
-     `inline`   | `boolean`                         | `true`    | -           | `inline` / `block` mode
-     `scope`    | `Record<string, unknown>`         | `false`   | `{styled}`  | Additional accessible variables
-     `onError`  | `(error: string | null) => void`  | `true`    | -           | Error callback
+
+### Props
+
+Name      | Type                              | Required  | Default     | Description
+:--------:|:---------------------------------:|:---------:|:-----------:|:-------------
+`code`    | `string`                          | `true`    | -           | Source code
+`inline`  | `boolean`                         | `true`    | -           | `inline` / `block` mode
+`scope`   | `Record<string, unknown>`         | `false`   | `{styled}`  | Additional accessible variables
+`onError` | `(error: string | null) => void`  | `true`    | -           | Error callback
 
 
 ## Related
