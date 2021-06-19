@@ -91,4 +91,14 @@ export const Container = styled.div`
   word-break: break-all;
 
   ${BaseCss}
+
+  .yozora-admonition__body,
+  .yozora-blockquote,
+  .yozora-list,
+  .yozora-list-item,
+  .yozora-paragraph {
+    &:last-child {
+      margin-bottom: 0
+    }
+  }
 `
