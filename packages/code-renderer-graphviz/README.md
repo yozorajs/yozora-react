@@ -127,14 +127,24 @@ This package is designed to render graphviz (dot) in react, inspired by [graphvi
 
 ### Props
 
-Name      | Type                              | Required  | Default     | Description
-:--------:|:---------------------------------:|:---------:|:-----------:|:-------------
+Name        | Type                              | Required  | Default     | Description
+:----------:|:---------------------------------:|:---------:|:-----------:|:-------------
 `className` | `string`              | `false`   | -       | Root css class
-`code`    | `string`                          | `true`    | -           | Source code
-`onError` | `(error: string | null) => void`  | `true`    | -           | Error callback
+`code`      | `string`                          | `true`    | -           | Source code
+`onError`   | `(error: string | null) => void`  | `true`    | -           | Error callback
+`options`   | `GraphvizOptions`                 | `false`   | See below   | Options passed to `ds-graphviz.options()`
 
 * `className`: The root element of this component will always bind with the
   CSS class `'yozora-code-renderer-graphviz'`.
+
+* `options`: The default options is 
+
+  ```typescript
+  {
+    fit: true,
+    zoom: false,
+  }
+  ```
 
 
 ## Related
