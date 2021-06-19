@@ -34,8 +34,16 @@ export class YozoraCodeEmbed extends React.Component<
     this.state = { error: null }
   }
 
-  public componentDidCatch(error: unknown): void {
+  public override componentDidCatch(error: unknown, info: unknown): void {
     this.setError(error)
+    console.error(info)
+  }
+
+  public override componentDidUpdate(prevProps: YozoraCodeEmbedProps): void {
+    // Clear error when the input value changed.
+    if (prevProps.value !== this.props.value) {
+      this.setState({ error: null })
+    }
   }
 
   public override render(): React.ReactElement {
@@ -43,7 +51,14 @@ export class YozoraCodeEmbed extends React.Component<
     const { error } = this.state
 
     return (
-      <Container className={cn('yozora-code-embed', className)} style={style}>
+      <Container
+        className={cn(
+          'yozora-code-embed',
+          { 'yozora-code-embed--has-error': error != null },
+          className,
+        )}
+        style={style}
+      >
         <CodeRunner lang={lang} value={value} onError={this.setError} />
         {error != null && (
           <div className={'yozora-code-embed__error-wrapper'}>

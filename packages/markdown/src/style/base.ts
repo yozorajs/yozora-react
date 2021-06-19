@@ -109,6 +109,13 @@ export const BaseCss = css`
     margin: var(--margin-block-node);
   }
 
+  .yozora-code-renderer-graphviz {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+    background: hsla(0deg, 0%, 90%, 20%);
+  }
+
   .yozora-delete {
     text-decoration: line-through;
   }

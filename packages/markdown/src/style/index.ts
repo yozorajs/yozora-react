@@ -97,8 +97,11 @@ export const Container = styled.div`
   .yozora-list,
   .yozora-list-item,
   .yozora-paragraph {
+    &:first-child {
+      margin-top: 0;
+    }
     &:last-child {
-      margin-bottom: 0
+      margin-bottom: 0;
     }
   }
 `
