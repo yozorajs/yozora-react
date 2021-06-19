@@ -40,6 +40,7 @@
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "dependencies": {
+    "@guanghechen/parse-lineno": "^1.5.5",
     "@yozora/react-code-embed": "^1.0.0-alpha.13",
     "@yozora/react-code-highlighter": "^1.0.0-alpha.13",
     "@yozora/react-code-literal": "^1.0.0-alpha.13",

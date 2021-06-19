@@ -1,3 +1,4 @@
+import { collectNumbers } from '@guanghechen/parse-lineno'
 import type { CodeMetaData } from './types'
 
 /**
@@ -23,24 +24,7 @@ export function parseCodeMeta(meta: string): CodeMetaData {
     if (match == null) return
 
     input = input.slice(match[0].length)
-    const rangeString = match[1].split(/\s*,\s*/g)
-    for (const s of rangeString) {
-      const [, lft, rht] = /(\d+)(?:-(\d+))?/.exec(s)!
-
-      // A single number.
-      if (rht == null) lineNos.push(Number(lft))
-
-      // A number range.
-      let x = Number(lft),
-        y = Number(rht)
-      if (x > y) {
-        const t = x
-        x = y
-        y = t
-      }
-
-      for (let i = x; i <= y; ++i) lineNos.push(i)
-    }
+    lineNos.push(...collectNumbers(match[1]))
   }
 
   const attributeRegex =
@@ -52,6 +36,7 @@ export function parseCodeMeta(meta: string): CodeMetaData {
     input = input.slice(match[0].length)
     return [match[1], match[2] ?? match[3]]
   }
+
   while (input.length > 0) {
     const currentInputLength = input.length
 
@@ -90,5 +75,7 @@ export function parseCodeMeta(meta: string): CodeMetaData {
 
     if (currentInputLength <= input.length) break
   }
+
+  result.highlightLinenos = Array.from(new Set(lineNos))
   return result
 }
