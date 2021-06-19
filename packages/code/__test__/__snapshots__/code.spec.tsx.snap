@@ -8,6 +8,12 @@ exports[`snapshot embed 1`] = `
   background: transparent;
 }
 
+.c0.yozora-code-embed--has-error {
+  color: red;
+  border: 1px solid red;
+  min-height: 4rem;
+}
+
 .c0 .yozora-code-embed__error-wrapper {
   position: absolute;
   top: 0;
@@ -726,6 +732,12 @@ exports[`snapshot live 1`] = `
   border: none;
   padding: 0;
   background: transparent;
+}
+
+.c9.yozora-code-embed--has-error {
+  color: red;
+  border: 1px solid red;
+  min-height: 4rem;
 }
 
 .c9 .yozora-code-embed__error-wrapper {
