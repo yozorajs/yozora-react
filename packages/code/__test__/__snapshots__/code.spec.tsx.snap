@@ -222,6 +222,7 @@ exports[`snapshot literal 1`] = `
   height: 2rem;
   width: 100%;
   border-bottom: 1px solid var(--code-color-border,hsla(0deg,0%,30%,0.8));
+  cursor: default;
 }
 
 .c0 > .yozora-code-literal__toolbar .yozora-code-literal__title {
@@ -229,6 +230,10 @@ exports[`snapshot literal 1`] = `
   font-family: var(--code-heading-font-family,'Comic Sans MS','lucida grande','lucida sans unicode',lucida,'Hiragino Sans GB','Helvetica Neue','Microsoft Yahei','WenQuanYi Micro Hei',sans-serif);
   font-size: 0.9em;
   color: hsla(0deg,0%,90%,0.8);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .c0 > .yozora-code-literal__toolbar .yozora-code-literal__copy-button {
@@ -323,7 +328,7 @@ exports[`snapshot literal 1`] = `
       class="yozora-code-literal__title"
       title="/home/demo/a.tsx"
     >
-      /home/demo/a.tsx  | 6 lines.
+      /home/demo/a.tsx  | 6 lines.
     </span>
     <span
       class="yozora-code-literal__copy-button"
@@ -1032,6 +1037,7 @@ exports[`snapshot live 1`] = `
   width: 100%;
   border-bottom: 1px solid var(--code-color-border,hsla(0deg,0%,30%,0.8));
   background: var(--code-bg-primary,#1e1e1e);
+  cursor: default;
 }
 
 .c0 > .yozora-code-live__toolbar .yozora-code-live__title {
@@ -1039,6 +1045,10 @@ exports[`snapshot live 1`] = `
   font-family: var(--code-heading-font-family,'Comic Sans MS','lucida grande','lucida sans unicode',lucida,'Hiragino Sans GB','Helvetica Neue','Microsoft Yahei','WenQuanYi Micro Hei',sans-serif);
   font-size: 0.9em;
   color: hsla(0deg,0%,90%,0.8);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .c0 > .yozora-code-live__toolbar .yozora-code-live__copy-button {
@@ -1056,9 +1066,9 @@ exports[`snapshot live 1`] = `
 }
 
 .c0 > .yozora-code-live__main {
-  -webkit-flex: 1 1 0;
-  -ms-flex: 1 1 0;
-  flex: 1 1 0;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
   min-height: 0;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1136,13 +1146,12 @@ exports[`snapshot live 1`] = `
   -webkit-flex: 0 1 auto;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
-  max-height: 50%;
 }
 
 .c0 > .yozora-code-live__main.yozora-code-live__main--vertical > .yozora-code-live__previewer {
-  -webkit-flex: 1 1 0;
-  -ms-flex: 1 1 0;
-  flex: 1 1 0;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 .c0:hover .yozora-code-live__copy-button {
@@ -1178,7 +1187,9 @@ exports[`snapshot live 1`] = `
     <span
       class="yozora-code-live__title"
       title=""
-    />
+    >
+       
+    </span>
     <span
       class="yozora-code-live__copy-button"
     >

@@ -24,7 +24,7 @@ export interface CodeLiveProps {
    * @see https://github.github.com/gfm/#info-string
    * @see https://github.github.com/gfm/#example-113
    */
-  meta: Record<string, unknown>
+  meta?: Record<string, unknown>
   /**
    * Code title
    */

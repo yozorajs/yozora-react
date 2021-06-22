@@ -21,6 +21,7 @@ export class YozoraCodeEmbed extends React.Component<
   public static propTypes = {
     lang: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
+    meta: PropTypes.object,
     CodeRunner: PropTypes.oneOfType<any>([
       PropTypes.elementType,
       PropTypes.func,

@@ -15,7 +15,7 @@ export interface CodeRunnerProps {
    * @see https://github.github.com/gfm/#info-string
    * @see https://github.github.com/gfm/#example-113
    */
-  meta: Record<string, unknown>
+  meta?: Record<string, unknown>
   /**
    * Error callback
    */
@@ -43,7 +43,7 @@ export interface YozoraCodeEmbedProps {
    * @see https://github.github.com/gfm/#info-string
    * @see https://github.github.com/gfm/#example-113
    */
-  meta: Record<string, unknown>
+  meta?: Record<string, unknown>
   /**
    * For executing or rendering the given code.
    */
