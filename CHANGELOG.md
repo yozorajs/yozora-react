@@ -1,5 +1,26 @@
 # Changelog
 
+<a name="1.0.0-alpha.15"></a>
+## 1.0.0-alpha.15 (2021-06-22)
+
+### Added
+
+- ✅ test: update tests [[61bf3e9](https://github.com/guanghechen/yozora-react/commit/61bf3e952359c6f232d89d137258b8ed750c59ab)]
+
+### Changed
+
+- 🔧 chore: update npm scripts [[0f9990e](https://github.com/guanghechen/yozora-react/commit/0f9990ee859f4644efc26e2f419352a1cd213910)]
+
+### Fixed
+
+- 🐛 fix(code-live): fix the height problem [[b62acc6](https://github.com/guanghechen/yozora-react/commit/b62acc6a0b58dff338cc55949ff3bf5bee9b3607)]
+
+### Miscellaneous
+
+-  improve(code-literal,code-live):  support to toggle collapsed through double-click [[d063eb1](https://github.com/guanghechen/yozora-react/commit/d063eb10fc1964740b178ef323cf632babe81140)]
+- 📝 docs: update CHANGELOG [[0a41c33](https://github.com/guanghechen/yozora-react/commit/0a41c335bdf00f77466340544f95130933241a9c)]
+
+
 <a name="1.0.0-alpha.14"></a>
 ## 1.0.0-alpha.14 (2021-06-19)
 
