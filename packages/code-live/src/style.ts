@@ -36,7 +36,7 @@ export const Container = styled.div`
   }
 
   > .yozora-code-live__main {
-    flex: 1 1 0;
+    flex: 1 1 auto;
     /**
      * To avoid the main container overflow at the y-axis, flex-basis will never
      * be shrink shorter less than the min-height (the default value of
@@ -89,10 +89,9 @@ export const Container = styled.div`
       flex-direction: column;
       > .yozora-code-live__editor {
         flex: 0 1 auto;
-        max-height: 50%;
       }
       > .yozora-code-live__previewer {
-        flex: 1 1 0;
+        flex: 1 0 auto;
       }
     }
   }

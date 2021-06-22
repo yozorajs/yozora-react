@@ -56,11 +56,8 @@ export function CodeLiteral(props: CodeLiteralProps): React.ReactElement {
           onMaximize={() => setCollapsed(false)}
         />
         <span key="title" className="yozora-code-literal__title" title={title}>
-          {title}{' '}
-          {title &&
-            collapsed &&
-            countOfLines &&
-            ' | ' + countOfLines + ' lines.'}
+          {title}&nbsp;
+          {title && countOfLines && ' | ' + countOfLines + ' lines.'}
         </span>
         <span
           key="copy-btn"
