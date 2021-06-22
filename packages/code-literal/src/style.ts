@@ -19,12 +19,14 @@ export const Container = styled.div`
     height: 2rem;
     width: 100%;
     border-bottom: 1px solid var(--code-color-border, hsla(0deg, 0%, 30%, 0.8));
+    cursor: default;
 
     .yozora-code-literal__title {
       margin-left: 1rem;
       font-family: var(--code-heading-font-family, 'Comic Sans MS', 'lucida grande', 'lucida sans unicode', lucida, 'Hiragino Sans GB', 'Helvetica Neue', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif);
       font-size: 0.9em;
       color: hsla(0deg, 0%, 90%, 0.8);
+      user-select: none;
     }
     .yozora-code-literal__copy-button {
       position: absolute;

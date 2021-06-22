@@ -41,7 +41,15 @@ export function CodeLiteral(props: CodeLiteralProps): React.ReactElement {
 
   return (
     <Container className={cn('yozora-code-literal', className)} style={style}>
-      <div key="toolbar" className="yozora-code-literal__toolbar">
+      <div
+        key="toolbar"
+        className="yozora-code-literal__toolbar"
+        onDoubleClick={e => {
+          e.stopPropagation()
+          e.preventDefault()
+          setCollapsed(v => !v)
+        }}
+      >
         <LightButtons
           key="light-buttons"
           onMinimize={() => setCollapsed(true)}
@@ -54,7 +62,11 @@ export function CodeLiteral(props: CodeLiteralProps): React.ReactElement {
             countOfLines &&
             ' | ' + countOfLines + ' lines.'}
         </span>
-        <span key="copy-btn" className="yozora-code-literal__copy-button">
+        <span
+          key="copy-btn"
+          className="yozora-code-literal__copy-button"
+          onClick={e => e.stopPropagation()}
+        >
           <CopyButton value={value} />
         </span>
       </div>

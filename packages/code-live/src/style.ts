@@ -15,12 +15,14 @@ export const Container = styled.div`
     width: 100%;
     border-bottom: 1px solid var(--code-color-border, hsla(0deg, 0%, 30%, 0.8));
     background: var(--code-bg-primary, #1e1e1e);
+    cursor: default;
 
     .yozora-code-live__title {
       margin-left: 1rem;
       font-family: var(--code-heading-font-family, 'Comic Sans MS', 'lucida grande', 'lucida sans unicode', lucida, 'Hiragino Sans GB', 'Helvetica Neue', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif);
       font-size: 0.9em;
       color: hsla(0deg, 0%, 90%, 0.8);
+      user-select: none;
     }
     .yozora-code-live__copy-button {
       position: absolute;

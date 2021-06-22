@@ -46,7 +46,15 @@ export function CodeLive(props: CodeLiveProps): React.ReactElement {
 
   return (
     <Container className={cn('yozora-code-live', className)} style={style}>
-      <div key="toolbar" className="yozora-code-live__toolbar">
+      <div
+        key="toolbar"
+        className="yozora-code-live__toolbar"
+        onDoubleClick={e => {
+          e.stopPropagation()
+          e.preventDefault()
+          setCollapsed(v => !v)
+        }}
+      >
         <LightButtons
           key="light-buttons"
           onMinimize={() => setCollapsed(true)}
@@ -55,7 +63,11 @@ export function CodeLive(props: CodeLiveProps): React.ReactElement {
         <span key="title" className="yozora-code-live__title" title={title}>
           {title}
         </span>
-        <span key="copy-btn" className="yozora-code-live__copy-button">
+        <span
+          key="copy-btn"
+          className="yozora-code-live__copy-button"
+          onClick={e => e.stopPropagation()}
+        >
           <CopyButton value={value} />
         </span>
       </div>
