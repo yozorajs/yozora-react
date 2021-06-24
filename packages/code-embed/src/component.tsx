@@ -52,14 +52,7 @@ export class YozoraCodeEmbed extends React.Component<
     const { error } = this.state
 
     return (
-      <Container
-        className={cn(
-          'yozora-code-embed',
-          { 'yozora-code-embed--has-error': error != null },
-          className,
-        )}
-        style={style}
-      >
+      <Container className={cn('yozora-code-embed', className)} style={style}>
         {error == null ? (
           <CodeRunner
             lang={lang}

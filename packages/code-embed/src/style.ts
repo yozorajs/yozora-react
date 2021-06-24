@@ -6,20 +6,12 @@ export const Container = styled.div`
   padding: 0;
   background: transparent;
 
-  &.yozora-code-embed--has-error {
-    color: red;
-    border: 1px solid red;
-    min-height: 4rem;
-  }
-
   .yozora-code-embed__error-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
     display: block;
     width: 100%;
     height: 100%;
+    color: red;
+    border: 1px solid red;
   }
 
   .yozora-code-embed__error {
