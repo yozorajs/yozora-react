@@ -88,8 +88,13 @@ export const BaseCss = css`
         text-transform: uppercase;
       }
     }
+
     .yozora-admonition__body {
       display: block;
+    }
+
+    .yozora-inline-math, .yozora-math {
+      color: white;
     }
   }
 
@@ -155,7 +160,8 @@ export const BaseCss = css`
       margin: 0;
       overflow: hidden;
       text-overflow: ellipsis;
-      white-space: nowrap;
+      white-space: pre-wrap;
+      line-height: 1.7;
     }
     .yozora-heading__anchor {
       flex: 0 0 3rem;
@@ -288,6 +294,7 @@ export const BaseCss = css`
   }
 
   .yozora-paragraph {
+    overflow-x: auto;
     padding: 0;
     margin: var(--margin-block-node);
     margin-bottom: 1em;
