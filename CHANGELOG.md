@@ -1,5 +1,30 @@
 # Changelog
 
+<a name="1.0.0-alpha.16"></a>
+## 1.0.0-alpha.16 (2021-06-25)
+
+### Added
+
+- ✅ test: update snapshots [[058fd6b](https://github.com/guanghechen/yozora-react/commit/058fd6b562bfa1a51266749912c1466ca2cae7f0)]
+- ✨ feat(list): support ordered list type [[6bec8fc](https://github.com/guanghechen/yozora-react/commit/6bec8fcf2d99a9d48fd843b46d6c030753aef018)]
+- ✨ feat(list-item): render task item checkbox [[3559143](https://github.com/guanghechen/yozora-react/commit/3559143705620af8ac47b8bec003ad8dd5fa419e)]
+
+### Changed
+
+- 💄 improve: tweak styles [[39f4296](https://github.com/guanghechen/yozora-react/commit/39f4296f1d2b3659dd75feef6bb2b82bbc1f572d)]
+- 🎨 improve: fix lint warnings [[e139568](https://github.com/guanghechen/yozora-react/commit/e139568a8b390b4088714eb56fd1ab8e00e2bbe3)]
+- ⬆️ chore: upgrade devDependencies [[67ba5e5](https://github.com/guanghechen/yozora-react/commit/67ba5e5ac2078280b785a162487c404b226e3184)]
+- 💄 improve: tweak styles [[f014831](https://github.com/guanghechen/yozora-react/commit/f014831d3d37bd7973b30019ad8492dcea391ae0)]
+
+### Fixed
+
+- 🐛 fix(code-embed): the height of error boundary is displayed as 0 [[942d134](https://github.com/guanghechen/yozora-react/commit/942d134c6c80c51a0cb8a7aaa92cb602898af1a6)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[e7824d6](https://github.com/guanghechen/yozora-react/commit/e7824d67ec4b891c6ed1fce8fdfab9cc80c0a46c)]
+
+
 <a name="1.0.0-alpha.15"></a>
 ## 1.0.0-alpha.15 (2021-06-22)
 
