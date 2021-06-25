@@ -37,7 +37,7 @@ export function CodeLiteral(props: CodeLiteralProps): React.ReactElement {
   useEffect(() => {
     if (countOfLines != null || !collapsed) return
     setCountOfLines(value.split(/\r|\n|\n\r/g).length)
-  }, [collapsed])
+  }, [collapsed, countOfLines, value])
 
   return (
     <Container className={cn('yozora-code-literal', className)} style={style}>

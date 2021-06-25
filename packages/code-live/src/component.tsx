@@ -4,7 +4,7 @@ import CopyButton from '@yozora/react-common-copy-button'
 import LightButtons from '@yozora/react-common-light-buttons'
 import cn from 'clsx'
 import PropTypes from 'prop-types'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { Container } from './style'
 import type { CodeLiveProps } from './types'
 import { debounce } from './util'
@@ -42,15 +42,7 @@ export function CodeLive(props: CodeLiveProps): React.ReactElement {
   const [collapsed, setCollapsed] = useState<boolean>(_collapsed)
   const handleChange = useMemo(() => debounce(setValue, 300), [])
 
-  const [countOfLines, setCountOfLines] = useState<number | null>(() =>
-    collapsed ? value.split(/\r|\n|\n\r/g).length : null,
-  )
-
-  useEffect(() => {
-    if (countOfLines != null || !collapsed) return
-    setCountOfLines(value.split(/\r|\n|\n\r/g).length)
-  }, [collapsed])
-
+  const countOfLines = collapsed ? value.split(/\r|\n|\n\r/g).length : null
   const runner = runners.find(item => item.pattern.test(lang))
 
   return (
