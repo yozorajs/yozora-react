@@ -39,6 +39,12 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-list-item/peer/react"
       />
     </a>
+    <a href="https://github.com/styled-components/styled-components">
+      <img
+        alt="Styled-Components version"
+        src="https://img.shields.io/npm/dependency-version/@yozora/react-blockquote/peer/styled-components"
+      />
+    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"

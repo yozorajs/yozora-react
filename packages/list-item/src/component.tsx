@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { Container } from './style'
 
 export interface ListItemProps {
   /**
@@ -29,12 +30,29 @@ export interface ListItemProps {
  */
 export function ListItem(props: ListItemProps): React.ReactElement {
   const { className = 'yozora-list-item', style, status, children } = props
-  const checkbox: React.ReactNode = null
+
+  let checkbox: React.ReactNode = null
+  if (status != null) {
+    checkbox = (
+      <span className="yozora-list-task-item__checkbox">
+        <input type="checkbox" disabled={true} checked={status === 'done'} />
+        <span data-status={status} />
+      </span>
+    )
+  }
+
   return (
-    <li className={cn('yozora-list-item', className)} style={style}>
+    <Container
+      className={cn(
+        'yozora-list-item',
+        { 'yozora-list-task-item': status != null },
+        className,
+      )}
+      style={style}
+    >
       {checkbox}
       {children}
-    </li>
+    </Container>
   )
 }
 
