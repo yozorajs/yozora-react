@@ -2081,23 +2081,23 @@
   resolved "https://registry.npmjs.org/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
-"@yozora/ast-util@^1.0.0-alpha.25":
-  version "1.0.0-alpha.25"
-  resolved "https://registry.npmjs.org/@yozora/ast-util/-/ast-util-1.0.0-alpha.25.tgz#4be6cf08a6479638803dbdcc16ec185bbd845a53"
-  integrity sha512-aq7rClIzXng5MahLbaktikCQp0k9mqRcS9tO4ESV/cHqRtTJQK/nQlknyqRijlhys+5OII18qRqisUsiZ0QFKQ==
+"@yozora/ast-util@^1.0.0-alpha.26":
+  version "1.0.0-alpha.26"
+  resolved "https://registry.npmjs.org/@yozora/ast-util/-/ast-util-1.0.0-alpha.26.tgz#b0115471f7e26294b3a50cf1ee0d035d3d7e4d3e"
+  integrity sha512-icT2MBd35tjmgb/4WBu70wOtFlBYu2/am/uYlmfJbMsafMQslDkNY5S9UrdGEyofCobXwlZeSdHQjilSuh0K3Q==
   dependencies:
-    "@yozora/ast" "^1.0.0-alpha.25"
-    "@yozora/character" "^1.0.0-alpha.25"
+    "@yozora/ast" "^1.0.0-alpha.26"
+    "@yozora/character" "^1.0.0-alpha.26"
 
-"@yozora/ast@^1.0.0-alpha.25":
-  version "1.0.0-alpha.25"
-  resolved "https://registry.npmjs.org/@yozora/ast/-/ast-1.0.0-alpha.25.tgz#c415631e87280871c47cf8b332cac8936617d4ff"
-  integrity sha512-iCXnEdkJmNQJQbzBW+r9kjrbmTsxZ31nR1+V1ERVFtMCFZDUoDZMf+o2I3mbcKOa+oXFCic1zuE+a7n+eXp/pg==
+"@yozora/ast@^1.0.0-alpha.26":
+  version "1.0.0-alpha.26"
+  resolved "https://registry.npmjs.org/@yozora/ast/-/ast-1.0.0-alpha.26.tgz#abb19a7ad67e43c2fc800879cc0d3f8caa27a214"
+  integrity sha512-bdnZsKgXZAuMY49P/FtgT5xUpI8jkAACXTu/I0sbWf9aV7adbfquQnvucQaiZ/OonP4nhf8VEXZUUjSQgLoFyA==
 
-"@yozora/character@^1.0.0-alpha.25":
-  version "1.0.0-alpha.25"
-  resolved "https://registry.npmjs.org/@yozora/character/-/character-1.0.0-alpha.25.tgz#1c6098aa38282cb56e130ed62b3491957aadd437"
-  integrity sha512-RU235E2CN1aQySgkWR/cS2y4z3VTGICZLIgCSqCmYE7UXPpld0N4zRiUHKGggVtBizRLAhgmOKYwhSCGlsdU8A==
+"@yozora/character@^1.0.0-alpha.26":
+  version "1.0.0-alpha.26"
+  resolved "https://registry.npmjs.org/@yozora/character/-/character-1.0.0-alpha.26.tgz#9133238b60a12666066bb107b24400a8eb1440bf"
+  integrity sha512-ETn0XOLUhMaeG0uNjKLRM7wiPdff7IymA6hpFTJH+kV9RtEM0AepS9iQTg+JC0rPCMeT6TDWLBc+ZrL4akd0OA==
 
 JSONStream@^1.0.4, JSONStream@^1.3.4:
   version "1.3.5"
@@ -10204,10 +10204,10 @@ rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@2.52.1:
-  version "2.52.1"
-  resolved "https://registry.npmjs.org/rollup/-/rollup-2.52.1.tgz#dd1cc178d70cf35c48d943fc06fdc32d546e6876"
-  integrity sha512-/SPqz8UGnp4P1hq6wc9gdTqA2bXQXGx13TtoL03GBm6qGRI6Hm3p4Io7GeiHNLl0BsQAne1JNYY+q/apcY933w==
+rollup@2.52.2:
+  version "2.52.2"
+  resolved "https://registry.npmjs.org/rollup/-/rollup-2.52.2.tgz#a7e90d10ddae3e8472c2857bd9f44b09ef34a47a"
+  integrity sha512-4RlFC3k2BIHlUsJ9mGd8OO+9Lm2eDF5P7+6DNQOp5sx+7N/1tFM01kELfbxlMX3MxT6owvLB1ln4S3QvvQlbUA==
   optionalDependencies:
     fsevents "~2.3.2"
 
