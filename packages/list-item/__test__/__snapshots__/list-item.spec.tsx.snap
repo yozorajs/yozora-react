@@ -1,10 +1,114 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot custom 1`] = `
+.c0 {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.c0.yozora-list-task-item {
+  list-style-type: none;
+}
+
+.c0.yozora-list-task-item > .yozora-list-task-item__checkbox {
+  position: absolute;
+  top: 8px;
+  left: -1.2rem;
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-variant: tabular-nums;
+  font-feature-settings: "tnum";
+  white-space: nowrap;
+  cursor: not-allowed;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c0.yozora-list-task-item > .yozora-list-task-item__checkbox > input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.c0.yozora-list-task-item > .yozora-list-task-item__checkbox > span {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: 1px solid #9dafaf;
+  border-radius: 2px;
+  background-color: var(--list-task-item-bg--todo,#f5f5f5);
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.c0.yozora-list-task-item > .yozora-list-task-item__checkbox > span::after {
+  content: '.';
+  display: inline-block;
+  border: 0;
+  color: transparent;
+}
+
+.c0.yozora-list-task-item > .yozora-list-task-item__checkbox > span[data-status="doing"]::after {
+  background-color: var(--list-task-item-bg--doing,#3399ff);
+  width: 0.4rem;
+  height: 0.4rem;
+}
+
+.c0.yozora-list-task-item > .yozora-list-task-item__checkbox > span[data-status="done"] {
+  background-color: var(--list-task-item-bg--done,#3399ff);
+  border-color: var(--list-task-item-bg--done,#3399ff);
+}
+
+.c0.yozora-list-task-item > .yozora-list-task-item__checkbox > span[data-status="done"]::after {
+  -webkit-transform: rotate(45deg) scale(1) translate(-4%,-5%);
+  -ms-transform: rotate(45deg) scale(1) translate(-4%,-5%);
+  transform: rotate(45deg) scale(1) translate(-4%,-5%);
+  height: 0.5012rem;
+  width: 0.2468rem;
+  border: 2px solid #fff;
+  border-top: 0;
+  border-left: 0;
+}
+
 <li
-  class="yozora-list-item custom-list-item"
+  class="c0 yozora-list-item yozora-list-task-item custom-list-item"
   style="color:orange"
 >
+  <span
+    class="yozora-list-task-item__checkbox"
+  >
+    <input
+      disabled=""
+      type="checkbox"
+    />
+    <span
+      data-status="doing"
+    />
+  </span>
   <p>
     some text1
     <span>
@@ -20,10 +124,115 @@ exports[`snapshot custom 1`] = `
 `;
 
 exports[`snapshot default 1`] = `
+.c0 {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.c0.yozora-list-task-item {
+  list-style-type: none;
+}
+
+.c0.yozora-list-task-item > .yozora-list-task-item__checkbox {
+  position: absolute;
+  top: 8px;
+  left: -1.2rem;
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-variant: tabular-nums;
+  font-feature-settings: "tnum";
+  white-space: nowrap;
+  cursor: not-allowed;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c0.yozora-list-task-item > .yozora-list-task-item__checkbox > input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.c0.yozora-list-task-item > .yozora-list-task-item__checkbox > span {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: 1px solid #9dafaf;
+  border-radius: 2px;
+  background-color: var(--list-task-item-bg--todo,#f5f5f5);
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.c0.yozora-list-task-item > .yozora-list-task-item__checkbox > span::after {
+  content: '.';
+  display: inline-block;
+  border: 0;
+  color: transparent;
+}
+
+.c0.yozora-list-task-item > .yozora-list-task-item__checkbox > span[data-status="doing"]::after {
+  background-color: var(--list-task-item-bg--doing,#3399ff);
+  width: 0.4rem;
+  height: 0.4rem;
+}
+
+.c0.yozora-list-task-item > .yozora-list-task-item__checkbox > span[data-status="done"] {
+  background-color: var(--list-task-item-bg--done,#3399ff);
+  border-color: var(--list-task-item-bg--done,#3399ff);
+}
+
+.c0.yozora-list-task-item > .yozora-list-task-item__checkbox > span[data-status="done"]::after {
+  -webkit-transform: rotate(45deg) scale(1) translate(-4%,-5%);
+  -ms-transform: rotate(45deg) scale(1) translate(-4%,-5%);
+  transform: rotate(45deg) scale(1) translate(-4%,-5%);
+  height: 0.5012rem;
+  width: 0.2468rem;
+  border: 2px solid #fff;
+  border-top: 0;
+  border-left: 0;
+}
+
 <li
-  class="yozora-list-item yozora-list-item"
+  class="c0 yozora-list-item yozora-list-task-item yozora-list-item"
   style="color:orange;font-size:16px"
 >
+  <span
+    class="yozora-list-task-item__checkbox"
+  >
+    <input
+      checked=""
+      disabled=""
+      type="checkbox"
+    />
+    <span
+      data-status="done"
+    />
+  </span>
   <p>
     some text1
     <span>
