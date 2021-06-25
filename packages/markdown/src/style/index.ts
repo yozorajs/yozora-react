@@ -43,6 +43,11 @@ export const Container = styled.div`
   --link-color-hover: #5c9fd6;
   --link-color-active: #5c9fd6;
 
+  // List task item styles
+  --list-task-item-bg--todo: #f5f5f5;
+  --list-task-item-bg--doing: #3399ff;
+  --list-task-item-bg--done: #3399ff;
+
   // Math styles
   --math-color: hsl(220, 100%, 32%);
 

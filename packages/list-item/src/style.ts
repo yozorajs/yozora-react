@@ -46,7 +46,7 @@ export const Container = styled.li`
         justify-content: center;
         border: 1px solid #9dafaf;
         border-radius: 2px;
-        background-color: #f5f5f5;
+        background-color: var(--list-task-item-bg--todo, #f5f5f5);
         width: 0.8rem;
         height: 0.8rem;
 
@@ -58,14 +58,14 @@ export const Container = styled.li`
         }
 
         &[data-status="doing"]::after {
-          background: #3399ff;
+          background-color: var(--list-task-item-bg--doing, #3399ff);
           width: 0.4rem;
           height: 0.4rem;
         }
 
         &[data-status="done"] {
-          background: #3399ff;
-          border-color: #3399ff;
+          background-color: var(--list-task-item-bg--done, #3399ff);
+          border-color: var(--list-task-item-bg--done, #3399ff);
           &::after {
             transform: rotate(45deg) scale(1) translate(-4%, -5%);
             height: 0.5012rem;

@@ -48,6 +48,11 @@ import { css } from 'styled-components'
  *    --link-color-hover
  *    --link-color-active
  *
+ *    // List task item styles
+ *     --list-task-item-bg--todo
+ *     --list-task-item-bg--doing
+ *     --list-task-item-bg--done
+ *
  *    // Math styles
  *    --math-color
  *
@@ -281,8 +286,9 @@ export const BaseCss = css`
   }
 
   .yozora-list-item {
-    padding: 0;
-    margin: 0;
+    > .yozora-list {
+      margin-left: 1.2em;
+    }
   }
 
   .yozora-math {
