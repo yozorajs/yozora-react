@@ -8,6 +8,11 @@ export interface ListProps {
    */
   ordered: boolean
   /**
+   * Marker type of the list.
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol#attr-type
+   */
+  orderType?: '1' | 'a' | 'A' | 'i' | 'I'
+  /**
    * Start number of ordered list
    */
   start?: number
@@ -32,11 +37,16 @@ export interface ListProps {
  * @see https://www.npmjs.com/package/@yozora/tokenizer-list
  */
 export function List(props: ListProps): React.ReactElement {
-  const { className, style, children, ordered, start } = props
+  const { className, style, children, ordered, orderType, start } = props
 
   if (ordered) {
     return (
-      <ol start={start} className={cn('yozora-list', className)} style={style}>
+      <ol
+        type={orderType}
+        start={start}
+        className={cn('yozora-list', className)}
+        style={style}
+      >
         {children}
       </ol>
     )

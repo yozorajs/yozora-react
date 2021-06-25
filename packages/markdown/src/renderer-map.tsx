@@ -203,9 +203,14 @@ export const defaultRendererMap: TokenRendererMap = {
     )
   },
   [ListType]: function renderList(list, key, ctx) {
-    const { ordered, start } = list
+    const { ordered, orderType, start, marker } = list
     return (
-      <ListRenderer key={key} ordered={ordered} start={start}>
+      <ListRenderer
+        key={key}
+        ordered={ordered}
+        start={start}
+        orderType={orderType}
+      >
         {ctx.renderNodes(list.children)}
       </ListRenderer>
     )
