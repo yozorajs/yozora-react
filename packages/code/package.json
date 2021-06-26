@@ -35,12 +35,12 @@
   ],
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
-    "prebuild": "rimraf lib/",
+    "prebuild": "rimraf lib/ && tsc -p tsconfig.src.json --emitDeclarationOnly",
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "dependencies": {
-    "@guanghechen/parse-lineno": "^1.5.5",
+    "@guanghechen/parse-lineno": "^1.6.0",
     "@yozora/react-code-embed": "^1.0.0-alpha.16",
     "@yozora/react-code-highlighter": "^1.0.0-alpha.16",
     "@yozora/react-code-literal": "^1.0.0-alpha.16",
