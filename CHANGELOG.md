@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="1.0.0-alpha.18"></a>
+## 1.0.0-alpha.18 (2021-06-27)
+
+### Changed
+
+- 🎨 improve(markdown): support for specifing the cdn url for the mathjax.js [[7609c76](https://github.com/guanghechen/yozora-react/commit/7609c762db125df146606cbf30061342f3b01393)]
+
+
 <a name="1.0.0-alpha.17"></a>
 ## 1.0.0-alpha.17 (2021-06-27)
 
