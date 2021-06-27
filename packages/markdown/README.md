@@ -239,6 +239,7 @@ Name                    | Type                  | Required  | Default | Descript
 `ast`                   | See below             | `true`    | -       | Root node of [@yozora/ast][]
 `definitionMap`         | See below             | `true`    | -       | Link / Image reference definitions
 `footnoteDefinitionMap` | See below             | `true`    | -       | Footnote reference definitions
+`mathjaxSrc`            | `string`              | `false`   | -       | http / https url for loading mathjax
 `className`             | `string`              | `false`   | -       | Root css class
 `rendererMap`           | See below             | `false`   | -       | [@yozora/ast] renderer map
 `style`                 | `React.CSSProperties` | `false`   | -       | Root css style

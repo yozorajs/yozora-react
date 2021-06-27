@@ -32,6 +32,10 @@ export interface MarkdownProps {
    */
   footnoteDefinitionMap: Record<string, FootnoteDefinition>
   /**
+   * http / https url for loading mathjax.
+   */
+  mathjaxSrc?: string
+  /**
    * Root css class of the component.
    */
   className?: string
