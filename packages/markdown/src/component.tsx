@@ -36,6 +36,25 @@ export interface MarkdownProps {
    */
   mathjaxSrc?: string
   /**
+   * Mathjax config
+   */
+  mathjaxConfig?: any
+  /**
+   * Mathjax options.
+   */
+  mathjaxOptions?: {
+    /**
+     * Delay between updates.
+     * @default 0
+     */
+    processSectionDelay?: number
+    /**
+     * Type of the formula string.
+     * @default 'tex'
+     */
+    language?: 'tex' | 'asciimath'
+  }
+  /**
    * Root css class of the component.
    */
   className?: string
@@ -76,6 +95,9 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
     ast,
     definitionMap,
     footnoteDefinitionMap,
+    mathjaxSrc,
+    mathjaxConfig,
+    mathjaxOptions,
     className,
     style,
     rendererMap,
@@ -121,7 +143,11 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
 
   return (
     <Container className={cn('yozora-markdown', className)} style={style}>
-      <MathJaxProvider>
+      <MathJaxProvider
+        mathjaxSrc={mathjaxSrc}
+        mathjaxConfig={mathjaxConfig}
+        mathjaxOptions={mathjaxOptions}
+      >
         <section>{children}</section>
         <footer>{footnotes}</footer>
       </MathJaxProvider>

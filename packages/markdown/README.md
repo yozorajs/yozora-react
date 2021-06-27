@@ -240,6 +240,8 @@ Name                    | Type                  | Required  | Default | Descript
 `definitionMap`         | See below             | `true`    | -       | Link / Image reference definitions
 `footnoteDefinitionMap` | See below             | `true`    | -       | Footnote reference definitions
 `mathjaxSrc`            | `string`              | `false`   | -       | http / https url for loading mathjax
+`mathjaxConfig`         | `object`              | `false`   | -       | Mathjax config, see [@yozora/react-mathjax][]
+`mathjaxOptions`        | `object`              | `false`   | -       | Mathjax options, see [@yozora/react-mathjax][]
 `className`             | `string`              | `false`   | -       | Root css class
 `rendererMap`           | See below             | `false`   | -       | [@yozora/ast] renderer map
 `style`                 | `React.CSSProperties` | `false`   | -       | Root css style
@@ -385,6 +387,7 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 [@yozora/react-list]: https://www.npmjs.com/package/@yozora/react-list
 [@yozora/react-list-item]: https://www.npmjs.com/package/@yozora/react-list-item
 [@yozora/react-math]: https://www.npmjs.com/package/@yozora/react-math
+[@yozora/react-mathjax]: https://www.npmjs.com/package/@yozora/react-mathjax
 [@yozora/react-paragraph]: https://www.npmjs.com/package/@yozora/react-paragraph
 [@yozora/react-strong]: https://www.npmjs.com/package/@yozora/react-strong
 [@yozora/react-table]: https://www.npmjs.com/package/@yozora/react-table

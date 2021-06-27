@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="1.0.0-alpha.17"></a>
+## 1.0.0-alpha.17 (2021-06-27)
+
+### Changed
+
+- 🎨 improve(markdown): support to customize the mathjax resource [[3d08d02](https://github.com/guanghechen/yozora-react/commit/3d08d02792aad34c0f579d2f65da5b3f78e71854)]
+- ⬆️ chore: ugprade dev dependencies [[750009f](https://github.com/guanghechen/yozora-react/commit/750009fd1b17e9ba0f7ad90c0de79c5f9722a031)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[68ca2d6](https://github.com/guanghechen/yozora-react/commit/68ca2d62006ff31b14985ca47161133d3933c41a)]
+
+
 <a name="1.0.0-alpha.16"></a>
 ## 1.0.0-alpha.16 (2021-06-25)
 
