@@ -61,9 +61,6 @@ export function Code(props: CodeProps): React.ReactElement {
   )
   const { highlightLinenos, maxLines, mode, title, collapsed } = meta
 
-  // Remove trailing line endings.
-  const formattedValue = value.trim()
-
   let result: React.ReactElement | null = null
   if (lang != null) {
     switch (mode) {
@@ -71,7 +68,7 @@ export function Code(props: CodeProps): React.ReactElement {
         result = (
           <CodeLive
             lang={lang}
-            value={formattedValue}
+            value={value}
             meta={meta}
             runners={runners}
             title={title}
@@ -89,7 +86,7 @@ export function Code(props: CodeProps): React.ReactElement {
           result = (
             <CodeEmbed
               lang={lang}
-              value={formattedValue}
+              value={value}
               meta={meta}
               CodeRunner={runner.runner}
               className={className}
@@ -106,7 +103,7 @@ export function Code(props: CodeProps): React.ReactElement {
     result || (
       <CodeLiteral
         lang={lang}
-        value={formattedValue}
+        value={value}
         title={title}
         highlightLinenos={highlightLinenos}
         maxLines={maxLines}
