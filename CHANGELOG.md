@@ -1,5 +1,28 @@
 # Changelog
 
+<a name="1.0.0-alpha.19"></a>
+## 1.0.0-alpha.19 (2021-07-04)
+
+### Added
+
+- ✅ test: update snapshots [[ff49bf0](https://github.com/guanghechen/yozora-react/commit/ff49bf060d23a60a6e5497b7092a743a12a9f574)]
+
+### Changed
+
+- 💄 improve: tweak styles [[c6e0ef7](https://github.com/guanghechen/yozora-react/commit/c6e0ef73d088f5df6738bafd9a2ed9564eb7f471)]
+- 💄 improve: tweak code-live and code-literal styles in small screen [[d575673](https://github.com/guanghechen/yozora-react/commit/d57567347de4aa14070171e2698bff777dfd6226)]
+- ⬆️ chore: upgrade dependencies [[3aab526](https://github.com/guanghechen/yozora-react/commit/3aab5263d5d9a05790cc354e5852b6f7df5fa2b1)]
+
+### Fixed
+
+- 🐛 fix(Code): don&#x27;t trim source code. [[35aada0](https://github.com/guanghechen/yozora-react/commit/35aada0f56fa946292cef2feb0f31e6034a12ff6)]
+
+### Miscellaneous
+
+- 🔨 chore: update ci configs [[4dc490a](https://github.com/guanghechen/yozora-react/commit/4dc490af19f0e78428aa6543dfe76eae7c48fed6)]
+- 📝 docs: update CHANGELOG [[9e34352](https://github.com/guanghechen/yozora-react/commit/9e34352c3e1eeb499fe4204368f7a4bf5d0ef29f)]
+
+
 <a name="1.0.0-alpha.18"></a>
 ## 1.0.0-alpha.18 (2021-06-27)
 
