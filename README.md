@@ -60,9 +60,9 @@
   </div>
 </header>
 
-A monorepo contains react components render [yozora tokens][yozora/autolink]. See https://yozora.guanghechen.com for details.
+A monorepo contains react components render [Yozora AST Nodes][yozora/admonition]. See https://yozora.guanghechen.com for details.
 
-Use [@yozora/react-markdown][] to render the [@yozora/ast][].
+Use [@yozora/react-markdown][] to render the [@yozora/ast][yozora/ast].
 
 ## Overview
 
