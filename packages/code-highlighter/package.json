@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "prism-react-renderer": "^1.2.1",
-    "prismjs": "^1.23.0"
+    "prismjs": "^1.24.1"
   },
   "browserslist": [
     "last 2 versions",
