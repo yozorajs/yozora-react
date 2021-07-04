@@ -294,13 +294,13 @@ export const BaseCss = css`
   .yozora-math {
     overflow: auto;
     border: none;
-    margin: 0;
+    margin: 0 0 1em;
     color: var(--math-color);
     background: transparent;
   }
 
   .yozora-paragraph {
-    overflow-x: auto;
+    overflow: auto hidden;
     padding: 0;
     margin: var(--margin-block-node);
     margin-bottom: 1em;
@@ -381,12 +381,5 @@ export const BaseCss = css`
     border-bottom: 1px solid var(--color-border-primary);
     outline: 0;
     margin: 1.5em 0;
-  }
-
-  @media screen and (max-width: 767px) {
-    & ::-webkit-scrollbar {
-      height: 1px;
-      width: 1px;
-    }
   }
 `
