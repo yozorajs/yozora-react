@@ -163,9 +163,9 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
       textareaStyle={{
         ...wordStyle,
         ...textareaStyle,
-        borderLeft: `${linenoWidth} solid transparent`,
         padding: '0.5rem 0.6em 0 6px',
       }}
+      linenoWidth={linenoWidth}
       preClassName={preClassName}
       preStyle={{ ...wordStyle, ...preStyle }}
       className={cn('yozora-code-editor', className)}

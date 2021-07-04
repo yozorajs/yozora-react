@@ -384,19 +384,9 @@ export const BaseCss = css`
   }
 
   @media screen and (max-width: 767px) {
-    ::-webkit-scrollbar {
+    & ::-webkit-scrollbar {
       height: 1px;
       width: 1px;
-    }
-
-    .yozora-code-literal {
-      border-radius: 5px;
-      box-shadow: rgba(30, 30, 30, 73%) 0px 2px 10px;
-      overflow: hidden;
-      .yozora-code-highlighter__linenos {
-        display: none;
-        visibility: hidden;
-      }
     }
   }
 `

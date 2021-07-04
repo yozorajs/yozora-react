@@ -93,10 +93,11 @@ export class SimpleCodeEditor extends React.Component<
     const highlighted = highlight(value)
     return (
       <Container {...htmlProps} style={{ ...style, tabSize }}>
-        <div
-          className="yozora-code-editor__textarea-wrapper"
-          style={{ paddingLeft: linenoWidth }}
-        >
+        <div className="yozora-code-editor__textarea-wrapper">
+          <div
+            className="yozora-code-editor__textarea-linenos"
+            style={{ width: linenoWidth }}
+          />
           <textarea
             ref={this.inputRef}
             id={textareaId}
@@ -567,8 +568,15 @@ export const Container = styled.div`
     position: absolute;
     left: 0;
     top: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  .yozora-code-editor__textarea-linenos {
+    flex: 0 0 auto;
   }
   .yozora-code-editor__textarea {
+    flex: 1 1 auto;
     resize: none;
     padding: 0;
     color: transparent;

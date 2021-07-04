@@ -5,6 +5,10 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   border: 1px solid #d3d3d3;
+  caret-color: #aeafad;
+  ::selection {
+    background: var(--code-bg-selection);
+  }
 
   > .yozora-code-live__toolbar {
     flex: 0 0 auto;
@@ -55,7 +59,6 @@ export const Container = styled.div`
       overflow: auto;
       padding: 0;
       margin: 0;
-      caret-color: #aeafad;
       font-family: var(--code-font-family, 'Consolas, monospace, sans-serif');
       font-size: var(--code-font-size, 1rem);
       background: var(--code-bg-primary, #1e1e1e);
@@ -99,6 +102,19 @@ export const Container = styled.div`
     .yozora-code-live__copy-button {
       visibility: visible;
       opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    border: 0;
+    border-radius: 5px;
+    box-shadow: rgba(30, 30, 30, 73%) 0px 2px 10px;
+    overflow: hidden;
+
+    .yozora-code-highlighter__linenos,
+    .yozora-code-editor__textarea-linenos {
+      display: none;
+      visibility: hidden;
     }
   }
 `
