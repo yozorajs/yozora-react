@@ -46,7 +46,7 @@ export function GraphvizRenderer(
       })
       .engine(engine)
       .renderDot(code)
-  }, [code, options, onError])
+  }, [code, options, engine, onError])
 
   return (
     <div

@@ -203,7 +203,7 @@ export const defaultRendererMap: TokenRendererMap = {
     )
   },
   [ListType]: function renderList(list, key, ctx) {
-    const { ordered, orderType, start, marker } = list
+    const { ordered, orderType, start } = list
     return (
       <ListRenderer
         key={key}
