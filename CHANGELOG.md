@@ -1,5 +1,23 @@
 # Changelog
 
+<a name="1.0.0-alpha.20"></a>
+## 1.0.0-alpha.20 (2021-07-07)
+
+### Added
+
+- ✨ feat(code): support meta attribute &#x60;jsxMode&#x60; to change the behaviour of @yozora/react-code-render-jsx [[72cbb5e](https://github.com/guanghechen/yozora-react/commit/72cbb5e70acd6b7e49e479edf2768aa2e3079341)]
+
+### Changed
+
+- 🚨 fix: fix linter warnings [[29c9ee8](https://github.com/guanghechen/yozora-react/commit/29c9ee8f71910496374d6479bb50cea89b95b87b)]
+- ⬆️ chore: upgrade devDependencies [[2ed8608](https://github.com/guanghechen/yozora-react/commit/2ed8608ce3c6a7571b442062b0dfe797ff8633ce)]
+
+### Miscellaneous
+
+- 📝 docs: update README [[65f59cc](https://github.com/guanghechen/yozora-react/commit/65f59ccc9fa688b26d2c693dd364a60ef7bee6b2)]
+- 📝 docs: update CHANGELOG [[b70efbe](https://github.com/guanghechen/yozora-react/commit/b70efbe0b874bd3a75d14bb98837f0ee004715b7)]
+
+
 <a name="1.0.0-alpha.19"></a>
 ## 1.0.0-alpha.19 (2021-07-04)
 
