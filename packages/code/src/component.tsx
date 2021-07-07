@@ -17,11 +17,13 @@ const defaultRunners: CodeRunnerItem[] = [
     title: 'jsx',
     pattern: /^jsx$/,
     runner: function JsxRunner(props: CodeRunnerProps): React.ReactElement {
-      const { value, scope, onError } = props
+      const { value, scope, onError, meta = {} } = props
+      const inline = meta.jsxMode == null || meta.jsxMode === 'inline'
+
       return (
         <JsxRenderer
           code={value}
-          inline={true}
+          inline={inline}
           scope={scope}
           onError={onError}
         />

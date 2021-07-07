@@ -69,7 +69,7 @@ export function parseCodeMeta(meta: string): CodeMetaData {
           result.collapsed = val == null ? true : !/^false$/i.test(val)
           break
         default:
-          result[key] = val == null ? true : val
+          result[attribute[0]] = val == null ? true : val
       }
     }
 

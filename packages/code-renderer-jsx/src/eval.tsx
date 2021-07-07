@@ -38,7 +38,7 @@ export function renderElement(
   const codeTrimmed = code.trim().replace(/;$/, '')
 
   // NOTE: Workaround for classes and arrow functions.
-  const transformed = transform(`return (${codeTrimmed})`).trim()
+  const transformed = transform(`return (${codeTrimmed})`)
   return errorBoundary(evalCode(transformed, scope), onError)
 }
 
@@ -64,9 +64,8 @@ export function renderElementAsync(
   }
 
   if (!/\brender\s*\(/.test(code)) {
-    return void onError(
-      new SyntaxError('No-Inline evaluations must call `render`.'),
-    )
+    onError(new SyntaxError('No-Inline evaluations must call `render`.'))
+    return
   }
 
   const transformed = transform(code).trim()

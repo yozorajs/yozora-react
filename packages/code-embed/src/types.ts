@@ -1,3 +1,15 @@
+export interface CodeRunnerMetaData {
+  /**
+   * The execution mode of a runner.
+   * @default 'inline'
+   */
+  jsxMode?: 'inline' | 'block'
+  /**
+   * Additional attributes.
+   */
+  [key: string]: unknown
+}
+
 /**
  * Props of CodeRunner
  */
@@ -15,7 +27,7 @@ export interface CodeRunnerProps {
    * @see https://github.github.com/gfm/#info-string
    * @see https://github.github.com/gfm/#example-113
    */
-  meta?: Record<string, unknown>
+  meta?: CodeRunnerMetaData
   /**
    * Error callback
    */
