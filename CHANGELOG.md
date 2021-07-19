@@ -1,5 +1,17 @@
 # Changelog
 
+<a name="1.0.0-alpha.22"></a>
+## 1.0.0-alpha.22 (2021-07-19)
+
+### Fixed
+
+- 🐛 fix: fix invalid css variables [[2b1fd6f](https://github.com/guanghechen/yozora-react/commit/2b1fd6f9ae20e88e7f98bb811f44fe80c83231fb)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[2fa980d](https://github.com/guanghechen/yozora-react/commit/2fa980dc793e0b99c845bc80b3e66b46d3e75107)]
+
+
 <a name="1.0.0-alpha.21"></a>
 ## 1.0.0-alpha.21 (2021-07-19)
 
