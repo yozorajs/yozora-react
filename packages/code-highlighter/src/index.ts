@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Prism } from 'prism-react-renderer'
 
 export * from './component'
@@ -14,9 +15,11 @@ export { CodeHighlighter as default } from './component'
 function enablePrismLanguages(): void {
   const self: any = typeof global !== 'undefined' ? global : window
   self.Prism = Prism
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+
   // @ts-ignore
-  import('prismjs/components/prism-visual-basic')
+  void import('prismjs/components/prism-dot')
+  // @ts-ignore
+  void import('prismjs/components/prism-visual-basic')
 }
 
 enablePrismLanguages()
