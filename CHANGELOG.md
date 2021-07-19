@@ -1,5 +1,23 @@
 # Changelog
 
+<a name="1.0.0-alpha.21"></a>
+## 1.0.0-alpha.21 (2021-07-19)
+
+### Added
+
+- ✅ test: update snapshot [[caf704f](https://github.com/guanghechen/yozora-react/commit/caf704f6d4538b93404bda96f6814dbe2729e81d)]
+
+### Changed
+
+- 💄 improve: update markdown renderer sytles [[81b8b77](https://github.com/guanghechen/yozora-react/commit/81b8b77a24040fdf2e5dcb7d2824f6493b5ff1cd)]
+- ⬆️ chore: ugprade dependencies [[7afd3e7](https://github.com/guanghechen/yozora-react/commit/7afd3e72410615c18516ab6d106e5a7c83cdb91c)]
+
+### Miscellaneous
+
+-  improve(react-code-highlighter): enable &#x27;prism-dot&#x27; in default [[b769af1](https://github.com/guanghechen/yozora-react/commit/b769af18689229e9e561c351f85e9f7598d054cd)]
+- 📝 docs: update CHANGELOG [[fd4ae67](https://github.com/guanghechen/yozora-react/commit/fd4ae67496325de8df963e2a46f5c901402e2fae)]
+
+
 <a name="1.0.0-alpha.20"></a>
 ## 1.0.0-alpha.20 (2021-07-07)
 
