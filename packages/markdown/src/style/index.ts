@@ -35,8 +35,14 @@ export const Container = styled.div`
   --code-font-family: Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif;
   --code-font-size: min(1rem, 18px);
 
+  // Delete styles
+  --delete-color: #acb2b9
+
   // Heading styles
   --heading-font-family: Comic Sans MS, lucida grande, lucida sans unicode, lucida, Hiragino Sans GB, Helvetica Neue, Microsoft Yahei, WenQuanYi Micro Hei, sans-serif;
+
+  // Image styles
+  --image-color-border: #7a6390
 
   // Link styles
   --link-color: #4682B4;

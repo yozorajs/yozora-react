@@ -40,8 +40,14 @@ import { css } from 'styled-components'
  *    --code-font-family
  *    --code-font-size
  *
+ *    // Delete styles
+ *     --delete-color: #acb2b9
+ *
  *    // Heading styles
  *    --heading-font-family
+ *
+ *    // Image styles
+ *    --image-color-border
  *
  *    // Link styles
  *    --link-color
@@ -127,12 +133,13 @@ export const BaseCss = css`
   }
 
   .yozora-delete {
+    color: var(--delete-color);
     text-decoration: line-through;
   }
 
   .yozora-emphasis {
     font-style: italic;
-    margin-right: 0.4em;
+    margin: 0 6px 0 2px;
   }
 
   .yozora-footnote-reference {
@@ -232,11 +239,13 @@ export const BaseCss = css`
   .yozora-image {
     box-sizing: border-box;
     max-width: 100%; // Prevent images from overflowing the container.
+    border: 1px solid var(--image-color-border);
+    box-shadow: 0px 0px 20px 1px rgba(126,125,150,0.6);
   }
 
   .yozora-inline-code {
-    padding: 0.2em;
-    border-radius: 2px;
+    padding: 1px 4px;
+    border-radius: 4px;
     margin: 0;
     background: hsla(210deg, 13%, 12%, 0.05);
     line-height: 1.375;
@@ -305,6 +314,10 @@ export const BaseCss = css`
     margin: var(--margin-block-node);
     margin-bottom: 1em;
     line-height: 2;
+    hyphens: auto;
+    word-break: normal;
+    overflow-wrap: break-word;
+    // line-break: anywhere;
     &.yozora-paragraph--display {
       display: flex;
       align-items: center;
