@@ -45,7 +45,7 @@
     "react": "^17.0.1"
   },
   "dependencies": {
-    "@types/d3-graphviz": "^2.6.6",
+    "@types/d3-graphviz": "^2.6.7",
     "d3-graphviz": "^2.6.1"
   },
   "browserslist": [
