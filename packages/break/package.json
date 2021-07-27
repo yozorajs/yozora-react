@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-break",
-  "version": "1.0.0-alpha.22",
+  "version": "1.0.0-alpha.23",
   "description": "render markdown thematicBreak node in react",
   "author": {
     "name": "guanghechen",
