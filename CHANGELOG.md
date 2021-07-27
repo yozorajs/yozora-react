@@ -1,5 +1,25 @@
 # Changelog
 
+<a name="1.0.0-alpha.23"></a>
+## 1.0.0-alpha.23 (2021-07-27)
+
+### Added
+
+- ✅ test: update snapshots [[fd315ab](https://github.com/guanghechen/yozora-react/commit/fd315ab818816dc8a69f45171eb4a83d521e1dc6)]
+
+### Changed
+
+- ⬆️ chore: upgrade dependencies [[67a58fb](https://github.com/guanghechen/yozora-react/commit/67a58fb6c2d579db40780b85bf934bf2872bebb6)]
+
+### Fixed
+
+- 🐛 fix(code-highglighter): fix bundling erros in vite + react projects [[5f3ef1a](https://github.com/guanghechen/yozora-react/commit/5f3ef1a8f22adaa780251aedbf3cac975c4f8a13)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[2fed77c](https://github.com/guanghechen/yozora-react/commit/2fed77ce3ed72c0c45adf3052bedc35a9a3293f2)]
+
+
 <a name="1.0.0-alpha.22"></a>
 ## 1.0.0-alpha.22 (2021-07-19)
 
