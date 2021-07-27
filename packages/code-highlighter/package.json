@@ -17,6 +17,7 @@
     "markdown code highlighter"
   ],
   "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
   "types": "lib/types/index.d.ts",
   "source": "src/index.ts",
   "license": "MIT",
@@ -45,8 +46,7 @@
     "styled-components": "^5.3.0"
   },
   "dependencies": {
-    "prism-react-renderer": "^1.2.1",
-    "prismjs": "^1.24.1"
+    "prism-react-renderer": "^1.2.1"
   },
   "browserslist": [
     "last 2 versions",

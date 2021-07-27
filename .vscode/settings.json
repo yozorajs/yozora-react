@@ -45,6 +45,7 @@
     "ulist",
     "unist",
     "unmounting",
+    "vite",
     "yozora"
   ],
   "typescript.tsdk": "node_modules/typescript/lib",
