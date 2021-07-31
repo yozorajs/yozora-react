@@ -25,6 +25,7 @@ export function CodeLive(props: CodeLiveProps): React.ReactElement {
     lang,
     value: _value,
     meta,
+    scope,
     title,
     maxLines,
     collapsed: _collapsed = false,
@@ -36,7 +37,7 @@ export function CodeLive(props: CodeLiveProps): React.ReactElement {
     centerPreviewer = true,
   } = props
 
-  const [vertical, setVertical] = useState<boolean>(true)
+  const [vertical] = useState<boolean>(true)
   const [value, setValue] = useState<string>(_value)
 
   const [collapsed, setCollapsed] = useState<boolean>(_collapsed)
@@ -102,6 +103,7 @@ export function CodeLive(props: CodeLiveProps): React.ReactElement {
               lang={lang}
               value={value}
               meta={meta}
+              scope={scope}
               CodeRunner={runner.runner}
             />
           </div>

@@ -29,13 +29,13 @@ export interface CodeRunnerProps {
    */
   meta?: CodeRunnerMetaData
   /**
-   * Error callback
-   */
-  onError(error: string | null): void
-  /**
    * Accessible context variables.
    */
   scope?: Record<string, unknown>
+  /**
+   * Error callback
+   */
+  onError(error: string | null): void
 }
 
 /**
@@ -57,9 +57,9 @@ export interface YozoraCodeEmbedProps {
    */
   meta?: Record<string, unknown>
   /**
-   * For executing or rendering the given code.
+   * Accessible context variables.
    */
-  CodeRunner(props: CodeRunnerProps): React.ReactElement | null
+  scope?: Record<string, unknown>
   /**
    * Root css class of the component.
    */
@@ -68,6 +68,10 @@ export interface YozoraCodeEmbedProps {
    * Root css style.
    */
   style?: React.CSSProperties
+  /**
+   * For executing or rendering the given code.
+   */
+  CodeRunner(props: CodeRunnerProps): React.ReactElement | null
 }
 
 export interface YozoraCodeEmbedState {

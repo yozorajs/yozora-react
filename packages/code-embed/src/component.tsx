@@ -48,7 +48,8 @@ export class YozoraCodeEmbed extends React.Component<
   }
 
   public override render(): React.ReactElement {
-    const { lang, value, meta, CodeRunner, className, style } = this.props
+    const { lang, value, meta, className, style, scope, CodeRunner } =
+      this.props
     const { error } = this.state
 
     return (
@@ -58,6 +59,7 @@ export class YozoraCodeEmbed extends React.Component<
             lang={lang}
             value={value}
             meta={meta}
+            scope={scope}
             onError={this.setError}
           />
         ) : (

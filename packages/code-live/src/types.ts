@@ -26,6 +26,10 @@ export interface CodeLiveProps {
    */
   meta?: Record<string, unknown>
   /**
+   * Accessible context variables.
+   */
+  scope?: Record<string, unknown>
+  /**
    * Code title
    */
   title?: string
