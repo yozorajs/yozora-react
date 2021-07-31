@@ -12,7 +12,7 @@ import type {
 } from './types'
 import { parseCodeMeta } from './util'
 
-const defaultRunners: CodeRunnerItem[] = [
+export const defaultRunners: CodeRunnerItem[] = [
   {
     title: 'jsx',
     pattern: /^jsx$/,
@@ -42,20 +42,15 @@ const defaultRunners: CodeRunnerItem[] = [
  * @see https://www.npmjs.com/package/@yozora/react-code-embed
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
-export function Code(props: CodeProps): React.ReactElement {
+export const Code: React.FC<CodeProps> = props => {
   const {
     lang,
     value,
     meta: infoString,
-    runners: _runners,
+    runners = defaultRunners,
     className,
     style,
   } = props
-
-  const runners = useMemo<CodeRunnerItem[]>(
-    () => [...(_runners ?? []), ...defaultRunners],
-    [_runners],
-  )
 
   const meta = useMemo<CodeMetaData>(
     () => parseCodeMeta(infoString ?? ''),
@@ -122,6 +117,8 @@ Code.propTypes = {
   meta: PropTypes.string,
   runners: PropTypes.array,
   value: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 }
 
 Code.displayName = 'YozoraCode'

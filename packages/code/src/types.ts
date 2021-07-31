@@ -19,7 +19,7 @@ export interface CodeProps {
   /**
    * Code runners.
    */
-  runners?: CodeRunnerItem[]
+  runners?: ReadonlyArray<CodeRunnerItem>
   /**
    * Root css class of the component.
    */

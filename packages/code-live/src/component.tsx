@@ -19,7 +19,7 @@ import { debounce } from './util'
  * @see https://www.npmjs.com/package/@yozora/react-code-embed
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
-export function CodeLive(props: CodeLiveProps): React.ReactElement {
+export const CodeLive: React.FC<CodeLiveProps> = props => {
   const {
     runners,
     lang,
@@ -122,7 +122,9 @@ CodeLive.propTypes = {
   darken: PropTypes.bool,
   lang: PropTypes.string.isRequired,
   maxLines: PropTypes.number,
+  meta: PropTypes.any,
   runners: PropTypes.array.isRequired,
+  scope: PropTypes.any,
   style: PropTypes.object,
   theme: PropTypes.any,
   title: PropTypes.string,

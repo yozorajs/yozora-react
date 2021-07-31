@@ -10,7 +10,7 @@ export interface CodeLiveProps {
   /**
    * Code runners.
    */
-  runners: CodeRunnerItem[]
+  runners: ReadonlyArray<CodeRunnerItem>
   /**
    * Language of the source code.
    */

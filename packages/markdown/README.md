@@ -208,7 +208,7 @@ This component is designed to render data of [@yozora/ast][].
 
   const wrapper = (
     <Markdown 
-      rendererMap={ customRendererMap } 
+      rendererMap={customRendererMap} 
       definitionMap={definitionMap} 
       footnoteDefinitionMap={footnoteDefinitionMap}
       ast={ast} 
@@ -242,8 +242,9 @@ Name                    | Type                  | Required  | Default | Descript
 `mathjaxSrc`            | `string`              | `false`   | -       | http / https url for loading mathjax
 `mathjaxConfig`         | `object`              | `false`   | -       | Mathjax config, see [@yozora/react-mathjax][]
 `mathjaxOptions`        | `object`              | `false`   | -       | Mathjax options, see [@yozora/react-mathjax][]
-`className`             | `string`              | `false`   | -       | Root css class
 `rendererMap`           | See below             | `false`   | -       | [@yozora/ast] renderer map
+`codeRunners`           | See below             | `false`   | -       | Code runners, passed to [@yozora/react-code-embed][] and [@yozora/react-code-live][] 
+`className`             | `string`              | `false`   | -       | Root css class
 `style`                 | `React.CSSProperties` | `false`   | -       | Root css style
 `Viewer`                | [react-viewer][]      | `false`   | -       | Image previewer
 
@@ -375,6 +376,8 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 [@yozora/react-blockquote]: https://www.npmjs.com/package/@yozora/react-blockquote
 [@yozora/react-break]: https://www.npmjs.com/package/@yozora/react-break
 [@yozora/react-code]: https://www.npmjs.com/package/@yozora/react-code
+[@yozora/react-code-embed]: https://www.npmjs.com/package/@yozora/react-code-embed
+[@yozora/react-code-live]: https://www.npmjs.com/package/@yozora/react-code-live
 [@yozora/react-delete]: https://www.npmjs.com/package/@yozora/react-delete
 [@yozora/react-emphasis]: https://www.npmjs.com/package/@yozora/react-emphasis
 [@yozora/react-footnote-definitions]: https://www.npmjs.com/package/@yozora/react-footnote-definitions

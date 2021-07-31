@@ -1,6 +1,5 @@
 import type { Definition, FootnoteDefinition, YastNode } from '@yozora/ast'
 import type React from 'react'
-import { defaultRendererMap } from './renderer-map'
 import type {
   PreviewImageApi,
   TokenRendererContext,
@@ -14,16 +13,11 @@ import type {
  * @param images
  */
 export function createYozoraNodesRenderer(
+  rendererMap: TokenRendererMap,
   definitionMap: Record<string, Definition>,
   footnoteDefinitionMap: Record<string, FootnoteDefinition>,
-  rendererMap?: Partial<TokenRendererMap>,
   imageContext?: PreviewImageApi,
 ): (nodes: YastNode[]) => React.ReactNode[] {
-  const resolvedRendererMap: TokenRendererMap = {
-    ...defaultRendererMap,
-    ...(rendererMap as TokenRendererMap),
-  }
-
   const ctx: TokenRendererContext = {
     renderNodes,
     getDefinition: identifier => definitionMap[identifier],
@@ -41,8 +35,7 @@ export function createYozoraNodesRenderer(
   return renderNodes
 
   function renderNode(node: YastNode, key: number | string): React.ReactNode {
-    const render =
-      resolvedRendererMap[node.type] ?? resolvedRendererMap._fallback
+    const render = rendererMap[node.type] ?? rendererMap._fallback
     return render(node, key, ctx)
   }
 

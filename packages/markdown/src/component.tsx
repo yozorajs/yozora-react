@@ -5,12 +5,14 @@ import type {
   YastNode,
 } from '@yozora/ast'
 import { collectFootnoteDefinitions } from '@yozora/ast-util'
+import type { CodeRunnerItem } from '@yozora/react-code'
 import YozoraFootnotesRenderer from '@yozora/react-footnote-definitions'
 import type { FootnoteItem } from '@yozora/react-footnote-definitions'
 import { MathJaxProvider } from '@yozora/react-mathjax'
 import cn from 'clsx'
 import React, { useMemo, useState } from 'react'
 import { createYozoraNodesRenderer } from './renderer'
+import { useRendererMap } from './renderer-map'
 import { Container } from './style'
 import type {
   PreviewImageApi,
@@ -67,6 +69,10 @@ export interface MarkdownProps {
    */
   rendererMap?: Partial<TokenRendererMap>
   /**
+   * Code runners
+   */
+  codeRunners?: CodeRunnerItem[]
+  /**
    * Image previewer
    *
    *  Browser only:
@@ -100,12 +106,14 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
     mathjaxOptions,
     className,
     style,
-    rendererMap,
+    rendererMap: customRendererMap,
+    codeRunners,
     Viewer,
   } = props
   const [visible, setVisible] = useState<boolean>(false)
   const [images, setImages] = useState<Array<{ src: string; alt: string }>>([])
 
+  const rendererMap = useRendererMap(customRendererMap, codeRunners)
   const renderNodes = useMemo<(nodes: YastNode[]) => React.ReactNode[]>(() => {
     const nextImages: PreviewImageItem[] = []
     const previewImageApi: PreviewImageApi = {
@@ -114,9 +122,9 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
     }
 
     const renderNodes = createYozoraNodesRenderer(
+      rendererMap,
       definitionMap,
       footnoteDefinitionMap,
-      rendererMap,
       previewImageApi,
     )
 
