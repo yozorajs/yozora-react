@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-footnote-definitions",
-  "version": "1.0.0-alpha.23",
+  "version": "1.0.0-alpha.24",
   "description": "render markdown footnote-definitions in react",
   "author": {
     "name": "guanghechen",
