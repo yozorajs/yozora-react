@@ -132,7 +132,7 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
     return renderNodes
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [definitionMap, footnoteDefinitionMap])
+  }, [rendererMap, definitionMap, footnoteDefinitionMap])
 
   const children = useMemo<React.ReactNode[]>(
     () => renderNodes(ast.children),
