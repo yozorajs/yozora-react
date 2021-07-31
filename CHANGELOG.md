@@ -1,5 +1,16 @@
 # Changelog
 
+<a name="1.0.0-alpha.24"></a>
+## 1.0.0-alpha.24 (2021-07-31)
+
+### Miscellaneous
+
+-  improve: tightening types constraints [[edf141d](https://github.com/guanghechen/yozora-react/commit/edf141de220096cf534532ce1f81feff9002277e)]
+-  improve(markdown): support new props &#x27;codeRunners&#x27;, passed to @yozora/react-code-embed and @yozora/react-code-live [[7db8825](https://github.com/guanghechen/yozora-react/commit/7db88255394d399286d04f5a98d07f9ee3f5b0bd)]
+-  improve: support to specify props &#x27;scope&#x27; to CodeEmbed and CodeLive [[6b36638](https://github.com/guanghechen/yozora-react/commit/6b3663892cabbf4b010c9df2bc8d324b39dcd989)]
+- 📝 docs: update CHANGELOG [[5577dd4](https://github.com/guanghechen/yozora-react/commit/5577dd46edaa4bb256293861bb768550979177a4)]
+
+
 <a name="1.0.0-alpha.23"></a>
 ## 1.0.0-alpha.23 (2021-07-27)
 
