@@ -2,6 +2,7 @@ import type { CodeRunnerProps, CodeRunnerScope } from '@yozora/react-code-embed'
 import type { PrismTheme } from 'prism-react-renderer'
 
 export type { CodeRunnerProps } from '@yozora/react-code-embed'
+export type { CodeRunnerScope } from '@yozora/react-code-embed'
 
 /**
  * Live mode block code
@@ -82,5 +83,5 @@ export interface CodeRunnerItem {
   /**
    * Run / Render the given codes.
    */
-  runner(props: CodeRunnerProps): React.ReactElement
+  runner(props: CodeRunnerProps): React.ReactElement | null
 }
