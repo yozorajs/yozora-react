@@ -11,6 +11,11 @@ export interface CodeRunnerMetaData {
 }
 
 /**
+ * Code runner accessible context variables.
+ */
+export type CodeRunnerScope = Record<string, unknown>
+
+/**
  * Props of CodeRunner
  */
 export interface CodeRunnerProps {
@@ -27,11 +32,11 @@ export interface CodeRunnerProps {
    * @see https://github.github.com/gfm/#info-string
    * @see https://github.github.com/gfm/#example-113
    */
-  meta?: CodeRunnerMetaData
+  meta?: Readonly<CodeRunnerMetaData>
   /**
    * Accessible context variables.
    */
-  scope?: Record<string, unknown>
+  scope?: Readonly<CodeRunnerScope>
   /**
    * Error callback
    */

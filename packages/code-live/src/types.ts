@@ -1,4 +1,4 @@
-import type { CodeRunnerProps } from '@yozora/react-code-embed'
+import type { CodeRunnerProps, CodeRunnerScope } from '@yozora/react-code-embed'
 import type { PrismTheme } from 'prism-react-renderer'
 
 export type { CodeRunnerProps } from '@yozora/react-code-embed'
@@ -24,11 +24,11 @@ export interface CodeLiveProps {
    * @see https://github.github.com/gfm/#info-string
    * @see https://github.github.com/gfm/#example-113
    */
-  meta?: Record<string, unknown>
+  meta?: Readonly<Record<string, unknown>>
   /**
    * Accessible context variables.
    */
-  scope?: Record<string, unknown>
+  scope?: Readonly<CodeRunnerScope>
   /**
    * Code title
    */
