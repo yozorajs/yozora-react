@@ -1,5 +1,17 @@
 # Changelog
 
+<a name="1.0.0-alpha.25"></a>
+## 1.0.0-alpha.25 (2021-07-31)
+
+### Fixed
+
+- 🐛 fix: trigger re-render when rendererMap changed [[1f60ac9](https://github.com/guanghechen/yozora-react/commit/1f60ac92e96bb964648db804c88aef35ba322694)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[cf7ce0b](https://github.com/guanghechen/yozora-react/commit/cf7ce0b87b7204f8cb05cb1cf0672659df6224d7)]
+
+
 <a name="1.0.0-alpha.24"></a>
 ## 1.0.0-alpha.24 (2021-07-31)
 
