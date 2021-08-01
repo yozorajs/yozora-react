@@ -24,16 +24,18 @@ describe('prop types', function () {
       expect(() => render(<Admonition>{value}</Admonition>)).not.toThrow()
     }
 
-    expect(render(<Admonition>Hello, world!</Admonition>).text()).toEqual(
-      'Hello, world!',
-    )
+    expect(
+      /Hello, world!/.test(
+        render(<Admonition>Hello, world!</Admonition>).text(),
+      ),
+    ).toBe(true)
   })
 
   describe('className is optional', function () {
     it('default', function () {
       const node = render(<Admonition keyword="tip">{children}</Admonition>)
       expect(node.hasClass('yozora-admonition')).toBeTruthy()
-      expect(node.hasClass('yozora-admonition--success')).toBeTruthy()
+      expect(node.hasClass('yozora-admonition--tip')).toBeTruthy()
     })
 
     it('custom', function () {
@@ -41,21 +43,21 @@ describe('prop types', function () {
         <Admonition className="my-admonition">{children}</Admonition>,
       )
       expect(node.hasClass('yozora-admonition')).toBeTruthy()
-      expect(node.hasClass('yozora-admonition--default')).toBeTruthy()
+      expect(node.hasClass('yozora-admonition--note')).toBeTruthy()
       expect(node.hasClass('my-admonition')).toBeTruthy()
     })
   })
 
   it('keyword is optional', function () {
     const keywords: Record<string, string> = {
-      note: 'default',
-      default: 'default',
+      note: 'note',
+      default: 'note',
       important: 'info',
       info: 'info',
-      tip: 'success',
-      success: 'success',
-      caution: 'warning',
-      warning: 'warning',
+      tip: 'tip',
+      success: 'tip',
+      caution: 'caution',
+      warning: 'caution',
       error: 'danger',
       danger: 'danger',
       'custom-waw': 'custom-waw',
