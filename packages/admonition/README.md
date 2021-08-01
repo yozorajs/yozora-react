@@ -106,6 +106,22 @@ Name        | Type                  | Required  | Default | Description
 * `className`: The root element of this component will always bind with the
   CSS class `'yozora-admonition'`
 
+* `keyword`
+
+  Raw Keyword     | Resolved Keyword 
+  :--------------:|:---------------:
+  ` `             | `note`
+  `default`       | `note`
+  `note`          | `note`
+  `import`        | `info`
+  `info`          | `info`
+  `success`       | `tip`
+  `tip`           | `tip`
+  `warning`       | `caution`
+  `caution`       | `caution`
+  `error`         | `error`
+  `danger`        | `danger`
+
 
 ## Related
 
