@@ -1,5 +1,24 @@
 # Changelog
 
+<a name="1.0.0-alpha.26"></a>
+## 1.0.0-alpha.26 (2021-08-01)
+
+### Added
+
+- ✅ test(admonition): update tests and snapshots [[2761a5f](https://github.com/guanghechen/yozora-react/commit/2761a5fdaeddcd30c5c12e3f0049c02af5281a8f)]
+
+### Changed
+
+- 💄 improve(admonition): add default title icon &amp; tweak styles [[f0141a6](https://github.com/guanghechen/yozora-react/commit/f0141a6ee7c64ffd36af6113ecec28c6127dd625)]
+- ⬆️ chore: upgrade dependencies [[b9bb6e0](https://github.com/guanghechen/yozora-react/commit/b9bb6e0ae466e379bbad0b3cc0705d7cedc12851)]
+
+### Miscellaneous
+
+- 📝 docs: update README [[b9f0bc1](https://github.com/guanghechen/yozora-react/commit/b9f0bc112d2a4554d730f01c6c4d7e99beb65b54)]
+-  improve: update types [[46e2097](https://github.com/guanghechen/yozora-react/commit/46e209711e8cc74b5d2df0ae1edbff12c3161932)]
+- 📝 docs: update CHANGELOG [[87a6130](https://github.com/guanghechen/yozora-react/commit/87a61303d0d05153e0ee408c439073cbf32a4a0b)]
+
+
 <a name="1.0.0-alpha.25"></a>
 ## 1.0.0-alpha.25 (2021-07-31)
 
