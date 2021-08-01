@@ -21,11 +21,17 @@ export const Container = styled.div`
   --margin-block-node: 0 0 1.25em;
 
   // Admonition styles
-  --admonition-color-default: #ebedf0;
-  --admonition-color-info: #54c7ec;
-  --admonition-color-success: #00a400;
-  --admonition-color-warning: #ffba00;
-  --admonition-color-danger: #fa383e;
+  --admonition-border-width: 5px;
+  --admonition-note-color-border: #d4d5d8;
+  --admonition-note-bg: #fdfdfe;
+  --admonition-info-color-border: #4cb3d4;
+  --admonition-info-bg: #eef9fd;
+  --admonition-tip-color-border: #009400;
+  --admonition-tip-bg: #e6f6e6;
+  --admonition-caution-color-border: #e6a700;
+  --admonition-caution-bg: #fff8e6;
+  --admonition-danger-color-border: #e13238;
+  --admonition-danger-bg: #ffebec;
 
   // Code styles
   --code-bg-primary: #1e1e1e;

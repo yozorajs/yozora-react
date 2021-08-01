@@ -1,6 +1,13 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
+import {
+  YozoraAdmonitionCautionIcon,
+  YozoraAdmonitionDangerIcon,
+  YozoraAdmonitionInfoIcon,
+  YozoraAdmonitionNoteIcon,
+  YozoraAdmonitionTipIcon,
+} from './icons'
 
 export interface AdmonitionProps {
   /**
@@ -23,6 +30,10 @@ export interface AdmonitionProps {
    * Root css style.
    */
   style?: React.CSSProperties
+  /**
+   * Admonition title icon
+   */
+  icon?: React.ReactNode
 }
 
 /**
@@ -32,24 +43,44 @@ export interface AdmonitionProps {
  * @see https://www.npmjs.com/package/@yozora/tokenizer-admonition
  */
 export function Admonition(props: AdmonitionProps): React.ReactElement {
-  const { className, style, keyword = 'default', title, children } = props
+  const { className, style, keyword = 'default', children } = props
+
+  let { icon, title } = props
+  const hasCustomTitle =
+    Boolean(title) && (!Array.isArray(title) || title.length > 0)
 
   let modifier = keyword.trim().toLowerCase()
   switch (modifier) {
+    case '':
+    case 'default':
     case 'note':
-      modifier = 'default'
+      modifier = 'note'
+      if (icon === undefined) icon = <YozoraAdmonitionNoteIcon />
+      if (!hasCustomTitle) title = 'NOTE'
       break
     case 'important':
+    case 'info':
       modifier = 'info'
+      if (icon === undefined) icon = <YozoraAdmonitionInfoIcon />
+      if (!hasCustomTitle) title = 'INFO'
       break
+    case 'success':
     case 'tip':
-      modifier = 'success'
+      modifier = 'tip'
+      if (icon === undefined) icon = <YozoraAdmonitionTipIcon />
+      if (!hasCustomTitle) title = 'TIP'
       break
+    case 'warning':
     case 'caution':
-      modifier = 'warning'
+      modifier = 'caution'
+      if (icon === undefined) icon = <YozoraAdmonitionCautionIcon />
+      if (!hasCustomTitle) title = 'CAUTION'
       break
     case 'error':
+    case 'danger':
       modifier = 'danger'
+      if (icon === undefined) icon = <YozoraAdmonitionDangerIcon />
+      if (!hasCustomTitle) title = 'DANGER'
       break
   }
 
@@ -63,7 +94,9 @@ export function Admonition(props: AdmonitionProps): React.ReactElement {
       style={style}
     >
       <div key="heading" className="yozora-admonition__heading">
-        <h5>{title}</h5>
+        <h5>
+          {icon}&nbsp;{title}
+        </h5>
       </div>
       <div key="body" className="yozora-admonition__body">
         {children}

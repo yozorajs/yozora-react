@@ -26,11 +26,17 @@ import { css } from 'styled-components'
  *  * Customized styles
  *
  *    // Admonition styles
- *    --admonition-bg-default
- *    --admonition-bg-info
- *    --admonition-bg-success
- *    --admonition-bg-warning
- *    --admonition-bg-danger
+ *    --admonition-border-width
+ *    --admonition-note-color-border
+ *    --admonition-note-bg
+ *    --admonition-info-color-border
+ *    --admonition-info-bg
+ *    --admonition-tip-color-border
+ *    --admonition-tip-bg
+ *    --admonition-caution-color-border
+ *    --admonition-caution-bg
+ *    --admonition-danger-color-border
+ *    --admonition-danger-bg
  *
  *    // Code styles
  *    --code-bg-primary
@@ -72,40 +78,66 @@ import { css } from 'styled-components'
 export const BaseCss = css`
   .yozora-admonition {
     padding: 1em;
-    border-radius: 10px;
+    border-left: var(--admonition-border-width) solid transparent;
+    border-radius: 6px;
     margin: var(--margin-block-node);
-    background-color: var(--admonition-color-default);
-    color: #fff;
-    &.yozora-admonition--info {
-      background-color: var(--admonition-color-info);
-    }
-    &.yozora-admonition--success {
-      background-color: var(--admonition-color-success);
-    }
-    &.yozora-admonition--warning {
-      background-color: var(--admonition-color-warning);
-    }
-    &.yozora-admonition--danger {
-      background-color: var(--admonition-color-danger);
-    }
+    box-shadow: 0 1px 2px 0 hsla(0deg, 0%, 0%, 0.1);
 
     .yozora-admonition__heading {
       h5 {
-        font-size: 1.2em;
+        display: flex;
+        align-items: center;
+        font-size: 0.857rem;
         margin: 0 0 8px 0;
         vertical-align: middle;
-      }
-      .yozora-text {
+        text-rendering: optimizelegibility;
+        text-size-adjust: 100%;
         text-transform: uppercase;
+        overflow-wrap: break-word;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif;
+        > svg:first-child path {
+          fill: currentColor;
+        }
       }
     }
-
     .yozora-admonition__body {
       display: block;
     }
 
-    .yozora-inline-math, .yozora-math {
-      color: white;
+    &.yozora-admonition--note {
+      border-color: var(--admonition-note-color-border);
+      background-color: var(--admonition-note-bg);
+      .yozora-admonition__heading {
+        color: var(--admonition-note-color-border);
+      }
+    }
+    &.yozora-admonition--info {
+      border-color: var(--admonition-info-color-border);
+      background-color: var(--admonition-info-bg);
+      .yozora-admonition__heading {
+        color: var(--admonition-info-color-border);
+      }
+    }
+    &.yozora-admonition--tip {
+      border-color: var(--admonition-tip-color-border);
+      background-color: var(--admonition-tip-bg);
+      .yozora-admonition__heading {
+        color: var(--admonition-tip-color-border);
+      }
+    }
+    &.yozora-admonition--caution {
+      border-color: var(--admonition-caution-color-border);
+      background-color: var(--admonition-caution-bg);
+      .yozora-admonition__heading {
+        color: var(--admonition-caution-color-border);
+      }
+    }
+    &.yozora-admonition--danger {
+      border-color: var(--admonition-danger-color-border);
+      background-color: var(--admonition-danger-bg);
+      .yozora-admonition__heading {
+        color: var(--admonition-danger-color-border);
+      }
     }
   }
 
@@ -129,7 +161,7 @@ export const BaseCss = css`
     display: flex;
     justify-content: center;
     padding: 2rem 0;
-    background: hsla(0deg, 0%, 90%, 20%);
+    background: hsla(0deg, 0%, 90%, 0.20);
   }
 
   .yozora-delete {
@@ -247,7 +279,7 @@ export const BaseCss = css`
     padding: 1px 4px;
     border-radius: 4px;
     margin: 0;
-    background: hsla(210deg, 13%, 12%, 0.05);
+    background: hsla(210deg, 13%, 12%, 0.15);
     line-height: 1.375;
     color: #d81848;
     font-family: var(--code-font-family);

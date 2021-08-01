@@ -59,6 +59,8 @@ This component is for rendering the [Admonition][@yozora/ast] data produced by
 [@yozora/tokenizer-admonition][].\
 This component has been built into [@yozora/react-markdown][], you can use it directly.
 
+![yozora-admonition.png][]
+
 
 ## Install
 
@@ -112,6 +114,7 @@ Name        | Type                  | Required  | Default | Description
 * [@yozora/tokenizer-admonition][]
 * [remark-admonitions][]
 
+[yozora-admonition.png]: https://github.com/yozorajs/yozora-react/raw/main/packages/admonition/doc/yozora-admonition.png
 
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#admonition
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
