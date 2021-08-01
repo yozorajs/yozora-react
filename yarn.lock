@@ -1868,10 +1868,10 @@
   resolved "https://registry.npmjs.org/@types/minimist/-/minimist-1.2.0.tgz#69a23a3ad29caf0097f06eda59b361ee2f0639f6"
   integrity sha1-aaI6OtKcrwCX8G7aWbNh7i8GOfY=
 
-"@types/node@*", "@types/node@16.4.3", "@types/node@>= 8":
-  version "16.4.3"
-  resolved "https://registry.npmjs.org/@types/node/-/node-16.4.3.tgz#c01c1a215721f6dec71b47d88b4687463601ba48"
-  integrity sha512-GKM4FLMkWDc0sfx7tXqPWkM6NBow1kge0fgQh0bOnlqo4iT1kvTvMEKE0c1RtUGnbLlGRXiAA8SumE//90uKAg==
+"@types/node@*", "@types/node@16.4.9", "@types/node@>= 8":
+  version "16.4.9"
+  resolved "https://registry.npmjs.org/@types/node/-/node-16.4.9.tgz#04eb3da65d08ea377f5e682bf0d22dc1f5e7f19e"
+  integrity sha512-HXhRf581nCItzn8yevv4LYt+bJ5cBbDBAJExbDPMeU/2n5/j0ZemGpayahFBP4xL7RseaCLASLD9i9AYyDe7Nw==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -2088,23 +2088,23 @@
   resolved "https://registry.npmjs.org/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
-"@yozora/ast-util@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/@yozora/ast-util/-/ast-util-1.0.0.tgz#0ad2495698097d26e2596d3cc30064799f5c430a"
-  integrity sha512-x7ydSuI2zxjvoRnYyjRGawVcSfSozqoKOQjzR4j3TawcEKGc+6BylJuc8CfWZrvhPwWqkdPrW9kkSwYxXYM8fA==
+"@yozora/ast-util@^1.1.0-alpha.0":
+  version "1.1.0-alpha.0"
+  resolved "https://registry.npmjs.org/@yozora/ast-util/-/ast-util-1.1.0-alpha.0.tgz#473524a379465bae0260c127be6c13a78479ce28"
+  integrity sha512-+Rjf3uGdHRGueliXHG0CZSvayObP7FrLH24spXGmlNrJ9YFQDU6zp0hIcrirK06uBAbplOZ0TXHNeMllUf6Eug==
   dependencies:
-    "@yozora/ast" "^1.0.0"
-    "@yozora/character" "^1.0.0"
+    "@yozora/ast" "^1.1.0-alpha.0"
+    "@yozora/character" "^1.1.0-alpha.0"
 
-"@yozora/ast@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/@yozora/ast/-/ast-1.0.0.tgz#c3a91dd0f420e82459d9707477de1d11f36b2ccc"
-  integrity sha512-9398oroy7DHjtX3XrRTkYPoGt7Si266Y7qh4i48f39E7+w5U36z9wDjfhY5gsUU0QkPkZrk19/As0nKb2ynpLA==
+"@yozora/ast@^1.1.0-alpha.0":
+  version "1.1.0-alpha.0"
+  resolved "https://registry.npmjs.org/@yozora/ast/-/ast-1.1.0-alpha.0.tgz#22ae25d93d2f6582bec601a13548df37c76c5a97"
+  integrity sha512-FrTpOwv90krqueE0UNuSMbpauSekSD9k0IwMjxNK2y04SQ+dtDegz4eWbxRzqmOuD4TQpLGXGamnvNDhBRtAqw==
 
-"@yozora/character@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/@yozora/character/-/character-1.0.0.tgz#216bf261387a7022be850d8ab379aeef83ff8bd5"
-  integrity sha512-AZBUKaxd9rTw542/+kCZIRgj3lZEztv+pnCK5/a3KdhlxatuUtQpbfU/B0xk9ivd4E1eSM7T8C6kZq3xStcLUw==
+"@yozora/character@^1.1.0-alpha.0":
+  version "1.1.0-alpha.0"
+  resolved "https://registry.npmjs.org/@yozora/character/-/character-1.1.0-alpha.0.tgz#82fdcebb1d1b2c17f185a7cffd6196ea031f4cb9"
+  integrity sha512-1D7BAHjPAwwsM/+UC1NXfwEEHtpmmv90cqH2Tey7RQsRtL+R2SWo+8E7jYAQPh2QpI1mClVdaVgi21izeQyyig==
 
 JSONStream@^1.0.4, JSONStream@^1.3.4:
   version "1.3.5"
@@ -4586,10 +4586,10 @@ eslint-visitor-keys@^2.0.0, eslint-visitor-keys@^2.1.0:
   resolved "https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-2.1.0.tgz#f65328259305927392c938ed44eb0a5c9b2bd303"
   integrity sha512-0rSmRBzXgDzIsD6mGdJgevzgezI534Cer5L/vyMX0kHzT/jiB43jRhd9YUlMGYLQy2zprNmoT8qasCGtY+QaKw==
 
-eslint@7.31.0:
-  version "7.31.0"
-  resolved "https://registry.npmjs.org/eslint/-/eslint-7.31.0.tgz#f972b539424bf2604907a970860732c5d99d3aca"
-  integrity sha512-vafgJpSh2ia8tnTkNUkwxGmnumgckLh5aAbLa1xRmIn9+owi8qBNGKL+B881kNKNTy7FFqTEkpNkUvmw0n6PkA==
+eslint@7.32.0:
+  version "7.32.0"
+  resolved "https://registry.npmjs.org/eslint/-/eslint-7.32.0.tgz#c6d328a14be3fb08c8d1d21e12c02fdb7a2a812d"
+  integrity sha512-VHZ8gX+EDfz+97jGcgyGCyRia/dPOd6Xh9yPv8Bl1+SoaIwD+a/vlrOmGRUyOYu7MwUhc7CxqeaDZU13S4+EpA==
   dependencies:
     "@babel/code-frame" "7.12.11"
     "@eslint/eslintrc" "^0.4.3"
@@ -10158,10 +10158,10 @@ rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@2.54.0:
-  version "2.54.0"
-  resolved "https://registry.npmjs.org/rollup/-/rollup-2.54.0.tgz#99ea816e8e9b1c6af3ab957a4e7a8f78dbd87773"
-  integrity sha512-RHzvstAVwm9A751NxWIbGPFXs3zL4qe/eYg+N7WwGtIXVLy1cK64MiU37+hXeFm1jqipK6DGgMi6Z2hhPuCC3A==
+rollup@2.55.1:
+  version "2.55.1"
+  resolved "https://registry.npmjs.org/rollup/-/rollup-2.55.1.tgz#66a444648e2fb603d8e329e77a61c608a6510fda"
+  integrity sha512-1P9w5fpb6b4qroePh8vHKGIvPNxwoCQhjJpIqfZGHLKpZ0xcU2/XBmFxFbc9697/6bmHpmFTLk5R1dAQhFSo0g==
   optionalDependencies:
     fsevents "~2.3.2"
 
