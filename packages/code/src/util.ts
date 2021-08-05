@@ -1,81 +1,96 @@
 import { collectNumbers } from '@guanghechen/parse-lineno'
 import type { CodeMetaData } from './types'
 
-/**
- * Parser code meta.
- * @param meta
- * @returns
- */
-export function parseCodeMeta(meta: string): CodeMetaData {
+const lineNoRangeRegex =
+  /\s*\{\s*((?:\d+|\d+-\d+)(?:\s*,\s*(?:\d+|\d+-\d+))*)\s*\}\s*/
+const attributeRegex = /\s*([a-zA-Z_]\w+)(?:\s*=\s*"([^"]*)"|=([\S]*))?\s*/
+
+export function parseCodeMeta(infoString: string): CodeMetaData {
+  let _highlightText = ''
+  const remainText = infoString.replace(
+    new RegExp(lineNoRangeRegex, 'g'),
+    (_m: string, p1: string): string => {
+      _highlightText += ' ' + p1
+      return ' '
+    },
+  )
+
+  const highlights: number[] = collectNumbers(_highlightText)
   const result: CodeMetaData = {
     mode: 'literal',
-    highlightLinenos: [],
-    maxLines: -1,
+    highlights,
+    maxlines: -1,
     title: '',
     collapsed: undefined,
   }
 
-  let input: string = meta
-  const lineNos: number[] = []
-  const lineNoRangeRegex =
-    /^\s*\{\s*((?:\d+|\d+-\d+)(?:\s*,\s*(?:\d+|\d+-\d+))*)\s*\}\s*/
-  function eatLineNo(): void {
-    const match = lineNoRangeRegex.exec(input)
-    if (match == null) return
+  let highlightsSet: Set<number> | null = null
+  const regex = new RegExp(attributeRegex, 'g')
+  for (let m: RegExpExecArray | null; ; ) {
+    m = regex.exec(remainText)
+    if (m === null) break
 
-    input = input.slice(match[0].length)
-    lineNos.push(...collectNumbers(match[1]))
-  }
+    const key: string = m[1]
+    const val: string | undefined = m[2] ?? m[3]
 
-  const attributeRegex =
-    /^\s*([a-zA-Z_]\w+)(?:\s*=\s*"([^"]*)"|\s*=\s*([\S]*))?\s*/
-  function eatAttribute(): [string, string | undefined] | null {
-    const match = attributeRegex.exec(input)
-    if (match == null) return null
-
-    input = input.slice(match[0].length)
-    return [match[1], match[2] ?? match[3]]
-  }
-
-  while (input.length > 0) {
-    const currentInputLength = input.length
-
-    // Try to eat line nos
-    eatLineNo()
-
-    // Try to eat an attribute
-    const attribute = eatAttribute()
-    if (attribute != null) {
-      const key = attribute[0].toLowerCase()
-      const val = attribute[1]
-      switch (key.toLowerCase()) {
-        case 'live':
-          result.mode = 'live'
-          break
-        case 'embed':
-          result.mode = 'embed'
-          break
-        case 'maxlines': {
-          const x = Number(val)
-          if (!Number.isNaN(x) && x > 0) {
-            result.maxLines = x
-          }
-          break
-        }
-        case 'title':
-          if (val != null) result.title = val
-          break
-        case 'collapsed':
-          result.collapsed = val == null ? true : !/^false$/i.test(val)
-          break
-        default:
-          result[attribute[0]] = val == null ? true : val
+    switch (key.toLowerCase()) {
+      case 'embed':
+        result.mode = 'embed'
+        break
+      case 'literal':
+        result.mode = 'literal'
+        break
+      case 'live':
+        result.mode = 'live'
+        break
+      case 'mode': {
+        if (val === undefined) break
+        result.mode = val
+        break
       }
-    }
+      case 'highlights': {
+        if (val === undefined) break
 
-    if (currentInputLength <= input.length) break
+        const linenos: number[] = collectNumbers(val).filter(x => x > 0)
+        if (linenos.length <= 0) break
+
+        if (highlightsSet === null) highlightsSet = new Set(highlights)
+        for (const x of linenos) highlightsSet.add(x)
+        break
+      }
+      case 'collapsed':
+        result.collapsed = convertToBoolean(val)
+        break
+      case 'maxlines': {
+        const x = Number(val)
+        if (!Number.isNaN(x) && x > 0) {
+          result.maxlines = x
+        }
+        break
+      }
+      case 'title': {
+        if (val === undefined) break
+        result.title = val
+        break
+      }
+      default:
+        result[key] = val === undefined ? true : val
+    }
   }
 
-  result.highlightLinenos = Array.from(new Set(lineNos))
+  if (highlightsSet !== null && highlightsSet.size > highlights.length) {
+    result.highlights = [...highlightsSet].sort((x, y) => x - y)
+  }
+
   return result
+}
+
+/**
+ * Convert string to boolean
+ * @param val
+ * @returns
+ */
+export function convertToBoolean(val: string | undefined): boolean {
+  if (val === undefined) return true
+  return /^false$/i.test(val) === false
 }

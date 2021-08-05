@@ -38,15 +38,16 @@ export interface CodeMetaData {
   /**
    * Rendering mode.
    */
-  mode: 'live' | 'embed' | 'literal'
+  mode: 'live' | 'embed' | 'literal' | string
   /**
    * The line number of the highlighted row.
    */
-  highlightLinenos: number[]
+  highlights: number[]
   /**
    * Maximum number of rows displayed
+   * @default -1
    */
-  maxLines: number
+  maxlines: number
   /**
    * Code title.
    */

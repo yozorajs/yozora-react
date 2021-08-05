@@ -56,7 +56,7 @@ export const Code: React.FC<CodeProps> = props => {
     () => parseCodeMeta(infoString ?? ''),
     [infoString],
   )
-  const { highlightLinenos, maxLines, mode, title, collapsed } = meta
+  const { highlights, maxlines, mode, title, collapsed } = meta
 
   let result: React.ReactElement | null = null
   if (lang != null) {
@@ -69,7 +69,7 @@ export const Code: React.FC<CodeProps> = props => {
             meta={meta}
             runners={runners}
             title={title}
-            maxLines={maxLines}
+            maxLines={maxlines}
             collapsed={collapsed}
             className={className}
             style={style}
@@ -102,8 +102,8 @@ export const Code: React.FC<CodeProps> = props => {
         lang={lang}
         value={value}
         title={title}
-        highlightLinenos={highlightLinenos}
-        maxLines={maxLines}
+        highlightLinenos={highlights}
+        maxLines={maxlines}
         collapsed={collapsed}
         className={className}
         style={style}
