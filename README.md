@@ -64,6 +64,44 @@ A monorepo contains react components render [Yozora AST Nodes][yozora/admonition
 
 Use [@yozora/react-markdown][] to render the [@yozora/ast][yozora/ast].
 
+## Usage
+
+See [@yozora/react-markdown][]
+
+* npm
+
+  ```bash
+  npm install --save @yozora/react-markdown
+  ```
+
+* yarn
+
+  ```bash
+  yarn add @yozora/react-markdown
+  ```
+
+```tsx
+import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
+import YozoraParser from '@yozora/parser'
+
+const parser = new YozoraParser({
+  defaultParseOptions: { shouldReservePosition: false },
+})
+
+const ast = parser.parse(`source markdown contents`)
+const definitionMap = calcDefinitionMap(ast)
+const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
+
+<MathJaxProvider>
+  <Markdown 
+    ast={ast} 
+    definitionMap={definitionMap} 
+    footnoteDefinitionMap={footnoteDefinitionMap} 
+    {...otherProps} 
+  />
+</MathJaxProvider>
+```
+
 ## Overview
 
 ### Markdown components

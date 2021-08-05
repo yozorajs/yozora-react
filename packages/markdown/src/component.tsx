@@ -8,7 +8,6 @@ import { collectFootnoteDefinitions } from '@yozora/ast-util'
 import type { CodeRunnerItem } from '@yozora/react-code'
 import YozoraFootnotesRenderer from '@yozora/react-footnote-definitions'
 import type { FootnoteItem } from '@yozora/react-footnote-definitions'
-import { MathJaxProvider } from '@yozora/react-mathjax'
 import cn from 'clsx'
 import React, { useMemo, useState } from 'react'
 import { createYozoraNodesRenderer } from './renderer'
@@ -33,29 +32,6 @@ export interface MarkdownProps {
    * Footnote reference definitions.
    */
   footnoteDefinitionMap: Record<string, FootnoteDefinition>
-  /**
-   * http / https url for loading mathjax.
-   */
-  mathjaxSrc?: string
-  /**
-   * Mathjax config
-   */
-  mathjaxConfig?: any
-  /**
-   * Mathjax options.
-   */
-  mathjaxOptions?: {
-    /**
-     * Delay between updates.
-     * @default 0
-     */
-    processSectionDelay?: number
-    /**
-     * Type of the formula string.
-     * @default 'tex'
-     */
-    language?: 'tex' | 'asciimath'
-  }
   /**
    * Root css class of the component.
    */
@@ -101,9 +77,6 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
     ast,
     definitionMap,
     footnoteDefinitionMap,
-    mathjaxSrc,
-    mathjaxConfig,
-    mathjaxOptions,
     className,
     style,
     rendererMap: customRendererMap,
@@ -151,14 +124,8 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
 
   return (
     <Container className={cn('yozora-markdown', className)} style={style}>
-      <MathJaxProvider
-        mathjaxSrc={mathjaxSrc}
-        mathjaxConfig={mathjaxConfig}
-        mathjaxOptions={mathjaxOptions}
-      >
-        <section>{children}</section>
-        <footer>{footnotes}</footer>
-      </MathJaxProvider>
+      <section>{children}</section>
+      <footer>{footnotes}</footer>
       {Viewer != null && (
         <Viewer
           visible={visible}

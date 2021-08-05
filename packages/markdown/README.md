@@ -115,6 +115,7 @@ This component is designed to render data of [@yozora/ast][].
   ```typescript
   import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
   import YozoraParser from '@yozora/parser'
+  import Markdown, { MathJaxProvider } from '@yozora/react-markdown'
 
   const parser = new YozoraParser({
     defaultParseOptions: { shouldReservePosition: false },
@@ -124,12 +125,14 @@ This component is designed to render data of [@yozora/ast][].
   const definitionMap = calcDefinitionMap(ast)
   const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
-  <Markdown 
-    ast={ast} 
-    definitionMap={definitionMap} 
-    footnoteDefinitionMap={footnoteDefinitionMap} 
-    {...otherProps} 
-  />
+  <MathJaxProvider>
+    <Markdown 
+      ast={ast} 
+      definitionMap={definitionMap} 
+      footnoteDefinitionMap={footnoteDefinitionMap} 
+      {...otherProps} 
+    />
+  </MathJaxProvider>
   ```
 
 ### Demo
@@ -141,7 +144,7 @@ This component is designed to render data of [@yozora/ast][].
   import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
   import loadable from '@loadable/component'
   import YozoraParser from '@yozora/parser'
-  import Markdown from '@yozora/react-markdown'
+  import Markdown, { MathJaxProvider } from '@yozora/react-markdown'
 
   const Viewer = loadable(() => import('react-viewer'))
 
@@ -156,12 +159,14 @@ This component is designed to render data of [@yozora/ast][].
   const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
   const wrapper = (
-    <Markdown 
-      ast={ast} 
-      definitionMap={definitionMap} 
-      footnoteDefinitionMap={footnoteDefinitionMap}
-      Viewer={Viewer}
-    />
+    <MathJaxProvider mathjaxSrc="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+      <Markdown 
+        ast={ast} 
+        definitionMap={definitionMap} 
+        footnoteDefinitionMap={footnoteDefinitionMap}
+        Viewer={Viewer}
+      />
+    </MathJaxProvider>
   )
   ```
 
@@ -207,12 +212,14 @@ This component is designed to render data of [@yozora/ast][].
   }
 
   const wrapper = (
-    <Markdown 
-      rendererMap={customRendererMap} 
-      definitionMap={definitionMap} 
-      footnoteDefinitionMap={footnoteDefinitionMap}
-      ast={ast} 
-    />
+    <MathJaxProvider>
+      <Markdown 
+        rendererMap={customRendererMap} 
+        definitionMap={definitionMap} 
+        footnoteDefinitionMap={footnoteDefinitionMap}
+        ast={ast} 
+      />
+    </MathJaxProvider>
   )
 
   function InternalLink(props: LinkProps): React.ReactElement {
