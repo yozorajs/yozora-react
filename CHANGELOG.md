@@ -1,5 +1,19 @@
 # Changelog
 
+<a name="1.0.0-alpha.27"></a>
+## 1.0.0-alpha.27 (2021-08-05)
+
+### Changed
+
+- ⬆️ chore: upgrade devDependencies [[34a866e](https://github.com/guanghechen/yozora-react/commit/34a866ed594da9c3d3ab48545dd859bcbbc7a81c)]
+- 🎨 improve: update the codes of parsing info-string, make it more clear and concise [[6077d2d](https://github.com/guanghechen/yozora-react/commit/6077d2d7fd9840d2ed83e15fea32c6d073542702)]
+
+### Miscellaneous
+
+- 🚧 improve(react-markdown): no longer built-in MathjaxProvider (Mathjax Context), you need to add it manually [[aec2c0c](https://github.com/guanghechen/yozora-react/commit/aec2c0c6170510f72f23ed0ef40e1221edcbcdbf)]
+- 📝 docs: update CHANGELOG [[f0208e8](https://github.com/guanghechen/yozora-react/commit/f0208e82e3524fdaf21607ba065a3731b66c6bf6)]
+
+
 <a name="1.0.0-alpha.26"></a>
 ## 1.0.0-alpha.26 (2021-08-01)
 
