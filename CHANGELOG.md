@@ -1,5 +1,27 @@
 # Changelog
 
+<a name="1.0.0-alpha.28"></a>
+## 1.0.0-alpha.28 (2021-08-07)
+
+### Added
+
+- ✅ test(footnote-definition): update snapshots [[4709575](https://github.com/guanghechen/yozora-react/commit/470957505c087bfe8982dffca025ee184b74bad9)]
+
+### Changed
+
+- 💄 improve(admonition): tweak ui styles [[fb8e61b](https://github.com/guanghechen/yozora-react/commit/fb8e61bf59dffad83cd3e42e1d2f6ac2672fe755)]
+- 💄 improve: tweak ui styles &amp; update snapshots [[e8f43b3](https://github.com/guanghechen/yozora-react/commit/e8f43b3570121f5e111551985597bfbb19f68fe4)]
+- 💄 improve(footnote-definition): support to customize title [[9260525](https://github.com/guanghechen/yozora-react/commit/926052532d8078a9bf5304ffc5076566b7473870)]
+- 💄 improve(footnote-definition): tweak ui styles [[9d5eefd](https://github.com/guanghechen/yozora-react/commit/9d5eefdd03285d68208c683ad0cb45e43a8efe80)]
+- ⬆️ chore: upgrade dependencies [[150ca23](https://github.com/guanghechen/yozora-react/commit/150ca23fcf61c9231e4e938f68f28bd96dc7d7ff)]
+- ⬆️ chore: upgrade devDependencies [[0785193](https://github.com/guanghechen/yozora-react/commit/07851936cb9557976887a8f094dc23fd65112027)]
+
+### Miscellaneous
+
+- 📝 docs: fix invalid reference url of ci badge [[5f386ba](https://github.com/guanghechen/yozora-react/commit/5f386baa2d5a384e2a449b9fb94d19f4c1df764b)]
+- 📝 docs: update CHANGELOG [[ab8aab5](https://github.com/guanghechen/yozora-react/commit/ab8aab54009adf111dd4f6ce24947be1f2b34bb5)]
+
+
 <a name="1.0.0-alpha.27"></a>
 ## 1.0.0-alpha.27 (2021-08-05)
 
