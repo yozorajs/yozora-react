@@ -1,3 +1,5 @@
+import type React from 'react'
+
 export interface FootnoteItem {
   /**
    * Footnote reference label
@@ -19,9 +21,10 @@ export interface FootnoteDefinitionsProps {
    */
   nodes: FootnoteItem[]
   /**
-   * DOM id of the container element.
+   *
+   * @default 'footnote-definitions'
    */
-  id?: string
+  title?: React.ReactNode
   /**
    * Root css class of the component.
    */

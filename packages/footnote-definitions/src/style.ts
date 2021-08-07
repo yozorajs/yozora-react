@@ -9,10 +9,7 @@ export const Container = styled.div`
     padding: 0;
     border-bottom: 1px solid var(--color-border-secondary);
     margin: 0 0 1rem;
-    &::before {
-      content: 'footnote-definitions';
-      font-style: italic;
-    }
+    font-style: italic;
   }
 
   > .yozora-footnote-definitions__main {

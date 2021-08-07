@@ -16,15 +16,14 @@ import type { FootnoteDefinitionsProps } from './types'
  */
 export const FootnoteDefinitions: React.FC<FootnoteDefinitionsProps> =
   props => {
-    const { nodes, id, className, style } = props
+    const { nodes, title = 'footnote-definitions', className, style } = props
 
     return (
       <Container
-        id={id}
         className={cn('yozora-footnote-definitions', className)}
         style={style}
       >
-        <div className="yozora-footnote-definitions__title" />
+        <div className="yozora-footnote-definitions__title">{title}</div>
         <ul className="yozora-footnote-definitions__main">
           {nodes.map(node => (
             <li
@@ -48,7 +47,7 @@ export const FootnoteDefinitions: React.FC<FootnoteDefinitionsProps> =
 
 FootnoteDefinitions.propTypes = {
   nodes: PropTypes.array.isRequired,
-  id: PropTypes.string,
+  title: PropTypes.node,
   className: PropTypes.string,
   style: PropTypes.object,
 }
