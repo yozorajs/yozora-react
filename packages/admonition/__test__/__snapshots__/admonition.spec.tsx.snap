@@ -5,10 +5,12 @@ exports[`snapshot custom 1`] = `
   class="yozora-admonition yozora-admonition--caution custom-class"
   style="color:orange"
 >
-  <div
+  <h5
     class="yozora-admonition__heading"
   >
-    <h5>
+    <span
+      class="yozora-admonition__heading-icon"
+    >
       <svg
         height="24px"
         viewBox="0 0 24 24"
@@ -19,9 +21,13 @@ exports[`snapshot custom 1`] = `
           d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
         />
       </svg>
-       CAUTION
-    </h5>
-  </div>
+    </span>
+    <span
+      class="yozora-admonition__heading-title"
+    >
+      CAUTION
+    </span>
+  </h5>
   <div
     class="yozora-admonition__body"
   >
@@ -42,10 +48,12 @@ exports[`snapshot default 1`] = `
 <div
   class="yozora-admonition yozora-admonition--note"
 >
-  <div
+  <h5
     class="yozora-admonition__heading"
   >
-    <h5>
+    <span
+      class="yozora-admonition__heading-icon"
+    >
       <svg
         height="24px"
         viewBox="0 0 24 24"
@@ -56,9 +64,13 @@ exports[`snapshot default 1`] = `
           d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
         />
       </svg>
-       NOTE
-    </h5>
-  </div>
+    </span>
+    <span
+      class="yozora-admonition__heading-title"
+    >
+      NOTE
+    </span>
+  </h5>
   <div
     class="yozora-admonition__body"
   >

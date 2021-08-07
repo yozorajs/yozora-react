@@ -79,26 +79,33 @@ export const BaseCss = css`
   .yozora-admonition {
     padding: 1em;
     border-left: var(--admonition-border-width) solid transparent;
-    border-right: 1px solid hsla(0deg, 0%, 0%, 0.1);
+    border-right: 1px solid hsla(0deg, 0%, 0%, 0.05);
     border-radius: 6px;
     margin: var(--margin-block-node);
     box-shadow: 0 1px 2px 0 hsla(0deg, 0%, 0%, 0.1);
 
     .yozora-admonition__heading {
-      h5 {
-        display: flex;
-        align-items: center;
-        font-size: 0.857rem;
-        margin: 0 0 8px 0;
-        vertical-align: middle;
-        text-rendering: optimizelegibility;
-        text-size-adjust: 100%;
-        text-transform: uppercase;
-        overflow-wrap: break-word;
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif;
+      display: flex;
+      align-items: flex-start;
+      line-height: 1.6;
+      font-size: 0.857rem;
+      margin: 0 0 8px 0;
+      vertical-align: middle;
+      text-rendering: optimizelegibility;
+      text-size-adjust: 100%;
+      text-transform: uppercase;
+      overflow-wrap: break-word;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif;
+      .yozora-admonition__heading-icon {
         > svg:first-child path {
           fill: currentColor;
         }
+        margin-right: 0.5rem;
+      }
+      .yozora-admonition__heading-title {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
       }
     }
     .yozora-admonition__body {

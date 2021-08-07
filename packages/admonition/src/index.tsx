@@ -93,12 +93,15 @@ export function Admonition(props: AdmonitionProps): React.ReactElement {
       )}
       style={style}
     >
-      <div key="heading" className="yozora-admonition__heading">
-        <h5>
-          {icon}&nbsp;{title}
-        </h5>
-      </div>
-      <div key="body" className="yozora-admonition__body">
+      <h5 key="heading" className="yozora-admonition__heading">
+        <span key="icon" className="yozora-admonition__heading-icon">
+          {icon}
+        </span>
+        <span key="title" className="yozora-admonition__heading-title">
+          {title}
+        </span>
+      </h5>
+      <div key="main" className="yozora-admonition__body">
         {children}
       </div>
     </div>
