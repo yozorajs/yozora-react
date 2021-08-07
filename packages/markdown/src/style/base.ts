@@ -79,7 +79,6 @@ export const BaseCss = css`
   .yozora-admonition {
     padding: 1em;
     border-left: var(--admonition-border-width) solid transparent;
-    border-right: 1px solid hsla(0deg, 0%, 0%, 0.05);
     border-radius: 6px;
     margin: var(--margin-block-node);
     box-shadow: 0 1px 2px 0 hsla(0deg, 0%, 0%, 0.1);
@@ -113,6 +112,7 @@ export const BaseCss = css`
     }
 
     &.yozora-admonition--note {
+      border-right: 1px solid hsla(0deg, 0%, 0%, 0.1);
       border-color: var(--admonition-note-color-border);
       background-color: var(--admonition-note-bg);
       .yozora-admonition__heading {
@@ -291,7 +291,7 @@ export const BaseCss = css`
     padding: 1px 4px;
     border-radius: 4px;
     margin: 0;
-    background: hsla(210deg, 13%, 12%, 0.15);
+    background: hsla(210deg, 15%, 60%, 0.15);
     line-height: 1.375;
     color: #d81848;
     font-family: var(--code-font-family);
