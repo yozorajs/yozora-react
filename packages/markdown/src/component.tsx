@@ -33,6 +33,10 @@ export interface MarkdownProps {
    */
   footnoteDefinitionMap: Record<string, FootnoteDefinition>
   /**
+   * Title of the footnote definitions.
+   */
+  footnoteDefinitionsTitle?: React.ReactNode
+  /**
    * Root css class of the component.
    */
   className?: string
@@ -77,6 +81,7 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
     ast,
     definitionMap,
     footnoteDefinitionMap,
+    footnoteDefinitionsTitle,
     className,
     style,
     rendererMap: customRendererMap,
@@ -118,9 +123,12 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
       identifier: item.identifier,
       children: renderNodes(item.children),
     }))
+
     if (nodes.length <= 0) return null
-    return <YozoraFootnotesRenderer nodes={nodes} />
-  }, [renderNodes, ast])
+    return (
+      <YozoraFootnotesRenderer nodes={nodes} title={footnoteDefinitionsTitle} />
+    )
+  }, [renderNodes, footnoteDefinitionsTitle, ast])
 
   return (
     <Container className={cn('yozora-markdown', className)} style={style}>

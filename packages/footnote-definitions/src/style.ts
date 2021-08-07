@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  overflow-x: auto;
   margin-top: 2rem;
   font-size: 0.8rem;
 
@@ -21,6 +20,7 @@ export const Container = styled.div`
   .yozora-footnote-definitions__item {
     display: flex;
     align-items: flex-start;
+    justify-content: flex-start;
     width: 100%;
     padding: 0;
     margin: 0;
@@ -32,6 +32,7 @@ export const Container = styled.div`
     }
     .yozora-footnote-definitions__item-content {
       flex: 1 1 auto;
+      overflow-x: auto;
       display: inline-block;
       margin: 0;
       padding: 0;

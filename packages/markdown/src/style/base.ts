@@ -79,6 +79,7 @@ export const BaseCss = css`
   .yozora-admonition {
     padding: 1em;
     border-left: var(--admonition-border-width) solid transparent;
+    border-right: 1px solid hsla(0deg, 0%, 0%, 0.1);
     border-radius: 6px;
     margin: var(--margin-block-node);
     box-shadow: 0 1px 2px 0 hsla(0deg, 0%, 0%, 0.1);
@@ -109,6 +110,10 @@ export const BaseCss = css`
       background-color: var(--admonition-note-bg);
       .yozora-admonition__heading {
         color: var(--admonition-note-color-border);
+        .yozora-math,
+        .yozora-inline-math {
+          color: inherit;
+        }
       }
     }
     &.yozora-admonition--info {
