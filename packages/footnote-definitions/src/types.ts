@@ -19,6 +19,10 @@ export interface FootnoteDefinitionsProps {
    */
   nodes: FootnoteItem[]
   /**
+   * DOM id of the container element.
+   */
+  id?: string
+  /**
    * Root css class of the component.
    */
   className?: string

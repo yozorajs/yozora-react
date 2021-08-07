@@ -1,19 +1,21 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  position: relative;
-  margin-top: 3rem;
-  border-top: 1px solid var(--color-border-secondary);
+  overflow-x: auto;
+  margin-top: 2rem;
   font-size: 0.8rem;
 
-  &::before {
-    content: 'footnote-definitions';
-    position: absolute;
-    top: -1.1rem;
-    font-style: italic;
+  > .yozora-footnote-definitions__title {
+    padding: 0;
+    border-bottom: 1px solid var(--color-border-secondary);
+    margin: 0 0 1rem;
+    &::before {
+      content: 'footnote-definitions';
+      font-style: italic;
+    }
   }
 
-  > ul {
+  > .yozora-footnote-definitions__main {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -25,19 +27,17 @@ export const Container = styled.div`
     width: 100%;
     padding: 0;
     margin: 0;
-  }
-
-  .yozora-footnote-definitions__item-title {
-    flex: 0 0 auto;
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-  }
-
-  .yozora-footnote-definitions__item-content {
-    flex: 0 1 auto;
-    display: inline-block;
-    margin: 0;
-    padding: 0;
+    .yozora-footnote-definitions__item-title {
+      flex: 0 0 auto;
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+    }
+    .yozora-footnote-definitions__item-content {
+      flex: 1 1 auto;
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+    }
   }
 `
