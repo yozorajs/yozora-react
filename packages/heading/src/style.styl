@@ -3,10 +3,10 @@
   align-items: center
   justify-content: flex-start
   padding: 0
-  margin: var(--margin-block-node)
+  margin: $margin-block-node
   margin-bottom: 1em
   line-height: 1.25
-  font-family: var(--heading-font-family)
+  font-family: $heading-font-family
   .yozora-heading__content
     flex: 0 1 auto
     min-width: 0
@@ -18,7 +18,7 @@
   .yozora-heading__anchor
     flex: 0 0 3rem
     padding-left: 0.5rem
-    color: var(--link-color)
+    color: $link-color
     opacity: 0
     transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out
     user-select: none
@@ -31,7 +31,7 @@
   &:hover
     .yozora-heading__anchor
       opacity: 0.8
-      color: var(--link-color-hover)
+      color: $link-color-hover
 
 h1.yozora-heading,
 h2.yozora-heading,
@@ -45,7 +45,7 @@ h6.yozora-heading
 h1.yozora-heading,
 h2.yozora-heading
   padding: 0.3rem 0
-  border-bottom: 1px solid var(--color-border-secondary)
+  border-bottom: 1px solid $color-border-secondary
 
 h1.yozora-heading
   font-size: 2rem

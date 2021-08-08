@@ -2,6 +2,10 @@ import createRollupConfigs from '@guanghechen/rollup-config-tsx'
 import fs from 'fs-extra'
 import path from 'path'
 
+const stylusOptions = {
+  imports: [path.join(__dirname, 'script/stylus/_variables.styl')],
+}
+
 export async function rollupConfig() {
   const { default: manifest } = await import(path.resolve('package.json'))
 
@@ -25,6 +29,9 @@ export async function rollupConfig() {
         extract: 'index.css',
         minimize: false,
         sourceMap: false,
+        use: {
+          stylus: { ...stylusOptions },
+        },
         modules: {
           localsConvention: 'camelCase',
           generateScopedName: '[local]',
@@ -48,6 +55,9 @@ export async function rollupConfig() {
               exports: false,
             },
             postcssOptions: {
+              use: {
+                stylus: { ...stylusOptions },
+              },
               modules: {
                 localsConvention: 'camelCase',
                 generateScopedName: '[local]',

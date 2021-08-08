@@ -41,7 +41,7 @@
         justify-content: center
         border: 1px solid #9dafaf
         border-radius: 2px
-        background-color: var(--list-task-item-bg--todo, #f5f5f5)
+        background-color: $list-task-item-bg--todo
         width: 0.8rem
         height: 0.8rem
         &::after
@@ -50,12 +50,12 @@
           border: 0
           color: transparent
         &[data-status="doing"]::after
-          background-color: var(--list-task-item-bg--doing, #3399ff)
+          background-color: $list-task-item-bg--doing
           width: 0.4rem
           height: 0.4rem
         &[data-status="done"]
-          background-color: var(--list-task-item-bg--done, #3399ff)
-          border-color: var(--list-task-item-bg--done, #3399ff)
+          background-color: $list-task-item-bg--done
+          border-color: $list-task-item-bg--done
           &::after
             transform: rotate(45deg) scale(1) translate(-4%, -5%)
             height: 0.5012rem
