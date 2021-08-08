@@ -82,6 +82,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```tsx
   import React from 'react'
   import Delete from '@yozora/react-delete'
+  import '@yozora/react-delete/lib/esm/index.css'
 
   const wrapper = (
     <Delete style={{ color: 'orange', fontSize: '16px' }}>
