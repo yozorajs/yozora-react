@@ -16,7 +16,10 @@ module.exports = {
   errorOnDeprecated: true,
   roots: ['<rootDir>/src', '<rootDir>/__test__'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  moduleNameMapper,
+  moduleNameMapper: {
+    ...moduleNameMapper,
+    '\\.styl$': path.join(__dirname, 'jest.identity-obj-proxy.js'),
+  },
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.json',
