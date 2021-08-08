@@ -81,6 +81,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```tsx
   import React from 'react'
   import Emphasis from '@yozora/react-emphasis'
+  import '@yozora/react-emphasis/lib/esm/index.css'
 
   const wrapper = (
     <Emphasis style={{ color: 'orange', fontSize: '16px' }}>
