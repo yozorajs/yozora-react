@@ -82,7 +82,9 @@ See [@yozora/react-markdown][]
 
 ```tsx
 import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
+import Markdown, { MathJaxProvider } from '@yozora/react-markdown'
 import YozoraParser from '@yozora/parser'
+import '@yozora/react-markdown/lib/esm/index.css'
 
 const parser = new YozoraParser({
   defaultParseOptions: { shouldReservePosition: false },

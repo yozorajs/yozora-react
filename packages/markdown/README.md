@@ -84,14 +84,19 @@ This component is designed to render data of [@yozora/ast][].
 
   to use it with the following code snippet:
 
-  ```typescript
+  ```tsx
   import loadable from '@loadable/component'
-  import Markdown from '@yozora/markdown'
-  import '@yozora/markdown/lib/esm/index.css'
+  import Markdown, { MathJaxProvider } from '@yozora/react-markdown'
+  import '@yozora/react-markdown/lib/esm/index.css'
 
   const Viewer = loadable(() => import('react-viewer'))
 
-  <Markdown Viewer={Viewer} {...otherProps} />
+  <MathJaxProvider>
+    <Markdown 
+      Viewer={Viewer}
+      {...otherProps} 
+    />
+  </MathJaxProvider>
   ```
 
 * In additional, if you want to render a markdown source contents from scratch, 
@@ -111,6 +116,7 @@ This component is designed to render data of [@yozora/ast][].
   import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
   import YozoraParser from '@yozora/parser'
   import Markdown, { MathJaxProvider } from '@yozora/react-markdown'
+  import '@yozora/react-markdown/lib/esm/index.css'
 
   const parser = new YozoraParser({
     defaultParseOptions: { shouldReservePosition: false },
@@ -140,6 +146,7 @@ This component is designed to render data of [@yozora/ast][].
   import loadable from '@loadable/component'
   import YozoraParser from '@yozora/parser'
   import Markdown, { MathJaxProvider } from '@yozora/react-markdown'
+  import '@yozora/react-markdown/lib/esm/index.css'
 
   const Viewer = loadable(() => import('react-viewer'))
 
@@ -176,6 +183,7 @@ This component is designed to render data of [@yozora/ast][].
   import type { LinkProps } from '@yozora/react-link'
   import type { TokenRendererMap } from '@yozora/react-markdown'
   import Markdown from '@yozora/react-markdown'
+  import '@yozora/react-markdown/lib/esm/index.css'
 
   const parser = new YozoraParser({
     defaultParseOptions: { shouldReservePosition: false },
