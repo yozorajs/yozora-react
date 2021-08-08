@@ -1,7 +1,7 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Container } from './style'
+import './style.styl'
 
 export interface ListItemProps {
   /**
@@ -28,8 +28,8 @@ export interface ListItemProps {
  * @see https://www.npmjs.com/package/@yozora/ast#listitem
  * @see https://www.npmjs.com/package/@yozora/tokenizer-list-item
  */
-export function ListItem(props: ListItemProps): React.ReactElement {
-  const { className = 'yozora-list-item', style, status, children } = props
+export const ListItem: React.FC<ListItemProps> = props => {
+  const { className, style, status, children } = props
 
   let checkbox: React.ReactNode = null
   if (status != null) {
@@ -42,7 +42,7 @@ export function ListItem(props: ListItemProps): React.ReactElement {
   }
 
   return (
-    <Container
+    <li
       className={cn(
         'yozora-list-item',
         { 'yozora-list-task-item': status != null },
@@ -52,7 +52,7 @@ export function ListItem(props: ListItemProps): React.ReactElement {
     >
       {checkbox}
       {children}
-    </Container>
+    </li>
   )
 }
 
