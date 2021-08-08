@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
+import './style.styl'
 
 export interface TableProps {
   /**
@@ -35,7 +36,7 @@ export interface TableProps {
  * @see https://www.npmjs.com/package/@yozora/tokenizer-table-row
  * @see https://www.npmjs.com/package/@yozora/tokenizer-table-cell
  */
-export function Table(props: TableProps): React.ReactElement {
+export const Table: React.FC<TableProps> = props => {
   const { aligns, className, style, ths, tds } = props
   const headRowRef = useRef<HTMLTableRowElement>(null)
 
