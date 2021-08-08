@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-math",
-  "version": "1.0.0-alpha.28",
+  "version": "1.0.0-alpha.29",
   "description": "render markdown math in react",
   "author": {
     "name": "guanghechen",
@@ -45,7 +45,7 @@
     "react": ">= 17.0.0"
   },
   "dependencies": {
-    "@yozora/react-mathjax": "^1.0.0-alpha.28"
+    "@yozora/react-mathjax": "^1.0.0-alpha.29"
   },
   "browserslist": [
     "last 2 versions",
