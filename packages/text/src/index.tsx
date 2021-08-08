@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
+import './style.styl'
 
 export interface TextProps {
   /**
@@ -23,7 +24,7 @@ export interface TextProps {
  * @see https://www.npmjs.com/package/@yozora/ast#text
  * @see https://www.npmjs.com/package/@yozora/tokenizer-text
  */
-export function Text(props: TextProps): React.ReactElement {
+export const Text: React.FC<TextProps> = props => {
   const { value, className, style } = props
   return (
     <span className={cn('yozora-text', className)} style={style}>

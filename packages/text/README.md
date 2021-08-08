@@ -82,6 +82,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```tsx
   import React from 'react'
   import Text from '@yozora/react-text'
+  import '@yozora/react-text/lib/esm/index.css'
 
   const wrapper = (<Text value="Hello, world!" />)
   ```
