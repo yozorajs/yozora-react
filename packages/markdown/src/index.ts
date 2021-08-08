@@ -1,3 +1,5 @@
+import './style/style.styl'
+
 export * from './types'
 export * from './component'
 export * from './renderer'

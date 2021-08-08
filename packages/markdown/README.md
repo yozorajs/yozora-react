@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-markdown/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-markdown/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -93,6 +87,7 @@ This component is designed to render data of [@yozora/ast][].
   ```typescript
   import loadable from '@loadable/component'
   import Markdown from '@yozora/markdown'
+  import '@yozora/markdown/lib/esm/index.css'
 
   const Viewer = loadable(() => import('react-viewer'))
 

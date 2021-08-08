@@ -12,7 +12,6 @@ import cn from 'clsx'
 import React, { useMemo, useState } from 'react'
 import { createYozoraNodesRenderer } from './renderer'
 import { useRendererMap } from './renderer-map'
-import { Container } from './style'
 import type {
   PreviewImageApi,
   PreviewImageItem,
@@ -131,7 +130,7 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
   }, [renderNodes, footnoteDefinitionsTitle, ast])
 
   return (
-    <Container className={cn('yozora-markdown', className)} style={style}>
+    <div className={cn('yozora-markdown', className)} style={style}>
       <section>{children}</section>
       <footer>{footnotes}</footer>
       {Viewer != null && (
@@ -141,7 +140,7 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
           images={images}
         />
       )}
-    </Container>
+    </div>
   )
 }
 

@@ -1,0 +1,95 @@
+@import './_variables.styl'
+
+.yozora-markdown
+  color: var(--color-text-tertiary);
+  font-family: 'PingFang SC',miui,system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,sans-serif;
+  word-break: break-all
+  *
+    box-sizing: border-box
+  ::-webkit-scrollbar
+    width: 4px
+    height: 4px
+  ::-webkit-scrollbar-corner
+    display: none
+  ::-webkit-scrollbar-track
+    background-color: transparent
+  ::-webkit-scrollbar-thumb
+    border: 3px solid hsl(0, 0%, 50%)
+    background: hsl(0, 0%, 60%)
+    border-radius: 4px
+    &:hover
+      border-color: hsl(0, 0%, 70%)
+
+  a
+    color: var(--link-color)
+    text-decoration: none
+    &:visited
+      color: var(--link-color)
+    &:hover
+      color: var(--link-color-hover)
+
+
+.yozora-markdown
+  @import '../../../admonition/src/style.styl'
+  @import '../../../blockquote/src/style.styl'
+  @import '../../../break/src/style.styl'
+  @import '../../../delete/src/style.styl'
+  @import '../../../emphasis/src/style.styl'
+  @import '../../../heading/src/style.styl'
+  @import '../../../image/src/style.styl'
+  @import '../../../inline-code/src/style.styl'
+  @import '../../../inline-math/src/style.styl'
+  @import '../../../link/src/style.styl'
+  @import '../../../list/src/style.styl'
+  // @import '../../../list-item/src/style.styl'  // @yozora/react-list included the styles from list-item
+  @import '../../../math/src/style.styl'
+  @import '../../../paragraph/src/style.styl'
+  @import '../../../strong/src/style.styl'
+  @import '../../../table/src/style.styl'
+  @import '../../../text/src/style.styl'
+  @import '../../../thematic-break/src/style.styl'
+
+
+.yozora-markdown
+  .yozora-admonition__body
+  .yozora-blockquote
+  .yozora-list
+  .yozora-paragraph
+    > *:last-child
+      margin-bottom: 0
+
+  .yozora-admonition
+    .yozora-admonition__heading
+      .yozora-math
+      .yozora-inline-math
+        color: inherit
+
+  .yozora-code-literal
+  .yozora-code-live
+    margin: var(--margin-block-node)
+
+  .yozora-code-renderer-graphviz
+    display: flex
+    justify-content: center
+    padding: 2rem 0
+    background: hsla(0deg, 0%, 90%, 0.20)
+
+  .yozora-footnote-reference
+    > a
+      display: inline-block
+      line-height: 1.2
+      text-decoration: none
+      &:visited
+        color: var(--link-color)
+      &:hover
+        color: var(--link-color-hover)
+        transform: scale(1.2)
+
+  .yozora-paragraph
+    &.yozora-paragraph--display
+      display: flex
+      align-items: center
+      justify-content: center
+      padding: 1rem 0
+    + .yozora-math
+      margin-top: -1em
