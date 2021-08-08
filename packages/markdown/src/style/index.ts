@@ -45,7 +45,7 @@ export const Container = styled.div`
   --delete-color: #acb2b9;
 
   // Heading styles
-  --heading-font-family: Comic Sans MS, lucida grande, lucida sans unicode, lucida, Hiragino Sans GB, Helvetica Neue, Microsoft Yahei, WenQuanYi Micro Hei, sans-serif;
+  --heading-font-family: 'Comic Sans MS', 'lucida grande', 'lucida sans unicode', lucida, 'Hiragino Sans GB', 'Helvetica Neue', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
 
   // Image styles
   --image-color-border: #7a6390;
@@ -104,7 +104,7 @@ export const Container = styled.div`
   }
 
   color: var(--color-text-tertiary);
-  font-family: lucida grande, lucida sans unicode, lucida, Hiragino Sans GB, Helvetica Neue, Microsoft Yahei, WenQuanYi Micro Hei, sans-serif;
+  font-family: 'PingFang SC',miui,system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,sans-serif;
   word-break: break-all;
 
   ${BaseCss}
