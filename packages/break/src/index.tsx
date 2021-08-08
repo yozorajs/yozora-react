@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
+import './style.styl'
 
 export interface BreakProps {
   /**
@@ -19,7 +20,7 @@ export interface BreakProps {
  * @see https://www.npmjs.com/package/@yozora/ast#break
  * @see https://www.npmjs.com/package/@yozora/tokenizer-break
  */
-export function Break(props: BreakProps): React.ReactElement {
+export const Break: React.FC<BreakProps> = props => {
   const { className, style } = props
   return <br className={cn('yozora-break', className)} style={style} />
 }

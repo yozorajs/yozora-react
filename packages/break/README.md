@@ -82,6 +82,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```tsx
   import React from 'react'
   import Break from '@yozora/react-break'
+  import '@yozora/react-break/lib/esm/index.css'
 
   const wrapper = (<Break style={ { color: 'orange' } } />)
   ```
