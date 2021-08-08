@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
+import './style.styl'
 
 export interface ListProps {
   /**
@@ -36,7 +37,7 @@ export interface ListProps {
  * @see https://www.npmjs.com/package/@yozora/ast#list
  * @see https://www.npmjs.com/package/@yozora/tokenizer-list
  */
-export function List(props: ListProps): React.ReactElement {
+export const List: React.FC<ListProps> = props => {
   const { className, style, children, ordered, orderType, start } = props
 
   if (ordered) {
@@ -63,6 +64,7 @@ List.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   ordered: PropTypes.bool.isRequired,
+  orderType: PropTypes.oneOf(['1', 'a', 'A', 'i', 'I']),
   start: PropTypes.number,
   style: PropTypes.object,
 }

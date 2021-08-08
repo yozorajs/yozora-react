@@ -82,6 +82,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   import React from 'react'
   import List from '@yozora/react-list'
   import ListItem from '@yozora/react-list-item'
+  import '@yozora/react-list/lib/esm/index.css'
 
   const wrapper = (
     <List ordered={ true } start={ 3 } type="a">
