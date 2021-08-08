@@ -1,5 +1,40 @@
 # Changelog
 
+<a name="1.0.0-alpha.29"></a>
+## 1.0.0-alpha.29 (2021-08-08)
+
+### Changed
+
+- 🔧 chore: update jest config to mute the errors caused by stylus import statements (such as &#x60;import &#x27;./style.styl&#x27;&#x60;) [[32058ec](https://github.com/guanghechen/yozora-react/commit/32058ec487cd163b2e974b5e34b23cbbdb705648)]
+- 💄 improve: tweak font family [[4fcb2bd](https://github.com/guanghechen/yozora-react/commit/4fcb2bd7ca49f17bf8fb35e817dafb6e53439432)]
+- 💄 improve: tweak styles [[49e3748](https://github.com/guanghechen/yozora-react/commit/49e374887a94d6fc420109e980c7544482b8b9bd)]
+
+### Miscellaneous
+
+- 📝 docs: update READMs [[f1957a8](https://github.com/guanghechen/yozora-react/commit/f1957a872d35ec17b29ddb91d2354d9ddfe40a4a)]
+- 🔨 chore: use global stylus variables [[ba92ede](https://github.com/guanghechen/yozora-react/commit/ba92edeba26a7de260ca9796afb2bdfa655fadf1)]
+- 🚧 feat(markdown): use stylus files instead of styled-components [[48db244](https://github.com/guanghechen/yozora-react/commit/48db2445dfeb58733c59a7b85660933d39d86eb2)]
+- 🚧 feat(math): add css styles written in stylus [[e826315](https://github.com/guanghechen/yozora-react/commit/e8263154cc5fa81f361b7ce24f30dc52bb5556eb)]
+- 🚧 feat(list): add css styles written in stylus [[6a0e8b1](https://github.com/guanghechen/yozora-react/commit/6a0e8b194bb23f70ffa27563b2779a6d9cf9f7a3)]
+- 🚧 feat(list-item): add css styles written in stylus [[c67dbc3](https://github.com/guanghechen/yozora-react/commit/c67dbc3d6a81a99ce6d105b2b368aee442c37d51)]
+- 🚧 feat(link): add css styles written in stylus [[ed14a01](https://github.com/guanghechen/yozora-react/commit/ed14a01b2929191e21a6f5921bba9556d02574b5)]
+- 🚧 feat(inline-math): add css styles written in stylus [[e59a65c](https://github.com/guanghechen/yozora-react/commit/e59a65cc4468e306389b47b0c177ac647f908d51)]
+- 🚧 feat(inline-code): add css styles written in stylus [[96451fd](https://github.com/guanghechen/yozora-react/commit/96451fd9eef02d99bc693659c63c072c67766084)]
+- 🚧 feat(image): add css styles written in stylus [[92b0834](https://github.com/guanghechen/yozora-react/commit/92b0834084e84624a12e7d1543652e68ee766d8d)]
+- 🚧 feat(heading): add css styles written in stylus [[d4658b6](https://github.com/guanghechen/yozora-react/commit/d4658b6edf1fa31a8d970c48b71654bad66a93c3)]
+- 🚧 feat(emphasis): add css styles written in stylus [[02c1c53](https://github.com/guanghechen/yozora-react/commit/02c1c536b737c13d308ed939c40e07e03fd35cd0)]
+- 🚧 feat(delete): add css styles written in stylus [[d36c2aa](https://github.com/guanghechen/yozora-react/commit/d36c2aa17cc1e6807a9c12d5bf240601a909c868)]
+- 🚧 feat(paragraph): add css styles written in stylus [[c024dee](https://github.com/guanghechen/yozora-react/commit/c024dee3a6d7ba0f6f9efbf121f6274f13dd8a45)]
+- 🚧 feat(strong): add css styles written in stylus [[cfc00ee](https://github.com/guanghechen/yozora-react/commit/cfc00ee3c8ddd84ba8b5265f979f8789001bf30b)]
+- 🚧 feat(table): add css styles written in stylus [[4b440ff](https://github.com/guanghechen/yozora-react/commit/4b440ffdb2c1afeaa1427b717b0c6ac233d6f194)]
+- 🚧 feat(text): add css styles written in stylus [[8106527](https://github.com/guanghechen/yozora-react/commit/81065273bb4633d09e3887ae53219bb9f2f1301c)]
+- 🚧 feat(thematic-break): add css styles written in stylus [[807f0e7](https://github.com/guanghechen/yozora-react/commit/807f0e7af0c8e9c6a7a7c2a00e0366676856cd2d)]
+- 🚧 feat(break): add css styles written in stylus [[d7f2f47](https://github.com/guanghechen/yozora-react/commit/d7f2f47e94f65b471d958378c05ed0247a29ba08)]
+- 🚧 feat(blockquote): add css styles written in stylus [[cb2d43a](https://github.com/guanghechen/yozora-react/commit/cb2d43a29eed6a917bba4f382a1372abdf13d433)]
+- 🚧 feat(admonition): add css styles written in stylus [[111429f](https://github.com/guanghechen/yozora-react/commit/111429f5753110801da45a34d1a0167c8ebcbaed)]
+- 📝 docs: update CHANGELOG [[118296f](https://github.com/guanghechen/yozora-react/commit/118296f88683e84bbc9ebffb3c9b7eb966e24976)]
+
+
 <a name="1.0.0-alpha.28"></a>
 ## 1.0.0-alpha.28 (2021-08-07)
 
