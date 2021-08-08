@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
+import './style.styl'
 
 export interface StrongProps {
   /**
@@ -23,7 +24,7 @@ export interface StrongProps {
  * @see https://www.npmjs.com/package/@yozora/ast#strong
  * @see https://www.npmjs.com/package/@yozora/tokenizer-emphasis
  */
-export function Strong(props: StrongProps): React.ReactElement {
+export const Strong: React.FC<StrongProps> = props => {
   const { children, className, style } = props
   return (
     <strong className={cn('yozora-strong', className)} style={style}>

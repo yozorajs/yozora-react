@@ -81,6 +81,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```tsx
   import React from 'react'
   import Strong from '@yozora/react-strong'
+  import '@yozora/react-strong/lib/esm/index.css'
 
   const wrapper = (
     <Strong style={{ color: 'orange' }}>
