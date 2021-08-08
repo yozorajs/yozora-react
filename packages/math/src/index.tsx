@@ -2,6 +2,7 @@ import { MathJaxNode } from '@yozora/react-mathjax'
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
+import './style.styl'
 
 export interface MathProps {
   /**
@@ -24,7 +25,7 @@ export interface MathProps {
  * @see https://www.npmjs.com/package/@yozora/ast#math
  * @see https://www.npmjs.com/package/@yozora/tokenizer-math
  */
-export function Math(props: MathProps): React.ReactElement {
+export const Math: React.FC<MathProps> = props => {
   const { value, className, style } = props
   return (
     <MathJaxNode

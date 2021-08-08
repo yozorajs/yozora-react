@@ -85,6 +85,7 @@ To use this component alone, You need to place it under the component `MathJaxPr
   import React from 'react'
   import Math from '@yozora/react-math'
   import { MathJaxProvider } from '@yozora/react-mathjax'
+  import '@yozora/react-math/lib/esm/index.css'
 
   const code = `
     \\begin{align}
