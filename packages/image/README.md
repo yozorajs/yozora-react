@@ -82,6 +82,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```tsx
   import React from 'react'
   import Image from '@yozora/react-image'
+  import '@yozora/react-image/lib/esm/index.css'
 
   const wrapper = (<Image src="https://avatars.githubusercontent.com/u/42513619" />)
   ```
