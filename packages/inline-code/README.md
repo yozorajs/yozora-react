@@ -81,6 +81,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```tsx
   import React from 'react'
   import InlineCode from '@yozora/react-inline-code'
+  import '@yozora/react-inline-code/lib/esm/index.css'
 
   const wrapper = (
     <InlineCode

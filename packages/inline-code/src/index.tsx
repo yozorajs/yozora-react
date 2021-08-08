@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
+import './style.styl'
 
 export interface InlineCodeProps {
   /**
@@ -23,7 +24,7 @@ export interface InlineCodeProps {
  * @see https://www.npmjs.com/package/@yozora/ast#inlinecode
  * @see https://www.npmjs.com/package/@yozora/tokenizer-inline-code
  */
-export function InlineCode(props: InlineCodeProps): React.ReactElement {
+export const InlineCode: React.FC<InlineCodeProps> = props => {
   const { value, className, style } = props
   return (
     <code className={cn('yozora-inline-code', className)} style={style}>
