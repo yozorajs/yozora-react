@@ -2,6 +2,7 @@ import { MathJaxNode } from '@yozora/react-mathjax'
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
+import './style.styl'
 
 export interface InlineMathProps {
   /**
@@ -24,7 +25,7 @@ export interface InlineMathProps {
  * @see https://www.npmjs.com/package/@yozora/ast#inlinemath
  * @see https://www.npmjs.com/package/@yozora/tokenizer-inline-math
  */
-export function InlineMath(props: InlineMathProps): React.ReactElement {
+export const InlineMath: React.FC<InlineMathProps> = props => {
   const { value, className, style } = props
   return (
     <MathJaxNode
