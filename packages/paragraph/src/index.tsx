@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
+import './style.styl'
 
 export interface ParagraphProps {
   /**
@@ -23,7 +24,7 @@ export interface ParagraphProps {
  * @see https://www.npmjs.com/package/@yozora/ast#paragraph
  * @see https://www.npmjs.com/package/@yozora/tokenizer-paragraph
  */
-export function Paragraph(props: ParagraphProps): React.ReactElement {
+export const Paragraph: React.FC<ParagraphProps> = props => {
   const { children, className, style } = props
   return (
     <p className={cn('yozora-paragraph', className)} style={style}>
