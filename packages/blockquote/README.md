@@ -82,6 +82,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```tsx
   import React from 'react'
   import Blockquote from '@yozora/react-blockquote'
+  import '@yozora/react-blockquote/lib/esm/index.css'
 
   const wrapper = (
     <Blockquote style={{ color: 'orange', fontSize: '16px' }}>
