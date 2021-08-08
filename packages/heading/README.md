@@ -81,6 +81,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```tsx
   import React from 'react'
   import Heading from '@yozora/react-heading'
+  import '@yozora/react-heading/lib/esm/index.css'
 
   const wrapper = (
     <Heading

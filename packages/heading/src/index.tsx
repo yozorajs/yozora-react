@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
+import './style.styl'
 
 export interface HeadingProps {
   /**
@@ -35,7 +36,7 @@ export interface HeadingProps {
  * @see https://www.npmjs.com/package/@yozora/ast#heading
  * @see https://www.npmjs.com/package/@yozora/tokenizer-heading
  */
-export function Heading(props: HeadingProps): React.ReactElement {
+export const Heading: React.FC<HeadingProps> = props => {
   const {
     className,
     style,
@@ -68,7 +69,6 @@ export function Heading(props: HeadingProps): React.ReactElement {
 }
 
 Heading.propTypes = {
-  anchorClassName: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
   identifier: PropTypes.string,
