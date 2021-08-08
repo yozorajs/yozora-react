@@ -1,6 +1,7 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
+import './style.styl'
 
 export interface ThematicBreakProps {
   /**
@@ -19,7 +20,7 @@ export interface ThematicBreakProps {
  * @see https://www.npmjs.com/package/@yozora/ast#thematicBreak
  * @see https://www.npmjs.com/package/@yozora/tokenizer-thematic-break
  */
-export function ThematicBreak(props: ThematicBreakProps): React.ReactElement {
+export const ThematicBreak: React.FC<ThematicBreakProps> = props => {
   const { className, style } = props
   return <hr className={cn('yozora-thematic-break', className)} style={style} />
 }
