@@ -82,6 +82,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```tsx
   import React from 'react'
   import Link from '@yozora/react-link'
+  import '@yozora/react-link/lib/esm/index.css'
 
   const wrapper = (
     <Link
