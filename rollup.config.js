@@ -27,7 +27,7 @@ export async function rollupConfig() {
         sourceMap: false,
         modules: {
           localsConvention: 'camelCase',
-          generateScopedName: 'barusu-[local]',
+          generateScopedName: '[local]',
         },
         postcssUrlOptions: {
           url: 'inline',
@@ -50,7 +50,7 @@ export async function rollupConfig() {
             postcssOptions: {
               modules: {
                 localsConvention: 'camelCase',
-                generateScopedName: 'barusu-[local]',
+                generateScopedName: '[local]',
               },
               postcssUrlOptions: {
                 url: 'inline',
@@ -65,7 +65,20 @@ export async function rollupConfig() {
         }
       : undefined,
   })
-  return configs
+
+  const yozoraCssRegex = /^@yozora\/([\S]*)\/lib\/([\S]*)\.css$/
+  return configs.map(config => {
+    const { external } = config
+    if (!(external instanceof Function)) return config
+
+    return {
+      ...config,
+      external: id => {
+        if (yozoraCssRegex.test(id)) return false
+        return external(id)
+      },
+    }
+  })
 }
 
 const configs = rollupConfig()
