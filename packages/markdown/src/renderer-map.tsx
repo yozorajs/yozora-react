@@ -5,6 +5,7 @@ import {
   CodeType,
   DefinitionType,
   DeleteType,
+  EcmaImportType,
   EmphasisType,
   FootnoteDefinitionType,
   FootnoteReferenceType,
@@ -112,6 +113,7 @@ export function useRendererMap(
           </EmphasisRenderer>
         )
       },
+      [EcmaImportType]: () => null,
       [FootnoteDefinitionType]: () => null,
       [FootnoteType]: () => null,
       [FootnoteReferenceType]: function renderFootnoteReference(
