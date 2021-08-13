@@ -1,5 +1,29 @@
 # Changelog
 
+<a name="1.0.0-alpha.32"></a>
+## 1.0.0-alpha.32 (2021-08-13)
+
+### Added
+
+- ✅ test: update snapshots [[b5cab16](https://github.com/guanghechen/yozora-react/commit/b5cab1610dbe72c7a4ef68efc5a0e12a271bac63)]
+- ✅ test: update snapshots [[da88429](https://github.com/guanghechen/yozora-react/commit/da88429484d6e32922424a1638d74a93ec433ccf)]
+
+### Miscellaneous
+
+- 🚧 feat(code-renderer-jsx): not built-in styled-components anymore. [[c1603f8](https://github.com/guanghechen/yozora-react/commit/c1603f8c13f17a7ee555e68618fb93f67e744578)]
+- 🚧 feat(footnote-definitions): use stylus files instead of styled-components [[780bdea](https://github.com/guanghechen/yozora-react/commit/780bdea6d2d266bb259c4ea7f44e7c58a80ad5ec)]
+-  improve: format codes [[adf8166](https://github.com/guanghechen/yozora-react/commit/adf81661d64f3270657179455d72bfb375ae9147)]
+- 🚧 feat(code-highlighter): use stylus files instead of styled-components [[013e3d6](https://github.com/guanghechen/yozora-react/commit/013e3d63696cca0a1ac7a3ecec7adb9709d0d70c)]
+-  improve(stylus): use @require to solve duplicated import problems [[e029156](https://github.com/guanghechen/yozora-react/commit/e029156ea11ec86d1c6da03f712a3301290c26a3)]
+- 🚧 feat(code-editor): use stylus files instead of styled-components [[bc85ad2](https://github.com/guanghechen/yozora-react/commit/bc85ad2438dcca2cbb3fcb65e6954fbdb8a4f455)]
+- 🚧 feat(code-embed): use stylus files instead of styled-components [[5083a17](https://github.com/guanghechen/yozora-react/commit/5083a1736b9a1df015974302cbd5eef7f464b299)]
+- 🚧 feat(code): use stylus style files [[e5ed7fe](https://github.com/guanghechen/yozora-react/commit/e5ed7fef1f0d8150dff897cf5f122edfaee92a4d)]
+- 🚧 feat(code-literal): use stylus files instead of styled-components [[35883dd](https://github.com/guanghechen/yozora-react/commit/35883dd30c42c292d403bbab71788c58ab7856a4)]
+- 🚧 feat(code-live): use stylus files instead of styled-components [[4b68fb6](https://github.com/guanghechen/yozora-react/commit/4b68fb6bbd0f70694968bf6776c1863d7e23b6bc)]
+- 🔨 chore: add layout mixin of stylus [[76615c6](https://github.com/guanghechen/yozora-react/commit/76615c696ac5e0f502be4242b4b7b9defa1902c8)]
+- 📝 docs: update CHANGELOG [[d6ddcc8](https://github.com/guanghechen/yozora-react/commit/d6ddcc8da3c2d32143e2081d0a51888d1657bc8c)]
+
+
 <a name="1.0.0-alpha.31"></a>
 ## 1.0.0-alpha.31 (2021-08-13)
 
