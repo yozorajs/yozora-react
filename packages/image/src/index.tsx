@@ -36,14 +36,10 @@ export const Image: React.FC<ImageProps> = props => {
   const { className, style, src, alt = src, title, ...htmlProps } = props
 
   return (
-    <img
-      {...htmlProps}
-      className={cn(className, 'yozora-image')}
-      style={style}
-      alt={alt}
-      src={src}
-      title={title}
-    />
+    <figure className={cn(className, 'yozora-image')}>
+      <img {...htmlProps} style={style} alt={alt} src={src} title={title} />
+      {title && <figcaption>{title}</figcaption>}
+    </figure>
   )
 }
 
