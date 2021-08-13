@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-list-item",
-  "version": "1.0.0-alpha.30",
+  "version": "1.0.0-alpha.31",
   "description": "render markdown list-item in react",
   "author": {
     "name": "guanghechen",

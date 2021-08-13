@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-inline-code",
-  "version": "1.0.0-alpha.30",
+  "version": "1.0.0-alpha.31",
   "description": "render markdown inlineCode in react",
   "author": {
     "name": "guanghechen",

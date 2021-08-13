@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-strong",
-  "version": "1.0.0-alpha.30",
+  "version": "1.0.0-alpha.31",
   "description": "render markdown strong node in react",
   "author": {
     "name": "guanghechen",
