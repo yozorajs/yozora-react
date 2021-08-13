@@ -258,15 +258,27 @@ export function useRendererMap(
         return <MathRenderer key={key} value={value} />
       },
       [ParagraphType]: function renderParagraph(paragraph, key, ctx) {
-        let className = undefined
+        const className = undefined
 
-        // If there is only one inline element in the paragraph, then center it.
+        // If there are some image / imageReferences element in the paragraph,
+        // then wrapper the content with div to avoid the warnings such as:
+        //
+        //  validateDOMNesting(...): <figure> cannot appear as a descendant of <p>.
         const { children } = paragraph
-        if (children.length === 1) {
-          const childType = children[0].type
-          if ([ImageType, ImageReferenceType].includes(childType)) {
-            className = 'yozora-paragraph yozora-paragraph--display'
-          }
+        if (
+          children.some(
+            child =>
+              child.type === ImageType || child.type === ImageReferenceType,
+          )
+        ) {
+          return (
+            <div
+              key={key}
+              className="yozora-paragraph yozora-paragraph--display"
+            >
+              {ctx.renderNodes(paragraph.children)}
+            </div>
+          )
         }
 
         return (
