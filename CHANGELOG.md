@@ -1,5 +1,28 @@
 # Changelog
 
+<a name="1.0.0-alpha.31"></a>
+## 1.0.0-alpha.31 (2021-08-13)
+
+### Added
+
+- ✅ test: update tests due to the previous change [[2badf84](https://github.com/guanghechen/yozora-react/commit/2badf8449b8e5ab36876009002adfae8fb18ba98)]
+
+### Changed
+
+- ⬆️ chore: ugprade devDependencies [[6954863](https://github.com/guanghechen/yozora-react/commit/695486367041fa7717c3d41520e7ee56c29550ef)]
+
+### Fixed
+
+- 🐛 improve: fix warning &#x60;validateDOMNesting(...): &lt;figure&gt; cannot appear as a descendant of &lt;p&gt;&#x60; [[c4b22fb](https://github.com/guanghechen/yozora-react/commit/c4b22fb8cec9456b61bce21deee9585395a63910)]
+
+### Miscellaneous
+
+- 🚧 improve(Markdown): display the current clicked image when open the image viewer [[9886334](https://github.com/guanghechen/yozora-react/commit/9886334cd120231a8539832eafcf362b3275aef6)]
+- 🚧 feat(image): render image title [[cf0c60a](https://github.com/guanghechen/yozora-react/commit/cf0c60aa94af8a62bb4a8edd114a3bfca46fd8fc)]
+-  feat(markdown): render ecmaImport as null in default [[4d9e9c9](https://github.com/guanghechen/yozora-react/commit/4d9e9c9918051be1eb7d088d047834bbdb4a22ed)]
+- 📝 docs: update CHANGELOG [[d4e60c0](https://github.com/guanghechen/yozora-react/commit/d4e60c079370de92f18360fc605dbb69fc17c00d)]
+
+
 <a name="1.0.0-alpha.30"></a>
 ## 1.0.0-alpha.30 (2021-08-08)
 
