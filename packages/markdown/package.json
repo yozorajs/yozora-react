@@ -69,8 +69,8 @@
     "react-copy-to-clipboard": "^5.0.3"
   },
   "peerDependencies": {
-    "@yozora/ast": "^1.0.0-alpha.21",
-    "@yozora/ast-util": "^1.0.0-alpha.21",
+    "@yozora/ast": "^1.1.0",
+    "@yozora/ast-util": "^1.1.0",
     "clsx": "^1.1.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1"
