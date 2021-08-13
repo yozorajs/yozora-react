@@ -24,14 +24,9 @@ export function createYozoraNodesRenderer(
     getFootnoteDefinition: identifier => footnoteDefinitionMap[identifier],
     addPreviewImage:
       imageContext == null
-        ? () => void {}
+        ? () => () => {}
         : imageContext.addPreviewImage.bind(imageContext),
-    setImageVisible:
-      imageContext == null
-        ? () => void {}
-        : imageContext.setImageVisible.bind(imageContext),
   }
-
   return renderNodes
 
   function renderNode(node: YastNode, key: number | string): React.ReactNode {

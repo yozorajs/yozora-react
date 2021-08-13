@@ -74,13 +74,9 @@ export interface PreviewImageApi {
   /**
    * Add a preview image item.
    * @param item
+   * @returns callback funcs to toggle the visible state of images.
    */
-  addPreviewImage(item: PreviewImageItem): void
-  /**
-   * Toggle the visible state of a image.
-   * @param visible
-   */
-  setImageVisible(visible: boolean): void
+  addPreviewImage(item: PreviewImageItem): (visible: boolean) => void
 }
 
 /**
@@ -105,13 +101,9 @@ export interface TokenRendererContext {
   /**
    * Add a preview image item.
    * @param item
+   * @returns callback funcs to toggle the visible state of images.
    */
-  addPreviewImage(item: PreviewImageItem): void
-  /**
-   * Toggle the visible state of a image.
-   * @param visible
-   */
-  setImageVisible(visible: boolean): void
+  addPreviewImage(item: PreviewImageItem): (visible: boolean) => void
 }
 
 /**
@@ -154,4 +146,42 @@ export interface TokenRendererMap {
   [ThematicBreakType]: TokenRenderer<ThematicBreak>
   _fallback: TokenRenderer
   [key: string]: TokenRenderer<YastNode & any>
+}
+
+/**
+ * Props of ImageViewer
+ * @see https://github.com/infeng/react-viewer#props
+ */
+export interface ImageViewerProps {
+  /**
+   * Whether if the image viewer is visible.
+   */
+  visible: boolean
+  /**
+   * Image items.
+   */
+  images: Array<{ src: string; alt: string }>
+  /**
+   * Current activated index of image.
+   */
+  activeIndex: number
+  /**
+   * Callback functions when close the image viewer.
+   */
+  onClose(): void
+  /**
+   * callback function when mask is clicked
+   */
+  onMaskClick(): void
+}
+
+export interface ImageViewerState {
+  /**
+   * Whether if the image viewer is visible.
+   */
+  visible: boolean
+  /**
+   * Current activated index of image.
+   */
+  activateIndex: number
 }

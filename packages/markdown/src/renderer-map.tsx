@@ -149,7 +149,11 @@ export function useRendererMap(
           sizes,
           loading,
         } = image as Image & React.ImgHTMLAttributes<HTMLElement>
-        ctx.addPreviewImage({ src, alt })
+
+        const toggleImageViewerVisible = ctx.addPreviewImage({
+          src,
+          alt,
+        })
         return (
           <ImageRenderer
             key={key}
@@ -159,7 +163,7 @@ export function useRendererMap(
             srcSet={srcSet}
             sizes={sizes}
             loading={loading}
-            onClick={() => ctx.setImageVisible(true)}
+            onClick={() => toggleImageViewerVisible(true)}
           />
         )
       },
@@ -181,7 +185,10 @@ export function useRendererMap(
         } = imageReference as ImageReference &
           React.ImgHTMLAttributes<HTMLElement>
 
-        ctx.addPreviewImage({ src, alt })
+        const toggleImageViewerVisible = ctx.addPreviewImage({
+          src,
+          alt,
+        })
         return (
           <ImageRenderer
             key={key}
@@ -191,7 +198,7 @@ export function useRendererMap(
             srcSet={srcSet}
             sizes={sizes}
             loading={loading}
-            onClick={() => ctx.setImageVisible(true)}
+            onClick={() => toggleImageViewerVisible(true)}
           />
         )
       },

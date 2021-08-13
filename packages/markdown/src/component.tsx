@@ -9,10 +9,12 @@ import type { CodeRunnerItem } from '@yozora/react-code'
 import YozoraFootnotesRenderer from '@yozora/react-footnote-definitions'
 import type { FootnoteItem } from '@yozora/react-footnote-definitions'
 import cn from 'clsx'
-import React, { useMemo, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import { createYozoraNodesRenderer } from './renderer'
 import { useRendererMap } from './renderer-map'
 import type {
+  ImageViewerProps,
+  ImageViewerState,
   PreviewImageApi,
   PreviewImageItem,
   TokenRendererMap,
@@ -66,7 +68,7 @@ export interface MarkdownProps {
    * @see https://github.com/infeng/react-viewer
    * @see https://github.com/gregberge/loadable-components
    */
-  Viewer?: any
+  Viewer?: React.FC<ImageViewerProps> | React.ComponentClass<ImageViewerProps>
 }
 
 /**
@@ -87,15 +89,28 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
     codeRunners,
     Viewer,
   } = props
-  const [visible, setVisible] = useState<boolean>(false)
+  const [{ visible, activateIndex }, setImageViewerState] =
+    useState<ImageViewerState>({
+      visible: false,
+      activateIndex: -1,
+    })
   const [images, setImages] = useState<Array<{ src: string; alt: string }>>([])
+  const handleToggleImageVisible = useCallback(() => {
+    setImageViewerState(state => ({
+      visible: !state.visible,
+      activateIndex: state.activateIndex,
+    }))
+  }, [])
 
   const rendererMap = useRendererMap(customRendererMap, codeRunners)
   const renderNodes = useMemo<(nodes: YastNode[]) => React.ReactNode[]>(() => {
     const nextImages: PreviewImageItem[] = []
     const previewImageApi: PreviewImageApi = {
-      addPreviewImage: item => nextImages.push(item),
-      setImageVisible: setVisible,
+      addPreviewImage: ({ src, alt }) => {
+        const index: number = nextImages.length
+        nextImages.push({ src, alt })
+        return visible => setImageViewerState({ visible, activateIndex: index })
+      },
     }
 
     const renderNodes = createYozoraNodesRenderer(
@@ -136,8 +151,10 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
       {Viewer != null && (
         <Viewer
           visible={visible}
-          onClose={() => void setVisible(false)}
           images={images}
+          activeIndex={activateIndex}
+          onClose={handleToggleImageVisible}
+          onMaskClick={handleToggleImageVisible}
         />
       )}
     </div>
