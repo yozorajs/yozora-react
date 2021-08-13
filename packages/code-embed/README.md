@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-code-embed/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-code-embed/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -86,6 +80,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```tsx
   import React from 'react'
   import CodeEmbed, { CodeRendererProps } from '@yozora/react-code-embed'
+  import '@yozora/react-code-embed/lib/esm/index.css'
 
   const JsxRenderer = ({ value }: CodeRendererProps): React.ReactElement => {
     // eslint-disable-next-line no-new-func

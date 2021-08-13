@@ -1,4 +1,26 @@
 @import './_variables.styl'
+@import '../../../admonition/src/style.styl'
+@import '../../../blockquote/src/style.styl'
+@import '../../../break/src/style.styl'
+@import '../../../code/src/style.styl'
+// @import '../../../code-embed/src/style.styl'   // included the styles by @yozora/react-live
+// @import '../../../code-live/src/style.styl'    // included the styles by @yozora/react-code
+// @import '../../../code-literal/src/style.styl' // included the styles by @yozora/react-code
+@import '../../../delete/src/style.styl'
+@import '../../../emphasis/src/style.styl'
+@import '../../../heading/src/style.styl'
+@import '../../../image/src/style.styl'
+@import '../../../inline-code/src/style.styl'
+@import '../../../inline-math/src/style.styl'
+@import '../../../link/src/style.styl'
+@import '../../../list/src/style.styl'
+// @import '../../../list-item/src/style.styl'  // included the styles by @yozora/react-list
+@import '../../../math/src/style.styl'
+@import '../../../paragraph/src/style.styl'
+@import '../../../strong/src/style.styl'
+@import '../../../table/src/style.styl'
+@import '../../../text/src/style.styl'
+@import '../../../thematic-break/src/style.styl'
 
 .yozora-markdown
   color: $color-text-tertiary
@@ -27,28 +49,6 @@
       color: $link-color
     &:hover
       color: $link-color-hover
-
-
-.yozora-markdown
-  @import '../../../admonition/src/style.styl'
-  @import '../../../blockquote/src/style.styl'
-  @import '../../../break/src/style.styl'
-  @import '../../../delete/src/style.styl'
-  @import '../../../emphasis/src/style.styl'
-  @import '../../../heading/src/style.styl'
-  @import '../../../image/src/style.styl'
-  @import '../../../inline-code/src/style.styl'
-  @import '../../../inline-math/src/style.styl'
-  @import '../../../link/src/style.styl'
-  @import '../../../list/src/style.styl'
-  // @import '../../../list-item/src/style.styl'  // @yozora/react-list included the styles from list-item
-  @import '../../../math/src/style.styl'
-  @import '../../../paragraph/src/style.styl'
-  @import '../../../strong/src/style.styl'
-  @import '../../../table/src/style.styl'
-  @import '../../../text/src/style.styl'
-  @import '../../../thematic-break/src/style.styl'
-
 
 .yozora-markdown
   .yozora-admonition__body

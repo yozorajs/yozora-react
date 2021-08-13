@@ -1,7 +1,6 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Container } from './style'
 import type { YozoraCodeEmbedProps, YozoraCodeEmbedState } from './types'
 
 /**
@@ -53,7 +52,7 @@ export class YozoraCodeEmbed extends React.Component<
     const { error } = this.state
 
     return (
-      <Container className={cn('yozora-code-embed', className)} style={style}>
+      <div className={cn('yozora-code-embed', className)} style={style}>
         {error == null ? (
           <CodeRunner
             lang={lang}
@@ -67,7 +66,7 @@ export class YozoraCodeEmbed extends React.Component<
             <div className="yozora-code-embed__error">{error as any}</div>
           </div>
         )}
-      </Container>
+      </div>
     )
   }
 
