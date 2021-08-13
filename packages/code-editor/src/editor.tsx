@@ -1,6 +1,5 @@
 import cn from 'clsx'
 import React from 'react'
-import styled from 'styled-components'
 import type {
   EditorHistory,
   EditorOperationRecord,
@@ -59,6 +58,7 @@ export class SimpleCodeEditor extends React.Component<
     const {
       value,
       linenoWidth,
+      className,
       style,
       highlight,
       textareaId,
@@ -92,7 +92,11 @@ export class SimpleCodeEditor extends React.Component<
 
     const highlighted = highlight(value)
     return (
-      <Container {...htmlProps} style={{ ...style, tabSize }}>
+      <div
+        {...htmlProps}
+        className={cn('yozora-code-editor', className)}
+        style={{ ...style, tabSize }}
+      >
         <div className="yozora-code-editor__textarea-wrapper">
           <div
             className="yozora-code-editor__textarea-linenos"
@@ -134,7 +138,7 @@ export class SimpleCodeEditor extends React.Component<
             ? { dangerouslySetInnerHTML: { __html: highlighted + '<br />' } }
             : { children: highlighted })}
         />
-      </Container>
+      </div>
     )
   }
 
@@ -519,78 +523,3 @@ export class SimpleCodeEditor extends React.Component<
 }
 
 export default SimpleCodeEditor
-
-export const Container = styled.div`
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
-  padding: 0;
-  text-align: left;
-  tab-size: 2;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smooth: always;
-  white-space: pre;
-  word-break: keep-all;
-  word-spacing: normal;
-  word-wrap: normal;
-
-  .yozora-code-editor__textarea-wrapper,
-  .yozora-code-editor__textarea,
-  .yozora-code-editor__previewer {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    border: 0;
-    margin: 0;
-    outline: none;
-    background: none;
-    box-sizing: inherit;
-    display: inherit;
-    font-family: inherit;
-    font-size: inherit;
-    font-style: inherit;
-    font-variant-ligatures: inherit;
-    font-weight: inherit;
-    letter-spacing: inherit;
-    line-height: inherit;
-    overflow-wrap: inherit;
-    tab-size: inherit;
-    text-indent: inherit;
-    text-rendering: inherit;
-    text-transform: inherit;
-    white-space: inherit;
-    word-break: inherit;
-    word-spacing: inherit;
-    word-wrap: inherit;
-  }
-  .yozora-code-editor__textarea-wrapper {
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: stretch;
-  }
-  .yozora-code-editor__textarea-linenos {
-    flex: 0 0 auto;
-  }
-  .yozora-code-editor__textarea {
-    flex: 1 1 auto;
-    resize: none;
-    padding: 0;
-    color: transparent;
-    caret-color: var(--code-caret-color, hsl(0deg, 83%, 78%));
-    -webkit-text-fill-color: transparent;
-
-    // Reset the text fill color so that placeholder is visible
-    &:empty {
-      color: inherit;
-      -webkit-text-fill-color: inherit;
-    }
-  }
-  .yozora-code-editor__previewer {
-    position: relative;
-    pointer-events: none;
-  }
-`

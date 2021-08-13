@@ -2,8 +2,8 @@ import CodeHighlighter from '@yozora/react-code-highlighter'
 import cn from 'clsx'
 import type { PrismTheme } from 'prism-react-renderer'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import styled from 'styled-components'
 import SimpleCodeEditor from './editor'
+import './style.styl'
 
 /**
  * Props for creating CodeEditor
@@ -153,7 +153,7 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
   }
 
   return (
-    <Container
+    <SimpleCodeEditor
       value={code}
       padding={10}
       highlight={highlightCode}
@@ -178,25 +178,3 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
 
 CodeEditor.displayName = 'YozoraCodeEditor'
 export default CodeEditor
-
-const Container = styled(SimpleCodeEditor)`
-  font-family: var(--code-font-family, Consolas, 'Source Code Pro', monospace, sans-serif);
-  font-size: var(--code-font-size, 1rem);
-  border: 1px solid var(--code-color-border, lightgray);
-  border-radius: 4px;
-
-  & > pre {
-    code, span {
-      line-height: inherit;
-    }
-    code {
-      padding: 0;
-      margin: 0;
-      background: transparent;
-    }
-  }
-
-  .yozora-code-highlighter__codes {
-    overflow-x: hidden;
-  }
-`

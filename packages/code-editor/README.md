@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-code-editor/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-code-editor/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -80,26 +74,28 @@ as it's seems not been updated for several months.
   ```
 
 ## Usage
-  * Basic:
 
-    ```tsx
-    import React, { useState } from 'react'
-    import CodeEditor from '@yozora/react-code-editor'
+* Basic:
 
-    function Wrapper() {
-      const [code, setCode] = useState<string>('let a: number = 1 + 2;')
+  ```tsx
+  import React, { useState } from 'react'
+  import CodeEditor from '@yozora/react-code-editor'
+  import '@yozora/react-code-editor/lib/esm/index.css'
 
-      return (
-        <CodeEditor
-          lang="typescript"
-          code={ code }
-          onChange={ setCode }
-        />
-      )
-    }
+  function Wrapper() {
+    const [code, setCode] = useState<string>('let a: number = 1 + 2;')
 
-    const wrapper = (<Wrapper />)
-    ```
+    return (
+      <CodeEditor
+        lang="typescript"
+        code={ code }
+        onChange={ setCode }
+      />
+    )
+  }
+
+  const wrapper = (<Wrapper />)
+  ```
 
 ### Props
 

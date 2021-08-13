@@ -1,3 +1,4 @@
+@import '../../code-editor/src/style.styl'
 @import '../../code-embed/src/style.styl'
 
 .yozora-code-live
@@ -5,7 +6,7 @@
   flex-direction: column
   justify-content: flex-start
   border: 1px solid #d3d3d3
-  caret-color: #aeafad
+  caret-color: $code-color-caret
   ::selection
     background: $code-bg-selection
   &:hover
