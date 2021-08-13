@@ -1,0 +1,405 @@
+.yozora-code-literal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  border: 1px solid transparent;
+  background: var(--yozora-code-bg-primary, #1e1e1e);
+  caret-color: var(--yozora-code-color-caret, #aeafad);
+}
+.yozora-code-literal ::-moz-selection {
+  background: var(--yozora-code-bg-selection, rgba(156,186,201,0.3));
+}
+.yozora-code-literal ::selection {
+  background: var(--yozora-code-bg-selection, rgba(156,186,201,0.3));
+}
+.yozora-code-literal:hover .yozora-code-literal__copy-button {
+  visibility: visible;
+  opacity: 1;
+}
+.yozora-code-literal > .yozora-code-literal__toolbar {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 2rem;
+  width: 100%;
+  border-bottom: 1px solid var(--yozora-code-color-border, rgba(77,77,77,0.8));
+  cursor: default;
+}
+.yozora-code-literal > .yozora-code-literal__toolbar .yozora-code-literal__title {
+  margin-left: 1rem;
+  font-family: var(--yozora-heading-font-family, 'Comic Sans MS');
+  font-size: 0.9em;
+  color: rgba(230,230,230,0.8);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.yozora-code-literal > .yozora-code-literal__toolbar .yozora-code-literal__copy-button {
+  position: absolute;
+  right: 1rem;
+  display: inline-block;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.yozora-code-literal > .yozora-code-literal__content {
+  overflow: auto;
+  padding: 0;
+  border: none;
+  margin: 0;
+  line-height: 1.33;
+  font-family: var(--yozora-code-font-family, Consolas);
+  font-size: var(--yozora-code-font-size, 1rem);
+  background: var(--yozora-code-bg-primary, #1e1e1e);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-spacing: normal;
+  word-break: break-all;
+  word-wrap: break-word;
+  letter-spacing: 1px;
+  line-height: inherit;
+  -moz-tab-size: 2;
+    -o-tab-size: 2;
+       tab-size: 2;
+}
+.yozora-code-literal > .yozora-code-literal__content > pre {
+  margin: 0;
+  font-family: var(--yozora-code-font-family, Consolas);
+  font-size: var(--yozora-code-font-size, 1rem);
+  line-height: inherit;
+}
+.yozora-code-literal > .yozora-code-literal__content > pre code,
+.yozora-code-literal > .yozora-code-literal__content > pre span {
+  line-height: inherit;
+}
+.yozora-code-literal > .yozora-code-literal__content > pre code {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+.yozora-code-literal > .yozora-code-literal__content > pre ::-moz-selection {
+  background: var(--yozora-code-bg-selection, rgba(156,186,201,0.3));
+}
+.yozora-code-literal > .yozora-code-literal__content > pre ::selection {
+  background: var(--yozora-code-bg-selection, rgba(156,186,201,0.3));
+}
+@media screen and (max-width: 767px) {
+  .yozora-code-literal {
+    border: 0;
+    border-radius: 5px;
+    -webkit-box-shadow: rgba(30,30,30,0.73) 0px 2px 10px;
+            box-shadow: rgba(30,30,30,0.73) 0px 2px 10px;
+    overflow: hidden;
+  }
+  .yozora-code-literal .yozora-code-highlighter__linenos {
+    display: none;
+    visibility: hidden;
+  }
+}
+.yozora-code-editor {
+  position: relative;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  text-align: left;
+  -moz-tab-size: 2;
+    -o-tab-size: 2;
+       tab-size: 2;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: always;
+  white-space: pre;
+  word-break: keep-all;
+  word-spacing: normal;
+  word-wrap: normal;
+}
+.yozora-code-editor .yozora-code-editor__textarea-wrapper,
+.yozora-code-editor .yozora-code-editor__textarea,
+.yozora-code-editor .yozora-code-editor__previewer {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  outline: none;
+  background: none;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  display: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  -webkit-font-variant-ligatures: inherit;
+          font-variant-ligatures: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  overflow-wrap: inherit;
+  -moz-tab-size: inherit;
+    -o-tab-size: inherit;
+       tab-size: inherit;
+  text-indent: inherit;
+  text-rendering: inherit;
+  text-transform: inherit;
+  white-space: inherit;
+  word-break: inherit;
+  word-spacing: inherit;
+  word-wrap: inherit;
+}
+.yozora-code-editor .yozora-code-editor__textarea-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+.yozora-code-editor .yozora-code-editor__textarea-linenos {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+.yozora-code-editor .yozora-code-editor__textarea {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  resize: none;
+  padding: 0;
+  color: transparent;
+  caret-color: var(--yozora-code-color-caret, #aeafad);
+  -webkit-text-fill-color: transparent;
+}
+.yozora-code-editor .yozora-code-editor__textarea:empty {
+  color: inherit;
+  -webkit-text-fill-color: inherit;
+}
+.yozora-code-editor .yozora-code-editor__previewer {
+  position: relative;
+  pointer-events: none;
+}
+.yozora-code-editor {
+  font-family: var(--yozora-code-font-family, Consolas);
+  font-size: var(--yozora-code-font-size, 1rem);
+  border: 1px solid var(--yozora-code-color-border, rgba(77,77,77,0.8));
+  border-radius: 4px;
+}
+.yozora-code-editor > pre code,
+.yozora-code-editor > pre span {
+  line-height: inherit;
+}
+.yozora-code-editor > pre code {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+.yozora-code-editor .yozora-code-highlighter__codes {
+  overflow-x: hidden;
+}
+.yozora-code-embed {
+  position: relative;
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+.yozora-code-embed .yozora-code-embed__error-wrapper {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #f00;
+  border: 1px solid #f00;
+}
+.yozora-code-embed .yozora-code-embed__error {
+  display: block;
+  width: 100%;
+  min-height: 100%;
+  padding: 0.5rem;
+  background: transparent;
+  white-space: pre-wrap;
+  text-align: left;
+}
+.yozora-code-live {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  border: 1px solid #d3d3d3;
+  caret-color: var(--yozora-code-color-caret, #aeafad);
+}
+.yozora-code-live ::-moz-selection {
+  background: var(--yozora-code-bg-selection, rgba(156,186,201,0.3));
+}
+.yozora-code-live ::selection {
+  background: var(--yozora-code-bg-selection, rgba(156,186,201,0.3));
+}
+.yozora-code-live:hover .yozora-code-live__copy-button {
+  visibility: visible;
+  opacity: 1;
+}
+.yozora-code-live > .yozora-code-live__toolbar {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 2rem;
+  width: 100%;
+  border-bottom: 1px solid var(--yozora-code-color-border, rgba(77,77,77,0.8));
+  background: var(--yozora-code-bg-primary, #1e1e1e);
+  cursor: default;
+}
+.yozora-code-live > .yozora-code-live__toolbar .yozora-code-live__title {
+  margin-left: 1rem;
+  font-family: var(--yozora-heading-font-family, 'Comic Sans MS');
+  font-size: 0.9em;
+  color: rgba(230,230,230,0.8);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.yozora-code-live > .yozora-code-live__toolbar .yozora-code-live__copy-button {
+  position: absolute;
+  right: 1rem;
+  display: inline-block;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.yozora-code-live > .yozora-code-live__main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-height: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+.yozora-code-live > .yozora-code-live__main.yozora-code-live__main--vertical {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.yozora-code-live > .yozora-code-live__main.yozora-code-live__main--vertical > .yozora-code-live__editor {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+.yozora-code-live > .yozora-code-live__main.yozora-code-live__main--vertical > .yozora-code-live__previewer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+.yozora-code-live > .yozora-code-live__main > .yozora-code-live__editor {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: auto;
+  padding: 0;
+  margin: 0;
+  font-family: var(--yozora-code-font-family, Consolas);
+  font-size: var(--yozora-code-font-size, 1rem);
+  background: var(--yozora-code-bg-primary, #1e1e1e);
+}
+.yozora-code-live > .yozora-code-live__main > .yozora-code-live__editor ::-moz-selection {
+  background: var(--yozora-code-bg-selection, rgba(156,186,201,0.3));
+}
+.yozora-code-live > .yozora-code-live__main > .yozora-code-live__editor ::selection {
+  background: var(--yozora-code-bg-selection, rgba(156,186,201,0.3));
+}
+.yozora-code-live > .yozora-code-live__main > .yozora-code-live__editor .yozora-code-editor {
+  border: none;
+  border-radius: 0px;
+}
+.yozora-code-live > .yozora-code-live__main > .yozora-code-live__previewer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: auto;
+  display: block;
+  padding: 0;
+  margin: 0;
+  color: #000;
+  background: var(--yozora-code-live-previewer-bg, #fff);
+}
+.yozora-code-live > .yozora-code-live__main > .yozora-code-live__previewer.yozora-code-live__previewer--center > .yozora-code-embed {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+@media screen and (max-width: 767px) {
+  .yozora-code-live {
+    border: 0;
+    border-radius: 5px;
+    -webkit-box-shadow: rgba(30,30,30,0.73) 0px 2px 10px;
+            box-shadow: rgba(30,30,30,0.73) 0px 2px 10px;
+    overflow: hidden;
+  }
+  .yozora-code-live .yozora-code-highlighter__linenos,
+  .yozora-code-live .yozora-code-editor__textarea-linenos {
+    display: none;
+    visibility: hidden;
+  }
+}
