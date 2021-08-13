@@ -18,7 +18,11 @@ describe('prop types', function () {
       }).toThrow(/The prop `src` is marked as required/i)
     }
 
-    expect(render(<Image src={imageSrc} />).attr('src')).toEqual(imageSrc)
+    expect(
+      render(<Image src={imageSrc} />)
+        .find('img')
+        .attr('src'),
+    ).toEqual(imageSrc)
   })
 
   describe('className is optional', function () {
@@ -35,7 +39,9 @@ describe('prop types', function () {
   })
 
   it('style is optional', function () {
-    const node = render(<Image src={imageSrc} style={{ color: 'orange' }} />)
+    const node = render(
+      <Image src={imageSrc} style={{ color: 'orange' }} />,
+    ).find('img')
     expect(node.css('color')).toEqual('orange')
   })
 })

@@ -1,18 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot custom 1`] = `
-<img
-  alt="avatar"
+<figure
   class="custom-class yozora-image"
-  src="https://avatars.githubusercontent.com/u/42513619"
-  style="color:orange"
-/>
+>
+  <img
+    alt="avatar"
+    src="https://avatars.githubusercontent.com/u/42513619"
+    style="color:orange"
+  />
+</figure>
 `;
 
 exports[`snapshot default 1`] = `
-<img
-  alt="https://avatars.githubusercontent.com/u/42513619"
+<figure
   class="yozora-image"
-  src="https://avatars.githubusercontent.com/u/42513619"
-/>
+>
+  <img
+    alt="https://avatars.githubusercontent.com/u/42513619"
+    src="https://avatars.githubusercontent.com/u/42513619"
+  />
+</figure>
 `;
