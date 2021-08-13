@@ -3,7 +3,7 @@ import fs from 'fs-extra'
 import path from 'path'
 
 const stylusOptions = {
-  imports: [path.join(__dirname, 'script/stylus/_variables.styl')],
+  imports: [path.join(__dirname, 'script/stylus/index.styl')],
 }
 
 export async function rollupConfig() {
