@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useState } from 'react'
-import styled from 'styled-components'
 import { renderElement, renderElementAsync } from './eval'
 
 /**
@@ -75,7 +74,7 @@ export function CodeRendererJsx(
 }
 
 CodeRendererJsx.defaultProps = {
-  scope: { styled },
+  scope: {},
 }
 
 CodeRendererJsx.propTypes = {
@@ -86,3 +85,4 @@ CodeRendererJsx.propTypes = {
 }
 
 CodeRendererJsx.displayName = 'YozoraCodeRendererJsx'
+export default CodeRendererJsx

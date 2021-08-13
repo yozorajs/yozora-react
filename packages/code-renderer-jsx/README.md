@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-code-renderer-jsx/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-code-renderer-jsx/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -122,6 +116,8 @@ This package is designed to live render jsx, inspired by [react live][].
 * Block code: Call the `render()` function with `React.ReactNode` explicitly
 
   ```tsx
+  import styled from 'styled-components'
+
   const code = `
     const Container = styled.div\`
       background: hsl(0deg, 10%, 90%);
@@ -134,8 +130,10 @@ This package is designed to live render jsx, inspired by [react live][].
     )
   `
 
+  const scope = { styled }
+
   const wrapper = (
-    <JsxPreview code={ code } inline={ false } />
+    <JsxPreview scope={scope} code={ code } inline={ false } />
   )
   ```
 
@@ -146,7 +144,7 @@ Name      | Type                              | Required  | Default     | Descri
 :--------:|:---------------------------------:|:---------:|:-----------:|:-------------
 `code`    | `string`                          | `true`    | -           | Source code
 `inline`  | `boolean`                         | `true`    | -           | `inline` / `block` mode
-`scope`   | `Record<string, unknown>`         | `false`   | `{styled}`  | Additional accessible variables
+`scope`   | `Record<string, unknown>`         | `false`   | `{}`        | Additional accessible variables
 `onError` | `(error: string | null) => void`  | `true`    | -           | Error callback
 
 

@@ -40,11 +40,8 @@
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "peerDependencies": {
-    "@types/react": "^17.0.3",
-    "@types/styled-components": "^5.1.4",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "styled-components": "^5.3.0"
+    "react": "^17.0.1"
   },
   "dependencies": {
     "@types/buble": "^0.20.1",
