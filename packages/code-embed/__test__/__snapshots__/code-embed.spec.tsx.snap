@@ -1,32 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot basic 1`] = `
-.c0 {
-  position: relative;
-  border: none;
-  padding: 0;
-  background: transparent;
-}
-
-.c0 .yozora-code-embed__error-wrapper {
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: red;
-  border: 1px solid red;
-}
-
-.c0 .yozora-code-embed__error {
-  display: block;
-  width: 100%;
-  min-height: 100%;
-  padding: 0.5rem;
-  background: transparent;
-  white-space: pre-wrap;
-  text-align: left;
-}
-
 <div
-  class="c0 yozora-code-embed"
+  class="yozora-code-embed"
 />
 `;

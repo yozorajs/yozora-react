@@ -1,128 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot embed 1`] = `
-.c0 {
-  position: relative;
-  border: none;
-  padding: 0;
-  background: transparent;
-}
-
-.c0 .yozora-code-embed__error-wrapper {
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: red;
-  border: 1px solid red;
-}
-
-.c0 .yozora-code-embed__error {
-  display: block;
-  width: 100%;
-  min-height: 100%;
-  padding: 0.5rem;
-  background: transparent;
-  white-space: pre-wrap;
-  text-align: left;
-}
-
 <div
-  class="c0 yozora-code-embed"
+  class="yozora-code-embed"
 />
 `;
 
 exports[`snapshot literal 1`] = `
-.c6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-  overflow: hidden;
-  width: 100%;
-  padding: 0;
-  -webkit-transition: max-height 0.5s ease-in-out;
-  transition: max-height 0.5s ease-in-out;
-  tab-size: 2;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smooth: always;
-  white-space: pre;
-  word-break: keep-all;
-  word-spacing: normal;
-  word-wrap: normal;
-}
-
-.c6 .yozora-code-highlighter__line {
-  display: block;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  width: 100%;
-  -webkit-letter-spacing: inherit;
-  -moz-letter-spacing: inherit;
-  -ms-letter-spacing: inherit;
-  letter-spacing: inherit;
-  line-height: inherit;
-  overflow-wrap: inherit;
-  tab-size: inherit;
-  text-indent: inherit;
-  text-rendering: inherit;
-  text-transform: inherit;
-  white-space: inherit;
-  word-break: inherit;
-  word-spacing: inherit;
-  word-wrap: inherit;
-}
-
-.c6 .yozora-code-highlighter__line.yozora-code-highlighter__line--highlight {
-  background: var(--code-bg-highlight,hsla(210deg,100%,84%,0.2));
-  border-color: transparent;
-}
-
-.c6 .yozora-code-highlighter__linenos {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  overflow: hidden;
-  padding: 0.5rem 0;
-  cursor: default;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  text-align: right;
-  border-right: 1px solid var(--code-color-border,hsla(0deg,0%,30%,0.8));
-}
-
-.c6 .yozora-code-highlighter__linenos .yozora-code-highlighter__line {
-  padding: 0 6px;
-}
-
-.c6 .yozora-code-highlighter__codes {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  overflow: auto;
-  overflow: overlay;
-  padding: 0.5rem 0;
-}
-
-.c6 .yozora-code-highlighter__codes .yozora-code-highlighter__codes-wrapper {
-  min-width: 100%;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.c6 .yozora-code-highlighter__codes .yozora-code-highlighter__line {
-  padding: 0 1rem 0 6px;
-}
-
-.c5 {
+.c4 {
   display: inline-block;
   padding: 0.4rem;
   border: none;
@@ -132,15 +17,15 @@ exports[`snapshot literal 1`] = `
   color: hsl(0deg,0%,80%);
 }
 
-.c5:hover {
+.c4:hover {
   color: hsl(0deg,0%,100%);
 }
 
-.c5:active {
+.c4:active {
   color: hsl(0deg,0%,90%);
 }
 
-.c2 {
+.c1 {
   display: inline-block;
   box-sizing: border-box;
   height: 10px;
@@ -150,7 +35,7 @@ exports[`snapshot literal 1`] = `
   background-color: #ed6c60;
 }
 
-.c3 {
+.c2 {
   display: inline-block;
   box-sizing: border-box;
   height: 10px;
@@ -160,7 +45,7 @@ exports[`snapshot literal 1`] = `
   background-color: #f7c151;
 }
 
-.c4 {
+.c3 {
   display: inline-block;
   box-sizing: border-box;
   height: 10px;
@@ -170,162 +55,34 @@ exports[`snapshot literal 1`] = `
   background-color: #64c856;
 }
 
-.c1 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  border: 1px solid transparent;
-  background: var(--code-bg-primary,#1e1e1e);
-  caret-color: #aeafad;
-}
-
-.c0::selection {
-  background: var(--code-bg-selection);
-}
-
-.c0 > .yozora-code-literal__toolbar {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  height: 2rem;
-  width: 100%;
-  border-bottom: 1px solid var(--code-color-border,hsla(0deg,0%,30%,0.8));
-  cursor: default;
-}
-
-.c0 > .yozora-code-literal__toolbar .yozora-code-literal__title {
-  margin-left: 1rem;
-  font-family: var(--code-heading-font-family,'Comic Sans MS','lucida grande','lucida sans unicode',lucida,'Hiragino Sans GB','Helvetica Neue','Microsoft Yahei','WenQuanYi Micro Hei',sans-serif);
-  font-size: 0.9em;
-  color: hsla(0deg,0%,90%,0.8);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.c0 > .yozora-code-literal__toolbar .yozora-code-literal__copy-button {
-  position: absolute;
-  right: 1rem;
-  display: inline-block;
-  visibility: hidden;
-  opacity: 0;
-  -webkit-transition: opacity .2s ease-in-out;
-  transition: opacity .2s ease-in-out;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.c0 > .yozora-code-literal__content {
-  overflow: auto;
-  padding: 0;
-  border: none;
-  margin: 0;
-  font-family: var(--code-font-family);
-  font-size: var(--code-font-size,1rem);
-  line-height: 1.33;
-  background: var(--code-bg-primary,#1e1e1e);
-  white-space: pre-wrap;
-  overflow-wrap: break-word;
-  word-spacing: normal;
-  word-break: break-all;
-  word-wrap: break-word;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
-  letter-spacing: 1px;
-  line-height: inherit;
-  tab-size: 2;
-}
-
-.c0 > .yozora-code-literal__content > pre {
-  margin: 0;
-  font-family: var(--code-font-family);
-  font-size: var(--code-font-size,1rem);
-  line-height: inherit;
-}
-
-.c0 > .yozora-code-literal__content > pre code,
-.c0 > .yozora-code-literal__content > pre span {
-  line-height: inherit;
-}
-
-.c0 > .yozora-code-literal__content > pre code {
-  padding: 0;
-  margin: 0;
-  background: transparent;
-}
-
-.c0 > .yozora-code-literal__content > pre::selection {
-  background: var(--code-bg-selection);
-}
-
-.c0:hover .yozora-code-literal__copy-button {
-  visibility: visible;
-  opacity: 1;
-}
-
-@media screen and (max-width:767px) {
-  .c0 {
-    border: 0;
-    border-radius: 5px;
-    box-shadow: rgba(30,30,30,73%) 0px 2px 10px;
-    overflow: hidden;
-  }
-
-  .c0 .yozora-code-highlighter__linenos {
-    display: none;
-    visibility: hidden;
-  }
 }
 
 <div
-  class="c0 yozora-code-literal"
+  class="yozora-code-literal"
 >
   <div
     class="yozora-code-literal__toolbar"
   >
     <span
-      class="c1 yozora-common-light-buttons"
+      class="c0 yozora-common-light-buttons"
     >
       <span
-        class="c2"
+        class="c1"
         title="close"
         type="close"
       />
       <span
-        class="c3"
+        class="c2"
         title="minimize"
         type="minimize"
       />
       <span
-        class="c4"
+        class="c3"
         title="maximize"
         type="maximize"
       />
@@ -341,7 +98,7 @@ exports[`snapshot literal 1`] = `
     >
       <button
         aria-label="Copy to clipboard"
-        class="c5 yozora-common-copy-button"
+        class="c4 yozora-common-copy-button"
         color="hsl(0deg, 0%, 80%)"
         type="button"
       >
@@ -354,7 +111,7 @@ exports[`snapshot literal 1`] = `
   >
     <pre>
       <div
-        class="c6 prism-code language-jsx"
+        class="yozora-code-highlighter prism-code language-jsx"
         style="color:#d4d4d4;background-color:none;line-height:1.6rem;max-height:0"
       >
         <div
@@ -738,122 +495,7 @@ exports[`snapshot literal 1`] = `
 `;
 
 exports[`snapshot live 1`] = `
-.c9 {
-  position: relative;
-  border: none;
-  padding: 0;
-  background: transparent;
-}
-
-.c9 .yozora-code-embed__error-wrapper {
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: red;
-  border: 1px solid red;
-}
-
-.c9 .yozora-code-embed__error {
-  display: block;
-  width: 100%;
-  min-height: 100%;
-  padding: 0.5rem;
-  background: transparent;
-  white-space: pre-wrap;
-  text-align: left;
-}
-
-.c8 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-  overflow: hidden;
-  width: 100%;
-  padding: 0;
-  -webkit-transition: max-height 0.5s ease-in-out;
-  transition: max-height 0.5s ease-in-out;
-  tab-size: 2;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smooth: always;
-  white-space: pre;
-  word-break: keep-all;
-  word-spacing: normal;
-  word-wrap: normal;
-}
-
-.c8 .yozora-code-highlighter__line {
-  display: block;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  width: 100%;
-  -webkit-letter-spacing: inherit;
-  -moz-letter-spacing: inherit;
-  -ms-letter-spacing: inherit;
-  letter-spacing: inherit;
-  line-height: inherit;
-  overflow-wrap: inherit;
-  tab-size: inherit;
-  text-indent: inherit;
-  text-rendering: inherit;
-  text-transform: inherit;
-  white-space: inherit;
-  word-break: inherit;
-  word-spacing: inherit;
-  word-wrap: inherit;
-}
-
-.c8 .yozora-code-highlighter__line.yozora-code-highlighter__line--highlight {
-  background: var(--code-bg-highlight,hsla(210deg,100%,84%,0.2));
-  border-color: transparent;
-}
-
-.c8 .yozora-code-highlighter__linenos {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  overflow: hidden;
-  padding: 0.5rem 0;
-  cursor: default;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  text-align: right;
-  border-right: 1px solid var(--code-color-border,hsla(0deg,0%,30%,0.8));
-}
-
-.c8 .yozora-code-highlighter__linenos .yozora-code-highlighter__line {
-  padding: 0 6px;
-}
-
-.c8 .yozora-code-highlighter__codes {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  overflow: auto;
-  overflow: overlay;
-  padding: 0.5rem 0;
-}
-
-.c8 .yozora-code-highlighter__codes .yozora-code-highlighter__codes-wrapper {
-  min-width: 100%;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.c8 .yozora-code-highlighter__codes .yozora-code-highlighter__line {
-  padding: 0 1rem 0 6px;
-}
-
-.c5 {
+.c4 {
   display: inline-block;
   padding: 0.4rem;
   border: none;
@@ -863,15 +505,15 @@ exports[`snapshot live 1`] = `
   color: hsl(0deg,0%,80%);
 }
 
-.c5:hover {
+.c4:hover {
   color: hsl(0deg,0%,100%);
 }
 
-.c5:active {
+.c4:active {
   color: hsl(0deg,0%,90%);
 }
 
-.c2 {
+.c1 {
   display: inline-block;
   box-sizing: border-box;
   height: 10px;
@@ -881,7 +523,7 @@ exports[`snapshot live 1`] = `
   background-color: #ed6c60;
 }
 
-.c3 {
+.c2 {
   display: inline-block;
   box-sizing: border-box;
   height: 10px;
@@ -891,7 +533,7 @@ exports[`snapshot live 1`] = `
   background-color: #f7c151;
 }
 
-.c4 {
+.c3 {
   display: inline-block;
   box-sizing: border-box;
   height: 10px;
@@ -901,323 +543,34 @@ exports[`snapshot live 1`] = `
   background-color: #64c856;
 }
 
-.c1 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.c6 {
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
-  padding: 0;
-  text-align: left;
-  tab-size: 2;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smooth: always;
-  white-space: pre;
-  word-break: keep-all;
-  word-spacing: normal;
-  word-wrap: normal;
-}
-
-.c6 .yozora-code-editor__textarea-wrapper,
-.c6 .yozora-code-editor__textarea,
-.c6 .yozora-code-editor__previewer {
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  border: 0;
-  margin: 0;
-  outline: none;
-  background: none;
-  box-sizing: inherit;
-  display: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  font-style: inherit;
-  font-variant-ligatures: inherit;
-  font-weight: inherit;
-  -webkit-letter-spacing: inherit;
-  -moz-letter-spacing: inherit;
-  -ms-letter-spacing: inherit;
-  letter-spacing: inherit;
-  line-height: inherit;
-  overflow-wrap: inherit;
-  tab-size: inherit;
-  text-indent: inherit;
-  text-rendering: inherit;
-  text-transform: inherit;
-  white-space: inherit;
-  word-break: inherit;
-  word-spacing: inherit;
-  word-wrap: inherit;
-}
-
-.c6 .yozora-code-editor__textarea-wrapper {
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-}
-
-.c6 .yozora-code-editor__textarea-linenos {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-
-.c6 .yozora-code-editor__textarea {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  resize: none;
-  padding: 0;
-  color: transparent;
-  caret-color: var(--code-caret-color,hsl(0deg,83%,78%));
-  -webkit-text-fill-color: transparent;
-}
-
-.c6 .yozora-code-editor__textarea:empty {
-  color: inherit;
-  -webkit-text-fill-color: inherit;
-}
-
-.c6 .yozora-code-editor__previewer {
-  position: relative;
-  pointer-events: none;
-}
-
-.c7 {
-  font-family: var(--code-font-family,Consolas,'Source Code Pro',monospace,sans-serif);
-  font-size: var(--code-font-size,1rem);
-  border: 1px solid var(--code-color-border,lightgray);
-  border-radius: 4px;
-}
-
-.c7 > pre code,
-.c7 > pre span {
-  line-height: inherit;
-}
-
-.c7 > pre code {
-  padding: 0;
-  margin: 0;
-  background: transparent;
-}
-
-.c7 .yozora-code-highlighter__codes {
-  overflow-x: hidden;
-}
-
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  border: 1px solid #d3d3d3;
-  caret-color: #aeafad;
-}
-
-.c0::selection {
-  background: var(--code-bg-selection);
-}
-
-.c0 > .yozora-code-live__toolbar {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  height: 2rem;
-  width: 100%;
-  border-bottom: 1px solid var(--code-color-border,hsla(0deg,0%,30%,0.8));
-  background: var(--code-bg-primary,#1e1e1e);
-  cursor: default;
-}
-
-.c0 > .yozora-code-live__toolbar .yozora-code-live__title {
-  margin-left: 1rem;
-  font-family: var(--code-heading-font-family,'Comic Sans MS','lucida grande','lucida sans unicode',lucida,'Hiragino Sans GB','Helvetica Neue','Microsoft Yahei','WenQuanYi Micro Hei',sans-serif);
-  font-size: 0.9em;
-  color: hsla(0deg,0%,90%,0.8);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.c0 > .yozora-code-live__toolbar .yozora-code-live__copy-button {
-  position: absolute;
-  right: 1rem;
-  display: inline-block;
-  visibility: hidden;
-  opacity: 0;
-  -webkit-transition: opacity .2s ease-in-out;
-  transition: opacity .2s ease-in-out;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.c0 > .yozora-code-live__main {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  min-height: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-}
-
-.c0 > .yozora-code-live__main > .yozora-code-live__editor {
-  -webkit-flex: 1 1 0;
-  -ms-flex: 1 1 0;
-  flex: 1 1 0;
-  position: relative;
-  box-sizing: border-box;
-  overflow: auto;
-  padding: 0;
-  margin: 0;
-  font-family: var(--code-font-family,'Consolas, monospace, sans-serif');
-  font-size: var(--code-font-size,1rem);
-  background: var(--code-bg-primary,#1e1e1e);
-}
-
-.c0 > .yozora-code-live__main > .yozora-code-live__editor::selection {
-  background: var(--code-bg-selection,hsla(200deg,30%,70%,0.3));
-}
-
-.c0 > .yozora-code-live__main > .yozora-code-live__editor > .yozora-code-editor {
-  border: none;
-  border-radius: 0px;
-}
-
-.c0 > .yozora-code-live__main > .yozora-code-live__previewer {
-  -webkit-flex: 1 1 0;
-  -ms-flex: 1 1 0;
-  flex: 1 1 0;
-  box-sizing: border-box;
-  overflow: auto;
-  display: block;
-  padding: 0;
-  margin: 0;
-  color: #000;
-  background: var(--code-live-previewer-bg,#fff);
-}
-
-.c0 > .yozora-code-live__main > .yozora-code-live__previewer.yozora-code-live__previewer--center > .yozora-code-embed {
-  min-height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.c0 > .yozora-code-live__main.yozora-code-live__main--vertical {
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c0 > .yozora-code-live__main.yozora-code-live__main--vertical > .yozora-code-live__editor {
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
-}
-
-.c0 > .yozora-code-live__main.yozora-code-live__main--vertical > .yozora-code-live__previewer {
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
-}
-
-.c0:hover .yozora-code-live__copy-button {
-  visibility: visible;
-  opacity: 1;
-}
-
-@media screen and (max-width:767px) {
-  .c0 {
-    border: 0;
-    border-radius: 5px;
-    box-shadow: rgba(30,30,30,73%) 0px 2px 10px;
-    overflow: hidden;
-  }
-
-  .c0 .yozora-code-highlighter__linenos,
-  .c0 .yozora-code-editor__textarea-linenos {
-    display: none;
-    visibility: hidden;
-  }
 }
 
 <div
-  class="c0 yozora-code-live"
+  class="yozora-code-live"
 >
   <div
     class="yozora-code-live__toolbar"
   >
     <span
-      class="c1 yozora-common-light-buttons"
+      class="c0 yozora-common-light-buttons"
     >
       <span
-        class="c2"
+        class="c1"
         title="close"
         type="close"
       />
       <span
-        class="c3"
+        class="c2"
         title="minimize"
         type="minimize"
       />
       <span
-        class="c4"
+        class="c3"
         title="maximize"
         type="maximize"
       />
@@ -1233,7 +586,7 @@ exports[`snapshot live 1`] = `
     >
       <button
         aria-label="Copy to clipboard"
-        class="c5 yozora-common-copy-button"
+        class="c4 yozora-common-copy-button"
         color="hsl(0deg, 0%, 80%)"
         type="button"
       >
@@ -1248,7 +601,8 @@ exports[`snapshot live 1`] = `
       class="yozora-code-live__editor"
     >
       <div
-        class="c6 c7 yozora-code-editor"
+        class="yozora-code-editor yozora-code-editor"
+        padding="10"
         style="line-height:1.6rem;tab-size:2"
       >
         <div
@@ -1279,7 +633,7 @@ exports[`snapshot live 1`] = `
           style="tab-size:2;white-space:pre"
         >
           <div
-            class="c8 prism-code language-jsx"
+            class="yozora-code-highlighter prism-code language-jsx"
             style="color:#d4d4d4;background-color:none;line-height:1.6rem;max-height:8rem;min-height:100%"
           >
             <div
@@ -1664,7 +1018,7 @@ exports[`snapshot live 1`] = `
       class="yozora-code-live__previewer yozora-code-live__previewer--center"
     >
       <div
-        class="c9 yozora-code-embed"
+        class="yozora-code-embed"
       />
     </div>
   </div>
