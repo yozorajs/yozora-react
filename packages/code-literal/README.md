@@ -82,6 +82,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```tsx
   import React from 'react'
   import CodeLiteral from '@yozora/react-code-literal'
+  import '@yozora/react-code-literal/lib/esm/index.css'
 
   const wrapper = (
     <CodeLiteral 

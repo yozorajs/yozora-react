@@ -4,7 +4,6 @@ import LightButtons from '@yozora/react-common-light-buttons'
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import { Container } from './style'
 import type { CodeLiteralProps } from './types'
 
 /**
@@ -17,7 +16,7 @@ import type { CodeLiteralProps } from './types'
  * @see https://www.npmjs.com/package/@yozora/react-code-embed
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
-export function CodeLiteral(props: CodeLiteralProps): React.ReactElement {
+export const CodeLiteral: React.FC<CodeLiteralProps> = props => {
   const {
     value,
     lang,
@@ -40,7 +39,7 @@ export function CodeLiteral(props: CodeLiteralProps): React.ReactElement {
   }, [collapsed, countOfLines, value])
 
   return (
-    <Container className={cn('yozora-code-literal', className)} style={style}>
+    <div className={cn('yozora-code-literal', className)} style={style}>
       <div
         key="toolbar"
         className="yozora-code-literal__toolbar"
@@ -78,7 +77,7 @@ export function CodeLiteral(props: CodeLiteralProps): React.ReactElement {
           />
         </pre>
       </code>
-    </Container>
+    </div>
   )
 }
 
