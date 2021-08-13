@@ -1,5 +1,6 @@
 import './prismjs/prism-dot'
 import './prismjs/prism-visual-basic'
+import './style.styl'
 
 export * from './component'
 export * from './content'

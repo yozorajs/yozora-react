@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-code-highlighter/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-code-highlighter/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -85,6 +79,7 @@ This package is designed to highlight [mdast code][] type data
   ```tsx
   import React, { useEffect, useState } from 'react'
   import CodeHighlighter from '@yozora/react-code-highlighter'
+  import '@yozora/react-code-highlighter/lib/esm/index.css'
 
   function Wrapper() {
     const [code, setCode] = useState<string>('let a: number = 1 + 2;')

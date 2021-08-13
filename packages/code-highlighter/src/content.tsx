@@ -1,15 +1,13 @@
 import cn from 'clsx'
+import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useRef } from 'react'
-import { Container } from './style'
 import type { HighlightContentProps } from './types'
 import { calcHeight } from './util'
 
 /**
  * Content of CodeHighlighter.
  */
-export function HighlighterContent(
-  props: HighlightContentProps,
-): React.ReactElement {
+export const HighlighterContent: React.FC<HighlightContentProps> = props => {
   const {
     codesRef,
     highlightLinenos = [],
@@ -67,7 +65,7 @@ export function HighlighterContent(
   )
 
   return (
-    <Container className={className} style={style}>
+    <div className={cn('yozora-code-highlighter', className)} style={style}>
       {showLinenos && (
         <div
           key="linenos"
@@ -120,8 +118,23 @@ export function HighlighterContent(
           })}
         </div>
       </div>
-    </Container>
+    </div>
   )
+}
+
+HighlighterContent.propTypes = {
+  codesRef: PropTypes.any,
+  highlightLinenos: PropTypes.array,
+  collapsed: PropTypes.bool,
+  maxLines: PropTypes.number,
+  lineHeight: PropTypes.string,
+  showLinenos: PropTypes.bool,
+  tokens: PropTypes.array.isRequired,
+  getLineProps: PropTypes.func.isRequired,
+  getTokenProps: PropTypes.func.isRequired,
+  onLinenoWidthChange: PropTypes.func,
+  className: PropTypes.string,
+  style: PropTypes.any,
 }
 
 HighlighterContent.displayName = 'YozoraCodeHighlighterContent'

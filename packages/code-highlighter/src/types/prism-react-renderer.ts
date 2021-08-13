@@ -39,7 +39,7 @@ export interface TokenOutputProps {
 
 export interface RenderProps {
   tokens: Token[][]
-  className: string
+  className?: string
   style: StyleObj
   getLineProps(input: LineInputProps): LineOutputProps
   getTokenProps(input: TokenInputProps): TokenOutputProps
