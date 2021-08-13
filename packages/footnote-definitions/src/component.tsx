@@ -1,7 +1,6 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Container } from './style'
 import type { FootnoteDefinitionsProps } from './types'
 
 /**
@@ -19,7 +18,7 @@ export const FootnoteDefinitions: React.FC<FootnoteDefinitionsProps> =
     const { nodes, title = 'footnote-definitions', className, style } = props
 
     return (
-      <Container
+      <div
         className={cn('yozora-footnote-definitions', className)}
         style={style}
       >
@@ -41,7 +40,7 @@ export const FootnoteDefinitions: React.FC<FootnoteDefinitionsProps> =
             </li>
           ))}
         </ul>
-      </Container>
+      </div>
     )
   }
 

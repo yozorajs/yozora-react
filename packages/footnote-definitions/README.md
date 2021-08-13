@@ -82,6 +82,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```tsx
   import React from 'react'
   import Footnotes from '@yozora/react-footnote-definitions'
+  import '@yozora/react-footnote-definitions/lib/esm/index.css'
 
   const wrapper = (
     <Footnotes keyword="info" style={{ color: 'orange', fontSize: '16px' }}>

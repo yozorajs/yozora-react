@@ -1,63 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot basic 1`] = `
-.c0 {
-  margin-top: 2rem;
-  font-size: 0.8rem;
-}
-
-.c0 > .yozora-footnote-definitions__title {
-  padding: 0;
-  border-bottom: 1px solid var(--color-border-secondary);
-  margin: 0 0 1rem;
-  font-style: italic;
-}
-
-.c0 > .yozora-footnote-definitions__main {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.c0 .yozora-footnote-definitions__item {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-.c0 .yozora-footnote-definitions__item .yozora-footnote-definitions__item-title {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-}
-
-.c0 .yozora-footnote-definitions__item .yozora-footnote-definitions__item-content {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  overflow-x: auto;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-}
-
 <div
-  class="c0 yozora-footnote-definitions custom-footnote-definitions"
+  class="yozora-footnote-definitions custom-footnote-definitions"
   style="margin-top:2rem"
 >
   <div
