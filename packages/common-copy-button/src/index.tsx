@@ -54,7 +54,7 @@ export interface CopyButtonProps {
   style?: React.CSSProperties
 }
 
-export function CopyButton(props: CopyButtonProps): React.ReactElement {
+export const CopyButton: React.FC<CopyButtonProps> = props => {
   const {
     value,
     statusColorMap = defaultStatusColorMap,
@@ -105,8 +105,8 @@ CopyButton.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   value: PropTypes.string.isRequired,
-  statusColorMap: PropTypes.object,
-  statusTextMap: PropTypes.object,
+  statusColorMap: PropTypes.any,
+  statusTextMap: PropTypes.any,
 }
 
 CopyButton.displayName = 'YozoraCopyButton'

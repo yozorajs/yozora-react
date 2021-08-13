@@ -34,7 +34,7 @@ export interface LightButtonsProps {
  * @param props
  * @returns
  */
-export function LightButtons(props: LightButtonsProps): React.ReactElement {
+export const LightButtons: React.FC<LightButtonsProps> = props => {
   const { className, style, onClose, onMaximize, onMinimize } = props
 
   return (
