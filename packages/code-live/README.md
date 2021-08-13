@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-code-live/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-code-live/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -81,34 +75,34 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```
 
 ## Usage
-  * Basic:
 
-    - Pure
+* Basic:
 
-      ```tsx
-      import React from 'react'
-      import CodeLive, { CodeRendererProps } from '@yozora/react-code-live'
+  ```tsx
+  import React from 'react'
+  import CodeLive, { CodeRendererProps } from '@yozora/react-code-live'
+  import '@yozora/react-code-live/lib/esm/index.css'
 
-      const JsxRenderer = ({ value }: CodeRendererProps): React.ReactElement => {
-        // eslint-disable-next-line no-new-func
-        const f = new Function(code)
-        const v = f()
-        return <span data-type="jsx">{ v }</span>
-      }
+  const JsxRenderer = ({ value }: CodeRendererProps): React.ReactElement => {
+    // eslint-disable-next-line no-new-func
+    const f = new Function(code)
+    const v = f()
+    return <span data-type="jsx">{ v }</span>
+  }
 
-      const code = `
-        const a = 1 + 2;
-        return a * a
-      `
+  const code = `
+    const a = 1 + 2;
+    return a * a
+  `
 
-      const wrapper = (
-        <CodeLive
-          lang="jsx"
-          value={ code }
-          CodeRenderer={ JsxRenderer }
-        />
-      )
-      ```
+  const wrapper = (
+    <CodeLive
+      lang="jsx"
+      value={ code }
+      CodeRenderer={ JsxRenderer }
+    />
+  )
+  ```
 
 
 ### Props

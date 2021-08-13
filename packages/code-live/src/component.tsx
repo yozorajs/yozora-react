@@ -5,7 +5,6 @@ import LightButtons from '@yozora/react-common-light-buttons'
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React, { useMemo, useState } from 'react'
-import { Container } from './style'
 import type { CodeLiveProps } from './types'
 import { debounce } from './util'
 
@@ -47,7 +46,7 @@ export const CodeLive: React.FC<CodeLiveProps> = props => {
   const runner = runners.find(item => item.pattern.test(lang))
 
   return (
-    <Container className={cn('yozora-code-live', className)} style={style}>
+    <div className={cn('yozora-code-live', className)} style={style}>
       <div
         key="toolbar"
         className="yozora-code-live__toolbar"
@@ -109,7 +108,7 @@ export const CodeLive: React.FC<CodeLiveProps> = props => {
           </div>
         )}
       </div>
-    </Container>
+    </div>
   )
 }
 
