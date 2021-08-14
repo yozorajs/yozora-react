@@ -7,61 +7,6 @@ exports[`snapshot embed 1`] = `
 `;
 
 exports[`snapshot literal 1`] = `
-.c4 {
-  display: inline-block;
-  padding: 0.4rem;
-  border: none;
-  outline: none;
-  background: transparent;
-  cursor: pointer;
-  color: hsl(0deg,0%,80%);
-}
-
-.c4:hover {
-  color: hsl(0deg,0%,100%);
-}
-
-.c4:active {
-  color: hsl(0deg,0%,90%);
-}
-
-.c1 {
-  display: inline-block;
-  box-sizing: border-box;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  margin-left: 8px;
-  background-color: #ed6c60;
-}
-
-.c2 {
-  display: inline-block;
-  box-sizing: border-box;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  margin-left: 8px;
-  background-color: #f7c151;
-}
-
-.c3 {
-  display: inline-block;
-  box-sizing: border-box;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  margin-left: 8px;
-  background-color: #64c856;
-}
-
-.c0 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 <div
   class="yozora-code-literal"
 >
@@ -69,22 +14,19 @@ exports[`snapshot literal 1`] = `
     class="yozora-code-literal__toolbar"
   >
     <span
-      class="c0 yozora-common-light-buttons"
+      class="yozora-common-light-buttons"
     >
       <span
-        class="c1"
+        class="yozora-common-light-button yozora-common-light-button--close"
         title="close"
-        type="close"
       />
       <span
-        class="c2"
+        class="yozora-common-light-button yozora-common-light-button--minimize"
         title="minimize"
-        type="minimize"
       />
       <span
-        class="c3"
+        class="yozora-common-light-button yozora-common-light-button--maximize"
         title="maximize"
-        type="maximize"
       />
     </span>
     <span
@@ -98,8 +40,7 @@ exports[`snapshot literal 1`] = `
     >
       <button
         aria-label="Copy to clipboard"
-        class="c4 yozora-common-copy-button"
-        color="hsl(0deg, 0%, 80%)"
+        class="yozora-common-copy-button yozora-common-copy-button--waiting"
         type="button"
       >
         copy
@@ -495,61 +436,6 @@ exports[`snapshot literal 1`] = `
 `;
 
 exports[`snapshot live 1`] = `
-.c4 {
-  display: inline-block;
-  padding: 0.4rem;
-  border: none;
-  outline: none;
-  background: transparent;
-  cursor: pointer;
-  color: hsl(0deg,0%,80%);
-}
-
-.c4:hover {
-  color: hsl(0deg,0%,100%);
-}
-
-.c4:active {
-  color: hsl(0deg,0%,90%);
-}
-
-.c1 {
-  display: inline-block;
-  box-sizing: border-box;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  margin-left: 8px;
-  background-color: #ed6c60;
-}
-
-.c2 {
-  display: inline-block;
-  box-sizing: border-box;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  margin-left: 8px;
-  background-color: #f7c151;
-}
-
-.c3 {
-  display: inline-block;
-  box-sizing: border-box;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  margin-left: 8px;
-  background-color: #64c856;
-}
-
-.c0 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 <div
   class="yozora-code-live"
 >
@@ -557,22 +443,19 @@ exports[`snapshot live 1`] = `
     class="yozora-code-live__toolbar"
   >
     <span
-      class="c0 yozora-common-light-buttons"
+      class="yozora-common-light-buttons"
     >
       <span
-        class="c1"
+        class="yozora-common-light-button yozora-common-light-button--close"
         title="close"
-        type="close"
       />
       <span
-        class="c2"
+        class="yozora-common-light-button yozora-common-light-button--minimize"
         title="minimize"
-        type="minimize"
       />
       <span
-        class="c3"
+        class="yozora-common-light-button yozora-common-light-button--maximize"
         title="maximize"
-        type="maximize"
       />
     </span>
     <span
@@ -586,8 +469,7 @@ exports[`snapshot live 1`] = `
     >
       <button
         aria-label="Copy to clipboard"
-        class="c4 yozora-common-copy-button"
-        color="hsl(0deg, 0%, 80%)"
+        class="yozora-common-copy-button yozora-common-copy-button--waiting"
         type="button"
       >
         copy
