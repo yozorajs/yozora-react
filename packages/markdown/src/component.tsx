@@ -1,5 +1,4 @@
 import type { Root } from '@yozora/ast'
-import { collectFootnoteDefinitions } from '@yozora/ast-util'
 import YozoraFootnotesRenderer from '@yozora/react-footnote-definitions'
 import type { FootnoteItem } from '@yozora/react-footnote-definitions'
 import cn from 'clsx'
@@ -32,25 +31,26 @@ export interface MarkdownProps {
  * @returns
  */
 export function YozoraMarkdown(props: MarkdownProps): React.ReactElement {
+  const { darken, getFootnoteDefinitions, renderYozoraNodes } = useContext(
+    YozoraMarkdownContext,
+  )
   const { ast, footnoteDefinitionsTitle, className, style } = props
 
-  const { darken, renderYozoraNodes } = useContext(YozoraMarkdownContext)
-  const children = useMemo(
+  const children = useMemo<React.ReactNode>(
     () => renderYozoraNodes(ast.children),
-    [renderYozoraNodes, ast.children],
+    [ast, renderYozoraNodes],
   )
 
   const footnotes = useMemo<React.ReactNode>(() => {
-    const items: FootnoteItem[] = collectFootnoteDefinitions(ast).map(item => ({
+    const items: FootnoteItem[] = getFootnoteDefinitions().map(item => ({
       label: item.label,
       identifier: item.identifier,
       children: renderYozoraNodes(item.children),
     }))
-
     return items.length <= 0 ? null : (
       <YozoraFootnotesRenderer nodes={items} title={footnoteDefinitionsTitle} />
     )
-  }, [renderYozoraNodes, footnoteDefinitionsTitle, ast])
+  }, [footnoteDefinitionsTitle, renderYozoraNodes, getFootnoteDefinitions])
 
   return (
     <div

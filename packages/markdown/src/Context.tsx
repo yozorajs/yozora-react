@@ -45,12 +45,9 @@ export interface YozoraMarkdownContextState extends YozoraMarkdownContextData {
    */
   getDefinition(identifier: string): Readonly<Definition> | undefined
   /**
-   * Get footnote reference definition through the give identifier.
-   * @param identifier
+   * Get all of footnote reference definitions.
    */
-  getFootnoteDefinition(
-    identifier: string,
-  ): Readonly<FootnoteDefinition> | undefined
+  getFootnoteDefinitions(): ReadonlyArray<FootnoteDefinition>
   /**
    * Add a preview image item.
    * @param item
@@ -78,7 +75,7 @@ export const YozoraMarkdownContext: React.Context<YozoraMarkdownContextState> =
       throw new Error(`No available dispatch prepared yet.`)
     },
     getDefinition: () => {},
-    getFootnoteDefinition: () => {},
+    getFootnoteDefinitions: () => [],
     addPreviewImage: () => () => {},
     renderYozoraNodes: () => [],
   } as YozoraMarkdownContextState)

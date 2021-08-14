@@ -92,10 +92,10 @@ export const YozoraMarkdownContextProvider: React.FC<YozoraMarkdownContextProvid
       YozoraMarkdownContextState['getDefinition']
     >(identifier => definitionMap[identifier], [definitionMap])
 
-    // Get footnote reference definition through the give identifier.
-    const getFootnoteDefinition = useCallback<
-      YozoraMarkdownContextState['getFootnoteDefinition']
-    >(identifier => footnoteDefinitionMap[identifier], [footnoteDefinitionMap])
+    // Get all of footnote reference definitions.
+    const getFootnoteDefinitions = useCallback<
+      YozoraMarkdownContextState['getFootnoteDefinitions']
+    >(() => Object.values(footnoteDefinitionMap), [footnoteDefinitionMap])
 
     // Add a preview image item.
     const addPreviewImage = useCallback<
@@ -119,7 +119,7 @@ export const YozoraMarkdownContextProvider: React.FC<YozoraMarkdownContextProvid
           }))
         }
       },
-      [dispatch, images],
+      [images],
     )
 
     const context = useMemo<YozoraMarkdownContextState>(
@@ -131,7 +131,7 @@ export const YozoraMarkdownContextProvider: React.FC<YozoraMarkdownContextProvid
         activatedImageIndex,
         dispatch,
         getDefinition,
-        getFootnoteDefinition,
+        getFootnoteDefinitions,
         addPreviewImage,
         renderYozoraNodes,
       }),
@@ -143,7 +143,7 @@ export const YozoraMarkdownContextProvider: React.FC<YozoraMarkdownContextProvid
         activatedImageIndex,
         dispatch,
         getDefinition,
-        getFootnoteDefinition,
+        getFootnoteDefinitions,
         addPreviewImage,
         renderYozoraNodes,
       ],
@@ -152,16 +152,16 @@ export const YozoraMarkdownContextProvider: React.FC<YozoraMarkdownContextProvid
     // Watch initial values change.
     useEffect(() => {
       setContextData(context => {
-        const shouldReset: boolean = codeRunners !== context.codeRunners
+        const shouldReset: boolean = initialCodeRunners !== context.codeRunners
         return {
-          codeRunners: codeRunners ?? context.codeRunners,
-          darken: darken ?? context.darken,
+          codeRunners: initialCodeRunners ?? context.codeRunners,
+          darken: initialDarken ?? context.darken,
           images: shouldReset ? [] : context.images,
           imageViewerVisible: shouldReset ? false : context.imageViewerVisible,
           activatedImageIndex: shouldReset ? -1 : context.activatedImageIndex,
         }
       })
-    }, [definitionMap, footnoteDefinitionMap, codeRunners, darken])
+    }, [initialCodeRunners, initialDarken])
 
     return (
       <YozoraMarkdownContext.Provider value={context}>
