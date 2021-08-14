@@ -11,10 +11,6 @@
   caret-color: $code-color-caret
   ::selection
     background: $code-bg-selection
-  &:hover
-    .yozora-code-literal__copy-button
-      visibility: visible
-      opacity: 1
 
   > .yozora-code-literal__toolbar
     flex: 0 0 auto
@@ -30,14 +26,6 @@
       font-family: $heading-font-family
       font-size: 0.9em
       color: hsla(0deg, 0%, 90%, 0.8)
-      user-select: none
-    .yozora-code-literal__copy-button
-      position: absolute
-      right: 1rem
-      display: inline-block
-      visibility: hidden
-      opacity: 0
-      transition: opacity .2s ease-in-out
       user-select: none
   > .yozora-code-literal__content
     overflow: auto
@@ -69,6 +57,19 @@
         background: transparent
       ::selection
         background: $code-bg-selection
+
+.yozora-code-literal__copy-button
+  position: absolute
+  right: 1rem
+  visibility: hidden
+  opacity: 0
+  transition: opacity .2s ease-in-out
+  user-select: none
+.yozora-code-literal
+  &:hover
+    .yozora-code-literal__copy-button
+      visibility: visible
+      opacity: 1
 
 // Adaptive smaller screen.
 +mx-screen-xs()
