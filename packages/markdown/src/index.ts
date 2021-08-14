@@ -1,4 +1,4 @@
-import './style/style.styl'
+import './style/index.styl'
 
 export * from './types'
 export * from './component'

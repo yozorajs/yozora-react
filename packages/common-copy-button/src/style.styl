@@ -3,18 +3,17 @@
   padding: 0.4rem
   border: none
   outline: none
-  background: transparent
+  color: $common-copy-button-color-waiting
   cursor: pointer
+  background: none
   &:hover
-    color: hsl(0deg, 0, 100%)
+    color: $common-copy-button-color-hover
   &:active
-    color: hsl(0deg, 0, 90%)
+    color: $common-copy-button-color-active
 
-  &.yozora-common-copy-button--waiting
-    color: hsl(0deg, 0%, 80%)
   &.yozora-common-copy-button--copying
-    color: hsl(0deg, 0%, 80%)
+    color: $common-copy-button-color-copying
   &.yozora-common-copy-button--failed
-    color: hsl(0deg, 80%, 40%)
+    color: $common-copy-button-color-failed
   &.yozora-common-copy-button--succeed
-    color: hsl(120deg, 80%, 40%)
+    color: $common-copy-button-color-succeed
