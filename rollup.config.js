@@ -1,21 +1,40 @@
 import createRollupConfigs from '@guanghechen/rollup-config-tsx'
+import alias from '@rollup/plugin-alias'
+import resolve from '@rollup/plugin-node-resolve'
 import fs from 'fs-extra'
 import path from 'path'
+import tsconfig from './tsconfig.json'
 
-const stylusOptions = {
-  imports: [path.join(__dirname, 'script/stylus/index.styl')],
+const resolvePath = (...p) => path.join(__dirname, ...p)
+
+const paths = {
+  _shared: resolvePath('packages/_shared/'),
+  assetPath: path.resolve('lib'),
+  basePath: path.resolve('src'),
+  styleFile: path.resolve('src/style/index.styl'),
+  tsconfig: path.resolve('tsconfig.src.json'),
+  alias: Object.entries(tsconfig.compilerOptions.paths)
+    .map(([key, val]) => val.map(x => [key, x]))
+    .flat()
+    .filter(([key, val]) => key && val)
+    .flatMap(([key, val]) => ({
+      find: key.replace(/[*]$/, ''),
+      replacement: resolvePath(val.replace(/[*]$/, '')),
+    }))
+    .filter(item => !/[*]/.test(item.find))
+    .sort((x, y) => {
+      if (x.find === y.find) return 0
+      return x.find < y.find ? 1 : -1
+    }),
 }
 
 export async function rollupConfig() {
   const { default: manifest } = await import(path.resolve('package.json'))
 
-  const paths = {
-    assetPath: path.resolve('lib'),
-    basePath: path.resolve('src'),
-    styleFile: path.resolve('src/style/index.styl'),
-    tsconfig: path.resolve('tsconfig.src.json'),
+  const stylusOptions = {
+    imports: [path.join(paths._shared, 'src/stylus/index.styl')],
+    paths: [resolvePath('node_modules')],
   }
-
   const configs = createRollupConfigs({
     manifest,
     pluginOptions: {
@@ -78,15 +97,35 @@ export async function rollupConfig() {
 
   const yozoraCssRegex = /^@yozora\/([\S]*)\/lib\/([\S]*)\.css$/
   return configs.map(config => {
-    const { external } = config
-    if (!(external instanceof Function)) return config
+    const { external, plugins } = config
 
     return {
       ...config,
-      external: id => {
-        if (yozoraCssRegex.test(id)) return false
-        return external(id)
-      },
+      external:
+        external instanceof Function
+          ? id => {
+              if (yozoraCssRegex.test(id)) return false
+              return external(id)
+            }
+          : external,
+      plugins: [
+        alias({
+          customResolver: resolve({
+            extensions: [
+              '.css',
+              '.js',
+              '.jsx',
+              '.json',
+              '.mjs',
+              '.styl',
+              '.ts',
+              '.tsx',
+            ],
+          }),
+          entries: [...paths.alias],
+        }),
+        ...(plugins ?? []),
+      ],
     }
   })
 }
