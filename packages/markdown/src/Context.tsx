@@ -30,7 +30,7 @@ export interface YozoraMarkdownContextData {
 }
 
 /**
- * Data and side-effect funcs provided by the YozoraMarkdownContext
+ * Side-effect funcs provided by the YozoraMarkdownContext
  */
 export interface YozoraMarkdownContextState extends YozoraMarkdownContextData {
   /**

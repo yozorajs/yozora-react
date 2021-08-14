@@ -77,10 +77,18 @@ See [@yozora/react-markdown][]
   ```
 
 ```tsx
+import loadable from '@loadable/component'
 import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
-import Markdown, { MathJaxProvider } from '@yozora/react-markdown'
+import { 
+  MathJaxProvider,
+  YozoraImagePreviewer,
+  YozoraMarkdown, 
+  YozoraMarkdownContextProvider, 
+} from '@yozora/react-markdown'
 import YozoraParser from '@yozora/parser'
 import '@yozora/react-markdown/lib/esm/index.css'
+
+const Viewer = loadable(() => import('react-viewer'))
 
 const parser = new YozoraParser({
   defaultParseOptions: { shouldReservePosition: false },
@@ -90,13 +98,14 @@ const ast = parser.parse(`source markdown contents`)
 const definitionMap = calcDefinitionMap(ast)
 const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
-<MathJaxProvider>
-  <Markdown 
-    ast={ast} 
-    definitionMap={definitionMap} 
-    footnoteDefinitionMap={footnoteDefinitionMap} 
-    {...otherProps} 
-  />
+<MathJaxProvider
+  <YozoraMarkdownContextProvider
+    definitionMap={definitionMap}
+    footnoteDefinitionMap={footnoteDefinitionMap}
+  >
+    <YozoraMarkdown ast={ast} />
+    <YozoraImagePreviewer ImageViewer={Viewer} />
+  </YozoraMarkdownContextProvider>
 </MathJaxProvider>
 ```
 

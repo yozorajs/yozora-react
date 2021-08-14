@@ -20,6 +20,7 @@
     "clsx",
     "downlevel",
     "esnext",
+    "funcs",
     "gitmoji",
     "graphviz",
     "grayscale",

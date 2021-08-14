@@ -86,17 +86,22 @@ This component is designed to render data of [@yozora/ast][].
 
   ```tsx
   import loadable from '@loadable/component'
-  import Markdown, { MathJaxProvider } from '@yozora/react-markdown'
+  import { 
+    YozoraImagePreviewer,
+    YozoraMarkdown, 
+    YozoraMarkdownContextProvider, 
+  } from '@yozora/react-markdown'
   import '@yozora/react-markdown/lib/esm/index.css'
 
   const Viewer = loadable(() => import('react-viewer'))
 
-  <MathJaxProvider>
-    <Markdown 
-      Viewer={Viewer}
-      {...otherProps} 
-    />
-  </MathJaxProvider>
+  <YozoraMarkdownContextProvider
+    definitionMap={definitionMap}
+    footnoteDefinitionMap={footnoteDefinitionMap}
+  >
+    <YozoraMarkdown ast={ast} />
+    <YozoraImagePreviewer ImageViewer={Viewer} />
+  </YozoraMarkdownContextProvider>
   ```
 
 * In additional, if you want to render a markdown source contents from scratch, 
@@ -115,7 +120,10 @@ This component is designed to render data of [@yozora/ast][].
   ```typescript
   import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
   import YozoraParser from '@yozora/parser'
-  import Markdown, { MathJaxProvider } from '@yozora/react-markdown'
+  import { 
+    YozoraMarkdown, 
+    YozoraMarkdownContextProvider, 
+  } from '@yozora/react-markdown
   import '@yozora/react-markdown/lib/esm/index.css'
 
   const parser = new YozoraParser({
@@ -126,53 +134,35 @@ This component is designed to render data of [@yozora/ast][].
   const definitionMap = calcDefinitionMap(ast)
   const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
-  <MathJaxProvider>
-    <Markdown 
-      ast={ast} 
-      definitionMap={definitionMap} 
-      footnoteDefinitionMap={footnoteDefinitionMap} 
-      {...otherProps} 
-    />
+  <YozoraMarkdownContextProvider
+    definitionMap={definitionMap}
+    footnoteDefinitionMap={footnoteDefinitionMap}
+  >
+    <YozoraMarkdown ast={ast} />
+  </YozoraMarkdownContextProvider>
+  ```
+
+* Render formula with mathjax.
+
+  ```tsx
+  import { 
+    MathJaxProvider,
+    YozoraMarkdown, 
+    YozoraMarkdownContextProvider, 
+  } from '@yozora/react-markdown'
+  import '@yozora/react-markdown/lib/esm/index.css'
+
+  <MathJaxProvider
+    <YozoraMarkdownContextProvider
+      definitionMap={definitionMap}
+      footnoteDefinitionMap={footnoteDefinitionMap}
+    >
+      <YozoraMarkdown ast={ast} />
+    </YozoraMarkdownContextProvider>
   </MathJaxProvider>
   ```
 
-### Demo
-
-* Basic:
-
-  ```tsx
-  import React from 'react'
-  import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
-  import loadable from '@loadable/component'
-  import YozoraParser from '@yozora/parser'
-  import Markdown, { MathJaxProvider } from '@yozora/react-markdown'
-  import '@yozora/react-markdown/lib/esm/index.css'
-
-  const Viewer = loadable(() => import('react-viewer'))
-
-  const parser = new YozoraParser({
-    defaultParseOptions: { shouldReservePosition: false },
-  })
-
-  const sourceContents = `markdown contents`
-  const ast = parser.parse(sourceContents)
-
-  const definitionMap = calcDefinitionMap(ast)
-  const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
-
-  const wrapper = (
-    <MathJaxProvider mathjaxSrc="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-      <Markdown 
-        ast={ast} 
-        definitionMap={definitionMap} 
-        footnoteDefinitionMap={footnoteDefinitionMap}
-        Viewer={Viewer}
-      />
-    </MathJaxProvider>
-  )
-  ```
-
-* Customize renderer map:
+* Custom renderer map.
 
   ```tsx
   import React from 'react'
@@ -182,7 +172,12 @@ This component is designed to render data of [@yozora/ast][].
   import YozoraParser from '@yozora/parser'
   import type { LinkProps } from '@yozora/react-link'
   import type { TokenRendererMap } from '@yozora/react-markdown'
-  import Markdown from '@yozora/react-markdown'
+  import { 
+    MathJaxProvider,
+    YozoraMarkdown, 
+    YozoraMarkdownContext,
+    YozoraMarkdownContextProvider, 
+  } from '@yozora/react-markdown'
   import '@yozora/react-markdown/lib/esm/index.css'
 
   const parser = new YozoraParser({
@@ -194,34 +189,45 @@ This component is designed to render data of [@yozora/ast][].
   const definitionMap = calcDefinitionMap(ast)
   const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
   const customRendererMap: Partial<TokenRendererMap> = {
-    [LinkType]: function renderLink(link, key, ctx) {
+    [LinkType]: function CustomLinkRenderer(link) {
       const { url, title } = link
       return (
-        <InternalLink key={key} url={url} title={title}>
-          {ctx.renderNodes(link.children)}
-        </InternalLink>
+        <YozoraMarkdownContext.Consumer>
+          {({ renderYozoraNodes }) => (
+            <InternalLink url={url} title={title}>
+              {renderYozoraNodes(link.children)}
+            </InternalLink>
+          )}
+        </YozoraMarkdownContext.Consumer>
       )
     },
     [LinkReferenceType]: function renderLinkReference(linkReference, key, ctx) {
-      const definition: Omit<Definition, 'type'> =
-        ctx.getDefinition(linkReference.identifier) ?? ({} as any)
-      const { url = '', title } = definition
       return (
-        <InternalLink key={key} url={url} title={title}>
-          {ctx.renderNodes(linkReference.children)}
-        </InternalLink>
+        <YozoraMarkdownContext.Consumer>
+          {({ getDefinition, renderYozoraNodes }) => {
+            const definition = getDefinition(linkReference.identifier)
+            const url: string = definition?.url ?? ''
+            const title: string | undefined = definition?.title
+            return (
+              <InternalLink url={url} title={title}>
+                {renderYozoraNodes(linkReference.children)}
+              </InternalLink>
+            )
+          }}
+        </YozoraMarkdownContext.Consumer>
       )
     },
   }
 
   const wrapper = (
-    <MathJaxProvider>
-      <Markdown 
-        rendererMap={customRendererMap} 
-        definitionMap={definitionMap} 
+    <MathJaxProvider mathjaxSrc="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+      <YozoraMarkdownContextProvider
+        definitionMap={definitionMap}
         footnoteDefinitionMap={footnoteDefinitionMap}
-        ast={ast} 
-      />
+        customRendererMap={customRendererMap}
+      >
+        <Markdown ast={ast} />
+      </YozoraMarkdownContextProvider>
     </MathJaxProvider>
   )
 
@@ -241,21 +247,152 @@ This component is designed to render data of [@yozora/ast][].
   }
   ```
 
+* Custom code renderer.
+
+  ```tsx
+  import type {
+    CodeRunnerItem,
+    CodeRunnerProps,
+    CodeRunnerScope,
+  } from '@yozora/react-code'
+  import MathRenderer from '@yozora/react-math'
+  import type { Engine } from 'd3-graphviz'
+  import React from 'react'
+
+  <YozoraMarkdownContextProvider
+    definitionMap={definitionMap}
+    footnoteDefinitionMap={footnoteDefinitionMap}
+    codeRunners={codeRunners}
+  >
+    <YozoraMarkdown ast={ast} />
+  </YozoraMarkdownContextProvider>
+
+  const codeRunners: CodeRunnerItem[] = [
+    {
+      title: 'graphviz',
+      pattern: /^graphviz|dot$/,
+      runner: function GraphvizRunner(
+        props: CodeRunnerProps,
+      ): React.ReactElement {
+        const { value, meta = {}, onError } = props
+        return (
+          <GraphvizRenderer
+            code={value}
+            engine={meta.engine as Engine}
+            onError={onError}
+          />
+        )
+      },
+    },
+    {
+      title: 'math',
+      pattern: /^tex|latex|math|mathjax$/,
+      runner: function MathJaxRunner(
+        props: CodeRunnerProps,
+      ): React.ReactElement {
+        const value = props.value
+          .replace(/^[\s\n]*([$]+)([\s\S]+)*\1[\s\n]*$/, '$2')
+          .trim()
+        return <MathRenderer value={value} />
+      },
+    },
+  ]
+  ```
+
+
 ### Props
 
+* YozoraMarkdownProvider
 
-Name                        | Type                  | Required  | Default | Description
-:--------------------------:|:---------------------:|:---------:|:-------:|:-------------
-`ast`                       | See below             | `true`    | -       | Root node of [@yozora/ast][]
-`className`                 | `string`              | `false`   | -       | Root css class
-`codeRunners`               | See below             | `false`   | -       | Code runners, passed to [@yozora/react-code-embed][] and [@yozora/react-code-live][] 
-`darken`                    | `boolean`             | `false`   | -       | Enable the darken mode
-`definitionMap`             | See below             | `true`    | -       | Link / Image reference definitions
-`footnoteDefinitionMap`     | See below             | `true`    | -       | Footnote reference definitions
-`footnoteDefinitionsTitle`  | `React.ReactNode`     | `false`   | -       | Title of the footnote definitions
-`rendererMap`               | See below             | `false`   | -       | [@yozora/ast] renderer map
-`style`                     | `React.CSSProperties` | `false`   | -       | Root css style
-`Viewer`                    | [react-viewer][]      | `false`   | -       | Image previewer
+
+  Name                        | Type                  | Required  | Default | Description
+  :--------------------------:|:---------------------:|:---------:|:-------:|:-------------
+  `codeRunners`               | See below             | `false`   | -       | Code runners, passed to [@yozora/react-code-embed][] and [@yozora/react-code-live][] 
+  `darken`                    | `boolean`             | `false`   | -       | Enable the darken mode
+  `definitionMap`             | See below             | `true`    | -       | Link / Image reference definitions
+  `footnoteDefinitionMap`     | See below             | `true`    | -       | Footnote reference definitions
+  `customRendererMap`         | See below             | `false`   | -       | [@yozora/ast] renderer map
+  `children`                  | `React.ReactNode`     | `true`    | -       | Descendant elements.
+
+* YozoraMarkdown
+
+  Name                        | Type                  | Required  | Default | Description
+  :--------------------------:|:---------------------:|:---------:|:-------:|:-------------
+  `ast`                       | See below             | `true`    | -       | Root node of [@yozora/ast][]
+  `className`                 | `string`              | `false`   | -       | Root css class
+  `footnoteDefinitionsTitle`  | `React.ReactNode`     | `false`   | -       | Title of the footnote definitions
+  `style`                     | `React.CSSProperties` | `false`   | -       | Root css style
+
+* YozoraMarkdownContext
+
+  - YozoraMarkdownContextData 
+
+    ```typescript
+    /**
+     * Data type provided by YozoraMarkdownContext.
+     */
+    export interface YozoraMarkdownContextData {
+      /**
+       * Whether if to enable the dark mode.
+       */
+      darken: boolean
+      /**
+       * Code runners.
+       */
+      codeRunners: ReadonlyArray<CodeRunnerItem>
+      /**
+       * Image items.
+       */
+      images: PreviewImageItem[]
+      /**
+       * Whether if the image viewer is visible.
+       */
+      imageViewerVisible: boolean
+      /**
+       * Index of the current previewing image.
+       */
+      activatedImageIndex: number
+    }
+    ```
+
+  - YozoraMarkdownContextState
+
+    ```typescript
+    /**
+     * Side-effect funcs provided by the YozoraMarkdownContext
+     */
+    export interface YozoraMarkdownContextState extends YozoraMarkdownContextData {
+      /**
+       * Update the context data.
+       */
+      dispatch: React.Dispatch<
+        React.SetStateAction<Partial<Omit<YozoraMarkdownContextData, 'dispatch'>>>
+      >
+      /**
+       * Get link / image reference definition through the given identifier.
+       * @param identifier
+       */
+      getDefinition(identifier: string): Readonly<Definition> | undefined
+      /**
+       * Get all of footnote reference definitions.
+       */
+      getFootnoteDefinitions(): ReadonlyArray<FootnoteDefinition>
+      /**
+       * Add a preview image item.
+       * @param item
+       * @returns callback funcs to toggle the visible state of images.
+       */
+      addPreviewImage(item: PreviewImageItem): (visible?: boolean) => void
+      /**
+       * Render yozora AST nodes into React nodes.
+       * @param children
+       */
+      renderYozoraNodes(yozoraNodes?: YastNode[]): React.ReactNode[]
+    }
+    ```
+
+
+### Params
 
 * `ast`: 
 
@@ -296,11 +433,11 @@ Name                        | Type                  | Required  | Default | Desc
   const definitionMap = calcFootnoteDefinitionMap(ast)
   ```
 
-* `rendererMap`: 
+* `customRendererMap`: 
 
   ```typescript
   import type { TokenRendererMap } from '@yozora/react-markdown'
-  const rendererMap: Partial<TokenRendererMap>
+  const customRendererMap: Partial<TokenRendererMap>
   ```
 
 * `Viewer`
