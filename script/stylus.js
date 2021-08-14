@@ -3,7 +3,7 @@ const path = require('path')
 
 function createFromDefault(defaultItem) {
   const stylusDefaultVariableRegex =
-    /^(\$default(?:--([\w\-]+?))?__([\w\-]+))\s*=/
+    /^(\$default(?:--([\w-]+?))?__([\w-]+))\s*=/
   const match = stylusDefaultVariableRegex.exec(defaultItem)
   if (match == null) throw new Error(`Cannot resolve item ${defaultItem}`)
   const [, p1, p2, p3] = match
