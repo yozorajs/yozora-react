@@ -27,11 +27,10 @@ import {
   TextType,
   ThematicBreakType,
 } from '@yozora/ast'
-import type { Definition, Image, ImageReference } from '@yozora/ast'
+import type { Image, ImageReference } from '@yozora/ast'
 import AdmonitionRenderer from '@yozora/react-admonition'
 import BlockquoteRenderer from '@yozora/react-blockquote'
 import BreakRenderer from '@yozora/react-break'
-import type { CodeRunnerItem } from '@yozora/react-code'
 import CodeRenderer from '@yozora/react-code'
 import DeleteRenderer from '@yozora/react-delete'
 import EmphasisRenderer from '@yozora/react-emphasis'
@@ -57,277 +56,287 @@ import type { TokenRendererMap } from './types'
  * Create a markdown renderer map.
  */
 export function useYozoraRendererMap(
-  customRendererMap?: Partial<TokenRendererMap>,
-  codeRunners?: ReadonlyArray<CodeRunnerItem>,
-): TokenRendererMap {
-  const rendererMap: TokenRendererMap = useMemo<TokenRendererMap>(
-    () => ({
-      [AdmonitionType]: function renderAdmonition(admonition, key, ctx) {
-        const title = ctx.renderNodes(admonition.title)
-        return (
-          <AdmonitionRenderer
-            key={key}
-            keyword={admonition.keyword}
-            title={title}
-          >
-            {ctx.renderNodes(admonition.children)}
-          </AdmonitionRenderer>
-        )
-      },
-      [BlockquoteType]: function renderBlockquote(blockquote, key, ctx) {
-        return (
-          <BlockquoteRenderer key={key}>
-            {ctx.renderNodes(blockquote.children)}
-          </BlockquoteRenderer>
-        )
-      },
-      [BreakType]: function renderBreak(o, key) {
-        return <BreakRenderer key={key} />
-      },
-      [CodeType]: function renderCode(code, key, ctx) {
-        const { lang, value, meta } = code
+  customRendererMap?: Readonly<Partial<TokenRendererMap>>,
+): Readonly<TokenRendererMap> {
+  const rendererMap: TokenRendererMap = useMemo<TokenRendererMap>(() => {
+    if (customRendererMap == null) return defaultYozoraRendererMap
 
-        // Remove trailing line endings.
-        const formattedValue = value.replace(/[\r\n]*$/, '')
-        return (
-          <YozoraMarkdownContext.Consumer key={key}>
-            {({ darken }) => (
-              <CodeRenderer
-                lang={lang}
-                value={formattedValue}
-                meta={meta}
-                runners={codeRunners}
-                darken={darken}
-              />
-            )}
-          </YozoraMarkdownContext.Consumer>
-        )
-      },
-      [DeleteType]: function renderDelete(_delete, key, ctx) {
-        return (
-          <DeleteRenderer key={key}>
-            {ctx.renderNodes(_delete.children)}
-          </DeleteRenderer>
-        )
-      },
-      [DefinitionType]: () => null,
-      [EmphasisType]: function renderEmphasis(emphasis, key, ctx) {
-        return (
-          <EmphasisRenderer key={key}>
-            {ctx.renderNodes(emphasis.children)}
-          </EmphasisRenderer>
-        )
-      },
-      [EcmaImportType]: () => null,
-      [FootnoteDefinitionType]: () => null,
-      [FootnoteType]: () => null,
-      [FootnoteReferenceType]: function renderFootnoteReference(
-        footnoteReference,
-        key,
-      ) {
-        const { identifier, label } = footnoteReference
-        return (
-          <FootnoteReferenceRenderer
-            key={key}
-            identifier={identifier}
-            label={label}
-          />
-        )
-      },
-      [HeadingType]: function renderHeading(heading, key, ctx) {
-        const { depth, identifier } = heading
-        return (
-          <HeadingRenderer key={key} identifier={identifier} level={depth}>
-            {ctx.renderNodes(heading.children)}
-          </HeadingRenderer>
-        )
-      },
-      [HtmlType]: function renderHtml(html, key, ctx) {
-        return null
-      },
-      [ImageType]: function renderImage(image, key, ctx) {
-        const {
-          url: src,
-          alt,
-          title,
-          srcSet,
-          sizes,
-          loading,
-        } = image as Image & React.ImgHTMLAttributes<HTMLElement>
+    let changedFlag = false
+    const result: TokenRendererMap = {} as unknown as TokenRendererMap
+    for (const [key, val] of Object.entries(customRendererMap)) {
+      if (val == null) continue
 
-        const toggleImageViewerVisible = ctx.addPreviewImage({
-          src,
-          alt,
-        })
-        return (
-          <ImageRenderer
-            key={key}
-            src={src}
-            alt={alt}
-            title={title}
-            srcSet={srcSet}
-            sizes={sizes}
-            loading={loading}
-            onClick={() => toggleImageViewerVisible(true)}
-          />
-        )
-      },
-      [ImageReferenceType]: function renderImageReference(
-        imageReference,
-        key,
-        ctx,
-      ) {
-        const definition: Omit<Definition, 'type'> =
-          ctx.getDefinition(imageReference.identifier) ?? ({} as any)
+      changedFlag = true
+      result[key] = val
+    }
 
-        const {
-          alt,
-          src = definition.url,
-          title = definition.title,
-          srcSet,
-          sizes,
-          loading,
-        } = imageReference as ImageReference &
-          React.ImgHTMLAttributes<HTMLElement>
-
-        const toggleImageViewerVisible = ctx.addPreviewImage({
-          src,
-          alt,
-        })
-        return (
-          <ImageRenderer
-            key={key}
-            src={src}
-            title={title}
-            alt={alt}
-            srcSet={srcSet}
-            sizes={sizes}
-            loading={loading}
-            onClick={() => toggleImageViewerVisible(true)}
-          />
-        )
-      },
-      [InlineCodeType]: function renderInlineCode(inlineCode, key) {
-        const { value } = inlineCode
-        return <InlineCodeRenderer key={key} value={value} />
-      },
-      [InlineMathType]: function renderInlineMath(inlineMath, key) {
-        const { value } = inlineMath
-        return <InlineMathRenderer key={key} value={value} />
-      },
-      [LinkType]: function renderLink(link, key, ctx) {
-        const { url, title } = link
-        return (
-          <LinkRenderer key={key} url={url} title={title}>
-            {ctx.renderNodes(link.children)}
-          </LinkRenderer>
-        )
-      },
-      [LinkReferenceType]: function renderLinkReference(
-        linkReference,
-        key,
-        ctx,
-      ) {
-        const definition: Omit<Definition, 'type'> =
-          ctx.getDefinition(linkReference.identifier) ?? ({} as any)
-        const { url = '', title } = definition
-        return (
-          <LinkRenderer key={key} url={url} title={title}>
-            {ctx.renderNodes(linkReference.children)}
-          </LinkRenderer>
-        )
-      },
-      [ListType]: function renderList(list, key, ctx) {
-        const { ordered, orderType, start } = list
-        return (
-          <ListRenderer
-            key={key}
-            ordered={ordered}
-            start={start}
-            orderType={orderType}
-          >
-            {ctx.renderNodes(list.children)}
-          </ListRenderer>
-        )
-      },
-      [ListItemType]: function renderListItem(listItem, key, ctx) {
-        const { status } = listItem
-        return (
-          <ListItemRenderer key={key} status={status}>
-            {ctx.renderNodes(listItem.children)}
-          </ListItemRenderer>
-        )
-      },
-      [MathType]: function renderMath(math, key) {
-        const { value } = math
-        return <MathRenderer key={key} value={value} />
-      },
-      [ParagraphType]: function renderParagraph(paragraph, key, ctx) {
-        const className = undefined
-
-        // If there are some image / imageReferences element in the paragraph,
-        // then wrapper the content with div to avoid the warnings such as:
-        //
-        //  validateDOMNesting(...): <figure> cannot appear as a descendant of <p>.
-        const { children } = paragraph
-        if (
-          children.some(
-            child =>
-              child.type === ImageType || child.type === ImageReferenceType,
-          )
-        ) {
-          return (
-            <div
-              key={key}
-              className="yozora-paragraph yozora-paragraph--display"
-            >
-              {ctx.renderNodes(paragraph.children)}
-            </div>
-          )
-        }
-
-        return (
-          <ParagraphRenderer key={key} className={className}>
-            {ctx.renderNodes(paragraph.children)}
-          </ParagraphRenderer>
-        )
-      },
-      [StrongType]: function renderStrong(strong, key, ctx) {
-        return (
-          <StrongRenderer key={key}>
-            {ctx.renderNodes(strong.children)}
-          </StrongRenderer>
-        )
-      },
-      [TableType]: function renderTable(table, key, ctx) {
-        const { columns, children: rows } = table
-        const tableRows: React.ReactNode[][] = rows.map(row =>
-          row.children.map(node => ctx.renderNodes(node.children)),
-        )
-
-        const [ths, ...tds] = tableRows
-        const aligns = columns.map(col => col.align ?? undefined)
-        return <TableRenderer key={key} aligns={aligns} ths={ths} tds={tds} />
-      },
-      [TextType]: function renderText(text, key) {
-        const { value } = text
-        return <TextRenderer key={key} value={value} />
-      },
-      [ThematicBreakType]: function renderThematicBreak(thematicBreak, key) {
-        return <ThematicBreakRenderer key={key} />
-      },
-      _fallback: function renderFallback(node, key) {
-        console.warn(
-          `Cannot find render for \`${node.type}\` type node with key \`${key}\`:`,
-          node,
-        )
-        return null
-      },
-      ...customRendererMap,
-    }),
-    [customRendererMap, codeRunners],
-  )
+    return changedFlag
+      ? { ...defaultYozoraRendererMap, ...result }
+      : defaultYozoraRendererMap
+  }, [customRendererMap])
   return rendererMap
 }
 
 export default useYozoraRendererMap
+
+/**
+ * Default yozora renderer map.
+ */
+export const defaultYozoraRendererMap: Readonly<TokenRendererMap> = {
+  [AdmonitionType]: function YozoraReactAdmonition(admonition) {
+    return (
+      <YozoraMarkdownContext.Consumer>
+        {({ renderYozoraNodes }) => (
+          <AdmonitionRenderer
+            keyword={admonition.keyword}
+            title={renderYozoraNodes(admonition.title)}
+          >
+            {renderYozoraNodes(admonition.children)}
+          </AdmonitionRenderer>
+        )}
+      </YozoraMarkdownContext.Consumer>
+    )
+  },
+  [BlockquoteType]: function YozoraReactBlockquote(blockquote) {
+    return (
+      <YozoraMarkdownContext.Consumer>
+        {({ renderYozoraNodes }) => (
+          <BlockquoteRenderer>
+            {renderYozoraNodes(blockquote.children)}
+          </BlockquoteRenderer>
+        )}
+      </YozoraMarkdownContext.Consumer>
+    )
+  },
+  [BreakType]: BreakRenderer as React.FC,
+  [CodeType]: function YozoraReactCode(code) {
+    const { lang, value, meta } = code
+
+    // Remove trailing line endings.
+    const formattedValue = value.replace(/[\r\n]*$/, '')
+    return (
+      <YozoraMarkdownContext.Consumer>
+        {({ darken, codeRunners }) => (
+          <CodeRenderer
+            lang={lang}
+            value={formattedValue}
+            meta={meta}
+            runners={codeRunners}
+            darken={darken}
+          />
+        )}
+      </YozoraMarkdownContext.Consumer>
+    )
+  },
+  [DeleteType]: function YozoraReactDelete(_delete) {
+    return (
+      <YozoraMarkdownContext.Consumer>
+        {({ renderYozoraNodes }) => (
+          <DeleteRenderer>{renderYozoraNodes(_delete.children)}</DeleteRenderer>
+        )}
+      </YozoraMarkdownContext.Consumer>
+    )
+  },
+  [DefinitionType]: () => null,
+  [EmphasisType]: function YozoraReactEmphasis(emphasis) {
+    return (
+      <YozoraMarkdownContext.Consumer>
+        {({ renderYozoraNodes }) => (
+          <EmphasisRenderer>
+            {renderYozoraNodes(emphasis.children)}
+          </EmphasisRenderer>
+        )}
+      </YozoraMarkdownContext.Consumer>
+    )
+  },
+  [EcmaImportType]: () => null,
+  [FootnoteDefinitionType]: () => null,
+  [FootnoteType]: () => null,
+  [FootnoteReferenceType]: FootnoteReferenceRenderer,
+  [HeadingType]: function YozoraReactHeading(heading) {
+    const { depth, identifier } = heading
+    return (
+      <YozoraMarkdownContext.Consumer>
+        {({ renderYozoraNodes }) => (
+          <HeadingRenderer identifier={identifier} level={depth}>
+            {renderYozoraNodes(heading.children)}
+          </HeadingRenderer>
+        )}
+      </YozoraMarkdownContext.Consumer>
+    )
+  },
+  [HtmlType]: () => null,
+  [ImageType]: function YozoraReactImage(image) {
+    const {
+      url: src,
+      alt,
+      title,
+      srcSet,
+      sizes,
+      loading,
+    } = image as Image & React.ImgHTMLAttributes<HTMLElement>
+
+    return (
+      <YozoraMarkdownContext.Consumer>
+        {({ addPreviewImage }) => {
+          const toggleImageViewerVisible = addPreviewImage({ src, alt })
+          return (
+            <ImageRenderer
+              src={src}
+              alt={alt}
+              title={title}
+              srcSet={srcSet}
+              sizes={sizes}
+              loading={loading}
+              onClick={() => toggleImageViewerVisible(true)}
+            />
+          )
+        }}
+      </YozoraMarkdownContext.Consumer>
+    )
+  },
+  [ImageReferenceType]: function YozoraReactImageReference(imageReference) {
+    const { alt, srcSet, sizes, loading } = imageReference as ImageReference &
+      React.ImgHTMLAttributes<HTMLElement>
+
+    return (
+      <YozoraMarkdownContext.Consumer>
+        {({ getDefinition, addPreviewImage }) => {
+          const definition = getDefinition(imageReference.identifier)
+          const src: string = definition?.url ?? ''
+          const title: string | undefined = definition?.title
+          const toggleImageViewerVisible = addPreviewImage({ src, alt })
+
+          return (
+            <ImageRenderer
+              src={src}
+              title={title}
+              alt={alt}
+              srcSet={srcSet}
+              sizes={sizes}
+              loading={loading}
+              onClick={() => toggleImageViewerVisible(true)}
+            />
+          )
+        }}
+      </YozoraMarkdownContext.Consumer>
+    )
+  },
+  [InlineCodeType]: InlineCodeRenderer,
+  [InlineMathType]: InlineMathRenderer,
+  [LinkType]: function YozoraReactLink(link) {
+    const { url, title } = link
+    return (
+      <YozoraMarkdownContext.Consumer>
+        {({ renderYozoraNodes }) => (
+          <LinkRenderer url={url} title={title}>
+            {renderYozoraNodes(link.children)}
+          </LinkRenderer>
+        )}
+      </YozoraMarkdownContext.Consumer>
+    )
+  },
+  [LinkReferenceType]: function YozoraReactLinkReference(linkReference) {
+    return (
+      <YozoraMarkdownContext.Consumer>
+        {({ renderYozoraNodes, getDefinition }) => {
+          const definition = getDefinition(linkReference.identifier)
+          const url: string = definition?.url ?? ''
+          const title: string | undefined = definition?.title
+          return (
+            <LinkRenderer url={url} title={title}>
+              {renderYozoraNodes(linkReference.children)}
+            </LinkRenderer>
+          )
+        }}
+      </YozoraMarkdownContext.Consumer>
+    )
+  },
+  [ListType]: function YozoraReactList(list) {
+    const { ordered, orderType, start } = list
+    return (
+      <YozoraMarkdownContext.Consumer>
+        {({ renderYozoraNodes }) => (
+          <ListRenderer ordered={ordered} start={start} orderType={orderType}>
+            {renderYozoraNodes(list.children)}
+          </ListRenderer>
+        )}
+      </YozoraMarkdownContext.Consumer>
+    )
+  },
+  [ListItemType]: function YozoraReactListItem(listItem) {
+    const { status } = listItem
+    return (
+      <YozoraMarkdownContext.Consumer>
+        {({ renderYozoraNodes }) => (
+          <ListItemRenderer status={status}>
+            {renderYozoraNodes(listItem.children)}
+          </ListItemRenderer>
+        )}
+      </YozoraMarkdownContext.Consumer>
+    )
+  },
+  [MathType]: MathRenderer,
+  [ParagraphType]: function YozoraReactParagraph(paragraph) {
+    const className = undefined
+
+    // If there are some image / imageReferences element in the paragraph,
+    // then wrapper the content with div to avoid the warnings such as:
+    //
+    //  validateDOMNesting(...): <figure> cannot appear as a descendant of <p>.
+    const { children } = paragraph
+
+    const notValidParagraph: boolean = children.some(
+      child => child.type === ImageType || child.type === ImageReferenceType,
+    )
+    return (
+      <YozoraMarkdownContext.Consumer>
+        {({ renderYozoraNodes }) =>
+          notValidParagraph ? (
+            <div className="yozora-paragraph yozora-paragraph--display">
+              {renderYozoraNodes(paragraph.children)}
+            </div>
+          ) : (
+            <ParagraphRenderer className={className}>
+              {renderYozoraNodes(paragraph.children)}
+            </ParagraphRenderer>
+          )
+        }
+      </YozoraMarkdownContext.Consumer>
+    )
+  },
+  [StrongType]: function YozoraReactStrong(strong) {
+    return (
+      <YozoraMarkdownContext.Consumer>
+        {({ renderYozoraNodes }) => (
+          <StrongRenderer>{renderYozoraNodes(strong.children)}</StrongRenderer>
+        )}
+      </YozoraMarkdownContext.Consumer>
+    )
+  },
+  [TableType]: function YozoraReactTable(table) {
+    const { columns, children: rows } = table
+    return (
+      <YozoraMarkdownContext.Consumer>
+        {({ renderYozoraNodes }) => {
+          const tableRows: React.ReactNode[][] = rows.map(row =>
+            row.children.map(node => renderYozoraNodes(node.children)),
+          )
+
+          const [ths, ...tds] = tableRows
+          const aligns = columns.map(col => col.align ?? undefined)
+          return <TableRenderer aligns={aligns} ths={ths} tds={tds} />
+        }}
+      </YozoraMarkdownContext.Consumer>
+    )
+  },
+  [TextType]: TextRenderer,
+  [ThematicBreakType]: ThematicBreakRenderer as React.FC,
+  _fallback: function YozoraReactFallback(node, key) {
+    console.warn(
+      `Cannot find render for \`${node.type}\` type node with key \`${key}\`:`,
+      node,
+    )
+    return null
+  },
+}

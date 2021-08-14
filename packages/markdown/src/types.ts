@@ -54,66 +54,11 @@ import type {
 import type React from 'react'
 
 /**
- * Preview image item.
- */
-export interface PreviewImageItem {
-  /**
-   * Image url
-   */
-  src: string
-  /**
-   * Alt of image.
-   */
-  alt: string
-}
-
-/**
- * Api for managing preview images.
- */
-export interface PreviewImageApi {
-  /**
-   * Add a preview image item.
-   * @param item
-   * @returns callback funcs to toggle the visible state of images.
-   */
-  addPreviewImage(item: PreviewImageItem): (visible: boolean) => void
-}
-
-/**
- * Context of TokenRenderer
- */
-export interface TokenRendererContext {
-  /**
-   * Render child nodes.
-   * @param children
-   */
-  renderNodes(nodes?: YastNode[]): React.ReactNode[]
-  /**
-   * Get link / image reference definition through the given identifier.
-   * @param identifier
-   */
-  getDefinition(identifier: string): Readonly<Definition>
-  /**
-   * Get footnote reference definition through the give identifier.
-   * @param identifier
-   */
-  getFootnoteDefinition(identifier: string): Readonly<FootnoteDefinition>
-  /**
-   * Add a preview image item.
-   * @param item
-   * @returns callback funcs to toggle the visible state of images.
-   */
-  addPreviewImage(item: PreviewImageItem): (visible: boolean) => void
-}
-
-/**
  * Renderer for Yozora markdown AST node.
  */
-export type TokenRenderer<T extends YastNode = YastNode> = (
-  node: T,
-  key: string | number,
-  ctx: TokenRendererContext,
-) => React.ReactNode
+export type TokenRenderer<T extends YastNode = YastNode> =
+  | React.FC<T>
+  | React.ComponentClass<T>
 
 /**
  * Renderer map.
@@ -149,6 +94,32 @@ export interface TokenRendererMap {
 }
 
 /**
+ * Preview image item.
+ */
+export interface PreviewImageItem {
+  /**
+   * Image url
+   */
+  src: string
+  /**
+   * Alt of image.
+   */
+  alt: string
+}
+
+/**
+ * Api for managing preview images.
+ */
+export interface PreviewImageApi {
+  /**
+   * Add a preview image item.
+   * @param item
+   * @returns callback funcs to toggle the visible state of images.
+   */
+  addPreviewImage(item: PreviewImageItem): (visible: boolean) => void
+}
+
+/**
  * Props of ImageViewer
  * @see https://github.com/infeng/react-viewer#props
  */
@@ -160,7 +131,7 @@ export interface ImageViewerProps {
   /**
    * Image items.
    */
-  images: Array<{ src: string; alt: string }>
+  images: PreviewImageItem[]
   /**
    * Current activated index of image.
    */
