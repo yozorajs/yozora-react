@@ -48,6 +48,7 @@ export const Code: React.FC<CodeProps> = props => {
     value,
     meta: infoString,
     runners = defaultRunners,
+    darken,
     className,
     style,
   } = props
@@ -71,6 +72,7 @@ export const Code: React.FC<CodeProps> = props => {
             title={title}
             maxLines={maxlines}
             collapsed={collapsed}
+            darken={darken}
             className={className}
             style={style}
           />
@@ -105,6 +107,7 @@ export const Code: React.FC<CodeProps> = props => {
         highlightLinenos={highlights}
         maxLines={maxlines}
         collapsed={collapsed}
+        darken={darken}
         className={className}
         style={style}
       />
@@ -117,6 +120,7 @@ Code.propTypes = {
   meta: PropTypes.string,
   runners: PropTypes.array,
   value: PropTypes.string.isRequired,
+  darken: PropTypes.bool,
   className: PropTypes.string,
   style: PropTypes.object,
 }

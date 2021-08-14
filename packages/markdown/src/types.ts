@@ -164,7 +164,7 @@ export interface ImageViewerProps {
   /**
    * Current activated index of image.
    */
-  activeIndex: number
+  activeIndex?: number
   /**
    * Callback functions when close the image viewer.
    */
@@ -173,15 +173,4 @@ export interface ImageViewerProps {
    * callback function when mask is clicked
    */
   onMaskClick(): void
-}
-
-export interface ImageViewerState {
-  /**
-   * Whether if the image viewer is visible.
-   */
-  visible: boolean
-  /**
-   * Current activated index of image.
-   */
-  activateIndex: number
 }

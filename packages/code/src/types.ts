@@ -22,6 +22,10 @@ export interface CodeProps {
    */
   runners?: ReadonlyArray<CodeRunnerItem>
   /**
+   * Enable darken mode.
+   */
+  darken?: boolean
+  /**
    * Root css class of the component.
    */
   className?: string

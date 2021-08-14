@@ -24,6 +24,7 @@ export const CodeLiteral: React.FC<CodeLiteralProps> = props => {
     highlightLinenos,
     maxLines,
     collapsed: _collapsed = false,
+    darken,
     className,
     style,
   } = props
@@ -74,6 +75,7 @@ export const CodeLiteral: React.FC<CodeLiteralProps> = props => {
             highlightLinenos={highlightLinenos}
             maxLines={maxLines}
             collapsed={collapsed}
+            darken={darken}
           />
         </pre>
       </code>
@@ -89,6 +91,7 @@ CodeLiteral.propTypes = {
   highlightLinenos: PropTypes.array,
   maxLines: PropTypes.number,
   collapsed: PropTypes.bool,
+  darken: PropTypes.bool,
   className: PropTypes.string,
   style: PropTypes.object,
 }

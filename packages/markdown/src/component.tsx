@@ -1,24 +1,14 @@
-import type {
-  Definition,
-  FootnoteDefinition,
-  Root,
-  YastNode,
-} from '@yozora/ast'
+import type { Definition, FootnoteDefinition, Root } from '@yozora/ast'
 import { collectFootnoteDefinitions } from '@yozora/ast-util'
 import type { CodeRunnerItem } from '@yozora/react-code'
 import YozoraFootnotesRenderer from '@yozora/react-footnote-definitions'
 import type { FootnoteItem } from '@yozora/react-footnote-definitions'
 import cn from 'clsx'
-import React, { useCallback, useMemo, useState } from 'react'
-import { createYozoraNodesRenderer } from './renderer'
-import { useRendererMap } from './renderer-map'
-import type {
-  ImageViewerProps,
-  ImageViewerState,
-  PreviewImageApi,
-  PreviewImageItem,
-  TokenRendererMap,
-} from './types'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import type { YozoraMarkdownContextData } from './Context'
+import { YozoraMarkdownContext, initialYozoraMarkdownContext } from './Context'
+import type { ImageViewerProps, TokenRendererMap } from './types'
+import useYozoraNodesRenderer from './useYozoraNodesRenderer'
 
 export interface MarkdownProps {
   /**
@@ -37,6 +27,10 @@ export interface MarkdownProps {
    * Title of the footnote definitions.
    */
   footnoteDefinitionsTitle?: React.ReactNode
+  /**
+   * Enable dark theme.
+   */
+  darken?: boolean
   /**
    * Root css class of the component.
    */
@@ -83,50 +77,28 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
     definitionMap,
     footnoteDefinitionMap,
     footnoteDefinitionsTitle,
+    darken,
     className,
     style,
     rendererMap: customRendererMap,
     codeRunners,
     Viewer,
   } = props
-  const [{ visible, activateIndex }, setImageViewerState] =
-    useState<ImageViewerState>({
-      visible: false,
-      activateIndex: -1,
-    })
-  const [images, setImages] = useState<Array<{ src: string; alt: string }>>([])
-  const handleToggleImageVisible = useCallback(() => {
-    setImageViewerState(state => ({
-      visible: !state.visible,
-      activateIndex: state.activateIndex,
-    }))
+
+  const [imageActivatedIndex, setImageActivatedIndex] = useState<number>(-1)
+  const renderNodes = useYozoraNodesRenderer({
+    definitionMap,
+    footnoteDefinitionMap,
+    customRendererMap,
+    codeRunners,
+    setImageActivatedIndex,
+  })
+
+  const handleCloseImageViewer = useCallback<() => void>(() => {
+    setImageActivatedIndex(-1)
   }, [])
 
-  const rendererMap = useRendererMap(customRendererMap, codeRunners)
-  const renderNodes = useMemo<(nodes: YastNode[]) => React.ReactNode[]>(() => {
-    const nextImages: PreviewImageItem[] = []
-    const previewImageApi: PreviewImageApi = {
-      addPreviewImage: ({ src, alt }) => {
-        const index: number = nextImages.length
-        nextImages.push({ src, alt })
-        return visible => setImageViewerState({ visible, activateIndex: index })
-      },
-    }
-
-    const renderNodes = createYozoraNodesRenderer(
-      rendererMap,
-      definitionMap,
-      footnoteDefinitionMap,
-      previewImageApi,
-    )
-
-    setImages(nextImages)
-    return renderNodes
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [rendererMap, definitionMap, footnoteDefinitionMap])
-
-  const children = useMemo<React.ReactNode[]>(
+  const { nodes: children, images } = useMemo(
     () => renderNodes(ast.children),
     [renderNodes, ast.children],
   )
@@ -144,20 +116,33 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
     )
   }, [renderNodes, footnoteDefinitionsTitle, ast])
 
+  // Markdown context.
+  const [context, setContext] = useState<YozoraMarkdownContextData>(
+    initialYozoraMarkdownContext,
+  )
+  useEffect(() => {
+    if (darken === undefined) return
+    setContext({ darken })
+  }, [darken])
+
   return (
-    <div className={cn('yozora-markdown', className)} style={style}>
-      <section>{children}</section>
-      <footer>{footnotes}</footer>
-      {Viewer != null && (
-        <Viewer
-          visible={visible}
-          images={images}
-          activeIndex={activateIndex}
-          onClose={handleToggleImageVisible}
-          onMaskClick={handleToggleImageVisible}
-        />
-      )}
-    </div>
+    <YozoraMarkdownContext.Provider value={context}>
+      <div className={cn('yozora-markdown', className)} style={style}>
+        <section>{children}</section>
+        <footer>{footnotes}</footer>
+        {Viewer != null && (
+          <Viewer
+            visible={imageActivatedIndex >= 0}
+            images={images}
+            activeIndex={
+              imageActivatedIndex < 0 ? undefined : imageActivatedIndex
+            }
+            onClose={handleCloseImageViewer}
+            onMaskClick={handleCloseImageViewer}
+          />
+        )}
+      </div>
+    </YozoraMarkdownContext.Provider>
   )
 }
 

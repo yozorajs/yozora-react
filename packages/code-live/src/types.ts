@@ -44,6 +44,11 @@ export interface CodeLiveProps {
    */
   collapsed?: boolean
   /**
+   * If true, use vscDarkTheme as default theme,
+   * otherwise use vscLightTheme as default theme.
+   */
+  darken?: boolean
+  /**
    * Root css class of the component.
    */
   className?: string
@@ -51,11 +56,6 @@ export interface CodeLiveProps {
    * Root css style.
    */
   style?: React.CSSProperties
-  /**
-   * If true, use vscDarkTheme as default theme,
-   * otherwise use vscLightTheme as default theme.
-   */
-  darken?: boolean
   /**
    * Code highlight theme.
    */

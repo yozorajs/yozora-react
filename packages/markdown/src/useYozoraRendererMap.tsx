@@ -50,12 +50,13 @@ import TableRenderer from '@yozora/react-table'
 import TextRenderer from '@yozora/react-text'
 import ThematicBreakRenderer from '@yozora/react-thematic-break'
 import React, { useMemo } from 'react'
+import { YozoraMarkdownContext } from './Context'
 import type { TokenRendererMap } from './types'
 
 /**
  * Create a markdown renderer map.
  */
-export function useRendererMap(
+export function useYozoraRendererMap(
   customRendererMap?: Partial<TokenRendererMap>,
   codeRunners?: ReadonlyArray<CodeRunnerItem>,
 ): TokenRendererMap {
@@ -89,13 +90,17 @@ export function useRendererMap(
         // Remove trailing line endings.
         const formattedValue = value.replace(/[\r\n]*$/, '')
         return (
-          <CodeRenderer
-            key={key}
-            lang={lang}
-            value={formattedValue}
-            meta={meta}
-            runners={codeRunners}
-          />
+          <YozoraMarkdownContext.Consumer key={key}>
+            {({ darken }) => (
+              <CodeRenderer
+                lang={lang}
+                value={formattedValue}
+                meta={meta}
+                runners={codeRunners}
+                darken={darken}
+              />
+            )}
+          </YozoraMarkdownContext.Consumer>
         )
       },
       [DeleteType]: function renderDelete(_delete, key, ctx) {
@@ -324,3 +329,5 @@ export function useRendererMap(
   )
   return rendererMap
 }
+
+export default useYozoraRendererMap
