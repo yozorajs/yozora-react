@@ -39,12 +39,6 @@
         src="https://img.shields.io/npm/dependency-version/@yozora/react-blockquote/peer/react"
       />
     </a>
-    <a href="https://github.com/styled-components/styled-components">
-      <img
-        alt="Styled-Components version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-blockquote/peer/styled-components"
-      />
-    </a>
     <a href="https://github.com/facebook/jest">
       <img
         alt="Tested with Jest"
@@ -63,6 +57,8 @@
 A monorepo contains react components render [Yozora AST Nodes][yozora/admonition]. See https://yozora.guanghechen.com for details.
 
 Use [@yozora/react-markdown][] to render the [@yozora/ast][yozora/ast].
+
+https://user-images.githubusercontent.com/42513619/129205123-6a1983c4-6a86-4c80-83d6-02bdbf70edbf.mp4
 
 ## Usage
 
