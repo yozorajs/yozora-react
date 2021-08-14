@@ -5,7 +5,7 @@ import cn from 'clsx'
 import React, { useContext, useMemo } from 'react'
 import { YozoraMarkdownContext } from './Context'
 
-export interface MarkdownProps {
+export interface YozoraMarkdownProps {
   /**
    * Root node of Yozora Markdown AST.
    */
@@ -30,7 +30,7 @@ export interface MarkdownProps {
  * @param props
  * @returns
  */
-export function YozoraMarkdown(props: MarkdownProps): React.ReactElement {
+export function YozoraMarkdown(props: YozoraMarkdownProps): React.ReactElement {
   const { darken, getFootnoteDefinitions, renderYozoraNodes } = useContext(
     YozoraMarkdownContext,
   )
