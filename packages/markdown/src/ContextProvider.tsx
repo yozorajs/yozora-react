@@ -1,3 +1,4 @@
+import { useDeepCompareCallback } from '@guanghechen/react-hooks'
 import type { Definition, FootnoteDefinition, YastNode } from '@yozora/ast'
 import type { CodeRunnerItem } from '@yozora/react-code'
 import PropTypes from 'prop-types'
@@ -88,12 +89,12 @@ export const YozoraMarkdownContextProvider: React.FC<YozoraMarkdownContextProvid
     )
 
     // Get link / image reference definition through the given identifier.
-    const getDefinition = useCallback<
+    const getDefinition = useDeepCompareCallback<
       YozoraMarkdownContextState['getDefinition']
     >(identifier => definitionMap[identifier], [definitionMap])
 
     // Get all of footnote reference definitions.
-    const getFootnoteDefinitions = useCallback<
+    const getFootnoteDefinitions = useDeepCompareCallback<
       YozoraMarkdownContextState['getFootnoteDefinitions']
     >(() => Object.values(footnoteDefinitionMap), [footnoteDefinitionMap])
 

@@ -38,6 +38,7 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
   "dependencies": {
+    "@guanghechen/react-hooks": "^1.8.2",
     "@types/react-copy-to-clipboard": "^5.0.1",
     "@yozora/react-admonition": "^1.0.0-alpha.33",
     "@yozora/react-blockquote": "^1.0.0-alpha.33",
