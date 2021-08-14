@@ -111,6 +111,7 @@ Name                | Type                  | Required  | Default | Description
 :------------------:|:---------------------:|:---------:|:-------:|:-------------
 `className`         | `string`              | `false`   | -       | Root css class
 `collapsed`         | `boolean`             | `false`   | `false` | Collapse the code block
+`darken`            | `boolean`             | `false`   | -       | Enable the darken mode
 `highlightLinenos`  | `number[]`            | `false`   | -       | Line number of Lines that should be highlighted
 `lang`              | `string`              | `false`   | -       | Language of the source codes
 `maxLines`          | `number`              | `number`  | -       | Maximum number of rows displayed

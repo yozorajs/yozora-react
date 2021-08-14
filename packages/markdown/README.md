@@ -244,19 +244,18 @@ This component is designed to render data of [@yozora/ast][].
 ### Props
 
 
-Name                    | Type                  | Required  | Default | Description
-:----------------------:|:---------------------:|:---------:|:-------:|:-------------
-`ast`                   | See below             | `true`    | -       | Root node of [@yozora/ast][]
-`definitionMap`         | See below             | `true`    | -       | Link / Image reference definitions
-`footnoteDefinitionMap` | See below             | `true`    | -       | Footnote reference definitions
-`mathjaxSrc`            | `string`              | `false`   | -       | http / https url for loading mathjax
-`mathjaxConfig`         | `object`              | `false`   | -       | Mathjax config, see [@yozora/react-mathjax][]
-`mathjaxOptions`        | `object`              | `false`   | -       | Mathjax options, see [@yozora/react-mathjax][]
-`rendererMap`           | See below             | `false`   | -       | [@yozora/ast] renderer map
-`codeRunners`           | See below             | `false`   | -       | Code runners, passed to [@yozora/react-code-embed][] and [@yozora/react-code-live][] 
-`className`             | `string`              | `false`   | -       | Root css class
-`style`                 | `React.CSSProperties` | `false`   | -       | Root css style
-`Viewer`                | [react-viewer][]      | `false`   | -       | Image previewer
+Name                        | Type                  | Required  | Default | Description
+:--------------------------:|:---------------------:|:---------:|:-------:|:-------------
+`ast`                       | See below             | `true`    | -       | Root node of [@yozora/ast][]
+`className`                 | `string`              | `false`   | -       | Root css class
+`codeRunners`               | See below             | `false`   | -       | Code runners, passed to [@yozora/react-code-embed][] and [@yozora/react-code-live][] 
+`darken`                    | `boolean`             | `false`   | -       | Enable the darken mode
+`definitionMap`             | See below             | `true`    | -       | Link / Image reference definitions
+`footnoteDefinitionMap`     | See below             | `true`    | -       | Footnote reference definitions
+`footnoteDefinitionsTitle`  | `React.ReactNode`     | `false`   | -       | Title of the footnote definitions
+`rendererMap`               | See below             | `false`   | -       | [@yozora/ast] renderer map
+`style`                     | `React.CSSProperties` | `false`   | -       | Root css style
+`Viewer`                    | [react-viewer][]      | `false`   | -       | Image previewer
 
 * `ast`: 
 

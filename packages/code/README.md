@@ -96,6 +96,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 Name                | Type                  | Required  | Default   | Description
 :------------------:|:---------------------:|:---------:|:---------:|:-------------
 `className`         | `string`              | `false`   | -         | Root css class
+`darken`            | `boolean`             | `false`   | -         | Enable the darken mode
 `lang`              | `string`              | `false`   | -         | Language of the source codes
 `meta`              | `string`              | `false`   | -         | Meta data of the code block
 `runners`           | `CodeRunnerItem[]`    | `false`   | See below | Code runners.
