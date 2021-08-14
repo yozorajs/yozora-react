@@ -1,10 +1,6 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-import { LightButtonType, lightButtonColorMap } from './constant'
-
-export * from './constant'
 
 export interface LightButtonsProps {
   /**
@@ -38,26 +34,29 @@ export const LightButtons: React.FC<LightButtonsProps> = props => {
   const { className, style, onClose, onMaximize, onMinimize } = props
 
   return (
-    <Container
+    <span
       className={cn('yozora-common-light-buttons', className)}
       style={style}
     >
-      <LightButton
-        type={LightButtonType.CLOSE}
+      <span
+        key="close"
+        className="yozora-common-light-button yozora-common-light-button--close"
         title="close"
         onClick={onClose}
       />
-      <LightButton
-        type={LightButtonType.MINIMIZE}
+      <span
+        key="minimize"
+        className="yozora-common-light-button yozora-common-light-button--minimize"
         title="minimize"
         onClick={onMinimize}
       />
-      <LightButton
-        type={LightButtonType.MAXIMIZE}
+      <span
+        key="maximize"
+        className="yozora-common-light-button yozora-common-light-button--maximize"
         title="maximize"
         onClick={onMaximize}
       />
-    </Container>
+    </span>
   )
 }
 
@@ -71,18 +70,3 @@ LightButtons.propTypes = {
 
 LightButtons.displayName = 'YozoraLightButtons'
 export default LightButtons
-
-const LightButton = styled.span<{ type: LightButtonType }>`
-  display: inline-block;
-  box-sizing: border-box;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  margin-left: 8px;
-  background-color: ${props =>
-    lightButtonColorMap[props.type] ?? 'transparent'};
-`
-
-const Container = styled.span`
-  user-select: none;
-`
