@@ -1,0 +1,20 @@
+.yozora-common-copy-button
+  display: inline-block
+  padding: 0.4rem
+  border: none
+  outline: none
+  background: transparent
+  cursor: pointer
+  &:hover
+    color: hsl(0deg, 0, 100%)
+  &:active
+    color: hsl(0deg, 0, 90%)
+
+  &.yozora-common-copy-button--waiting
+    color: hsl(0deg, 0%, 80%)
+  &.yozora-common-copy-button--copying
+    color: hsl(0deg, 0%, 80%)
+  &.yozora-common-copy-button--failed
+    color: hsl(0deg, 80%, 40%)
+  &.yozora-common-copy-button--succeed
+    color: hsl(120deg, 80%, 40%)

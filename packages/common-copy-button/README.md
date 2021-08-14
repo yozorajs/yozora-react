@@ -79,41 +79,27 @@ Render a simple copy button.
   ```tsx
   import React from 'react'
   import CopyButton from '@yozora/react-common-copy-button'
+  import '@yozora/react-common-copy-button/lib/esm/index.css'
 
   const wrapper = (<CopyButton value="waw" style={ { color: 'orange' } } />)
   ```
 
 ### Props
 
-Name            | Type                      | Required  | Default   | Description
-:--------------:|:-------------------------:|:---------:|:---------:|:-------------
-`className`     | `string`                  | `false`   | -         | Root css class
-`statusColorMap`| `Record<string, string>`  | `false`   | See below | Map of copy status and color.
-`statusTextMap` | `Record<string, string>`  | `false`   | See below | Map of copy status and displaying text.
-`style`         | `React.CSSProperties`     | `false`   | -         | Root css style
-`value`         | `string`                  | `true`    | -         | The literal texture content that waiting to copy
+Name            | Type                              | Required  | Default   | Description
+:--------------:|:---------------------------------:|:---------:|:---------:|:-------------
+`className`     | `string`                          | `false`   | -         | Root css class
+`statusNodeMap` | `Record<string, React.ReactNode>` | `false`   | See below | Map of copy status and displaying text.
+`style`         | `React.CSSProperties`             | `false`   | -         | Root css style
+`value`         | `string`                          | `true`    | -         | The literal texture content that waiting to copy
 
 * `className`: The root element of this component will always bind with the
   CSS class `'yozora-common-copy-button'`.
 
-* `statusColorMap`: 
+* `statusNodeMap`: 
 
   ```typescript
-  export const defaultStatusColorMap: Record<
-    CopyStatus,
-    React.CSSProperties['color']
-  > = {
-    waiting: 'hsl(0deg, 0%, 80%)',
-    copying: 'hsl(0deg, 0%, 80%)',
-    failed: 'hsl(0deg, 80%, 40%) !important',
-    succeed: 'hsl(120deg, 80%, 40%) !important',
-  }
-  ```
-
-* `statusTextMap`: 
-
-  ```typescript
-  export const defaultStatusTextMap: Record<CopyStatus, string> = {
+  export const defaultStatusNodeMap: Record<CopyStatus, React.ReactNode> = {
     waiting: 'copy',
     copying: 'copying..',
     failed: 'failed!',
@@ -122,5 +108,3 @@ Name            | Type                      | Required  | Default   | Descriptio
   ```
 
 ## Related
-
-None.
