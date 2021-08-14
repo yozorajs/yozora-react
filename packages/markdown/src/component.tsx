@@ -127,7 +127,14 @@ export function Markdown(props: MarkdownProps): React.ReactElement {
 
   return (
     <YozoraMarkdownContext.Provider value={context}>
-      <div className={cn('yozora-markdown', className)} style={style}>
+      <div
+        className={cn(
+          'yozora-markdown',
+          { 'yozora-markdown--darken': context.darken },
+          className,
+        )}
+        style={style}
+      >
         <section>{children}</section>
         <footer>{footnotes}</footer>
         {Viewer != null && (
