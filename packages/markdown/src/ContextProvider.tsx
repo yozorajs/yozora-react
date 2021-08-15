@@ -1,6 +1,6 @@
 import { useDeepCompareCallback } from '@guanghechen/react-hooks'
 import type { Definition, FootnoteDefinition, YastNode } from '@yozora/ast'
-import type { CodeRunnerItem } from '@yozora/react-code'
+import type { CodeRunnerItem } from '@yozora/react-code-runners'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import type {

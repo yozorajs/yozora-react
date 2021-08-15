@@ -1,5 +1,5 @@
 import type { Definition, FootnoteDefinition, YastNode } from '@yozora/ast'
-import type { CodeRunnerItem } from '@yozora/react-code'
+import type { CodeRunnerItem } from '@yozora/react-code-runners'
 import React from 'react'
 import type { PreviewImageItem } from './types'
 
