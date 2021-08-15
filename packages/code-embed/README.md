@@ -108,45 +108,12 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 Name          | Type                      | Required  | Default | Description
 :------------:|:-------------------------:|:---------:|:-------:|:-------------
 `className`   | `string`                  | `false`   | -       | Root css class
-`CodeRunner`  | See below                 | `true`    | -       | Interpreter for the codes
 `meta`        | `Record<string, unknown`  | `true`    | -       | Interpreter for the codes
 `lang`        | `string`                  | `true`    | -       | Language of the source codes
+`runner`      | `CodeRunner`              | `true`    | -       | Interpreter for the codes
 `style`       | `React.CSSProperties`     | `false`   | -       | Root css style
 `value`       | `string`                  | `true`    | -       | source codes
 
-* `CodeRunner`
-
-  ```typescript
-  type CodeRunner = (props: CodeRunnerProps) => React.ReactElement | null
-
-  /**
-   * Props of CodeRunner
-   */
-  export interface CodeRunnerProps {
-    /**
-     * Code language
-     */
-    lang: string
-    /**
-     * Source code contents
-     */
-    value: string
-    /**
-     * Additional data (such as data parsed from info string of FencedCode).
-     * @see https://github.github.com/gfm/#info-string
-     * @see https://github.github.com/gfm/#example-113
-     */
-    meta: Record<string, unknown>
-    /**
-     * Error callback
-     */
-    onError(error: string | null): void
-    /**
-     * Accessible context variables.
-     */
-    scope?: Record<string, unknown>
-  }
-  ```
 
 * `className`: The root element of this component will always bind with the
   CSS class `'yozora-code-embed'`.
@@ -159,6 +126,7 @@ Name          | Type                      | Required  | Default | Description
 * [@yozora/react-code-embed][]
 * [@yozora/react-code-highlighter][]
 * [@yozora/react-code-live][]
+* [@yozora/react-code-runners][]
 * [@yozora/react-markdown][]
 * [@yozora/tokenizer-indented-code][]
 * [@yozora/tokenizer-fenced-code][]
@@ -170,6 +138,7 @@ Name          | Type                      | Required  | Default | Description
 [@yozora/react-code-embed]: https://www.npmjs.com/package/@yozora/react-code-embed
 [@yozora/react-code-highlighter]: https://www.npmjs.com/package/@yozora/react-code-highlighter
 [@yozora/react-code-live]: https://www.npmjs.com/package/@yozora/react-code-live
+[@yozora/react-code-runners]: https://www.npmjs.com/package/@yozora/react-code-runners
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-indented-code]: https://www.npmjs.com/package/@yozora/tokenizer-indented-code
 [@yozora/tokenizer-fenced-code]: https://www.npmjs.com/package/@yozora/tokenizer-fenced-code

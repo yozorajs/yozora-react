@@ -2,14 +2,13 @@ import CodeEmbed from '@yozora/react-code-embed'
 import CodeLiteral from '@yozora/react-code-literal'
 import CodeLive from '@yozora/react-code-live'
 import JsxRenderer from '@yozora/react-code-renderer-jsx'
-import PropTypes from 'prop-types'
-import React, { useMemo } from 'react'
 import type {
-  CodeMetaData,
-  CodeProps,
   CodeRunnerItem,
   CodeRunnerProps,
-} from './types'
+} from '@yozora/react-code-runners'
+import PropTypes from 'prop-types'
+import React, { useMemo } from 'react'
+import type { CodeMetaData, CodeProps } from './types'
 import { parseCodeMeta } from './util'
 
 export const defaultRunners: CodeRunnerItem[] = [
@@ -87,7 +86,7 @@ export const Code: React.FC<CodeProps> = props => {
               lang={lang}
               value={value}
               meta={meta}
-              CodeRunner={runner.runner}
+              runner={runner.runner}
               className={className}
               style={style}
             />

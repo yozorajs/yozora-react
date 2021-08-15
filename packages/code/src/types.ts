@@ -1,8 +1,4 @@
-import type { CodeRunnerItem } from '@yozora/react-code-live'
-
-export type { CodeRunnerItem } from '@yozora/react-code-live'
-export type { CodeRunnerProps } from '@yozora/react-code-embed'
-export type { CodeRunnerScope } from '@yozora/react-code-embed'
+import type { CodeRunnerItem } from '@yozora/react-code-runners'
 
 export interface CodeProps {
   /**

@@ -30,6 +30,10 @@ export type CodeRunnerScope = Record<string, unknown>
  */
 export interface CodeRunnerProps {
   /**
+   * Code language
+   */
+  lang: string
+  /**
    * Source code contents.
    */
   value: string
@@ -60,6 +64,7 @@ export type CodeRunner =
  * React props types for a code runner.
  */
 export const CodeRunnerPropTypes: React.WeakValidationMap<CodeRunnerProps> = {
+  lang: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   meta: PropTypes.any,
   scope: PropTypes.any,

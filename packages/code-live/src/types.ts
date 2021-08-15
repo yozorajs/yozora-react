@@ -1,8 +1,8 @@
-import type { CodeRunnerProps, CodeRunnerScope } from '@yozora/react-code-embed'
+import type {
+  CodeRunnerItem,
+  CodeRunnerScope,
+} from '@yozora/react-code-runners'
 import type { PrismTheme } from 'prism-react-renderer'
-
-export type { CodeRunnerProps } from '@yozora/react-code-embed'
-export type { CodeRunnerScope } from '@yozora/react-code-embed'
 
 /**
  * Live mode block code
@@ -69,19 +69,4 @@ export interface CodeLiveProps {
    * @default true
    */
   centerPreviewer?: boolean
-}
-
-export interface CodeRunnerItem {
-  /**
-   * Title of the runner.
-   */
-  title: string
-  /**
-   * Supported language pattern.
-   */
-  pattern: RegExp
-  /**
-   * Run / Render the given codes.
-   */
-  runner(props: CodeRunnerProps): React.ReactElement | null
 }

@@ -103,7 +103,7 @@ export const CodeLive: React.FC<CodeLiveProps> = props => {
               value={value}
               meta={meta}
               scope={scope}
-              CodeRunner={runner.runner}
+              runner={runner.runner}
             />
           </div>
         )}
@@ -129,3 +129,5 @@ CodeLive.propTypes = {
   title: PropTypes.string,
   value: PropTypes.string.isRequired,
 }
+
+export default CodeLive

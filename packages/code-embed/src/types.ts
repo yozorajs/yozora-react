@@ -1,47 +1,4 @@
-export interface CodeRunnerMetaData {
-  /**
-   * The execution mode of a runner.
-   * @default 'inline'
-   */
-  jsxMode?: 'inline' | 'block'
-  /**
-   * Additional attributes.
-   */
-  [key: string]: unknown
-}
-
-/**
- * Code runner accessible context variables.
- */
-export type CodeRunnerScope = Record<string, unknown>
-
-/**
- * Props of CodeRunner
- */
-export interface CodeRunnerProps {
-  /**
-   * Code language
-   */
-  lang: string
-  /**
-   * Source code contents
-   */
-  value: string
-  /**
-   * Additional data (such as data parsed from info string of FencedCode).
-   * @see https://github.github.com/gfm/#info-string
-   * @see https://github.github.com/gfm/#example-113
-   */
-  meta?: Readonly<CodeRunnerMetaData>
-  /**
-   * Accessible context variables.
-   */
-  scope?: Readonly<CodeRunnerScope>
-  /**
-   * Error callback
-   */
-  onError(error: string | null): void
-}
+import type { CodeRunner } from '@yozora/react-code-runners'
 
 /**
  * Embed mode block code
@@ -76,7 +33,7 @@ export interface YozoraCodeEmbedProps {
   /**
    * For executing or rendering the given code.
    */
-  CodeRunner(props: CodeRunnerProps): React.ReactElement | null
+  runner: CodeRunner
 }
 
 export interface YozoraCodeEmbedState {
