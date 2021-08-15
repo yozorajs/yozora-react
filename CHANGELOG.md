@@ -1,5 +1,21 @@
 # Changelog
 
+<a name="1.0.0-alpha.36"></a>
+## 1.0.0-alpha.36 (2021-08-15)
+
+### Added
+
+- ✅ test: update tests [[28c63d3](https://github.com/guanghechen/yozora-react/commit/28c63d3846d94817f4650dd747a7c34a8ddf613c)]
+- ✨ feat: add new sub-package @yozora/react-code-runners [[4086342](https://github.com/guanghechen/yozora-react/commit/40863421b66580a117f543aed629deb9590f0703)]
+
+### Miscellaneous
+
+-  types: fix invalid type references [[ecf75a1](https://github.com/guanghechen/yozora-react/commit/ecf75a1d050f25ad54be94b78cb88e15c81e5333)]
+-  Merge branch &#x27;develop&#x27; into main [[6e8a732](https://github.com/guanghechen/yozora-react/commit/6e8a7322d39692b4b18ffbedfd447b5a7006b305)]
+- 📝 docs: update CHANGELOG [[1dbfdc1](https://github.com/guanghechen/yozora-react/commit/1dbfdc1770ddd83465c1f57692590e3dfedc85c9)]
+-  improve: reuse types defined in @yozora/react-code-runners [[652fcdd](https://github.com/guanghechen/yozora-react/commit/652fcdd125f00d2a143e7b3c35abfcc98bf1d678)]
+
+
 <a name="1.0.0-alpha.35"></a>
 ## 1.0.0-alpha.35 (2021-08-15)
 
