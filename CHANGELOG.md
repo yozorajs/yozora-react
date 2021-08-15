@@ -1,5 +1,25 @@
 # Changelog
 
+<a name="1.0.0-alpha.34"></a>
+## 1.0.0-alpha.34 (2021-08-15)
+
+### Changed
+
+- 💄 improve: tweak color of  code-block&#x27;s title [[d425627](https://github.com/guanghechen/yozora-react/commit/d425627f2968b7337e7be94876d2b5f26364a6ae)]
+- 🔧 chore: update yarn.lock [[9242a68](https://github.com/guanghechen/yozora-react/commit/9242a6883a9d5d10a8409733bf98002e42fb40c8)]
+- ⚡ improve: use useDeepCompareCallback instead of useCallback to avoid unnecessary updates [[a90e70c](https://github.com/guanghechen/yozora-react/commit/a90e70c5626083236cf55a0ba98a6fb568a7888d)]
+- ⚡ feat(react-markdown): use getFootnoteDefinitions instead of getFootnoteDefinition for performance reasons [[ed2c573](https://github.com/guanghechen/yozora-react/commit/ed2c5733e313b2a5da5a12a85eb4f085dd116865)]
+- 🎨 refactor: rewrite react-markdown to provider more robust and friendly api [[9edeb0d](https://github.com/guanghechen/yozora-react/commit/9edeb0d66eecf34d64c8da0ec1fabace44e7df7c)]
+
+### Miscellaneous
+
+-  improve: update types [[bfd6a78](https://github.com/guanghechen/yozora-react/commit/bfd6a78e3cd5a74f7273d13ce4ce98816275a1f8)]
+- 📝 docs: update READMEs [[bd6fdb5](https://github.com/guanghechen/yozora-react/commit/bd6fdb531b30413d2fb7f214bc0356627acbb07c)]
+-  style: fix lint warnings [[d375d2b](https://github.com/guanghechen/yozora-react/commit/d375d2b3180d5e6c91c4f522566c1cc4b6a8beef)]
+-  feat: export YozoraMarkdownContext [[50aa8fc](https://github.com/guanghechen/yozora-react/commit/50aa8fcca2aaed10ab931b4eceeea011f25a7c60)]
+- 📝 docs: update CHANGELOG [[aeee7a0](https://github.com/guanghechen/yozora-react/commit/aeee7a020a223beebee6be0e2806c70d60eb1750)]
+
+
 <a name="1.0.0-alpha.33"></a>
 ## 1.0.0-alpha.33 (2021-08-14)
 
