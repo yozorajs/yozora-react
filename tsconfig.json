@@ -17,6 +17,7 @@
       "@yozora/react-code-renderer-graphviz": [
         "./packages/code-renderer-graphviz/src"
       ],
+      "@yozora/react-code-runners": ["./packages/code-runners/src"],
       "@yozora/react-common-copy-button": ["./packages/common-copy-button/src"],
       "@yozora/react-common-light-buttons": [
         "./packages/common-light-buttons/src"

@@ -1,7 +1,7 @@
 {
-  "name": "@yozora/react-code-renderer-jsx",
+  "name": "@yozora/react-code-runners",
   "version": "1.0.0-alpha.34",
-  "description": "render jsx code",
+  "description": "Live code runners",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -9,17 +9,14 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/yozorajs/yozora-react.git",
-    "directory": "packages/code-renderer-jsx"
+    "directory": "packages/code-runners"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/code-renderer-jsx#readme",
-  "keywords": [
-    "mdast node renderer",
-    "markdown code-jsx renderer"
-  ],
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/code-runners#readme",
+  "keywords": [],
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/types/index.d.ts",
-  "source": "src/index.tsx",
+  "source": "src/index.ts",
   "license": "MIT",
   "engines": {
     "node": ">= 14.15.0"
@@ -37,14 +34,15 @@
     "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
     "prebuild": "rimraf lib/ && tsc -p tsconfig.src.json --emitDeclarationOnly",
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
-    "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
+    "test": "echo 'no test yet.'"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
     "react": "^17.0.1"
   },
   "dependencies": {
-    "buble": "^0.20.0"
+    "@loadable/component": "^5.15.0",
+    "@guanghechen/react-hooks": "^1.8.2"
   },
   "browserslist": [
     "last 2 versions",
