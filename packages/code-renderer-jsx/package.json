@@ -44,7 +44,6 @@
     "react": "^17.0.1"
   },
   "dependencies": {
-    "@types/buble": "^0.20.1",
     "buble": "^0.20.0"
   },
   "browserslist": [
