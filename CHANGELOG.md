@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="1.0.0-alpha.35"></a>
+## 1.0.0-alpha.35 (2021-08-15)
+
+### Changed
+
+- 💄 improve: tweak colors in darken mode [[c860845](https://github.com/guanghechen/yozora-react/commit/c860845c61282b16a41d0b71dea49c2401fd6b5e)]
+- 🔧 chore: update stylus scripts [[947bf6a](https://github.com/guanghechen/yozora-react/commit/947bf6aeafb13a6fdb44eb084cdf130ba0707da6)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[dbe85b4](https://github.com/guanghechen/yozora-react/commit/dbe85b4cbf49c4e951479c6750db9edcda6c3f9a)]
+
+
 <a name="1.0.0-alpha.34"></a>
 ## 1.0.0-alpha.34 (2021-08-15)
 
