@@ -1,8 +1,8 @@
 import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
+import type { CodeRunnerProps } from '@yozora/react-code-runners'
 import { render } from 'enzyme'
 import React from 'react'
 import CodeEmbed from '../src'
-import type { CodeRunnerProps } from '../src'
 
 const code = `
   function Counter() {
@@ -39,7 +39,7 @@ describe('prop types', function () {
   it('value is required', function () {
     for (const value of [undefined, null] as any[]) {
       expect(() => {
-        render(<CodeEmbed lang="jsx" value={value} CodeRunner={JsxRunner} />)
+        render(<CodeEmbed lang="jsx" value={value} runner={JsxRunner} />)
       }).toThrow(/The prop `value` is marked as required/i)
     }
   })
@@ -47,7 +47,7 @@ describe('prop types', function () {
   describe('className is optional', function () {
     it('default', function () {
       const node = render(
-        <CodeEmbed lang="jsx" value={code} CodeRunner={JsxRunner} />,
+        <CodeEmbed lang="jsx" value={code} runner={JsxRunner} />,
       )
       expect(node.hasClass('yozora-code-embed')).toBeTruthy()
     })
@@ -57,7 +57,7 @@ describe('prop types', function () {
         <CodeEmbed
           lang="jsx"
           value={code}
-          CodeRunner={JsxRunner}
+          runner={JsxRunner}
           className="my-code-embed"
         />,
       )
@@ -71,7 +71,7 @@ describe('prop types', function () {
       <CodeEmbed
         lang="jsx"
         value={code}
-        CodeRunner={JsxRunner}
+        runner={JsxRunner}
         style={{ color: 'orange' }}
       />,
     )
@@ -82,7 +82,7 @@ describe('prop types', function () {
 describe('snapshot', function () {
   it('basic', () => {
     const wrapper = render(
-      <CodeEmbed lang="jsx" value={code} CodeRunner={JsxRunner} />,
+      <CodeEmbed lang="jsx" value={code} runner={JsxRunner} />,
     )
     expect(wrapper).toMatchSnapshot()
   })
