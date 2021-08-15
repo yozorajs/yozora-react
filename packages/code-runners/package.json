@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-runners",
-  "version": "1.0.0-alpha.35",
+  "version": "1.0.0-alpha.36",
   "description": "Live code runners",
   "author": {
     "name": "guanghechen",
@@ -41,8 +41,8 @@
     "react": "^17.0.1"
   },
   "dependencies": {
-    "@loadable/component": "^5.15.0",
-    "@guanghechen/react-hooks": "^1.8.2"
+    "@guanghechen/react-hooks": "^1.8.2",
+    "@loadable/component": "^5.15.0"
   },
   "browserslist": [
     "last 2 versions",
