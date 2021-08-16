@@ -17,7 +17,7 @@ export function parseCodeMeta(infoString: string): CodeMetaData {
 
   const highlights: number[] = collectNumbers(_highlightText)
   const result: CodeMetaData = {
-    mode: 'literal',
+    _yozoraCodeMode: 'literal',
     highlights,
     maxlines: -1,
     title: '',
@@ -32,20 +32,22 @@ export function parseCodeMeta(infoString: string): CodeMetaData {
 
     const key: string = m[1]
     const val: string | undefined = m[2] ?? m[3]
-
     switch (key.toLowerCase()) {
       case 'embed':
-        result.mode = 'embed'
+        result._yozoraCodeMode = 'embed'
         break
       case 'literal':
-        result.mode = 'literal'
+        result._yozoraCodeMode = 'literal'
         break
       case 'live':
-        result.mode = 'live'
+        result._yozoraCodeMode = 'live'
         break
-      case 'mode': {
+      case 'rendermode':
+        result.renderMode = val
+        break
+      case '_yozoracodemode': {
         if (val === undefined) break
-        result.mode = val
+        result._yozoraCodeMode = val
         break
       }
       case 'highlights': {
@@ -74,6 +76,7 @@ export function parseCodeMeta(infoString: string): CodeMetaData {
         break
       }
       default:
+        console.log('fallback. key:', key, 'val:', val)
         result[key] = val === undefined ? true : val
     }
   }

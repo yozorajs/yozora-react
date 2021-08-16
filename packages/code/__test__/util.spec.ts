@@ -3,7 +3,7 @@ import { convertToBoolean, parseCodeMeta } from '@yozora/react-code'
 describe('parseCodeMeta', function () {
   test('basic', function () {
     expect(parseCodeMeta(`{1-2,2-3} live collapsed`)).toEqual({
-      mode: 'live',
+      _yozoraCodeMode: 'live',
       highlights: [1, 2, 3],
       maxlines: -1,
       title: '',
@@ -13,7 +13,7 @@ describe('parseCodeMeta', function () {
     expect(
       parseCodeMeta(`{1-2,2-3,7,9-10,3-2} embed collapsed=false maxlines=10`),
     ).toEqual({
-      mode: 'embed',
+      _yozoraCodeMode: 'embed',
       highlights: [1, 2, 3, 7, 9, 10],
       maxlines: 10,
       title: '',
@@ -23,7 +23,7 @@ describe('parseCodeMeta', function () {
     expect(
       parseCodeMeta(`{1-2,2-3} live collapsed="false" title="waw"`),
     ).toEqual({
-      mode: 'live',
+      _yozoraCodeMode: 'live',
       highlights: [1, 2, 3],
       maxlines: -1,
       title: 'waw',
@@ -33,7 +33,7 @@ describe('parseCodeMeta', function () {
     expect(
       parseCodeMeta(`{1-2,2-3} live collapsed="false" maxlines="10" title`),
     ).toEqual({
-      mode: 'live',
+      _yozoraCodeMode: 'live',
       highlights: [1, 2, 3],
       maxlines: 10,
       title: '',
@@ -43,15 +43,15 @@ describe('parseCodeMeta', function () {
 
   test('edge conditions', function () {
     expect(parseCodeMeta(`{1-2,2-3} highlights="2,4-5"`)).toEqual({
-      mode: 'literal',
+      _yozoraCodeMode: 'literal',
       highlights: [1, 2, 3, 4, 5],
       maxlines: -1,
       title: '',
       collapsed: undefined,
     })
 
-    expect(parseCodeMeta(`live mode="embed"`)).toEqual({
-      mode: 'embed',
+    expect(parseCodeMeta(`live _yozoraCodeMode="embed"`)).toEqual({
+      _yozoraCodeMode: 'embed',
       highlights: [],
       maxlines: -1,
       title: '',
@@ -59,9 +59,9 @@ describe('parseCodeMeta', function () {
     })
 
     expect(
-      parseCodeMeta(`{1-2,2-3} embed highlights mode maxlines="a"`),
+      parseCodeMeta(`{1-2,2-3} embed highlights _yozoraCodeMode maxlines="a"`),
     ).toEqual({
-      mode: 'embed',
+      _yozoraCodeMode: 'embed',
       highlights: [1, 2, 3],
       maxlines: -1,
       title: '',
@@ -70,10 +70,10 @@ describe('parseCodeMeta', function () {
 
     expect(
       parseCodeMeta(
-        `{1-2,2-3} embed highlights= highlights=20 highlights="" highlights=30 highlights="40" mode`,
+        `{1-2,2-3} embed highlights= highlights=20 highlights="" highlights=30 highlights="40" _yozoraCodeMode`,
       ),
     ).toEqual({
-      mode: 'embed',
+      _yozoraCodeMode: 'embed',
       highlights: [1, 2, 3, 20, 30, 40],
       maxlines: -1,
       title: '',
@@ -85,7 +85,7 @@ describe('parseCodeMeta', function () {
     expect(
       parseCodeMeta(`live sourcefile="./waw.ts" hidden maxlines=20`),
     ).toEqual({
-      mode: 'live',
+      _yozoraCodeMode: 'live',
       highlights: [],
       maxlines: 20,
       title: '',

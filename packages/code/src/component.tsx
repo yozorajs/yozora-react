@@ -56,11 +56,11 @@ export const Code: React.FC<CodeProps> = props => {
     () => parseCodeMeta(infoString ?? ''),
     [infoString],
   )
-  const { highlights, maxlines, mode, title, collapsed } = meta
+  const { highlights, maxlines, _yozoraCodeMode, title, collapsed } = meta
 
   let result: React.ReactElement | null = null
   if (lang != null) {
-    switch (mode) {
+    switch (_yozoraCodeMode) {
       case 'live': {
         result = (
           <CodeLive

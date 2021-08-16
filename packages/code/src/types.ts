@@ -1,4 +1,7 @@
-import type { CodeRunnerItem } from '@yozora/react-code-runners'
+import type {
+  CodeRunnerItem,
+  CodeRunnerMetaData,
+} from '@yozora/react-code-runners'
 
 export interface CodeProps {
   /**
@@ -34,11 +37,11 @@ export interface CodeProps {
 /**
  * Meta data of the fenced-code.
  */
-export interface CodeMetaData {
+export interface CodeMetaData extends CodeRunnerMetaData {
   /**
    * Rendering mode.
    */
-  mode: 'live' | 'embed' | 'literal' | string
+  _yozoraCodeMode: 'live' | 'embed' | 'literal' | string
   /**
    * The line number of the highlighted row.
    */

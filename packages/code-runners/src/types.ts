@@ -13,7 +13,7 @@ export interface CodeRunnerMetaData {
    * The render mode of a runner.
    * @default 'inline'
    */
-  renderMode?: 'inline' | 'block'
+  renderMode?: 'inline' | 'block' | string
   /**
    * Additional attributes.
    */
