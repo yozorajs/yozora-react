@@ -44,6 +44,9 @@
     "prop-types": "^15.7.2",
     "react": ">= 17.0.0"
   },
+  "devDependencies": {
+    "@yozora/react-code-runners": "^1.0.0-alpha.36"
+  },
   "browserslist": [
     "last 2 versions",
     "Firefox ESR",
