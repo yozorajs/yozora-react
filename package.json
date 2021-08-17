@@ -35,9 +35,9 @@
     "postpublish": "pinst --enable",
     "rebuild": "run-s clean build",
     "start": "lerna run start --parallel",
-    "test": "lerna run test --concurrency 4",
+    "test": "lerna run test --concurrency 2",
     "test:coverage": "lerna run test --concurrency 1 -- --coverage",
-    "test:update": "lerna run test --parallel -- -u",
+    "test:update": "lerna run test --concurrency 2 -- -u",
     "update:changelog": "gitmoji-changelog update",
     "update:lock": "yarn-deduplicate"
   },
