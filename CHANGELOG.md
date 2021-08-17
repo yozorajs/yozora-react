@@ -1,5 +1,23 @@
 # Changelog
 
+<a name="1.0.0-alpha.37"></a>
+## 1.0.0-alpha.37 (2021-08-17)
+
+### Changed
+
+- 🔧 chore: update npm scripts [[76803b4](https://github.com/guanghechen/yozora-react/commit/76803b42f73259f337830b1d46186604f31b3895)]
+- 🚨 style: fix lint warnings [[5596345](https://github.com/guanghechen/yozora-react/commit/5596345c03548b2b34421a3ae67af62c93f13354)]
+- 🔧 chore: support to trigger ci in manually [[31fa3be](https://github.com/guanghechen/yozora-react/commit/31fa3befba43c2b69849882651968941e8c7aa7c)]
+- 🔧 chore: add missing dev dependencies [[16d74ec](https://github.com/guanghechen/yozora-react/commit/16d74ec1aa08da881f585b3e4c6420c80e60012b)]
+
+### Miscellaneous
+
+- 🚧 improve(markdown): change the props of Mardown [[b95226a](https://github.com/guanghechen/yozora-react/commit/b95226a8d4e40c03b7bd42c992b290d208367718)]
+- 🚧 feat(markdown): provide new react hook &#x27;useFootnoteDefinitions&#x27; to support customizing whether to render footnote definitions in YozoraMarkdown [[f6b30df](https://github.com/guanghechen/yozora-react/commit/f6b30df4a02a302ba11861b32fc2af628ba44cda)]
+-  feat(react-code): rename mode as yozoraCodeMode [[00671fc](https://github.com/guanghechen/yozora-react/commit/00671fccd2ce5f213253692ae23890ad065a327d)]
+- 📝 docs: update CHANGELOG [[cadf6d4](https://github.com/guanghechen/yozora-react/commit/cadf6d4ee03c8ac212b4f140e580f337285e2e37)]
+
+
 <a name="1.0.0-alpha.36"></a>
 ## 1.0.0-alpha.36 (2021-08-15)
 
