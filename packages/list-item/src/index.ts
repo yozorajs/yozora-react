@@ -1,2 +1,4 @@
+import YozoraListItem from './component'
+
+export default YozoraListItem
 export * from './component'
-export { ListItem as default } from './component'

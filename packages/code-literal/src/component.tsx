@@ -83,7 +83,6 @@ export const CodeLiteral: React.FC<CodeLiteralProps> = props => {
   )
 }
 
-CodeLiteral.displayName = 'YozoraCodeLiteral'
 CodeLiteral.propTypes = {
   value: PropTypes.string.isRequired,
   lang: PropTypes.string,
@@ -95,3 +94,6 @@ CodeLiteral.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
 }
+
+CodeLiteral.displayName = 'YozoraCodeLiteral'
+export default CodeLiteral

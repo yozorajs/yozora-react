@@ -46,7 +46,7 @@ function createVariableFromDefault(defaultItem) {
 function createMarkdownVariableFromDefault(defaultItem) {
   const match = stylusDefaultVariableRegex.exec(defaultItem)
   if (match == null) throw new Error(`Cannot resolve item ${defaultItem}`)
-  const [, p1, p2, p3] = match
+  const [, p1, , p3] = match
   return `--yozora__${p3}: ${p1}`
 }
 

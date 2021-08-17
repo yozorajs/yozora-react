@@ -1,6 +1,7 @@
 import './style.styl'
+import YozoraCode from './component'
 
+export default YozoraCode
 export * from './types'
 export * from './util'
 export * from './component'
-export { Code as default } from './component'

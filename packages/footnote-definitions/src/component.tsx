@@ -52,3 +52,4 @@ FootnoteDefinitions.propTypes = {
 }
 
 FootnoteDefinitions.displayName = 'YozoraFootnoteDefinitions'
+export default FootnoteDefinitions

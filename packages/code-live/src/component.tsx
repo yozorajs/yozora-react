@@ -112,7 +112,6 @@ export const CodeLive: React.FC<CodeLiveProps> = props => {
   )
 }
 
-CodeLive.displayName = 'YozoraCodeLive'
 CodeLive.propTypes = {
   autoFocus: PropTypes.bool,
   centerPreviewer: PropTypes.bool,
@@ -130,4 +129,5 @@ CodeLive.propTypes = {
   value: PropTypes.string.isRequired,
 }
 
+CodeLive.displayName = 'YozoraCodeLive'
 export default CodeLive

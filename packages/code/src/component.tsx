@@ -125,3 +125,4 @@ Code.propTypes = {
 }
 
 Code.displayName = 'YozoraCode'
+export default Code
