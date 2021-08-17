@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-editor",
-  "version": "1.0.0-alpha.36",
+  "version": "1.0.0-alpha.37",
   "description": "simple code editor",
   "author": {
     "name": "guanghechen",
@@ -39,7 +39,7 @@
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
   "dependencies": {
-    "@yozora/react-code-highlighter": "^1.0.0-alpha.36",
+    "@yozora/react-code-highlighter": "^1.0.0-alpha.37",
     "prism-react-renderer": "^1.2.1"
   },
   "peerDependencies": {
