@@ -299,6 +299,29 @@ This component is designed to render data of [@yozora/ast][].
   ]
   ```
 
+* Add footnote definitions:
+
+  ```tsx
+  import { 
+    useFootnoteDefinitions,
+    YozoraMarkdown, 
+    YozoraMarkdownContextProvider, 
+  } from '@yozora/react-markdown'
+  import '@yozora/react-markdown/lib/esm/index.css'
+
+  function Demo() {
+    const footnotes = useFootnoteDefinitions(<h1>Custom footnote definitions</h1>)
+    return (
+      <YozoraMarkdownContextProvider
+        definitionMap={definitionMap}
+        footnoteDefinitionMap={footnoteDefinitionMap}
+      >
+        <YozoraMarkdown ast={ast} footnotes={footnotes} />
+      </YozoraMarkdownContextProvider>
+    )
+  }
+  ```
+
 
 ### Props
 
@@ -320,7 +343,7 @@ This component is designed to render data of [@yozora/ast][].
   :--------------------------:|:---------------------:|:---------:|:-------:|:-------------
   `ast`                       | See below             | `true`    | -       | Root node of [@yozora/ast][]
   `className`                 | `string`              | `false`   | -       | Root css class
-  `footnoteDefinitionsTitle`  | `React.ReactNode`     | `false`   | -       | Title of the footnote definitions
+  `footnotes`                 | `React.ReactNode`     | `false`   | -       | Footnote definitions
   `style`                     | `React.CSSProperties` | `false`   | -       | Root css style
 
 * YozoraMarkdownContext

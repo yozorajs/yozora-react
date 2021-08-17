@@ -1,7 +1,6 @@
 import type { Root } from '@yozora/ast'
-import YozoraFootnotesRenderer from '@yozora/react-footnote-definitions'
-import type { FootnoteItem } from '@yozora/react-footnote-definitions'
 import cn from 'clsx'
+import PropTypes from 'prop-types'
 import React, { useContext, useMemo } from 'react'
 import { YozoraMarkdownContext } from './Context'
 
@@ -11,9 +10,9 @@ export interface YozoraMarkdownProps {
    */
   ast: Root
   /**
-   * Title of the footnote definitions.
+   * Footnote definitions.
    */
-  footnoteDefinitionsTitle?: React.ReactNode
+  footnotes?: React.ReactNode
   /**
    * Root css class of the component.
    */
@@ -30,27 +29,14 @@ export interface YozoraMarkdownProps {
  * @param props
  * @returns
  */
-export function YozoraMarkdown(props: YozoraMarkdownProps): React.ReactElement {
-  const { darken, getFootnoteDefinitions, renderYozoraNodes } = useContext(
-    YozoraMarkdownContext,
-  )
-  const { ast, footnoteDefinitionsTitle, className, style } = props
+export const YozoraMarkdown: React.FC<YozoraMarkdownProps> = props => {
+  const { darken, renderYozoraNodes } = useContext(YozoraMarkdownContext)
+  const { ast, footnotes, className, style } = props
 
   const children = useMemo<React.ReactNode>(
     () => renderYozoraNodes(ast.children),
     [ast, renderYozoraNodes],
   )
-
-  const footnotes = useMemo<React.ReactNode>(() => {
-    const items: FootnoteItem[] = getFootnoteDefinitions().map(item => ({
-      label: item.label,
-      identifier: item.identifier,
-      children: renderYozoraNodes(item.children),
-    }))
-    return items.length <= 0 ? null : (
-      <YozoraFootnotesRenderer nodes={items} title={footnoteDefinitionsTitle} />
-    )
-  }, [footnoteDefinitionsTitle, renderYozoraNodes, getFootnoteDefinitions])
 
   return (
     <div
@@ -65,6 +51,13 @@ export function YozoraMarkdown(props: YozoraMarkdownProps): React.ReactElement {
       <footer>{footnotes}</footer>
     </div>
   )
+}
+
+YozoraMarkdown.propTypes = {
+  ast: PropTypes.any.isRequired,
+  footnotes: PropTypes.node,
+  className: PropTypes.string,
+  style: PropTypes.any,
 }
 
 YozoraMarkdown.displayName = 'YozoraMarkdown'
