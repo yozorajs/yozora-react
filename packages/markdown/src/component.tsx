@@ -3,6 +3,7 @@ import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React, { useContext, useMemo } from 'react'
 import { YozoraMarkdownContext } from './Context'
+import { useFootnoteDefinitions } from './useFootnoteDefinitions'
 
 export interface YozoraMarkdownProps {
   /**
@@ -10,9 +11,13 @@ export interface YozoraMarkdownProps {
    */
   ast: Root
   /**
-   * Footnote definitions.
+   * Title of the footnote definitions.
    */
-  footnotes?: React.ReactNode
+  footnoteDefinitionsTitle?: React.ReactNode
+  /**
+   * if true, then the footnote definitions wont be render.
+   */
+  dontNeedFootnoteDefinitions?: boolean
   /**
    * Root css class of the component.
    */
@@ -31,7 +36,18 @@ export interface YozoraMarkdownProps {
  */
 export const YozoraMarkdown: React.FC<YozoraMarkdownProps> = props => {
   const { darken, renderYozoraNodes } = useContext(YozoraMarkdownContext)
-  const { ast, footnotes, className, style } = props
+  const {
+    ast,
+    footnoteDefinitionsTitle,
+    dontNeedFootnoteDefinitions,
+    className,
+    style,
+  } = props
+
+  const footnotes = useFootnoteDefinitions(
+    footnoteDefinitionsTitle,
+    dontNeedFootnoteDefinitions,
+  )
 
   const children = useMemo<React.ReactNode>(
     () => renderYozoraNodes(ast.children),
@@ -55,7 +71,8 @@ export const YozoraMarkdown: React.FC<YozoraMarkdownProps> = props => {
 
 YozoraMarkdown.propTypes = {
   ast: PropTypes.any.isRequired,
-  footnotes: PropTypes.node,
+  footnoteDefinitionsTitle: PropTypes.node,
+  dontNeedFootnoteDefinitions: PropTypes.bool,
   className: PropTypes.string,
   style: PropTypes.any,
 }

@@ -18,6 +18,7 @@
     "buble",
     "builtins",
     "clsx",
+    "dont",
     "downlevel",
     "esnext",
     "funcs",

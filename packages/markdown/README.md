@@ -299,24 +299,22 @@ This component is designed to render data of [@yozora/ast][].
   ]
   ```
 
-* Add footnote definitions:
+* Don't need the footnote definitions:
 
   ```tsx
   import { 
-    useFootnoteDefinitions,
     YozoraMarkdown, 
     YozoraMarkdownContextProvider, 
   } from '@yozora/react-markdown'
   import '@yozora/react-markdown/lib/esm/index.css'
 
   function Demo() {
-    const footnotes = useFootnoteDefinitions(<h1>Custom footnote definitions</h1>)
     return (
       <YozoraMarkdownContextProvider
         definitionMap={definitionMap}
         footnoteDefinitionMap={footnoteDefinitionMap}
       >
-        <YozoraMarkdown ast={ast} footnotes={footnotes} />
+        <YozoraMarkdown ast={ast} dontNeedFootnoteDefinitions={false} />
       </YozoraMarkdownContextProvider>
     )
   }
@@ -339,12 +337,13 @@ This component is designed to render data of [@yozora/ast][].
 
 * YozoraMarkdown
 
-  Name                        | Type                  | Required  | Default | Description
-  :--------------------------:|:---------------------:|:---------:|:-------:|:-------------
-  `ast`                       | See below             | `true`    | -       | Root node of [@yozora/ast][]
-  `className`                 | `string`              | `false`   | -       | Root css class
-  `footnotes`                 | `React.ReactNode`     | `false`   | -       | Footnote definitions
-  `style`                     | `React.CSSProperties` | `false`   | -       | Root css style
+  Name                          | Type                  | Required  | Default | Description
+  :----------------------------:|:---------------------:|:---------:|:-------:|:-------------
+  `ast`                         | See below             | `true`    | -       | Root node of [@yozora/ast][]
+  `className`                   | `string`              | `false`   | -       | Root css class
+  `footnoteDefinitionsTitle`    | `React.ReactNode`     | `false`   | -       | Title of the footnote definitions
+  `dontNeedFootnoteDefinitions` | `boolean`             | `false`   | -       | If true, then the footnote definitions wont be render
+  `style`                       | `React.CSSProperties` | `false`   | -       | Root css style
 
 * YozoraMarkdownContext
 
