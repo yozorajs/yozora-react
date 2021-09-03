@@ -1,5 +1,20 @@
 # Changelog
 
+<a name="1.0.0-alpha.38"></a>
+## 1.0.0-alpha.38 (2021-09-03)
+
+### Changed
+
+- 🔧 chore: upgrade jest and fix jest configs [[a9f160d](https://github.com/guanghechen/yozora-react/commit/a9f160d1b7daa8d9cc0a4bf0d1c02a81703f341b)]
+- ⬆️ chore: upgrade devDependencies [[e2882be](https://github.com/guanghechen/yozora-react/commit/e2882bee957eb4dd7eaaf832045413a093e7a40c)]
+- 💄 improve: tweak styles [[361b71d](https://github.com/guanghechen/yozora-react/commit/361b71d5a6c247a56636f297e3fa883e51f2fda7)]
+- ⬆️ chore: upgrade devDependencies [[439e56e](https://github.com/guanghechen/yozora-react/commit/439e56ebc9a12fbbf70b9667893134f7c0c67d20)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[b614a0d](https://github.com/guanghechen/yozora-react/commit/b614a0dc829698bfc0c95fec7cb28058da82db19)]
+
+
 <a name="1.0.0-alpha.37"></a>
 ## 1.0.0-alpha.37 (2021-08-17)
 
