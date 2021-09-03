@@ -115,6 +115,7 @@ Name                | Type                  | Required  | Default | Description
 `highlightLinenos`  | `number[]`            | `false`   | -       | Line number of Lines that should be highlighted
 `lang`              | `string`              | `false`   | -       | Language of the source codes
 `maxLines`          | `number`              | `number`  | -       | Maximum number of rows displayed
+`showLinenos`       | `boolean`             | `false`   | -       | Whether to display the line numbers
 `style`             | `React.CSSProperties` | `false`   | -       | Root css style
 `title`             | `string`              | `false`   | -       | Code title
 `value`             | `string`              | `true`    | -       | Literal source codes

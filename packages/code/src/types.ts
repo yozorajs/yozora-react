@@ -56,6 +56,10 @@ export interface CodeMetaData extends CodeRunnerMetaData {
    */
   title: string
   /**
+   * Whether to display the line numbers.
+   */
+  showLinenos: boolean
+  /**
    * Whether to collapse the code component.
    */
   collapsed?: boolean

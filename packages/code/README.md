@@ -127,6 +127,35 @@ Name                | Type                  | Required  | Default   | Descriptio
   ]
   ```
 
+* `meta`:
+
+  ```typescript
+  interface CodeMetaData extends CodeRunnerMetaData {
+    /**
+     * The line number of the highlighted row.
+     */
+    highlights: number[]
+    /**
+     * Maximum number of rows displayed
+     * @default -1
+     */
+    maxlines: number
+    /**
+     * Code title.
+     */
+    title: string
+    /**
+     * Whether to display the line numbers.
+     */
+    showLinenos: boolean
+    /**
+     * Whether to collapse the code component.
+     */
+    collapsed?: boolean
+  }
+  ```
+
+
 ## Related
 
 * [@yozora/ast][]

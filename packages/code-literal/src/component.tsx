@@ -24,6 +24,7 @@ export const CodeLiteral: React.FC<CodeLiteralProps> = props => {
     highlightLinenos,
     maxLines,
     collapsed: _collapsed = false,
+    showLinenos,
     darken,
     className,
     style,
@@ -75,6 +76,7 @@ export const CodeLiteral: React.FC<CodeLiteralProps> = props => {
             highlightLinenos={highlightLinenos}
             maxLines={maxLines}
             collapsed={collapsed}
+            showLinenos={showLinenos}
             darken={darken}
           />
         </pre>
@@ -84,15 +86,16 @@ export const CodeLiteral: React.FC<CodeLiteralProps> = props => {
 }
 
 CodeLiteral.propTypes = {
-  value: PropTypes.string.isRequired,
-  lang: PropTypes.string,
-  title: PropTypes.string,
-  highlightLinenos: PropTypes.array,
-  maxLines: PropTypes.number,
+  className: PropTypes.string,
   collapsed: PropTypes.bool,
   darken: PropTypes.bool,
-  className: PropTypes.string,
+  highlightLinenos: PropTypes.array,
+  lang: PropTypes.string,
+  maxLines: PropTypes.number,
+  showLinenos: PropTypes.bool,
   style: PropTypes.object,
+  title: PropTypes.string,
+  value: PropTypes.string.isRequired,
 }
 
 CodeLiteral.displayName = 'YozoraCodeLiteral'

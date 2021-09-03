@@ -28,6 +28,7 @@ export const CodeLive: React.FC<CodeLiveProps> = props => {
     title,
     maxLines,
     collapsed: _collapsed = false,
+    showLinenos,
     className,
     style,
     darken,
@@ -87,6 +88,7 @@ export const CodeLive: React.FC<CodeLiveProps> = props => {
             darken={darken}
             theme={theme}
             collapsed={collapsed}
+            showLinenos={showLinenos}
             maxLines={maxLines}
             autoFocus={autoFocus}
           />
@@ -123,6 +125,7 @@ CodeLive.propTypes = {
   meta: PropTypes.any,
   runners: PropTypes.array.isRequired,
   scope: PropTypes.any,
+  showLinenos: PropTypes.bool,
   style: PropTypes.object,
   theme: PropTypes.any,
   title: PropTypes.string,

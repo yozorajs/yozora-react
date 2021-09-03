@@ -44,6 +44,10 @@ export interface CodeLiveProps {
    */
   collapsed?: boolean
   /**
+   * Whether to display the line numbers.
+   */
+  showLinenos?: boolean
+  /**
    * If true, use vscDarkTheme as default theme,
    * otherwise use vscLightTheme as default theme.
    */

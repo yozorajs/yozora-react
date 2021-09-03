@@ -104,6 +104,7 @@ Name                | Type                  | Required  | Default | Description
 `lang`              | `string`              | `false`   | -       | Language of the source codes
 `maxLines`          | `number`              | `number`  | -       | Maximum number of rows displayed
 `style`             | `React.CSSProperties` | `false`   | -       | Root css style
+`showLinenos`       | `boolean`             | `false`   | -       | Whether to display the line numbers
 `title`             | `string`              | `false`   | -       | Code title
 `value`             | `string`              | `true`    | -       | Literal source codes
 

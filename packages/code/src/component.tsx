@@ -56,7 +56,14 @@ export const Code: React.FC<CodeProps> = props => {
     () => parseCodeMeta(infoString ?? ''),
     [infoString],
   )
-  const { highlights, maxlines, _yozoraCodeMode, title, collapsed } = meta
+  const {
+    highlights,
+    maxlines,
+    _yozoraCodeMode,
+    title,
+    collapsed,
+    showLinenos,
+  } = meta
 
   let result: React.ReactElement | null = null
   if (lang != null) {
@@ -71,6 +78,7 @@ export const Code: React.FC<CodeProps> = props => {
             title={title}
             maxLines={maxlines}
             collapsed={collapsed}
+            showLinenos={showLinenos}
             darken={darken}
             className={className}
             style={style}
@@ -106,6 +114,7 @@ export const Code: React.FC<CodeProps> = props => {
         highlightLinenos={highlights}
         maxLines={maxlines}
         collapsed={collapsed}
+        showLinenos={showLinenos}
         darken={darken}
         className={className}
         style={style}

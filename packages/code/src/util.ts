@@ -22,6 +22,7 @@ export function parseCodeMeta(infoString: string): CodeMetaData {
     maxlines: -1,
     title: '',
     collapsed: undefined,
+    showLinenos: true,
   }
 
   let highlightsSet: Set<number> | null = null
@@ -62,6 +63,10 @@ export function parseCodeMeta(infoString: string): CodeMetaData {
       }
       case 'collapsed':
         result.collapsed = convertToBoolean(val)
+        break
+      case 'showlinenos':
+      case 'linenos':
+        result.showLinenos = convertToBoolean(val)
         break
       case 'maxlines': {
         const x = Number(val)
