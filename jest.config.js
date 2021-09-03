@@ -13,6 +13,7 @@ for (const moduleName of Object.getOwnPropertyNames(compilerOptions.paths)) {
 module.exports = {
   bail: true,
   verbose: true,
+  testEnvironment: 'jsdom',
   errorOnDeprecated: true,
   roots: ['<rootDir>/src', '<rootDir>/__test__'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
