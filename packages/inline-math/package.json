@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-inline-math",
-  "version": "1.0.0-alpha.37",
+  "version": "1.0.0-alpha.38",
   "description": "render markdown inlineMath in react",
   "author": {
     "name": "guanghechen",
@@ -45,7 +45,7 @@
     "react": ">= 17.0.0"
   },
   "dependencies": {
-    "@yozora/react-mathjax": "^1.0.0-alpha.37"
+    "@yozora/react-mathjax": "^1.0.0-alpha.38"
   },
   "browserslist": [
     "last 2 versions",
