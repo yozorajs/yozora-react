@@ -99,6 +99,7 @@ Name                | Type                  | Required  | Default   | Descriptio
 `darken`            | `boolean`             | `false`   | -         | Enable the darken mode
 `lang`              | `string`              | `false`   | -         | Language of the source codes
 `meta`              | `string`              | `false`   | -         | Meta data of the code block
+`preferLinenos`     | `boolean`             | `false`   | `true`    | Display linenos in default
 `runners`           | `CodeRunnerItem[]`    | `false`   | See below | Code runners.
 `style`             | `React.CSSProperties` | `false`   | -         | Root css style
 `value`             | `string`              | `true`    | -         | Literal source codes

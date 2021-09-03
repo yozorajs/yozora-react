@@ -329,7 +329,8 @@ This component is designed to render data of [@yozora/ast][].
   Name                        | Type                  | Required  | Default | Description
   :--------------------------:|:---------------------:|:---------:|:-------:|:-------------
   `codeRunners`               | See below             | `false`   | -       | Code runners, passed to [@yozora/react-code-embed][] and [@yozora/react-code-live][] 
-  `darken`                    | `boolean`             | `false`   | -       | Enable the darken mode
+  `darken`                    | `boolean`             | `false`   | `false` | Enable the darken mode
+  `preferLinenos`             | `boolean`             | `false`   | `true`  | Display linenos as the default behavior in YozoraCode components
   `definitionMap`             | See below             | `true`    | -       | Link / Image reference definitions
   `footnoteDefinitionMap`     | See below             | `true`    | -       | Footnote reference definitions
   `customRendererMap`         | See below             | `false`   | -       | [@yozora/ast] renderer map

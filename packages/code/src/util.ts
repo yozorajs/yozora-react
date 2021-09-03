@@ -5,7 +5,17 @@ const lineNoRangeRegex =
   /\s*\{\s*((?:\d+|\d+-\d+)(?:\s*,\s*(?:\d+|\d+-\d+))*)\s*\}\s*/
 const attributeRegex = /\s*([a-zA-Z_]\w+)(?:\s*=\s*"([^"]*)"|=([\S]*))?\s*/
 
-export function parseCodeMeta(infoString: string): CodeMetaData {
+export interface ParseCodeMetaOptions {
+  /**
+   * Display linenos in default.
+   */
+  preferLinenos: boolean
+}
+
+export function parseCodeMeta(
+  infoString: string,
+  { preferLinenos }: ParseCodeMetaOptions,
+): CodeMetaData {
   let _highlightText = ''
   const remainText = infoString.replace(
     new RegExp(lineNoRangeRegex, 'g'),
@@ -22,7 +32,7 @@ export function parseCodeMeta(infoString: string): CodeMetaData {
     maxlines: -1,
     title: '',
     collapsed: undefined,
-    showLinenos: true,
+    showLinenos: preferLinenos,
   }
 
   let highlightsSet: Set<number> | null = null

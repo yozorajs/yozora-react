@@ -30,8 +30,14 @@ export interface YozoraMarkdownContextProviderProps {
   customRendererMap?: Readonly<Partial<TokenRendererMap>>
   /**
    * Whether if to enable the dark mode.
+   * @default false
    */
   darken?: boolean
+  /**
+   * Display linenos as the default behavior in YozoraCode components.
+   * @default true
+   */
+  preferLinenos?: boolean
   /**
    * Descendant elements.
    */
@@ -52,14 +58,23 @@ export const YozoraMarkdownContextProvider: React.FC<YozoraMarkdownContextProvid
       codeRunners: initialCodeRunners,
       customRendererMap,
       darken: initialDarken,
+      preferLinenos: initialPreferLinenos,
     } = props
 
     const [
-      { codeRunners, darken, images, imageViewerVisible, activatedImageIndex },
+      {
+        codeRunners,
+        darken,
+        preferLinenos,
+        images,
+        imageViewerVisible,
+        activatedImageIndex,
+      },
       setContextData,
     ] = useState<YozoraMarkdownContextData>({
       codeRunners: initialCodeRunners ?? [],
       darken: initialDarken ?? false,
+      preferLinenos: initialPreferLinenos ?? true,
       images: [],
       imageViewerVisible: false,
       activatedImageIndex: -1,
@@ -111,9 +126,10 @@ export const YozoraMarkdownContextProvider: React.FC<YozoraMarkdownContextProvid
         if (index === images.length) images.push({ src, alt })
 
         return (visible = true): void => {
-          setContextData(({ codeRunners, darken, images }) => ({
+          setContextData(({ codeRunners, darken, preferLinenos, images }) => ({
             codeRunners,
             darken,
+            preferLinenos,
             images,
             imageViewerVisible: visible,
             activatedImageIndex: index,
@@ -127,6 +143,7 @@ export const YozoraMarkdownContextProvider: React.FC<YozoraMarkdownContextProvid
       () => ({
         codeRunners,
         darken,
+        preferLinenos,
         images,
         imageViewerVisible,
         activatedImageIndex,
@@ -139,6 +156,7 @@ export const YozoraMarkdownContextProvider: React.FC<YozoraMarkdownContextProvid
       [
         codeRunners,
         darken,
+        preferLinenos,
         images,
         imageViewerVisible,
         activatedImageIndex,
@@ -157,12 +175,13 @@ export const YozoraMarkdownContextProvider: React.FC<YozoraMarkdownContextProvid
         return {
           codeRunners: initialCodeRunners ?? context.codeRunners,
           darken: initialDarken ?? context.darken,
+          preferLinenos: initialPreferLinenos ?? context.preferLinenos,
           images: shouldReset ? [] : context.images,
           imageViewerVisible: shouldReset ? false : context.imageViewerVisible,
           activatedImageIndex: shouldReset ? -1 : context.activatedImageIndex,
         }
       })
-    }, [initialCodeRunners, initialDarken])
+    }, [initialCodeRunners, initialDarken, initialPreferLinenos])
 
     return (
       <YozoraMarkdownContext.Provider value={context}>
@@ -177,6 +196,7 @@ YozoraMarkdownContextProvider.propTypes = {
   codeRunners: PropTypes.array,
   customRendererMap: PropTypes.object as any,
   darken: PropTypes.bool,
+  preferLinenos: PropTypes.bool,
   children: PropTypes.node.isRequired,
 }
 

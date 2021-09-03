@@ -12,6 +12,10 @@ export interface YozoraMarkdownContextData {
    */
   darken: boolean
   /**
+   * Display linenos as the default behavior in YozoraCode components.
+   */
+  preferLinenos: boolean
+  /**
    * Code runners.
    */
   codeRunners: ReadonlyArray<CodeRunnerItem>
@@ -67,6 +71,7 @@ export interface YozoraMarkdownContextState extends YozoraMarkdownContextData {
 export const YozoraMarkdownContext: React.Context<YozoraMarkdownContextState> =
   React.createContext({
     darken: false,
+    preferLinenos: true,
     codeRunners: [],
     images: [],
     imageViewerVisible: false,

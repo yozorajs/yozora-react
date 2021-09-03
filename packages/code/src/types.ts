@@ -25,6 +25,11 @@ export interface CodeProps {
    */
   darken?: boolean
   /**
+   * Display linenos in default.
+   * @default true
+   */
+  preferLinenos?: boolean
+  /**
    * Root css class of the component.
    */
   className?: string

@@ -116,13 +116,14 @@ export const defaultYozoraRendererMap: Readonly<TokenRendererMap> = {
     const formattedValue = value.replace(/[\r\n]*$/, '')
     return (
       <YozoraMarkdownContext.Consumer>
-        {({ darken, codeRunners }) => (
+        {({ darken, preferLinenos, codeRunners }) => (
           <CodeRenderer
             lang={lang}
             value={formattedValue}
             meta={meta}
             runners={codeRunners}
             darken={darken}
+            preferLinenos={preferLinenos}
           />
         )}
       </YozoraMarkdownContext.Consumer>

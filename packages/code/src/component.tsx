@@ -48,12 +48,13 @@ export const Code: React.FC<CodeProps> = props => {
     meta: infoString,
     runners = defaultRunners,
     darken,
+    preferLinenos = true,
     className,
     style,
   } = props
 
   const meta = useMemo<CodeMetaData>(
-    () => parseCodeMeta(infoString ?? ''),
+    () => parseCodeMeta(infoString ?? '', { preferLinenos }),
     [infoString],
   )
   const {
@@ -129,6 +130,7 @@ Code.propTypes = {
   runners: PropTypes.array,
   value: PropTypes.string.isRequired,
   darken: PropTypes.bool,
+  preferLinenos: PropTypes.bool,
   className: PropTypes.string,
   style: PropTypes.object,
 }
