@@ -9,9 +9,9 @@
   border: 1px solid #d3d3d3
   background: $code-bg-primary
   caret-color: $code-color-caret
+
   ::selection
     background: $code-bg-selection
-
   > .yozora-code-literal__toolbar
     flex: 0 0 auto
     position: relative
@@ -21,6 +21,7 @@
     width: 100%
     border-bottom: 1px solid $code-color-border
     cursor: default
+
     .yozora-code-literal__title
       margin-left: 1rem
       font-family: $heading-font-family
@@ -44,12 +45,15 @@
     letter-spacing: 1px
     line-height: inherit
     tab-size: 2
+
     > pre
       margin: 0
       font-family: $code-font-family
       font-size: $code-font-size
       line-height: inherit
-      code, span
+
+      code,
+      span
         line-height: inherit
       code
         padding: 0
@@ -57,27 +61,27 @@
         background: transparent
       ::selection
         background: $code-bg-selection
-
 .yozora-code-literal__copy-button
   position: absolute
   right: 1rem
   visibility: hidden
   opacity: 0
-  transition: opacity .2s ease-in-out
+  transition: opacity 0.2s ease-in-out
+  background: $code-bg-primary
   user-select: none
 .yozora-code-literal
   &:hover
     .yozora-code-literal__copy-button
       visibility: visible
       opacity: 1
-
 // Adaptive smaller screen.
 +mx-screen-xs()
   .yozora-code-literal
-    border: 0
+    border: none
     border-radius: 5px
-    box-shadow: rgba(30, 30, 30, 73%) 0px 2px 10px
+    box-shadow: rgba(30, 30, 30, 73%) 0 2px 10px
     overflow: hidden
+
     .yozora-code-highlighter__linenos
       display: none
       visibility: hidden

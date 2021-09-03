@@ -23,8 +23,9 @@
 
 .yozora-markdown
   color: $color-text-tertiary
-  font-family: 'PingFang SC',miui,system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,sans-serif
+  font-family: 'PingFang SC', miui, system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, sans-serif
   word-break: break-all
+
   *
     box-sizing: border-box
   ::-webkit-scrollbar
@@ -38,52 +39,48 @@
     border: 3px solid hsl(0, 0%, 50%)
     background: hsl(0, 0%, 60%)
     border-radius: 4px
+
     &:hover
       border-color: hsl(0, 0%, 70%)
-
   a
     color: $link-color
     text-decoration: none
+
     &:visited
       color: $link-color
     &:hover
       color: $link-color-hover
-
 .yozora-markdown
-  .yozora-admonition__body
-  .yozora-blockquote
-  .yozora-list
+  .yozora-admonition__body,
+  .yozora-blockquote,
+  .yozora-list,
   .yozora-paragraph
     > *:last-child
       margin-bottom: 0
-
   .yozora-admonition
     .yozora-admonition__heading
-      .yozora-math
+      .yozora-math,
       .yozora-inline-math
         color: inherit
-
-  .yozora-code-literal
+  .yozora-code-literal,
   .yozora-code-live
     margin: $margin-block-node
-
   .yozora-code-renderer-graphviz
     display: flex
     justify-content: center
     padding: 2rem 0
-    background: hsla(0deg, 0%, 90%, 0.20)
-
+    background: hsla(0deg, 0%, 90%, 0.2)
   .yozora-footnote-reference
     > a
       display: inline-block
       line-height: 1.2
       text-decoration: none
+
       &:visited
         color: $link-color
       &:hover
         color: $link-color-hover
         transform: scale(1.2)
-
   .yozora-paragraph
     &.yozora-paragraph--display
       display: flex
@@ -92,3 +89,10 @@
       padding: 1rem 0
     + .yozora-math
       margin-top: -1em
+  +mx-screen-xs()
+    .yozora-math,
+    .yozora-inline-math
+      font-size: 0.8rem
+    .yozora-code-highlighter,
+    .yozora-code-editor__textarea
+      font-size: 0.9rem
