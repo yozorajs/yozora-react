@@ -46,7 +46,8 @@
   },
   "devDependencies": {
     "@yozora/react-code-renderer-graphviz": "^1.0.0-alpha.38",
-    "@yozora/react-code-renderer-jsx": "^1.0.0-alpha.38"
+    "@yozora/react-code-renderer-jsx": "^1.0.0-alpha.38",
+    "@yozora/react-math": "^1.0.0-alpha.38"
   },
   "browserslist": [
     "last 2 versions",
