@@ -163,7 +163,7 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
       textareaStyle={{
         ...wordStyle,
         ...textareaStyle,
-        padding: '0.5rem 0.6em 0 6px',
+        padding: '0.5rem 0.6em 0 12px',
       }}
       linenoWidth={linenoWidth}
       preClassName={preClassName}
