@@ -22,7 +22,7 @@
 @require '@yozora/react-thematic-break/src/style.styl'
 
 .yozora-markdown
-  color: $color-text-tertiary
+  color: $color-text-primary
   font-family: 'PingFang SC', miui, system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, sans-serif
   word-break: break-all
 
@@ -89,6 +89,8 @@
       padding: 1rem 0
     + .yozora-math
       margin-top: -1em
+    + .yozora-list
+      margin-top: -0.8rem
   +mx-screen-xs()
     .yozora-math,
     .yozora-inline-math
