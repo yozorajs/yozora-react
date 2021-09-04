@@ -1,5 +1,24 @@
 # Changelog
 
+<a name="1.0.0-alpha.40"></a>
+## 1.0.0-alpha.40 (2021-09-04)
+
+### Added
+
+- ✅ test: update snapshots [[ea8c7e6](https://github.com/guanghechen/yozora-react/commit/ea8c7e6e7096e784930cd3e36c9399ef59553005)]
+
+### Changed
+
+- ⬆️ chore: upgrade dependencies [[2678c28](https://github.com/guanghechen/yozora-react/commit/2678c28b4f842701ca2e4baf83a8d39c7a80f817)]
+- 💄 improve: prefer pseudo elements [[6ca5b02](https://github.com/guanghechen/yozora-react/commit/6ca5b0262d4475551fffe1ef5e8f18be9ae42073)]
+- 💄 improve: tweak letter spacing and font color [[4b5b802](https://github.com/guanghechen/yozora-react/commit/4b5b802f03b5e12dd86f901a36b989219019c15f)]
+- 💄 improve: tweak paddings [[2606122](https://github.com/guanghechen/yozora-react/commit/2606122026db0b15bab78bfbab347e3ed58f526a)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[dee5350](https://github.com/guanghechen/yozora-react/commit/dee5350f85fee975a5a2dc6f9f89df0a9fbc841b)]
+
+
 <a name="1.0.0-alpha.39"></a>
 ## 1.0.0-alpha.39 (2021-09-04)
 
