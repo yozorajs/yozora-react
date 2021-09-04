@@ -32,7 +32,7 @@ export const FootnoteDefinitions: React.FC<FootnoteDefinitionsProps> =
             >
               <p className="yozora-footnote-definitions__item-title yozora-paragraph">
                 <a href={'#reference-' + node.identifier}>&uarr;</a>
-                &nbsp; [{node.label}]: &nbsp;&nbsp;
+                <span>{node.label}</span>
               </p>
               <div className="yozora-footnote-definitions__item-content">
                 {node.children}

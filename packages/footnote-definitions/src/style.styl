@@ -22,6 +22,11 @@
       display: inline-block
       margin: 0
       padding: 0
+      > span
+        &::before
+          content: '\00a0['
+        &::after
+          content: ']: \00a0'   // : &nbsp;&nbsp;
     .yozora-footnote-definitions__item-content
       flex: 1 1 auto
       overflow-x: auto
