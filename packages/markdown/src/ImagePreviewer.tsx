@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useCallback, useContext } from 'react'
-import { YozoraMarkdownContext } from './Context'
+import { YozoraMarkdownActionsType } from './context/actions'
+import { YozoraMarkdownContext } from './context/context'
 import type { ImageViewerProps } from './types'
 
 export interface YozoraImagePreviewerProps {
@@ -32,11 +33,15 @@ export interface YozoraImagePreviewerProps {
 export const YozoraImagePreviewer: React.FC<YozoraImagePreviewerProps> = ({
   ImageViewer,
 }) => {
-  const { images, imageViewerVisible, activatedImageIndex, dispatch } =
+  const { images, imageViewerVisible, imageActivatedIndex, dispatch } =
     useContext(YozoraMarkdownContext)
 
   const handleCloseImageViewer = useCallback<() => void>(
-    () => dispatch({ imageViewerVisible: false }),
+    () =>
+      dispatch({
+        type: YozoraMarkdownActionsType.IMAGE_VIEWER_TOGGLE,
+        payload: false,
+      }),
     [dispatch],
   )
 
@@ -45,7 +50,7 @@ export const YozoraImagePreviewer: React.FC<YozoraImagePreviewerProps> = ({
     <ImageViewer
       visible={imageViewerVisible}
       images={images}
-      activeIndex={activatedImageIndex < 0 ? undefined : activatedImageIndex}
+      activeIndex={imageActivatedIndex < 0 ? undefined : imageActivatedIndex}
       onClose={handleCloseImageViewer}
       onMaskClick={handleCloseImageViewer}
     />

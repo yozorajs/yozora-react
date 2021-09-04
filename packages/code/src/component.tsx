@@ -55,7 +55,7 @@ export const Code: React.FC<CodeProps> = props => {
 
   const meta = useMemo<CodeMetaData>(
     () => parseCodeMeta(infoString ?? '', { preferLinenos }),
-    [infoString],
+    [infoString, preferLinenos],
   )
   const {
     highlights,
