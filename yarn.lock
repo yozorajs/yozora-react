@@ -2139,23 +2139,23 @@
   resolved "https://registry.npmjs.org/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
-"@yozora/ast-util@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/@yozora/ast-util/-/ast-util-1.2.0.tgz#47d6150808ab7dde9e21a9f4f46829545ba83876"
-  integrity sha512-yLZM55KbPDXAb6bZNYbb+GDM2qfnFCf19bAk2fBtzE4SfNEO95AWvmnhFuPtM/XQxXYk6Sp3MXtRdc1O6e3piw==
+"@yozora/ast-util@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/@yozora/ast-util/-/ast-util-1.2.1.tgz#626baccde19273505c34e3b092682894defc1287"
+  integrity sha512-ZQYSdhgpKy0fTPsW1HctULEezV5ahfV2gRJHZ881x3JoRYUeweWzrzeRgyCQbWth86XtCstc4fhfv8Mtyazteg==
   dependencies:
-    "@yozora/ast" "^1.2.0"
-    "@yozora/character" "^1.2.0"
+    "@yozora/ast" "^1.2.1"
+    "@yozora/character" "^1.2.1"
 
-"@yozora/ast@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/@yozora/ast/-/ast-1.2.0.tgz#d7698e7ea581cc4f3407a9c756c6b4586adf305d"
-  integrity sha512-TCOEQo1V+o1QKYqtkAZr1FFtseCnlc+/dhSCMIVUa7DXjLfkSehX7lqOyWg3lRFf+P9wOlHaFAoms1SIgGcBVA==
+"@yozora/ast@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/@yozora/ast/-/ast-1.2.1.tgz#2f6ed97134efd8ef2af51c0cc01f1b6f1af25d59"
+  integrity sha512-GuGEoUNby14LTMSDtprSzcixIgBnFU3tYodQnhAWqcTVbMX0zSaCJ1H0dsh+rhEClIFusEb5UMfidgAczAeVIw==
 
-"@yozora/character@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/@yozora/character/-/character-1.2.0.tgz#8921b9aeb408aaaeb9358c583941d927fa7a151c"
-  integrity sha512-eIwANvRrfDmhacvv42WFmXljT6o3/7pbdjaflne+m/e0WiPcmYL1nqjRZ7GLO8z1ki6B6G8BYd6YiTwl6PKm2w==
+"@yozora/character@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/@yozora/character/-/character-1.2.1.tgz#c0f7d9a171dedf1541257988b4bac27aaa011d23"
+  integrity sha512-CcM3D6u+8IM2omLLXxv++dKhwOtHfRd0iXR0cgm8K1wHsBAtVqSeb4AfxL5UQPCKVYD3++v9nNceb5bc4L3Wvw==
 
 JSONStream@^1.0.4, JSONStream@^1.3.4:
   version "1.3.5"
@@ -9123,10 +9123,10 @@ react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-router-dom@^5.2.1:
-  version "5.2.1"
-  resolved "https://registry.npmjs.org/react-router-dom/-/react-router-dom-5.2.1.tgz#34af8b551a4ce17487d3f80e651b91651978dff6"
-  integrity sha512-xhFFkBGVcIVPbWM2KEYzED+nuHQPmulVa7sqIs3ESxzYd1pYg8N8rxPnQ4T2o1zu/2QeDUWcaqST131SO1LR3w==
+react-router-dom@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.npmjs.org/react-router-dom/-/react-router-dom-5.3.0.tgz#da1bfb535a0e89a712a93b97dd76f47ad1f32363"
+  integrity sha512-ObVBLjUZsphUUMVycibxgMdh5jJ1e3o+KpAZBVeHcNQZ4W+uUGGWsokurzlF4YOldQYRQL4y6yFRWM4m3svmuQ==
   dependencies:
     "@babel/runtime" "^7.12.13"
     history "^4.9.0"
