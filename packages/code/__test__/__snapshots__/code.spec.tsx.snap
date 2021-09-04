@@ -499,7 +499,7 @@ exports[`snapshot live 1`] = `
             autocorrect="off"
             class="yozora-code-editor__textarea"
             spellcheck="false"
-            style="tab-size:2;white-space:pre;padding:0.5rem 0.6em 0 6px"
+            style="tab-size:2;white-space:pre;padding:0.5rem 0.6em 0 12px"
           >
             function () {
       const a = 1;
