@@ -1,5 +1,25 @@
 # Changelog
 
+<a name="1.0.0-alpha.39"></a>
+## 1.0.0-alpha.39 (2021-09-04)
+
+### Added
+
+- ✅ test: update tests due to the previous changes [[a02ef39](https://github.com/guanghechen/yozora-react/commit/a02ef3974a61231ea77ac001b0618524a27e76dd)]
+
+### Changed
+
+- 💄 improve: tweak styles [[42822df](https://github.com/guanghechen/yozora-react/commit/42822df25bf3c3034fac38025ee74e571c63a6e2)]
+- 🎨 refactor(react-markdown): refactor codes with &#x27;useReducer&#x27; [[7b35b5d](https://github.com/guanghechen/yozora-react/commit/7b35b5dd75d4c01a3d7ded478571db421517734c)]
+- 🔧 chore(code-runners): add missing devDependencies [[156c6a4](https://github.com/guanghechen/yozora-react/commit/156c6a487f04074c017e1160020acccf3cc03a2f)]
+
+### Miscellaneous
+
+- 🚧 feat(YozoraMarkdownProvider): support new props &#x27;preferLinenos&#x27; [[35d771b](https://github.com/guanghechen/yozora-react/commit/35d771b6b6a24304bd265efd6ef281fb599a37c3)]
+- 🚧 feat(react-code): support to toggle linenos [[87e6507](https://github.com/guanghechen/yozora-react/commit/87e6507d47dc8d48f99b1ae1ca9de4742a2544fa)]
+- 📝 docs: update CHANGELOG [[3ea78a1](https://github.com/guanghechen/yozora-react/commit/3ea78a192234f330fc462c9255b3449c706a4f59)]
+
+
 <a name="1.0.0-alpha.38"></a>
 ## 1.0.0-alpha.38 (2021-09-03)
 
