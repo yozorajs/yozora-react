@@ -52,93 +52,94 @@ export interface YozoraMarkdownContextProviderProps {
  * @param props
  * @returns
  */
-export const YozoraMarkdownContextProvider: React.FC<YozoraMarkdownContextProviderProps> =
-  props => {
-    const {
-      definitionMap,
-      footnoteDefinitionMap,
-      children,
+export const YozoraMarkdownContextProvider: React.FC<
+  YozoraMarkdownContextProviderProps
+> = props => {
+  const {
+    definitionMap,
+    footnoteDefinitionMap,
+    children,
+    codeRunners: initialCodeRunners,
+    customRendererMap,
+    darken: initialDarken,
+    preferLinenos: initialPreferLinenos,
+  } = props
+
+  // Get all of footnote reference definitions.
+  const footnoteDefinitions: ReadonlyArray<FootnoteDefinition> =
+    useDeepCompareMemo<ReadonlyArray<FootnoteDefinition>>(
+      () => Object.values(footnoteDefinitionMap),
+      [footnoteDefinitionMap],
+    )
+
+  const [contextData, dispatch] = useReducer(
+    reducer,
+    {
       codeRunners: initialCodeRunners,
-      customRendererMap,
+      footnoteDefinitions,
       darken: initialDarken,
       preferLinenos: initialPreferLinenos,
-    } = props
+    },
+    initializeYozoraMarkdownContextData,
+  )
 
-    // Get all of footnote reference definitions.
-    const footnoteDefinitions: ReadonlyArray<FootnoteDefinition> =
-      useDeepCompareMemo<ReadonlyArray<FootnoteDefinition>>(
-        () => Object.values(footnoteDefinitionMap),
-        [footnoteDefinitionMap],
-      )
+  const rendererMap: Readonly<TokenRendererMap> =
+    useYozoraRendererMap(customRendererMap)
 
-    const [contextData, dispatch] = useReducer(
-      reducer,
-      {
-        codeRunners: initialCodeRunners,
+  // Render yozora AST nodes into React nodes.
+  const renderYozoraNodes = useCallback<
+    YozoraMarkdownContextState['renderYozoraNodes']
+  >(
+    (nodes?: YastNode[]): React.ReactNode[] => {
+      if (nodes == null || nodes.length <= 0) return []
+      return nodes.map((node, key) => {
+        const Renderer = rendererMap[node.type] ?? rendererMap._fallback
+        return <Renderer key={key} {...node} />
+      })
+    },
+    [rendererMap],
+  )
+
+  // Get link / image reference definition through the given identifier.
+  const getDefinition = useDeepCompareCallback<
+    YozoraMarkdownContextState['getDefinition']
+  >(identifier => definitionMap[identifier], [definitionMap])
+
+  const context = useMemo<YozoraMarkdownContextState>(
+    () => ({
+      ...contextData,
+      dispatch,
+      getDefinition,
+      renderYozoraNodes,
+    }),
+    [contextData, dispatch, getDefinition, renderYozoraNodes],
+  )
+
+  // Watch initial values change.
+  useEffect(() => {
+    dispatch({
+      type: YozoraMarkdownActionsType.RESET_STATE_DATA,
+      payload: {
         footnoteDefinitions,
+        codeRunners: initialCodeRunners,
         darken: initialDarken,
         preferLinenos: initialPreferLinenos,
       },
-      initializeYozoraMarkdownContextData,
-    )
+    })
+  }, [
+    dispatch,
+    footnoteDefinitions,
+    initialCodeRunners,
+    initialDarken,
+    initialPreferLinenos,
+  ])
 
-    const rendererMap: Readonly<TokenRendererMap> =
-      useYozoraRendererMap(customRendererMap)
-
-    // Render yozora AST nodes into React nodes.
-    const renderYozoraNodes = useCallback<
-      YozoraMarkdownContextState['renderYozoraNodes']
-    >(
-      (nodes?: YastNode[]): React.ReactNode[] => {
-        if (nodes == null || nodes.length <= 0) return []
-        return nodes.map((node, key) => {
-          const Renderer = rendererMap[node.type] ?? rendererMap._fallback
-          return <Renderer key={key} {...node} />
-        })
-      },
-      [rendererMap],
-    )
-
-    // Get link / image reference definition through the given identifier.
-    const getDefinition = useDeepCompareCallback<
-      YozoraMarkdownContextState['getDefinition']
-    >(identifier => definitionMap[identifier], [definitionMap])
-
-    const context = useMemo<YozoraMarkdownContextState>(
-      () => ({
-        ...contextData,
-        dispatch,
-        getDefinition,
-        renderYozoraNodes,
-      }),
-      [contextData, dispatch, getDefinition, renderYozoraNodes],
-    )
-
-    // Watch initial values change.
-    useEffect(() => {
-      dispatch({
-        type: YozoraMarkdownActionsType.RESET_STATE_DATA,
-        payload: {
-          footnoteDefinitions,
-          codeRunners: initialCodeRunners,
-          darken: initialDarken,
-          preferLinenos: initialPreferLinenos,
-        },
-      })
-    }, [
-      dispatch,
-      footnoteDefinitions,
-      initialCodeRunners,
-      initialDarken,
-      initialPreferLinenos,
-    ])
-
-    return (
-      <YozoraMarkdownContext.Provider value={context}>
-        {children}
-      </YozoraMarkdownContext.Provider>
-    )
-  }
+  return (
+    <YozoraMarkdownContext.Provider value={context}>
+      {children}
+    </YozoraMarkdownContext.Provider>
+  )
+}
 
 YozoraMarkdownContextProvider.propTypes = {
   definitionMap: PropTypes.object.isRequired as any,

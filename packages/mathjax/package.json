@@ -44,7 +44,7 @@
     "react": ">= 17.0.0"
   },
   "dependencies": {
-    "load-script": "^1.0.0"
+    "load-script": "^2.0.0"
   },
   "browserslist": [
     "last 2 versions",

@@ -1,6 +1,5 @@
 import { mount } from 'enzyme'
 import React from 'react'
-import styled from 'styled-components'
 import CodeRendererJsx from '../src'
 
 describe('basic rendering case', () => {
@@ -25,7 +24,6 @@ describe('basic rendering case', () => {
           <CodeRendererJsx
             code={props.code}
             inline={props.inline}
-            scope={{ styled }}
             onError={setError}
           />
           <pre>{error}</pre>

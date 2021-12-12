@@ -14,11 +14,7 @@ exports[`basic rendering case snapshot: bad code 1`] = `
     "
       inline={false}
       onError={[Function]}
-      scope={
-        Object {
-          "styled": [Function],
-        }
-      }
+      scope={Object {}}
     />
     <pre>
       SyntaxError: No-Inline evaluations must call \`render\`.
@@ -28,10 +24,6 @@ exports[`basic rendering case snapshot: bad code 1`] = `
 `;
 
 exports[`basic rendering case snapshot: block code 1`] = `
-.c0 {
-  background: hsl(0deg,10%,90%);
-}
-
 <Wrapper
   code="
       const Container = styled.div\`
@@ -61,31 +53,11 @@ exports[`basic rendering case snapshot: block code 1`] = `
     "
       inline={false}
       onError={[Function]}
-      scope={
-        Object {
-          "styled": [Function],
-        }
-      }
-    >
-      <ErrorBoundary>
-        <styled.div>
-          <div
-            className="c0"
-          >
-            <span
-              style={
-                Object {
-                  "color": "orange",
-                }
-              }
-            >
-              Hello, world
-            </span>
-          </div>
-        </styled.div>
-      </ErrorBoundary>
-    </YozoraCodeRendererJsx>
-    <pre />
+      scope={Object {}}
+    />
+    <pre>
+      ReferenceError: styled is not defined
+    </pre>
   </div>
 </Wrapper>
 `;
@@ -112,11 +84,7 @@ exports[`basic rendering case snapshot: inline code 1`] = `
     "
       inline={true}
       onError={[Function]}
-      scope={
-        Object {
-          "styled": [Function],
-        }
-      }
+      scope={Object {}}
     >
       <ErrorBoundary>
         <div>
