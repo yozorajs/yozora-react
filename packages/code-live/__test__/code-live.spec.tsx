@@ -1,7 +1,7 @@
 import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
 import type {
-  CodeRunnerItem,
-  CodeRunnerProps,
+  ICodeRunnerItem,
+  ICodeRunnerProps,
 } from '@yozora/react-code-runners'
 import { mount } from 'enzyme'
 import React from 'react'
@@ -21,7 +21,7 @@ const code = `
   }
 `
 
-const JsxRunner = ({ value }: CodeRunnerProps): React.ReactElement => {
+const JsxRunner = ({ value }: ICodeRunnerProps): React.ReactElement => {
   return (
     <CodeRendererJsx
       code={value}
@@ -33,7 +33,7 @@ const JsxRunner = ({ value }: CodeRunnerProps): React.ReactElement => {
   )
 }
 
-const runners: CodeRunnerItem[] = [
+const runners: ICodeRunnerItem[] = [
   {
     title: 'jsx',
     pattern: /^jsx$/,

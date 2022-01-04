@@ -9,9 +9,9 @@ exports[`snapshot basic 1`] = `
   target="_blank"
   title="home"
 >
-  some text1
+  Some link text
   <span>
-    some text2
+    Some link text2
   </span>
 </a>
 `;

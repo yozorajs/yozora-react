@@ -1,9 +1,9 @@
 import { render } from 'enzyme'
 import React from 'react'
 import Table from '../src'
-import type { TableProps } from '../src'
+import type { ITableProps } from '../src'
 
-const aligns: TableProps['aligns'] = ['center', 'left']
+const aligns: ITableProps['aligns'] = ['center', 'left']
 
 const ths: React.ReactNode[] = ['Name', 'Age']
 

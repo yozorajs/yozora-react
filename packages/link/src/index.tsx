@@ -37,7 +37,7 @@ export interface ILinkProps
  */
 export const Link: React.FC<ILinkProps> = props => {
   const {
-    children, // children is not allowed.
+    children,
     className,
     url,
     rel = 'noopener,noreferrer',

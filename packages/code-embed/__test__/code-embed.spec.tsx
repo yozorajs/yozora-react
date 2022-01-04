@@ -1,5 +1,5 @@
 import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
-import type { CodeRunnerProps } from '@yozora/react-code-runners'
+import type { ICodeRunnerProps } from '@yozora/react-code-runners'
 import { render } from 'enzyme'
 import React from 'react'
 import CodeEmbed from '../src'
@@ -17,7 +17,7 @@ const code = `
   }
 `
 
-const JsxRunner = ({ value }: CodeRunnerProps): React.ReactElement => {
+const JsxRunner = ({ value }: ICodeRunnerProps): React.ReactElement => {
   return (
     <CodeRendererJsx
       code={value}

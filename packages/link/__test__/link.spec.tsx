@@ -1,6 +1,5 @@
 import { render } from 'enzyme'
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Link from '../src'
 
 const url = 'https://github.com/guanghechen'
@@ -56,16 +55,13 @@ describe('prop types', function () {
 describe('snapshot', function () {
   it('basic', () => {
     const wrapper = render(
-      <Router>
-        <Link
-          url={url}
-          title="home"
-          style={{ color: 'orange', fontSize: '16px' }}
-        >
-          some text1
-          <span>some text2</span>
-        </Link>
-      </Router>,
+      <Link
+        url={url}
+        title="home"
+        style={{ color: 'orange', fontSize: '16px' }}
+      >
+        {children}
+      </Link>,
     )
     expect(wrapper).toMatchSnapshot()
   })
