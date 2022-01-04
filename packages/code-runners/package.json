@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-runners",
-  "version": "1.0.0-alpha.40",
+  "version": "2.0.0-alpha.0",
   "description": "Live code runners",
   "author": {
     "name": "guanghechen",
@@ -45,9 +45,9 @@
     "@loadable/component": "^5.15.0"
   },
   "devDependencies": {
-    "@yozora/react-code-renderer-graphviz": "^1.0.0-alpha.40",
-    "@yozora/react-code-renderer-jsx": "^1.0.0-alpha.40",
-    "@yozora/react-math": "^1.0.0-alpha.40"
+    "@yozora/react-code-renderer-graphviz": "^2.0.0-alpha.0",
+    "@yozora/react-code-renderer-jsx": "^2.0.0-alpha.0",
+    "@yozora/react-math": "^2.0.0-alpha.0"
   },
   "browserslist": [
     "last 2 versions",
