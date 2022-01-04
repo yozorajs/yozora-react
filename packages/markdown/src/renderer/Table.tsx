@@ -1,9 +1,9 @@
-import type { Table } from '@yozora/ast'
+import type { ITable } from '@yozora/ast'
 import TableRenderer from '@yozora/react-table'
 import React, { useContext } from 'react'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraTable(table: Table): React.ReactElement {
+export function YozoraTable(table: ITable): React.ReactElement {
   const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
   const { columns, children: rows } = table
 

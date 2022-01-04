@@ -1,14 +1,14 @@
-import type { ImageReference } from '@yozora/ast'
+import type { IImageReference } from '@yozora/ast'
 import ImageRenderer from '@yozora/react-image'
 import React, { useContext, useEffect } from 'react'
 import { YozoraMarkdownActionsType } from '../context/actions'
 import { YozoraMarkdownContext } from '../context/context'
 
 export function YozoraImageReference(
-  imageReference: ImageReference,
+  imageReference: IImageReference,
 ): React.ReactElement {
   const { dispatch, getDefinition } = useContext(YozoraMarkdownContext)
-  const { alt, srcSet, sizes, loading } = imageReference as ImageReference &
+  const { alt, srcSet, sizes, loading } = imageReference as IImageReference &
     React.ImgHTMLAttributes<HTMLElement>
 
   const definition = getDefinition(imageReference.identifier)

@@ -1,4 +1,4 @@
-import type { Definition, YastNode } from '@yozora/ast'
+import type { IDefinition, IYastNode } from '@yozora/ast'
 import React from 'react'
 import type { YozoraMarkdownAction } from './actions'
 import type { YozoraMarkdownContextData } from './state'
@@ -16,12 +16,12 @@ export interface YozoraMarkdownContextState extends YozoraMarkdownContextData {
    * Get link / image reference definition through the given identifier.
    * @param identifier
    */
-  getDefinition(identifier: string): Readonly<Definition> | undefined
+  getDefinition(identifier: string): Readonly<IDefinition> | undefined
   /**
    * Render yozora AST nodes into React nodes.
    * @param children
    */
-  renderYozoraNodes(yozoraNodes?: YastNode[]): React.ReactNode[]
+  renderYozoraNodes(yozoraNodes?: IYastNode[]): React.ReactNode[]
 }
 
 /**

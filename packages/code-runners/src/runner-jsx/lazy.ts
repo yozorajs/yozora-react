@@ -1,5 +1,5 @@
 import loadable from '@loadable/component'
-import type { EcmaImport } from '@yozora/ast'
+import type { IEcmaImport } from '@yozora/ast'
 import type { CodeRunnerScope, ReactComponent } from '../types'
 
 // Dynamic import func.
@@ -30,7 +30,7 @@ export interface DynamicImportRule {
  * @returns
  */
 export function dynamicImport(
-  ecmaImport: Readonly<EcmaImport>,
+  ecmaImport: Readonly<IEcmaImport>,
   nextCustomScopes: CodeRunnerScope,
   Placeholders: ReactComponent[],
   rules: ReadonlyArray<DynamicImportRule>,

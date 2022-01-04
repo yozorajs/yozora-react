@@ -1,5 +1,5 @@
 import { useDeepCompareMemo } from '@guanghechen/react-hooks'
-import type { EcmaImport } from '@yozora/ast'
+import type { IEcmaImport } from '@yozora/ast'
 import type { CodeRendererJsxProps } from '@yozora/react-code-renderer-jsx'
 import React, { useEffect, useMemo, useState } from 'react'
 import type {
@@ -26,8 +26,8 @@ export function createUseJsxRunner(
   rules: ReadonlyArray<DynamicImportRule>,
   JsxRenderer: ReactComponent<CodeRendererJsxProps>,
   defaultRenderMode: 'inline' | 'block',
-): (ecmaImports: EcmaImport[]) => CodeRunner {
-  return function useJsxRunner(ecmaImports: EcmaImport[]): CodeRunner {
+): (ecmaImports: IEcmaImport[]) => CodeRunner {
+  return function useJsxRunner(ecmaImports: IEcmaImport[]): CodeRunner {
     const { scope, pending, Placeholders } =
       useDeepCompareMemo<AsyncRunnerScopes>(() => {
         const scope: CodeRunnerScope = { ...presetJsxScope }

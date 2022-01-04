@@ -1,10 +1,10 @@
-import type { Paragraph } from '@yozora/ast'
+import type { IParagraph } from '@yozora/ast'
 import { ImageReferenceType, ImageType } from '@yozora/ast'
 import ParagraphRenderer from '@yozora/react-paragraph'
 import React, { useContext } from 'react'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraParagraph(paragraph: Paragraph): React.ReactElement {
+export function YozoraParagraph(paragraph: IParagraph): React.ReactElement {
   const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
   const { children } = paragraph
 

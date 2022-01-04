@@ -1,9 +1,9 @@
-import type { Code } from '@yozora/ast'
+import type { ICode } from '@yozora/ast'
 import CodeRenderer from '@yozora/react-code'
 import React, { useContext } from 'react'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraCode(code: Code): React.ReactElement {
+export function YozoraCode(code: ICode): React.ReactElement {
   const { darken, preferLinenos, codeRunners } = useContext(
     YozoraMarkdownContext,
   )

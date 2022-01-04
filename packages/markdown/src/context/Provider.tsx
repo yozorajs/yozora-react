@@ -2,7 +2,7 @@ import {
   useDeepCompareCallback,
   useDeepCompareMemo,
 } from '@guanghechen/react-hooks'
-import type { Definition, FootnoteDefinition, YastNode } from '@yozora/ast'
+import type { IDefinition, IFootnoteDefinition, IYastNode } from '@yozora/ast'
 import type { CodeRunnerItem } from '@yozora/react-code-runners'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo, useReducer } from 'react'
@@ -18,11 +18,11 @@ export interface YozoraMarkdownContextProviderProps {
   /**
    * Link / Image reference definitions.
    */
-  definitionMap: Readonly<Record<string, Definition>>
+  definitionMap: Readonly<Record<string, IDefinition>>
   /**
    * Footnote reference definitions.
    */
-  footnoteDefinitionMap: Readonly<Record<string, FootnoteDefinition>>
+  footnoteDefinitionMap: Readonly<Record<string, IFootnoteDefinition>>
   /**
    * Code runners.
    */
@@ -66,8 +66,8 @@ export const YozoraMarkdownContextProvider: React.FC<
   } = props
 
   // Get all of footnote reference definitions.
-  const footnoteDefinitions: ReadonlyArray<FootnoteDefinition> =
-    useDeepCompareMemo<ReadonlyArray<FootnoteDefinition>>(
+  const footnoteDefinitions: ReadonlyArray<IFootnoteDefinition> =
+    useDeepCompareMemo<ReadonlyArray<IFootnoteDefinition>>(
       () => Object.values(footnoteDefinitionMap),
       [footnoteDefinitionMap],
     )
@@ -90,7 +90,7 @@ export const YozoraMarkdownContextProvider: React.FC<
   const renderYozoraNodes = useCallback<
     YozoraMarkdownContextState['renderYozoraNodes']
   >(
-    (nodes?: YastNode[]): React.ReactNode[] => {
+    (nodes?: IYastNode[]): React.ReactNode[] => {
       if (nodes == null || nodes.length <= 0) return []
       return nodes.map((node, key) => {
         const Renderer = rendererMap[node.type] ?? rendererMap._fallback

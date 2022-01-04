@@ -1,9 +1,9 @@
-import type { Admonition } from '@yozora/ast'
+import type { IAdmonition } from '@yozora/ast'
 import AdmonitionRenderer from '@yozora/react-admonition'
 import React, { useContext } from 'react'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraAdmonition(admonition: Admonition): React.ReactElement {
+export function YozoraAdmonition(admonition: IAdmonition): React.ReactElement {
   const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
   return (
     <AdmonitionRenderer

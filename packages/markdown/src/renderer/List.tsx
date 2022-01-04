@@ -1,9 +1,9 @@
-import type { List } from '@yozora/ast'
+import type { IList } from '@yozora/ast'
 import ListRenderer from '@yozora/react-list'
 import React, { useContext } from 'react'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraList(list: List): React.ReactElement {
+export function YozoraList(list: IList): React.ReactElement {
   const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
   const { ordered, orderType, start, children } = list
   return (

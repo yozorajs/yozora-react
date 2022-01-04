@@ -1,4 +1,4 @@
-import type { Root } from '@yozora/ast'
+import type { IRoot } from '@yozora/ast'
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React, { useContext, useMemo } from 'react'
@@ -9,7 +9,7 @@ export interface YozoraMarkdownProps {
   /**
    * Root node of Yozora Markdown AST.
    */
-  ast: Root
+  ast: IRoot
   /**
    * Title of the footnote definitions.
    */

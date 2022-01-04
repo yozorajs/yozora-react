@@ -1,9 +1,9 @@
-import type { Blockquote } from '@yozora/ast'
+import type { IBlockquote } from '@yozora/ast'
 import BlockquoteRenderer from '@yozora/react-blockquote'
 import React, { useContext } from 'react'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraBlockquote(blockquote: Blockquote): React.ReactElement {
+export function YozoraBlockquote(blockquote: IBlockquote): React.ReactElement {
   const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
   return (
     <BlockquoteRenderer>

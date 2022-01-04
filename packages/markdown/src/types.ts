@@ -1,62 +1,62 @@
 import type {
-  Admonition,
   AdmonitionType,
-  Blockquote,
   BlockquoteType,
-  Break,
   BreakType,
-  Code,
   CodeType,
-  Definition,
   DefinitionType,
-  Delete,
   DeleteType,
-  Emphasis,
   EmphasisType,
-  Footnote,
-  FootnoteDefinition,
   FootnoteDefinitionType,
-  FootnoteReference,
   FootnoteReferenceType,
   FootnoteType,
-  Heading,
   HeadingType,
-  Image,
-  ImageReference,
+  IAdmonition,
+  IBlockquote,
+  IBreak,
+  ICode,
+  IDefinition,
+  IDelete,
+  IEmphasis,
+  IFootnote,
+  IFootnoteDefinition,
+  IFootnoteReference,
+  IHeading,
+  IImage,
+  IImageReference,
+  IInlineCode,
+  IInlineMath,
+  ILink,
+  ILinkReference,
+  IList,
+  IListItem,
+  IMath,
+  IParagraph,
+  IStrong,
+  ITable,
+  IText,
+  IThematicBreak,
+  IYastNode,
   ImageReferenceType,
   ImageType,
-  InlineCode,
   InlineCodeType,
-  InlineMath,
   InlineMathType,
-  Link,
-  LinkReference,
   LinkReferenceType,
   LinkType,
-  List,
-  ListItem,
   ListItemType,
   ListType,
-  Math,
   MathType,
-  Paragraph,
   ParagraphType,
-  Strong,
   StrongType,
-  Table,
   TableType,
-  Text,
   TextType,
-  ThematicBreak,
   ThematicBreakType,
-  YastNode,
 } from '@yozora/ast'
 import type React from 'react'
 
 /**
  * Renderer for Yozora markdown AST node.
  */
-export type TokenRenderer<T extends YastNode = YastNode> =
+export type TokenRenderer<T extends IYastNode = IYastNode> =
   | React.FC<T>
   | React.ComponentClass<T>
 
@@ -64,33 +64,33 @@ export type TokenRenderer<T extends YastNode = YastNode> =
  * Renderer map.
  */
 export interface TokenRendererMap {
-  [AdmonitionType]: TokenRenderer<Admonition>
-  [BlockquoteType]: TokenRenderer<Blockquote>
-  [BreakType]: TokenRenderer<Break>
-  [CodeType]: TokenRenderer<Code>
-  [DefinitionType]: TokenRenderer<Definition>
-  [DeleteType]: TokenRenderer<Delete>
-  [EmphasisType]: TokenRenderer<Emphasis>
-  [FootnoteType]: TokenRenderer<Footnote>
-  [FootnoteReferenceType]: TokenRenderer<FootnoteReference>
-  [FootnoteDefinitionType]: TokenRenderer<FootnoteDefinition>
-  [HeadingType]: TokenRenderer<Heading>
-  [ImageType]: TokenRenderer<Image>
-  [ImageReferenceType]: TokenRenderer<ImageReference>
-  [InlineCodeType]: TokenRenderer<InlineCode>
-  [InlineMathType]: TokenRenderer<InlineMath>
-  [LinkType]: TokenRenderer<Link>
-  [LinkReferenceType]: TokenRenderer<LinkReference>
-  [ListType]: TokenRenderer<List>
-  [ListItemType]: TokenRenderer<ListItem>
-  [MathType]: TokenRenderer<Math>
-  [ParagraphType]: TokenRenderer<Paragraph>
-  [StrongType]: TokenRenderer<Strong>
-  [TableType]: TokenRenderer<Table>
-  [TextType]: TokenRenderer<Text>
-  [ThematicBreakType]: TokenRenderer<ThematicBreak>
+  [AdmonitionType]: TokenRenderer<IAdmonition>
+  [BlockquoteType]: TokenRenderer<IBlockquote>
+  [BreakType]: TokenRenderer<IBreak>
+  [CodeType]: TokenRenderer<ICode>
+  [DefinitionType]: TokenRenderer<IDefinition>
+  [DeleteType]: TokenRenderer<IDelete>
+  [EmphasisType]: TokenRenderer<IEmphasis>
+  [FootnoteType]: TokenRenderer<IFootnote>
+  [FootnoteReferenceType]: TokenRenderer<IFootnoteReference>
+  [FootnoteDefinitionType]: TokenRenderer<IFootnoteDefinition>
+  [HeadingType]: TokenRenderer<IHeading>
+  [ImageType]: TokenRenderer<IImage>
+  [ImageReferenceType]: TokenRenderer<IImageReference>
+  [InlineCodeType]: TokenRenderer<IInlineCode>
+  [InlineMathType]: TokenRenderer<IInlineMath>
+  [LinkType]: TokenRenderer<ILink>
+  [LinkReferenceType]: TokenRenderer<ILinkReference>
+  [ListType]: TokenRenderer<IList>
+  [ListItemType]: TokenRenderer<IListItem>
+  [MathType]: TokenRenderer<IMath>
+  [ParagraphType]: TokenRenderer<IParagraph>
+  [StrongType]: TokenRenderer<IStrong>
+  [TableType]: TokenRenderer<ITable>
+  [TextType]: TokenRenderer<IText>
+  [ThematicBreakType]: TokenRenderer<IThematicBreak>
   _fallback: TokenRenderer
-  [key: string]: TokenRenderer<YastNode & any>
+  [key: string]: TokenRenderer<IYastNode & any>
 }
 
 /**

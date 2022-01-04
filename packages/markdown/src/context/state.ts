@@ -1,4 +1,4 @@
-import type { FootnoteDefinition } from '@yozora/ast'
+import type { IFootnoteDefinition } from '@yozora/ast'
 import type { CodeRunnerItem } from '@yozora/react-code-runners'
 import type { PreviewImageItem } from '../types'
 
@@ -21,7 +21,7 @@ export interface YozoraMarkdownContextData {
   /**
    * Footnote reference definitions.
    */
-  footnoteDefinitions: ReadonlyArray<FootnoteDefinition>
+  footnoteDefinitions: ReadonlyArray<IFootnoteDefinition>
   /**
    * Image items.
    */

@@ -1,10 +1,10 @@
-import type { Image } from '@yozora/ast'
+import type { IImage } from '@yozora/ast'
 import ImageRenderer from '@yozora/react-image'
 import React, { useContext, useEffect } from 'react'
 import { YozoraMarkdownActionsType } from '../context/actions'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraImage(image: Image): React.ReactElement {
+export function YozoraImage(image: IImage): React.ReactElement {
   const { dispatch } = useContext(YozoraMarkdownContext)
   const {
     url: src,
@@ -13,7 +13,7 @@ export function YozoraImage(image: Image): React.ReactElement {
     srcSet,
     sizes,
     loading,
-  } = image as Image & React.ImgHTMLAttributes<HTMLElement>
+  } = image as IImage & React.ImgHTMLAttributes<HTMLElement>
 
   useEffect(() => {
     dispatch({
