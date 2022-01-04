@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 import React, { useCallback, useContext } from 'react'
 import { YozoraMarkdownActionsType } from './context/actions'
 import { YozoraMarkdownContext } from './context/context'
-import type { ImageViewerProps } from './types'
+import type { IImageViewerProps } from './types'
 
-export interface YozoraImagePreviewerProps {
+export interface IYozoraImagePreviewerProps {
   /**
    * Image previewer
    *
@@ -21,8 +21,8 @@ export interface YozoraImagePreviewerProps {
    * @see https://github.com/gregberge/loadable-components
    */
   ImageViewer?:
-    | React.FC<ImageViewerProps>
-    | React.ComponentClass<ImageViewerProps>
+    | React.FC<IImageViewerProps>
+    | React.ComponentClass<IImageViewerProps>
 }
 
 /**
@@ -30,7 +30,7 @@ export interface YozoraImagePreviewerProps {
  * @param param0
  * @returns
  */
-export const YozoraImagePreviewer: React.FC<YozoraImagePreviewerProps> = ({
+export const YozoraImagePreviewer: React.FC<IYozoraImagePreviewerProps> = ({
   ImageViewer,
 }) => {
   const { images, imageViewerVisible, imageActivatedIndex, dispatch } =

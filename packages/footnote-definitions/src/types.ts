@@ -1,6 +1,6 @@
 import type React from 'react'
 
-export interface FootnoteItem {
+export interface IFootnoteItem {
   /**
    * Footnote reference label
    */
@@ -15,11 +15,11 @@ export interface FootnoteItem {
   children: React.ReactNode
 }
 
-export interface FootnoteDefinitionsProps {
+export interface IFootnoteDefinitionsProps {
   /**
    * Footnote definition items.
    */
-  nodes: FootnoteItem[]
+  nodes: IFootnoteItem[]
   /**
    *
    * @default 'footnote-definitions'

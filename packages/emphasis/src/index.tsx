@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import './style.styl'
 
-export interface EmphasisProps {
+export interface IEmphasisProps {
   /**
    * Emphasis contents.
    */
@@ -24,7 +24,7 @@ export interface EmphasisProps {
  * @see https://www.npmjs.com/package/@yozora/ast#emphasis
  * @see https://www.npmjs.com/package/@yozora/tokenizer-emphasis
  */
-export function Emphasis(props: EmphasisProps): React.ReactElement {
+export function Emphasis(props: IEmphasisProps): React.ReactElement {
   const { children, className, style } = props
   return (
     <em className={cn('yozora-emphasis', className)} style={style}>

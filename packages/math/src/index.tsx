@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import './style.styl'
 
-export interface MathProps {
+export interface IMathProps {
   /**
    * Literal math.
    */
@@ -25,7 +25,7 @@ export interface MathProps {
  * @see https://www.npmjs.com/package/@yozora/ast#math
  * @see https://www.npmjs.com/package/@yozora/tokenizer-math
  */
-export const Math: React.FC<MathProps> = props => {
+export const Math: React.FC<IMathProps> = props => {
   const { value, className, style } = props
   return (
     <MathJaxNode

@@ -3,19 +3,19 @@ import CodeLiteral from '@yozora/react-code-literal'
 import CodeLive from '@yozora/react-code-live'
 import JsxRenderer from '@yozora/react-code-renderer-jsx'
 import type {
-  CodeRunnerItem,
-  CodeRunnerProps,
+  ICodeRunnerItem,
+  ICodeRunnerProps,
 } from '@yozora/react-code-runners'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
-import type { CodeMetaData, CodeProps } from './types'
+import type { ICodeMetaData, ICodeProps } from './types'
 import { parseCodeMeta } from './util'
 
-export const defaultRunners: CodeRunnerItem[] = [
+export const defaultRunners: ICodeRunnerItem[] = [
   {
     title: 'jsx',
     pattern: /^jsx$/,
-    runner: function JsxRunner(props: CodeRunnerProps): React.ReactElement {
+    runner: function JsxRunner(props: ICodeRunnerProps): React.ReactElement {
       const { value, scope, onError, meta = {} } = props
       const inline = meta.jsxMode == null || meta.jsxMode === 'inline'
 
@@ -41,7 +41,7 @@ export const defaultRunners: CodeRunnerItem[] = [
  * @see https://www.npmjs.com/package/@yozora/react-code-embed
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
-export const Code: React.FC<CodeProps> = props => {
+export const Code: React.FC<ICodeProps> = props => {
   const {
     lang,
     value,
@@ -53,7 +53,7 @@ export const Code: React.FC<CodeProps> = props => {
     style,
   } = props
 
-  const meta = useMemo<CodeMetaData>(
+  const meta = useMemo<ICodeMetaData>(
     () => parseCodeMeta(infoString ?? '', { preferLinenos }),
     [infoString, preferLinenos],
   )

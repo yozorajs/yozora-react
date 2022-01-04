@@ -1,15 +1,15 @@
 import type React from 'react'
-import type { YozoraMarkdownAction } from './actions'
+import type { IYozoraMarkdownAction } from './actions'
 import { YozoraMarkdownActionsType } from './actions'
-import type { YozoraMarkdownContextData } from './state'
+import type { IYozoraMarkdownContextData } from './state'
 
 export const reducer: React.Reducer<
-  YozoraMarkdownContextData,
-  YozoraMarkdownAction
+  IYozoraMarkdownContextData,
+  IYozoraMarkdownAction
 > = (
-  state: YozoraMarkdownContextData,
-  action: YozoraMarkdownAction,
-): YozoraMarkdownContextData => {
+  state: IYozoraMarkdownContextData,
+  action: IYozoraMarkdownAction,
+): IYozoraMarkdownContextData => {
   switch (action.type) {
     case YozoraMarkdownActionsType.RESET_STATE_DATA: {
       const {

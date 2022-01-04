@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import './style.styl'
 
-export interface ListItemProps {
+export interface IListItemProps {
   /**
    * Whether if is a TODO item, and given its status
    */
@@ -28,7 +28,7 @@ export interface ListItemProps {
  * @see https://www.npmjs.com/package/@yozora/ast#listitem
  * @see https://www.npmjs.com/package/@yozora/tokenizer-list-item
  */
-export const ListItem: React.FC<ListItemProps> = props => {
+export const ListItem: React.FC<IListItemProps> = props => {
   const { className, style, status, children } = props
 
   let checkbox: React.ReactNode = null

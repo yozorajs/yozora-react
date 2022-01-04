@@ -1,10 +1,10 @@
 import cn from 'clsx'
 import React from 'react'
 import type {
-  EditorHistory,
-  EditorOperationRecord,
-  EditorProps,
-  EditorState,
+  IEditorHistory,
+  IEditorOperationRecord,
+  IEditorProps,
+  IEditorState,
 } from './types'
 import {
   HISTORY_LIMIT,
@@ -22,8 +22,8 @@ import {
  * @see https://github.com/satya164/react-simple-code-editor
  */
 export class SimpleCodeEditor extends React.Component<
-  EditorProps,
-  EditorState
+  IEditorProps,
+  IEditorState
 > {
   public static readonly defaultProps = {
     tabSize: 2,
@@ -33,20 +33,20 @@ export class SimpleCodeEditor extends React.Component<
   }
 
   protected readonly inputRef = React.createRef<HTMLTextAreaElement>()
-  protected _history: EditorHistory = { stack: [], offset: -1 }
+  protected _history: IEditorHistory = { stack: [], offset: -1 }
 
-  constructor(props: EditorProps) {
+  constructor(props: IEditorProps) {
     super(props)
     this.state = { capture: true }
   }
 
-  public get session(): { history: EditorHistory } {
+  public get session(): { history: IEditorHistory } {
     return {
       history: this._history,
     }
   }
 
-  public set session(session: { history: EditorHistory }) {
+  public set session(session: { history: IEditorHistory }) {
     this._history = session.history
   }
 
@@ -157,7 +157,7 @@ export class SimpleCodeEditor extends React.Component<
   }
 
   protected _recordChange = (
-    record: EditorOperationRecord,
+    record: IEditorOperationRecord,
     overwrite = false,
   ): void => {
     const { stack, offset } = this._history
@@ -213,7 +213,7 @@ export class SimpleCodeEditor extends React.Component<
     this._history.offset += 1
   }
 
-  protected _updateInput = (record: EditorOperationRecord): void => {
+  protected _updateInput = (record: IEditorOperationRecord): void => {
     const input = this.inputRef.current
     if (!input) return
 
@@ -225,7 +225,7 @@ export class SimpleCodeEditor extends React.Component<
     this.props.onValueChange(record.value)
   }
 
-  protected _applyEdits = (record: EditorOperationRecord): void => {
+  protected _applyEdits = (record: IEditorOperationRecord): void => {
     // Save last selection state
     const input = this.inputRef.current
     const last = this._history.stack[this._history.offset]
@@ -512,7 +512,7 @@ export class SimpleCodeEditor extends React.Component<
     e: React.ChangeEvent<HTMLTextAreaElement>,
   ): void => {
     const { value, selectionStart, selectionEnd } = e.target
-    const nextRecord: EditorOperationRecord = {
+    const nextRecord: IEditorOperationRecord = {
       value,
       selectionStart,
       selectionEnd,

@@ -1,9 +1,9 @@
-import type { CodeRunner } from '@yozora/react-code-runners'
+import type { ICodeRunner } from '@yozora/react-code-runners'
 
 /**
  * Embed mode block code
  */
-export interface YozoraCodeEmbedProps {
+export interface IYozoraCodeEmbedProps {
   /**
    * Code language
    */
@@ -33,10 +33,10 @@ export interface YozoraCodeEmbedProps {
   /**
    * For executing or rendering the given code.
    */
-  runner: CodeRunner
+  runner: ICodeRunner
 }
 
-export interface YozoraCodeEmbedState {
+export interface IYozoraCodeEmbedState {
   /**
    *
    */

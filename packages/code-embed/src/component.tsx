@@ -1,7 +1,7 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import type { YozoraCodeEmbedProps, YozoraCodeEmbedState } from './types'
+import type { IYozoraCodeEmbedProps, IYozoraCodeEmbedState } from './types'
 
 /**
  * Render yozora `code`
@@ -14,8 +14,8 @@ import type { YozoraCodeEmbedProps, YozoraCodeEmbedState } from './types'
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
 export class YozoraCodeEmbed extends React.Component<
-  YozoraCodeEmbedProps,
-  YozoraCodeEmbedState
+  IYozoraCodeEmbedProps,
+  IYozoraCodeEmbedState
 > {
   public static propTypes = {
     lang: PropTypes.string.isRequired,
@@ -27,7 +27,7 @@ export class YozoraCodeEmbed extends React.Component<
     style: PropTypes.object,
   }
 
-  constructor(props: YozoraCodeEmbedProps) {
+  constructor(props: IYozoraCodeEmbedProps) {
     super(props)
     this.state = { error: null }
   }
@@ -37,7 +37,7 @@ export class YozoraCodeEmbed extends React.Component<
     console.error(info)
   }
 
-  public override componentDidUpdate(prevProps: YozoraCodeEmbedProps): void {
+  public override componentDidUpdate(prevProps: IYozoraCodeEmbedProps): void {
     // Clear error when the input value changed.
     if (prevProps.value !== this.props.value) {
       this.setState({ error: null })

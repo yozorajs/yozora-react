@@ -1,14 +1,10 @@
 import PropTypes from 'prop-types'
 import type React from 'react'
 
-// React component type.
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type ReactComponent<T = {}> = React.FC<T> | React.ComponentClass<T>
-
 /**
  * Meta data of a code runner.
  */
-export interface CodeRunnerMetaData {
+export interface ICodeRunnerMetaData {
   /**
    * The render mode of a runner.
    * @default 'inline'
@@ -23,12 +19,12 @@ export interface CodeRunnerMetaData {
 /**
  * Code runner accessible context variables.
  */
-export type CodeRunnerScope = Record<string, unknown>
+export type ICodeRunnerScope = Record<string, unknown>
 
 /**
  * Props of CodeRunner
  */
-export interface CodeRunnerProps {
+export interface ICodeRunnerProps {
   /**
    * Code language
    */
@@ -42,11 +38,11 @@ export interface CodeRunnerProps {
    * @see https://github.github.com/gfm/#info-string
    * @see https://github.github.com/gfm/#example-113
    */
-  meta?: Readonly<CodeRunnerMetaData>
+  meta?: Readonly<ICodeRunnerMetaData>
   /**
    * Accessible context variables.
    */
-  scope?: Readonly<CodeRunnerScope>
+  scope?: Readonly<ICodeRunnerScope>
   /**
    * Error callback
    */
@@ -56,14 +52,12 @@ export interface CodeRunnerProps {
 /**
  * Shape of a code runner.
  */
-export type CodeRunner =
-  | React.FC<CodeRunnerProps>
-  | React.ComponentClass<CodeRunnerProps>
+export type ICodeRunner = React.ComponentType<ICodeRunnerProps>
 
 /**
  * React props types for a code runner.
  */
-export const CodeRunnerPropTypes: React.WeakValidationMap<CodeRunnerProps> = {
+export const CodeRunnerPropTypes: React.WeakValidationMap<ICodeRunnerProps> = {
   lang: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   meta: PropTypes.any,
@@ -74,7 +68,7 @@ export const CodeRunnerPropTypes: React.WeakValidationMap<CodeRunnerProps> = {
 /**
  * Code runner item.
  */
-export interface CodeRunnerItem {
+export interface ICodeRunnerItem {
   /**
    * Title of the runner.
    */
@@ -86,17 +80,17 @@ export interface CodeRunnerItem {
   /**
    * Code runner.
    */
-  runner: CodeRunner
+  runner: ICodeRunner
 }
 
 /**
  * Async runner scopes.
  */
-export interface AsyncRunnerScopes {
+export interface IAsyncRunnerScopes {
   /**
    * Code runner scopes.
    */
-  scope: Readonly<CodeRunnerScope>
+  scope: Readonly<ICodeRunnerScope>
   /**
    * A promise indicate that whether if the scope prepared.
    */

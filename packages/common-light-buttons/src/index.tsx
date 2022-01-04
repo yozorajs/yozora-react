@@ -2,7 +2,7 @@ import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export interface LightButtonsProps {
+export interface ILightButtonsProps {
   /**
    * Called when the close button clicked.
    */
@@ -30,7 +30,7 @@ export interface LightButtonsProps {
  * @param props
  * @returns
  */
-export const LightButtons: React.FC<LightButtonsProps> = props => {
+export const LightButtons: React.FC<ILightButtonsProps> = props => {
   const { className, style, onClose, onMaximize, onMinimize } = props
 
   return (

@@ -3,18 +3,18 @@ import {
   useDeepCompareMemo,
 } from '@guanghechen/react-hooks'
 import type { IDefinition, IFootnoteDefinition, IYastNode } from '@yozora/ast'
-import type { CodeRunnerItem } from '@yozora/react-code-runners'
+import type { ICodeRunnerItem } from '@yozora/react-code-runners'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo, useReducer } from 'react'
-import type { TokenRendererMap } from '../types'
+import type { ITokenRendererMap } from '../types'
 import useYozoraRendererMap from '../useYozoraRendererMap'
 import { YozoraMarkdownActionsType } from './actions'
 import { YozoraMarkdownContext } from './context'
-import type { YozoraMarkdownContextState } from './context'
+import type { IYozoraMarkdownContextState } from './context'
 import reducer from './reducer'
 import { initializeYozoraMarkdownContextData } from './state'
 
-export interface YozoraMarkdownContextProviderProps {
+export interface IYozoraMarkdownContextProviderProps {
   /**
    * Link / Image reference definitions.
    */
@@ -26,11 +26,11 @@ export interface YozoraMarkdownContextProviderProps {
   /**
    * Code runners.
    */
-  codeRunners?: ReadonlyArray<CodeRunnerItem>
+  codeRunners?: ReadonlyArray<ICodeRunnerItem>
   /**
    * custom token renderer map.
    */
-  customRendererMap?: Readonly<Partial<TokenRendererMap>>
+  customRendererMap?: Readonly<Partial<ITokenRendererMap>>
   /**
    * Whether if to enable the dark mode.
    * @default false
@@ -53,7 +53,7 @@ export interface YozoraMarkdownContextProviderProps {
  * @returns
  */
 export const YozoraMarkdownContextProvider: React.FC<
-  YozoraMarkdownContextProviderProps
+  IYozoraMarkdownContextProviderProps
 > = props => {
   const {
     definitionMap,
@@ -83,12 +83,12 @@ export const YozoraMarkdownContextProvider: React.FC<
     initializeYozoraMarkdownContextData,
   )
 
-  const rendererMap: Readonly<TokenRendererMap> =
+  const rendererMap: Readonly<ITokenRendererMap> =
     useYozoraRendererMap(customRendererMap)
 
   // Render yozora AST nodes into React nodes.
   const renderYozoraNodes = useCallback<
-    YozoraMarkdownContextState['renderYozoraNodes']
+    IYozoraMarkdownContextState['renderYozoraNodes']
   >(
     (nodes?: IYastNode[]): React.ReactNode[] => {
       if (nodes == null || nodes.length <= 0) return []
@@ -102,10 +102,10 @@ export const YozoraMarkdownContextProvider: React.FC<
 
   // Get link / image reference definition through the given identifier.
   const getDefinition = useDeepCompareCallback<
-    YozoraMarkdownContextState['getDefinition']
+    IYozoraMarkdownContextState['getDefinition']
   >(identifier => definitionMap[identifier], [definitionMap])
 
-  const context = useMemo<YozoraMarkdownContextState>(
+  const context = useMemo<IYozoraMarkdownContextState>(
     () => ({
       ...contextData,
       dispatch,

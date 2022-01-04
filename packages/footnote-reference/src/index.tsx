@@ -2,7 +2,7 @@ import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export interface FootnoteReferenceProps {
+export interface IFootnoteReferenceProps {
   /**
    * Footnote reference identifier
    */
@@ -30,7 +30,7 @@ export interface FootnoteReferenceProps {
  * @see https://www.npmjs.com/package/@yozora/tokenizer-footnote-reference
  */
 export function FootnoteReference(
-  props: FootnoteReferenceProps,
+  props: IFootnoteReferenceProps,
 ): React.ReactElement {
   const { className, style, identifier, label } = props
   return (

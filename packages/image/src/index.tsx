@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import './style.styl'
 
-export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+export interface IImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   /**
    * Image src.
    */
@@ -32,7 +32,7 @@ export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
  * @see https://www.npmjs.com/package/@yozora/ast#image
  * @see https://www.npmjs.com/package/@yozora/tokenizer-image
  */
-export const Image: React.FC<ImageProps> = props => {
+export const Image: React.FC<IImageProps> = props => {
   const { className, style, src, alt = src, title, ...htmlProps } = props
 
   return (

@@ -1,9 +1,9 @@
 import type {
-  CodeRunnerItem,
-  CodeRunnerMetaData,
+  ICodeRunnerItem,
+  ICodeRunnerMetaData,
 } from '@yozora/react-code-runners'
 
-export interface CodeProps {
+export interface ICodeProps {
   /**
    * Literal source codes.
    */
@@ -19,7 +19,7 @@ export interface CodeProps {
   /**
    * Code runners.
    */
-  runners?: ReadonlyArray<CodeRunnerItem>
+  runners?: ReadonlyArray<ICodeRunnerItem>
   /**
    * Enable darken mode.
    */
@@ -42,7 +42,7 @@ export interface CodeProps {
 /**
  * Meta data of the fenced-code.
  */
-export interface CodeMetaData extends CodeRunnerMetaData {
+export interface ICodeMetaData extends ICodeRunnerMetaData {
   /**
    * Rendering mode.
    */

@@ -1,4 +1,4 @@
-export interface CodeLiteralProps {
+export interface ICodeLiteralProps {
   /**
    * Literal source codes.
    */

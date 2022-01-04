@@ -1,17 +1,18 @@
 import type { IDefinition, IYastNode } from '@yozora/ast'
 import React from 'react'
-import type { YozoraMarkdownAction } from './actions'
-import type { YozoraMarkdownContextData } from './state'
+import type { IYozoraMarkdownAction } from './actions'
+import type { IYozoraMarkdownContextData } from './state'
 import { initializeYozoraMarkdownContextData } from './state'
 
 /**
  * Side-effect funcs provided by the YozoraMarkdownContext
  */
-export interface YozoraMarkdownContextState extends YozoraMarkdownContextData {
+export interface IYozoraMarkdownContextState
+  extends IYozoraMarkdownContextData {
   /**
    * Update the context data.
    */
-  dispatch: React.Dispatch<YozoraMarkdownAction>
+  dispatch: React.Dispatch<IYozoraMarkdownAction>
   /**
    * Get link / image reference definition through the given identifier.
    * @param identifier
@@ -27,7 +28,7 @@ export interface YozoraMarkdownContextState extends YozoraMarkdownContextData {
 /**
  * Create yozora markdown context.
  */
-export const YozoraMarkdownContext: React.Context<YozoraMarkdownContextState> =
+export const YozoraMarkdownContext: React.Context<IYozoraMarkdownContextState> =
   React.createContext({
     ...initializeYozoraMarkdownContextData(),
     dispatch: (): never => {
@@ -35,4 +36,4 @@ export const YozoraMarkdownContext: React.Context<YozoraMarkdownContextState> =
     },
     getDefinition: () => {},
     renderYozoraNodes: () => [],
-  } as YozoraMarkdownContextState)
+  } as IYozoraMarkdownContextState)

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import './style.styl'
 
-export interface LinkProps
+export interface ILinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * Link contents.
@@ -35,7 +35,7 @@ export interface LinkProps
  * @see https://www.npmjs.com/package/@yozora/tokenizer-autolink
  * @see https://www.npmjs.com/package/@yozora/tokenizer-autolink-extension
  */
-export const Link: React.FC<LinkProps> = props => {
+export const Link: React.FC<ILinkProps> = props => {
   const {
     children, // children is not allowed.
     className,

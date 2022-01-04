@@ -1,15 +1,14 @@
 import { useDeepCompareMemo } from '@guanghechen/react-hooks'
 import type { IEcmaImport } from '@yozora/ast'
-import type { CodeRendererJsxProps } from '@yozora/react-code-renderer-jsx'
+import type { ICodeRendererJsxProps } from '@yozora/react-code-renderer-jsx'
 import React, { useEffect, useMemo, useState } from 'react'
 import type {
-  AsyncRunnerScopes,
-  CodeRunner,
-  CodeRunnerScope,
-  ReactComponent,
+  IAsyncRunnerScopes,
+  ICodeRunner,
+  ICodeRunnerScope,
 } from '../types'
 import { CodeRunnerPropTypes } from '../types'
-import type { DynamicImportRule } from './lazy'
+import type { IDynamicImportRule } from './lazy'
 import { dynamicImport } from './lazy'
 
 /**
@@ -22,15 +21,15 @@ import { dynamicImport } from './lazy'
  * @returns
  */
 export function createUseJsxRunner(
-  presetJsxScope: Readonly<CodeRunnerScope>,
-  rules: ReadonlyArray<DynamicImportRule>,
-  JsxRenderer: ReactComponent<CodeRendererJsxProps>,
+  presetJsxScope: Readonly<ICodeRunnerScope>,
+  rules: ReadonlyArray<IDynamicImportRule>,
+  JsxRenderer: React.ComponentType<ICodeRendererJsxProps>,
   defaultRenderMode: 'inline' | 'block',
-): (ecmaImports: IEcmaImport[]) => CodeRunner {
-  return function useJsxRunner(ecmaImports: IEcmaImport[]): CodeRunner {
+): (ecmaImports: IEcmaImport[]) => ICodeRunner {
+  return function useJsxRunner(ecmaImports: IEcmaImport[]): ICodeRunner {
     const { scope, pending, Placeholders } =
-      useDeepCompareMemo<AsyncRunnerScopes>(() => {
-        const scope: CodeRunnerScope = { ...presetJsxScope }
+      useDeepCompareMemo<IAsyncRunnerScopes>(() => {
+        const scope: ICodeRunnerScope = { ...presetJsxScope }
         const Placeholders: Array<React.FC | React.ComponentClass> = []
         const tasks: Array<Promise<void>> = []
 
@@ -66,8 +65,8 @@ export function createUseJsxRunner(
       }
     }, [pending])
 
-    return useMemo<CodeRunner>(() => {
-      const JsxRunner: CodeRunner = props => {
+    return useMemo<ICodeRunner>(() => {
+      const JsxRunner: ICodeRunner = props => {
         const { value, onError, meta = {} } = props
         const inline = (meta.renderMode ?? defaultRenderMode) === 'inline'
 

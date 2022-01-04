@@ -3,7 +3,7 @@ import type React from 'react'
 /**
  * Props for the textarea
  */
-export interface EditorTextareaProps {
+export interface IEditorTextareaProps {
   /**
    * Textarea id
    */
@@ -28,9 +28,9 @@ export interface EditorTextareaProps {
 }
 
 /**
- * Props for the hightlighted code’s pre element
+ * Props for the highlighted code’s pre element
  */
-export interface EditorPreProps {
+export interface IEditorPreProps {
   /**
    * Custom pre className
    */
@@ -44,10 +44,10 @@ export interface EditorPreProps {
 /**
  * Editor props
  */
-export interface EditorProps
+export interface IEditorProps
   extends React.HTMLAttributes<HTMLElement>,
-    EditorTextareaProps,
-    EditorPreProps {
+    IEditorTextareaProps,
+    IEditorPreProps {
   /**
    * Contents of this simple editor.
    */
@@ -76,14 +76,14 @@ export interface EditorProps
 /**
  * Editor state
  */
-export interface EditorState {
+export interface IEditorState {
   capture: boolean
 }
 
 /**
  * An operation record in editor.
  */
-export interface EditorOperationRecord {
+export interface IEditorOperationRecord {
   value: string
   selectionStart: number
   selectionEnd: number
@@ -92,7 +92,7 @@ export interface EditorOperationRecord {
 /**
  * Editor operation history.
  */
-export interface EditorHistory {
-  stack: Array<EditorOperationRecord & { timestamp: number }>
+export interface IEditorHistory {
+  stack: Array<IEditorOperationRecord & { timestamp: number }>
   offset: number
 }

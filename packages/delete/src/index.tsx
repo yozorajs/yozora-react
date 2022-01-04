@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import './style.styl'
 
-export interface DeleteProps {
+export interface IDeleteProps {
   /**
    * Delete contents.
    */
@@ -24,7 +24,7 @@ export interface DeleteProps {
  * @see https://www.npmjs.com/package/@yozora/ast#delete
  * @see https://www.npmjs.com/package/@yozora/tokenizer-delete
  */
-export const Delete: React.FC<DeleteProps> = props => {
+export const Delete: React.FC<IDeleteProps> = props => {
   const { children, className, style } = props
   return (
     <del className={cn('yozora-delete', className)} style={style}>

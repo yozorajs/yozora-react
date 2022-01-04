@@ -1,7 +1,7 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import type { FootnoteDefinitionsProps } from './types'
+import type { IFootnoteDefinitionsProps } from './types'
 
 /**
  * Render footnote definitions
@@ -14,7 +14,7 @@ import type { FootnoteDefinitionsProps } from './types'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-footnote-definition
  */
 export const FootnoteDefinitions: React.FC<
-  FootnoteDefinitionsProps
+  IFootnoteDefinitionsProps
 > = props => {
   const { nodes, title = 'footnote-definitions', className, style } = props
 

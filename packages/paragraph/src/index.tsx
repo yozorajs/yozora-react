@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import './style.styl'
 
-export interface ParagraphProps {
+export interface IParagraphProps {
   /**
    * Paragraph content.
    */
@@ -24,7 +24,7 @@ export interface ParagraphProps {
  * @see https://www.npmjs.com/package/@yozora/ast#paragraph
  * @see https://www.npmjs.com/package/@yozora/tokenizer-paragraph
  */
-export const Paragraph: React.FC<ParagraphProps> = props => {
+export const Paragraph: React.FC<IParagraphProps> = props => {
   const { children, className, style } = props
   return (
     <p className={cn('yozora-paragraph', className)} style={style}>

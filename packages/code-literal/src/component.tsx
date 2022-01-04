@@ -4,7 +4,7 @@ import LightButtons from '@yozora/react-common-light-buttons'
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import type { CodeLiteralProps } from './types'
+import type { ICodeLiteralProps } from './types'
 
 /**
  * Render yozora `code`
@@ -16,7 +16,7 @@ import type { CodeLiteralProps } from './types'
  * @see https://www.npmjs.com/package/@yozora/react-code-embed
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
-export const CodeLiteral: React.FC<CodeLiteralProps> = props => {
+export const CodeLiteral: React.FC<ICodeLiteralProps> = props => {
   const {
     value,
     lang,

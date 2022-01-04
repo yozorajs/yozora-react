@@ -5,7 +5,7 @@ import LightButtons from '@yozora/react-common-light-buttons'
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React, { useMemo, useState } from 'react'
-import type { CodeLiveProps } from './types'
+import type { ICodeLiveProps } from './types'
 import { debounce } from './util'
 
 /**
@@ -18,7 +18,7 @@ import { debounce } from './util'
  * @see https://www.npmjs.com/package/@yozora/react-code-embed
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
-export const CodeLive: React.FC<CodeLiveProps> = props => {
+export const CodeLive: React.FC<ICodeLiveProps> = props => {
   const {
     runners,
     lang,

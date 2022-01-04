@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import './style.styl'
 
-export interface BlockquoteProps {
+export interface IBlockquoteProps {
   /**
    * Blockquote content.
    */
@@ -24,7 +24,7 @@ export interface BlockquoteProps {
  * @see https://www.npmjs.com/package/@yozora/ast#blockquote
  * @see https://www.npmjs.com/package/@yozora/tokenizer-blockquote
  */
-export const Blockquote: React.FC<BlockquoteProps> = props => {
+export const Blockquote: React.FC<IBlockquoteProps> = props => {
   const { children, className, style } = props
   return (
     <blockquote className={cn('yozora-blockquote', className)} style={style}>

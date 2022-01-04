@@ -1,5 +1,5 @@
 import { collectNumbers } from '@guanghechen/parse-lineno'
-import type { CodeMetaData } from './types'
+import type { ICodeMetaData } from './types'
 
 const lineNoRangeRegex =
   /\s*\{\s*((?:\d+|\d+-\d+)(?:\s*,\s*(?:\d+|\d+-\d+))*)\s*\}\s*/
@@ -15,7 +15,7 @@ export interface ParseCodeMetaOptions {
 export function parseCodeMeta(
   infoString: string,
   { preferLinenos }: ParseCodeMetaOptions,
-): CodeMetaData {
+): ICodeMetaData {
   let _highlightText = ''
   const remainText = infoString.replace(
     new RegExp(lineNoRangeRegex, 'g'),
@@ -26,7 +26,7 @@ export function parseCodeMeta(
   )
 
   const highlights: number[] = collectNumbers(_highlightText)
-  const result: CodeMetaData = {
+  const result: ICodeMetaData = {
     _yozoraCodeMode: 'literal',
     highlights,
     maxlines: -1,

@@ -1,4 +1,4 @@
-import type { FootnoteItem } from '@yozora/react-footnote-definitions'
+import type { IFootnoteItem } from '@yozora/react-footnote-definitions'
 import YozoraFootnotesRenderer from '@yozora/react-footnote-definitions'
 import React, { useContext, useMemo } from 'react'
 import { YozoraMarkdownContext } from './context/context'
@@ -20,7 +20,7 @@ export function useFootnoteDefinitions(
   const footnotes = useMemo<React.ReactElement | null>(() => {
     if (dontNeedFootnoteDefinitions) return null
 
-    const items: FootnoteItem[] = footnoteDefinitions.map(item => ({
+    const items: IFootnoteItem[] = footnoteDefinitions.map(item => ({
       label: item.label,
       identifier: item.identifier,
       children: renderYozoraNodes(item.children),

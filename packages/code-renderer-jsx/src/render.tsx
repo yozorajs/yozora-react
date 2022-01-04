@@ -5,7 +5,7 @@ import { renderElement, renderElementAsync } from './eval'
 /**
  * Props of CodeRendererJsx
  */
-export interface CodeRendererJsxProps {
+export interface ICodeRendererJsxProps {
   /**
    * Source code content
    */
@@ -29,12 +29,8 @@ export interface CodeRendererJsxProps {
 
 /**
  * Renderer jsx code
- *
- * @param props
  */
-export function CodeRendererJsx(
-  props: CodeRendererJsxProps,
-): React.ReactElement | null {
+export const CodeRendererJsx: React.FC<ICodeRendererJsxProps> = props => {
   const { code, inline, scope, onError } = props
   const [Element, setElement] = useState<React.ElementType | null>(null)
 
@@ -80,7 +76,7 @@ CodeRendererJsx.defaultProps = {
 CodeRendererJsx.propTypes = {
   code: PropTypes.string.isRequired,
   inline: PropTypes.bool.isRequired,
-  scope: PropTypes.object,
+  scope: PropTypes.any,
   onError: PropTypes.func.isRequired,
 }
 

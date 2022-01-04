@@ -1,46 +1,46 @@
-interface Token {
+interface IToken {
   types: string[]
   content: string
   empty?: boolean
 }
 
-type StyleObj = Record<string, string | number | null>
+type IStyleObj = Record<string, string | number | null>
 
-export interface LineInputProps {
+export interface ILineInputProps {
   key?: React.Key
-  style?: StyleObj
+  style?: IStyleObj
   className?: string
-  line: Token[]
+  line: IToken[]
   [otherProp: string]: any
 }
 
-export interface LineOutputProps {
+export interface ILineOutputProps {
   key?: React.Key
-  style?: StyleObj
+  style?: IStyleObj
   className: string
   [otherProps: string]: any
 }
 
-export interface TokenInputProps {
+export interface ITokenInputProps {
   key?: React.Key
-  style?: StyleObj
+  style?: IStyleObj
   className?: string
-  token: Token
+  token: IToken
   [otherProp: string]: any
 }
 
-export interface TokenOutputProps {
+export interface ITokenOutputProps {
   key?: React.Key
-  style?: StyleObj
+  style?: IStyleObj
   className: string
   children: string
   [otherProp: string]: any
 }
 
-export interface RenderProps {
-  tokens: Token[][]
+export interface IRenderProps {
+  tokens: IToken[][]
   className?: string
-  style: StyleObj
-  getLineProps(input: LineInputProps): LineOutputProps
-  getTokenProps(input: TokenInputProps): TokenOutputProps
+  style: IStyleObj
+  getLineProps(input: ILineInputProps): ILineOutputProps
+  getTokenProps(input: ITokenInputProps): ITokenOutputProps
 }

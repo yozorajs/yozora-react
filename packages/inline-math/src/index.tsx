@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import './style.styl'
 
-export interface InlineMathProps {
+export interface IInlineMathProps {
   /**
    * Literal inline-math.
    */
@@ -25,7 +25,7 @@ export interface InlineMathProps {
  * @see https://www.npmjs.com/package/@yozora/ast#inlinemath
  * @see https://www.npmjs.com/package/@yozora/tokenizer-inline-math
  */
-export const InlineMath: React.FC<InlineMathProps> = props => {
+export const InlineMath: React.FC<IInlineMathProps> = props => {
   const { value, className, style } = props
   return (
     <MathJaxNode

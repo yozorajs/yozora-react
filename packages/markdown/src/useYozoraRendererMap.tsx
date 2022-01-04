@@ -51,19 +51,19 @@ import YozoraListItem from './renderer/ListItem'
 import YozoraParagraph from './renderer/Paragraph'
 import YozoraStrong from './renderer/Strong'
 import YozoraTable from './renderer/Table'
-import type { TokenRendererMap } from './types'
+import type { ITokenRendererMap } from './types'
 
 /**
  * Create a markdown renderer map.
  */
 export function useYozoraRendererMap(
-  customRendererMap?: Readonly<Partial<TokenRendererMap>>,
-): Readonly<TokenRendererMap> {
-  const rendererMap: TokenRendererMap = useMemo<TokenRendererMap>(() => {
+  customRendererMap?: Readonly<Partial<ITokenRendererMap>>,
+): Readonly<ITokenRendererMap> {
+  const rendererMap: ITokenRendererMap = useMemo<ITokenRendererMap>(() => {
     if (customRendererMap == null) return defaultYozoraRendererMap
 
     let changedFlag = false
-    const result: TokenRendererMap = {} as unknown as TokenRendererMap
+    const result: ITokenRendererMap = {} as unknown as ITokenRendererMap
     for (const [key, val] of Object.entries(customRendererMap)) {
       if (val == null) continue
 
@@ -83,7 +83,7 @@ export default useYozoraRendererMap
 /**
  * Default yozora renderer map.
  */
-export const defaultYozoraRendererMap: Readonly<TokenRendererMap> = {
+export const defaultYozoraRendererMap: Readonly<ITokenRendererMap> = {
   [AdmonitionType]: YozoraAdmonition,
   [BlockquoteType]: YozoraBlockquote,
   [BreakType]: BreakRenderer as React.FC,

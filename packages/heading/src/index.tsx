@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import './style.styl'
 
-export interface HeadingProps {
+export interface IHeadingProps {
   /**
    * Heading level
    */
@@ -36,7 +36,7 @@ export interface HeadingProps {
  * @see https://www.npmjs.com/package/@yozora/ast#heading
  * @see https://www.npmjs.com/package/@yozora/tokenizer-heading
  */
-export const Heading: React.FC<HeadingProps> = props => {
+export const Heading: React.FC<IHeadingProps> = props => {
   const {
     className,
     style,

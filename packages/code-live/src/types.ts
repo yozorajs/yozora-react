@@ -1,17 +1,17 @@
 import type {
-  CodeRunnerItem,
-  CodeRunnerScope,
+  ICodeRunnerItem,
+  ICodeRunnerScope,
 } from '@yozora/react-code-runners'
 import type { PrismTheme } from 'prism-react-renderer'
 
 /**
  * Live mode block code
  */
-export interface CodeLiveProps {
+export interface ICodeLiveProps {
   /**
    * Code runners.
    */
-  runners: ReadonlyArray<CodeRunnerItem>
+  runners: ReadonlyArray<ICodeRunnerItem>
   /**
    * Language of the source code.
    */
@@ -29,7 +29,7 @@ export interface CodeLiveProps {
   /**
    * Accessible context variables.
    */
-  scope?: Readonly<CodeRunnerScope>
+  scope?: Readonly<ICodeRunnerScope>
   /**
    * Code title
    */

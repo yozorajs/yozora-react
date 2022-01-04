@@ -1,7 +1,7 @@
-import type { GraphvizRendererProps } from '@yozora/react-code-renderer-graphviz'
+import type { IGraphvizRendererProps } from '@yozora/react-code-renderer-graphviz'
 import type { Engine } from 'd3-graphviz'
 import React from 'react'
-import type { CodeRunner, ReactComponent } from './types'
+import type { ICodeRunner } from './types'
 import { CodeRunnerPropTypes } from './types'
 
 /**
@@ -10,9 +10,9 @@ import { CodeRunnerPropTypes } from './types'
  * @returns
  */
 export function createGraphvizRunner(
-  GraphvizRenderer: ReactComponent<GraphvizRendererProps>,
-): CodeRunner {
-  const GraphvizRunner: CodeRunner = props => {
+  GraphvizRenderer: React.ComponentType<IGraphvizRendererProps>,
+): ICodeRunner {
+  const GraphvizRunner: ICodeRunner = props => {
     const { value, meta = {}, onError } = props
     return (
       <GraphvizRenderer

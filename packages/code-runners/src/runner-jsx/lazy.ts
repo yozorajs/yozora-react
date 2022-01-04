@@ -1,14 +1,14 @@
 import loadable from '@loadable/component'
 import type { IEcmaImport } from '@yozora/ast'
-import type { CodeRunnerScope, ReactComponent } from '../types'
+import type { ICodeRunnerScope } from '../types'
 
 // Dynamic import func.
-export type DynamicImportFunc = (props: unknown) => Promise<any>
+export type IDynamicImportFunc = (props: unknown) => Promise<any>
 
 /**
  * Rule indicate how to load the dynamic import.
  */
-export interface DynamicImportRule {
+export interface IDynamicImportRule {
   /**
    * Matcher to test the imported module name.
    */
@@ -18,7 +18,7 @@ export interface DynamicImportRule {
    * @param match
    * @see https://loadable-components.com/docs/dynamic-import/#use-a-dynamic-property
    */
-  importFunc(match: RegExpExecArray): DynamicImportFunc
+  importFunc(match: RegExpExecArray): IDynamicImportFunc
 }
 
 /**
@@ -31,9 +31,9 @@ export interface DynamicImportRule {
  */
 export function dynamicImport(
   ecmaImport: Readonly<IEcmaImport>,
-  nextCustomScopes: CodeRunnerScope,
-  Placeholders: ReactComponent[],
-  rules: ReadonlyArray<DynamicImportRule>,
+  nextCustomScopes: ICodeRunnerScope,
+  Placeholders: React.ComponentType[],
+  rules: ReadonlyArray<IDynamicImportRule>,
 ): Promise<void> | null {
   const { moduleName, defaultImport, namedImports } = ecmaImport
   const rule = rules.find(rule => rule.regex.test(moduleName))
@@ -41,7 +41,7 @@ export function dynamicImport(
   // No valid dynamic import rule found.
   if (rule == null) return null
 
-  const importFunc: DynamicImportFunc = rule.importFunc(
+  const importFunc: IDynamicImportFunc = rule.importFunc(
     rule.regex.exec(moduleName)!,
   )
 

@@ -5,7 +5,7 @@ import { MathJaxContext } from './Context'
 import type { MathJax, MathJaxContextValue } from './types'
 import { processMathJax } from './util'
 
-export interface MathJaxNodeProps {
+export interface IMathJaxNodeProps {
   /**
    * The literal formula string.
    */
@@ -29,7 +29,7 @@ export interface MathJaxNodeProps {
   onRender?(): void
 }
 
-export interface MathJaxNodeWithContextProps extends MathJaxNodeProps {
+export interface IMathJaxNodeWithContextProps extends IMathJaxNodeProps {
   /**
    * Type of the formula string.
    */
@@ -40,7 +40,7 @@ export interface MathJaxNodeWithContextProps extends MathJaxNodeProps {
   MathJax: MathJax
 }
 
-export class MathJaxNodeWithContext extends React.Component<MathJaxNodeWithContextProps> {
+export class MathJaxNodeWithContext extends React.Component<IMathJaxNodeWithContextProps> {
   protected readonly nodeRef = React.createRef<HTMLElement>()
   protected scriptNode: HTMLScriptElement | null = null
 
@@ -71,12 +71,12 @@ export class MathJaxNodeWithContext extends React.Component<MathJaxNodeWithConte
     this.typeset(false)
   }
 
-  public componentDidUpdate(prevProps: MathJaxNodeProps): void {
+  public componentDidUpdate(prevProps: IMathJaxNodeProps): void {
     const forceUpdate = this.shouldComponentUpdate(prevProps)
     this.typeset(forceUpdate)
   }
 
-  public shouldComponentUpdate(nextProps: MathJaxNodeProps): boolean {
+  public shouldComponentUpdate(nextProps: IMathJaxNodeProps): boolean {
     const props = this.props
     return (
       nextProps.formula !== props.formula || nextProps.inline !== props.inline
@@ -147,7 +147,7 @@ export class MathJaxNodeWithContext extends React.Component<MathJaxNodeWithConte
   }
 }
 
-export class MathJaxNode extends React.PureComponent<MathJaxNodeProps> {
+export class MathJaxNode extends React.PureComponent<IMathJaxNodeProps> {
   public render(): React.ReactElement {
     return (
       <MathJaxContext.Consumer>

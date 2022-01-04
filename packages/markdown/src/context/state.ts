@@ -1,11 +1,11 @@
 import type { IFootnoteDefinition } from '@yozora/ast'
-import type { CodeRunnerItem } from '@yozora/react-code-runners'
-import type { PreviewImageItem } from '../types'
+import type { ICodeRunnerItem } from '@yozora/react-code-runners'
+import type { IPreviewImageItem } from '../types'
 
 /**
  * Data type provided by YozoraMarkdownContext.
  */
-export interface YozoraMarkdownContextData {
+export interface IYozoraMarkdownContextData {
   /**
    * Whether if to enable the dark mode.
    */
@@ -17,7 +17,7 @@ export interface YozoraMarkdownContextData {
   /**
    * Code runners.
    */
-  codeRunners: ReadonlyArray<CodeRunnerItem>
+  codeRunners: ReadonlyArray<ICodeRunnerItem>
   /**
    * Footnote reference definitions.
    */
@@ -25,7 +25,7 @@ export interface YozoraMarkdownContextData {
   /**
    * Image items.
    */
-  images: PreviewImageItem[]
+  images: IPreviewImageItem[]
   /**
    * Whether if the image viewer is visible.
    */
@@ -37,8 +37,8 @@ export interface YozoraMarkdownContextData {
 }
 
 export function initializeYozoraMarkdownContextData(
-  data: Partial<YozoraMarkdownContextData> = {},
-): YozoraMarkdownContextData {
+  data: Partial<IYozoraMarkdownContextData> = {},
+): IYozoraMarkdownContextData {
   return {
     codeRunners: data.codeRunners ?? [],
     footnoteDefinitions: [],

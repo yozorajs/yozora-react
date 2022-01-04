@@ -4,12 +4,12 @@ import React, { useCallback, useState } from 'react'
 import { copyToClipboard } from './util'
 import './style.styl'
 
-export type CopyStatus = 'waiting' | 'copying' | 'failed' | 'succeed'
+export type ICopyStatus = 'waiting' | 'copying' | 'failed' | 'succeed'
 
 /**
  * Map of copy status and displaying text.
  */
-export const defaultStatusNodeMap: Record<CopyStatus, React.ReactNode> = {
+export const defaultStatusNodeMap: Record<ICopyStatus, React.ReactNode> = {
   waiting: 'copy',
   copying: 'copying..',
   failed: 'failed!',
@@ -25,7 +25,7 @@ export interface CopyButtonProps {
    * Map of copy status and displaying text.
    * @default defaultStatusTextMap
    */
-  statusNodeMap?: Record<CopyStatus, React.ReactNode>
+  statusNodeMap?: Record<ICopyStatus, React.ReactNode>
   /**
    * Root css class of the component.
    */
@@ -44,7 +44,7 @@ export const CopyButton: React.FC<CopyButtonProps> = props => {
     style,
   } = props
 
-  const [status, setStatus] = useState<CopyStatus>('waiting')
+  const [status, setStatus] = useState<ICopyStatus>('waiting')
 
   const handleCopy = useCallback(() => {
     setStatus('copying')

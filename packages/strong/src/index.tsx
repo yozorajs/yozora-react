@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import './style.styl'
 
-export interface StrongProps {
+export interface IStrongProps {
   /**
    * Strong contents.
    */
@@ -24,7 +24,7 @@ export interface StrongProps {
  * @see https://www.npmjs.com/package/@yozora/ast#strong
  * @see https://www.npmjs.com/package/@yozora/tokenizer-emphasis
  */
-export const Strong: React.FC<StrongProps> = props => {
+export const Strong: React.FC<IStrongProps> = props => {
   const { children, className, style } = props
   return (
     <strong className={cn('yozora-strong', className)} style={style}>

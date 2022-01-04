@@ -1,7 +1,7 @@
 import type { PrismTheme } from 'prism-react-renderer'
-import type { RenderProps } from './prism-react-renderer'
+import type { IRenderProps } from './prism-react-renderer'
 
-export interface CodeHighlighterProps {
+export interface ICodeHighlighterProps {
   /**
    * Source code contents
    */
@@ -50,7 +50,7 @@ export interface CodeHighlighterProps {
   onLinenoWidthChange?(linenoWidth: React.CSSProperties['width']): void
 }
 
-export interface HighlightContentProps extends RenderProps {
+export interface IHighlightContentProps extends IRenderProps {
   /**
    * Line number of Lines that should be highlighted.
    * @default []

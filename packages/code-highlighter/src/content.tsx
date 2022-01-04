@@ -1,13 +1,13 @@
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useRef } from 'react'
-import type { HighlightContentProps } from './types'
+import type { IHighlightContentProps } from './types'
 import { calcHeight } from './util'
 
 /**
  * Content of CodeHighlighter.
  */
-export const HighlighterContent: React.FC<HighlightContentProps> = props => {
+export const HighlighterContent: React.FC<IHighlightContentProps> = props => {
   const {
     codesRef,
     highlightLinenos = [],

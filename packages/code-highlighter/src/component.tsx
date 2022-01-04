@@ -5,11 +5,9 @@ import React from 'react'
 import HighlighterContent from './content'
 import vscDarkTheme from './theme/vsc-dark'
 import vscLightTheme from './theme/vsc-light'
-import type { CodeHighlighterProps } from './types'
+import type { ICodeHighlighterProps } from './types'
 
-export function CodeHighlighter(
-  props: CodeHighlighterProps,
-): React.ReactElement {
+export const CodeHighlighter: React.FC<ICodeHighlighterProps> = props => {
   const {
     lang,
     value: code,
@@ -55,12 +53,14 @@ CodeHighlighter.propTypes = {
   codesRef: PropTypes.any,
   collapsed: PropTypes.bool,
   darken: PropTypes.bool,
-  highlightLinenos: PropTypes.arrayOf(PropTypes.number),
+  highlightLinenos: PropTypes.arrayOf(PropTypes.number) as React.Validator<
+    number[] | null | undefined
+  >,
   lang: PropTypes.string,
   lineHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   maxLines: PropTypes.number,
-  onLineWidthChange: PropTypes.func,
+  onLinenoWidthChange: PropTypes.func,
   showLinenos: PropTypes.bool,
-  theme: PropTypes.object,
+  theme: PropTypes.any,
   value: PropTypes.string.isRequired,
 }

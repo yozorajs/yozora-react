@@ -10,7 +10,7 @@ import {
 } from './icons'
 import './style.styl'
 
-export interface AdmonitionProps {
+export interface IAdmonitionProps {
   /**
    * Admonition keyword.
    */
@@ -43,7 +43,7 @@ export interface AdmonitionProps {
  * @see https://www.npmjs.com/package/@yozora/ast#admonition
  * @see https://www.npmjs.com/package/@yozora/tokenizer-admonition
  */
-export const Admonition: React.FC<AdmonitionProps> = props => {
+export const Admonition: React.FC<IAdmonitionProps> = props => {
   const { className, style, keyword = 'default', children } = props
 
   let { icon, title } = props

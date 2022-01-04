@@ -1,9 +1,10 @@
 import cn from 'clsx'
 import type { Engine, GraphvizOptions } from 'd3-graphviz'
 import { graphviz } from 'd3-graphviz'
+import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 
-export interface GraphvizRendererProps {
+export interface IGraphvizRendererProps {
   /**
    * Source code in  Graphviz DOT Syntax.
    * @see https://graphviz.org/doc/info/lang.html
@@ -28,9 +29,7 @@ export interface GraphvizRendererProps {
   onError?(error: string | null): void
 }
 
-export function GraphvizRenderer(
-  props: GraphvizRendererProps,
-): React.ReactElement {
+export const GraphvizRenderer: React.FC<IGraphvizRendererProps> = props => {
   const { code, engine = 'dot', options, onError, className } = props
   const graphRef = useRef<HTMLDivElement>(null)
 
@@ -54,6 +53,22 @@ export function GraphvizRenderer(
       className={cn('yozora-code-renderer-graphviz', className)}
     />
   )
+}
+
+GraphvizRenderer.propTypes = {
+  code: PropTypes.string.isRequired,
+  engine: PropTypes.oneOf([
+    'circo',
+    'dot',
+    'fdp',
+    'neato',
+    'osage',
+    'patchwork',
+    'twopi',
+  ]),
+  options: PropTypes.any,
+  className: PropTypes.string,
+  onError: PropTypes.func,
 }
 
 GraphvizRenderer.displayName = 'GraphvizRenderer'

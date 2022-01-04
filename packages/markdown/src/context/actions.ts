@@ -1,5 +1,5 @@
-import type { PreviewImageItem } from '../types'
-import type { YozoraMarkdownContextData } from './state'
+import type { IPreviewImageItem } from '../types'
+import type { IYozoraMarkdownContextData } from './state'
 
 export enum YozoraMarkdownActionsType {
   // Reset state data
@@ -18,12 +18,12 @@ export enum YozoraMarkdownActionsType {
   IMAGE_VIEWER_ACTIVE_ITEM = '@yozora/image-viewer/active-item',
 }
 
-export type YozoraMarkdownAction =
+export type IYozoraMarkdownAction =
   | {
       type: YozoraMarkdownActionsType.RESET_STATE_DATA
       payload: Partial<
         Pick<
-          YozoraMarkdownContextData,
+          IYozoraMarkdownContextData,
           'codeRunners' | 'footnoteDefinitions' | 'darken' | 'preferLinenos'
         >
       >
@@ -38,9 +38,9 @@ export type YozoraMarkdownAction =
     }
   | {
       type: YozoraMarkdownActionsType.IMAGE_VIEWER_ADD_ITEM
-      payload: PreviewImageItem
+      payload: IPreviewImageItem
     }
   | {
       type: YozoraMarkdownActionsType.IMAGE_VIEWER_ACTIVE_ITEM
-      payload: PreviewImageItem
+      payload: IPreviewImageItem
     }

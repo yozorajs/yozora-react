@@ -5,7 +5,7 @@ import React, { useContext, useMemo } from 'react'
 import { YozoraMarkdownContext } from './context/context'
 import { useFootnoteDefinitions } from './useFootnoteDefinitions'
 
-export interface YozoraMarkdownProps {
+export interface IYozoraMarkdownProps {
   /**
    * Root node of Yozora Markdown AST.
    */
@@ -34,7 +34,7 @@ export interface YozoraMarkdownProps {
  * @param props
  * @returns
  */
-export const YozoraMarkdown: React.FC<YozoraMarkdownProps> = props => {
+export const YozoraMarkdown: React.FC<IYozoraMarkdownProps> = props => {
   const { darken, renderYozoraNodes } = useContext(YozoraMarkdownContext)
   const {
     ast,

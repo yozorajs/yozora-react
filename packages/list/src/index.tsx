@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import './style.styl'
 
-export interface ListProps {
+export interface IListProps {
   /**
    * Flag used  to distinguish ordered and unordered list
    */
@@ -37,7 +37,7 @@ export interface ListProps {
  * @see https://www.npmjs.com/package/@yozora/ast#list
  * @see https://www.npmjs.com/package/@yozora/tokenizer-list
  */
-export const List: React.FC<ListProps> = props => {
+export const List: React.FC<IListProps> = props => {
   const { className, style, children, ordered, orderType, start } = props
 
   if (ordered) {
