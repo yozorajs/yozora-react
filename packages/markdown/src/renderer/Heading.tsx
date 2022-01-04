@@ -3,9 +3,9 @@ import HeadingRenderer from '@yozora/react-heading'
 import React, { useContext } from 'react'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraHeading(heading: IHeading): React.ReactElement {
+export const YozoraHeading: React.FC<IHeading> = props => {
   const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
-  const { depth, identifier, children } = heading
+  const { depth, identifier, children } = props
   return (
     <HeadingRenderer identifier={identifier} level={depth}>
       {renderYozoraNodes(children)}
@@ -13,5 +13,6 @@ export function YozoraHeading(heading: IHeading): React.ReactElement {
   )
 }
 
+HeadingRenderer.displayName = 'HeadingRenderer'
 YozoraHeading.displayName = 'YozoraHeading'
 export default YozoraHeading

@@ -3,12 +3,10 @@ import BlockquoteRenderer from '@yozora/react-blockquote'
 import React, { useContext } from 'react'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraBlockquote(blockquote: IBlockquote): React.ReactElement {
+export const YozoraBlockquote: React.FC<IBlockquote> = props => {
   const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
   return (
-    <BlockquoteRenderer>
-      {renderYozoraNodes(blockquote.children)}
-    </BlockquoteRenderer>
+    <BlockquoteRenderer>{renderYozoraNodes(props.children)}</BlockquoteRenderer>
   )
 }
 

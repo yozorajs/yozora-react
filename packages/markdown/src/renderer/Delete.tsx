@@ -3,10 +3,11 @@ import DeleteRenderer from '@yozora/react-delete'
 import React, { useContext } from 'react'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraDelete(_delete: IDelete): React.ReactElement {
+export const YozoraDelete: React.FC<IDelete> = props => {
   const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
-  return <DeleteRenderer>{renderYozoraNodes(_delete.children)}</DeleteRenderer>
+  return <DeleteRenderer>{renderYozoraNodes(props.children)}</DeleteRenderer>
 }
 
+DeleteRenderer.displayName = 'DeleteRenderer'
 YozoraDelete.displayName = 'YozoraDelete'
 export default YozoraDelete

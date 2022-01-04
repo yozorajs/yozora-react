@@ -4,14 +4,12 @@ import React, { useContext, useEffect } from 'react'
 import { YozoraMarkdownActionsType } from '../context/actions'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraImageReference(
-  imageReference: IImageReference,
-): React.ReactElement {
+export const YozoraImageReference: React.FC<IImageReference> = props => {
   const { dispatch, getDefinition } = useContext(YozoraMarkdownContext)
-  const { alt, srcSet, sizes, loading } = imageReference as IImageReference &
+  const { alt, srcSet, sizes, loading } = props as IImageReference &
     React.ImgHTMLAttributes<HTMLElement>
 
-  const definition = getDefinition(imageReference.identifier)
+  const definition = getDefinition(props.identifier)
   const src: string = definition?.url ?? ''
   const title: string | undefined = definition?.title
 
@@ -40,5 +38,6 @@ export function YozoraImageReference(
   )
 }
 
+ImageRenderer.displayName = 'ImageRenderer'
 YozoraImageReference.displayName = 'YozoraImageReference'
 export default YozoraImageReference

@@ -3,20 +3,19 @@ import LinkRenderer from '@yozora/react-link'
 import React, { useContext } from 'react'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraLinkReference(
-  linkReference: ILinkReference,
-): React.ReactElement {
+export const YozoraLinkReference: React.FC<ILinkReference> = props => {
   const { renderYozoraNodes, getDefinition } = useContext(YozoraMarkdownContext)
-  const definition = getDefinition(linkReference.identifier)
+  const definition = getDefinition(props.identifier)
   const url: string = definition?.url ?? ''
   const title: string | undefined = definition?.title
 
   return (
     <LinkRenderer url={url} title={title}>
-      {renderYozoraNodes(linkReference.children)}
+      {renderYozoraNodes(props.children)}
     </LinkRenderer>
   )
 }
 
+LinkRenderer.displayName = 'LinkRenderer'
 YozoraLinkReference.displayName = 'YozoraLinkReference'
 export default YozoraLinkReference

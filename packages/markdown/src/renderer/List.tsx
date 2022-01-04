@@ -3,9 +3,9 @@ import ListRenderer from '@yozora/react-list'
 import React, { useContext } from 'react'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraList(list: IList): React.ReactElement {
+export const YozoraList: React.FC<IList> = props => {
   const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
-  const { ordered, orderType, start, children } = list
+  const { ordered, orderType, start, children } = props
   return (
     <ListRenderer ordered={ordered} start={start} orderType={orderType}>
       {renderYozoraNodes(children)}
@@ -13,5 +13,6 @@ export function YozoraList(list: IList): React.ReactElement {
   )
 }
 
+ListRenderer.displayName = 'ListRenderer'
 YozoraList.displayName = 'YozoraList'
 export default YozoraList

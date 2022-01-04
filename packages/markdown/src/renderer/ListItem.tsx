@@ -3,9 +3,9 @@ import ListItemRenderer from '@yozora/react-list-item'
 import React, { useContext } from 'react'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraListItem(listItem: IListItem): React.ReactElement {
+export const YozoraListItem: React.FC<IListItem> = props => {
   const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
-  const { status, children } = listItem
+  const { status, children } = props
   return (
     <ListItemRenderer status={status}>
       {renderYozoraNodes(children)}
@@ -13,5 +13,6 @@ export function YozoraListItem(listItem: IListItem): React.ReactElement {
   )
 }
 
+ListItemRenderer.displayName = 'ListItemRenderer'
 YozoraListItem.displayName = 'YozoraListItem'
 export default YozoraListItem

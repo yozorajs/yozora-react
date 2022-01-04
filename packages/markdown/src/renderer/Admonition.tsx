@@ -3,17 +3,18 @@ import AdmonitionRenderer from '@yozora/react-admonition'
 import React, { useContext } from 'react'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraAdmonition(admonition: IAdmonition): React.ReactElement {
+export const YozoraAdmonition: React.FC<IAdmonition> = props => {
   const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
   return (
     <AdmonitionRenderer
-      keyword={admonition.keyword}
-      title={renderYozoraNodes(admonition.title)}
+      keyword={props.keyword}
+      title={renderYozoraNodes(props.title)}
     >
-      {renderYozoraNodes(admonition.children)}
+      {renderYozoraNodes(props.children)}
     </AdmonitionRenderer>
   )
 }
 
+AdmonitionRenderer.displayName = 'AdmonitionRenderer'
 YozoraAdmonition.displayName = 'YozoraAdmonition'
 export default YozoraAdmonition

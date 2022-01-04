@@ -3,15 +3,15 @@ import CodeRenderer from '@yozora/react-code'
 import React, { useContext } from 'react'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraCode(code: ICode): React.ReactElement {
+export const YozoraCode: React.FC<ICode> = props => {
   const { darken, preferLinenos, codeRunners } = useContext(
     YozoraMarkdownContext,
   )
 
-  const { lang, meta } = code
+  const { lang, meta } = props
 
   // Remove trailing line endings.
-  const value: string = code.value.replace(/[\r\n]+$/, '')
+  const value: string = props.value.replace(/[\r\n]+$/, '')
 
   return (
     <CodeRenderer
@@ -25,5 +25,6 @@ export function YozoraCode(code: ICode): React.ReactElement {
   )
 }
 
+CodeRenderer.displayName = 'CodeRenderer'
 YozoraCode.displayName = 'YozoraCode'
 export default YozoraCode

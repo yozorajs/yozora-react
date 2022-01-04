@@ -4,7 +4,7 @@ import ParagraphRenderer from '@yozora/react-paragraph'
 import React, { useContext } from 'react'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraParagraph(paragraph: IParagraph): React.ReactElement {
+export const YozoraParagraph: React.FC<IParagraph> = paragraph => {
   const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
   const { children } = paragraph
 
@@ -27,5 +27,6 @@ export function YozoraParagraph(paragraph: IParagraph): React.ReactElement {
   return <ParagraphRenderer>{renderYozoraNodes(children)}</ParagraphRenderer>
 }
 
+ParagraphRenderer.displayName = 'ParagraphRenderer'
 YozoraParagraph.displayName = 'YozoraParagraph'
 export default YozoraParagraph

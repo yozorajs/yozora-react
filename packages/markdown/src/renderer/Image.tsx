@@ -4,7 +4,7 @@ import React, { useContext, useEffect } from 'react'
 import { YozoraMarkdownActionsType } from '../context/actions'
 import { YozoraMarkdownContext } from '../context/context'
 
-export function YozoraImage(image: IImage): React.ReactElement {
+export const YozoraImage: React.FC<IImage> = props => {
   const { dispatch } = useContext(YozoraMarkdownContext)
   const {
     url: src,
@@ -13,7 +13,7 @@ export function YozoraImage(image: IImage): React.ReactElement {
     srcSet,
     sizes,
     loading,
-  } = image as IImage & React.ImgHTMLAttributes<HTMLElement>
+  } = props as IImage & React.ImgHTMLAttributes<HTMLElement>
 
   useEffect(() => {
     dispatch({
@@ -40,5 +40,6 @@ export function YozoraImage(image: IImage): React.ReactElement {
   )
 }
 
+ImageRenderer.displayName = 'ImageRenderer'
 YozoraImage.displayName = 'YozoraImage'
 export default YozoraImage
