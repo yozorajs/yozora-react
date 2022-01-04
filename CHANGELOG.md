@@ -1,5 +1,28 @@
 # Changelog
 
+<a name="2.0.0-alpha.0"></a>
+## 2.0.0-alpha.0 (2022-01-04)
+
+### Added
+
+- ✅ test: fix types errors &amp; update snapshots [[7934050](https://github.com/guanghechen/yozora-react/commit/79340509bafd9b9839684abed0d34935ddc07ac3)]
+
+### Changed
+
+- 🎨 refactor: rename displayNames of renderer components [[00254b1](https://github.com/guanghechen/yozora-react/commit/00254b1522e5ad83503eea80db3c365b86c1f53e)]
+- 👽 fix: fix types change [[3a92c26](https://github.com/guanghechen/yozora-react/commit/3a92c26eb349201034e80ef48c9831b7de64818f)]
+- ⬆️ chore: upgrade dependencies [[425503d](https://github.com/guanghechen/yozora-react/commit/425503d7136012f3b8d2d125f0866cd3dd1c0691)]
+- ⬆️ chore: upgrade dependencies [[9e56c42](https://github.com/guanghechen/yozora-react/commit/9e56c425f29cd7ee3625c866e3999c1546df5b00)]
+
+### Breaking changes
+
+- 💥 feat: [breaking] rename types with &#x27;I&#x27; prefix [[117f2ae](https://github.com/guanghechen/yozora-react/commit/117f2aef50311228cc9e4fb8e95615f006d417f9)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[b0b206b](https://github.com/guanghechen/yozora-react/commit/b0b206b9af323e5679278040dda535a1fa7037b5)]
+
+
 <a name="1.0.0-alpha.40"></a>
 ## 1.0.0-alpha.40 (2021-09-04)
 
