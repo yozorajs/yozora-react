@@ -177,6 +177,7 @@ This component is designed to render data of [@yozora/ast][].
     YozoraMarkdown, 
     YozoraMarkdownContext,
     YozoraMarkdownContextProvider, 
+    YozoraNodesRenderer,
   } from '@yozora/react-markdown'
   import '@yozora/react-markdown/lib/esm/index.css'
 
@@ -192,25 +193,21 @@ This component is designed to render data of [@yozora/ast][].
     [LinkType]: function CustomLinkRenderer(link) {
       const { url, title } = link
       return (
-        <YozoraMarkdownContext.Consumer>
-          {({ renderYozoraNodes }) => (
-            <InternalLink url={url} title={title}>
-              {renderYozoraNodes(link.children)}
-            </InternalLink>
-          )}
-        </YozoraMarkdownContext.Consumer>
+        <InternalLink url={url} title={title}>
+          <YozoraNodesRenderer nodes={link.children} />
+        </InternalLink>
       )
     },
     [LinkReferenceType]: function renderLinkReference(linkReference, key, ctx) {
       return (
         <YozoraMarkdownContext.Consumer>
-          {({ getDefinition, renderYozoraNodes }) => {
+          {({ getDefinition }) => {
             const definition = getDefinition(linkReference.identifier)
             const url: string = definition?.url ?? ''
             const title: string | undefined = definition?.title
             return (
               <InternalLink url={url} title={title}>
-                {renderYozoraNodes(linkReference.children)}
+                <YozoraNodesRenderer nodes={linkReference.children} />
               </InternalLink>
             )
           }}
@@ -348,69 +345,64 @@ This component is designed to render data of [@yozora/ast][].
 
 * YozoraMarkdownContext
 
-  - YozoraMarkdownContextData 
+  - IYozoraMarkdownState 
 
     ```typescript
     /**
      * Data type provided by YozoraMarkdownContext.
      */
-    export interface YozoraMarkdownContextData {
+    export interface IYozoraMarkdownState {
       /**
-       * Whether if to enable the dark mode.
-       */
+      * Whether if to enable the dark mode.
+      */
       darken: boolean
       /**
-       * Code runners.
-       */
-      codeRunners: ReadonlyArray<CodeRunnerItem>
+      * Display linenos as the default behavior in YozoraCode components.
+      */
+      preferLinenos: boolean
       /**
-       * Image items.
-       */
-      images: PreviewImageItem[]
+      * Code runners.
+      */
+      codeRunners: ReadonlyArray<ICodeRunnerItem>
       /**
-       * Whether if the image viewer is visible.
-       */
+      * Footnote reference definitions.
+      */
+      footnoteDefinitions: ReadonlyArray<IFootnoteDefinition>
+      /**
+      * Yozora ast node renderer map.
+      */
+      rendererMap: Readonly<INodeRendererMap>
+      /**
+      * Image items.
+      */
+      images: IPreviewImageItem[]
+      /**
+      * Whether if the image viewer is visible.
+      */
       imageViewerVisible: boolean
       /**
-       * Index of the current previewing image.
-       */
-      activatedImageIndex: number
+      * Index of the current visible image item.
+      */
+      imageActivatedIndex: number
     }
     ```
 
-  - YozoraMarkdownContextState
+  - IYozoraMarkdownContext 
 
     ```typescript
     /**
      * Side-effect funcs provided by the YozoraMarkdownContext
      */
-    export interface YozoraMarkdownContextState extends YozoraMarkdownContextData {
+    export interface IYozoraMarkdownContext extends IYozoraMarkdownState {
       /**
-       * Update the context data.
-       */
-      dispatch: React.Dispatch<
-        React.SetStateAction<Partial<Omit<YozoraMarkdownContextData, 'dispatch'>>>
-      >
+      * Update the context data.
+      */
+      dispatch: React.Dispatch<IYozoraMarkdownAction>
       /**
-       * Get link / image reference definition through the given identifier.
-       * @param identifier
-       */
-      getDefinition(identifier: string): Readonly<Definition> | undefined
-      /**
-       * Get all of footnote reference definitions.
-       */
-      getFootnoteDefinitions(): ReadonlyArray<FootnoteDefinition>
-      /**
-       * Add a preview image item.
-       * @param item
-       * @returns callback funcs to toggle the visible state of images.
-       */
-      addPreviewImage(item: PreviewImageItem): (visible?: boolean) => void
-      /**
-       * Render yozora AST nodes into React nodes.
-       * @param children
-       */
-      renderYozoraNodes(yozoraNodes?: YastNode[]): React.ReactNode[]
+      * Get link / image reference definition through the given identifier.
+      * @param identifier
+      */
+      getDefinition(identifier: string): Readonly<IDefinition> | undefined
     }
     ```
 
