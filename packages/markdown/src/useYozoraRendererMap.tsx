@@ -36,79 +36,77 @@ import TextRenderer from '@yozora/react-text'
 import ThematicBreakRenderer from '@yozora/react-thematic-break'
 import type React from 'react'
 import { useMemo } from 'react'
-import YozoraAdmonition from './renderer/Admonition'
-import YozoraBlockquote from './renderer/Blockquote'
-import YozoraCode from './renderer/Code'
-import YozoraDelete from './renderer/Delete'
-import YozoraEmphasis from './renderer/Emphasis'
-import YozoraHeading from './renderer/Heading'
-import YozoraImage from './renderer/Image'
-import YozoraImageReference from './renderer/ImageReference'
-import YozoraLink from './renderer/Link'
-import YozoraLinkReference from './renderer/LinkReference'
-import YozoraList from './renderer/List'
-import YozoraListItem from './renderer/ListItem'
-import YozoraParagraph from './renderer/Paragraph'
-import YozoraStrong from './renderer/Strong'
-import YozoraTable from './renderer/Table'
-import type { ITokenRendererMap } from './types'
+import { YozoraAdmonitionRenderer } from './renderer/Admonition'
+import { YozoraBlockquoteRenderer } from './renderer/Blockquote'
+import { YozoraCodeRenderer } from './renderer/Code'
+import { YozoraDeleteRenderer } from './renderer/Delete'
+import { YozoraEmphasisRenderer } from './renderer/Emphasis'
+import { YozoraHeadingRenderer } from './renderer/Heading'
+import { YozoraImageRenderer } from './renderer/Image'
+import { YozoraImageReferenceRenderer } from './renderer/ImageReference'
+import { YozoraLinkRenderer } from './renderer/Link'
+import { YozoraLinkReferenceRenderer } from './renderer/LinkReference'
+import { YozoraListRenderer } from './renderer/List'
+import { YozoraListItemRenderer } from './renderer/ListItem'
+import { YozoraParagraphRenderer } from './renderer/Paragraph'
+import { YozoraStrongRenderer } from './renderer/Strong'
+import { YozoraTableRenderer } from './renderer/Table'
+import type { INodeRendererMap } from './types'
 
 /**
  * Create a markdown renderer map.
  */
 export function useYozoraRendererMap(
-  customRendererMap?: Readonly<Partial<ITokenRendererMap>>,
-): Readonly<ITokenRendererMap> {
-  const rendererMap: ITokenRendererMap = useMemo<ITokenRendererMap>(() => {
-    if (customRendererMap == null) return defaultYozoraRendererMap
+  customRendererMap?: Readonly<Partial<INodeRendererMap>>,
+): Readonly<INodeRendererMap> {
+  const rendererMap: INodeRendererMap = useMemo<INodeRendererMap>(() => {
+    if (customRendererMap == null) return defaultNodeRendererMap
 
-    let changedFlag = false
-    const result: ITokenRendererMap = {} as unknown as ITokenRendererMap
+    let hasChanged = false
+    const result: INodeRendererMap = {} as unknown as INodeRendererMap
     for (const [key, val] of Object.entries(customRendererMap)) {
-      if (val == null) continue
-
-      changedFlag = true
-      result[key] = val
+      if (val && val === defaultNodeRendererMap[key]) {
+        hasChanged = true
+        result[key] = val
+      }
     }
 
-    return changedFlag
-      ? { ...defaultYozoraRendererMap, ...result }
-      : defaultYozoraRendererMap
+    return hasChanged
+      ? { ...defaultNodeRendererMap, ...result }
+      : defaultNodeRendererMap
   }, [customRendererMap])
   return rendererMap
 }
 
-export default useYozoraRendererMap
-
 /**
  * Default yozora renderer map.
  */
-export const defaultYozoraRendererMap: Readonly<ITokenRendererMap> = {
-  [AdmonitionType]: YozoraAdmonition,
-  [BlockquoteType]: YozoraBlockquote,
+export const defaultNodeRendererMap: Readonly<INodeRendererMap> = {
+  [AdmonitionType]: YozoraAdmonitionRenderer,
+  [BlockquoteType]: YozoraBlockquoteRenderer,
   [BreakType]: BreakRenderer as React.FC,
-  [CodeType]: YozoraCode,
-  [DeleteType]: YozoraDelete,
+  [CodeType]: YozoraCodeRenderer,
+  [DeleteType]: YozoraDeleteRenderer,
   [DefinitionType]: () => null,
-  [EmphasisType]: YozoraEmphasis,
+  [EmphasisType]: YozoraEmphasisRenderer,
   [EcmaImportType]: () => null,
   [FootnoteDefinitionType]: () => null,
   [FootnoteType]: () => null,
   [FootnoteReferenceType]: FootnoteReferenceRenderer,
-  [HeadingType]: YozoraHeading,
+  [HeadingType]: YozoraHeadingRenderer,
   [HtmlType]: () => null,
-  [ImageType]: YozoraImage,
-  [ImageReferenceType]: YozoraImageReference,
+  [ImageType]: YozoraImageRenderer,
+  [ImageReferenceType]: YozoraImageReferenceRenderer,
   [InlineCodeType]: InlineCodeRenderer,
   [InlineMathType]: InlineMathRenderer,
-  [LinkType]: YozoraLink,
-  [LinkReferenceType]: YozoraLinkReference,
-  [ListType]: YozoraList,
-  [ListItemType]: YozoraListItem,
+  [LinkType]: YozoraLinkRenderer,
+  [LinkReferenceType]: YozoraLinkReferenceRenderer,
+  [ListType]: YozoraListRenderer,
+  [ListItemType]: YozoraListItemRenderer,
   [MathType]: MathRenderer,
-  [ParagraphType]: YozoraParagraph,
-  [StrongType]: YozoraStrong,
-  [TableType]: YozoraTable,
+  [ParagraphType]: YozoraParagraphRenderer,
+  [StrongType]: YozoraStrongRenderer,
+  [TableType]: YozoraTableRenderer,
   [TextType]: TextRenderer,
   [ThematicBreakType]: ThematicBreakRenderer as React.FC,
   _fallback: function YozoraReactFallback(node, key) {

@@ -1,12 +1,11 @@
 import type { IParagraph } from '@yozora/ast'
 import { ImageReferenceType, ImageType } from '@yozora/ast'
-import ParagraphRenderer from '@yozora/react-paragraph'
-import React, { useContext } from 'react'
-import { YozoraMarkdownContext } from '../context/context'
+import Paragraph from '@yozora/react-paragraph'
+import React from 'react'
+import { YozoraNodesRenderer } from '../YozoraNodesRenderer'
 
-export const YozoraParagraph: React.FC<IParagraph> = paragraph => {
-  const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
-  const { children } = paragraph
+export const YozoraParagraphRenderer: React.FC<IParagraph> = props => {
+  const { children } = props
 
   // If there are some image / imageReferences element in the paragraph,
   // then wrapper the content with div to avoid the warnings such as:
@@ -19,14 +18,16 @@ export const YozoraParagraph: React.FC<IParagraph> = paragraph => {
   if (notValidParagraph) {
     return (
       <div className="yozora-paragraph yozora-paragraph--display">
-        {renderYozoraNodes(children)}
+        <YozoraNodesRenderer nodes={children} />
       </div>
     )
   }
 
-  return <ParagraphRenderer>{renderYozoraNodes(children)}</ParagraphRenderer>
+  return (
+    <Paragraph>
+      <YozoraNodesRenderer nodes={children} />
+    </Paragraph>
+  )
 }
 
-ParagraphRenderer.displayName = 'ParagraphRenderer'
-YozoraParagraph.displayName = 'YozoraParagraph'
-export default YozoraParagraph
+YozoraParagraphRenderer.displayName = 'YozoraParagraphRenderer'

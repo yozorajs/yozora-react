@@ -1,18 +1,15 @@
 import type { IHeading } from '@yozora/ast'
-import HeadingRenderer from '@yozora/react-heading'
-import React, { useContext } from 'react'
-import { YozoraMarkdownContext } from '../context/context'
+import Heading from '@yozora/react-heading'
+import React from 'react'
+import { YozoraNodesRenderer } from '../YozoraNodesRenderer'
 
-export const YozoraHeading: React.FC<IHeading> = props => {
-  const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
-  const { depth, identifier, children } = props
+export const YozoraHeadingRenderer: React.FC<IHeading> = props => {
+  const { depth, identifier } = props
   return (
-    <HeadingRenderer identifier={identifier} level={depth}>
-      {renderYozoraNodes(children)}
-    </HeadingRenderer>
+    <Heading identifier={identifier} level={depth}>
+      <YozoraNodesRenderer nodes={props.children} />
+    </Heading>
   )
 }
 
-HeadingRenderer.displayName = 'HeadingRenderer'
-YozoraHeading.displayName = 'YozoraHeading'
-export default YozoraHeading
+YozoraHeadingRenderer.displayName = 'YozoraHeadingRenderer'

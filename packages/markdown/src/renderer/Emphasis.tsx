@@ -1,15 +1,14 @@
 import type { IEmphasis } from '@yozora/ast'
-import EmphasisRenderer from '@yozora/react-emphasis'
-import React, { useContext } from 'react'
-import { YozoraMarkdownContext } from '../context/context'
+import Emphasis from '@yozora/react-emphasis'
+import React from 'react'
+import { YozoraNodesRenderer } from '../YozoraNodesRenderer'
 
-export const YozoraEmphasis: React.FC<IEmphasis> = props => {
-  const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
+export const YozoraEmphasisRenderer: React.FC<IEmphasis> = props => {
   return (
-    <EmphasisRenderer>{renderYozoraNodes(props.children)}</EmphasisRenderer>
+    <Emphasis>
+      <YozoraNodesRenderer nodes={props.children} />
+    </Emphasis>
   )
 }
 
-EmphasisRenderer.displayName = 'EmphasisRenderer'
-YozoraEmphasis.displayName = 'YozoraEmphasis'
-export default YozoraEmphasis
+YozoraEmphasisRenderer.displayName = 'YozoraEmphasisRenderer'

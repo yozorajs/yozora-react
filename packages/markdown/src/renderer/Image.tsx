@@ -1,11 +1,11 @@
 import type { IImage } from '@yozora/ast'
-import ImageRenderer from '@yozora/react-image'
-import React, { useContext, useEffect } from 'react'
+import Image from '@yozora/react-image'
+import React from 'react'
 import { YozoraMarkdownActionsType } from '../context/actions'
-import { YozoraMarkdownContext } from '../context/context'
+import { YozoraMarkdownContextType } from '../context/context'
 
-export const YozoraImage: React.FC<IImage> = props => {
-  const { dispatch } = useContext(YozoraMarkdownContext)
+export const YozoraImageRenderer: React.FC<IImage> = props => {
+  const { dispatch } = React.useContext(YozoraMarkdownContextType)
   const {
     url: src,
     alt,
@@ -15,7 +15,7 @@ export const YozoraImage: React.FC<IImage> = props => {
     loading,
   } = props as IImage & React.ImgHTMLAttributes<HTMLElement>
 
-  useEffect(() => {
+  React.useEffect(() => {
     dispatch({
       type: YozoraMarkdownActionsType.IMAGE_VIEWER_ADD_ITEM,
       payload: { src, alt },
@@ -23,7 +23,7 @@ export const YozoraImage: React.FC<IImage> = props => {
   }, [dispatch, src, alt])
 
   return (
-    <ImageRenderer
+    <Image
       src={src}
       alt={alt}
       title={title}
@@ -40,6 +40,4 @@ export const YozoraImage: React.FC<IImage> = props => {
   )
 }
 
-ImageRenderer.displayName = 'ImageRenderer'
-YozoraImage.displayName = 'YozoraImage'
-export default YozoraImage
+YozoraImageRenderer.displayName = 'YozoraImageRenderer'

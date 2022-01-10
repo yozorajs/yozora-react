@@ -1,14 +1,13 @@
-import type { IDefinition, IYastNode } from '@yozora/ast'
+import type { IDefinition } from '@yozora/ast'
 import React from 'react'
 import type { IYozoraMarkdownAction } from './actions'
-import type { IYozoraMarkdownContextData } from './state'
-import { initializeYozoraMarkdownContextData } from './state'
+import type { IYozoraMarkdownState } from './state'
+import { initializeYozoraMarkdownState } from './state'
 
 /**
  * Side-effect funcs provided by the YozoraMarkdownContext
  */
-export interface IYozoraMarkdownContextState
-  extends IYozoraMarkdownContextData {
+export interface IYozoraMarkdownContext extends IYozoraMarkdownState {
   /**
    * Update the context data.
    */
@@ -18,22 +17,16 @@ export interface IYozoraMarkdownContextState
    * @param identifier
    */
   getDefinition(identifier: string): Readonly<IDefinition> | undefined
-  /**
-   * Render yozora AST nodes into React nodes.
-   * @param children
-   */
-  renderYozoraNodes(yozoraNodes?: IYastNode[]): React.ReactNode[]
 }
 
 /**
  * Create yozora markdown context.
  */
-export const YozoraMarkdownContext: React.Context<IYozoraMarkdownContextState> =
+export const YozoraMarkdownContextType: React.Context<IYozoraMarkdownContext> =
   React.createContext({
-    ...initializeYozoraMarkdownContextData(),
-    dispatch: (): never => {
+    ...initializeYozoraMarkdownState(),
+    dispatch: (_action: IYozoraMarkdownAction): never => {
       throw new Error(`No available dispatch prepared yet.`)
     },
-    getDefinition: () => {},
-    renderYozoraNodes: () => [],
-  } as IYozoraMarkdownContextState)
+    getDefinition: _identifier => {},
+  } as IYozoraMarkdownContext)

@@ -1,14 +1,14 @@
 import type { IBlockquote } from '@yozora/ast'
-import BlockquoteRenderer from '@yozora/react-blockquote'
-import React, { useContext } from 'react'
-import { YozoraMarkdownContext } from '../context/context'
+import Blockquote from '@yozora/react-blockquote'
+import React from 'react'
+import { YozoraNodesRenderer } from '../YozoraNodesRenderer'
 
-export const YozoraBlockquote: React.FC<IBlockquote> = props => {
-  const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
+export const YozoraBlockquoteRenderer: React.FC<IBlockquote> = props => {
   return (
-    <BlockquoteRenderer>{renderYozoraNodes(props.children)}</BlockquoteRenderer>
+    <Blockquote>
+      <YozoraNodesRenderer nodes={props.children} />
+    </Blockquote>
   )
 }
 
-YozoraBlockquote.displayName = 'YozoraBlockquote'
-export default YozoraBlockquote
+YozoraBlockquoteRenderer.displayName = 'YozoraBlockquoteRenderer'

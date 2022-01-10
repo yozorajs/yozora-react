@@ -1,11 +1,15 @@
 import type { IImageReference } from '@yozora/ast'
-import ImageRenderer from '@yozora/react-image'
-import React, { useContext, useEffect } from 'react'
+import ImageReference from '@yozora/react-image'
+import React from 'react'
 import { YozoraMarkdownActionsType } from '../context/actions'
-import { YozoraMarkdownContext } from '../context/context'
+import { YozoraMarkdownContextType } from '../context/context'
 
-export const YozoraImageReference: React.FC<IImageReference> = props => {
-  const { dispatch, getDefinition } = useContext(YozoraMarkdownContext)
+export const YozoraImageReferenceRenderer: React.FC<
+  IImageReference
+> = props => {
+  const { dispatch, getDefinition } = React.useContext(
+    YozoraMarkdownContextType,
+  )
   const { alt, srcSet, sizes, loading } = props as IImageReference &
     React.ImgHTMLAttributes<HTMLElement>
 
@@ -13,7 +17,7 @@ export const YozoraImageReference: React.FC<IImageReference> = props => {
   const src: string = definition?.url ?? ''
   const title: string | undefined = definition?.title
 
-  useEffect(() => {
+  React.useEffect(() => {
     dispatch({
       type: YozoraMarkdownActionsType.IMAGE_VIEWER_ADD_ITEM,
       payload: { src, alt },
@@ -21,7 +25,7 @@ export const YozoraImageReference: React.FC<IImageReference> = props => {
   }, [dispatch, src, alt])
 
   return (
-    <ImageRenderer
+    <ImageReference
       src={src}
       alt={alt}
       title={title}
@@ -38,6 +42,4 @@ export const YozoraImageReference: React.FC<IImageReference> = props => {
   )
 }
 
-ImageRenderer.displayName = 'ImageRenderer'
-YozoraImageReference.displayName = 'YozoraImageReference'
-export default YozoraImageReference
+YozoraImageReferenceRenderer.displayName = 'YozoraImageReferenceRenderer'

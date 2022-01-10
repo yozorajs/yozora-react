@@ -1,11 +1,11 @@
 import type { IFootnoteDefinition } from '@yozora/ast'
 import type { ICodeRunnerItem } from '@yozora/react-code-runners'
-import type { IPreviewImageItem } from '../types'
+import type { INodeRendererMap, IPreviewImageItem } from '../types'
 
 /**
  * Data type provided by YozoraMarkdownContext.
  */
-export interface IYozoraMarkdownContextData {
+export interface IYozoraMarkdownState {
   /**
    * Whether if to enable the dark mode.
    */
@@ -23,6 +23,10 @@ export interface IYozoraMarkdownContextData {
    */
   footnoteDefinitions: ReadonlyArray<IFootnoteDefinition>
   /**
+   * Yozora ast node renderer map.
+   */
+  rendererMap: Readonly<INodeRendererMap>
+  /**
    * Image items.
    */
   images: IPreviewImageItem[]
@@ -36,14 +40,15 @@ export interface IYozoraMarkdownContextData {
   imageActivatedIndex: number
 }
 
-export function initializeYozoraMarkdownContextData(
-  data: Partial<IYozoraMarkdownContextData> = {},
-): IYozoraMarkdownContextData {
+export function initializeYozoraMarkdownState(
+  initialState: Partial<IYozoraMarkdownState> = {},
+): IYozoraMarkdownState {
   return {
-    codeRunners: data.codeRunners ?? [],
+    codeRunners: initialState.codeRunners ?? [],
     footnoteDefinitions: [],
-    darken: data.darken ?? false,
-    preferLinenos: data.preferLinenos ?? true,
+    darken: initialState.darken ?? false,
+    preferLinenos: initialState.preferLinenos ?? true,
+    rendererMap: {} as any,
     images: [],
     imageViewerVisible: false,
     imageActivatedIndex: -1,

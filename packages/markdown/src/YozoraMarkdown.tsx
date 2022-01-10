@@ -1,9 +1,10 @@
 import type { IRoot } from '@yozora/ast'
 import cn from 'clsx'
 import PropTypes from 'prop-types'
-import React, { useContext, useMemo } from 'react'
-import { YozoraMarkdownContext } from './context/context'
-import { useFootnoteDefinitions } from './useFootnoteDefinitions'
+import React from 'react'
+import { YozoraMarkdownContextType } from './context/context'
+import { YozoraFootnoteDefinitions } from './YozoraFootnoteDefinitions'
+import { YozoraNodesRenderer } from './YozoraNodesRenderer'
 
 export interface IYozoraMarkdownProps {
   /**
@@ -35,7 +36,7 @@ export interface IYozoraMarkdownProps {
  * @returns
  */
 export const YozoraMarkdown: React.FC<IYozoraMarkdownProps> = props => {
-  const { darken, renderYozoraNodes } = useContext(YozoraMarkdownContext)
+  const { darken } = React.useContext(YozoraMarkdownContextType)
   const {
     ast,
     footnoteDefinitionsTitle,
@@ -43,16 +44,6 @@ export const YozoraMarkdown: React.FC<IYozoraMarkdownProps> = props => {
     className,
     style,
   } = props
-
-  const footnotes = useFootnoteDefinitions(
-    footnoteDefinitionsTitle,
-    dontNeedFootnoteDefinitions,
-  )
-
-  const children = useMemo<React.ReactNode>(
-    () => renderYozoraNodes(ast.children),
-    [ast, renderYozoraNodes],
-  )
 
   return (
     <div
@@ -63,8 +54,15 @@ export const YozoraMarkdown: React.FC<IYozoraMarkdownProps> = props => {
       )}
       style={style}
     >
-      <section>{children}</section>
-      <footer>{footnotes}</footer>
+      <section>
+        <YozoraNodesRenderer nodes={ast.children} />
+      </section>
+      <footer>
+        <YozoraFootnoteDefinitions
+          footnoteDefinitionsTitle={footnoteDefinitionsTitle}
+          dontNeedFootnoteDefinitions={dontNeedFootnoteDefinitions}
+        />
+      </footer>
     </div>
   )
 }

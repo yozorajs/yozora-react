@@ -1,13 +1,14 @@
 import type { IStrong } from '@yozora/ast'
-import StrongRenderer from '@yozora/react-strong'
-import React, { useContext } from 'react'
-import { YozoraMarkdownContext } from '../context/context'
+import Strong from '@yozora/react-strong'
+import React from 'react'
+import { YozoraNodesRenderer } from '../YozoraNodesRenderer'
 
-export const YozoraStrong: React.FC<IStrong> = props => {
-  const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
-  return <StrongRenderer>{renderYozoraNodes(props.children)}</StrongRenderer>
+export const YozoraStrongRenderer: React.FC<IStrong> = props => {
+  return (
+    <Strong>
+      <YozoraNodesRenderer nodes={props.children} />
+    </Strong>
+  )
 }
 
-StrongRenderer.displayName = 'StrongRenderer'
-YozoraStrong.displayName = 'YozoraStrong'
-export default YozoraStrong
+YozoraStrongRenderer.displayName = 'YozoraStrongRenderer'

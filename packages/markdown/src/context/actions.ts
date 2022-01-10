@@ -1,5 +1,5 @@
 import type { IPreviewImageItem } from '../types'
-import type { IYozoraMarkdownContextData } from './state'
+import type { IYozoraMarkdownState } from './state'
 
 export enum YozoraMarkdownActionsType {
   // Reset state data
@@ -23,7 +23,7 @@ export type IYozoraMarkdownAction =
       type: YozoraMarkdownActionsType.RESET_STATE_DATA
       payload: Partial<
         Pick<
-          IYozoraMarkdownContextData,
+          IYozoraMarkdownState,
           'codeRunners' | 'footnoteDefinitions' | 'darken' | 'preferLinenos'
         >
       >

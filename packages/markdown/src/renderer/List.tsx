@@ -1,18 +1,15 @@
 import type { IList } from '@yozora/ast'
-import ListRenderer from '@yozora/react-list'
-import React, { useContext } from 'react'
-import { YozoraMarkdownContext } from '../context/context'
+import List from '@yozora/react-list'
+import React from 'react'
+import { YozoraNodesRenderer } from '../YozoraNodesRenderer'
 
-export const YozoraList: React.FC<IList> = props => {
-  const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
-  const { ordered, orderType, start, children } = props
+export const YozoraListRenderer: React.FC<IList> = props => {
+  const { ordered, orderType, start } = props
   return (
-    <ListRenderer ordered={ordered} start={start} orderType={orderType}>
-      {renderYozoraNodes(children)}
-    </ListRenderer>
+    <List ordered={ordered} start={start} orderType={orderType}>
+      <YozoraNodesRenderer nodes={props.children} />
+    </List>
   )
 }
 
-ListRenderer.displayName = 'ListRenderer'
-YozoraList.displayName = 'YozoraList'
-export default YozoraList
+YozoraListRenderer.displayName = 'YozoraListRenderer'

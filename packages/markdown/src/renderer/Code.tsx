@@ -1,11 +1,11 @@
 import type { ICode } from '@yozora/ast'
-import CodeRenderer from '@yozora/react-code'
+import Code from '@yozora/react-code'
 import React, { useContext } from 'react'
-import { YozoraMarkdownContext } from '../context/context'
+import { YozoraMarkdownContextType } from '../context/context'
 
-export const YozoraCode: React.FC<ICode> = props => {
+export const YozoraCodeRenderer: React.FC<ICode> = props => {
   const { darken, preferLinenos, codeRunners } = useContext(
-    YozoraMarkdownContext,
+    YozoraMarkdownContextType,
   )
 
   const { lang, meta } = props
@@ -14,7 +14,7 @@ export const YozoraCode: React.FC<ICode> = props => {
   const value: string = props.value.replace(/[\r\n]+$/, '')
 
   return (
-    <CodeRenderer
+    <Code
       lang={lang}
       value={value}
       meta={meta}
@@ -25,6 +25,4 @@ export const YozoraCode: React.FC<ICode> = props => {
   )
 }
 
-CodeRenderer.displayName = 'CodeRenderer'
-YozoraCode.displayName = 'YozoraCode'
-export default YozoraCode
+YozoraCodeRenderer.displayName = 'YozoraCodeRenderer'

@@ -1,15 +1,15 @@
 import type React from 'react'
 import type { IYozoraMarkdownAction } from './actions'
 import { YozoraMarkdownActionsType } from './actions'
-import type { IYozoraMarkdownContextData } from './state'
+import type { IYozoraMarkdownState } from './state'
 
 export const reducer: React.Reducer<
-  IYozoraMarkdownContextData,
+  IYozoraMarkdownState,
   IYozoraMarkdownAction
 > = (
-  state: IYozoraMarkdownContextData,
+  state: IYozoraMarkdownState,
   action: IYozoraMarkdownAction,
-): IYozoraMarkdownContextData => {
+): IYozoraMarkdownState => {
   switch (action.type) {
     case YozoraMarkdownActionsType.RESET_STATE_DATA: {
       const {
@@ -37,6 +37,7 @@ export const reducer: React.Reducer<
         images: shouldReset ? [] : state.images,
         imageViewerVisible: shouldReset ? false : state.imageViewerVisible,
         imageActivatedIndex: shouldReset ? -1 : state.imageActivatedIndex,
+        rendererMap: state.rendererMap,
       }
     }
     case YozoraMarkdownActionsType.TOGGLE_DARKEN_MODE: {
@@ -87,5 +88,3 @@ export const reducer: React.Reducer<
       return state
   }
 }
-
-export default reducer

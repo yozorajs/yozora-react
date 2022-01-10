@@ -53,43 +53,41 @@ import type {
 } from '@yozora/ast'
 import type React from 'react'
 
-/**
- * Renderer for Yozora markdown AST node.
- */
-export type ITokenRenderer<T extends IYastNode = IYastNode> =
+// Renderer for Yozora markdown AST node.
+export type INodeRenderer<T extends IYastNode = IYastNode> =
   React.ComponentType<T>
 
 /**
  * Renderer map.
  */
-export interface ITokenRendererMap {
-  [AdmonitionType]: ITokenRenderer<IAdmonition>
-  [BlockquoteType]: ITokenRenderer<IBlockquote>
-  [BreakType]: ITokenRenderer<IBreak>
-  [CodeType]: ITokenRenderer<ICode>
-  [DefinitionType]: ITokenRenderer<IDefinition>
-  [DeleteType]: ITokenRenderer<IDelete>
-  [EmphasisType]: ITokenRenderer<IEmphasis>
-  [FootnoteType]: ITokenRenderer<IFootnote>
-  [FootnoteReferenceType]: ITokenRenderer<IFootnoteReference>
-  [FootnoteDefinitionType]: ITokenRenderer<IFootnoteDefinition>
-  [HeadingType]: ITokenRenderer<IHeading>
-  [ImageType]: ITokenRenderer<IImage>
-  [ImageReferenceType]: ITokenRenderer<IImageReference>
-  [InlineCodeType]: ITokenRenderer<IInlineCode>
-  [InlineMathType]: ITokenRenderer<IInlineMath>
-  [LinkType]: ITokenRenderer<ILink>
-  [LinkReferenceType]: ITokenRenderer<ILinkReference>
-  [ListType]: ITokenRenderer<IList>
-  [ListItemType]: ITokenRenderer<IListItem>
-  [MathType]: ITokenRenderer<IMath>
-  [ParagraphType]: ITokenRenderer<IParagraph>
-  [StrongType]: ITokenRenderer<IStrong>
-  [TableType]: ITokenRenderer<ITable>
-  [TextType]: ITokenRenderer<IText>
-  [ThematicBreakType]: ITokenRenderer<IThematicBreak>
-  _fallback: ITokenRenderer
-  [key: string]: ITokenRenderer<IYastNode & any>
+export interface INodeRendererMap {
+  [AdmonitionType]: INodeRenderer<IAdmonition>
+  [BlockquoteType]: INodeRenderer<IBlockquote>
+  [BreakType]: INodeRenderer<IBreak>
+  [CodeType]: INodeRenderer<ICode>
+  [DefinitionType]: INodeRenderer<IDefinition>
+  [DeleteType]: INodeRenderer<IDelete>
+  [EmphasisType]: INodeRenderer<IEmphasis>
+  [FootnoteType]: INodeRenderer<IFootnote>
+  [FootnoteReferenceType]: INodeRenderer<IFootnoteReference>
+  [FootnoteDefinitionType]: INodeRenderer<IFootnoteDefinition>
+  [HeadingType]: INodeRenderer<IHeading>
+  [ImageType]: INodeRenderer<IImage>
+  [ImageReferenceType]: INodeRenderer<IImageReference>
+  [InlineCodeType]: INodeRenderer<IInlineCode>
+  [InlineMathType]: INodeRenderer<IInlineMath>
+  [LinkType]: INodeRenderer<ILink>
+  [LinkReferenceType]: INodeRenderer<ILinkReference>
+  [ListType]: INodeRenderer<IList>
+  [ListItemType]: INodeRenderer<IListItem>
+  [MathType]: INodeRenderer<IMath>
+  [ParagraphType]: INodeRenderer<IParagraph>
+  [StrongType]: INodeRenderer<IStrong>
+  [TableType]: INodeRenderer<ITable>
+  [TextType]: INodeRenderer<IText>
+  [ThematicBreakType]: INodeRenderer<IThematicBreak>
+  _fallback: INodeRenderer
+  [key: string]: INodeRenderer<IYastNode & any>
 }
 
 /**

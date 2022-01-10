@@ -1,19 +1,15 @@
 import type { ILink } from '@yozora/ast'
-import LinkRenderer from '@yozora/react-link'
-import React, { useContext } from 'react'
-import { YozoraMarkdownContext } from '../context/context'
+import Link from '@yozora/react-link'
+import React from 'react'
+import { YozoraNodesRenderer } from '../YozoraNodesRenderer'
 
-export const YozoraLink: React.FC<ILink> = props => {
-  const { renderYozoraNodes } = useContext(YozoraMarkdownContext)
-  const { url, title, children } = props
-
+export const YozoraLinkRenderer: React.FC<ILink> = props => {
+  const { url, title } = props
   return (
-    <LinkRenderer url={url} title={title}>
-      {renderYozoraNodes(children)}
-    </LinkRenderer>
+    <Link url={url} title={title}>
+      <YozoraNodesRenderer nodes={props.children} />
+    </Link>
   )
 }
 
-LinkRenderer.displayName = 'LinkRenderer'
-YozoraLink.displayName = 'YozoraLink'
-export default YozoraLink
+YozoraLinkRenderer.displayName = 'YozoraLinkRenderer'

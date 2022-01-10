@@ -2,17 +2,17 @@ import {
   useDeepCompareCallback,
   useDeepCompareMemo,
 } from '@guanghechen/react-hooks'
-import type { IDefinition, IFootnoteDefinition, IYastNode } from '@yozora/ast'
+import type { IDefinition, IFootnoteDefinition } from '@yozora/ast'
 import type { ICodeRunnerItem } from '@yozora/react-code-runners'
 import PropTypes from 'prop-types'
-import React, { useCallback, useEffect, useMemo, useReducer } from 'react'
-import type { ITokenRendererMap } from '../types'
-import useYozoraRendererMap from '../useYozoraRendererMap'
-import { YozoraMarkdownActionsType } from './actions'
-import { YozoraMarkdownContext } from './context'
-import type { IYozoraMarkdownContextState } from './context'
-import reducer from './reducer'
-import { initializeYozoraMarkdownContextData } from './state'
+import React from 'react'
+import { YozoraMarkdownActionsType } from './context/actions'
+import { YozoraMarkdownContextType } from './context/context'
+import type { IYozoraMarkdownContext } from './context/context'
+import { reducer } from './context/reducer'
+import { initializeYozoraMarkdownState } from './context/state'
+import type { INodeRendererMap } from './types'
+import { useYozoraRendererMap } from './useYozoraRendererMap'
 
 export interface IYozoraMarkdownContextProviderProps {
   /**
@@ -30,7 +30,7 @@ export interface IYozoraMarkdownContextProviderProps {
   /**
    * custom token renderer map.
    */
-  customRendererMap?: Readonly<Partial<ITokenRendererMap>>
+  customRendererMap?: Readonly<Partial<INodeRendererMap>>
   /**
    * Whether if to enable the dark mode.
    * @default false
@@ -72,7 +72,7 @@ export const YozoraMarkdownContextProvider: React.FC<
       [footnoteDefinitionMap],
     )
 
-  const [contextData, dispatch] = useReducer(
+  const [state, dispatch] = React.useReducer(
     reducer,
     {
       codeRunners: initialCodeRunners,
@@ -80,43 +80,29 @@ export const YozoraMarkdownContextProvider: React.FC<
       darken: initialDarken,
       preferLinenos: initialPreferLinenos,
     },
-    initializeYozoraMarkdownContextData,
+    initializeYozoraMarkdownState,
   )
 
-  const rendererMap: Readonly<ITokenRendererMap> =
+  const rendererMap: Readonly<INodeRendererMap> =
     useYozoraRendererMap(customRendererMap)
-
-  // Render yozora AST nodes into React nodes.
-  const renderYozoraNodes = useCallback<
-    IYozoraMarkdownContextState['renderYozoraNodes']
-  >(
-    (nodes?: IYastNode[]): React.ReactNode[] => {
-      if (nodes == null || nodes.length <= 0) return []
-      return nodes.map((node, key) => {
-        const Renderer = rendererMap[node.type] ?? rendererMap._fallback
-        return <Renderer key={key} {...node} />
-      })
-    },
-    [rendererMap],
-  )
 
   // Get link / image reference definition through the given identifier.
   const getDefinition = useDeepCompareCallback<
-    IYozoraMarkdownContextState['getDefinition']
+    IYozoraMarkdownContext['getDefinition']
   >(identifier => definitionMap[identifier], [definitionMap])
 
-  const context = useMemo<IYozoraMarkdownContextState>(
+  const context = React.useMemo<IYozoraMarkdownContext>(
     () => ({
-      ...contextData,
+      ...state,
       dispatch,
       getDefinition,
-      renderYozoraNodes,
+      rendererMap,
     }),
-    [contextData, dispatch, getDefinition, renderYozoraNodes],
+    [state, dispatch, getDefinition, rendererMap],
   )
 
   // Watch initial values change.
-  useEffect(() => {
+  React.useEffect(() => {
     dispatch({
       type: YozoraMarkdownActionsType.RESET_STATE_DATA,
       payload: {
@@ -135,9 +121,9 @@ export const YozoraMarkdownContextProvider: React.FC<
   ])
 
   return (
-    <YozoraMarkdownContext.Provider value={context}>
+    <YozoraMarkdownContextType.Provider value={context}>
       {children}
-    </YozoraMarkdownContext.Provider>
+    </YozoraMarkdownContextType.Provider>
   )
 }
 
