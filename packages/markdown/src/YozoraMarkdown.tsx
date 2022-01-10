@@ -29,6 +29,36 @@ export interface IYozoraMarkdownProps {
   style?: React.CSSProperties
 }
 
+const YozoraMarkdownRenderer: React.FC<IYozoraMarkdownProps> = React.memo(
+  function YozoraMarkdownRenderer(props: IYozoraMarkdownProps) {
+    const { ast, footnoteDefinitionsTitle, dontNeedFootnoteDefinitions, className, style } = props
+
+    return (
+      <div className={className} style={style}>
+        <section>
+          <YozoraNodesRenderer nodes={ast.children} />
+        </section>
+        <footer>
+          <YozoraFootnoteDefinitions
+            footnoteDefinitionsTitle={footnoteDefinitionsTitle}
+            dontNeedFootnoteDefinitions={dontNeedFootnoteDefinitions}
+          />
+        </footer>
+      </div>
+    )
+  },
+  (prevProps, nextProps): boolean => {
+    return (
+      prevProps.ast === nextProps.ast &&
+      prevProps.dontNeedFootnoteDefinitions === nextProps.dontNeedFootnoteDefinitions &&
+      (prevProps.footnoteDefinitionsTitle === nextProps.footnoteDefinitionsTitle ||
+        !!nextProps.dontNeedFootnoteDefinitions) &&
+      prevProps.className === nextProps.className &&
+      prevProps.style === nextProps.style
+    )
+  },
+)
+
 /**
  * Render yozora markdown ast in react components.
  *
@@ -37,24 +67,8 @@ export interface IYozoraMarkdownProps {
  */
 export const YozoraMarkdown: React.FC<IYozoraMarkdownProps> = props => {
   const { darken } = React.useContext(YozoraMarkdownContextType)
-  const { ast, footnoteDefinitionsTitle, dontNeedFootnoteDefinitions, className, style } = props
-
-  return (
-    <div
-      className={cn('yozora-markdown', { 'yozora-markdown--darken': darken }, className)}
-      style={style}
-    >
-      <section>
-        <YozoraNodesRenderer nodes={ast.children} />
-      </section>
-      <footer>
-        <YozoraFootnoteDefinitions
-          footnoteDefinitionsTitle={footnoteDefinitionsTitle}
-          dontNeedFootnoteDefinitions={dontNeedFootnoteDefinitions}
-        />
-      </footer>
-    </div>
-  )
+  const className = cn('yozora-markdown', { 'yozora-markdown--darken': darken }, props.className)
+  return <YozoraMarkdownRenderer {...props} className={className} />
 }
 
 YozoraMarkdown.propTypes = {

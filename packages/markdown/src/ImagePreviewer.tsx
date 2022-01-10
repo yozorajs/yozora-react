@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useCallback, useContext } from 'react'
+import React from 'react'
 import { YozoraMarkdownActionsType } from './context/actions'
 import { YozoraMarkdownContextType } from './context/context'
 import type { IImageViewerProps } from './types'
@@ -30,9 +30,9 @@ export interface IYozoraImagePreviewerProps {
  */
 export const YozoraImagePreviewer: React.FC<IYozoraImagePreviewerProps> = ({ ImageViewer }) => {
   const { images, imageViewerVisible, imageActivatedIndex, dispatch } =
-    useContext(YozoraMarkdownContextType)
+    React.useContext(YozoraMarkdownContextType)
 
-  const handleCloseImageViewer = useCallback<() => void>(
+  const handleCloseImageViewer = React.useCallback<() => void>(
     () =>
       dispatch({
         type: YozoraMarkdownActionsType.IMAGE_VIEWER_TOGGLE,
