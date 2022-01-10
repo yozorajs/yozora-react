@@ -134,9 +134,7 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
 
   // Sync the scroll events.
   /* istanbul ignore next */
-  const syncScrollEvents = useCallback<
-    React.UIEventHandler<HTMLTextAreaElement>
-  >(e => {
+  const syncScrollEvents = useCallback<React.UIEventHandler<HTMLTextAreaElement>>(e => {
     const textarea = e.target as HTMLTextAreaElement
     if (textarea == null) return
 

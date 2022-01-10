@@ -63,12 +63,7 @@ function createStylusVariables(srcPath, dstPath, encoding = 'utf-8') {
   fs.writeFileSync(dstPath, contents, encoding)
 }
 
-function createMarkdownStylusVariables(
-  srcPath,
-  dstPath,
-  theme,
-  encoding = 'utf-8',
-) {
+function createMarkdownStylusVariables(srcPath, dstPath, theme, encoding = 'utf-8') {
   const contents =
     `.yozora-markdown${theme ? `.yozora-markdown--${theme}` : ''}\n` +
     fs

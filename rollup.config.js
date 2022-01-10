@@ -111,16 +111,7 @@ export async function rollupConfig() {
       plugins: [
         alias({
           customResolver: resolve({
-            extensions: [
-              '.css',
-              '.js',
-              '.jsx',
-              '.json',
-              '.mjs',
-              '.styl',
-              '.ts',
-              '.tsx',
-            ],
+            extensions: ['.css', '.js', '.jsx', '.json', '.mjs', '.styl', '.ts', '.tsx'],
           }),
           entries: [...paths.alias],
         }),

@@ -24,9 +24,7 @@ describe('prop types', function () {
       expect(() => render(<Blockquote>{value}</Blockquote>)).not.toThrow()
     }
 
-    expect(render(<Blockquote>Hello, world!</Blockquote>).text()).toEqual(
-      'Hello, world!',
-    )
+    expect(render(<Blockquote>Hello, world!</Blockquote>).text()).toEqual('Hello, world!')
   })
 
   describe('className is optional', function () {
@@ -36,18 +34,14 @@ describe('prop types', function () {
     })
 
     it('custom', function () {
-      const node = render(
-        <Blockquote className="my-blockquote">{children}</Blockquote>,
-      )
+      const node = render(<Blockquote className="my-blockquote">{children}</Blockquote>)
       expect(node.hasClass('yozora-blockquote')).toBeTruthy()
       expect(node.hasClass('my-blockquote')).toBeTruthy()
     })
   })
 
   it('style is optional', function () {
-    const node = render(
-      <Blockquote style={{ color: 'orange' }}>{children}</Blockquote>,
-    )
+    const node = render(<Blockquote style={{ color: 'orange' }}>{children}</Blockquote>)
     expect(node.css('color')).toEqual('orange')
   })
 })

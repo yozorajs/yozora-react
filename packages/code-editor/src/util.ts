@@ -1,17 +1,12 @@
 /* istanbul ignore next */
 const gThis =
-  typeof globalThis !== 'undefined'
-    ? globalThis
-    : typeof window !== 'undefined'
-    ? window
-    : global
+  typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : global
 
 /* istanbul ignore next */
 export const isWindows = gThis?.navigator && /Win/i.test(navigator.platform)
 
 /* istanbul ignore next */
-export const isMacLike =
-  gThis?.navigator && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)
+export const isMacLike = gThis?.navigator && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)
 
 /**
  * Editor history threshold values.

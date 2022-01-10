@@ -2,10 +2,7 @@ import CodeEmbed from '@yozora/react-code-embed'
 import CodeLiteral from '@yozora/react-code-literal'
 import CodeLive from '@yozora/react-code-live'
 import JsxRenderer from '@yozora/react-code-renderer-jsx'
-import type {
-  ICodeRunnerItem,
-  ICodeRunnerProps,
-} from '@yozora/react-code-runners'
+import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/react-code-runners'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import type { ICodeMetaData, ICodeProps } from './types'
@@ -19,14 +16,7 @@ export const defaultRunners: ICodeRunnerItem[] = [
       const { value, scope, onError, meta = {} } = props
       const inline = meta.jsxMode == null || meta.jsxMode === 'inline'
 
-      return (
-        <JsxRenderer
-          code={value}
-          inline={inline}
-          scope={scope}
-          onError={onError}
-        />
-      )
+      return <JsxRenderer code={value} inline={inline} scope={scope} onError={onError} />
     },
   },
 ]
@@ -57,14 +47,7 @@ export const Code: React.FC<ICodeProps> = props => {
     () => parseCodeMeta(infoString ?? '', { preferLinenos }),
     [infoString, preferLinenos],
   )
-  const {
-    highlights,
-    maxlines,
-    _yozoraCodeMode,
-    title,
-    collapsed,
-    showLinenos,
-  } = meta
+  const { highlights, maxlines, _yozoraCodeMode, title, collapsed, showLinenos } = meta
 
   let result: React.ReactElement | null = null
   if (lang != null) {

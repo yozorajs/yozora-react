@@ -50,11 +50,7 @@ describe('snapshot', function () {
 
   it('custom', () => {
     const wrapper = render(
-      <InlineCode
-        value={code}
-        className="custom-class"
-        style={{ color: 'orange' }}
-      />,
+      <InlineCode value={code} className="custom-class" style={{ color: 'orange' }} />,
     )
     expect(wrapper).toMatchSnapshot()
   })

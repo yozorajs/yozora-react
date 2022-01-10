@@ -47,25 +47,12 @@ export const GraphvizRenderer: React.FC<IGraphvizRendererProps> = props => {
       .renderDot(code)
   }, [code, options, engine, onError])
 
-  return (
-    <div
-      ref={graphRef}
-      className={cn('yozora-code-renderer-graphviz', className)}
-    />
-  )
+  return <div ref={graphRef} className={cn('yozora-code-renderer-graphviz', className)} />
 }
 
 GraphvizRenderer.propTypes = {
   code: PropTypes.string.isRequired,
-  engine: PropTypes.oneOf([
-    'circo',
-    'dot',
-    'fdp',
-    'neato',
-    'osage',
-    'patchwork',
-    'twopi',
-  ]),
+  engine: PropTypes.oneOf(['circo', 'dot', 'fdp', 'neato', 'osage', 'patchwork', 'twopi']),
   options: PropTypes.any,
   className: PropTypes.string,
   onError: PropTypes.func,

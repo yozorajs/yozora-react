@@ -42,12 +42,7 @@ export const List: React.FC<IListProps> = props => {
 
   if (ordered) {
     return (
-      <ol
-        type={orderType}
-        start={start}
-        className={cn('yozora-list', className)}
-        style={style}
-      >
+      <ol type={orderType} start={start} className={cn('yozora-list', className)} style={style}>
         {children}
       </ol>
     )

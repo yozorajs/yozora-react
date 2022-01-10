@@ -28,9 +28,7 @@ describe('prop types', function () {
   it('children is optional', () => {
     for (const ordered of [false, true]) {
       for (const value of [undefined, null] as any[]) {
-        expect(() =>
-          render(<List ordered={ordered}>{value}</List>),
-        ).not.toThrow()
+        expect(() => render(<List ordered={ordered}>{value}</List>)).not.toThrow()
       }
 
       const text = 'Hello, world!'
@@ -88,12 +86,7 @@ describe('snapshot', function () {
     const className = 'custom-list-item'
     for (const ordered of [false, true]) {
       const wrapper = render(
-        <List
-          start={3}
-          ordered={ordered}
-          className={className}
-          style={{ color: 'orange' }}
-        >
+        <List start={3} ordered={ordered} className={className} style={{ color: 'orange' }}>
           {children}
         </List>,
       )

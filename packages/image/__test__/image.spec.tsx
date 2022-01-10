@@ -39,9 +39,7 @@ describe('prop types', function () {
   })
 
   it('style is optional', function () {
-    const node = render(
-      <Image src={imageSrc} style={{ color: 'orange' }} />,
-    ).find('img')
+    const node = render(<Image src={imageSrc} style={{ color: 'orange' }} />).find('img')
     expect(node.css('color')).toEqual('orange')
   })
 })
@@ -54,12 +52,7 @@ describe('snapshot', function () {
 
   it('custom', function () {
     const wrapper = render(
-      <Image
-        src={imageSrc}
-        alt="avatar"
-        className="custom-class"
-        style={{ color: 'orange' }}
-      />,
+      <Image src={imageSrc} alt="avatar" className="custom-class" style={{ color: 'orange' }} />,
     )
     expect(wrapper).toMatchSnapshot()
   })

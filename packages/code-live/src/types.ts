@@ -1,7 +1,4 @@
-import type {
-  ICodeRunnerItem,
-  ICodeRunnerScope,
-} from '@yozora/react-code-runners'
+import type { ICodeRunnerItem, ICodeRunnerScope } from '@yozora/react-code-runners'
 import type { PrismTheme } from 'prism-react-renderer'
 
 /**

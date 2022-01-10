@@ -48,11 +48,7 @@ describe('snapshot', function () {
 
   it('custom', function () {
     const wrapper = render(
-      <Text
-        value={text}
-        className="custom-class"
-        style={{ color: 'orange' }}
-      />,
+      <Text value={text} className="custom-class" style={{ color: 'orange' }} />,
     )
     expect(wrapper).toMatchSnapshot()
   })

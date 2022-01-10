@@ -26,9 +26,7 @@ describe('prop types', function () {
     })
 
     it('custom', function () {
-      const node = render(
-        <Table aligns={aligns} ths={ths} tds={tds} className="my-table" />,
-      )
+      const node = render(<Table aligns={aligns} ths={ths} tds={tds} className="my-table" />)
 
       expect(node.hasClass('yozora-table')).toBeTruthy()
       expect(node.hasClass('my-table')).toBeTruthy()
@@ -36,21 +34,14 @@ describe('prop types', function () {
   })
 
   it('style is optional', function () {
-    const node = render(
-      <Table aligns={aligns} ths={ths} tds={tds} style={{ color: 'orange' }} />,
-    )
+    const node = render(<Table aligns={aligns} ths={ths} tds={tds} style={{ color: 'orange' }} />)
     expect(node.css('color')).toEqual('orange')
   })
 })
 
 it('snapshot', function () {
   const wrapper = render(
-    <Table
-      aligns={aligns}
-      ths={ths}
-      tds={tds}
-      style={{ color: 'orange', fontSize: '16px' }}
-    />,
+    <Table aligns={aligns} ths={ths} tds={tds} style={{ color: 'orange', fontSize: '16px' }} />,
   )
   expect(wrapper).toMatchSnapshot()
 })

@@ -55,11 +55,7 @@ describe('prop types', function () {
 describe('snapshot', function () {
   it('basic', () => {
     const wrapper = render(
-      <Link
-        url={url}
-        title="home"
-        style={{ color: 'orange', fontSize: '16px' }}
-      >
+      <Link url={url} title="home" style={{ color: 'orange', fontSize: '16px' }}>
         {children}
       </Link>,
     )

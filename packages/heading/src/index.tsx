@@ -37,25 +37,14 @@ export interface IHeadingProps {
  * @see https://www.npmjs.com/package/@yozora/tokenizer-heading
  */
 export const Heading: React.FC<IHeadingProps> = props => {
-  const {
-    className,
-    style,
-    children,
-    identifier,
-    level,
-    linkIcon = '¶',
-  } = props
+  const { className, style, children, identifier, level, linkIcon = '¶' } = props
 
   const id = identifier == null ? undefined : encodeURIComponent(identifier)
   const H: any = ('h' + level) as keyof JSX.IntrinsicElements
   return (
     <H
       id={id}
-      className={cn(
-        'yozora-heading',
-        { 'yozora-heading--toc': identifier != null },
-        className,
-      )}
+      className={cn('yozora-heading', { 'yozora-heading--toc': identifier != null }, className)}
       style={style}
     >
       <p className="yozora-heading__content">{children}</p>

@@ -3,11 +3,9 @@ import React, { useState } from 'react'
 import CodeEditor from '../src'
 
 describe('basic rendering case', () => {
-  const errorLogger = jest
-    .spyOn(global.console, 'error')
-    .mockImplementation((...args) => {
-      throw new Error(args.join(' '))
-    })
+  const errorLogger = jest.spyOn(global.console, 'error').mockImplementation((...args) => {
+    throw new Error(args.join(' '))
+  })
 
   afterAll(() => {
     errorLogger.mockRestore()

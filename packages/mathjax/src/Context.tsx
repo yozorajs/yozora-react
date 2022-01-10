@@ -6,5 +6,6 @@ export const initialMathJaxContextValue: MathJaxContextValue = {
   MathJax: null,
 }
 
-export const MathJaxContext: React.Context<MathJaxContextValue> =
-  React.createContext(initialMathJaxContextValue)
+export const MathJaxContext: React.Context<MathJaxContextValue> = React.createContext(
+  initialMathJaxContextValue,
+)

@@ -15,11 +15,8 @@ export interface IFootnoteDefinitionsProps {
   dontNeedFootnoteDefinitions?: boolean
 }
 
-export const YozoraFootnoteDefinitions: React.FC<
-  IFootnoteDefinitionsProps
-> = props => {
-  const { footnoteDefinitionsTitle, dontNeedFootnoteDefinitions = false } =
-    props
+export const YozoraFootnoteDefinitions: React.FC<IFootnoteDefinitionsProps> = props => {
+  const { footnoteDefinitionsTitle, dontNeedFootnoteDefinitions = false } = props
 
   const { footnoteDefinitions } = React.useContext(YozoraMarkdownContextType)
 
@@ -33,10 +30,7 @@ export const YozoraFootnoteDefinitions: React.FC<
     [footnoteDefinitions],
   )
 
-  if (dontNeedFootnoteDefinitions || footnoteDefinitions.length <= 0)
-    return null
+  if (dontNeedFootnoteDefinitions || footnoteDefinitions.length <= 0) return null
 
-  return (
-    <YozoraFootnotesRenderer nodes={items} title={footnoteDefinitionsTitle} />
-  )
+  return <YozoraFootnotesRenderer nodes={items} title={footnoteDefinitionsTitle} />
 }

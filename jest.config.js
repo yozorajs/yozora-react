@@ -3,9 +3,7 @@ const { compilerOptions } = require('./tsconfig')
 
 const moduleNameMapper = {}
 for (const moduleName of Object.getOwnPropertyNames(compilerOptions.paths)) {
-  const paths = compilerOptions.paths[moduleName].map(p =>
-    path.resolve(__dirname, p),
-  )
+  const paths = compilerOptions.paths[moduleName].map(p => path.resolve(__dirname, p))
   let pattern = '^' + moduleName.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&') + '$'
   moduleNameMapper[pattern] = paths.length === 1 ? paths[0] : paths
 }

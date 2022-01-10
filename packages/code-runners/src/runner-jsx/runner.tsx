@@ -2,11 +2,7 @@ import { useDeepCompareMemo } from '@guanghechen/react-hooks'
 import type { IEcmaImport } from '@yozora/ast'
 import type { ICodeRendererJsxProps } from '@yozora/react-code-renderer-jsx'
 import React, { useEffect, useMemo, useState } from 'react'
-import type {
-  IAsyncRunnerScopes,
-  ICodeRunner,
-  ICodeRunnerScope,
-} from '../types'
+import type { IAsyncRunnerScopes, ICodeRunner, ICodeRunnerScope } from '../types'
 import { CodeRunnerPropTypes } from '../types'
 import type { IDynamicImportRule } from './lazy'
 import { dynamicImport } from './lazy'
@@ -27,29 +23,23 @@ export function createUseJsxRunner(
   defaultRenderMode: 'inline' | 'block',
 ): (ecmaImports: IEcmaImport[]) => ICodeRunner {
   return function useJsxRunner(ecmaImports: IEcmaImport[]): ICodeRunner {
-    const { scope, pending, Placeholders } =
-      useDeepCompareMemo<IAsyncRunnerScopes>(() => {
-        const scope: ICodeRunnerScope = { ...presetJsxScope }
-        const Placeholders: Array<React.FC | React.ComponentClass> = []
-        const tasks: Array<Promise<void>> = []
+    const { scope, pending, Placeholders } = useDeepCompareMemo<IAsyncRunnerScopes>(() => {
+      const scope: ICodeRunnerScope = { ...presetJsxScope }
+      const Placeholders: Array<React.FC | React.ComponentClass> = []
+      const tasks: Array<Promise<void>> = []
 
-        for (const ecmaImport of ecmaImports) {
-          const task: Promise<void> | null = dynamicImport(
-            ecmaImport,
-            scope,
-            Placeholders,
-            rules,
-          )
-          if (task === null) continue
-          tasks.push(task)
-        }
+      for (const ecmaImport of ecmaImports) {
+        const task: Promise<void> | null = dynamicImport(ecmaImport, scope, Placeholders, rules)
+        if (task === null) continue
+        tasks.push(task)
+      }
 
-        return {
-          scope,
-          pending: tasks.length <= 0 ? true : Promise.all(tasks),
-          Placeholders,
-        }
-      }, [ecmaImports])
+      return {
+        scope,
+        pending: tasks.length <= 0 ? true : Promise.all(tasks),
+        Placeholders,
+      }
+    }, [ecmaImports])
 
     // Whether if the async runner scopes prepared.
     const [prepared, setPrepared] = useState<boolean>(pending === true)
@@ -85,14 +75,7 @@ export function createUseJsxRunner(
           )
         }
 
-        return (
-          <JsxRenderer
-            code={value}
-            inline={inline}
-            scope={scope}
-            onError={onError}
-          />
-        )
+        return <JsxRenderer code={value} inline={inline} scope={scope} onError={onError} />
       }
 
       JsxRunner.displayName = 'YozoraJsxRunner'

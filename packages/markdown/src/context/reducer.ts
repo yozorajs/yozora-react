@@ -3,10 +3,7 @@ import type { IYozoraMarkdownAction } from './actions'
 import { YozoraMarkdownActionsType } from './actions'
 import type { IYozoraMarkdownState } from './state'
 
-export const reducer: React.Reducer<
-  IYozoraMarkdownState,
-  IYozoraMarkdownAction
-> = (
+export const reducer: React.Reducer<IYozoraMarkdownState, IYozoraMarkdownAction> = (
   state: IYozoraMarkdownState,
   action: IYozoraMarkdownAction,
 ): IYozoraMarkdownState => {
@@ -52,28 +49,19 @@ export const reducer: React.Reducer<
     }
     case YozoraMarkdownActionsType.IMAGE_VIEWER_ADD_ITEM: {
       const { src, alt } = action.payload
-      if (
-        state.images.find(image => image.src === src && image.alt === alt) ==
-        null
-      ) {
+      if (state.images.find(image => image.src === src && image.alt === alt) == null) {
         // This modification is intended.
         state.images.push({ src, alt })
       }
       return state
     }
     case YozoraMarkdownActionsType.IMAGE_VIEWER_ACTIVE_ITEM: {
-      const {
-        imageActivatedIndex: previousIndex,
-        images,
-        imageViewerVisible,
-      } = state
+      const { imageActivatedIndex: previousIndex, images, imageViewerVisible } = state
 
       let currentIndex: number = previousIndex
       if (images.length > 0) {
         const { src, alt } = action.payload
-        currentIndex = images.findIndex(
-          image => image.src === src && image.alt === alt,
-        )
+        currentIndex = images.findIndex(image => image.src === src && image.alt === alt)
         if (currentIndex === -1) currentIndex = previousIndex
       }
       if (currentIndex === previousIndex && imageViewerVisible) return state

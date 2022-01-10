@@ -71,9 +71,7 @@ export function useYozoraRendererMap(
       }
     }
 
-    return hasChanged
-      ? { ...defaultNodeRendererMap, ...result }
-      : defaultNodeRendererMap
+    return hasChanged ? { ...defaultNodeRendererMap, ...result } : defaultNodeRendererMap
   }, [customRendererMap])
   return rendererMap
 }
@@ -110,10 +108,7 @@ export const defaultNodeRendererMap: Readonly<INodeRendererMap> = {
   [TextType]: TextRenderer,
   [ThematicBreakType]: ThematicBreakRenderer as React.FC,
   _fallback: function YozoraReactFallback(node, key) {
-    console.warn(
-      `Cannot find render for \`${node.type}\` type node with key \`${key}\`:`,
-      node,
-    )
+    console.warn(`Cannot find render for \`${node.type}\` type node with key \`${key}\`:`, node)
     return null
   },
 }

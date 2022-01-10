@@ -24,11 +24,7 @@ describe('prop types', function () {
       expect(() => render(<Admonition>{value}</Admonition>)).not.toThrow()
     }
 
-    expect(
-      /Hello, world!/.test(
-        render(<Admonition>Hello, world!</Admonition>).text(),
-      ),
-    ).toBe(true)
+    expect(/Hello, world!/.test(render(<Admonition>Hello, world!</Admonition>).text())).toBe(true)
   })
 
   describe('className is optional', function () {
@@ -39,9 +35,7 @@ describe('prop types', function () {
     })
 
     it('custom', function () {
-      const node = render(
-        <Admonition className="my-admonition">{children}</Admonition>,
-      )
+      const node = render(<Admonition className="my-admonition">{children}</Admonition>)
       expect(node.hasClass('yozora-admonition')).toBeTruthy()
       expect(node.hasClass('yozora-admonition--note')).toBeTruthy()
       expect(node.hasClass('my-admonition')).toBeTruthy()
@@ -69,9 +63,7 @@ describe('prop types', function () {
   })
 
   it('style is optional', function () {
-    const node = render(
-      <Admonition style={{ color: 'orange' }}>{children}</Admonition>,
-    )
+    const node = render(<Admonition style={{ color: 'orange' }}>{children}</Admonition>)
     expect(node.css('color')).toEqual('orange')
   })
 })
@@ -84,11 +76,7 @@ describe('snapshot', function () {
 
   it('custom', function () {
     const wrapper = render(
-      <Admonition
-        keyword="caution"
-        className="custom-class"
-        style={{ color: 'orange' }}
-      >
+      <Admonition keyword="caution" className="custom-class" style={{ color: 'orange' }}>
         {children}
       </Admonition>,
     )

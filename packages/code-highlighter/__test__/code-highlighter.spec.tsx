@@ -3,11 +3,9 @@ import React, { useEffect, useState } from 'react'
 import CodeHighlighter from '../src'
 
 describe('basic rendering case', () => {
-  const errorLogger = jest
-    .spyOn(global.console, 'error')
-    .mockImplementation((...args) => {
-      throw new Error(args.join(' '))
-    })
+  const errorLogger = jest.spyOn(global.console, 'error').mockImplementation((...args) => {
+    throw new Error(args.join(' '))
+  })
 
   afterAll(() => {
     errorLogger.mockRestore()
@@ -35,9 +33,7 @@ describe('basic rendering case', () => {
     }
 
     const wrapper = mount(<Wrapper />)
-    expect(wrapper.getDOMNode().getAttribute('data-line-count')).toEqual(
-      String(103),
-    )
+    expect(wrapper.getDOMNode().getAttribute('data-line-count')).toEqual(String(103))
 
     const lines = wrapper.find({ linenoWidth: '2.5em' })
     for (let i = 0; i < lines.length; ++i) {

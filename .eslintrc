@@ -14,12 +14,7 @@
   "overrides": [
     {
       "files": ["**/*.ts", "**/*.tsx"],
-      "extends": [
-        "@guanghechen",
-        "@guanghechen/jsx",
-        "@guanghechen/ts",
-        "prettier"
-      ],
+      "extends": ["@guanghechen", "@guanghechen/jsx", "@guanghechen/ts", "prettier"],
       "rules": {
         "import/no-named-as-default": 0
       }

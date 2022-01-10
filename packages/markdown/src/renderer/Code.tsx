@@ -4,9 +4,7 @@ import React, { useContext } from 'react'
 import { YozoraMarkdownContextType } from '../context/context'
 
 export const YozoraCodeRenderer: React.FC<ICode> = props => {
-  const { darken, preferLinenos, codeRunners } = useContext(
-    YozoraMarkdownContextType,
-  )
+  const { darken, preferLinenos, codeRunners } = useContext(YozoraMarkdownContextType)
 
   const { lang, meta } = props
 

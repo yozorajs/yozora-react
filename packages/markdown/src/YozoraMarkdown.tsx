@@ -37,21 +37,11 @@ export interface IYozoraMarkdownProps {
  */
 export const YozoraMarkdown: React.FC<IYozoraMarkdownProps> = props => {
   const { darken } = React.useContext(YozoraMarkdownContextType)
-  const {
-    ast,
-    footnoteDefinitionsTitle,
-    dontNeedFootnoteDefinitions,
-    className,
-    style,
-  } = props
+  const { ast, footnoteDefinitionsTitle, dontNeedFootnoteDefinitions, className, style } = props
 
   return (
     <div
-      className={cn(
-        'yozora-markdown',
-        { 'yozora-markdown--darken': darken },
-        className,
-      )}
+      className={cn('yozora-markdown', { 'yozora-markdown--darken': darken }, className)}
       style={style}
     >
       <section>

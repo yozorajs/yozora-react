@@ -55,11 +55,7 @@ export const Table: React.FC<ITableProps> = props => {
       <thead className="yozora-table__thead">
         <tr ref={headRowRef} className="yozora-table-row">
           {ths.map((children, cellIndex) => (
-            <th
-              key={cellIndex}
-              align={aligns[cellIndex]}
-              className="yozora-table-cell"
-            >
+            <th key={cellIndex} align={aligns[cellIndex]} className="yozora-table-cell">
               {children}
             </th>
           ))}
@@ -69,11 +65,7 @@ export const Table: React.FC<ITableProps> = props => {
         {tds.map((row, rowIndex) => (
           <tr key={rowIndex} className="yozora-table-row">
             {row.map((children, cellIndex) => (
-              <td
-                key={cellIndex}
-                align={aligns[cellIndex]}
-                className="yozora-table-cell"
-              >
+              <td key={cellIndex} align={aligns[cellIndex]} className="yozora-table-cell">
                 {children}
               </td>
             ))}

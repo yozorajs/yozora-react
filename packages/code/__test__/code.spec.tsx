@@ -37,9 +37,7 @@ describe('snapshot', function () {
   const lang = 'jsx'
 
   it('live', () => {
-    const wrapper = render(
-      <Code meta="live maxlines=4" lang={lang} value={code} />,
-    )
+    const wrapper = render(<Code meta="live maxlines=4" lang={lang} value={code} />)
     expect(wrapper).toMatchSnapshot()
   })
 

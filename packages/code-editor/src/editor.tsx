@@ -1,11 +1,6 @@
 import cn from 'clsx'
 import React from 'react'
-import type {
-  IEditorHistory,
-  IEditorOperationRecord,
-  IEditorProps,
-  IEditorState,
-} from './types'
+import type { IEditorHistory, IEditorOperationRecord, IEditorProps, IEditorState } from './types'
 import {
   HISTORY_LIMIT,
   HISTORY_TIME_GAP,
@@ -21,10 +16,7 @@ import {
  * Based on react-simple-code-editor, developed by satya164
  * @see https://github.com/satya164/react-simple-code-editor
  */
-export class SimpleCodeEditor extends React.Component<
-  IEditorProps,
-  IEditorState
-> {
+export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState> {
   public static readonly defaultProps = {
     tabSize: 2,
     insertSpaces: true,
@@ -98,10 +90,7 @@ export class SimpleCodeEditor extends React.Component<
         style={{ ...style, tabSize }}
       >
         <div className="yozora-code-editor__textarea-wrapper">
-          <div
-            className="yozora-code-editor__textarea-linenos"
-            style={{ width: linenoWidth }}
-          />
+          <div className="yozora-code-editor__textarea-linenos" style={{ width: linenoWidth }} />
           <textarea
             ref={this.inputRef}
             id={textareaId}
@@ -156,10 +145,7 @@ export class SimpleCodeEditor extends React.Component<
     })
   }
 
-  protected _recordChange = (
-    record: IEditorOperationRecord,
-    overwrite = false,
-  ): void => {
+  protected _recordChange = (record: IEditorOperationRecord, overwrite = false): void => {
     const { stack, offset } = this._history
 
     if (stack.length && offset > -1) {
@@ -189,14 +175,10 @@ export class SimpleCodeEditor extends React.Component<
         const regex = regexps.lastWordOfLine
 
         // Get the previous line
-        const previous = getLines(last.value, last.selectionStart)
-          .pop()!
-          .match(regex)
+        const previous = getLines(last.value, last.selectionStart).pop()!.match(regex)
 
         // Get the current line
-        const current = getLines(record.value, record.selectionStart)
-          .pop()!
-          .match(regex)
+        const current = getLines(record.value, record.selectionStart).pop()!.match(regex)
 
         if (previous && current && current[1].startsWith(previous[1])) {
           // The last word of the previous line and current line match
@@ -270,9 +252,7 @@ export class SimpleCodeEditor extends React.Component<
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  protected _handleKeyDown = (
-    e: React.KeyboardEvent<HTMLTextAreaElement>,
-  ): void => {
+  protected _handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>): void => {
     const { tabSize, insertSpaces, ignoreTabKey, onKeyDown } = this.props
     const target = e.target as HTMLTextAreaElement
 
@@ -304,11 +284,7 @@ export class SimpleCodeEditor extends React.Component<
         const nextValue = value
           .split('\n')
           .map((line, i) => {
-            if (
-              i >= startLine &&
-              i <= endLine &&
-              line.startsWith(tabCharacter)
-            ) {
+            if (i >= startLine && i <= endLine && line.startsWith(tabCharacter)) {
               return line.substring(tabCharacter.length)
             }
 
@@ -354,18 +330,14 @@ export class SimpleCodeEditor extends React.Component<
             ? selectionStart + tabCharacter.length
             : selectionStart,
           // Move the end cursor by total number of characters added
-          selectionEnd:
-            selectionEnd + tabCharacter.length * (endLine - startLine + 1),
+          selectionEnd: selectionEnd + tabCharacter.length * (endLine - startLine + 1),
         })
       } else {
         const updatedSelection = selectionStart + tabCharacter.length
 
         this._applyEdits({
           // Insert tab character at caret
-          value:
-            value.substring(0, selectionStart) +
-            tabCharacter +
-            value.substring(selectionEnd),
+          value: value.substring(0, selectionStart) + tabCharacter + value.substring(selectionEnd),
           // Update caret position
           selectionStart: updatedSelection,
           selectionEnd: updatedSelection,
@@ -407,10 +379,7 @@ export class SimpleCodeEditor extends React.Component<
 
           this._applyEdits({
             // Insert indentation character at caret
-            value:
-              value.substring(0, selectionStart) +
-              indent +
-              value.substring(selectionEnd),
+            value: value.substring(0, selectionStart) + indent + value.substring(selectionEnd),
             // Update caret position
             selectionStart: updatedSelection,
             selectionEnd: updatedSelection,
@@ -494,11 +463,7 @@ export class SimpleCodeEditor extends React.Component<
       e.preventDefault()
 
       this._redoEdit()
-    } else if (
-      e.code === KeyboardCodes.M &&
-      e.ctrlKey &&
-      (isMacLike ? e.shiftKey : true)
-    ) {
+    } else if (e.code === KeyboardCodes.M && e.ctrlKey && (isMacLike ? e.shiftKey : true)) {
       e.preventDefault()
 
       // Toggle capturing tab key so users can focus away
@@ -508,9 +473,7 @@ export class SimpleCodeEditor extends React.Component<
     }
   }
 
-  protected _handleChange = (
-    e: React.ChangeEvent<HTMLTextAreaElement>,
-  ): void => {
+  protected _handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     const { value, selectionStart, selectionEnd } = e.target
     const nextRecord: IEditorOperationRecord = {
       value,

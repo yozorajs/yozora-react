@@ -45,8 +45,6 @@ describe('basic rendering case', () => {
       }
     `
 
-    expect(mount(<CodeRendererGraphviz code={code} />)).toMatchSnapshot(
-      'finite state machine',
-    )
+    expect(mount(<CodeRendererGraphviz code={code} />)).toMatchSnapshot('finite state machine')
   })
 })

@@ -100,13 +100,7 @@ export const CodeLive: React.FC<ICodeLiveProps> = props => {
               'yozora-code-live__previewer--center': centerPreviewer,
             })}
           >
-            <CodeEmbed
-              lang={lang}
-              value={value}
-              meta={meta}
-              scope={scope}
-              runner={runner.runner}
-            />
+            <CodeEmbed lang={lang} value={value} meta={meta} scope={scope} runner={runner.runner} />
           </div>
         )}
       </div>

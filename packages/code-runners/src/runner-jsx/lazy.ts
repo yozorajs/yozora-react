@@ -41,9 +41,7 @@ export function dynamicImport(
   // No valid dynamic import rule found.
   if (rule == null) return null
 
-  const importFunc: IDynamicImportFunc = rule.importFunc(
-    rule.regex.exec(moduleName)!,
-  )
+  const importFunc: IDynamicImportFunc = rule.importFunc(rule.regex.exec(moduleName)!)
 
   if (/\.[jt]sx$/.test(moduleName)) {
     /**

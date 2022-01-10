@@ -14,13 +14,7 @@ export function createGraphvizRunner(
 ): ICodeRunner {
   const GraphvizRunner: ICodeRunner = props => {
     const { value, meta = {}, onError } = props
-    return (
-      <GraphvizRenderer
-        code={value}
-        engine={meta.engine as Engine}
-        onError={onError}
-      />
-    )
+    return <GraphvizRenderer code={value} engine={meta.engine as Engine} onError={onError} />
   }
 
   GraphvizRunner.displayName = 'YozoraGraphvizRunner'

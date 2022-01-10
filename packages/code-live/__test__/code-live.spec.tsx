@@ -1,8 +1,5 @@
 import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
-import type {
-  ICodeRunnerItem,
-  ICodeRunnerProps,
-} from '@yozora/react-code-runners'
+import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/react-code-runners'
 import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
@@ -52,9 +49,7 @@ describe('prop types', function () {
     const code1 = 'function Demo() { return <span data-type="value">3</span> }'
     const code2 = 'function Demo() { return <span data-type="value">4</span> }'
 
-    const wrapper = mount(
-      <CodeLive lang="jsx" value={code1} runners={runners} />,
-    )
+    const wrapper = mount(<CodeLive lang="jsx" value={code1} runners={runners} />)
 
     expect(wrapper.find('textarea').text()).toEqual(code1)
     expect(wrapper.find('[data-type="value"]').text()).toEqual('3')
@@ -75,9 +70,7 @@ describe('prop types', function () {
   })
 
   it('snapshot', () => {
-    const wrapper = mount(
-      <CodeLive lang="jsx" value={code} runners={runners} />,
-    )
+    const wrapper = mount(<CodeLive lang="jsx" value={code} runners={runners} />)
 
     expect(wrapper.find('textarea').text()).toEqual(code)
     expect(wrapper.find('[data-type="value"]').text()).toEqual('0')

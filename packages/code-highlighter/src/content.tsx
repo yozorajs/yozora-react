@@ -51,18 +51,15 @@ export const HighlighterContent: React.FC<IHighlightContentProps> = props => {
 
   // Sync the scroll events.
   /* istanbul ignore next */
-  const syncScrollEvents = useCallback<React.UIEventHandler<HTMLDivElement>>(
-    e => {
-      const codesArea = e.target as HTMLTextAreaElement
-      if (codesArea == null) return
+  const syncScrollEvents = useCallback<React.UIEventHandler<HTMLDivElement>>(e => {
+    const codesArea = e.target as HTMLTextAreaElement
+    if (codesArea == null) return
 
-      const { scrollTop } = codesArea
-      if (linenoRef.current != null) {
-        linenoRef.current.scrollTo(0, scrollTop)
-      }
-    },
-    [],
-  )
+    const { scrollTop } = codesArea
+    if (linenoRef.current != null) {
+      linenoRef.current.scrollTo(0, scrollTop)
+    }
+  }, [])
 
   return (
     <div className={cn('yozora-code-highlighter', className)} style={style}>

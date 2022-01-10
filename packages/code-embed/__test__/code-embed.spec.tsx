@@ -46,20 +46,13 @@ describe('prop types', function () {
 
   describe('className is optional', function () {
     it('default', function () {
-      const node = render(
-        <CodeEmbed lang="jsx" value={code} runner={JsxRunner} />,
-      )
+      const node = render(<CodeEmbed lang="jsx" value={code} runner={JsxRunner} />)
       expect(node.hasClass('yozora-code-embed')).toBeTruthy()
     })
 
     it('custom', function () {
       const node = render(
-        <CodeEmbed
-          lang="jsx"
-          value={code}
-          runner={JsxRunner}
-          className="my-code-embed"
-        />,
+        <CodeEmbed lang="jsx" value={code} runner={JsxRunner} className="my-code-embed" />,
       )
       expect(node.hasClass('yozora-code-embed')).toBeTruthy()
       expect(node.hasClass('my-code-embed')).toBeTruthy()
@@ -68,12 +61,7 @@ describe('prop types', function () {
 
   it('style is optional', function () {
     const node = render(
-      <CodeEmbed
-        lang="jsx"
-        value={code}
-        runner={JsxRunner}
-        style={{ color: 'orange' }}
-      />,
+      <CodeEmbed lang="jsx" value={code} runner={JsxRunner} style={{ color: 'orange' }} />,
     )
     expect(node.css('color')).toEqual('orange')
   })
@@ -81,9 +69,7 @@ describe('prop types', function () {
 
 describe('snapshot', function () {
   it('basic', () => {
-    const wrapper = render(
-      <CodeEmbed lang="jsx" value={code} runner={JsxRunner} />,
-    )
+    const wrapper = render(<CodeEmbed lang="jsx" value={code} runner={JsxRunner} />)
     expect(wrapper).toMatchSnapshot()
   })
 })

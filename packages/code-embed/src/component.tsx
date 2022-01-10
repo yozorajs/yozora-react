@@ -13,16 +13,12 @@ import type { IYozoraCodeEmbedProps, IYozoraCodeEmbedState } from './types'
  * @see https://www.npmjs.com/package/@yozora/react-code-literal
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
-export class YozoraCodeEmbed extends React.Component<
-  IYozoraCodeEmbedProps,
-  IYozoraCodeEmbedState
-> {
+export class YozoraCodeEmbed extends React.Component<IYozoraCodeEmbedProps, IYozoraCodeEmbedState> {
   public static propTypes = {
     lang: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     meta: PropTypes.object,
-    runner: PropTypes.oneOfType<any>([PropTypes.elementType, PropTypes.func])
-      .isRequired,
+    runner: PropTypes.oneOfType<any>([PropTypes.elementType, PropTypes.func]).isRequired,
     className: PropTypes.string,
     style: PropTypes.object,
   }
@@ -45,27 +41,13 @@ export class YozoraCodeEmbed extends React.Component<
   }
 
   public override render(): React.ReactElement {
-    const {
-      lang,
-      value,
-      meta,
-      className,
-      style,
-      scope,
-      runner: Runner,
-    } = this.props
+    const { lang, value, meta, className, style, scope, runner: Runner } = this.props
     const { error } = this.state
 
     return (
       <div className={cn('yozora-code-embed', className)} style={style}>
         {error == null ? (
-          <Runner
-            lang={lang}
-            value={value}
-            meta={meta}
-            scope={scope}
-            onError={this.setError}
-          />
+          <Runner lang={lang} value={value} meta={meta} scope={scope} onError={this.setError} />
         ) : (
           <div className={'yozora-code-embed__error-wrapper'}>
             <div className="yozora-code-embed__error">{error as any}</div>

@@ -35,9 +35,7 @@ describe('snapshot', function () {
   })
 
   it('custom', function () {
-    const wrapper = render(
-      <ThematicBreak className="custom-class" style={{ color: 'orange' }} />,
-    )
+    const wrapper = render(<ThematicBreak className="custom-class" style={{ color: 'orange' }} />)
     expect(wrapper).toMatchSnapshot()
   })
 })

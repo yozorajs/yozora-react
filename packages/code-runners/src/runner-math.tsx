@@ -8,13 +8,9 @@ import { CodeRunnerPropTypes } from './types'
  * @param MathRenderer
  * @returns
  */
-export function createMathRunner(
-  MathRenderer: React.ComponentType<IMathProps>,
-): ICodeRunner {
+export function createMathRunner(MathRenderer: React.ComponentType<IMathProps>): ICodeRunner {
   const MathRunner: ICodeRunner = props => {
-    const value = props.value
-      .replace(/^[\s\n]*([$]+)([\s\S]+)*\1[\s\n]*$/, '$2')
-      .trim()
+    const value = props.value.replace(/^[\s\n]*([$]+)([\s\S]+)*\1[\s\n]*$/, '$2').trim()
     return <MathRenderer value={value} />
   }
 

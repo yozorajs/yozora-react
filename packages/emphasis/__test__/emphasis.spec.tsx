@@ -21,9 +21,7 @@ describe('prop types', function () {
       expect(() => render(<Emphasis>{value}</Emphasis>)).not.toThrow()
     }
 
-    expect(render(<Emphasis>Hello, world!</Emphasis>).text()).toEqual(
-      'Hello, world!',
-    )
+    expect(render(<Emphasis>Hello, world!</Emphasis>).text()).toEqual('Hello, world!')
   })
 
   describe('className is optional', function () {
@@ -33,18 +31,14 @@ describe('prop types', function () {
     })
 
     it('custom', function () {
-      const node = render(
-        <Emphasis className="my-emphasis">{children}</Emphasis>,
-      )
+      const node = render(<Emphasis className="my-emphasis">{children}</Emphasis>)
       expect(node.hasClass('yozora-emphasis')).toBeTruthy()
       expect(node.hasClass('my-emphasis')).toBeTruthy()
     })
   })
 
   it('style is optional', function () {
-    const node = render(
-      <Emphasis style={{ color: 'orange' }}>{children}</Emphasis>,
-    )
+    const node = render(<Emphasis style={{ color: 'orange' }}>{children}</Emphasis>)
     expect(node.css('color')).toEqual('orange')
   })
 })

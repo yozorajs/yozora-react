@@ -27,19 +27,13 @@ describe('prop types', function () {
 
   describe('className is optional', function () {
     it('default', function () {
-      const node = render(
-        <FootnoteReference identifier="identifier" label="1" />,
-      )
+      const node = render(<FootnoteReference identifier="identifier" label="1" />)
       expect(node.hasClass('yozora-footnote-reference')).toBeTruthy()
     })
 
     it('custom', function () {
       const node = render(
-        <FootnoteReference
-          identifier="identifier"
-          label="1"
-          className="my-footnote-reference"
-        />,
+        <FootnoteReference identifier="identifier" label="1" className="my-footnote-reference" />,
       )
       expect(node.hasClass('yozora-footnote-reference')).toBeTruthy()
       expect(node.hasClass('my-footnote-reference')).toBeTruthy()
@@ -48,11 +42,7 @@ describe('prop types', function () {
 
   it('style is optional', function () {
     const node = render(
-      <FootnoteReference
-        identifier="identifier"
-        label="1"
-        style={{ color: 'orange' }}
-      />,
+      <FootnoteReference identifier="identifier" label="1" style={{ color: 'orange' }} />,
     )
     expect(node.css('color')).toEqual('orange')
   })

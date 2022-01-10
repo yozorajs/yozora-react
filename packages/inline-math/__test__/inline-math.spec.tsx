@@ -40,9 +40,7 @@ describe('prop types', function () {
 
 describe('snapshot', function () {
   it('default', () => {
-    const wrapper = mount(
-      <InlineMath value={code} style={{ color: 'orange', fontSize: '16px' }} />,
-    )
+    const wrapper = mount(<InlineMath value={code} style={{ color: 'orange', fontSize: '16px' }} />)
     expect(wrapper).toMatchSnapshot()
   })
 

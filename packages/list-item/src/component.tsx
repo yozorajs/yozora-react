@@ -43,11 +43,7 @@ export const ListItem: React.FC<IListItemProps> = props => {
 
   return (
     <li
-      className={cn(
-        'yozora-list-item',
-        { 'yozora-list-task-item': status != null },
-        className,
-      )}
+      className={cn('yozora-list-item', { 'yozora-list-task-item': status != null }, className)}
       style={style}
     >
       {checkbox}

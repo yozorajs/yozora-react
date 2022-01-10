@@ -13,9 +13,7 @@ import type { IFootnoteDefinitionsProps } from './types'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-footnote-reference
  * @see https://www.npmjs.com/package/@yozora/tokenizer-footnote-definition
  */
-export const FootnoteDefinitions: React.FC<
-  IFootnoteDefinitionsProps
-> = props => {
+export const FootnoteDefinitions: React.FC<IFootnoteDefinitionsProps> = props => {
   const { nodes, title = 'footnote-definitions', className, style } = props
 
   return (
@@ -32,9 +30,7 @@ export const FootnoteDefinitions: React.FC<
               <a href={'#reference-' + node.identifier}>&uarr;</a>
               <span>{node.label}</span>
             </p>
-            <div className="yozora-footnote-definitions__item-content">
-              {node.children}
-            </div>
+            <div className="yozora-footnote-definitions__item-content">{node.children}</div>
           </li>
         ))}
       </ul>

@@ -23,9 +23,7 @@ describe('prop types', function () {
       }).not.toThrow()
     }
 
-    expect(render(<Delete>Hello, world!</Delete>).text()).toEqual(
-      'Hello, world!',
-    )
+    expect(render(<Delete>Hello, world!</Delete>).text()).toEqual('Hello, world!')
   })
 
   describe('className is optional', function () {

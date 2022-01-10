@@ -4,12 +4,8 @@ import React from 'react'
 import { YozoraMarkdownActionsType } from '../context/actions'
 import { YozoraMarkdownContextType } from '../context/context'
 
-export const YozoraImageReferenceRenderer: React.FC<
-  IImageReference
-> = props => {
-  const { dispatch, getDefinition } = React.useContext(
-    YozoraMarkdownContextType,
-  )
+export const YozoraImageReferenceRenderer: React.FC<IImageReference> = props => {
+  const { dispatch, getDefinition } = React.useContext(YozoraMarkdownContextType)
   const { alt, srcSet, sizes, loading } = props as IImageReference &
     React.ImgHTMLAttributes<HTMLElement>
 

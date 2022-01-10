@@ -78,9 +78,7 @@ export class MathJaxNodeWithContext extends React.Component<IMathJaxNodeWithCont
 
   public shouldComponentUpdate(nextProps: IMathJaxNodeProps): boolean {
     const props = this.props
-    return (
-      nextProps.formula !== props.formula || nextProps.inline !== props.inline
-    )
+    return nextProps.formula !== props.formula || nextProps.inline !== props.inline
   }
 
   public componentWillUnmount(): void {
@@ -158,13 +156,7 @@ export class MathJaxNode extends React.PureComponent<IMathJaxNodeProps> {
             return <T {...rest}>{formula}</T>
           }
 
-          return (
-            <MathJaxNodeWithContext
-              {...this.props}
-              MathJax={MathJax}
-              language={language}
-            />
-          )
+          return <MathJaxNodeWithContext {...this.props} MathJax={MathJax} language={language} />
         }}
       </MathJaxContext.Consumer>
     )

@@ -29,9 +29,7 @@ export interface IFootnoteReferenceProps {
  * @see https://www.npmjs.com/package/@yozora/tokenizer-footnote-definition
  * @see https://www.npmjs.com/package/@yozora/tokenizer-footnote-reference
  */
-export function FootnoteReference(
-  props: IFootnoteReferenceProps,
-): React.ReactElement {
+export function FootnoteReference(props: IFootnoteReferenceProps): React.ReactElement {
   const { className, style, identifier, label } = props
   return (
     <sup

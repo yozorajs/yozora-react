@@ -34,10 +34,7 @@ export const LightButtons: React.FC<ILightButtonsProps> = props => {
   const { className, style, onClose, onMaximize, onMinimize } = props
 
   return (
-    <span
-      className={cn('yozora-common-light-buttons', className)}
-      style={style}
-    >
+    <span className={cn('yozora-common-light-buttons', className)} style={style}>
       <span
         key="close"
         className="yozora-common-light-button yozora-common-light-button--close"

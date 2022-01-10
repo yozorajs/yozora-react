@@ -1,7 +1,4 @@
-import type {
-  ICodeRunnerItem,
-  ICodeRunnerMetaData,
-} from '@yozora/react-code-runners'
+import type { ICodeRunnerItem, ICodeRunnerMetaData } from '@yozora/react-code-runners'
 
 export interface ICodeProps {
   /**

@@ -1,8 +1,7 @@
 import { collectNumbers } from '@guanghechen/parse-lineno'
 import type { ICodeMetaData } from './types'
 
-const lineNoRangeRegex =
-  /\s*\{\s*((?:\d+|\d+-\d+)(?:\s*,\s*(?:\d+|\d+-\d+))*)\s*\}\s*/
+const lineNoRangeRegex = /\s*\{\s*((?:\d+|\d+-\d+)(?:\s*,\s*(?:\d+|\d+-\d+))*)\s*\}\s*/
 const attributeRegex = /\s*([a-zA-Z_]\w+)(?:\s*=\s*"([^"]*)"|=([\S]*))?\s*/
 
 export interface ParseCodeMetaOptions {

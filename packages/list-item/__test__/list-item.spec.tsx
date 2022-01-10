@@ -37,18 +37,14 @@ describe('prop types', function () {
     })
 
     it('custom', function () {
-      const node = render(
-        <ListItem className="my-list-item">{children}</ListItem>,
-      )
+      const node = render(<ListItem className="my-list-item">{children}</ListItem>)
       expect(node.hasClass('yozora-list-item')).toBeTruthy()
       expect(node.hasClass('my-list-item')).toBeTruthy()
     })
   })
 
   it('style is optional', function () {
-    const node = render(
-      <ListItem style={{ color: 'orange' }}>{children}</ListItem>,
-    )
+    const node = render(<ListItem style={{ color: 'orange' }}>{children}</ListItem>)
     expect(node.css('color')).toEqual('orange')
   })
 })

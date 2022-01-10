@@ -1,7 +1,4 @@
-import {
-  useDeepCompareCallback,
-  useDeepCompareMemo,
-} from '@guanghechen/react-hooks'
+import { useDeepCompareCallback, useDeepCompareMemo } from '@guanghechen/react-hooks'
 import type { IDefinition, IFootnoteDefinition } from '@yozora/ast'
 import type { ICodeRunnerItem } from '@yozora/react-code-runners'
 import PropTypes from 'prop-types'
@@ -66,11 +63,9 @@ export const YozoraMarkdownContextProvider: React.FC<
   } = props
 
   // Get all of footnote reference definitions.
-  const footnoteDefinitions: ReadonlyArray<IFootnoteDefinition> =
-    useDeepCompareMemo<ReadonlyArray<IFootnoteDefinition>>(
-      () => Object.values(footnoteDefinitionMap),
-      [footnoteDefinitionMap],
-    )
+  const footnoteDefinitions: ReadonlyArray<IFootnoteDefinition> = useDeepCompareMemo<
+    ReadonlyArray<IFootnoteDefinition>
+  >(() => Object.values(footnoteDefinitionMap), [footnoteDefinitionMap])
 
   const [state, dispatch] = React.useReducer(
     reducer,
@@ -83,13 +78,13 @@ export const YozoraMarkdownContextProvider: React.FC<
     initializeYozoraMarkdownState,
   )
 
-  const rendererMap: Readonly<INodeRendererMap> =
-    useYozoraRendererMap(customRendererMap)
+  const rendererMap: Readonly<INodeRendererMap> = useYozoraRendererMap(customRendererMap)
 
   // Get link / image reference definition through the given identifier.
-  const getDefinition = useDeepCompareCallback<
-    IYozoraMarkdownContext['getDefinition']
-  >(identifier => definitionMap[identifier], [definitionMap])
+  const getDefinition = useDeepCompareCallback<IYozoraMarkdownContext['getDefinition']>(
+    identifier => definitionMap[identifier],
+    [definitionMap],
+  )
 
   const context = React.useMemo<IYozoraMarkdownContext>(
     () => ({
@@ -112,13 +107,7 @@ export const YozoraMarkdownContextProvider: React.FC<
         preferLinenos: initialPreferLinenos,
       },
     })
-  }, [
-    dispatch,
-    footnoteDefinitions,
-    initialCodeRunners,
-    initialDarken,
-    initialPreferLinenos,
-  ])
+  }, [dispatch, footnoteDefinitions, initialCodeRunners, initialDarken, initialPreferLinenos])
 
   return (
     <YozoraMarkdownContextType.Provider value={context}>

@@ -8,10 +8,7 @@ import { loadMathJax } from './util'
 /**
  * Mathjax provider
  */
-export class MathJaxProvider extends React.Component<
-  MathJaxProviderProps,
-  MathJaxProviderState
-> {
+export class MathJaxProvider extends React.Component<MathJaxProviderProps, MathJaxProviderState> {
   public static propTypes = {
     children: PropTypes.node,
     loading: PropTypes.node,
@@ -74,14 +71,11 @@ export class MathJaxProvider extends React.Component<
         }))
       })
 
-      MathJax.Hub.Register.MessageHook(
-        'Math Processing Error',
-        (error: any) => {
-          if (this.props.onError) {
-            this.props.onError(MathJax, error)
-          }
-        },
-      )
+      MathJax.Hub.Register.MessageHook('Math Processing Error', (error: any) => {
+        if (this.props.onError) {
+          this.props.onError(MathJax, error)
+        }
+      })
     })
   }
 }

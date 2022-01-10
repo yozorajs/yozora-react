@@ -20,9 +20,7 @@ export interface IYozoraImagePreviewerProps {
    * @see https://github.com/infeng/react-viewer
    * @see https://github.com/gregberge/loadable-components
    */
-  ImageViewer?:
-    | React.FC<IImageViewerProps>
-    | React.ComponentClass<IImageViewerProps>
+  ImageViewer?: React.FC<IImageViewerProps> | React.ComponentClass<IImageViewerProps>
 }
 
 /**
@@ -30,9 +28,7 @@ export interface IYozoraImagePreviewerProps {
  * @param param0
  * @returns
  */
-export const YozoraImagePreviewer: React.FC<IYozoraImagePreviewerProps> = ({
-  ImageViewer,
-}) => {
+export const YozoraImagePreviewer: React.FC<IYozoraImagePreviewerProps> = ({ ImageViewer }) => {
   const { images, imageViewerVisible, imageActivatedIndex, dispatch } =
     useContext(YozoraMarkdownContextType)
 

@@ -22,11 +22,12 @@ export interface IYozoraMarkdownContext extends IYozoraMarkdownState {
 /**
  * Create yozora markdown context.
  */
-export const YozoraMarkdownContextType: React.Context<IYozoraMarkdownContext> =
-  React.createContext({
+export const YozoraMarkdownContextType: React.Context<IYozoraMarkdownContext> = React.createContext(
+  {
     ...initializeYozoraMarkdownState(),
     dispatch: (_action: IYozoraMarkdownAction): never => {
       throw new Error(`No available dispatch prepared yet.`)
     },
     getDefinition: _identifier => {},
-  } as IYozoraMarkdownContext)
+  } as IYozoraMarkdownContext,
+)

@@ -47,8 +47,7 @@ export const Admonition: React.FC<IAdmonitionProps> = props => {
   const { className, style, keyword = 'default', children } = props
 
   let { icon, title } = props
-  const hasCustomTitle =
-    Boolean(title) && (!Array.isArray(title) || title.length > 0)
+  const hasCustomTitle = Boolean(title) && (!Array.isArray(title) || title.length > 0)
 
   let modifier = keyword.trim().toLowerCase()
   switch (modifier) {
@@ -87,11 +86,7 @@ export const Admonition: React.FC<IAdmonitionProps> = props => {
 
   return (
     <div
-      className={cn(
-        'yozora-admonition',
-        'yozora-admonition--' + modifier,
-        className,
-      )}
+      className={cn('yozora-admonition', 'yozora-admonition--' + modifier, className)}
       style={style}
     >
       <h5 key="heading" className="yozora-admonition__heading">

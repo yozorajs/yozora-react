@@ -30,21 +30,14 @@ describe('prop types', function () {
     })
 
     it('custom', function () {
-      const node = render(
-        <FootnoteDefinitions
-          nodes={nodes}
-          className="my-footnote-definitions"
-        />,
-      )
+      const node = render(<FootnoteDefinitions nodes={nodes} className="my-footnote-definitions" />)
       expect(node.hasClass('yozora-footnote-definitions')).toBeTruthy()
       expect(node.hasClass('my-footnote-definitions')).toBeTruthy()
     })
   })
 
   it('style is optional', function () {
-    const node = render(
-      <FootnoteDefinitions nodes={nodes} style={{ color: 'orange' }} />,
-    )
+    const node = render(<FootnoteDefinitions nodes={nodes} style={{ color: 'orange' }} />)
     expect(node.css('color')).toEqual('orange')
   })
 })

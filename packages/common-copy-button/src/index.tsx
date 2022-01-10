@@ -37,12 +37,7 @@ export interface CopyButtonProps {
 }
 
 export const CopyButton: React.FC<CopyButtonProps> = props => {
-  const {
-    value,
-    statusNodeMap = defaultStatusNodeMap,
-    className,
-    style,
-  } = props
+  const { value, statusNodeMap = defaultStatusNodeMap, className, style } = props
 
   const [status, setStatus] = useState<ICopyStatus>('waiting')
 

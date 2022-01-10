@@ -2,9 +2,7 @@ import { convertToBoolean, parseCodeMeta } from '@yozora/react-code'
 
 describe('parseCodeMeta', function () {
   test('basic', function () {
-    expect(
-      parseCodeMeta(`{1-2,2-3} live collapsed`, { preferLinenos: false }),
-    ).toEqual({
+    expect(parseCodeMeta(`{1-2,2-3} live collapsed`, { preferLinenos: false })).toEqual({
       _yozoraCodeMode: 'live',
       highlights: [1, 2, 3],
       maxlines: -1,
@@ -40,12 +38,9 @@ describe('parseCodeMeta', function () {
     })
 
     expect(
-      parseCodeMeta(
-        `{1-2,2-3} live collapsed="false" maxlines="10" title linenos=false`,
-        {
-          preferLinenos: true,
-        },
-      ),
+      parseCodeMeta(`{1-2,2-3} live collapsed="false" maxlines="10" title linenos=false`, {
+        preferLinenos: true,
+      }),
     ).toEqual({
       _yozoraCodeMode: 'live',
       highlights: [1, 2, 3],
@@ -57,9 +52,7 @@ describe('parseCodeMeta', function () {
   })
 
   test('edge conditions', function () {
-    expect(
-      parseCodeMeta(`{1-2,2-3} highlights="2,4-5"`, { preferLinenos: true }),
-    ).toEqual({
+    expect(parseCodeMeta(`{1-2,2-3} highlights="2,4-5"`, { preferLinenos: true })).toEqual({
       _yozoraCodeMode: 'literal',
       highlights: [1, 2, 3, 4, 5],
       maxlines: -1,
@@ -68,9 +61,7 @@ describe('parseCodeMeta', function () {
       showLinenos: true,
     })
 
-    expect(
-      parseCodeMeta(`live _yozoraCodeMode="embed"`, { preferLinenos: true }),
-    ).toEqual({
+    expect(parseCodeMeta(`live _yozoraCodeMode="embed"`, { preferLinenos: true })).toEqual({
       _yozoraCodeMode: 'embed',
       highlights: [],
       maxlines: -1,

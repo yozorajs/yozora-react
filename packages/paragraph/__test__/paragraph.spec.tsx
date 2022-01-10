@@ -23,9 +23,7 @@ describe('prop types', function () {
       }).not.toThrow()
     }
 
-    expect(render(<Paragraph>Hello, world!</Paragraph>).text()).toEqual(
-      'Hello, world!',
-    )
+    expect(render(<Paragraph>Hello, world!</Paragraph>).text()).toEqual('Hello, world!')
   })
 
   describe('className is optional', function () {
@@ -35,18 +33,14 @@ describe('prop types', function () {
     })
 
     it('custom', function () {
-      const node = render(
-        <Paragraph className="my-paragraph">{children}</Paragraph>,
-      )
+      const node = render(<Paragraph className="my-paragraph">{children}</Paragraph>)
       expect(node.hasClass('yozora-paragraph')).toBeTruthy()
       expect(node.hasClass('my-paragraph')).toBeTruthy()
     })
   })
 
   it('style is optional', function () {
-    const node = render(
-      <Paragraph style={{ color: 'orange' }}>{children}</Paragraph>,
-    )
+    const node = render(<Paragraph style={{ color: 'orange' }}>{children}</Paragraph>)
     expect(node.css('color')).toEqual('orange')
   })
 })

@@ -14,20 +14,14 @@
       "@yozora/react-code-literal": ["./packages/code-literal/src"],
       "@yozora/react-code-live": ["./packages/code-live/src"],
       "@yozora/react-code-renderer-jsx": ["./packages/code-renderer-jsx/src"],
-      "@yozora/react-code-renderer-graphviz": [
-        "./packages/code-renderer-graphviz/src"
-      ],
+      "@yozora/react-code-renderer-graphviz": ["./packages/code-renderer-graphviz/src"],
       "@yozora/react-code-runners": ["./packages/code-runners/src"],
       "@yozora/react-common-copy-button": ["./packages/common-copy-button/src"],
-      "@yozora/react-common-light-buttons": [
-        "./packages/common-light-buttons/src"
-      ],
+      "@yozora/react-common-light-buttons": ["./packages/common-light-buttons/src"],
       "@yozora/react-delete": ["./packages/delete/src"],
       "@yozora/react-emphasis": ["./packages/emphasis/src"],
       "@yozora/react-footnote-reference": ["./packages/footnote-reference/src"],
-      "@yozora/react-footnote-definitions": [
-        "./packages/footnote-definitions/src"
-      ],
+      "@yozora/react-footnote-definitions": ["./packages/footnote-definitions/src"],
       "@yozora/react-heading": ["./packages/heading/src"],
       "@yozora/react-image": ["./packages/image/src"],
       "@yozora/react-inline-code": ["./packages/inline-code/src"],
