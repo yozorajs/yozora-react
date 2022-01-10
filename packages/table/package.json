@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-table",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.1",
   "description": "render markdown table in react",
   "author": {
     "name": "guanghechen",
