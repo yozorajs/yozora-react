@@ -1,5 +1,22 @@
 # Changelog
 
+<a name="2.0.0-alpha.1"></a>
+## 2.0.0-alpha.1 (2022-01-10)
+
+### Changed
+
+- 🔧 chore: update ci config [[df85d17](https://github.com/guanghechen/yozora-react/commit/df85d1776022692b78fa18f0d1f208100115bb73)]
+- ⚡ improve: wrap YozoraMarkdown with React.memo [[89d5b12](https://github.com/guanghechen/yozora-react/commit/89d5b1279fabe29d180a378fc9309e37c03d76d9)]
+- 🔧 style: set print-width to 100 (old is 80) [[147d1d6](https://github.com/guanghechen/yozora-react/commit/147d1d6079aa48b8150bac36765ba6fdbd0203e7)]
+- ⬆️ chore: upgrade dependencies [[81eeb7f](https://github.com/guanghechen/yozora-react/commit/81eeb7f541f4e30bf575ca00b7825141d4bbdcd0)]
+- 🎨 reafctor: refactor @yozora/react-markdown for better readability [[8329a7d](https://github.com/guanghechen/yozora-react/commit/8329a7d5813b1ff19bb3023acbf1501078e50634)]
+
+### Miscellaneous
+
+- 📝 docs: update README [[66ade1c](https://github.com/guanghechen/yozora-react/commit/66ade1c384aec01cfbbd9956c6da9be1a134608f)]
+- 📝 docs: update CHANGELOG [[88959f2](https://github.com/guanghechen/yozora-react/commit/88959f2f7d03bdefb75ea40c0c5fc9bfd20f716b)]
+
+
 <a name="2.0.0-alpha.0"></a>
 ## 2.0.0-alpha.0 (2022-01-04)
 
