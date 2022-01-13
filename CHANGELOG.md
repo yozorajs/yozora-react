@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="2.0.0-alpha.2"></a>
+## 2.0.0-alpha.2 (2022-01-13)
+
+### Changed
+
+- 👽 improve: fix types error due to the upgrade of @yozora/ast [[f855f4f](https://github.com/guanghechen/yozora-react/commit/f855f4f4a7e474ec8521992159dbcf5a4992bae9)]
+- ⬆️ chore: upgrade @yozora/ast [[c0b4a94](https://github.com/guanghechen/yozora-react/commit/c0b4a94600875634845cd79fcd67d83c3870bfa2)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[47f14ab](https://github.com/guanghechen/yozora-react/commit/47f14ab3394e029e29e662d1aba802d871b890c1)]
+
+
 <a name="2.0.0-alpha.1"></a>
 ## 2.0.0-alpha.1 (2022-01-10)
 
