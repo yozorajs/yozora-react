@@ -2067,23 +2067,23 @@
   resolved "https://registry.npmjs.org/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
-"@yozora/ast-util@^2.0.0-alpha.2":
-  version "2.0.0-alpha.2"
-  resolved "https://registry.npmjs.org/@yozora/ast-util/-/ast-util-2.0.0-alpha.2.tgz#7ec0851380ed962e572574bffd4114ae0516d141"
-  integrity sha512-jufXSQ0nH5BNHOQfNDd1sQV38MSWuM5eOnODjjrsP63QmDFlzYnoK2pQGtZqX+2uIwCS7gJ4MQsnF40juDJdLw==
+"@yozora/ast-util@^2.0.0-alpha.3":
+  version "2.0.0-alpha.3"
+  resolved "https://registry.npmjs.org/@yozora/ast-util/-/ast-util-2.0.0-alpha.3.tgz#a789e8c67c0fdda9a20364b1f3b8eea098f445f5"
+  integrity sha512-ZnimkNka7LJXxEdaReUzRD5m7K6jI84glPB2dtm8sSxiUHkreLD18c0ALHE2J9Pf/murILGBn8qKAuW21An1ng==
   dependencies:
-    "@yozora/ast" "^2.0.0-alpha.2"
-    "@yozora/character" "^2.0.0-alpha.2"
+    "@yozora/ast" "^2.0.0-alpha.3"
+    "@yozora/character" "^2.0.0-alpha.3"
 
-"@yozora/ast@^2.0.0-alpha.2":
-  version "2.0.0-alpha.2"
-  resolved "https://registry.npmjs.org/@yozora/ast/-/ast-2.0.0-alpha.2.tgz#e40fa5abef6bc7e2df2a0518892ad32a8a044172"
-  integrity sha512-mm8K1GKl2AFOj8TJG1HxBguIMFa3aNjxUbvmV4KDCxrIPBNdafY5BBktay00cMW/1PM+zrmnbm6PnZ2zlpBObg==
+"@yozora/ast@^2.0.0-alpha.3":
+  version "2.0.0-alpha.3"
+  resolved "https://registry.npmjs.org/@yozora/ast/-/ast-2.0.0-alpha.3.tgz#619bbfe8b03d12fa607534fae4e3639c213c8331"
+  integrity sha512-C1MikBAnVKXSFjNB+JsN8oaSpgBv+sbSkwqNgZKAjOlVMHTZmcRBYW4qR44NykwTqc5RJOlxdABn8MvEjziB3w==
 
-"@yozora/character@^2.0.0-alpha.2":
-  version "2.0.0-alpha.2"
-  resolved "https://registry.npmjs.org/@yozora/character/-/character-2.0.0-alpha.2.tgz#3bb1ab82f6950ca2e15524bb3f4641ce118e039d"
-  integrity sha512-s8EvHkRA4lRNwgjjvASy/SqblYHDeTLF8T0dkknoH0fOUyMHth/PUSrZCClSL0b9EHuJwfXreak0SENzF+UKjw==
+"@yozora/character@^2.0.0-alpha.3":
+  version "2.0.0-alpha.3"
+  resolved "https://registry.npmjs.org/@yozora/character/-/character-2.0.0-alpha.3.tgz#1a087965e2cb85ee93511c48746cadb60324aa5c"
+  integrity sha512-/4XSRDir4LoNSHagpH3Q+/yBVvcXvvGUOixSCfEJXTKKjvTnKY4wOTBwl19ZmY2sIDv8JJI7CylJ5BijRJDFuw==
 
 JSONStream@^1.0.4, JSONStream@^1.3.4:
   version "1.3.5"
