@@ -1,4 +1,4 @@
-import type { IAdmonition } from '@yozora/ast'
+import type { Admonition as IAdmonition } from '@yozora/ast'
 import Admonition from '@yozora/react-admonition'
 import React from 'react'
 import { YozoraNodesRenderer } from '../YozoraNodesRenderer'

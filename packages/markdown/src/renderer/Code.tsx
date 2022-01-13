@@ -1,4 +1,4 @@
-import type { ICode } from '@yozora/ast'
+import type { Code as ICode } from '@yozora/ast'
 import Code from '@yozora/react-code'
 import React from 'react'
 import { YozoraMarkdownContextType } from '../context/context'

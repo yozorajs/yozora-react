@@ -1,4 +1,4 @@
-import type { IDelete } from '@yozora/ast'
+import type { Delete as IDelete } from '@yozora/ast'
 import Delete from '@yozora/react-delete'
 import React from 'react'
 import { YozoraNodesRenderer } from '../YozoraNodesRenderer'

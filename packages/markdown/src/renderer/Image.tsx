@@ -1,4 +1,4 @@
-import type { IImage } from '@yozora/ast'
+import type { Image as IImage } from '@yozora/ast'
 import Image from '@yozora/react-image'
 import React from 'react'
 import { YozoraMarkdownActionsType } from '../context/actions'

@@ -1,4 +1,4 @@
-import type { IStrong } from '@yozora/ast'
+import type { Strong as IStrong } from '@yozora/ast'
 import Strong from '@yozora/react-strong'
 import React from 'react'
 import { YozoraNodesRenderer } from '../YozoraNodesRenderer'

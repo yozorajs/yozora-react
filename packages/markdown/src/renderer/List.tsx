@@ -1,4 +1,4 @@
-import type { IList } from '@yozora/ast'
+import type { List as IList } from '@yozora/ast'
 import List from '@yozora/react-list'
 import React from 'react'
 import { YozoraNodesRenderer } from '../YozoraNodesRenderer'

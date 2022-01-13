@@ -1,4 +1,4 @@
-import type { IEmphasis } from '@yozora/ast'
+import type { Emphasis as IEmphasis } from '@yozora/ast'
 import Emphasis from '@yozora/react-emphasis'
 import React from 'react'
 import { YozoraNodesRenderer } from '../YozoraNodesRenderer'

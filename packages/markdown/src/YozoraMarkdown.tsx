@@ -1,4 +1,4 @@
-import type { IRoot } from '@yozora/ast'
+import type { Root as IRoot } from '@yozora/ast'
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'

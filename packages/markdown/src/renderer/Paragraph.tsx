@@ -1,4 +1,4 @@
-import type { IParagraph } from '@yozora/ast'
+import type { Paragraph as IParagraph } from '@yozora/ast'
 import { ImageReferenceType, ImageType } from '@yozora/ast'
 import Paragraph from '@yozora/react-paragraph'
 import React from 'react'

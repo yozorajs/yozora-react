@@ -1,5 +1,5 @@
 import loadable from '@loadable/component'
-import type { IEcmaImport } from '@yozora/ast'
+import type { EcmaImport as IEcmaImport } from '@yozora/ast'
 import type { ICodeRunnerScope } from '../types'
 
 // Dynamic import func.

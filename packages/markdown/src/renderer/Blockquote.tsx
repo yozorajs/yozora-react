@@ -1,4 +1,4 @@
-import type { IBlockquote } from '@yozora/ast'
+import type { Blockquote as IBlockquote } from '@yozora/ast'
 import Blockquote from '@yozora/react-blockquote'
 import React from 'react'
 import { YozoraNodesRenderer } from '../YozoraNodesRenderer'

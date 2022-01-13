@@ -1,4 +1,4 @@
-import type { IImageReference } from '@yozora/ast'
+import type { ImageReference as IImageReference } from '@yozora/ast'
 import ImageReference from '@yozora/react-image'
 import React from 'react'
 import { YozoraMarkdownActionsType } from '../context/actions'

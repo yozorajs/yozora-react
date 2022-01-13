@@ -1,4 +1,4 @@
-import type { IYastNode } from '@yozora/ast'
+import type { Node as IYastNode } from '@yozora/ast'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { YozoraMarkdownContextType } from './context/context'

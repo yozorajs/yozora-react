@@ -1,4 +1,4 @@
-import type { IHeading } from '@yozora/ast'
+import type { Heading as IHeading } from '@yozora/ast'
 import Heading from '@yozora/react-heading'
 import React from 'react'
 import { YozoraNodesRenderer } from '../YozoraNodesRenderer'

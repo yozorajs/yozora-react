@@ -1,4 +1,4 @@
-import type { ITable } from '@yozora/ast'
+import type { Table as ITable } from '@yozora/ast'
 import Table from '@yozora/react-table'
 import React from 'react'
 import { YozoraNodesRenderer } from '../YozoraNodesRenderer'

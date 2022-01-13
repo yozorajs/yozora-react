@@ -1,4 +1,4 @@
-import type { IFootnoteDefinition } from '@yozora/ast'
+import type { FootnoteDefinition as IFootnoteDefinition } from '@yozora/ast'
 import type { ICodeRunnerItem } from '@yozora/react-code-runners'
 import type { INodeRendererMap, IPreviewImageItem } from '../types'
 

@@ -1,5 +1,8 @@
 import { useDeepCompareCallback, useDeepCompareMemo } from '@guanghechen/react-hooks'
-import type { IDefinition, IFootnoteDefinition } from '@yozora/ast'
+import type {
+  Definition as IDefinition,
+  FootnoteDefinition as IFootnoteDefinition,
+} from '@yozora/ast'
 import type { ICodeRunnerItem } from '@yozora/react-code-runners'
 import PropTypes from 'prop-types'
 import React from 'react'

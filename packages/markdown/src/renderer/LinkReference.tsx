@@ -1,4 +1,4 @@
-import type { ILinkReference } from '@yozora/ast'
+import type { LinkReference as ILinkReference } from '@yozora/ast'
 import Link from '@yozora/react-link'
 import React from 'react'
 import { YozoraMarkdownContextType } from '../context/context'

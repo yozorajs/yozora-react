@@ -1,4 +1,4 @@
-import type { ILink } from '@yozora/ast'
+import type { Link as ILink } from '@yozora/ast'
 import Link from '@yozora/react-link'
 import React from 'react'
 import { YozoraNodesRenderer } from '../YozoraNodesRenderer'

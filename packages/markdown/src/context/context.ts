@@ -1,4 +1,4 @@
-import type { IDefinition } from '@yozora/ast'
+import type { Definition as IDefinition } from '@yozora/ast'
 import React from 'react'
 import type { IYozoraMarkdownAction } from './actions'
 import type { IYozoraMarkdownState } from './state'
