@@ -51,7 +51,7 @@
     "@yozora/react-code-renderer-jsx": "^2.0.0-alpha.3",
     "@yozora/react-delete": "^2.0.0-alpha.3",
     "@yozora/react-emphasis": "^2.0.0-alpha.3",
-    "@yozora/react-footnote-definitions": "^2.0.0-alpha.3",
+    "@yozora/react-footnote-definition": "^2.0.0-alpha.3",
     "@yozora/react-footnote-reference": "^2.0.0-alpha.3",
     "@yozora/react-heading": "^2.0.0-alpha.3",
     "@yozora/react-image": "^2.0.0-alpha.3",
