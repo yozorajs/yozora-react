@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot basic 1`] = `
+<li
+  class="yozora-footnote-definition custom-footnote-definition"
+  id="footnote-1"
+  style="margin-top:2rem"
+>
+  <p
+    class="yozora-footnote-definition__title yozora-paragraph"
+  >
+    <a
+      href="#reference-footnote-1"
+    >
+      ↑
+    </a>
+    <span>
+      1
+    </span>
+  </p>
+  <div
+    class="yozora-footnote-definition__content"
+  >
+    <span>
+      waw1
+    </span>
+  </div>
+</li>
+`;
