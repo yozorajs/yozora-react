@@ -38,7 +38,7 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
   "dependencies": {
-    "@guanghechen/react-hooks": "^1.8.5",
+    "@guanghechen/react-hooks": "^1.8.6",
     "@types/react-copy-to-clipboard": "^5.0.2",
     "@yozora/react-admonition": "^2.0.0-alpha.2",
     "@yozora/react-blockquote": "^2.0.0-alpha.2",
@@ -70,11 +70,11 @@
     "react-copy-to-clipboard": "^5.0.4"
   },
   "peerDependencies": {
-    "@yozora/ast": "^2.0.0-alpha.3",
-    "@yozora/ast-util": "^2.0.0-alpha.3",
+    "@yozora/ast": "^2.0.0",
+    "@yozora/ast-util": "^2.0.0",
     "clsx": "^1.1.1",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1"
+    "react": ">= 17.0.0"
   },
   "browserslist": [
     "last 2 versions",
