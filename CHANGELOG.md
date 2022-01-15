@@ -1,5 +1,17 @@
 # Changelog
 
+<a name="2.0.0-alpha.3"></a>
+## 2.0.0-alpha.3 (2022-01-15)
+
+### Changed
+
+- ⬆️ chore: upgrade dependencies [[31802d8](https://github.com/guanghechen/yozora-react/commit/31802d8713fc9b23c41d2d056322830b499509ad)]
+
+### Miscellaneous
+
+- 📝 docs: update CHANGELOG [[756ecef](https://github.com/guanghechen/yozora-react/commit/756ecef66f10758e0567065fea4c2f2284f82d5d)]
+
+
 <a name="2.0.0-alpha.2"></a>
 ## 2.0.0-alpha.2 (2022-01-13)
 
