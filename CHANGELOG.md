@@ -1,5 +1,26 @@
 # Changelog
 
+<a name="2.0.0-alpha.4"></a>
+## 2.0.0-alpha.4 (2022-01-15)
+
+### Added
+
+- ✨ feat: add sub-package @yozora/react-footnote-definition [[bcf015b](https://github.com/guanghechen/yozora-react/commit/bcf015b4b691cd33122f5d374b20c6959f676a60)]
+
+### Changed
+
+- 🎨 improve: use @yozora/react-footnote-definition instead of @yozora/react-footnote-definitions [[e235cfe](https://github.com/guanghechen/yozora-react/commit/e235cfe07709e26507fb1f19ac20bd2f42287bfc)]
+
+### Removed
+
+- 🔥 mod: remove @yozora/react-footnote-definitions [[e507c66](https://github.com/guanghechen/yozora-react/commit/e507c66f0e940b270d033f9d9b65f9417c146e51)]
+
+### Miscellaneous
+
+-  fix: fix style errors [[a62c9b2](https://github.com/guanghechen/yozora-react/commit/a62c9b2a8f519bba6ddee7da0bbbf63bf970199b)]
+- 📝 docs: update CHANGELOG [[6454722](https://github.com/guanghechen/yozora-react/commit/6454722dd3b3f18f8569c49d880277724403bfd5)]
+
+
 <a name="2.0.0-alpha.3"></a>
 ## 2.0.0-alpha.3 (2022-01-15)
 
