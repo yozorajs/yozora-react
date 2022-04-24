@@ -41,7 +41,7 @@
     "react": ">= 17.0.0"
   },
   "dependencies": {
-    "@guanghechen/react-hooks": "^1.8.6",
+    "@guanghechen/react-hooks": "^1.9.3",
     "@loadable/component": "^5.15.0"
   },
   "devDependencies": {

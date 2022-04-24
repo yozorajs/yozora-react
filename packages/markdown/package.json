@@ -38,7 +38,7 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
   "dependencies": {
-    "@guanghechen/react-hooks": "^1.8.6",
+    "@guanghechen/react-hooks": "^1.9.3",
     "@types/react-copy-to-clipboard": "^5.0.2",
     "@yozora/react-admonition": "^2.0.0-alpha.4",
     "@yozora/react-blockquote": "^2.0.0-alpha.4",
@@ -67,7 +67,7 @@
     "@yozora/react-table": "^2.0.0-alpha.4",
     "@yozora/react-text": "^2.0.0-alpha.4",
     "@yozora/react-thematic-break": "^2.0.0-alpha.4",
-    "react-copy-to-clipboard": "^5.0.4"
+    "react-copy-to-clipboard": "^5.1.0"
   },
   "peerDependencies": {
     "@yozora/ast": "^2.0.0",
