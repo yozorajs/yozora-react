@@ -21,6 +21,7 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
 
       // elements
       blockquote: '#fafaf9',
+      inlineCode: 'hsla(210deg, 15%, 60%, 0.15)',
       tableHead: '#eff0f0',
       tableOddRow: '#fff',
       tableEvenRow: '#f6f8fa',
@@ -34,7 +35,9 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
 
       // elements
       blockquote: '#dfe2e5',
+      image: '#7a6390',
       table: '#dfe2e5',
+      thematicBreak: '#e1e4e8',
     },
     text: {
       primary: '#24292e',
@@ -43,8 +46,10 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
 
       // elements
       deleted: '#acb2b9',
-      link: '#4682B4',
       imageTitle: '#808080',
+      inlineCode: '#d81848',
+      link: '#4682B4',
+      math: '#0036a3',
     },
   }
 
@@ -65,6 +70,11 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
           ...colors.text,
           link: '#5c9fd6',
         },
+      },
+    },
+    visited: {
+      colors: {
+        ...colors,
       },
     },
   }

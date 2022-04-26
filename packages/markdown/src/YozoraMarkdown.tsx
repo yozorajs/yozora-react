@@ -3,6 +3,7 @@ import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { YozoraMarkdownContextType } from './context/context'
+import { useStyles } from './style/style'
 import { YozoraFootnoteDefinitions } from './YozoraFootnoteDefinitions'
 import { YozoraNodesRenderer } from './YozoraNodesRenderer'
 
@@ -67,7 +68,13 @@ const YozoraMarkdownRenderer: React.FC<IYozoraMarkdownProps> = React.memo(
  */
 export const YozoraMarkdown: React.FC<IYozoraMarkdownProps> = props => {
   const { darken } = React.useContext(YozoraMarkdownContextType)
-  const className = cn('yozora-markdown', { 'yozora-markdown--darken': darken }, props.className)
+  const classes = useStyles()
+  const className = cn(
+    'yozora-markdown',
+    classes.markdown,
+    { 'yozora-markdown--darken': darken },
+    props.className,
+  )
   return <YozoraMarkdownRenderer {...props} className={className} />
 }
 

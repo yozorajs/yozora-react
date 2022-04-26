@@ -31,6 +31,7 @@ export interface IThemeColors {
 
     // elements
     blockquote: string
+    inlineCode: string
     tableHead: string
     tableOddRow: string
     tableEvenRow: string
@@ -44,7 +45,9 @@ export interface IThemeColors {
 
     // elements
     blockquote: string
+    image: string
     table: string
+    thematicBreak: string
   }
   text: {
     primary: string
@@ -53,8 +56,10 @@ export interface IThemeColors {
 
     // elements
     deleted: string
-    link: string
     imageTitle: string
+    inlineCode: string
+    link: string
+    math: string
   }
 }
 
@@ -65,10 +70,18 @@ export interface IThemeEffects {
   active: {
     colors: IThemeColors
   }
+  visited: {
+    colors: IThemeColors
+  }
 }
 
 export interface IThemeFonts {
-  heading: string
+  heading: {
+    family: string
+  }
+  code: {
+    family: string
+  }
 }
 
 export interface IThemePalette {
@@ -83,5 +96,7 @@ export interface IThemePalette {
 export interface IThemeSpacing {
   margin: {
     blockNode: string
+    emphasis: string
+    thematicBreak: string
   }
 }

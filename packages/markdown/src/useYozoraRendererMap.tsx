@@ -27,30 +27,30 @@ import {
   TextType,
   ThematicBreakType,
 } from '@yozora/ast'
-import BreakRenderer from '@yozora/react-break'
 import FootnoteReferenceRenderer from '@yozora/react-footnote-reference'
-import InlineCodeRenderer from '@yozora/react-inline-code'
 import InlineMathRenderer from '@yozora/react-inline-math'
 import MathRenderer from '@yozora/react-math'
-import TextRenderer from '@yozora/react-text'
-import ThematicBreakRenderer from '@yozora/react-thematic-break'
 import type React from 'react'
 import { useMemo } from 'react'
 import { YozoraAdmonitionRenderer } from './renderer/Admonition'
-import { YozoraBlockquoteRenderer } from './renderer/Blockquote'
+import { BlockquoteRenderer } from './renderer/blockquote'
+import { BreakRenderer } from './renderer/break'
 import { YozoraCodeRenderer } from './renderer/Code'
-import { YozoraDeleteRenderer } from './renderer/Delete'
-import { YozoraEmphasisRenderer } from './renderer/Emphasis'
+import { DeleteRenderer } from './renderer/delete'
+import { EmphasisRenderer } from './renderer/emphasis'
 import { YozoraHeadingRenderer } from './renderer/Heading'
-import { YozoraImageRenderer } from './renderer/Image'
-import { YozoraImageReferenceRenderer } from './renderer/ImageReference'
-import { YozoraLinkRenderer } from './renderer/Link'
-import { YozoraLinkReferenceRenderer } from './renderer/LinkReference'
+import { ImageRenderer } from './renderer/image'
+import { ImageReferenceRenderer } from './renderer/imageReference'
+import { InlineCodeRenderer } from './renderer/inlineCode'
+import { LinkRenderer } from './renderer/link'
+import { LinkReferenceRenderer } from './renderer/linkReference'
 import { YozoraListRenderer } from './renderer/List'
 import { YozoraListItemRenderer } from './renderer/ListItem'
-import { YozoraParagraphRenderer } from './renderer/Paragraph'
-import { YozoraStrongRenderer } from './renderer/Strong'
-import { YozoraTableRenderer } from './renderer/Table'
+import { ParagraphRenderer } from './renderer/paragraph'
+import { StrongRenderer } from './renderer/strong'
+import { TableRenderer } from './renderer/table'
+import { TextRenderer } from './renderer/text'
+import { ThematicBreakRenderer } from './renderer/thematicBreak'
 import type { INodeRendererMap } from './types'
 
 /**
@@ -81,30 +81,30 @@ export function useYozoraRendererMap(
  */
 export const defaultNodeRendererMap: Readonly<INodeRendererMap> = {
   [AdmonitionType]: YozoraAdmonitionRenderer,
-  [BlockquoteType]: YozoraBlockquoteRenderer,
+  [BlockquoteType]: BlockquoteRenderer,
   [BreakType]: BreakRenderer as React.FC,
   [CodeType]: YozoraCodeRenderer,
-  [DeleteType]: YozoraDeleteRenderer,
+  [DeleteType]: DeleteRenderer,
   [DefinitionType]: () => null,
-  [EmphasisType]: YozoraEmphasisRenderer,
+  [EmphasisType]: EmphasisRenderer,
   [EcmaImportType]: () => null,
   [FootnoteDefinitionType]: () => null,
   [FootnoteType]: () => null,
   [FootnoteReferenceType]: FootnoteReferenceRenderer,
   [HeadingType]: YozoraHeadingRenderer,
   [HtmlType]: () => null,
-  [ImageType]: YozoraImageRenderer,
-  [ImageReferenceType]: YozoraImageReferenceRenderer,
+  [ImageType]: ImageRenderer,
+  [ImageReferenceType]: ImageReferenceRenderer,
   [InlineCodeType]: InlineCodeRenderer,
   [InlineMathType]: InlineMathRenderer,
-  [LinkType]: YozoraLinkRenderer,
-  [LinkReferenceType]: YozoraLinkReferenceRenderer,
+  [LinkType]: LinkRenderer,
+  [LinkReferenceType]: LinkReferenceRenderer,
   [ListType]: YozoraListRenderer,
   [ListItemType]: YozoraListItemRenderer,
   [MathType]: MathRenderer,
-  [ParagraphType]: YozoraParagraphRenderer,
-  [StrongType]: YozoraStrongRenderer,
-  [TableType]: YozoraTableRenderer,
+  [ParagraphType]: ParagraphRenderer,
+  [StrongType]: StrongRenderer,
+  [TableType]: TableRenderer,
   [TextType]: TextRenderer,
   [ThematicBreakType]: ThematicBreakRenderer as React.FC,
   _fallback: function YozoraReactFallback(node, key) {

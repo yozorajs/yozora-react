@@ -1,10 +1,15 @@
-import type { Paragraph as IParagraph } from '@yozora/ast'
+import type { Paragraph } from '@yozora/ast'
 import { ImageReferenceType, ImageType } from '@yozora/ast'
-import Paragraph from '@yozora/react-paragraph'
 import React from 'react'
 import { YozoraNodesRenderer } from '../YozoraNodesRenderer'
 
-export const YozoraParagraphRenderer: React.FC<IParagraph> = props => {
+/**
+ * Render yozora `paragraph`.
+ *
+ * @see https://www.npmjs.com/package/@yozora/ast#paragraph
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-paragraph
+ */
+export const ParagraphRenderer: React.FC<Paragraph> = props => {
   const { children } = props
 
   // If there are some image / imageReferences element in the paragraph,
@@ -24,10 +29,8 @@ export const YozoraParagraphRenderer: React.FC<IParagraph> = props => {
   }
 
   return (
-    <Paragraph>
+    <p className="yozora-paragraph">
       <YozoraNodesRenderer nodes={children} />
-    </Paragraph>
+    </p>
   )
 }
-
-YozoraParagraphRenderer.displayName = 'YozoraParagraphRenderer'

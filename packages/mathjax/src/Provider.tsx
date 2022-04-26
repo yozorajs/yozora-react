@@ -39,7 +39,7 @@ export class MathJaxProvider extends React.Component<MathJaxProviderProps, MathJ
     }
   }
 
-  public render(): React.ReactNode {
+  public override render(): React.ReactNode {
     // Try to render loading animation / contents when the MathJax is not loaded.
     if (!this.state.loaded && this.props.loading) {
       return this.props.loading
@@ -52,7 +52,7 @@ export class MathJaxProvider extends React.Component<MathJaxProviderProps, MathJ
     )
   }
 
-  public componentDidMount(): void {
+  public override componentDidMount(): void {
     // Waiting MathJax loaded.
     void loadMathJax(this.props.mathjaxSrc!).then(MathJax => {
       const { mathjaxConfig, mathjaxOptions, onLoad } = this.props

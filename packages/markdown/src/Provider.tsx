@@ -14,7 +14,7 @@ import { initializeYozoraMarkdownState } from './context/state'
 import type { INodeRendererMap } from './types'
 import { useYozoraRendererMap } from './useYozoraRendererMap'
 
-export interface IYozoraMarkdownContextProviderProps {
+export interface IProviderProps {
   /**
    * Link / Image reference definitions.
    */
@@ -52,9 +52,7 @@ export interface IYozoraMarkdownContextProviderProps {
  * @param props
  * @returns
  */
-export const YozoraMarkdownContextProvider: React.FC<
-  IYozoraMarkdownContextProviderProps
-> = props => {
+export const Provider: React.FC<IProviderProps> = props => {
   const {
     definitionMap,
     footnoteDefinitionMap,
@@ -119,7 +117,7 @@ export const YozoraMarkdownContextProvider: React.FC<
   )
 }
 
-YozoraMarkdownContextProvider.propTypes = {
+Provider.propTypes = {
   definitionMap: PropTypes.object.isRequired as any,
   footnoteDefinitionMap: PropTypes.object.isRequired as any,
   codeRunners: PropTypes.array,
@@ -129,5 +127,4 @@ YozoraMarkdownContextProvider.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-YozoraMarkdownContextProvider.displayName = 'YozoraContextProvider'
-export default YozoraMarkdownContextProvider
+Provider.displayName = 'YozoraMarkdownProvider'

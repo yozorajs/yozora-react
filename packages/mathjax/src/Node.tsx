@@ -57,7 +57,7 @@ export class MathJaxNodeWithContext extends React.Component<IMathJaxNodeWithCont
     inline: false,
   }
 
-  public render(): React.ReactElement {
+  public override render(): React.ReactElement {
     const { className, style, inline } = this.props
     const T = inline ? 'span' : 'div'
 
@@ -67,21 +67,21 @@ export class MathJaxNodeWithContext extends React.Component<IMathJaxNodeWithCont
   /**
    * Render the math once the node is mounted.
    */
-  public componentDidMount(): void {
+  public override componentDidMount(): void {
     this.typeset(false)
   }
 
-  public componentDidUpdate(prevProps: IMathJaxNodeProps): void {
+  public override componentDidUpdate(prevProps: IMathJaxNodeProps): void {
     const forceUpdate = this.shouldComponentUpdate(prevProps)
     this.typeset(forceUpdate)
   }
 
-  public shouldComponentUpdate(nextProps: IMathJaxNodeProps): boolean {
+  public override shouldComponentUpdate(nextProps: IMathJaxNodeProps): boolean {
     const props = this.props
     return nextProps.formula !== props.formula || nextProps.inline !== props.inline
   }
 
-  public componentWillUnmount(): void {
+  public override componentWillUnmount(): void {
     this.clear()
   }
 
@@ -146,10 +146,10 @@ export class MathJaxNodeWithContext extends React.Component<IMathJaxNodeWithCont
 }
 
 export class MathJaxNode extends React.PureComponent<IMathJaxNodeProps> {
-  public render(): React.ReactElement {
+  public override render(): React.ReactElement {
     return (
       <MathJaxContext.Consumer>
-        {({ MathJax, language }: MathJaxContextValue) => {
+        {({ MathJax, language }: MathJaxContextValue): React.ReactElement => {
           if (!MathJax) {
             const { formula, inline, ...rest } = this.props
             const T = inline ? 'span' : 'div'
