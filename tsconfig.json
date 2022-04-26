@@ -18,6 +18,7 @@
       "@yozora/react-code-runners": ["./packages/code-runners/src"],
       "@yozora/react-common-copy-button": ["./packages/common-copy-button/src"],
       "@yozora/react-common-light-buttons": ["./packages/common-light-buttons/src"],
+      "@yozora/react-core": ["./packages/_core/src"],
       "@yozora/react-delete": ["./packages/delete/src"],
       "@yozora/react-emphasis": ["./packages/emphasis/src"],
       "@yozora/react-footnote-reference": ["./packages/footnote-reference/src"],
