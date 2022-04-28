@@ -4,8 +4,9 @@ import React from 'react'
 import { YozoraNodesRenderer } from '../YozoraNodesRenderer'
 
 export const YozoraAdmonitionRenderer: React.FC<IAdmonition> = props => {
+  const title = props.title.length > 0 ? <YozoraNodesRenderer nodes={props.title} /> : undefined
   return (
-    <Admonition keyword={props.keyword} title={<YozoraNodesRenderer nodes={props.title} />}>
+    <Admonition keyword={props.keyword} title={title}>
       <YozoraNodesRenderer nodes={props.children} />
     </Admonition>
   )

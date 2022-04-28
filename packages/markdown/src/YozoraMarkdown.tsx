@@ -30,9 +30,10 @@ export interface IYozoraMarkdownProps {
   style?: React.CSSProperties
 }
 
-const YozoraMarkdownRenderer: React.FC<IYozoraMarkdownProps> = React.memo(
-  function YozoraMarkdownRenderer(props: IYozoraMarkdownProps) {
-    const { ast, footnoteDefinitionsTitle, dontNeedFootnoteDefinitions, className, style } = props
+class YozoraMarkdownRenderer extends React.Component<IYozoraMarkdownProps> {
+  public override render(): React.ReactElement {
+    const { ast, footnoteDefinitionsTitle, dontNeedFootnoteDefinitions, className, style } =
+      this.props
 
     return (
       <div className={className} style={style}>
@@ -47,18 +48,20 @@ const YozoraMarkdownRenderer: React.FC<IYozoraMarkdownProps> = React.memo(
         </footer>
       </div>
     )
-  },
-  (prevProps, nextProps): boolean => {
+  }
+
+  public override shouldComponentUpdate(nextProps: IYozoraMarkdownProps): boolean {
+    const prevProps = this.props
     return (
-      prevProps.ast === nextProps.ast &&
-      prevProps.dontNeedFootnoteDefinitions === nextProps.dontNeedFootnoteDefinitions &&
-      (prevProps.footnoteDefinitionsTitle === nextProps.footnoteDefinitionsTitle ||
-        !!nextProps.dontNeedFootnoteDefinitions) &&
-      prevProps.className === nextProps.className &&
-      prevProps.style === nextProps.style
+      prevProps.ast !== nextProps.ast ||
+      prevProps.dontNeedFootnoteDefinitions !== nextProps.dontNeedFootnoteDefinitions ||
+      (!nextProps.dontNeedFootnoteDefinitions &&
+        prevProps.footnoteDefinitionsTitle !== nextProps.footnoteDefinitionsTitle) ||
+      prevProps.className !== nextProps.className ||
+      prevProps.style !== nextProps.style
     )
-  },
-)
+  }
+}
 
 /**
  * Render yozora markdown ast in react components.

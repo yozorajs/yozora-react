@@ -4,9 +4,9 @@ import { YozoraMarkdownActionsType } from './context/actions'
 import { YozoraMarkdownContextType } from './context/context'
 import type { IImageViewerProps } from './types'
 
-export interface IYozoraImagePreviewerProps {
+export interface IYozoraImageViewerProps {
   /**
-   * Image previewer
+   * Image viewer
    *
    *  Browser only:
    *
@@ -28,7 +28,7 @@ export interface IYozoraImagePreviewerProps {
  * @param param0
  * @returns
  */
-export const YozoraImagePreviewer: React.FC<IYozoraImagePreviewerProps> = ({ ImageViewer }) => {
+export const YozoraImageViewer: React.FC<IYozoraImageViewerProps> = ({ ImageViewer }) => {
   const { images, imageViewerVisible, imageActivatedIndex, dispatch } =
     React.useContext(YozoraMarkdownContextType)
 
@@ -41,7 +41,8 @@ export const YozoraImagePreviewer: React.FC<IYozoraImagePreviewerProps> = ({ Ima
     [dispatch],
   )
 
-  if (ImageViewer === undefined) return null
+  if (!ImageViewer) return null
+
   return (
     <ImageViewer
       visible={imageViewerVisible}
@@ -53,9 +54,8 @@ export const YozoraImagePreviewer: React.FC<IYozoraImagePreviewerProps> = ({ Ima
   )
 }
 
-YozoraImagePreviewer.propTypes = {
+YozoraImageViewer.propTypes = {
   ImageViewer: PropTypes.any,
 }
 
-YozoraImagePreviewer.displayName = 'YozoraImagePreviewer'
-export default YozoraImagePreviewer
+YozoraImageViewer.displayName = 'YozoraImageViewer'

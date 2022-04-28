@@ -48,7 +48,7 @@ export function initializeYozoraMarkdownState(
     footnoteDefinitions: [],
     darken: initialState.darken ?? false,
     preferLinenos: initialState.preferLinenos ?? true,
-    rendererMap: {} as any,
+    rendererMap: initialState.rendererMap ?? ({} as any),
     images: [],
     imageViewerVisible: false,
     imageActivatedIndex: -1,

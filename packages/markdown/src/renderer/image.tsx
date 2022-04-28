@@ -27,9 +27,24 @@ export const ImageRenderer: React.FC<Image> = props => {
     })
   }, [dispatch, src, alt])
 
+  const onImageClick = React.useCallback(() => {
+    dispatch({
+      type: YozoraMarkdownActionsType.IMAGE_VIEWER_ACTIVE_ITEM,
+      payload: { src, alt },
+    })
+  }, [dispatch, src, alt])
+
   return (
     <figure className="yozora-image">
-      <img alt={alt} src={src} title={title} srcSet={srcSet} sizes={sizes} loading={loading} />
+      <img
+        alt={alt}
+        src={src}
+        title={title}
+        srcSet={srcSet}
+        sizes={sizes}
+        loading={loading}
+        onClick={onImageClick}
+      />
       {title && <figcaption>{title}</figcaption>}
     </figure>
   )

@@ -11,6 +11,8 @@ import { YozoraMarkdownContextType } from './context/context'
 import type { IYozoraMarkdownContext } from './context/context'
 import { reducer } from './context/reducer'
 import { initializeYozoraMarkdownState } from './context/state'
+import type { IYozoraImageViewerProps } from './ImagePreviewer'
+import { YozoraImageViewer } from './ImagePreviewer'
 import type { INodeRendererMap } from './types'
 import { useYozoraRendererMap } from './useYozoraRendererMap'
 
@@ -45,6 +47,10 @@ export interface IProviderProps {
    * Descendant elements.
    */
   children: React.ReactNode
+  /**
+   * Custom image viewer.
+   */
+  ImageViewer?: IYozoraImageViewerProps['ImageViewer']
 }
 
 /**
@@ -61,6 +67,7 @@ export const Provider: React.FC<IProviderProps> = props => {
     customRendererMap,
     darken: initialDarken,
     preferLinenos: initialPreferLinenos,
+    ImageViewer,
   } = props
 
   // Get all of footnote reference definitions.
@@ -113,6 +120,7 @@ export const Provider: React.FC<IProviderProps> = props => {
   return (
     <YozoraMarkdownContextType.Provider value={context}>
       {children}
+      <YozoraImageViewer ImageViewer={ImageViewer} />
     </YozoraMarkdownContextType.Provider>
   )
 }

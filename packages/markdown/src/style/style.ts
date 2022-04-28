@@ -212,9 +212,8 @@ export const useStyles = () => {
           },
         }),
         css({
-          '-moz-osx-font-smoothing': 'grayscale',
-          '-webkit-font-smoothing': 'antialiased',
-          fontSmooth: 'always',
+          MozOsxFontSmoothing: 'grayscale',
+          WebkitFontSmoothing: 'antialiased',
           '.yozora-list-item': {
             '> .yozora-list': {
               marginLeft: '1.2em',
