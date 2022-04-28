@@ -1,4 +1,4 @@
-import { css } from '@emotion/css'
+import { css, cx } from '@emotion/css'
 import { useThemeContext } from '@yozora/react-core'
 import React from 'react'
 
@@ -8,162 +8,255 @@ export const useStyles = () => {
   return React.useMemo(() => {
     const { colors, effects, fonts, spacing } = themeStyle
     return {
-      markdown: css`
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: antialiased;
-        font-smooth: always;
-
-        .yozora-blockquote {
-          box-sizing: border-box;
-          padding: 0.625em 1em;
-          border-left: 0.25em solid ${colors.border.blockquote};
-          margin: ${spacing.margin.blockNode};
-          background: ${colors.background.blockquote};
-          box-shadow: 0 1px 2px 0 hsla(0deg, 0%, 0%, 0.1);
-        }
-        .yozora-break {
-          box-sizing: border-box;
-        }
-        .yozora-delete {
-          color: ${colors.text.deleted};
-          text-decoration: line-through;
-        }
-        .yozora-emphasis {
-          font-style: italic;
-          margin: ${spacing.margin.emphasis};
-        }
-        .yozora-image {
-          box-sizing: border-box;
-          max-width: 100%; // Prevent images from overflowing the container.
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          > img {
-            flex: 1 0 auto;
-            box-sizing: border-box;
-            max-width: 100%;
-            border: 1px solid ${colors.border.image};
-            box-shadow: 0 0 20px 1px rgba(126, 125, 150, 0.6)
-          }
-          > figcaption {
-            text-align: center;
-            font-style: italic;
-            font-size: 1em;
-            color: ${colors.text.imageTitle};
-          }
-        }
-        .yozora-inline-code {
-          padding: 1px 4px;
-          border-radius: 4px;
-          margin: 0;
-          background: ${colors.background.inlineCode};
-          line-height: 1.375;
-          color: ${colors.text.inlineCode};
-          font-family: ${fonts.code.family};
-          font-size: min(1rem, 18px);
-          font-size: 1em;
-          font-weight: 500;
-        }
-        .yozora-inline-math {
-          padding: 0;
-          border: none;
-          margin: 0;
-          background: none;
-          color: ${colors.text.math}
-        }
-        .yozora-link {
-          padding: 0.2rem 0;
-          color: ${colors.text.link};
-          text-decoration: none;
-          background: linear-gradient(
-            90deg,
-            hsla(358deg, 100%, 62%, 0.8),
-            hsla(048deg, 100%, 50%, 0.8),
-            hsla(196deg, 100%, 53%, 0.8)
-          );
-          background-size: 0 3px;
-          background-repeat: no-repeat;
-          background-position: 50% 100%;
-          transition: all 0.3s ease-in-out;
-          &:active {
-            color: ${effects.active.colors.text.link};
-          }
-          &:hover {
-            color: ${effects.hover.colors.text.link};
-            background-size: 100% 3px;
-            background-position-x: 0;
-          }
-          &:visited {
-            color: ${effects.visited.colors.text.link};
-          }
-        }
-        .yozora-paragraph {
-          overflow: auto hidden;
-          padding: 0;
-          margin: ${spacing.margin.blockNode};
-          margin-bottom: 1em;
-          line-height: 1.8;
-          hyphens: auto;
-          word-break: normal;
-          letter-spacing: 1px;
-          overflow-wrap: break-word;
-        }
-        .yozora-strong {
-          font-weight: 600
-        }
-        .yozora-table {
-          display: block;
-          overflow: auto;
-          width: max-content;
-          max-width: 100%;
-          padding: 0;
-          border-collapse: collapse;
-          border-radius: 6px;
-          border-spacing: 0;
-          border: 1px solid ${colors.border.table};
-          margin: 0 auto 1.25em;
-          line-height: 1.6;
-          > thead {
-            background-color: ${colors.background.tableHead};
-            border-bottom: 1px solid #f0f0f0;
-          }
-          > tbody {
-            tr {
-              border-top: 1px solid ${colors.border.table};
-              background-color: ${colors.background.tableOddRow};
-            }
-            tr:nth-child(2n) {
-              background-color: ${colors.background.tableEvenRow};
-            }
-          }
-          > thead th,
-          > tbody td {
-            padding: 0.5rem 1rem;
-            border-left: 1px solid ${colors.border.table};
-          }
-          > thead th {
-            word-break: normal;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
-          > thead th:first-child,
-          > tbody td:first-child {
-            border-left: none;
-          }
-        }
-        .yozora-thematic-break {
-          display: block;
-          box-sizing: content-box;
-          height: 0;
-          width: 100%;
-          padding: 0;
-          border: 0;
-          border-bottom: 1px solid ${colors.border.thematicBreak};
-          outline: 0;
-          margin: ${spacing.margin.thematicBreak};
-        }
-      `,
+      markdown: cx(
+        css({
+          '.yozora-blockquote': {
+            boxSizing: 'border-box',
+            padding: '0.625em 1em',
+            borderLeft: `0.25em solid ${colors.border.blockquote}`,
+            margin: spacing.margin.blockNode,
+            background: colors.background.blockquote,
+            boxShadow: '0 1px 2px 0 hsla(0deg, 0%, 0%, 0.1)',
+          },
+          '.yozora-break': {
+            boxSizing: 'border-box',
+          },
+          '.yozora-delete': {
+            color: colors.text.deleted,
+            textDecoration: 'line-through',
+          },
+          '.yozora-emphasis': {
+            fontStyle: 'italic',
+            margin: spacing.margin.emphasis,
+          },
+          '.yozora-heading': {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+            padding: 0,
+            margin: spacing.margin.blockNode,
+            marginBottom: '1em',
+            lineHeight: 1.25,
+            fontFamily: fonts.heading.family,
+            color: colors.text.heading,
+            '.yozora-heading__content': {
+              flex: '0 1 auto',
+              minWidth: 0,
+              margin: 0,
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'pre-wrap',
+              lineHeight: 1.7,
+            },
+            '.yozora-heading__anchor': {
+              flex: '0 0 3rem',
+              paddingLeft: '0.5rem',
+              color: colors.text.link,
+              opacity: 0,
+              transition: 'color 0.2s ease-in-out, opacity 0.2s ease-in-out',
+              userSelect: 'none',
+              textDecoration: 'none',
+              '> svg': {
+                overflow: 'hidden',
+                display: 'inline-block',
+                verticalAlign: 'middle',
+                fill: 'currentColor',
+              },
+            },
+            '&:active': {
+              '.yozora-heading__anchor': {
+                opacity: 0.8,
+                color: effects.active.colors.text.link,
+              },
+            },
+            '&:hover': {
+              '.yozora-heading__anchor': {
+                opacity: 0.8,
+                color: effects.hover.colors.text.link,
+              },
+            },
+          },
+          '.yozora-image': {
+            boxSizing: 'border-box',
+            maxWidth: '100%', // Prevent images from overflowing the container.
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            '> img': {
+              flex: '1 0 auto',
+              boxSizing: 'border-box',
+              maxWidth: '100%',
+              border: `1px solid ${colors.border.image}`,
+              boxShadow: '0 0 20px 1px rgba(126, 125, 150, 0.6)',
+            },
+            '> figcaption': {
+              textAlign: 'center',
+              fontStyle: 'italic',
+              fontSize: '1em',
+              color: colors.text.imageTitle,
+            },
+          },
+          '.yozora-inline-code': {
+            padding: '1px 4px',
+            borderRadius: '4px',
+            margin: 0,
+            background: colors.background.inlineCode,
+            lineHeight: 1.375,
+            color: colors.text.inlineCode,
+            fontFamily: fonts.code.family,
+            fontSize: 'min(1rem, 18px)',
+            fontWeight: 500,
+          },
+          '.yozora-inline-math': {
+            padding: 0,
+            border: 'none',
+            margin: 0,
+            background: 'none',
+            color: colors.text.math,
+          },
+          '.yozora-link': {
+            padding: '0.2rem 0',
+            color: colors.text.link,
+            textDecoration: 'none',
+            background:
+              'linear-gradient(90deg, hsla(358deg, 100%, 62%, 0.8), hsla(048deg, 100%, 50%, 0.8), hsla(196deg, 100%, 53%, 0.8))',
+            backgroundSize: '0 3px',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: '50% 100%',
+            transition: 'all 0.3s ease-in-out',
+            '&:active': {
+              color: effects.active.colors.text.link,
+            },
+            '&:hover': {
+              color: effects.hover.colors.text.link,
+              backgroundSize: '100% 3px',
+              backgroundPositionX: 0,
+            },
+            '&:visited': {
+              color: effects.visited.colors.text.link,
+            },
+          },
+          '.yozora-list': {
+            padding: 0,
+            margin: '0 0 1em 2em',
+            lineHeight: 2,
+          },
+          '.yozora-paragraph': {
+            overflow: 'auto hidden',
+            padding: 0,
+            margin: spacing.margin.blockNode,
+            marginBottom: '1em',
+            lineHeight: 1.8,
+            hyphens: 'auto',
+            wordBreak: 'normal',
+            letterSpacing: '1px',
+            overflowWrap: 'break-word',
+          },
+          '.yozora-strong': {
+            fontWeight: 600,
+          },
+          '.yozora-table': {
+            display: 'block',
+            overflow: 'auto',
+            width: 'max-content',
+            maxWidth: '100%',
+            padding: 0,
+            borderCollapse: 'collapse',
+            borderRadius: '6px',
+            borderSpacing: 0,
+            border: `1px solid ${colors.border.table}`,
+            margin: '0 auto 1.25em',
+            lineHeight: 1.6,
+            '> thead': {
+              backgroundColor: colors.background.tableHead,
+              borderBottom: '1px solid #f0f0f0',
+              th: {
+                padding: '0.5rem 1rem',
+                borderLeft: `1px solid ${colors.border.table}`,
+                wordBreak: 'normal',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                '&:first-child': {
+                  borderLeft: 'none',
+                },
+              },
+            },
+            '> tbody': {
+              tr: {
+                borderTop: `1px solid ${colors.border.table}`,
+                backgroundColor: colors.background.tableOddRow,
+              },
+              'tr:nth-child(2n)': {
+                backgroundColor: colors.background.tableEvenRow,
+              },
+              td: {
+                padding: '0.5rem 1rem',
+                borderLeft: `1px solid ${colors.border.table}`,
+                '&:first-child': {
+                  borderLeft: 'none',
+                },
+              },
+            },
+          },
+          '.yozora-thematic-break': {
+            boxSizing: 'content-box',
+            display: 'block',
+            height: 0,
+            width: '100%',
+            padding: 0,
+            border: 0,
+            borderBottom: `1px solid ${colors.border.thematicBreak}`,
+            outline: 0,
+            margin: spacing.margin.thematicBreak,
+          },
+        }),
+        css({
+          '-moz-osx-font-smoothing': 'grayscale',
+          '-webkit-font-smoothing': 'antialiased',
+          fontSmooth: 'always',
+          '.yozora-list-item': {
+            '> .yozora-list': {
+              marginLeft: '1.2em',
+            },
+          },
+          'h1.yozora-heading': {
+            padding: '0.3rem 0',
+            borderBottom: `1px solid ${colors.border.heading}`,
+            fontSize: '2rem',
+            fontStyle: 'normal',
+            fontWeight: 500,
+          },
+          'h2.yozora-heading': {
+            padding: '0.3rem 0',
+            borderBottom: `1px solid ${colors.border.heading}`,
+            fontSize: '1.5rem',
+            fontStyle: 'normal',
+            fontWeight: 500,
+            marginBottom: '0.875rem',
+          },
+          'h3.yozora-heading': {
+            fontSize: '1.25rem',
+            fontStyle: 'normal',
+            fontWeight: 500,
+          },
+          'h4.yozora-heading': {
+            fontSize: '1rem',
+            fontStyle: 'normal',
+            fontWeight: 500,
+          },
+          'h5.yozora-heading': {
+            fontSize: '0.875rem',
+            fontStyle: 'normal',
+            fontWeight: 500,
+          },
+          'h6.yozora-heading': {
+            fontSize: '0.85rem',
+            fontStyle: 'normal',
+            fontWeight: 500,
+          },
+        }),
+      ),
     }
   }, [themeStyle])
 }

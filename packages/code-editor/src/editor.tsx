@@ -42,11 +42,11 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
     this._history = session.history
   }
 
-  public componentDidMount(): void {
+  public override componentDidMount(): void {
     this._recordCurrentState()
   }
 
-  public render(): React.ReactElement {
+  public override render(): React.ReactElement {
     const {
       value,
       linenoWidth,

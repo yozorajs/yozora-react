@@ -1,7 +1,7 @@
 import type { IThemeColors, IThemeEffects, IThemePalette, IThemeStyle } from '../types'
 import { createBreakPoints, createFonts, createSpacing } from './_base'
 
-export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeStyle<T> => {
+export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): IThemeStyle<T> => {
   const palette: IThemePalette = {
     primary: '#1565c0',
     secondary: '#7b1fa2',
@@ -35,17 +35,15 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
 
       // elements
       blockquote: '#dfe2e5',
+      heading: 'hsla(216deg, 20%, 80%, 0.92)',
       image: '#7a6390',
       table: '#dfe2e5',
       thematicBreak: '#e1e4e8',
     },
     text: {
-      primary: '#24292e',
-      secondary: '#586069',
-      tertiary: '#6a737d',
-
       // elements
       deleted: '#acb2b9',
+      heading: '#586069',
       imageTitle: '#808080',
       inlineCode: '#d81848',
       link: '#4682B4',

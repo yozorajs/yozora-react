@@ -31,5 +31,3 @@ export const YozoraNodesRenderer: React.FC<{ nodes?: IYastNode[] }> = props => {
 YozoraNodesRenderer.propTypes = {
   nodes: PropTypes.array,
 }
-
-YozoraNodesRenderer.displayName = 'YozoraNodesRenderer'

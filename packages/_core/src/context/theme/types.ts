@@ -45,17 +45,15 @@ export interface IThemeColors {
 
     // elements
     blockquote: string
+    heading: string
     image: string
     table: string
     thematicBreak: string
   }
   text: {
-    primary: string
-    secondary: string
-    tertiary: string
-
     // elements
     deleted: string
+    heading: string
     imageTitle: string
     inlineCode: string
     link: string

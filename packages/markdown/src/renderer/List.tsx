@@ -1,15 +1,24 @@
-import type { List as IList } from '@yozora/ast'
-import List from '@yozora/react-list'
+import type { List } from '@yozora/ast'
 import React from 'react'
 import { YozoraNodesRenderer } from '../YozoraNodesRenderer'
 
-export const YozoraListRenderer: React.FC<IList> = props => {
+/**
+ * Render yozora `list`.
+ *
+ * @see https://www.npmjs.com/package/@yozora/ast#list
+ * @see https://www.npmjs.com/package/@yozora/tokenizer-list
+ */
+export const ListRenderer: React.FC<List> = props => {
   const { ordered, orderType, start } = props
-  return (
-    <List ordered={ordered} start={start} orderType={orderType}>
-      <YozoraNodesRenderer nodes={props.children} />
-    </List>
-  )
-}
+  const children: React.ReactElement = <YozoraNodesRenderer nodes={props.children} />
 
-YozoraListRenderer.displayName = 'YozoraListRenderer'
+  if (ordered) {
+    return (
+      <ol type={orderType} start={start} className="yozora-list">
+        {children}
+      </ol>
+    )
+  }
+
+  return <ul className="yozora-list">{children}</ul>
+}

@@ -11,11 +11,11 @@ export function errorBoundary(
   onError: (error?: unknown) => void,
 ): React.ComponentClass {
   class ErrorBoundary extends React.Component {
-    public componentDidCatch(error: unknown): void {
+    public override componentDidCatch(error: unknown): void {
       onError(error)
     }
 
-    public render(): React.ReactNode {
+    public override render(): React.ReactNode {
       if (typeof Element === 'function') {
         return <Element />
       }

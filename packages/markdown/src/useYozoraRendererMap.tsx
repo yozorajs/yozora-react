@@ -38,13 +38,13 @@ import { BreakRenderer } from './renderer/break'
 import { YozoraCodeRenderer } from './renderer/Code'
 import { DeleteRenderer } from './renderer/delete'
 import { EmphasisRenderer } from './renderer/emphasis'
-import { YozoraHeadingRenderer } from './renderer/Heading'
+import { HeadingRenderer } from './renderer/heading'
 import { ImageRenderer } from './renderer/image'
 import { ImageReferenceRenderer } from './renderer/imageReference'
 import { InlineCodeRenderer } from './renderer/inlineCode'
 import { LinkRenderer } from './renderer/link'
 import { LinkReferenceRenderer } from './renderer/linkReference'
-import { YozoraListRenderer } from './renderer/List'
+import { ListRenderer } from './renderer/List'
 import { YozoraListItemRenderer } from './renderer/ListItem'
 import { ParagraphRenderer } from './renderer/paragraph'
 import { StrongRenderer } from './renderer/strong'
@@ -91,7 +91,7 @@ export const defaultNodeRendererMap: Readonly<INodeRendererMap> = {
   [FootnoteDefinitionType]: () => null,
   [FootnoteType]: () => null,
   [FootnoteReferenceType]: FootnoteReferenceRenderer,
-  [HeadingType]: YozoraHeadingRenderer,
+  [HeadingType]: HeadingRenderer,
   [HtmlType]: () => null,
   [ImageType]: ImageRenderer,
   [ImageReferenceType]: ImageReferenceRenderer,
@@ -99,7 +99,7 @@ export const defaultNodeRendererMap: Readonly<INodeRendererMap> = {
   [InlineMathType]: InlineMathRenderer,
   [LinkType]: LinkRenderer,
   [LinkReferenceType]: LinkReferenceRenderer,
-  [ListType]: YozoraListRenderer,
+  [ListType]: ListRenderer,
   [ListItemType]: YozoraListItemRenderer,
   [MathType]: MathRenderer,
   [ParagraphType]: ParagraphRenderer,
