@@ -1,7 +1,7 @@
 {
-  "name": "@yozora/core-react-renderer",
+  "name": "@yozora/core-react-theme",
   "version": "2.0.0-alpha.4",
-  "description": "Yozora renderer in react.",
+  "description": "Yozora renderer theme.",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -41,13 +41,7 @@
     "react": ">= 17.0.0"
   },
   "dependencies": {
-    "@emotion/css": "^11.9.0",
-    "@guanghechen/parse-lineno": "^1.9.3",
-    "@yozora/core-react-theme": "^2.0.0-alpha.4",
-    "@yozora/react-code-highlighter": "^2.0.0-alpha.4"
-  },
-  "devDependencies": {
-    "@yozora/ast": "^2.0.0"
+    "@emotion/css": "^11.9.0"
   },
   "browserslist": [
     "last 2 versions",
