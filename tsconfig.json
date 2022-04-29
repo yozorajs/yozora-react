@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@/_shared/*": ["./packages/_shared/src/*"],
+      "@yozora/core-react-renderer": ["./packages/core-react-renderer/src"],
       "@yozora/react-admonition": ["./packages/admonition/src"],
       "@yozora/react-blockquote": ["./packages/blockquote/src"],
       "@yozora/react-break": ["./packages/break/src"],
