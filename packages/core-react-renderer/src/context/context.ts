@@ -1,6 +1,5 @@
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
 import React from 'react'
-import { defaultNodeRendererMap } from '../hook/useNodeRendererMap'
 import type { INodeRendererMap } from '../types'
 import type { INodeRendererAction } from './action'
 import type { INodeRendererState } from './state'
@@ -29,7 +28,7 @@ export const NodeRendererContextType = React.createContext<INodeRendererContext>
   ...initNodeRendererState(),
   definitionMap: {},
   footnoteDefinitionMap: {},
-  rendererMap: defaultNodeRendererMap,
+  rendererMap: {} as unknown as INodeRendererMap,
   dispatch: (): never => {
     throw new Error(`No available dispatch prepared yet.`)
   },
