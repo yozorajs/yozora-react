@@ -357,20 +357,9 @@ exports[`snapshot literal 1`] = `
                 &gt;
               </span>
               <span
-                class="token plain"
+                class="token plain-text"
               >
-                Answer
-              </span>
-              <span
-                class="token operator"
-                style="color:rgb(212, 212, 212)"
-              >
-                :
-              </span>
-              <span
-                class="token plain"
-              >
-                 
+                Answer: 
               </span>
               <span
                 class="token punctuation"
@@ -820,20 +809,9 @@ exports[`snapshot live 1`] = `
                     &gt;
                   </span>
                   <span
-                    class="token plain"
+                    class="token plain-text"
                   >
-                    Answer
-                  </span>
-                  <span
-                    class="token operator"
-                    style="color:rgb(212, 212, 212)"
-                  >
-                    :
-                  </span>
-                  <span
-                    class="token plain"
-                  >
-                     
+                    Answer: 
                   </span>
                   <span
                     class="token punctuation"

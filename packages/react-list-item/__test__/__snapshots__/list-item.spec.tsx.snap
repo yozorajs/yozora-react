@@ -22,9 +22,7 @@ exports[`snapshot custom 1`] = `
       some text2
     </span>
   </p>
-  <blockquote
-    class="yozora-blockquote"
-  >
+  <blockquote>
     some text3
   </blockquote>
 </li>
@@ -53,9 +51,7 @@ exports[`snapshot default 1`] = `
       some text2
     </span>
   </p>
-  <blockquote
-    class="yozora-blockquote"
-  >
+  <blockquote>
     some text3
   </blockquote>
 </li>

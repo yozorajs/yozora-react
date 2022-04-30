@@ -1,9 +1,9 @@
-import { parseCodeMeta } from '../src'
+import { convertToBoolean, parseCodeMeta } from '../src'
 
 describe('parseCodeMeta', function () {
   test('basic', function () {
     expect(parseCodeMeta(`{1-2,2-3} live collapsed`, { preferLineNo: false })).toEqual({
-      _yozoracodemode: 'live',
+      live: true,
       highlights: [1, 2, 3],
       maxlines: -1,
       title: '',
@@ -16,7 +16,7 @@ describe('parseCodeMeta', function () {
         preferLineNo: true,
       }),
     ).toEqual({
-      _yozoracodemode: 'embed',
+      embed: true,
       highlights: [1, 2, 3, 7, 9, 10],
       maxlines: 10,
       title: '',
@@ -29,7 +29,7 @@ describe('parseCodeMeta', function () {
         preferLineNo: false,
       }),
     ).toEqual({
-      _yozoracodemode: 'live',
+      live: true,
       highlights: [1, 2, 3],
       maxlines: -1,
       title: 'waw',
@@ -42,7 +42,7 @@ describe('parseCodeMeta', function () {
         preferLineNo: true,
       }),
     ).toEqual({
-      _yozoracodemode: 'live',
+      live: true,
       highlights: [1, 2, 3],
       maxlines: 10,
       title: '',
@@ -53,7 +53,6 @@ describe('parseCodeMeta', function () {
 
   test('edge conditions', function () {
     expect(parseCodeMeta(`{1-2,2-3} highlights="2,4-5"`, { preferLineNo: true })).toEqual({
-      _yozoracodemode: 'literal',
       highlights: [1, 2, 3, 4, 5],
       maxlines: -1,
       title: '',
@@ -61,7 +60,8 @@ describe('parseCodeMeta', function () {
       showlineno: true,
     })
 
-    expect(parseCodeMeta(`live _yozoracodemode="embed"`, { preferLineNo: true })).toEqual({
+    expect(parseCodeMeta(`live _yozoraCodeMode="embed"`, { preferLineNo: true })).toEqual({
+      live: true,
       _yozoracodemode: 'embed',
       highlights: [],
       maxlines: -1,
@@ -71,11 +71,12 @@ describe('parseCodeMeta', function () {
     })
 
     expect(
-      parseCodeMeta(`{1-2,2-3} embed highlights _yozoracodemode maxlines="a"`, {
+      parseCodeMeta(`{1-2,2-3} embed highlights _yozoraCodeMode maxlines="a"`, {
         preferLineNo: true,
       }),
     ).toEqual({
-      _yozoracodemode: 'embed',
+      _yozoracodemode: true,
+      embed: true,
       highlights: [1, 2, 3],
       maxlines: -1,
       title: '',
@@ -85,11 +86,12 @@ describe('parseCodeMeta', function () {
 
     expect(
       parseCodeMeta(
-        `{1-2,2-3} embed highlights= highlights=20 highlights="" highlights=30 highlights="40" _yozoracodemode`,
+        `{1-2,2-3} embed highlights= highlights=20 highlights="" highlights=30 highlights="40" _yozoraCodeMode`,
         { preferLineNo: true },
       ),
     ).toEqual({
-      _yozoracodemode: 'embed',
+      _yozoracodemode: true,
+      embed: true,
       highlights: [1, 2, 3, 20, 30, 40],
       maxlines: -1,
       title: '',
@@ -104,7 +106,7 @@ describe('parseCodeMeta', function () {
         preferLineNo: true,
       }),
     ).toEqual({
-      _yozoracodemode: 'live',
+      live: true,
       highlights: [],
       maxlines: 20,
       title: '',
@@ -113,5 +115,13 @@ describe('parseCodeMeta', function () {
       hidden: true,
       showlineno: true,
     })
+  })
+
+  test('convertToBoolean', function () {
+    expect(convertToBoolean(undefined)).toBe(true)
+    expect(convertToBoolean('')).toBe(true)
+    expect(convertToBoolean('true')).toBe(true)
+    expect(convertToBoolean('false')).toBe(false)
+    expect(convertToBoolean('FALSE')).toBe(false)
   })
 })
