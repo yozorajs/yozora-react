@@ -37,13 +37,13 @@ export const GraphvizRenderer: React.FC<IGraphvizRendererProps> = props => {
     if (graphRef.current == null) return
 
     try {
-      graphviz(graphRef.current)
+      graphviz(graphRef.current, {
+        fit: true,
+        zoom: false,
+        useWorker: false,
+        ...options,
+      })
         .onerror(onError)
-        .options({
-          fit: true,
-          zoom: false,
-          ...options,
-        })
         .engine(engine)
         .renderDot(code)
     } catch (error: any) {

@@ -50,7 +50,7 @@ export function useNodeRendererMap(
     let hasChanged = false
     const result: INodeRendererMap = {} as unknown as INodeRendererMap
     for (const [key, val] of Object.entries(customRendererMap)) {
-      if (val && val === defaultNodeRendererMap[key]) {
+      if (val && val !== defaultNodeRendererMap[key]) {
         hasChanged = true
         result[key] = val
       }

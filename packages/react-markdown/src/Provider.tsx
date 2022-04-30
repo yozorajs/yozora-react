@@ -1,8 +1,5 @@
 import { cx } from '@emotion/css'
-import type {
-  Definition as IDefinition,
-  FootnoteDefinition as IFootnoteDefinition,
-} from '@yozora/ast'
+import type { Definition, FootnoteDefinition } from '@yozora/ast'
 import type { INodeRendererContextProviderProps, INodeStyleMap } from '@yozora/core-react-renderer'
 import { NodeRendererContextProvider } from '@yozora/core-react-renderer'
 import type { ICodeRunnerItem } from '@yozora/react-code-runners'
@@ -20,11 +17,11 @@ export interface IMarkdownContextProviderProps {
   /**
    * Link / Image reference definitions.
    */
-  definitionMap: Readonly<Record<string, IDefinition>>
+  definitionMap?: Readonly<Record<string, Definition>>
   /**
    * Footnote reference definitions.
    */
-  footnoteDefinitionMap: Readonly<Record<string, IFootnoteDefinition>>
+  footnoteDefinitionMap?: Readonly<Record<string, FootnoteDefinition>>
   /**
    * Code runners.
    */
