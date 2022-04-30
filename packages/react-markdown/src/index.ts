@@ -1,7 +1,7 @@
 import './style/index.styl'
 import YozoraMarkdown from './YozoraMarkdown'
 
-export * from './component/renderer/Admonition'
+export * from './component/renderer/admonition'
 export * from './component/renderer/Code'
 export * from './component/renderer/inlineMath'
 export * from './component/renderer/math'

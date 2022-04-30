@@ -5,9 +5,22 @@ import React from 'react'
 export const useStyles = (): string => {
   const { themeStyle } = useThemeContext()
   return React.useMemo(() => {
-    const { colors, effects } = themeStyle
+    const { colors, effects, spacing } = themeStyle
     return cx(
       css({
+        '.yozora-admonition.yozora-admonition': {
+          '--yozora-admonition--note-bg-color': colors.background.note,
+          '--yozora-admonition--note-border-color': colors.border.note,
+          '--yozora-admonition--info-bg-color': colors.background.info,
+          '--yozora-admonition--info-border-color': colors.border.info,
+          '--yozora-admonition--tip-bg-color': colors.background.success,
+          '--yozora-admonition--tip-border-color': colors.border.success,
+          '--yozora-admonition--caution-bg-color': colors.background.warning,
+          '--yozora-admonition--caution-border-color': colors.border.warning,
+          '--yozora-admonition--danger-bg-color': colors.background.error,
+          '--yozora-admonition--danger-border-color': colors.border.error,
+          margin: spacing.margin.blockNode,
+        },
         '.yozora-footnote-reference': {
           '> a': {
             display: 'inline-block',

@@ -8,7 +8,7 @@ import {
   InlineMathType,
   MathType,
 } from '@yozora/ast'
-import { YozoraAdmonitionRenderer } from './component/renderer/Admonition'
+import { AdmonitionRenderer } from './component/renderer/admonition'
 import { YozoraCodeRenderer } from './component/renderer/Code'
 import { FootnoteReferenceRenderer } from './component/renderer/footnoteReference'
 import { InlineMathRenderer } from './component/renderer/inlineMath'
@@ -19,7 +19,7 @@ import type { INodeRendererMap } from './types'
  * Default yozora renderer map.
  */
 export const defaultNodeRendererMap: Readonly<Partial<INodeRendererMap>> = {
-  [AdmonitionType]: YozoraAdmonitionRenderer,
+  [AdmonitionType]: AdmonitionRenderer,
   [CodeType]: YozoraCodeRenderer,
   [EcmaImportType]: () => null,
   [FootnoteDefinitionType]: () => null,
