@@ -1,15 +1,15 @@
-import cn from 'clsx'
+import { css, cx } from '@emotion/css'
 import PropTypes from 'prop-types'
 import React, { useCallback, useState } from 'react'
 import { copyToClipboard } from './util'
-import './style.styl'
 
 export type ICopyStatus = 'waiting' | 'copying' | 'failed' | 'succeed'
+export type ICopyStatusNodeMap = Record<ICopyStatus, React.ReactNode>
 
 /**
  * Map of copy status and displaying text.
  */
-export const defaultStatusNodeMap: Record<ICopyStatus, React.ReactNode> = {
+export const defaultStatusNodeMap: ICopyStatusNodeMap = {
   waiting: 'copy',
   copying: 'copying..',
   failed: 'failed!',
@@ -23,9 +23,9 @@ export interface CopyButtonProps {
   value: string
   /**
    * Map of copy status and displaying text.
-   * @default defaultStatusTextMap
+   * @default defaultStatusNodeMap
    */
-  statusNodeMap?: Record<ICopyStatus, React.ReactNode>
+  statusNodeMap?: ICopyStatusNodeMap
   /**
    * Root css class of the component.
    */
@@ -60,16 +60,8 @@ export const CopyButton: React.FC<CopyButtonProps> = props => {
       type="button"
       aria-label="Copy to clipboard"
       disabled={status !== 'waiting'}
-      className={cn(
-        'yozora-common-copy-button',
-        {
-          'yozora-common-copy-button--waiting': status === 'waiting',
-          'yozora-common-copy-button--copying': status === 'copying',
-          'yozora-common-copy-button--failed': status === 'failed',
-          'yozora-common-copy-button--succeed': status === 'succeed',
-        },
-        className,
-      )}
+      data-copy-status={status}
+      className={cx(classes.container, className)}
       style={style}
       onClick={handleCopy}
     >
@@ -84,6 +76,31 @@ CopyButton.propTypes = {
   value: PropTypes.string.isRequired,
   statusNodeMap: PropTypes.any,
 }
-
 CopyButton.displayName = 'YozoraCopyButton'
-export default CopyButton
+
+const classes = {
+  container: css({
+    display: 'inline-block',
+    padding: '0.4rem',
+    border: 'none',
+    outline: 'none',
+    cursor: 'pointer',
+    background: 'none',
+    color: 'var(--yozora-copy-button--waiting, #73808c)',
+    '&:hover': {
+      color: 'var(--yozora-copy-button--hover, #94b3d1)',
+    },
+    '&:active': {
+      color: 'var(--yozora-copy-button--active, #7099c2)',
+    },
+    '&[data-copy-status="copying"]': {
+      color: 'var(--yozora-copy-button--copying, #cccccc)',
+    },
+    '&[data-copy-status="failed"]': {
+      color: 'var(--yozora-copy-button--failed, #b81414)',
+    },
+    '&[data-copy-status="succeed"]': {
+      color: 'var(--yozora-copy-button--succeed, #14b814)',
+    },
+  }),
+}

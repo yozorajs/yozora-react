@@ -1,4 +1,4 @@
-import cn from 'clsx'
+import { css, cx } from '@emotion/css'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -32,24 +32,23 @@ export interface ILightButtonsProps {
  */
 export const LightButtons: React.FC<ILightButtonsProps> = props => {
   const { className, style, onClose, onMaximize, onMinimize } = props
-
   return (
-    <span className={cn('yozora-common-light-buttons', className)} style={style}>
+    <span className={cx(classes.container, className)} style={style}>
       <span
         key="close"
-        className="yozora-common-light-button yozora-common-light-button--close"
+        className={cx(classes.lightBtn, classes.lightBtnClose)}
         title="close"
         onClick={onClose}
       />
       <span
         key="minimize"
-        className="yozora-common-light-button yozora-common-light-button--minimize"
+        className={cx(classes.lightBtn, classes.lightBtnMinimize)}
         title="minimize"
         onClick={onMinimize}
       />
       <span
         key="maximize"
-        className="yozora-common-light-button yozora-common-light-button--maximize"
+        className={cx(classes.lightBtn, classes.lightBtnMaximize)}
         title="maximize"
         onClick={onMaximize}
       />
@@ -67,3 +66,26 @@ LightButtons.propTypes = {
 
 LightButtons.displayName = 'YozoraLightButtons'
 export default LightButtons
+
+const classes = {
+  container: css({
+    userSelect: 'none',
+  }),
+  lightBtn: css({
+    display: 'inline-block',
+    boxSizing: 'border-box',
+    height: '12px',
+    width: '12px',
+    borderRadius: '50%',
+    marginLeft: '8px',
+  }),
+  lightBtnClose: css({
+    backgroundColor: '#ed6c60',
+  }),
+  lightBtnMinimize: css({
+    backgroundColor: '#f7c151',
+  }),
+  lightBtnMaximize: css({
+    backgroundColor: '#64c856',
+  }),
+}

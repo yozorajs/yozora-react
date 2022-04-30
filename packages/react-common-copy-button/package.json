@@ -36,7 +36,7 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
   "peerDependencies": {
-    "clsx": "^1.1.1",
+    "@emotion/css": "^11.9.0",
     "prop-types": "^15.7.2",
     "react": ">= 17.0.0"
   },
