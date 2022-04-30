@@ -40,7 +40,6 @@
   "dependencies": {
     "@emotion/css": "^11.9.0",
     "@guanghechen/react-hooks": "^1.9.3",
-    "@types/react-copy-to-clipboard": "^5.0.2",
     "@yozora/core-react-renderer": "^2.0.0-alpha.4",
     "@yozora/core-react-theme": "^2.0.0-alpha.4",
     "@yozora/react-admonition": "^2.0.0-alpha.4",
@@ -52,8 +51,7 @@
     "@yozora/react-code-renderer-jsx": "^2.0.0-alpha.4",
     "@yozora/react-footnote-definition": "^2.0.0-alpha.4",
     "@yozora/react-list-item": "^2.0.0-alpha.4",
-    "@yozora/react-mathjax": "^2.0.0-alpha.4",
-    "react-copy-to-clipboard": "^5.1.0"
+    "@yozora/react-mathjax": "^2.0.0-alpha.4"
   },
   "peerDependencies": {
     "@yozora/ast": "^2.0.0",
