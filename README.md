@@ -118,7 +118,6 @@ Component Name                          | Token Name
 [@yozora/react-admonition][]            | [admonition][yozora/admonition]
 [@yozora/react-code][]                  | [code][yozora/code]
 [@yozora/react-footnote-definitions][]  | [footnoteDefinition][yozora/footnote-definition]
-[@yozora/react-list-item][]             | [listItem][yozora/list-item]
 
 
 ### Other components
@@ -149,7 +148,6 @@ Component Name                            | Description
 [@yozora/react-code-renderer-jsx]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-renderer-jsx#readme
 [@yozora/react-code-renderer-graphviz]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-renderer-graphviz#readme
 [@yozora/react-footnote-definitions]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-footnote-definitions#readme
-[@yozora/react-list-item]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-list-item#readme
 [@yozora/react-markdown]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-markdown#readme
 [@yozora/react-mathjax]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-mathjax#readme
 

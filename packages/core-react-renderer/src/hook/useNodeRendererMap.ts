@@ -1,4 +1,3 @@
-import type { Node } from '@yozora/ast'
 import {
   BlockquoteType,
   BreakType,
@@ -87,8 +86,7 @@ export const defaultNodeRendererMap: Readonly<INodeRendererMap> = {
   [TextType]: TextRenderer,
   [ThematicBreakType]: ThematicBreakRenderer,
   _fallback: function YozoraReactFallback(node, key) {
-    const { type } = node as Node
-    console.warn(`Cannot find render for \`${type}\` type node with key \`${key}\`:`, node)
+    console.warn(`Cannot find render for \`${node.type}\` type node with key \`${key}\`:`, node)
     return null
   },
 }

@@ -5,12 +5,14 @@ import {
   FootnoteReferenceType,
   FootnoteType,
   InlineMathType,
+  ListItemType,
   MathType,
 } from '@yozora/ast'
 import type { INodeRendererMap } from '../types'
 import { AdmonitionRenderer } from './renderer/admonition'
 import { FootnoteReferenceRenderer } from './renderer/footnoteReference'
 import { InlineMathRenderer } from './renderer/inlineMath'
+import { ListItemRenderer } from './renderer/listItem'
 import { MathRenderer } from './renderer/math'
 
 /**
@@ -23,5 +25,6 @@ export const defaultNodeRendererMap: Readonly<Partial<INodeRendererMap>> = {
   [FootnoteType]: () => null,
   [FootnoteReferenceType]: FootnoteReferenceRenderer,
   [InlineMathType]: InlineMathRenderer,
+  [ListItemType]: ListItemRenderer,
   [MathType]: MathRenderer,
 }
