@@ -1,17 +1,15 @@
 import { cx } from '@emotion/css'
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
+import { CodeType } from '@yozora/ast'
 import type { INodeRendererContextProviderProps, INodeStyleMap } from '@yozora/core-react-renderer'
 import { NodeRendererContextProvider } from '@yozora/core-react-renderer'
 import type { ICodeRunnerItem } from '@yozora/react-code-runners'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { YozoraMarkdownContextType } from './context/context'
-import type { IYozoraMarkdownContext } from './context/context'
-import { reducer } from './context/reducer'
-import { initYozoraMarkdownState } from './context/state'
+import { useStyles } from '../style/style'
+import type { INodeRendererMap } from '../types'
 import { defaultNodeRendererMap } from './nodeRendererMap'
-import { useStyles } from './style/style'
-import type { INodeRendererMap } from './types'
+import { createCodeRenderer } from './renderer/code'
 
 export interface IMarkdownContextProviderProps {
   /**
@@ -57,34 +55,25 @@ export const Provider: React.FC<IMarkdownContextProviderProps> = props => {
   const { definitionMap, footnoteDefinitionMap, children } = props
 
   const customRendererMap = React.useMemo(
-    () => ({ ...defaultNodeRendererMap, ...props.customRendererMap }),
-    [props.customRendererMap],
-  )
-
-  const [state, dispatch] = React.useReducer(
-    reducer,
-    { codeRunners: props.codeRunners },
-    initYozoraMarkdownState,
-  )
-
-  const context = React.useMemo<IYozoraMarkdownContext>(
-    () => ({ ...state, dispatch }),
-    [state, dispatch],
+    () => ({
+      ...defaultNodeRendererMap,
+      [CodeType]: createCodeRenderer(props.codeRunners),
+      ...props.customRendererMap,
+    }),
+    [props.customRendererMap, props.codeRunners],
   )
 
   const rootClassName: string = cx(useStyles(), props.rootClassName)
   return (
-    <YozoraMarkdownContextType.Provider value={context}>
-      <NodeRendererContextProvider
-        definitionMap={definitionMap}
-        footnoteDefinitionMap={footnoteDefinitionMap}
-        customRendererMap={customRendererMap}
-        customStyleMap={props.customStyleMap}
-        rootClassName={rootClassName}
-      >
-        {children}
-      </NodeRendererContextProvider>
-    </YozoraMarkdownContextType.Provider>
+    <NodeRendererContextProvider
+      definitionMap={definitionMap}
+      footnoteDefinitionMap={footnoteDefinitionMap}
+      customRendererMap={customRendererMap}
+      customStyleMap={props.customStyleMap}
+      rootClassName={rootClassName}
+    >
+      {children}
+    </NodeRendererContextProvider>
   )
 }
 
