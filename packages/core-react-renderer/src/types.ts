@@ -41,8 +41,12 @@ import type {
 } from '@yozora/ast'
 import type React from 'react'
 
+export type INodeRendererProps<T extends YastNode> = Omit<T, 'type'>
+
 // Renderer for Yozora markdown AST node.
-export type INodeRenderer<T extends YastNode = YastNode> = React.ComponentType<T>
+export type INodeRenderer<T extends YastNode = YastNode> = React.ComponentType<
+  INodeRendererProps<T>
+>
 
 /**
  * Renderer map.

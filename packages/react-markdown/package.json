@@ -51,7 +51,6 @@
     "@yozora/react-code-live": "^2.0.0-alpha.4",
     "@yozora/react-code-renderer-jsx": "^2.0.0-alpha.4",
     "@yozora/react-footnote-definition": "^2.0.0-alpha.4",
-    "@yozora/react-footnote-reference": "^2.0.0-alpha.4",
     "@yozora/react-list-item": "^2.0.0-alpha.4",
     "@yozora/react-mathjax": "^2.0.0-alpha.4",
     "react-copy-to-clipboard": "^5.1.0"

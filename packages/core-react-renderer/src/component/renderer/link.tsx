@@ -1,5 +1,6 @@
 import type { Link } from '@yozora/ast'
 import React from 'react'
+import type { INodeRenderer } from '../../types'
 import { NodesRenderer } from '../NodesRenderer'
 
 /**
@@ -10,7 +11,7 @@ import { NodesRenderer } from '../NodesRenderer'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-autolink
  * @see https://www.npmjs.com/package/@yozora/tokenizer-autolink-extension
  */
-export const LinkRenderer: React.FC<Link> = props => {
+export const LinkRenderer: INodeRenderer<Link> = props => {
   const { url, title } = props
   return (
     <a className="yozora-link" href={url} title={title} rel="noopener, noreferrer" target="_blank">

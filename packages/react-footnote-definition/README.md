@@ -115,7 +115,6 @@ Name          | Type                  | Required  | Default | Description
 ## Related
 
 * [@yozora/ast][]
-* [@yozora/react-footnote-reference][]
 * [@yozora/react-markdown][]
 * [@yozora/tokenizer-footnote][]
 * [@yozora/tokenizer-footnote-definition][]
@@ -124,7 +123,6 @@ Name          | Type                  | Required  | Default | Description
 
 
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#footnote-definition
-[@yozora/react-footnote-reference]: https://www.npmjs.com/package/@yozora/react-footnote-reference
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-footnote-definition]: https://www.npmjs.com/package/@yozora/tokenizer-footnote-definition
 [@yozora/tokenizer-footnote-definition]: https://www.npmjs.com/package/@yozora/tokenizer-footnote-definition

@@ -20,6 +20,17 @@
       }
     },
     {
+      "files": [
+        "packages/core-react-renderer/src/component/renderer/*.tsx",
+        "packages/react-markdown/src/component/renderer/*.tsx"
+      ],
+      "extends": ["@guanghechen", "@guanghechen/jsx", "@guanghechen/ts", "prettier"],
+      "rules": {
+        "import/no-named-as-default": 0,
+        "react/prop-types": 0
+      }
+    },
+    {
       "files": ["**/__test__/*.spec.ts", "**/__test__/*.spec.tsx"],
       "extends": [
         "@guanghechen",

@@ -2,6 +2,7 @@ import type { ImageReference } from '@yozora/ast'
 import React from 'react'
 import { NodeRendererActionsType } from '../../context/action'
 import { useNodeRendererContext } from '../../context/context'
+import type { INodeRenderer } from '../../types'
 
 /**
  * Render yozora `imageReference`.
@@ -9,7 +10,7 @@ import { useNodeRendererContext } from '../../context/context'
  * @see https://www.npmjs.com/package/@yozora/ast#imageReference
  * @see https://www.npmjs.com/package/@yozora/tokenizer-image-reference
  */
-export const ImageReferenceRenderer: React.FC<ImageReference> = props => {
+export const ImageReferenceRenderer: INodeRenderer<ImageReference> = props => {
   const { definitionMap, dispatch } = useNodeRendererContext()
   const { alt, srcSet, sizes, loading } = props as ImageReference &
     React.ImgHTMLAttributes<HTMLElement>

@@ -5,9 +5,26 @@ import React from 'react'
 export const useStyles = (): string => {
   const { themeStyle } = useThemeContext()
   return React.useMemo(() => {
-    const { colors } = themeStyle
+    const { colors, effects } = themeStyle
     return cx(
       css({
+        '.yozora-footnote-reference': {
+          '> a': {
+            display: 'inline-block',
+            lineHeight: 1.2,
+            textDecoration: 'none',
+            '&:active': {
+              color: effects.active.colors.text.link,
+            },
+            '&:hover': {
+              color: effects.hover.colors.text.link,
+              transform: 'scale(1.2)',
+            },
+            '&:visited': {
+              color: effects.visited.colors.text.link,
+            },
+          },
+        },
         '.yozora-inline-math': {
           padding: 0,
           border: 'none',

@@ -1,5 +1,6 @@
 import type { Heading } from '@yozora/ast'
 import React from 'react'
+import type { INodeRenderer } from '../../types'
 import { NodesRenderer } from '../NodesRenderer'
 
 /**
@@ -8,7 +9,7 @@ import { NodesRenderer } from '../NodesRenderer'
  * @see https://www.npmjs.com/package/@yozora/ast#heading
  * @see https://www.npmjs.com/package/@yozora/tokenizer-heading
  */
-export const HeadingRenderer: React.FC<Heading & { linkIcon?: React.ReactNode }> = props => {
+export const HeadingRenderer: INodeRenderer<Heading & { linkIcon?: React.ReactNode }> = props => {
   const { depth, identifier, linkIcon = '¶' } = props
 
   const id = identifier == null ? undefined : encodeURIComponent(identifier)

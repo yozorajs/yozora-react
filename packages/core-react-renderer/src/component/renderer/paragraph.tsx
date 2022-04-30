@@ -1,6 +1,7 @@
 import type { Paragraph } from '@yozora/ast'
 import { ImageReferenceType, ImageType } from '@yozora/ast'
 import React from 'react'
+import type { INodeRenderer } from '../../types'
 import { NodesRenderer } from '../NodesRenderer'
 
 /**
@@ -9,7 +10,7 @@ import { NodesRenderer } from '../NodesRenderer'
  * @see https://www.npmjs.com/package/@yozora/ast#paragraph
  * @see https://www.npmjs.com/package/@yozora/tokenizer-paragraph
  */
-export const ParagraphRenderer: React.FC<Paragraph> = props => {
+export const ParagraphRenderer: INodeRenderer<Paragraph> = props => {
   const { children } = props
 
   // If there are some image / imageReferences element in the paragraph,

@@ -1,5 +1,6 @@
 import type { Table } from '@yozora/ast'
 import React from 'react'
+import type { INodeRenderer } from '../../types'
 import { NodesRenderer } from '../NodesRenderer'
 
 /**
@@ -12,7 +13,7 @@ import { NodesRenderer } from '../NodesRenderer'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-table-row
  * @see https://www.npmjs.com/package/@yozora/tokenizer-table-cell
  */
-export const TableRenderer: React.FC<Table> = props => {
+export const TableRenderer: INodeRenderer<Table> = props => {
   const { columns, children: rows } = props
 
   const tableRows: React.ReactNode[][] = rows.map(row =>

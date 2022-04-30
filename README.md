@@ -118,7 +118,6 @@ Component Name                          | Token Name
 [@yozora/react-admonition][]            | [admonition][yozora/admonition]
 [@yozora/react-code][]                  | [code][yozora/code]
 [@yozora/react-footnote-definitions][]  | [footnoteDefinition][yozora/footnote-definition]
-[@yozora/react-footnote-reference][]    | [footnoteReference][yozora/footnote-reference]
 [@yozora/react-inline-math][]           | [inlineMath][yozora/inline-math]
 [@yozora/react-list-item][]             | [listItem][yozora/list-item]
 [@yozora/react-math][]                  | [math][yozora/math]
@@ -151,7 +150,6 @@ Component Name                            | Description
 [@yozora/react-code-live]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-live#readme
 [@yozora/react-code-renderer-jsx]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-renderer-jsx#readme
 [@yozora/react-code-renderer-graphviz]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-renderer-graphviz#readme
-[@yozora/react-footnote-reference]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-footnote-reference#readme
 [@yozora/react-footnote-definitions]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-footnote-definitions#readme
 [@yozora/react-inline-math]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-inline-math#readme
 [@yozora/react-list-item]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-list-item#readme

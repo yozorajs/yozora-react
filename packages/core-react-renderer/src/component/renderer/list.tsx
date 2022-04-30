@@ -1,5 +1,6 @@
 import type { List } from '@yozora/ast'
 import React from 'react'
+import type { INodeRenderer } from '../../types'
 import { NodesRenderer } from '../NodesRenderer'
 
 /**
@@ -8,7 +9,7 @@ import { NodesRenderer } from '../NodesRenderer'
  * @see https://www.npmjs.com/package/@yozora/ast#list
  * @see https://www.npmjs.com/package/@yozora/tokenizer-list
  */
-export const ListRenderer: React.FC<List> = props => {
+export const ListRenderer: INodeRenderer<List> = props => {
   const { ordered, orderType, start } = props
 
   if (ordered) {

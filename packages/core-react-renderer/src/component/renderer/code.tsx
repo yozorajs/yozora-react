@@ -2,6 +2,7 @@ import type { Code } from '@yozora/ast'
 import { YozoraThemeContextType } from '@yozora/core-react-theme'
 import CodeHighlighter from '@yozora/react-code-highlighter'
 import React from 'react'
+import type { INodeRenderer } from '../../types'
 import { parseCodeMeta } from '../../util/code'
 
 /**
@@ -11,7 +12,7 @@ import { parseCodeMeta } from '../../util/code'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-indented-code
  * @see https://www.npmjs.com/package/@yozora/tokenizer-fenced-code
  */
-export const CodeRenderer: React.FC<Code> = props => {
+export const CodeRenderer: INodeRenderer<Code> = props => {
   const { lang, meta } = props
   const { theme, preference } = React.useContext(YozoraThemeContextType)
 

@@ -1,5 +1,6 @@
 import type { ThematicBreak } from '@yozora/ast'
 import React from 'react'
+import type { INodeRenderer } from '../../types'
 
 /**
  * Render yozora `thematicBreak`.
@@ -7,6 +8,6 @@ import React from 'react'
  * @see https://www.npmjs.com/package/@yozora/ast#thematicBreak
  * @see https://www.npmjs.com/package/@yozora/tokenizer-thematic-break
  */
-export const ThematicBreakRenderer: React.FC<ThematicBreak> = () => {
+export const ThematicBreakRenderer: INodeRenderer<ThematicBreak> = () => {
   return <hr className="yozora-thematic-break" />
 }

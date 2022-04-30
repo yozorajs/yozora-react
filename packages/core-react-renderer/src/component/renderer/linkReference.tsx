@@ -1,6 +1,7 @@
 import type { LinkReference } from '@yozora/ast'
 import React from 'react'
 import { useNodeRendererContext } from '../../context/context'
+import type { INodeRenderer } from '../../types'
 import { NodesRenderer } from '../NodesRenderer'
 
 /**
@@ -9,7 +10,7 @@ import { NodesRenderer } from '../NodesRenderer'
  * @see https://www.npmjs.com/package/@yozora/ast#linkReference
  * @see https://www.npmjs.com/package/@yozora/tokenizer-link-reference
  */
-export const LinkReferenceRenderer: React.FC<LinkReference> = props => {
+export const LinkReferenceRenderer: INodeRenderer<LinkReference> = props => {
   const { definitionMap } = useNodeRendererContext()
   const definition = definitionMap[props.identifier]
   const url: string = definition?.url ?? ''

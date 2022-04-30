@@ -469,26 +469,9 @@ This component is designed to render data of [@yozora/ast][].
 This component has some built-in sub-components for rendering data of [@yozora/ast]. 
 
 * [@yozora/react-admonition][]
-* [@yozora/react-blockquote][]
-* [@yozora/react-break][]
-* [@yozora/react-code][]
-* [@yozora/react-delete][]
-* [@yozora/react-emphasis][]
 * [@yozora/react-footnote-definitions][]
-* [@yozora/react-footnote-reference][]
-* [@yozora/react-heading][]
-* [@yozora/react-image][]
 * [@yozora/react-inline-code][]
-* [@yozora/react-inline-math][]
-* [@yozora/react-link][]
-* [@yozora/react-list][]
 * [@yozora/react-list-item][]
-* [@yozora/react-math][]
-* [@yozora/react-paragraph][]
-* [@yozora/react-strong][]
-* [@yozora/react-table][]
-* [@yozora/react-text][]
-* [@yozora/react-thematic-break][]
 
 ## Related
 
@@ -534,29 +517,14 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 [@yozora/ast-util]: https://www.npmjs.com/package/@yozora/ast-util
 [@yozora/parser]: https://www.npmjs.com/package/@yozora/parser
 [@yozora/react-admonition]: https://www.npmjs.com/package/@yozora/react-admonition
-[@yozora/react-blockquote]: https://www.npmjs.com/package/@yozora/react-blockquote
-[@yozora/react-break]: https://www.npmjs.com/package/@yozora/react-break
 [@yozora/react-code]: https://www.npmjs.com/package/@yozora/react-code
 [@yozora/react-code-embed]: https://www.npmjs.com/package/@yozora/react-code-embed
 [@yozora/react-code-live]: https://www.npmjs.com/package/@yozora/react-code-live
-[@yozora/react-delete]: https://www.npmjs.com/package/@yozora/react-delete
-[@yozora/react-emphasis]: https://www.npmjs.com/package/@yozora/react-emphasis
 [@yozora/react-footnote-definitions]: https://www.npmjs.com/package/@yozora/react-footnote-definitions
-[@yozora/react-footnote-reference]: https://www.npmjs.com/package/@yozora/react-footnote-reference
-[@yozora/react-heading]: https://www.npmjs.com/package/@yozora/react-heading
-[@yozora/react-image]: https://www.npmjs.com/package/@yozora/react-image
-[@yozora/react-inline-code]: https://www.npmjs.com/package/@yozora/react-inline-code
 [@yozora/react-inline-math]: https://www.npmjs.com/package/@yozora/react-inline-math
-[@yozora/react-link]: https://www.npmjs.com/package/@yozora/react-link
-[@yozora/react-list]: https://www.npmjs.com/package/@yozora/react-list
 [@yozora/react-list-item]: https://www.npmjs.com/package/@yozora/react-list-item
 [@yozora/react-math]: https://www.npmjs.com/package/@yozora/react-math
 [@yozora/react-mathjax]: https://www.npmjs.com/package/@yozora/react-mathjax
-[@yozora/react-paragraph]: https://www.npmjs.com/package/@yozora/react-paragraph
-[@yozora/react-strong]: https://www.npmjs.com/package/@yozora/react-strong
-[@yozora/react-table]: https://www.npmjs.com/package/@yozora/react-table
-[@yozora/react-text]: https://www.npmjs.com/package/@yozora/react-text
-[@yozora/react-thematic-break]: https://www.npmjs.com/package/@yozora/react-thematic-break
 [@yozora/tokenizer-admonition]: https://www.npmjs.com/package/@yozora/tokenizer-admonition
 [@yozora/tokenizer-autolink]: https://www.npmjs.com/package/@yozora/tokenizer-autolink
 [@yozora/tokenizer-autolink-extension]: https://www.npmjs.com/package/@yozora/tokenizer-autolink-extension

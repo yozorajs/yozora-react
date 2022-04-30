@@ -1,10 +1,11 @@
-import type { Code as ICode } from '@yozora/ast'
+import type { Code } from '@yozora/ast'
+import type { INodeRenderer } from '@yozora/core-react-renderer'
 import { useThemeContext } from '@yozora/core-react-theme'
-import Code from '@yozora/react-code'
+import CodeRenderer from '@yozora/react-code'
 import React from 'react'
 import { YozoraMarkdownContextType } from '../../context/context'
 
-export const YozoraCodeRenderer: React.FC<ICode> = props => {
+export const YozoraCodeRenderer: INodeRenderer<Code> = props => {
   const { lang, meta } = props
   const { theme, preference } = useThemeContext()
   const { codeRunners } = React.useContext(YozoraMarkdownContextType)
@@ -14,7 +15,7 @@ export const YozoraCodeRenderer: React.FC<ICode> = props => {
   const value: string = props.value.replace(/[\r\n]+$/, '')
 
   return (
-    <Code
+    <CodeRenderer
       lang={lang}
       value={value}
       meta={meta}
