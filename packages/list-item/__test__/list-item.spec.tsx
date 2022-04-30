@@ -1,4 +1,3 @@
-import Blockquote from '@yozora/react-blockquote'
 import { render } from 'enzyme'
 import React from 'react'
 import ListItem from '../src'
@@ -9,7 +8,7 @@ const children = (
       some text1
       <span>some text2</span>
     </p>
-    <Blockquote>some text3</Blockquote>
+    <blockquote>some text3</blockquote>
   </React.Fragment>
 )
 

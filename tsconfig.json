@@ -7,8 +7,6 @@
       "@yozora/core-react-renderer": ["./packages/core-react-renderer/src"],
       "@yozora/core-react-theme": ["./packages/core-react-theme/src"],
       "@yozora/react-admonition": ["./packages/admonition/src"],
-      "@yozora/react-blockquote": ["./packages/blockquote/src"],
-      "@yozora/react-break": ["./packages/break/src"],
       "@yozora/react-code": ["./packages/code/src"],
       "@yozora/react-code-editor": ["./packages/code-editor/src"],
       "@yozora/react-code-embed": ["./packages/code-embed/src"],
@@ -20,26 +18,13 @@
       "@yozora/react-code-runners": ["./packages/code-runners/src"],
       "@yozora/react-common-copy-button": ["./packages/common-copy-button/src"],
       "@yozora/react-common-light-buttons": ["./packages/common-light-buttons/src"],
-      "@yozora/react-core": ["./packages/_core/src"],
-      "@yozora/react-delete": ["./packages/delete/src"],
-      "@yozora/react-emphasis": ["./packages/emphasis/src"],
       "@yozora/react-footnote-reference": ["./packages/footnote-reference/src"],
       "@yozora/react-footnote-definition": ["./packages/footnote-definition/src"],
-      "@yozora/react-heading": ["./packages/heading/src"],
-      "@yozora/react-image": ["./packages/image/src"],
-      "@yozora/react-inline-code": ["./packages/inline-code/src"],
       "@yozora/react-inline-math": ["./packages/inline-math/src"],
-      "@yozora/react-link": ["./packages/link/src"],
-      "@yozora/react-list": ["./packages/list/src"],
       "@yozora/react-list-item": ["./packages/list-item/src"],
       "@yozora/react-markdown": ["./packages/react-markdown/src"],
       "@yozora/react-math": ["./packages/math/src"],
-      "@yozora/react-mathjax": ["./packages/mathjax/src"],
-      "@yozora/react-paragraph": ["./packages/paragraph/src"],
-      "@yozora/react-strong": ["./packages/strong/src"],
-      "@yozora/react-table": ["./packages/table/src"],
-      "@yozora/react-text": ["./packages/text/src"],
-      "@yozora/react-thematic-break": ["./packages/thematic-break/src"]
+      "@yozora/react-mathjax": ["./packages/mathjax/src"]
     }
   }
 }
