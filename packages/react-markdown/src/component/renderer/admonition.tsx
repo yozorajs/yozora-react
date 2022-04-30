@@ -9,6 +9,7 @@ import React from 'react'
  *
  * @see https://www.npmjs.com/package/@yozora/ast#admonition
  * @see https://www.npmjs.com/package/@yozora/tokenizer-admonition
+ * @see https://www.npmjs.com/package/@yozora/react-admonition
  */
 export const AdmonitionRenderer: INodeRenderer<Admonition> = props => {
   const title = props.title.length > 0 ? <NodesRenderer nodes={props.title} /> : undefined

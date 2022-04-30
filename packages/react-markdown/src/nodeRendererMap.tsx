@@ -9,7 +9,7 @@ import {
   MathType,
 } from '@yozora/ast'
 import { AdmonitionRenderer } from './component/renderer/admonition'
-import { YozoraCodeRenderer } from './component/renderer/Code'
+import { CodeRenderer } from './component/renderer/code'
 import { FootnoteReferenceRenderer } from './component/renderer/footnoteReference'
 import { InlineMathRenderer } from './component/renderer/inlineMath'
 import { MathRenderer } from './component/renderer/math'
@@ -20,7 +20,7 @@ import type { INodeRendererMap } from './types'
  */
 export const defaultNodeRendererMap: Readonly<Partial<INodeRendererMap>> = {
   [AdmonitionType]: AdmonitionRenderer,
-  [CodeType]: YozoraCodeRenderer,
+  [CodeType]: CodeRenderer,
   [EcmaImportType]: () => null,
   [FootnoteDefinitionType]: () => null,
   [FootnoteType]: () => null,
