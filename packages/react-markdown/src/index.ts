@@ -1,6 +1,11 @@
 import './style/index.styl'
 import YozoraMarkdown from './YozoraMarkdown'
 
+export * from './component/renderer/Admonition'
+export * from './component/renderer/Code'
+export * from './component/renderer/inlineMath'
+export * from './component/renderer/math'
+
 export * from './types'
 export * from './YozoraMarkdown'
 export * from './context/actions'
@@ -9,8 +14,6 @@ export * from './Provider'
 export * from './context/state'
 export * from './YozoraFootnoteDefinitions'
 export * from './nodeRendererMap'
-export * from './renderer/Admonition'
-export * from './renderer/Code'
 export { MathJaxProvider } from '@yozora/react-mathjax'
 
 export default YozoraMarkdown

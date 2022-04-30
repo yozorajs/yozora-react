@@ -2,7 +2,7 @@ import type { Code as ICode } from '@yozora/ast'
 import { useThemeContext } from '@yozora/core-react-theme'
 import Code from '@yozora/react-code'
 import React from 'react'
-import { YozoraMarkdownContextType } from '../context/context'
+import { YozoraMarkdownContextType } from '../../context/context'
 
 export const YozoraCodeRenderer: React.FC<ICode> = props => {
   const { lang, meta } = props

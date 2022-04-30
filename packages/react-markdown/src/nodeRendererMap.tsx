@@ -9,10 +9,10 @@ import {
   MathType,
 } from '@yozora/ast'
 import FootnoteReferenceRenderer from '@yozora/react-footnote-reference'
-import InlineMathRenderer from '@yozora/react-inline-math'
-import MathRenderer from '@yozora/react-math'
-import { YozoraAdmonitionRenderer } from './renderer/Admonition'
-import { YozoraCodeRenderer } from './renderer/Code'
+import { YozoraAdmonitionRenderer } from './component/renderer/Admonition'
+import { YozoraCodeRenderer } from './component/renderer/Code'
+import { InlineMathRenderer } from './component/renderer/inlineMath'
+import { MathRenderer } from './component/renderer/math'
 import type { INodeRendererMap } from './types'
 
 /**

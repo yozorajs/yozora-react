@@ -1,4 +1,5 @@
-import type { IMathProps } from '@yozora/react-math'
+import type { Math } from '@yozora/ast'
+import { MathType } from '@yozora/ast'
 import React from 'react'
 import type { ICodeRunner } from './types'
 import { CodeRunnerPropTypes } from './types'
@@ -8,10 +9,10 @@ import { CodeRunnerPropTypes } from './types'
  * @param MathRenderer
  * @returns
  */
-export function createMathRunner(MathRenderer: React.ComponentType<IMathProps>): ICodeRunner {
+export function createMathRunner(MathRenderer: React.ComponentType<Math>): ICodeRunner {
   const MathRunner: ICodeRunner = props => {
     const value = props.value.replace(/^[\s\n]*([$]+)([\s\S]+)*\1[\s\n]*$/, '$2').trim()
-    return <MathRenderer value={value} />
+    return <MathRenderer type={MathType} value={value} />
   }
 
   MathRunner.displayName = 'YozoraMathRunner'
