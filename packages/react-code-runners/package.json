@@ -1,0 +1,58 @@
+{
+  "name": "@yozora/react-code-runners",
+  "version": "2.0.0-alpha.4",
+  "description": "Live code runners",
+  "author": {
+    "name": "guanghechen",
+    "url": "https://github.com/guanghechen/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yozorajs/yozora-react.git",
+    "directory": "packages/react-code-runners"
+  },
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-runners#readme",
+  "keywords": [],
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/types/index.d.ts",
+  "source": "src/index.ts",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 14.15.0"
+  },
+  "files": [
+    "lib/",
+    "!lib/**/*.js.map",
+    "!lib/**/*.d.ts.map",
+    "package.json",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
+    "prebuild": "rimraf lib/ && tsc -p tsconfig.src.json --emitDeclarationOnly",
+    "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
+    "test": "echo 'no test yet.'"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": ">= 17.0.0"
+  },
+  "dependencies": {
+    "@guanghechen/react-hooks": "^1.9.3",
+    "@loadable/component": "^5.15.0"
+  },
+  "devDependencies": {
+    "@yozora/react-code-renderer-graphviz": "^2.0.0-alpha.4",
+    "@yozora/react-code-renderer-jsx": "^2.0.0-alpha.4",
+    "@yozora/react-math": "^2.0.0-alpha.4"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
+}

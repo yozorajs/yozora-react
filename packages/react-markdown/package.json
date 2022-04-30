@@ -1,0 +1,74 @@
+{
+  "name": "@yozora/react-markdown",
+  "version": "2.0.0-alpha.4",
+  "description": "render markdown content in react",
+  "author": {
+    "name": "guanghechen",
+    "url": "https://github.com/guanghechen/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yozorajs/yozora-react.git",
+    "directory": "packages/react-markdown"
+  },
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/react-markdown#readme",
+  "keywords": [
+    "react markdown component"
+  ],
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/types/index.d.ts",
+  "source": "src/index.ts",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 14.15.0"
+  },
+  "files": [
+    "lib/",
+    "!lib/**/*.js.map",
+    "!lib/**/*.d.ts.map",
+    "package.json",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
+    "prebuild": "rimraf lib/ && tsc -p tsconfig.src.json --emitDeclarationOnly",
+    "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
+  },
+  "dependencies": {
+    "@emotion/css": "^11.9.0",
+    "@guanghechen/react-hooks": "^1.9.3",
+    "@types/react-copy-to-clipboard": "^5.0.2",
+    "@yozora/core-react-renderer": "^2.0.0-alpha.4",
+    "@yozora/core-react-theme": "^2.0.0-alpha.4",
+    "@yozora/react-admonition": "^2.0.0-alpha.4",
+    "@yozora/react-code": "^2.0.0-alpha.4",
+    "@yozora/react-code-editor": "^2.0.0-alpha.4",
+    "@yozora/react-code-embed": "^2.0.0-alpha.4",
+    "@yozora/react-code-highlighter": "^2.0.0-alpha.4",
+    "@yozora/react-code-live": "^2.0.0-alpha.4",
+    "@yozora/react-code-renderer-jsx": "^2.0.0-alpha.4",
+    "@yozora/react-footnote-definition": "^2.0.0-alpha.4",
+    "@yozora/react-footnote-reference": "^2.0.0-alpha.4",
+    "@yozora/react-inline-math": "^2.0.0-alpha.4",
+    "@yozora/react-list-item": "^2.0.0-alpha.4",
+    "@yozora/react-math": "^2.0.0-alpha.4",
+    "@yozora/react-mathjax": "^2.0.0-alpha.4",
+    "react-copy-to-clipboard": "^5.1.0"
+  },
+  "peerDependencies": {
+    "@yozora/ast": "^2.0.0",
+    "@yozora/ast-util": "^2.0.0",
+    "clsx": "^1.1.1",
+    "prop-types": "^15.7.2",
+    "react": ">= 17.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
+}

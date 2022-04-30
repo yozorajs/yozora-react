@@ -102,5 +102,5 @@ function scanAndGenerate(dirPath, markdownStylusThemeDirPath) {
 
 scanAndGenerate(
   path.resolve('packages/_shared/src/stylus'),
-  path.resolve('packages/markdown/src/style'),
+  path.resolve('packages/react-markdown/src/style'),
 )

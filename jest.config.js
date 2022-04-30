@@ -39,7 +39,7 @@ module.exports = {
     '<rootDir>/src/**/*.{js,jsx,ts,tsx}',
     '<rootDir>/src/*.{js,jsx,ts,tsx}',
   ],
-  coveragePathIgnorePatterns: ['packages/code-editor/src/editor.tsx'],
+  coveragePathIgnorePatterns: ['packages/react-code-editor/src/editor.tsx'],
   coverageThreshold: {
     global: {
       branches: 50,

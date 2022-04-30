@@ -116,26 +116,12 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 Component Name                          | Token Name
 :--------------------------------------:|:--------------------------------------
 [@yozora/react-admonition][]            | [admonition][yozora/admonition]
-[@yozora/react-blockquote][]            | [blockquote][yozora/blockquote]
-[@yozora/react-break][]                 | [break][yozora/break]
 [@yozora/react-code][]                  | [code][yozora/code]
-[@yozora/react-delete][]                | [delete][yozora/delete]
-[@yozora/react-emphasis][]              | [emphasis][yozora/emphasis]
 [@yozora/react-footnote-definitions][]  | [footnoteDefinition][yozora/footnote-definition]
 [@yozora/react-footnote-reference][]    | [footnoteReference][yozora/footnote-reference]
-[@yozora/react-heading][]               | [heading][yozora/heading]
-[@yozora/react-image][]                 | [image][yozora/image], [imageReference][yozora/image-reference]
-[@yozora/react-inline-code][]           | [inlineCode][yozora/inline-code]
 [@yozora/react-inline-math][]           | [inlineMath][yozora/inline-math]
-[@yozora/react-link][]                  | [link][yozora/link], [linkReference][yozora/link-reference]
-[@yozora/react-list][]                  | [list][yozora/list]
 [@yozora/react-list-item][]             | [listItem][yozora/list-item]
 [@yozora/react-math][]                  | [math][yozora/math]
-[@yozora/react-paragraph][]             | [paragraph][yozora/paragraph]
-[@yozora/react-strong][]                | [strong][yozora/emphasis]
-[@yozora/react-table][]                 | [table][yozora/table], [tableCell][yozora/table-cell], [tableRow][yozora/table-row]
-[@yozora/react-text][]                  | [text][yozora/text]
-[@yozora/react-thematic-break][]        | [thematic-break][yozora/thematic-break]
 
 
 ### Other components
@@ -156,36 +142,22 @@ Component Name                            | Description
 [react-live]: https://github.com/FormidableLabs/react-live
 
 <!-- yozora component links -->
-[@yozora/react-admonition]: https://github.com/yozorajs/yozora-react/tree/main/packages/admonition#readme
-[@yozora/react-blockquote]: https://github.com/yozorajs/yozora-react/tree/main/packages/blockquote#readme
-[@yozora/react-break]: https://github.com/yozorajs/yozora-react/tree/main/packages/break#readme
-[@yozora/react-code]: https://github.com/yozorajs/yozora-react/tree/main/packages/code#readme
-[@yozora/react-code-editor]: https://github.com/yozorajs/yozora-react/tree/main/packages/code-editor#readme
-[@yozora/react-code-embed]: https://github.com/yozorajs/yozora-react/tree/main/packages/code-embed#readme
-[@yozora/react-code-highlighter]: https://github.com/yozorajs/yozora-react/tree/main/packages/code-highlighter#readme
-[@yozora/react-code-literal]: https://github.com/yozorajs/yozora-react/tree/main/packages/code-literal#readme
-[@yozora/react-code-live]: https://github.com/yozorajs/yozora-react/tree/main/packages/code-live#readme
-[@yozora/react-code-renderer-jsx]: https://github.com/yozorajs/yozora-react/tree/main/packages/code-renderer-jsx#readme
-[@yozora/react-code-renderer-graphviz]: https://github.com/yozorajs/yozora-react/tree/main/packages/code-renderer-graphviz#readme
-[@yozora/react-delete]: https://github.com/yozorajs/yozora-react/tree/main/packages/delete#readme
-[@yozora/react-emphasis]: https://github.com/yozorajs/yozora-react/tree/main/packages/emphasis#readme
-[@yozora/react-footnote-reference]: https://github.com/yozorajs/yozora-react/tree/main/packages/footnote-reference#readme
-[@yozora/react-footnote-definitions]: https://github.com/yozorajs/yozora-react/tree/main/packages/footnote-definitions#readme
-[@yozora/react-heading]: https://github.com/yozorajs/yozora-react/tree/main/packages/heading#readme
-[@yozora/react-image]: https://github.com/yozorajs/yozora-react/tree/main/packages/image#readme
-[@yozora/react-inline-code]: https://github.com/yozorajs/yozora-react/tree/main/packages/inline-code#readme
-[@yozora/react-inline-math]: https://github.com/yozorajs/yozora-react/tree/main/packages/inline-math#readme
-[@yozora/react-link]: https://github.com/yozorajs/yozora-react/tree/main/packages/link#readme
-[@yozora/react-list]: https://github.com/yozorajs/yozora-react/tree/main/packages/list#readme
-[@yozora/react-list-item]: https://github.com/yozorajs/yozora-react/tree/main/packages/list-item#readme
-[@yozora/react-math]: https://github.com/yozorajs/yozora-react/tree/main/packages/math#readme
-[@yozora/react-paragraph]: https://github.com/yozorajs/yozora-react/tree/main/packages/paragraph#readme
-[@yozora/react-strong]: https://github.com/yozorajs/yozora-react/tree/main/packages/strong#readme
-[@yozora/react-table]: https://github.com/yozorajs/yozora-react/tree/main/packages/table#readme
-[@yozora/react-text]: https://github.com/yozorajs/yozora-react/tree/main/packages/text#readme
-[@yozora/react-thematic-break]: https://github.com/yozorajs/yozora-react/tree/main/packages/thematic-break#readme
-[@yozora/react-markdown]: https://github.com/yozorajs/yozora-react/tree/main/packages/markdown#readme
-[@yozora/react-mathjax]: https://github.com/yozorajs/yozora-react/tree/main/packages/mathjax#readme
+[@yozora/react-admonition]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-admonition#readme
+[@yozora/react-code]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-code#readme
+[@yozora/react-code-editor]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-editor#readme
+[@yozora/react-code-embed]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-embed#readme
+[@yozora/react-code-highlighter]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-highlighter#readme
+[@yozora/react-code-literal]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-literal#readme
+[@yozora/react-code-live]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-live#readme
+[@yozora/react-code-renderer-jsx]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-renderer-jsx#readme
+[@yozora/react-code-renderer-graphviz]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-renderer-graphviz#readme
+[@yozora/react-footnote-reference]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-footnote-reference#readme
+[@yozora/react-footnote-definitions]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-footnote-definitions#readme
+[@yozora/react-inline-math]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-inline-math#readme
+[@yozora/react-list-item]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-list-item#readme
+[@yozora/react-math]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-math#readme
+[@yozora/react-markdown]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-markdown#readme
+[@yozora/react-mathjax]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-mathjax#readme
 
 [yozora/ast]: https://www.npmjs.com/package/@yozora/ast
 [yozora/admonition]: https://www.npmjs.com/package/@yozora/ast#admonition
