@@ -31,14 +31,14 @@ describe('prop types', function () {
     it('default', function () {
       const node = render(<Admonition keyword="tip">{children}</Admonition>)
       expect(node.hasClass('yozora-admonition')).toBeTruthy()
-      expect(node.hasClass('yozora-admonition--tip')).toBeTruthy()
+      expect(node.attr('data-admonition-keyword')).toEqual('tip')
     })
 
     it('custom', function () {
       const node = render(<Admonition className="my-admonition">{children}</Admonition>)
       expect(node.hasClass('yozora-admonition')).toBeTruthy()
-      expect(node.hasClass('yozora-admonition--note')).toBeTruthy()
       expect(node.hasClass('my-admonition')).toBeTruthy()
+      expect(node.attr('data-admonition-keyword')).toEqual('note')
     })
   })
 
@@ -58,7 +58,7 @@ describe('prop types', function () {
     }
     for (const [keyword, modifier] of Object.entries(keywords)) {
       const node = render(<Admonition keyword={keyword}>{children}</Admonition>)
-      expect(node.hasClass('yozora-admonition--' + modifier)).toBeTruthy()
+      expect(node.attr('data-admonition-keyword')).toEqual(modifier)
     }
   })
 

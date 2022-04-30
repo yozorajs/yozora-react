@@ -14,18 +14,18 @@ exports[`snapshot literal 1`] = `
     class="yozora-code-literal__toolbar"
   >
     <span
-      class="yozora-common-light-buttons"
+      class="css-9y6172"
     >
       <span
-        class="yozora-common-light-button yozora-common-light-button--close"
+        class="css-t4q37b"
         title="close"
       />
       <span
-        class="yozora-common-light-button yozora-common-light-button--minimize"
+        class="css-p28dfd"
         title="minimize"
       />
       <span
-        class="yozora-common-light-button yozora-common-light-button--maximize"
+        class="css-6luv6p"
         title="maximize"
       />
     </span>
@@ -40,7 +40,8 @@ exports[`snapshot literal 1`] = `
     >
       <button
         aria-label="Copy to clipboard"
-        class="yozora-common-copy-button yozora-common-copy-button--waiting"
+        class="css-jbwb7c"
+        data-copy-status="waiting"
         type="button"
       >
         copy
@@ -432,18 +433,18 @@ exports[`snapshot live 1`] = `
     class="yozora-code-live__toolbar"
   >
     <span
-      class="yozora-common-light-buttons"
+      class="css-9y6172"
     >
       <span
-        class="yozora-common-light-button yozora-common-light-button--close"
+        class="css-t4q37b"
         title="close"
       />
       <span
-        class="yozora-common-light-button yozora-common-light-button--minimize"
+        class="css-p28dfd"
         title="minimize"
       />
       <span
-        class="yozora-common-light-button yozora-common-light-button--maximize"
+        class="css-6luv6p"
         title="maximize"
       />
     </span>
@@ -458,7 +459,8 @@ exports[`snapshot live 1`] = `
     >
       <button
         aria-label="Copy to clipboard"
-        class="yozora-common-copy-button yozora-common-copy-button--waiting"
+        class="css-jbwb7c"
+        data-copy-status="waiting"
         type="button"
       >
         copy

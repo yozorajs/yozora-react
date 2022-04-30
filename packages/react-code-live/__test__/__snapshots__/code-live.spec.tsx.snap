@@ -39,21 +39,21 @@ exports[`prop types snapshot 1`] = `
         onMinimize={[Function]}
       >
         <span
-          className="yozora-common-light-buttons"
+          className="css-9y6172"
         >
           <span
-            className="yozora-common-light-button yozora-common-light-button--close"
+            className="css-t4q37b"
             key="close"
             title="close"
           />
           <span
-            className="yozora-common-light-button yozora-common-light-button--minimize"
+            className="css-p28dfd"
             key="minimize"
             onClick={[Function]}
             title="minimize"
           />
           <span
-            className="yozora-common-light-button yozora-common-light-button--maximize"
+            className="css-6luv6p"
             key="maximize"
             onClick={[Function]}
             title="maximize"
@@ -87,7 +87,8 @@ exports[`prop types snapshot 1`] = `
         >
           <button
             aria-label="Copy to clipboard"
-            className="yozora-common-copy-button yozora-common-copy-button--waiting"
+            className="css-jbwb7c"
+            data-copy-status="waiting"
             disabled={false}
             onClick={[Function]}
             type="button"
