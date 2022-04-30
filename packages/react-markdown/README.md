@@ -252,7 +252,7 @@ This component is designed to render data of [@yozora/ast][].
     CodeRunnerProps,
     CodeRunnerScope,
   } from '@yozora/react-code'
-  import MathRenderer from '@yozora/react-math'
+  import { MathRenderer } from '@yozora/react-markdown'
   import type { Engine } from 'd3-graphviz'
   import React from 'react'
 
@@ -521,9 +521,7 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 [@yozora/react-code-embed]: https://www.npmjs.com/package/@yozora/react-code-embed
 [@yozora/react-code-live]: https://www.npmjs.com/package/@yozora/react-code-live
 [@yozora/react-footnote-definitions]: https://www.npmjs.com/package/@yozora/react-footnote-definitions
-[@yozora/react-inline-math]: https://www.npmjs.com/package/@yozora/react-inline-math
 [@yozora/react-list-item]: https://www.npmjs.com/package/@yozora/react-list-item
-[@yozora/react-math]: https://www.npmjs.com/package/@yozora/react-math
 [@yozora/react-mathjax]: https://www.npmjs.com/package/@yozora/react-mathjax
 [@yozora/tokenizer-admonition]: https://www.npmjs.com/package/@yozora/tokenizer-admonition
 [@yozora/tokenizer-autolink]: https://www.npmjs.com/package/@yozora/tokenizer-autolink

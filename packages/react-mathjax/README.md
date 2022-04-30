@@ -184,13 +184,9 @@ The default version is [mathjax@2.7.4](https://cdnjs.cloudflare.com/ajax/libs/ma
 
 ## Related
 
-* [@yozora/react-inline-math][]
-* [@yozora/react-math][]
 * [react-mathjax][]
 * [mathjax][]
 
-[@yozora/react-inline-math]: https://www.npmjs.com/package/@yozora/react-inline-math
-[@yozora/react-math]: https://www.npmjs.com/package/@yozora/react-math
 [react-mathjax]: https://github.com/SamyPesse/react-mathjax
 [react-mathjax2]: https://github.com/wko27/react-mathjax
 [mathjax]: https://www.mathjaxjax.org/

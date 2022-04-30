@@ -129,9 +129,11 @@ or [@yozora/react-code-live][].
   ```tsx title="./runner-math.tsx"
   import type { CodeRunner } from '@yozora/react-code-runners'
   import { createMathRunner } from '@yozora/react-code-runners'
-  import MathRenderer from '@yozora/react-math'
+  import { MathJaxNode } from '@yozora/react-mathjax'
 
-  export const MathRunner: CodeRunner = createMathRunner(MathRenderer)
+  export const MathRunner: CodeRunner = createMathRunner(
+    props => <MathJaxNode className="yozora-math" inline={false} formula={props.value} />
+  )
   ```
 
 * Create runner items.
@@ -184,11 +186,9 @@ Name                    | Description
 
 * [@yozora/react-code-renderer-graphviz][]
 * [@yozora/react-code-renderer-jsx][] 
-* [@yozora/react-math][]
 
 
 [@yozora/react-code-embed]: ../code-live/README.md
 [@yozora/react-code-live]: ../code-live/README.md
 [@yozora/react-code-renderer-graphviz]: ../code-renderer-graphviz/README.md
 [@yozora/react-code-renderer-jsx]: ../code-renderer-jsx/README.md
-[@yozora/react-math]: ../math/README.md

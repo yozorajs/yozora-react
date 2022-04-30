@@ -19,10 +19,8 @@
       "@yozora/react-common-copy-button": ["./packages/react-common-copy-button/src"],
       "@yozora/react-common-light-buttons": ["./packages/react-common-light-buttons/src"],
       "@yozora/react-footnote-definition": ["./packages/react-footnote-definition/src"],
-      "@yozora/react-inline-math": ["./packages/react-inline-math/src"],
       "@yozora/react-list-item": ["./packages/react-list-item/src"],
       "@yozora/react-markdown": ["./packages/react-markdown/src"],
-      "@yozora/react-math": ["./packages/react-math/src"],
       "@yozora/react-mathjax": ["./packages/react-mathjax/src"]
     }
   }
