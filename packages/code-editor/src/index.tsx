@@ -114,7 +114,7 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
         lineHeight={lineHeight}
         maxLines={maxLines}
         collapsed={collapsed}
-        showLinenos={showLinenos}
+        showLineNo={showLinenos}
         onLinenoWidthChange={setLinenoWidth}
       />
     ),

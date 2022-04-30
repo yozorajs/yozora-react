@@ -17,20 +17,10 @@ import type { ICodeLiteralProps } from './types'
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
 export const CodeLiteral: React.FC<ICodeLiteralProps> = props => {
-  const {
-    value,
-    lang,
-    title,
-    highlightLinenos,
-    maxLines,
-    collapsed: _collapsed = false,
-    showLinenos,
-    darken,
-    className,
-    style,
-  } = props
+  const { value, lang, title, highlightLinenos, maxLines, showLineNo, darken, className, style } =
+    props
 
-  const [collapsed, setCollapsed] = useState<boolean>(_collapsed)
+  const [collapsed, setCollapsed] = useState<boolean>(props.collapsed ?? false)
   const [countOfLines, setCountOfLines] = useState<number | null>(() =>
     collapsed ? value.split(/\r|\n|\n\r/g).length : null,
   )
@@ -76,7 +66,7 @@ export const CodeLiteral: React.FC<ICodeLiteralProps> = props => {
             highlightLinenos={highlightLinenos}
             maxLines={maxLines}
             collapsed={collapsed}
-            showLinenos={showLinenos}
+            showLineNo={showLineNo}
             darken={darken}
           />
         </pre>
@@ -92,7 +82,7 @@ CodeLiteral.propTypes = {
   highlightLinenos: PropTypes.array,
   lang: PropTypes.string,
   maxLines: PropTypes.number,
-  showLinenos: PropTypes.bool,
+  showLineNo: PropTypes.bool,
   style: PropTypes.object,
   title: PropTypes.string,
   value: PropTypes.string.isRequired,

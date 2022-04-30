@@ -1,12 +1,14 @@
 import type { Code as ICode } from '@yozora/ast'
+import { useThemeContext } from '@yozora/core-react-theme'
 import Code from '@yozora/react-code'
 import React from 'react'
 import { YozoraMarkdownContextType } from '../context/context'
 
 export const YozoraCodeRenderer: React.FC<ICode> = props => {
-  const { darken, preferLinenos, codeRunners } = React.useContext(YozoraMarkdownContextType)
-
   const { lang, meta } = props
+  const { theme, preference } = useThemeContext()
+  const { codeRunners } = React.useContext(YozoraMarkdownContextType)
+  const darken: boolean = theme === 'darken'
 
   // Remove trailing line endings.
   const value: string = props.value.replace(/[\r\n]+$/, '')
@@ -18,9 +20,7 @@ export const YozoraCodeRenderer: React.FC<ICode> = props => {
       meta={meta}
       runners={codeRunners}
       darken={darken}
-      preferLinenos={preferLinenos}
+      preferLineNo={preference.showCodeLineNo}
     />
   )
 }
-
-YozoraCodeRenderer.displayName = 'YozoraCodeRenderer'

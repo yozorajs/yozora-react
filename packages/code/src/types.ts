@@ -1,3 +1,4 @@
+import type { ICodeMetaData as IBaseCodeMetaData } from '@yozora/core-react-renderer'
 import type { ICodeRunnerItem, ICodeRunnerMetaData } from '@yozora/react-code-runners'
 
 export interface ICodeProps {
@@ -25,7 +26,7 @@ export interface ICodeProps {
    * Display linenos in default.
    * @default true
    */
-  preferLinenos?: boolean
+  preferLineNo?: boolean
   /**
    * Root css class of the component.
    */
@@ -39,34 +40,9 @@ export interface ICodeProps {
 /**
  * Meta data of the fenced-code.
  */
-export interface ICodeMetaData extends ICodeRunnerMetaData {
+export interface ICodeMetaData extends IBaseCodeMetaData, ICodeRunnerMetaData {
   /**
    * Rendering mode.
    */
-  _yozoraCodeMode: 'live' | 'embed' | 'literal' | string
-  /**
-   * The line number of the highlighted row.
-   */
-  highlights: number[]
-  /**
-   * Maximum number of rows displayed
-   * @default -1
-   */
-  maxlines: number
-  /**
-   * Code title.
-   */
-  title: string
-  /**
-   * Whether to display the line numbers.
-   */
-  showLinenos: boolean
-  /**
-   * Whether to collapse the code component.
-   */
-  collapsed?: boolean
-  /**
-   * Unknown key / value pairs.
-   */
-  [key: string]: unknown
+  _yozoracodemode: 'live' | 'embed' | 'literal' | string
 }

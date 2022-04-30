@@ -14,7 +14,7 @@ export const HighlighterContent: React.FC<IHighlightContentProps> = props => {
     collapsed = false,
     maxLines = -1,
     lineHeight = '1.6rem',
-    showLinenos = true,
+    showLineNo = true,
     tokens,
     getLineProps,
     getTokenProps,
@@ -25,9 +25,7 @@ export const HighlighterContent: React.FC<IHighlightContentProps> = props => {
 
   const linenoRef = useRef<HTMLDivElement>(null)
 
-  const linenoWidth = showLinenos
-    ? `${Math.max(2, ('' + tokens.length).length) * 1.1}em`
-    : undefined
+  const linenoWidth = showLineNo ? `${Math.max(2, ('' + tokens.length).length) * 1.1}em` : undefined
 
   useEffect(() => {
     if (onLinenoWidthChange == null) return
@@ -63,7 +61,7 @@ export const HighlighterContent: React.FC<IHighlightContentProps> = props => {
 
   return (
     <div className={cn('yozora-code-highlighter', className)} style={style}>
-      {showLinenos && (
+      {showLineNo && (
         <div
           key="linenos"
           className="yozora-code-highlighter__linenos"
@@ -125,7 +123,7 @@ HighlighterContent.propTypes = {
   collapsed: PropTypes.bool,
   maxLines: PropTypes.number,
   lineHeight: PropTypes.string,
-  showLinenos: PropTypes.bool,
+  showLineNo: PropTypes.bool,
   tokens: PropTypes.array.isRequired,
   getLineProps: PropTypes.func.isRequired,
   getTokenProps: PropTypes.func.isRequired,

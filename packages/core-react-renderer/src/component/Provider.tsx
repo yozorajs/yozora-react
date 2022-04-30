@@ -36,7 +36,7 @@ export interface INodeRendererContextProviderProps {
   /**
    * Root element className.
    */
-  className?: string
+  rootClassName?: string
   /**
    * Custom image viewer.
    */
@@ -50,7 +50,7 @@ export interface INodeRendererContextProviderProps {
  */
 export const NodeRendererContextProvider: React.FC<INodeRendererContextProviderProps> = props => {
   const { definitionMap, footnoteDefinitionMap, ImageViewer } = props
-  const className: string = cx(useStyles(props.customStyleMap), props.className)
+  const className: string = cx(useStyles(props.customStyleMap), props.rootClassName)
 
   const rendererMap: Readonly<INodeRendererMap> = useNodeRendererMap(props.customRendererMap)
   const [state, dispatch] = React.useReducer(reducer, {}, initNodeRendererState)
@@ -79,7 +79,7 @@ NodeRendererContextProvider.propTypes = {
   customRendererMap: PropTypes.object as any,
   customStyleMap: PropTypes.object as any,
   children: PropTypes.node.isRequired,
-  className: PropTypes.string,
+  rootClassName: PropTypes.string,
   ImageViewer: PropTypes.any,
 }
 

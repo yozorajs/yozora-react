@@ -1,22 +1,22 @@
-import { useDeepCompareCallback, useDeepCompareMemo } from '@guanghechen/react-hooks'
+import { cx } from '@emotion/css'
 import type {
   Definition as IDefinition,
   FootnoteDefinition as IFootnoteDefinition,
 } from '@yozora/ast'
+import type { INodeRendererContextProviderProps, INodeStyleMap } from '@yozora/core-react-renderer'
+import { NodeRendererContextProvider } from '@yozora/core-react-renderer'
 import type { ICodeRunnerItem } from '@yozora/react-code-runners'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { YozoraMarkdownActionsType } from './context/actions'
 import { YozoraMarkdownContextType } from './context/context'
 import type { IYozoraMarkdownContext } from './context/context'
 import { reducer } from './context/reducer'
-import { initializeYozoraMarkdownState } from './context/state'
-import type { IYozoraImageViewerProps } from './ImagePreviewer'
-import { YozoraImageViewer } from './ImagePreviewer'
+import { initYozoraMarkdownState } from './context/state'
+import { defaultNodeRendererMap } from './nodeRendererMap'
+import { useStyles } from './style/style'
 import type { INodeRendererMap } from './types'
-import { useYozoraRendererMap } from './useYozoraRendererMap'
 
-export interface IProviderProps {
+export interface IMarkdownContextProviderProps {
   /**
    * Link / Image reference definitions.
    */
@@ -34,23 +34,21 @@ export interface IProviderProps {
    */
   customRendererMap?: Readonly<Partial<INodeRendererMap>>
   /**
-   * Whether if to enable the dark mode.
-   * @default false
+   * Custom token style map.
    */
-  darken?: boolean
-  /**
-   * Display linenos as the default behavior in YozoraCode components.
-   * @default true
-   */
-  preferLinenos?: boolean
+  customStyleMap?: Readonly<Partial<INodeStyleMap>>
   /**
    * Descendant elements.
    */
-  children: React.ReactNode
+  children?: React.ReactNode
+  /**
+   * Root element className.
+   */
+  rootClassName?: string
   /**
    * Custom image viewer.
    */
-  ImageViewer?: IYozoraImageViewerProps['ImageViewer']
+  ImageViewer?: INodeRendererContextProviderProps['ImageViewer']
 }
 
 /**
@@ -58,69 +56,37 @@ export interface IProviderProps {
  * @param props
  * @returns
  */
-export const Provider: React.FC<IProviderProps> = props => {
-  const {
-    definitionMap,
-    footnoteDefinitionMap,
-    children,
-    codeRunners: initialCodeRunners,
-    customRendererMap,
-    darken: initialDarken,
-    preferLinenos: initialPreferLinenos,
-    ImageViewer,
-  } = props
+export const Provider: React.FC<IMarkdownContextProviderProps> = props => {
+  const { definitionMap, footnoteDefinitionMap, children } = props
 
-  // Get all of footnote reference definitions.
-  const footnoteDefinitions: ReadonlyArray<IFootnoteDefinition> = useDeepCompareMemo<
-    ReadonlyArray<IFootnoteDefinition>
-  >(() => Object.values(footnoteDefinitionMap), [footnoteDefinitionMap])
+  const customRendererMap = React.useMemo(
+    () => ({ ...defaultNodeRendererMap, ...props.customRendererMap }),
+    [props.customRendererMap],
+  )
 
   const [state, dispatch] = React.useReducer(
     reducer,
-    {
-      codeRunners: initialCodeRunners,
-      footnoteDefinitions,
-      darken: initialDarken,
-      preferLinenos: initialPreferLinenos,
-    },
-    initializeYozoraMarkdownState,
-  )
-
-  const rendererMap: Readonly<INodeRendererMap> = useYozoraRendererMap(customRendererMap)
-
-  // Get link / image reference definition through the given identifier.
-  const getDefinition = useDeepCompareCallback<IYozoraMarkdownContext['getDefinition']>(
-    identifier => definitionMap[identifier],
-    [definitionMap],
+    { codeRunners: props.codeRunners },
+    initYozoraMarkdownState,
   )
 
   const context = React.useMemo<IYozoraMarkdownContext>(
-    () => ({
-      ...state,
-      dispatch,
-      getDefinition,
-      rendererMap,
-    }),
-    [state, dispatch, getDefinition, rendererMap],
+    () => ({ ...state, dispatch }),
+    [state, dispatch],
   )
 
-  // Watch initial values change.
-  React.useEffect(() => {
-    dispatch({
-      type: YozoraMarkdownActionsType.RESET_STATE_DATA,
-      payload: {
-        footnoteDefinitions,
-        codeRunners: initialCodeRunners,
-        darken: initialDarken,
-        preferLinenos: initialPreferLinenos,
-      },
-    })
-  }, [dispatch, footnoteDefinitions, initialCodeRunners, initialDarken, initialPreferLinenos])
-
+  const rootClassName: string = cx(useStyles(), props.rootClassName)
   return (
     <YozoraMarkdownContextType.Provider value={context}>
-      {children}
-      <YozoraImageViewer ImageViewer={ImageViewer} />
+      <NodeRendererContextProvider
+        definitionMap={definitionMap}
+        footnoteDefinitionMap={footnoteDefinitionMap}
+        customRendererMap={customRendererMap}
+        customStyleMap={props.customStyleMap}
+        rootClassName={rootClassName}
+      >
+        {children}
+      </NodeRendererContextProvider>
     </YozoraMarkdownContextType.Provider>
   )
 }
@@ -130,9 +96,10 @@ Provider.propTypes = {
   footnoteDefinitionMap: PropTypes.object.isRequired as any,
   codeRunners: PropTypes.array,
   customRendererMap: PropTypes.object as any,
-  darken: PropTypes.bool,
-  preferLinenos: PropTypes.bool,
-  children: PropTypes.node.isRequired,
+  customStyleMap: PropTypes.object as any,
+  children: PropTypes.node,
+  rootClassName: PropTypes.string,
+  ImageViewer: PropTypes.any,
 }
 
 Provider.displayName = 'YozoraMarkdownProvider'

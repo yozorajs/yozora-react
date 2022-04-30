@@ -3,7 +3,7 @@ import { collectNumbers } from '@guanghechen/parse-lineno'
 const lineNoRangeRegex = /\s*\{\s*((?:\d+|\d+-\d+)(?:\s*,\s*(?:\d+|\d+-\d+))*)\s*\}\s*/
 const attributeRegex = /\s*([a-zA-Z_]\w+)(?:\s*=\s*"([^"]*)"|=([\S]*))?\s*/
 
-export interface ParseCodeMetaOptions {
+export interface IParseCodeMetaOptions {
   /**
    * Display linenos in default.
    */
@@ -42,9 +42,19 @@ export interface ICodeMetaData {
 }
 
 export function parseCodeMeta(
-  infoString: string,
-  { preferLineNo }: ParseCodeMetaOptions,
+  infoString: string | undefined,
+  { preferLineNo }: IParseCodeMetaOptions,
 ): ICodeMetaData {
+  const result: ICodeMetaData = {
+    highlights: [],
+    maxlines: -1,
+    title: '',
+    collapsed: undefined,
+    showlineno: preferLineNo,
+  }
+
+  if (!infoString) return result
+
   let _highlightText = ''
   const remainText = infoString.replace(
     new RegExp(lineNoRangeRegex, 'g'),
@@ -53,17 +63,8 @@ export function parseCodeMeta(
       return ' '
     },
   )
+  const highlightsSet: Set<number> = new Set(collectNumbers(_highlightText))
 
-  const highlights: number[] = collectNumbers(_highlightText)
-  const result: ICodeMetaData = {
-    highlights,
-    maxlines: -1,
-    title: '',
-    collapsed: undefined,
-    showlineno: preferLineNo,
-  }
-
-  let highlightsSet: Set<number> | null = null
   const regex = new RegExp(attributeRegex, 'g')
   for (let m: RegExpExecArray | null; ; ) {
     m = regex.exec(remainText)
@@ -81,8 +82,6 @@ export function parseCodeMeta(
 
         const linenos: number[] = collectNumbers(val).filter(x => x > 0)
         if (linenos.length <= 0) break
-
-        if (highlightsSet === null) highlightsSet = new Set(highlights)
         for (const x of linenos) highlightsSet.add(x)
         break
       }
@@ -107,9 +106,7 @@ export function parseCodeMeta(
     }
   }
 
-  if (highlightsSet !== null && highlightsSet.size > highlights.length) {
-    result.highlights = [...highlightsSet].sort((x, y) => x - y)
-  }
+  result.highlights = Array.from(highlightsSet).sort((x, y) => x - y)
   return result
 }
 

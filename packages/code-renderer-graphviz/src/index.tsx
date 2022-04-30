@@ -36,15 +36,19 @@ export const GraphvizRenderer: React.FC<IGraphvizRendererProps> = props => {
   useEffect(() => {
     if (graphRef.current == null) return
 
-    graphviz(graphRef.current)
-      .onerror(onError)
-      .options({
-        fit: true,
-        zoom: false,
-        ...options,
-      })
-      .engine(engine)
-      .renderDot(code)
+    try {
+      graphviz(graphRef.current)
+        .onerror(onError)
+        .options({
+          fit: true,
+          zoom: false,
+          ...options,
+        })
+        .engine(engine)
+        .renderDot(code)
+    } catch (error: any) {
+      onError?.(error?.stack ?? error?.message ?? error ?? 'Unexpected error occurred!')
+    }
   }, [code, options, engine, onError])
 
   return <div ref={graphRef} className={cn('yozora-code-renderer-graphviz', className)} />

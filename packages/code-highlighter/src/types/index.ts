@@ -29,7 +29,7 @@ export interface ICodeHighlighterProps {
   /**
    * Whether should display line numbers.
    */
-  showLinenos?: boolean
+  showLineNo?: boolean
   /**
    * If true, use vscDarkTheme as default theme,
    * otherwise use vscLightTheme as default theme.
@@ -75,7 +75,7 @@ export interface IHighlightContentProps extends IRenderProps {
    * Whether should display line numbers.
    * @default true
    */
-  showLinenos?: boolean
+  showLineNo?: boolean
   /**
    * Ref of the codes area.
    */

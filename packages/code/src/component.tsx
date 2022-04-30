@@ -38,20 +38,20 @@ export const Code: React.FC<ICodeProps> = props => {
     meta: infoString,
     runners = defaultRunners,
     darken,
-    preferLinenos = true,
+    preferLineNo = true,
     className,
     style,
   } = props
 
   const meta = useMemo<ICodeMetaData>(
-    () => parseCodeMeta(infoString ?? '', { preferLinenos }),
-    [infoString, preferLinenos],
+    () => parseCodeMeta(infoString ?? '', { preferLineNo }),
+    [infoString, preferLineNo],
   )
-  const { highlights, maxlines, _yozoraCodeMode, title, collapsed, showLinenos } = meta
+  const { _yozoracodemode, highlights, maxlines, title, collapsed, showlineno: showLineNo } = meta
 
   let result: React.ReactElement | null = null
   if (lang != null) {
-    switch (_yozoraCodeMode) {
+    switch (_yozoracodemode) {
       case 'live': {
         result = (
           <CodeLive
@@ -62,7 +62,7 @@ export const Code: React.FC<ICodeProps> = props => {
             title={title}
             maxLines={maxlines}
             collapsed={collapsed}
-            showLinenos={showLinenos}
+            showLinenos={showLineNo}
             darken={darken}
             className={className}
             style={style}
@@ -98,7 +98,7 @@ export const Code: React.FC<ICodeProps> = props => {
         highlightLinenos={highlights}
         maxLines={maxlines}
         collapsed={collapsed}
-        showLinenos={showLinenos}
+        showLineNo={showLineNo}
         darken={darken}
         className={className}
         style={style}
@@ -113,7 +113,7 @@ Code.propTypes = {
   runners: PropTypes.array,
   value: PropTypes.string.isRequired,
   darken: PropTypes.bool,
-  preferLinenos: PropTypes.bool,
+  preferLineNo: PropTypes.bool,
   className: PropTypes.string,
   style: PropTypes.object,
 }

@@ -1,8 +1,8 @@
-import FootnoteDefinition from '@yozora/react-footnote-definition'
+import type { FootnoteDefinition } from '@yozora/ast'
+import { NodesRenderer, useNodeRendererContext } from '@yozora/core-react-renderer'
+import FootnoteDefinitionRenderer from '@yozora/react-footnote-definition'
 import cn from 'clsx'
 import React from 'react'
-import { YozoraMarkdownContextType } from './context/context'
-import { YozoraNodesRenderer } from './YozoraNodesRenderer'
 
 export interface IFootnoteDefinitionsProps {
   /**
@@ -25,24 +25,26 @@ export interface IFootnoteDefinitionsProps {
 
 export const YozoraFootnoteDefinitions: React.FC<IFootnoteDefinitionsProps> = props => {
   const { footnoteDefinitionsTitle, dontNeedFootnoteDefinitions = false, className, style } = props
+  const { footnoteDefinitionMap } = useNodeRendererContext()
 
-  const { footnoteDefinitions } = React.useContext(YozoraMarkdownContextType)
+  const children = React.useMemo<React.ReactNode>(() => {
+    // Get all of footnote reference definitions.
+    const footnoteDefinitions: ReadonlyArray<FootnoteDefinition> =
+      Object.values(footnoteDefinitionMap)
+    if (footnoteDefinitions.length <= 0) return null
 
-  const children = React.useMemo<React.ReactNode>(
-    () =>
-      footnoteDefinitions.map((item, idx) => (
-        <FootnoteDefinition
-          key={idx}
-          label={item.label ?? item.identifier}
-          identifier={item.identifier}
-        >
-          <YozoraNodesRenderer nodes={item.children} />
-        </FootnoteDefinition>
-      )),
-    [footnoteDefinitions],
-  )
+    return footnoteDefinitions.map((item, idx) => (
+      <FootnoteDefinitionRenderer
+        key={idx}
+        label={item.label ?? item.identifier}
+        identifier={item.identifier}
+      >
+        <NodesRenderer nodes={item.children} />
+      </FootnoteDefinitionRenderer>
+    ))
+  }, [footnoteDefinitionMap])
 
-  if (dontNeedFootnoteDefinitions || footnoteDefinitions.length <= 0) return null
+  if (dontNeedFootnoteDefinitions || children === null) return null
 
   return (
     <div className={cn('yozora-footnote-definitions', className)} style={style}>

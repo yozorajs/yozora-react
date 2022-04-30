@@ -38,8 +38,11 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
   "dependencies": {
+    "@emotion/css": "^11.9.0",
     "@guanghechen/react-hooks": "^1.9.3",
     "@types/react-copy-to-clipboard": "^5.0.2",
+    "@yozora/core-react-renderer": "^2.0.0-alpha.4",
+    "@yozora/core-react-theme": "^2.0.0-alpha.4",
     "@yozora/react-admonition": "^2.0.0-alpha.4",
     "@yozora/react-blockquote": "^2.0.0-alpha.4",
     "@yozora/react-break": "^2.0.0-alpha.4",

@@ -16,7 +16,7 @@ export const CodeHighlighter: React.FC<ICodeHighlighterProps> = props => {
     maxLines,
     lineHeight,
     collapsed,
-    showLinenos,
+    showLineNo,
     codesRef,
     onLinenoWidthChange,
   } = props
@@ -33,7 +33,7 @@ export const CodeHighlighter: React.FC<ICodeHighlighterProps> = props => {
           lineHeight={lineHeight}
           maxLines={maxLines}
           collapsed={collapsed}
-          showLinenos={showLinenos}
+          showLineNo={showLineNo}
           tokens={tokens}
           getLineProps={getLineProps}
           getTokenProps={getTokenProps}
@@ -60,7 +60,7 @@ CodeHighlighter.propTypes = {
   lineHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   maxLines: PropTypes.number,
   onLinenoWidthChange: PropTypes.func,
-  showLinenos: PropTypes.bool,
+  showLineNo: PropTypes.bool,
   theme: PropTypes.any,
   value: PropTypes.string.isRequired,
 }

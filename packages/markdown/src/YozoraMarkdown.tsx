@@ -1,11 +1,10 @@
 import type { Root as IRoot } from '@yozora/ast'
+import { NodesRenderer } from '@yozora/core-react-renderer'
+import { YozoraThemeContextType } from '@yozora/core-react-theme'
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { YozoraMarkdownContextType } from './context/context'
-import { useStyles } from './style/style'
 import { YozoraFootnoteDefinitions } from './YozoraFootnoteDefinitions'
-import { YozoraNodesRenderer } from './YozoraNodesRenderer'
 
 export interface IYozoraMarkdownProps {
   /**
@@ -38,7 +37,7 @@ class YozoraMarkdownRenderer extends React.Component<IYozoraMarkdownProps> {
     return (
       <div className={className} style={style}>
         <section>
-          <YozoraNodesRenderer nodes={ast.children} />
+          <NodesRenderer nodes={ast.children} />
         </section>
         <footer>
           <YozoraFootnoteDefinitions
@@ -70,14 +69,10 @@ class YozoraMarkdownRenderer extends React.Component<IYozoraMarkdownProps> {
  * @returns
  */
 export const YozoraMarkdown: React.FC<IYozoraMarkdownProps> = props => {
-  const { darken } = React.useContext(YozoraMarkdownContextType)
-  const classes = useStyles()
-  const className = cn(
-    'yozora-markdown',
-    classes.markdown,
-    { 'yozora-markdown--darken': darken },
-    props.className,
-  )
+  const { theme } = React.useContext(YozoraThemeContextType)
+  const darken: boolean = theme === 'darken'
+
+  const className = cn('yozora-markdown', { 'yozora-markdown--darken': darken }, props.className)
   return <YozoraMarkdownRenderer {...props} className={className} />
 }
 

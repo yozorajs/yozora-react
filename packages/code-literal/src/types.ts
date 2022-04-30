@@ -27,7 +27,7 @@ export interface ICodeLiteralProps {
   /**
    * Whether to display the line numbers.
    */
-  showLinenos?: boolean
+  showLineNo?: boolean
   /**
    * If true, use vscDarkTheme as default theme,
    * otherwise use vscLightTheme as default theme.
