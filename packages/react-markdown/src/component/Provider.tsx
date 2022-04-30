@@ -7,7 +7,7 @@ import type { ICodeRunnerItem } from '@yozora/react-code-runners'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useStyles } from '../style/style'
-import type { INodeRendererMap } from '../types'
+import type { INodeRendererMap } from './nodeRendererMap'
 import { defaultNodeRendererMap } from './nodeRendererMap'
 import { createCodeRenderer } from './renderer/code'
 

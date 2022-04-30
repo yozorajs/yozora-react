@@ -15,5 +15,3 @@ export * from './YozoraFootnoteDefinitions'
 export { MathJaxProvider } from '@yozora/react-mathjax'
 
 export default YozoraMarkdown
-
-export * from './types'
