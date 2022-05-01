@@ -1,5 +1,12 @@
 import { css, cx } from '@emotion/css'
 
+const vars = {
+  border: '1px solid var(--yozora-colors-border-code, #d3d3d3)',
+  caretColor: 'var(--yozora-colors-caret-code, #ed6c60)',
+  codeFontFamily: `var(--yozora-fonts-family-code, Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif)`,
+  codeFontSize: 'var(--yozora-fonts-size-code, 1rem)',
+}
+
 const baseEditorAreaCls: string = css({
   height: '100%',
   width: '100%',
@@ -47,7 +54,7 @@ const textareaContentsCls: string = cx(
     resize: 'none',
     padding: 0,
     color: 'transparent',
-    caretColor: 'var(--yozora-colors-caret-code, #ed6c60)',
+    caretColor: vars.caretColor,
     WebkitTextFillColor: 'transparent',
     // Reset the text fill color so that placeholder is visible
     '&:empty': {
@@ -74,10 +81,9 @@ export const classes = {
     wordWrap: 'normal',
 
     // Patching styles.
-    fontFamily: `var(--yozora-fonts-family-code, Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif)`,
-    fontSize: 'var(--yozora-fonts-size-code, 1rem)',
-    border: '1px solid #d3d3d3',
-    borderColor: 'var(--yozora-colors-border-code)',
+    fontFamily: vars.codeFontFamily,
+    fontSize: vars.codeFontSize,
+    border: vars.border,
     borderRadius: '4px',
     '& > pre': {
       code: {

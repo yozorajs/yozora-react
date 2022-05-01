@@ -25,5 +25,3 @@ export function errorBoundary(
 
   return ErrorBoundary
 }
-
-export default errorBoundary

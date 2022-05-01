@@ -20,5 +20,3 @@ const opts = {
 export function transform(code: string): string {
   return _transform(code, opts).code
 }
-
-export default transform

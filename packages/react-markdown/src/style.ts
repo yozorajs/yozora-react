@@ -5,7 +5,7 @@ import React from 'react'
 export const useStyles = (): string => {
   const { themeStyle } = useThemeContext()
   return React.useMemo(() => {
-    const { breakpoints, colors, effects, spacing } = themeStyle
+    const { breakpoints, colors, effects, fonts, spacing } = themeStyle
     return cx(
       css({
         '.yozora-admonition.yozora-admonition': {
@@ -137,10 +137,27 @@ export const useStyles = (): string => {
         },
       }),
       css({
+        '.yozora-admonition': {
+          '.yozora-admonition__heading': {
+            '.yozora-math': {
+              color: 'inherit',
+            },
+            '.yozora-inline-math': {
+              color: 'inherit',
+            },
+          },
+        },
         '.yozora-list-item': {
           '> .yozora-list': {
             marginLeft: '1.2em',
           },
+        },
+        '.yozora-code-renderer-graphviz': {
+          display: 'flex',
+          justifyContent: 'center',
+          padding: '2rem 0',
+          marginBottom: '1rem',
+          background: 'hsla(0deg, 0%, 90%, 0.2)',
         },
       }),
       css({
@@ -163,6 +180,25 @@ export const useStyles = (): string => {
             },
             '.yozora-code-editor__textarea': {
               fontSize: '0.9rem',
+            },
+            '.yozora-list-item': {
+              '> .yozora-paragraph:last-child': {
+                marginBottom: '0.5rem',
+              },
+            },
+            '.yozora-paragraph': {
+              '&.yozora-paragraph--display': {
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '1rem 0',
+              },
+              '+ .yozora-math': {
+                marginTop: '-1rem',
+              },
+              '+ .yozora-list': {
+                marginTop: '-0.8rem',
+              },
             },
           },
           '.yozora-code-live': {

@@ -79,6 +79,4 @@ CodeRendererJsx.propTypes = {
   scope: PropTypes.any,
   onError: PropTypes.func.isRequired,
 }
-
 CodeRendererJsx.displayName = 'YozoraCodeRendererJsx'
-export default CodeRendererJsx

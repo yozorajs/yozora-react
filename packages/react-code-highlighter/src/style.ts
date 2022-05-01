@@ -1,5 +1,10 @@
 import { css } from '@emotion/css'
 
+const vars = {
+  border: '1px solid var(--yozora-colors-border-codeLineno, hsla(0deg, 0%, 80%, 0.8))',
+  highlightBackground: 'var(--yozora-colors-background-codeHighlight, hsla(30deg, 90%, 50%, 0.3))',
+}
+
 export const classes = {
   container: css({
     MozOsxFontSmoothing: 'grayscale',
@@ -36,7 +41,7 @@ export const classes = {
     wordWrap: 'inherit',
   }),
   highlightLine: css({
-    background: 'var(--yozora-colors-background-codeHighlight, hsla(30deg, 90%, 50%, 0.3))',
+    background: vars.highlightBackground,
     borderColor: 'transparent',
   }),
   lineno: css({
@@ -47,8 +52,7 @@ export const classes = {
     cursor: 'default',
     userSelect: 'none',
     textAlign: 'right',
-    borderRight: '1px solid hsla(0deg, 0%, 80%, 0.8)',
-    borderColor: 'var(--yozora-colors-border-codeLineno)',
+    borderRight: vars.border,
   }),
   codes: css({
     flex: '1 1 auto',

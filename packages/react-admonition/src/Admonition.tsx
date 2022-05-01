@@ -1,4 +1,4 @@
-import { css, cx } from '@emotion/css'
+import { cx } from '@emotion/css'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {
@@ -8,6 +8,7 @@ import {
   YozoraAdmonitionNoteIcon,
   YozoraAdmonitionTipIcon,
 } from './icons'
+import { classes } from './style'
 
 export interface IAdmonitionProps {
   /**
@@ -89,14 +90,14 @@ export const Admonition: React.FC<IAdmonitionProps> = props => {
       data-admonition-keyword={modifier}
       style={style}
     >
-      <h5 key="heading" className="yozora-admonition__heading">
-        <span key="icon" className="yozora-admonition__heading-icon">
+      <div key="heading" className={classes.heading}>
+        <span key="icon" className={classes.icon}>
           {icon}
         </span>
-        <span key="title" className="yozora-admonition__heading-title">
+        <span key="title" className={classes.title}>
           {title}
         </span>
-      </h5>
+      </div>
       <div key="main">{children}</div>
     </div>
   )
@@ -111,71 +112,3 @@ Admonition.propTypes = {
   title: PropTypes.node,
 }
 Admonition.displayName = 'YozoraAdmonition'
-
-const classes = {
-  container: css({
-    padding: '1em',
-    borderLeft: 'var(--yozora-admonition-border-width, 5px) solid transparent',
-    borderRadius: '6px',
-    margin: '0 0 1.25em 0',
-    boxShadow: '0 1px 2px 0 hsla(0deg, 0%, 0%, 0.1)',
-    '.yozora-admonition__heading': {
-      display: 'flex',
-      alignItems: 'flex-start',
-      lineHeight: 1.6,
-      fontSize: '0.857rem',
-      margin: '0 0 8px 0',
-      verticalAlign: 'middle',
-      letterSpacing: '1px',
-      textRendering: 'optimizeLegibility',
-      textSizeAdjust: '100%',
-      textTransform: 'none',
-      overflowWrap: 'break-word',
-      fontFamily: `system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif`,
-    },
-    '.yozora-admonition__heading-icon': {
-      marginRight: '0.5rem',
-      '> svg:first-child path': {
-        fill: 'currentColor',
-      },
-    },
-    '.yozora-admonition__heading-title': {
-      display: 'block',
-    },
-    '&&[data-admonition-keyword="note"]': {
-      borderColor: 'var(--yozora-colors-border-note, #d4d5d8)',
-      backgroundColor: 'var(--yozora-colors-background-note, #fdfdfe)',
-      '.yozora-admonition__heading': {
-        color: 'var(--yozora-colors-border-note, #d4d5d8)',
-      },
-    },
-    '&&[data-admonition-keyword="info"]': {
-      borderColor: 'var(--yozora-colors-border-info, #4cb3d4)',
-      backgroundColor: 'var(--yozora-colors-background-info, #eef9fd)',
-      '.yozora-admonition__heading': {
-        color: 'var(--yozora-colors-border-info, #4cb3d4)',
-      },
-    },
-    '&&[data-admonition-keyword="tip"]': {
-      borderColor: 'var(--yozora-colors-border-success, #009400)',
-      backgroundColor: 'var(--yozora-colors-background-success, #e6f6e6)',
-      '.yozora-admonition__heading': {
-        color: 'var(--yozora-colors-border-success, #009400)',
-      },
-    },
-    '&&[data-admonition-keyword="caution"]': {
-      borderColor: 'var(--yozora-colors-border-warning, #e6a700)',
-      backgroundColor: 'var(--yozora-colors-background-warning, #fff8e6)',
-      '.yozora-admonition__heading': {
-        color: 'var(--yozora-colors-border-warning, #e6a700)',
-      },
-    },
-    '&&[data-admonition-keyword="danger"]': {
-      borderColor: 'var(--yozora-colors-border-error, #e13238)',
-      backgroundColor: 'var(--yozora-colors-background-error, #ffebec)',
-      '.yozora-admonition__heading': {
-        color: 'var(--yozora-colors-border-error, #e13238)',
-      },
-    },
-  }),
-}

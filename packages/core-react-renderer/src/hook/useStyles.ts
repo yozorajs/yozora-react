@@ -16,11 +16,19 @@ export const useStyles = (customStyles: Readonly<Partial<INodeStyleMap>> | undef
           margin: spacing.margin.blockNode,
           background: colors.background.blockquote,
           boxShadow: '0 1px 2px 0 hsla(0deg, 0%, 0%, 0.1)',
+          '> :last-child': {
+            marginBottom: 0,
+          },
         },
       }),
       break: css({
         '.yozora-break': {
           boxSizing: 'border-box',
+        },
+      }),
+      code: css({
+        '.yozora-code': {
+          margin: spacing.margin.blockNode,
         },
       }),
       delete: css({
@@ -183,6 +191,9 @@ export const useStyles = (customStyles: Readonly<Partial<INodeStyleMap>> | undef
           padding: 0,
           margin: '0 0 1em 2em',
           lineHeight: 2,
+          '> :last-child': {
+            marginBottom: 0,
+          },
         },
       }),
       listItem: css({
@@ -190,6 +201,9 @@ export const useStyles = (customStyles: Readonly<Partial<INodeStyleMap>> | undef
           position: 'relative',
           padding: 0,
           margin: 0,
+          '> :last-child': {
+            marginBottom: 0,
+          },
         },
       }),
       paragraph: css({
@@ -203,10 +217,13 @@ export const useStyles = (customStyles: Readonly<Partial<INodeStyleMap>> | undef
           wordBreak: 'normal',
           letterSpacing: '1px',
           overflowWrap: 'break-word',
+          '> :last-child': {
+            marginBottom: 0,
+          },
         },
       }),
       strong: css({
-        'yozora-strong': {
+        '.yozora-strong': {
           fontWeight: 600,
         },
       }),
@@ -300,6 +317,37 @@ export const useStyles = (customStyles: Readonly<Partial<INodeStyleMap>> | undef
 
         MozOsxFontSmoothing: 'grayscale',
         WebkitFontSmoothing: 'antialiased',
+        fontFamily: fonts.family.body,
+        wordBreak: 'break-all',
+        '& ::-webkit-scrollbar': {
+          width: 4,
+          height: 4,
+        },
+        '& ::-webkit-scrollbar-corner': {
+          display: 'none',
+        },
+        '& ::-webkit-scrollbar-track': {
+          backgroundColor: 'transparent',
+        },
+        '& ::-webkit-scrollbar-thumb': {
+          border: '3px solid hsl(0, 0%, 50%)',
+          background: 'hsl(0, 0%, 60%)',
+          borderRadius: '4px',
+
+          '&:hover': {
+            borderColor: 'hsl(0, 0%, 70%)',
+          },
+        },
+        a: {
+          color: colors.text.link,
+          textDecoration: 'none',
+          '&:visited': {
+            color: effects.visited.colors.text.link,
+          },
+          '&:hover': {
+            color: effects.hover.colors.text.link,
+          },
+        },
       }),
       Object.values(styleMap),
     )

@@ -1,6 +1,6 @@
 import React from 'react'
-import errorBoundary from './error-boundary'
-import transform, { _poly, _polyKey } from './transform'
+import { errorBoundary } from './error-boundary'
+import { _poly, _polyKey, transform } from './transform'
 
 /**
  * Eval Jsx code

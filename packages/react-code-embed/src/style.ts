@@ -1,5 +1,10 @@
 import { css } from '@emotion/css'
 
+const vars = {
+  border: '1px solid var(--yozora-colors-border-error, red)',
+  errorColor: 'var(--yozora-colors-border-error, red)',
+}
+
 export const classes = {
   container: css({
     position: 'relative',
@@ -11,8 +16,8 @@ export const classes = {
     display: 'block',
     width: '100%',
     height: '100%',
-    color: 'var(--yozora-colors-border-error, red)',
-    border: '1px solid var(--yozora-colors-border-error, red)',
+    color: vars.errorColor,
+    border: vars.border,
   }),
   errorDetails: css({
     display: 'block',

@@ -1,6 +1,4 @@
-import YozoraCode from './component'
-
-export default YozoraCode
+export * from './component'
 export * from './types'
 export * from './util'
-export * from './component'
+export { YozoraCode as default } from './component'

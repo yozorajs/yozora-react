@@ -1,10 +1,9 @@
+import { cx } from '@emotion/css'
 import type { Root as IRoot } from '@yozora/ast'
 import { NodesRenderer } from '@yozora/core-react-renderer'
-import { YozoraThemeContextType } from '@yozora/core-react-theme'
-import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { FootnoteDefinitions } from './component/FootnoteDefinitions'
+import { FootnoteDefinitions } from './FootnoteDefinitions'
 
 export interface IYozoraMarkdownProps {
   /**
@@ -29,13 +28,21 @@ export interface IYozoraMarkdownProps {
   style?: React.CSSProperties
 }
 
-class YozoraMarkdownRenderer extends React.Component<IYozoraMarkdownProps> {
+export class YozoraMarkdown extends React.Component<IYozoraMarkdownProps> {
+  public static propTypes = {
+    ast: PropTypes.any.isRequired,
+    footnoteDefinitionsTitle: PropTypes.node,
+    dontNeedFootnoteDefinitions: PropTypes.bool,
+    className: PropTypes.string,
+    style: PropTypes.any,
+  }
+
   public override render(): React.ReactElement {
     const { ast, footnoteDefinitionsTitle, dontNeedFootnoteDefinitions, className, style } =
       this.props
 
     return (
-      <div className={className} style={style}>
+      <div className={cx('yozora-markdown', className)} style={style}>
         <section>
           <NodesRenderer nodes={ast.children} />
         </section>
@@ -61,28 +68,3 @@ class YozoraMarkdownRenderer extends React.Component<IYozoraMarkdownProps> {
     )
   }
 }
-
-/**
- * Render yozora markdown ast in react components.
- *
- * @param props
- * @returns
- */
-export const YozoraMarkdown: React.FC<IYozoraMarkdownProps> = props => {
-  const { theme } = React.useContext(YozoraThemeContextType)
-  const darken: boolean = theme === 'darken'
-
-  const className = cn('yozora-markdown', { 'yozora-markdown--darken': darken }, props.className)
-  return <YozoraMarkdownRenderer {...props} className={className} />
-}
-
-YozoraMarkdown.propTypes = {
-  ast: PropTypes.any.isRequired,
-  footnoteDefinitionsTitle: PropTypes.node,
-  dontNeedFootnoteDefinitions: PropTypes.bool,
-  className: PropTypes.string,
-  style: PropTypes.any,
-}
-
-YozoraMarkdown.displayName = 'YozoraMarkdown'
-export default YozoraMarkdown
