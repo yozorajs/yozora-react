@@ -2,7 +2,7 @@ import Highlight, { Prism } from 'prism-react-renderer'
 import type { PrismTheme } from 'prism-react-renderer'
 import PropTypes from 'prop-types'
 import React from 'react'
-import HighlighterContent from './content'
+import { CodeHighlighterContent } from './content'
 import vscDarkTheme from './theme/vsc-dark'
 import vscLightTheme from './theme/vsc-light'
 import type { ICodeHighlighterProps } from './types'
@@ -27,7 +27,7 @@ export const CodeHighlighter: React.FC<ICodeHighlighterProps> = props => {
   return (
     <Highlight Prism={Prism} code={code} theme={theme} language={lang as any}>
       {({ tokens, getLineProps, getTokenProps, className, style }) => (
-        <HighlighterContent
+        <CodeHighlighterContent
           codesRef={codesRef}
           highlightLinenos={highlightLinenos}
           lineHeight={lineHeight}
@@ -46,9 +46,6 @@ export const CodeHighlighter: React.FC<ICodeHighlighterProps> = props => {
   )
 }
 
-CodeHighlighter.displayName = 'YozoraCodeHighlighter'
-export default CodeHighlighter
-
 CodeHighlighter.propTypes = {
   codesRef: PropTypes.any,
   collapsed: PropTypes.bool,
@@ -64,3 +61,4 @@ CodeHighlighter.propTypes = {
   theme: PropTypes.any,
   value: PropTypes.string.isRequired,
 }
+CodeHighlighter.displayName = 'YozoraCodeHighlighter'

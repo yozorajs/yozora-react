@@ -9,16 +9,6 @@ export const useStyles = (): string => {
     return cx(
       css({
         '.yozora-admonition.yozora-admonition': {
-          '--yozora-admonition--note-bg-color': colors.background.note,
-          '--yozora-admonition--note-border-color': colors.border.note,
-          '--yozora-admonition--info-bg-color': colors.background.info,
-          '--yozora-admonition--info-border-color': colors.border.info,
-          '--yozora-admonition--tip-bg-color': colors.background.success,
-          '--yozora-admonition--tip-border-color': colors.border.success,
-          '--yozora-admonition--caution-bg-color': colors.background.warning,
-          '--yozora-admonition--caution-border-color': colors.border.warning,
-          '--yozora-admonition--danger-bg-color': colors.background.error,
-          '--yozora-admonition--danger-border-color': colors.border.error,
           margin: spacing.margin.blockNode,
         },
         '.yozora-footnote-definition': {
@@ -147,6 +137,18 @@ export const useStyles = (): string => {
         },
       }),
       css({
+        '--yozora-admonition--note__bg': colors.background.note,
+        '--yozora-admonition--note__border-color': colors.border.note,
+        '--yozora-admonition--info__bg': colors.background.info,
+        '--yozora-admonition--info__border-color': colors.border.info,
+        '--yozora-admonition--tip__bg': colors.background.success,
+        '--yozora-admonition--tip__border-color': colors.border.success,
+        '--yozora-admonition--caution__bg': colors.background.warning,
+        '--yozora-admonition--caution__border-color': colors.border.warning,
+        '--yozora-admonition--danger__bg': colors.background.error,
+        '--yozora-admonition--danger__border-color': colors.border.error,
+        '--yozora-code__bg-highlight': colors.background.codeHighlight,
+        '--yozora-code__color-border': colors.border.codeLineno,
         MozOsxFontSmoothing: 'grayscale',
         WebkitFontSmoothing: 'antialiased',
         '.yozora-list-item': {

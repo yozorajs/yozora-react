@@ -31,6 +31,7 @@ export interface IThemeColors {
 
     // elements
     blockquote: string
+    codeHighlight: string
     inlineCode: string
     tableHead: string
     tableOddRow: string
@@ -45,6 +46,7 @@ export interface IThemeColors {
 
     // elements
     blockquote: string
+    codeLineno: string
     heading: string
     image: string
     table: string

@@ -21,6 +21,7 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
 
       // elements
       blockquote: '#fafaf9',
+      codeHighlight: 'hsla(30deg, 90%, 50%, 0.3)',
       inlineCode: 'hsla(210deg, 15%, 60%, 0.15)',
       tableHead: '#eff0f0',
       tableOddRow: '#fff',
@@ -35,6 +36,7 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
 
       // elements
       blockquote: '#dfe2e5',
+      codeLineno: 'hsla(0deg, 0%, 80%, 0.8)',
       heading: 'hsla(216deg, 20%, 80%, 0.92)',
       image: '#7a6390',
       table: '#dfe2e5',

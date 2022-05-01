@@ -21,6 +21,7 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
 
       // elements
       blockquote: '#fafaf9',
+      codeHighlight: 'hsla(210deg, 100%, 84%, 0.2)',
       inlineCode: 'hsla(210deg, 15%, 60%, 0.15)',
       tableHead: '#eff0f0',
       tableOddRow: '#fff',
@@ -35,6 +36,7 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
 
       // elements
       blockquote: '#dfe2e5',
+      codeLineno: 'hsla(0deg, 0%, 30%, 0.8)',
       heading: 'hsla(216deg, 20%, 80%, 0.92)',
       image: '#7a6390',
       table: '#dfe2e5',

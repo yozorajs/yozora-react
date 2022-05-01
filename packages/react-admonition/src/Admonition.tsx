@@ -143,38 +143,38 @@ const classes = {
       display: 'block',
     },
     '&&[data-admonition-keyword="note"]': {
-      borderColor: 'var(--yozora-admonition--note-border-color, #d4d5d8)',
-      backgroundColor: 'var(--yozora-admonition--note-bg-color, #fdfdfe)',
+      borderColor: 'var(--yozora-admonition--note__border-color, #d4d5d8)',
+      backgroundColor: 'var(--yozora-admonition--note__bg, #fdfdfe)',
       '.yozora-admonition__heading': {
-        color: 'var(--yozora-admonition--note-border-color, #d4d5d8)',
+        color: 'var(--yozora-admonition--note__border-color, #d4d5d8)',
       },
     },
     '&&[data-admonition-keyword="info"]': {
-      borderColor: 'var(--yozora-admonition--info-border-color, #4cb3d4)',
-      backgroundColor: 'var(--yozora-admonition--info-bg-color, #eef9fd)',
+      borderColor: 'var(--yozora-admonition--info__border-color, #4cb3d4)',
+      backgroundColor: 'var(--yozora-admonition--info__bg, #eef9fd)',
       '.yozora-admonition__heading': {
-        color: 'var(--yozora-admonition--info-border-color, #4cb3d4)',
+        color: 'var(--yozora-admonition--info__border-color, #4cb3d4)',
       },
     },
     '&&[data-admonition-keyword="tip"]': {
-      borderColor: 'var(--yozora-admonition--tip-border-color, #009400)',
-      backgroundColor: 'var(--yozora-admonition--tip-bg-color, #e6f6e6)',
+      borderColor: 'var(--yozora-admonition--tip__border-color, #009400)',
+      backgroundColor: 'var(--yozora-admonition--tip__bg, #e6f6e6)',
       '.yozora-admonition__heading': {
-        color: 'var(--yozora-admonition--tip-border-color, #009400)',
+        color: 'var(--yozora-admonition--tip__border-color, #009400)',
       },
     },
     '&&[data-admonition-keyword="caution"]': {
-      borderColor: 'var(--yozora-admonition--caution-border-color, #e6a700)',
-      backgroundColor: 'var(--yozora-admonition--caution-bg-color, #fff8e6)',
+      borderColor: 'var(--yozora-admonition--caution__border-color, #e6a700)',
+      backgroundColor: 'var(--yozora-admonition--caution__bg, #fff8e6)',
       '.yozora-admonition__heading': {
-        color: 'var(--yozora-admonition--caution-border-color, #e6a700)',
+        color: 'var(--yozora-admonition--caution__border-color, #e6a700)',
       },
     },
     '&&[data-admonition-keyword="danger"]': {
-      borderColor: 'var(--yozora-admonition--danger-border-color, #e13238)',
-      backgroundColor: 'var(--yozora-admonition--danger-bg-color, #ffebec)',
+      borderColor: 'var(--yozora-admonition--danger__border-color, #e13238)',
+      backgroundColor: 'var(--yozora-admonition--danger__bg, #ffebec)',
       '.yozora-admonition__heading': {
-        color: 'var(--yozora-admonition--danger-border-color, #e13238)',
+        color: 'var(--yozora-admonition--danger__border-color, #e13238)',
       },
     },
   }),
