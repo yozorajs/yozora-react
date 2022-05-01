@@ -21,6 +21,7 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
 
       // elements
       blockquote: '#fafaf9',
+      code: '#1e1e1e',
       codeHighlight: 'hsla(210deg, 100%, 84%, 0.2)',
       inlineCode: 'hsla(210deg, 15%, 60%, 0.15)',
       tableHead: '#eff0f0',
@@ -36,6 +37,7 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
 
       // elements
       blockquote: '#dfe2e5',
+      code: 'hsla(0deg, 0%, 30%, 0.8)',
       codeLineno: 'hsla(0deg, 0%, 30%, 0.8)',
       heading: 'hsla(216deg, 20%, 80%, 0.92)',
       image: '#7a6390',
@@ -44,12 +46,19 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
     },
     text: {
       // elements
+      codeTitle: 'hsla(0deg, 0%, 90%, 0.8)',
       deleted: '#acb2b9',
       heading: '#586069',
       imageTitle: '#808080',
       inlineCode: '#d81848',
       link: '#4682B4',
       math: '#3d3df5',
+    },
+    selection: {
+      code: 'hsla(200deg, 30%, 70%, 0.3)',
+    },
+    caret: {
+      code: '#aeafad',
     },
   }
 

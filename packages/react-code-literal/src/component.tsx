@@ -1,9 +1,10 @@
+import { cx } from '@emotion/css'
 import CodeHighlighter from '@yozora/react-code-highlighter'
 import CopyButton from '@yozora/react-common-copy-button'
 import LightButtons from '@yozora/react-common-light-buttons'
-import cn from 'clsx'
 import PropTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { classes } from './style'
 import type { ICodeLiteralProps } from './types'
 
 /**
@@ -16,25 +17,21 @@ import type { ICodeLiteralProps } from './types'
  * @see https://www.npmjs.com/package/@yozora/react-code-embed
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
-export const CodeLiteral: React.FC<ICodeLiteralProps> = props => {
+export const YozoraCodeLiteral: React.FC<ICodeLiteralProps> = props => {
   const { value, lang, title, highlightLinenos, maxLines, showLineNo, darken, className, style } =
     props
 
-  const [collapsed, setCollapsed] = useState<boolean>(props.collapsed ?? false)
-  const [countOfLines, setCountOfLines] = useState<number | null>(() =>
-    collapsed ? value.split(/\r|\n|\n\r/g).length : null,
+  const [collapsed, setCollapsed] = React.useState<boolean>(props.collapsed ?? false)
+  const countOfLines: number = React.useMemo<number>(
+    () => value.split(/\r|\n|\n\r/g).length,
+    [value],
   )
 
-  useEffect(() => {
-    if (countOfLines != null || !collapsed) return
-    setCountOfLines(value.split(/\r|\n|\n\r/g).length)
-  }, [collapsed, countOfLines, value])
-
   return (
-    <div className={cn('yozora-code-literal', className)} style={style}>
+    <div className={cx('yozora-code-literal', classes.container, className)} style={style}>
       <div
         key="toolbar"
-        className="yozora-code-literal__toolbar"
+        className={classes.toolbar}
         onDoubleClick={e => {
           e.stopPropagation()
           e.preventDefault()
@@ -46,19 +43,15 @@ export const CodeLiteral: React.FC<ICodeLiteralProps> = props => {
           onMinimize={() => setCollapsed(true)}
           onMaximize={() => setCollapsed(false)}
         />
-        <span key="title" className="yozora-code-literal__title" title={title}>
-          {title}&nbsp;
-          {title && countOfLines && ' | ' + countOfLines + ' lines.'}
+        <span key="title" className={classes.title} title={title}>
+          {title && <React.Fragment>{title}&nbsp;&nbsp;|&nbsp;</React.Fragment>}
+          {countOfLines}&nbsp;lines.
         </span>
-        <span
-          key="copy-btn"
-          className="yozora-code-literal__copy-button"
-          onClick={e => e.stopPropagation()}
-        >
+        <span key="copyBtn" className={classes.copyBtn} onClick={e => e.stopPropagation()}>
           <CopyButton value={value} />
         </span>
       </div>
-      <code key="content" className="yozora-code-literal__content">
+      <code key="content" className={classes.content}>
         <pre>
           <CodeHighlighter
             lang={lang}
@@ -75,7 +68,7 @@ export const CodeLiteral: React.FC<ICodeLiteralProps> = props => {
   )
 }
 
-CodeLiteral.propTypes = {
+YozoraCodeLiteral.propTypes = {
   className: PropTypes.string,
   collapsed: PropTypes.bool,
   darken: PropTypes.bool,
@@ -87,6 +80,4 @@ CodeLiteral.propTypes = {
   title: PropTypes.string,
   value: PropTypes.string.isRequired,
 }
-
-CodeLiteral.displayName = 'YozoraCodeLiteral'
-export default CodeLiteral
+YozoraCodeLiteral.displayName = 'YozoraCodeLiteral'

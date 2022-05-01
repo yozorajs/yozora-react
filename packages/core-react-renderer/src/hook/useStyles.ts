@@ -44,7 +44,7 @@ export const useStyles = (customStyles: Readonly<Partial<INodeStyleMap>> | undef
           margin: spacing.margin.blockNode,
           marginBottom: '1em',
           lineHeight: 1.25,
-          fontFamily: fonts.heading.family,
+          fontFamily: fonts.family.heading,
           color: colors.text.heading,
           '.yozora-heading__content': {
             flex: '0 1 auto',
@@ -149,7 +149,7 @@ export const useStyles = (customStyles: Readonly<Partial<INodeStyleMap>> | undef
           background: colors.background.inlineCode,
           lineHeight: 1.375,
           color: colors.text.inlineCode,
-          fontFamily: fonts.code.family,
+          fontFamily: fonts.family.code,
           fontSize: 'min(1rem, 18px)',
           fontWeight: 500,
         },
@@ -274,6 +274,30 @@ export const useStyles = (customStyles: Readonly<Partial<INodeStyleMap>> | undef
 
     const markdownCls: string = cx(
       css({
+        // colors
+        '--yozora-colors-background-note': colors.background.note,
+        '--yozora-colors-background-info': colors.background.info,
+        '--yozora-colors-background-success': colors.background.success,
+        '--yozora-colors-background-warning': colors.background.warning,
+        '--yozora-colors-background-error': colors.background.error,
+        '--yozora-colors-background-code': colors.background.code,
+        '--yozora-colors-background-codeHighlight': colors.background.codeHighlight,
+        '--yozora-colors-border-note': colors.border.note,
+        '--yozora-colors-border-info': colors.border.info,
+        '--yozora-colors-border-success': colors.border.success,
+        '--yozora-colors-border-warning': colors.border.warning,
+        '--yozora-colors-border-error': colors.border.error,
+        '--yozora-colors-border-code': colors.border.code,
+        '--yozora-colors-border-codeLineno': colors.border.codeLineno,
+        '--yozora-colors-caret-code': colors.caret.code,
+        '--yozora-colors-selection-code': colors.selection.code,
+        '--yozora-colors-text-codeTitle': colors.text.codeTitle,
+
+        // fonts
+        '--yozora-fonts-family-heading': fonts.family.heading,
+        '--yozora-fonts-family-code': fonts.family.code,
+        '--yozora-fonts-size-code': fonts.size.code,
+
         MozOsxFontSmoothing: 'grayscale',
         WebkitFontSmoothing: 'antialiased',
       }),

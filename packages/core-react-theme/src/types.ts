@@ -13,12 +13,18 @@ export interface IThemeStyle<D = unknown> {
   custom: D
 }
 
+export interface IThemeBreakpoint {
+  exact: string
+  exactOrMinus: string
+  exactOrPlus: string
+}
+
 export interface IThemeBreakpoints {
-  xs: number
-  sm: number
-  md: number
-  lg: number
-  xl: number
+  xs: IThemeBreakpoint
+  sm: IThemeBreakpoint
+  md: IThemeBreakpoint
+  lg: IThemeBreakpoint
+  xl: IThemeBreakpoint
 }
 
 export interface IThemeColors {
@@ -31,6 +37,7 @@ export interface IThemeColors {
 
     // elements
     blockquote: string
+    code: string
     codeHighlight: string
     inlineCode: string
     tableHead: string
@@ -46,6 +53,7 @@ export interface IThemeColors {
 
     // elements
     blockquote: string
+    code: string
     codeLineno: string
     heading: string
     image: string
@@ -54,12 +62,21 @@ export interface IThemeColors {
   }
   text: {
     // elements
+    codeTitle: string
     deleted: string
     heading: string
     imageTitle: string
     inlineCode: string
     link: string
     math: string
+  }
+  selection: {
+    // elements
+    code: string
+  }
+  caret: {
+    // elements
+    code: string
   }
 }
 
@@ -76,11 +93,12 @@ export interface IThemeEffects {
 }
 
 export interface IThemeFonts {
-  heading: {
-    family: string
+  family: {
+    code: string
+    heading: string
   }
-  code: {
-    family: string
+  size: {
+    code: string
   }
 }
 

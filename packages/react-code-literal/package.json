@@ -38,15 +38,15 @@
     "prebuild": "rimraf lib/ && tsc -p tsconfig.src.json --emitDeclarationOnly",
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
+  "peerDependencies": {
+    "@emotion/css": "^11.9.0",
+    "prop-types": "^15.7.2",
+    "react": ">= 17.0.0"
+  },
   "dependencies": {
     "@yozora/react-code-highlighter": "^2.0.0-alpha.4",
     "@yozora/react-common-copy-button": "^2.0.0-alpha.4",
     "@yozora/react-common-light-buttons": "^2.0.0-alpha.4"
-  },
-  "peerDependencies": {
-    "clsx": "^1.1.1",
-    "prop-types": "^15.7.2",
-    "react": ">= 17.0.0"
   },
   "browserslist": [
     "last 2 versions",

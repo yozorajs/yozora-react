@@ -5,7 +5,7 @@ import React from 'react'
 export const useStyles = (): string => {
   const { themeStyle } = useThemeContext()
   return React.useMemo(() => {
-    const { colors, effects, spacing } = themeStyle
+    const { breakpoints, colors, effects, spacing } = themeStyle
     return cx(
       css({
         '.yozora-admonition.yozora-admonition': {
@@ -137,24 +137,38 @@ export const useStyles = (): string => {
         },
       }),
       css({
-        // colors
-        '--yozora-colors-background-note': colors.background.note,
-        '--yozora-colors-background-info': colors.background.info,
-        '--yozora-colors-background-success': colors.background.success,
-        '--yozora-colors-background-warning': colors.background.warning,
-        '--yozora-colors-background-error': colors.background.error,
-        '--yozora-colors-border-note': colors.border.note,
-        '--yozora-colors-border-info': colors.border.info,
-        '--yozora-colors-border-success': colors.border.success,
-        '--yozora-colors-border-warning': colors.border.warning,
-        '--yozora-colors-border-error': colors.border.error,
-        '--yozora-colors-background-codeHighlight': colors.background.codeHighlight,
-        '--yozora-colors-border-codeLineno': colors.border.codeLineno,
-        MozOsxFontSmoothing: 'grayscale',
-        WebkitFontSmoothing: 'antialiased',
         '.yozora-list-item': {
           '> .yozora-list': {
             marginLeft: '1.2em',
+          },
+        },
+      }),
+      css({
+        // Adaptive small screen.
+        [`@media screen and ${breakpoints.xs.exactOrMinus}`]: {
+          '.yozora-code-literal': {
+            '&:hover': {
+              border: 'none',
+              borderRadius: '5px',
+              boxShadow: 'rgba(30, 30, 30, 73%) 0 2px 10px',
+              overflow: 'hidden',
+            },
+            '.yozora-code-highlighter__linenos': {
+              display: 'none',
+              visibility: 'hidden',
+            },
+            '.yozora-inline-math': {
+              fontSize: '0.8rem',
+            },
+            '.yozora-math': {
+              fontSize: '0.8rem',
+            },
+            '.yozora-code-highlighter__content': {
+              fontSize: '0.9rem',
+            },
+            '.yozora-code-editor__textarea': {
+              fontSize: '0.9rem',
+            },
           },
         },
       }),
