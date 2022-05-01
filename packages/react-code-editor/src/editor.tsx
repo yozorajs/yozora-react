@@ -1,5 +1,6 @@
-import cn from 'clsx'
+import { cx } from '@emotion/css'
 import React from 'react'
+import { classes } from './style'
 import type { IEditorHistory, IEditorOperationRecord, IEditorProps, IEditorState } from './types'
 import {
   HISTORY_LIMIT,
@@ -86,16 +87,16 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
     return (
       <div
         {...htmlProps}
-        className={cn('yozora-code-editor', className)}
+        className={cx('yozora-code-editor', classes.container, className)}
         style={{ ...style, tabSize }}
       >
-        <div className="yozora-code-editor__textarea-wrapper">
-          <div className="yozora-code-editor__textarea-linenos" style={{ width: linenoWidth }} />
+        <div className={classes.textarea}>
+          <div className={classes.textareaLinenos} style={{ width: linenoWidth }} />
           <textarea
             ref={this.inputRef}
             id={textareaId}
             style={textareaStyle}
-            className={cn('yozora-code-editor__textarea', textareaClassName)}
+            className={cx(classes.textareaContents, textareaClassName)}
             value={value}
             onChange={this._handleChange}
             onKeyDown={this._handleKeyDown}
@@ -120,7 +121,7 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
           />
         </div>
         <pre
-          className={cn('yozora-code-editor__previewer', preClassName)}
+          className={cx(classes.previewer, preClassName)}
           style={preStyle}
           aria-hidden="true"
           {...(typeof highlighted === 'string'
@@ -484,5 +485,3 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
     this.props.onValueChange(value)
   }
 }
-
-export default SimpleCodeEditor

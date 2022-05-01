@@ -16,6 +16,7 @@ export const classes = {
     flexDirection: 'column',
     justifyContent: 'flex-start',
     border: '1px solid #d3d3d3',
+    borderColor: 'var(--yozora-colors-border-code)',
     background: 'var(--yozora-colors-background-code, #f5f5f5)',
     caretColor: 'var(--yozora-colors-caret-code, #ed6c60)',
     '&:hover': {

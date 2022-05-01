@@ -1,9 +1,8 @@
+import { cx } from '@emotion/css'
 import CodeHighlighter from '@yozora/react-code-highlighter'
-import cn from 'clsx'
 import type { PrismTheme } from 'prism-react-renderer'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import SimpleCodeEditor from './editor'
-import './style.styl'
+import { SimpleCodeEditor } from './editor'
 
 /**
  * Props for creating CodeEditor
@@ -166,7 +165,7 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
       linenoWidth={linenoWidth}
       preClassName={preClassName}
       preStyle={{ ...wordStyle, ...preStyle }}
-      className={cn('yozora-code-editor', className)}
+      className={cx('yozora-code-editor', className)}
       style={{ ...style, lineHeight }}
       autoFocus={autoFocus}
       onScroll={syncScrollEvents}
