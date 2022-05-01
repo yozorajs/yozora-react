@@ -1,10 +1,11 @@
+import { cx } from '@emotion/css'
 import CodeEditor from '@yozora/react-code-editor'
 import CodeEmbed from '@yozora/react-code-embed'
 import CopyButton from '@yozora/react-common-copy-button'
 import LightButtons from '@yozora/react-common-light-buttons'
-import cn from 'clsx'
 import PropTypes from 'prop-types'
-import React, { useMemo, useState } from 'react'
+import React from 'react'
+import { classes } from './style'
 import type { ICodeLiveProps } from './types'
 import { debounce } from './util'
 
@@ -18,7 +19,7 @@ import { debounce } from './util'
  * @see https://www.npmjs.com/package/@yozora/react-code-embed
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
-export const CodeLive: React.FC<ICodeLiveProps> = props => {
+export const YozoraCodeLive: React.FC<ICodeLiveProps> = props => {
   const {
     runners,
     lang,
@@ -37,20 +38,20 @@ export const CodeLive: React.FC<ICodeLiveProps> = props => {
     centerPreviewer = true,
   } = props
 
-  const [vertical] = useState<boolean>(true)
-  const [value, setValue] = useState<string>(_value)
+  const [vertical] = React.useState<boolean>(true)
+  const [value, setValue] = React.useState<string>(_value)
 
-  const [collapsed, setCollapsed] = useState<boolean>(_collapsed)
-  const handleChange = useMemo(() => debounce(setValue, 300), [])
+  const [collapsed, setCollapsed] = React.useState<boolean>(_collapsed)
+  const handleChange = React.useMemo(() => debounce(setValue, 300), [])
 
   const countOfLines = collapsed ? value.split(/\r|\n|\n\r/g).length : null
   const runner = runners.find(item => item.pattern.test(lang))
 
   return (
-    <div className={cn('yozora-code-live', className)} style={style}>
+    <div className={cx('yozora-code-live', classes.container, className)} style={style}>
       <div
         key="toolbar"
-        className="yozora-code-live__toolbar"
+        className={classes.toolbar}
         onDoubleClick={e => {
           e.stopPropagation()
           e.preventDefault()
@@ -62,25 +63,16 @@ export const CodeLive: React.FC<ICodeLiveProps> = props => {
           onMinimize={() => setCollapsed(true)}
           onMaximize={() => setCollapsed(false)}
         />
-        <span key="title" className="yozora-code-live__title" title={title}>
+        <span key="title" className={classes.title} title={title}>
           {title}&nbsp;
           {title && countOfLines && ' | ' + countOfLines + ' lines.'}
         </span>
-        <span
-          key="copy-btn"
-          className="yozora-code-live__copy-button"
-          onClick={e => e.stopPropagation()}
-        >
+        <span key="copy-btn" className={classes.copyBtn} onClick={e => e.stopPropagation()}>
           <CopyButton value={value} />
         </span>
       </div>
-      <div
-        key="main"
-        className={cn('yozora-code-live__main', {
-          'yozora-code-live__main--vertical': vertical,
-        })}
-      >
-        <div key="editor" className="yozora-code-live__editor">
+      <div key="main" className={cx(classes.main, { [classes.mainVertical]: vertical })}>
+        <div key="editor" className={classes.editor}>
           <CodeEditor
             lang={lang}
             code={value}
@@ -96,9 +88,7 @@ export const CodeLive: React.FC<ICodeLiveProps> = props => {
         {runner != null && (
           <div
             key="previewer"
-            className={cn('yozora-code-live__previewer', {
-              'yozora-code-live__previewer--center': centerPreviewer,
-            })}
+            className={cx(classes.previewer, { [classes.previewerCenter]: centerPreviewer })}
           >
             <CodeEmbed lang={lang} value={value} meta={meta} scope={scope} runner={runner.runner} />
           </div>
@@ -108,7 +98,7 @@ export const CodeLive: React.FC<ICodeLiveProps> = props => {
   )
 }
 
-CodeLive.propTypes = {
+YozoraCodeLive.propTypes = {
   autoFocus: PropTypes.bool,
   centerPreviewer: PropTypes.bool,
   className: PropTypes.string,
@@ -126,5 +116,4 @@ CodeLive.propTypes = {
   value: PropTypes.string.isRequired,
 }
 
-CodeLive.displayName = 'YozoraCodeLive'
-export default CodeLive
+YozoraCodeLive.displayName = 'YozoraCodeLive'

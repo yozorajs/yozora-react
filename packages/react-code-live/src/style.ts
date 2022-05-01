@@ -21,6 +21,36 @@ const copyBtnCls: string = css({
   userSelect: 'none',
 })
 
+const editorCls: string = css({
+  flex: '1 1 0%',
+  position: 'relative',
+  boxSizing: 'border-box',
+  overflow: 'auto',
+  padding: 0,
+  margin: 0,
+  fontFamily: vars.codeFontFamily,
+  fontSize: vars.codeFontSize,
+  background: vars.background,
+  '& ::selection': {
+    background: vars.selectionBackground,
+  },
+  '.yozora-code-editor': {
+    border: 'none',
+    borderRadius: 0,
+  },
+})
+
+const previewerCls: string = css({
+  flex: '1 1 0%',
+  boxSizing: 'border-box',
+  overflow: 'auto',
+  display: 'block',
+  padding: 0,
+  margin: 0,
+  color: '#000',
+  background: '#fff',
+})
+
 export const classes = {
   container: css({
     display: 'flex',
@@ -34,6 +64,9 @@ export const classes = {
         visibility: 'visible',
         opacity: 1,
       },
+    },
+    '& ::selection': {
+      background: vars.selectionBackground,
     },
   }),
   toolbar: css({
@@ -54,42 +87,39 @@ export const classes = {
     color: vars.titleFontColor,
     userSelect: 'none',
   }),
-  content: css({
-    overflow: 'auto',
-    padding: 0,
-    border: 'none',
-    margin: 0,
-    fontFamily: vars.codeFontFamily,
-    fontSize: vars.codeFontSize,
-    background: 'inherit',
-    whiteSpace: 'pre-wrap',
-    overflowWrap: 'break-word',
-    wordSpacing: 'normal',
-    wordBreak: 'break-all',
-    wordWrap: 'break-word',
-    letterSpacing: 1,
-    lineHeight: 'inherit',
-    tabSize: 2,
-    '> pre': {
-      margin: 0,
-      fontFamily: 'inherit',
-      fontSize: 'inherit',
-      lineHeight: 'inherit',
-      '&::selection': {
-        background: vars.selectionBackground,
-      },
+  main: css({
+    flex: '1 1 auto',
+    // To avoid the main container overflow at the y-axis, flex-basis will never
+    // be shrink shorter less than the min-height (the default value of
+    // min-height is *auto*).
+    // By the way, set *height: 0px;* also works.
+    minHeight: 0,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    [`.${editorCls}`]: {
+      borderRight: vars.border,
     },
-    span: {
-      lineHeight: 'inherit',
+  }),
+  mainVertical: css({
+    flexDirection: 'column',
+    [`.${editorCls}`]: {
+      flex: '0 1 auto',
+      borderBottom: vars.border,
+      borderRight: 'none',
     },
-    code: {
-      padding: 0,
-      margin: 0,
-      lineHeight: 'inherit',
-      background: 'transparent',
+    [`.${previewerCls}`]: {
+      flex: '1 0 auto',
     },
-    '& ::selection': {
-      background: vars.selectionBackground,
+  }),
+  editor: editorCls,
+  previewer: previewerCls,
+  previewerCenter: css({
+    '> .yozora-code-embed': {
+      minHeight: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
   }),
   copyBtn: copyBtnCls,

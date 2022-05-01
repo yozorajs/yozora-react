@@ -147,28 +147,48 @@ export const useStyles = (): string => {
         // Adaptive small screen.
         [`@media screen and ${breakpoints.xs.exactOrMinus}`]: {
           '.yozora-code-literal': {
-            '&:hover': {
-              border: 'none',
-              borderRadius: '5px',
-              boxShadow: 'rgba(30, 30, 30, 73%) 0 2px 10px',
-              overflow: 'hidden',
+            border: 'none',
+            borderRadius: '5px',
+            boxShadow: 'rgba(30, 30, 30, 73%) 0 2px 10px',
+            overflow: 'hidden',
+            '.yozora-code-highlighter': {
+              fontSize: '0.9rem',
+            },
+            '.yozora-code-highlighter__content': {
+              fontSize: '0.9rem',
             },
             '.yozora-code-highlighter__linenos': {
               display: 'none',
               visibility: 'hidden',
             },
-            '.yozora-inline-math': {
-              fontSize: '0.8rem',
+            '.yozora-code-editor__textarea': {
+              fontSize: '0.9rem',
             },
-            '.yozora-math': {
-              fontSize: '0.8rem',
+          },
+          '.yozora-code-live': {
+            border: 'none',
+            borderRadius: '5px',
+            boxShadow: 'rgba(30, 30, 30, 73%) 0 2px 10px',
+            overflow: 'hidden',
+            '.yozora-code-highlighter': {
+              fontSize: '0.9rem',
             },
             '.yozora-code-highlighter__content': {
               fontSize: '0.9rem',
             },
+            '.yozora-code-highlighter__linenos': {
+              display: 'none',
+              visibility: 'hidden',
+            },
             '.yozora-code-editor__textarea': {
               fontSize: '0.9rem',
             },
+          },
+          '.yozora-inline-math': {
+            fontSize: '0.9rem',
+          },
+          '.yozora-math': {
+            fontSize: '0.9rem',
           },
         },
       }),

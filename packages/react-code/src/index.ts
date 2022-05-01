@@ -1,4 +1,3 @@
-import './style.styl'
 import YozoraCode from './component'
 
 export default YozoraCode
