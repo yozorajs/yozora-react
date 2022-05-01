@@ -26,10 +26,10 @@ exports[`prop types snapshot 1`] = `
 "
 >
   <div
-    className="yozora-code-live"
+    className="yozora-code-live css-1wlwu1s"
   >
     <div
-      className="yozora-code-live__toolbar"
+      className="css-11952oq"
       key="toolbar"
       onDoubleClick={[Function]}
     >
@@ -61,13 +61,13 @@ exports[`prop types snapshot 1`] = `
         </span>
       </YozoraLightButtons>
       <span
-        className="yozora-code-live__title"
+        className="css-1oku3ac"
         key="title"
       >
          
       </span>
       <span
-        className="yozora-code-live__copy-button"
+        className="css-5thvko"
         key="copy-btn"
         onClick={[Function]}
       >
@@ -99,11 +99,11 @@ exports[`prop types snapshot 1`] = `
       </span>
     </div>
     <div
-      className="yozora-code-live__main yozora-code-live__main--vertical"
+      className="css-1xlu443"
       key="main"
     >
       <div
-        className="yozora-code-live__editor"
+        className="css-zquy5p"
         key="editor"
       >
         <YozoraCodeEditor
@@ -165,7 +165,7 @@ exports[`prop types snapshot 1`] = `
 "
           >
             <div
-              className="yozora-code-editor yozora-code-editor"
+              className="yozora-code-editor css-kc9la2 yozora-code-editor"
               padding={10}
               style={
                 Object {
@@ -175,10 +175,10 @@ exports[`prop types snapshot 1`] = `
               }
             >
               <div
-                className="yozora-code-editor__textarea-wrapper"
+                className="css-6gcr58"
               >
                 <div
-                  className="yozora-code-editor__textarea-linenos"
+                  className="css-1tu59u4"
                   style={
                     Object {
                       "width": "2.2em",
@@ -189,7 +189,7 @@ exports[`prop types snapshot 1`] = `
                   autoCapitalize="off"
                   autoComplete="off"
                   autoCorrect="off"
-                  className="yozora-code-editor__textarea"
+                  className="yozora-code-editor__textarea css-16s63i0"
                   onChange={[Function]}
                   onKeyDown={[Function]}
                   onScroll={[Function]}
@@ -217,7 +217,7 @@ exports[`prop types snapshot 1`] = `
               </div>
               <pre
                 aria-hidden="true"
-                className="yozora-code-editor__previewer"
+                className="css-14t25us"
                 style={
                   Object {
                     "tabSize": 2,
@@ -229,13 +229,13 @@ exports[`prop types snapshot 1`] = `
                   codesRef={
                     Object {
                       "current": <div
-                        class="yozora-code-highlighter__codes"
+                        class="yozora-code-highlighter__codes css-rv5jjl"
                       >
                         <div
-                          class="yozora-code-highlighter__codes-wrapper"
+                          class="css-1ttfemb"
                         >
                           <div
-                            class="yozora-code-highlighter__line token-line"
+                            class="token-line css-7zjwmr"
                             style="color: rgb(212, 212, 212);"
                           >
                             <span
@@ -247,7 +247,7 @@ exports[`prop types snapshot 1`] = `
                             </span>
                           </div>
                           <div
-                            class="yozora-code-highlighter__line token-line"
+                            class="token-line css-7zjwmr"
                             style="color: rgb(212, 212, 212);"
                           >
                             <span
@@ -300,7 +300,7 @@ exports[`prop types snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="yozora-code-highlighter__line token-line"
+                            class="token-line css-7zjwmr"
                             style="color: rgb(212, 212, 212);"
                           >
                             <span
@@ -398,7 +398,7 @@ exports[`prop types snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="yozora-code-highlighter__line token-line"
+                            class="token-line css-7zjwmr"
                             style="color: rgb(212, 212, 212);"
                           >
                             <span
@@ -428,7 +428,7 @@ exports[`prop types snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="yozora-code-highlighter__line token-line"
+                            class="token-line css-7zjwmr"
                             style="color: rgb(212, 212, 212);"
                           >
                             <span
@@ -459,7 +459,7 @@ exports[`prop types snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="yozora-code-highlighter__line token-line"
+                            class="token-line css-7zjwmr"
                             style="color: rgb(212, 212, 212);"
                           >
                             <span
@@ -633,7 +633,7 @@ exports[`prop types snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="yozora-code-highlighter__line token-line"
+                            class="token-line css-7zjwmr"
                             style="color: rgb(212, 212, 212);"
                           >
                             <span
@@ -735,7 +735,7 @@ exports[`prop types snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="yozora-code-highlighter__line token-line"
+                            class="token-line css-7zjwmr"
                             style="color: rgb(212, 212, 212);"
                           >
                             <span
@@ -909,7 +909,7 @@ exports[`prop types snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="yozora-code-highlighter__line token-line"
+                            class="token-line css-7zjwmr"
                             style="color: rgb(212, 212, 212);"
                           >
                             <span
@@ -940,7 +940,7 @@ exports[`prop types snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="yozora-code-highlighter__line token-line"
+                            class="token-line css-7zjwmr"
                             style="color: rgb(212, 212, 212);"
                           >
                             <span
@@ -959,7 +959,7 @@ exports[`prop types snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="yozora-code-highlighter__line token-line"
+                            class="token-line css-7zjwmr"
                             style="color: rgb(212, 212, 212);"
                           >
                             <span
@@ -978,7 +978,7 @@ exports[`prop types snapshot 1`] = `
                             />
                           </div>
                           <div
-                            class="yozora-code-highlighter__line token-line"
+                            class="token-line css-7zjwmr"
                             style="color: rgb(212, 212, 212);"
                           >
                             <span
@@ -41700,13 +41700,13 @@ exports[`prop types snapshot 1`] = `
                       codesRef={
                         Object {
                           "current": <div
-                            class="yozora-code-highlighter__codes"
+                            class="yozora-code-highlighter__codes css-rv5jjl"
                           >
                             <div
-                              class="yozora-code-highlighter__codes-wrapper"
+                              class="css-1ttfemb"
                             >
                               <div
-                                class="yozora-code-highlighter__line token-line"
+                                class="token-line css-7zjwmr"
                                 style="color: rgb(212, 212, 212);"
                               >
                                 <span
@@ -41718,7 +41718,7 @@ exports[`prop types snapshot 1`] = `
                                 </span>
                               </div>
                               <div
-                                class="yozora-code-highlighter__line token-line"
+                                class="token-line css-7zjwmr"
                                 style="color: rgb(212, 212, 212);"
                               >
                                 <span
@@ -41771,7 +41771,7 @@ exports[`prop types snapshot 1`] = `
                                 />
                               </div>
                               <div
-                                class="yozora-code-highlighter__line token-line"
+                                class="token-line css-7zjwmr"
                                 style="color: rgb(212, 212, 212);"
                               >
                                 <span
@@ -41869,7 +41869,7 @@ exports[`prop types snapshot 1`] = `
                                 />
                               </div>
                               <div
-                                class="yozora-code-highlighter__line token-line"
+                                class="token-line css-7zjwmr"
                                 style="color: rgb(212, 212, 212);"
                               >
                                 <span
@@ -41899,7 +41899,7 @@ exports[`prop types snapshot 1`] = `
                                 />
                               </div>
                               <div
-                                class="yozora-code-highlighter__line token-line"
+                                class="token-line css-7zjwmr"
                                 style="color: rgb(212, 212, 212);"
                               >
                                 <span
@@ -41930,7 +41930,7 @@ exports[`prop types snapshot 1`] = `
                                 />
                               </div>
                               <div
-                                class="yozora-code-highlighter__line token-line"
+                                class="token-line css-7zjwmr"
                                 style="color: rgb(212, 212, 212);"
                               >
                                 <span
@@ -42104,7 +42104,7 @@ exports[`prop types snapshot 1`] = `
                                 />
                               </div>
                               <div
-                                class="yozora-code-highlighter__line token-line"
+                                class="token-line css-7zjwmr"
                                 style="color: rgb(212, 212, 212);"
                               >
                                 <span
@@ -42206,7 +42206,7 @@ exports[`prop types snapshot 1`] = `
                                 />
                               </div>
                               <div
-                                class="yozora-code-highlighter__line token-line"
+                                class="token-line css-7zjwmr"
                                 style="color: rgb(212, 212, 212);"
                               >
                                 <span
@@ -42380,7 +42380,7 @@ exports[`prop types snapshot 1`] = `
                                 />
                               </div>
                               <div
-                                class="yozora-code-highlighter__line token-line"
+                                class="token-line css-7zjwmr"
                                 style="color: rgb(212, 212, 212);"
                               >
                                 <span
@@ -42411,7 +42411,7 @@ exports[`prop types snapshot 1`] = `
                                 />
                               </div>
                               <div
-                                class="yozora-code-highlighter__line token-line"
+                                class="token-line css-7zjwmr"
                                 style="color: rgb(212, 212, 212);"
                               >
                                 <span
@@ -42430,7 +42430,7 @@ exports[`prop types snapshot 1`] = `
                                 />
                               </div>
                               <div
-                                class="yozora-code-highlighter__line token-line"
+                                class="token-line css-7zjwmr"
                                 style="color: rgb(212, 212, 212);"
                               >
                                 <span
@@ -42449,7 +42449,7 @@ exports[`prop types snapshot 1`] = `
                                 />
                               </div>
                               <div
-                                class="yozora-code-highlighter__line token-line"
+                                class="token-line css-7zjwmr"
                                 style="color: rgb(212, 212, 212);"
                               >
                                 <span
@@ -43380,7 +43380,7 @@ exports[`prop types snapshot 1`] = `
                       }
                     >
                       <div
-                        className="yozora-code-highlighter prism-code language-jsx"
+                        className="yozora-code-highlighter__content css-1k8659m prism-code language-jsx"
                         style={
                           Object {
                             "backgroundColor": "none",
@@ -43392,7 +43392,7 @@ exports[`prop types snapshot 1`] = `
                         }
                       >
                         <div
-                          className="yozora-code-highlighter__linenos"
+                          className="yozora-code-highlighter__linenos css-e3qifw"
                           key="linenos"
                           style={
                             Object {
@@ -43401,7 +43401,7 @@ exports[`prop types snapshot 1`] = `
                           }
                         >
                           <div
-                            className="yozora-code-highlighter__line"
+                            className="css-17fnzo2"
                             key="0"
                           >
                             <span
@@ -43411,7 +43411,7 @@ exports[`prop types snapshot 1`] = `
                             </span>
                           </div>
                           <div
-                            className="yozora-code-highlighter__line"
+                            className="css-17fnzo2"
                             key="1"
                           >
                             <span
@@ -43421,7 +43421,7 @@ exports[`prop types snapshot 1`] = `
                             </span>
                           </div>
                           <div
-                            className="yozora-code-highlighter__line"
+                            className="css-17fnzo2"
                             key="2"
                           >
                             <span
@@ -43431,7 +43431,7 @@ exports[`prop types snapshot 1`] = `
                             </span>
                           </div>
                           <div
-                            className="yozora-code-highlighter__line"
+                            className="css-17fnzo2"
                             key="3"
                           >
                             <span
@@ -43441,7 +43441,7 @@ exports[`prop types snapshot 1`] = `
                             </span>
                           </div>
                           <div
-                            className="yozora-code-highlighter__line"
+                            className="css-17fnzo2"
                             key="4"
                           >
                             <span
@@ -43451,7 +43451,7 @@ exports[`prop types snapshot 1`] = `
                             </span>
                           </div>
                           <div
-                            className="yozora-code-highlighter__line"
+                            className="css-17fnzo2"
                             key="5"
                           >
                             <span
@@ -43461,7 +43461,7 @@ exports[`prop types snapshot 1`] = `
                             </span>
                           </div>
                           <div
-                            className="yozora-code-highlighter__line"
+                            className="css-17fnzo2"
                             key="6"
                           >
                             <span
@@ -43471,7 +43471,7 @@ exports[`prop types snapshot 1`] = `
                             </span>
                           </div>
                           <div
-                            className="yozora-code-highlighter__line"
+                            className="css-17fnzo2"
                             key="7"
                           >
                             <span
@@ -43481,7 +43481,7 @@ exports[`prop types snapshot 1`] = `
                             </span>
                           </div>
                           <div
-                            className="yozora-code-highlighter__line"
+                            className="css-17fnzo2"
                             key="8"
                           >
                             <span
@@ -43491,7 +43491,7 @@ exports[`prop types snapshot 1`] = `
                             </span>
                           </div>
                           <div
-                            className="yozora-code-highlighter__line"
+                            className="css-17fnzo2"
                             key="9"
                           >
                             <span
@@ -43501,7 +43501,7 @@ exports[`prop types snapshot 1`] = `
                             </span>
                           </div>
                           <div
-                            className="yozora-code-highlighter__line"
+                            className="css-17fnzo2"
                             key="10"
                           >
                             <span
@@ -43511,7 +43511,7 @@ exports[`prop types snapshot 1`] = `
                             </span>
                           </div>
                           <div
-                            className="yozora-code-highlighter__line"
+                            className="css-17fnzo2"
                             key="11"
                           >
                             <span
@@ -43522,15 +43522,15 @@ exports[`prop types snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          className="yozora-code-highlighter__codes"
+                          className="yozora-code-highlighter__codes css-rv5jjl"
                           key="codes"
                           onScroll={[Function]}
                         >
                           <div
-                            className="yozora-code-highlighter__codes-wrapper"
+                            className="css-1ttfemb"
                           >
                             <div
-                              className="yozora-code-highlighter__line token-line"
+                              className="token-line css-7zjwmr"
                               key="0"
                               style={
                                 Object {
@@ -43553,7 +43553,7 @@ exports[`prop types snapshot 1`] = `
                               </span>
                             </div>
                             <div
-                              className="yozora-code-highlighter__line token-line"
+                              className="token-line css-7zjwmr"
                               key="1"
                               style={
                                 Object {
@@ -43641,7 +43641,7 @@ exports[`prop types snapshot 1`] = `
                               />
                             </div>
                             <div
-                              className="yozora-code-highlighter__line token-line"
+                              className="token-line css-7zjwmr"
                               key="2"
                               style={
                                 Object {
@@ -43802,7 +43802,7 @@ exports[`prop types snapshot 1`] = `
                               />
                             </div>
                             <div
-                              className="yozora-code-highlighter__line token-line"
+                              className="token-line css-7zjwmr"
                               key="3"
                               style={
                                 Object {
@@ -43851,7 +43851,7 @@ exports[`prop types snapshot 1`] = `
                               />
                             </div>
                             <div
-                              className="yozora-code-highlighter__line token-line"
+                              className="token-line css-7zjwmr"
                               key="4"
                               style={
                                 Object {
@@ -43905,7 +43905,7 @@ exports[`prop types snapshot 1`] = `
                               />
                             </div>
                             <div
-                              className="yozora-code-highlighter__line token-line"
+                              className="token-line css-7zjwmr"
                               key="5"
                               style={
                                 Object {
@@ -44218,7 +44218,7 @@ exports[`prop types snapshot 1`] = `
                               />
                             </div>
                             <div
-                              className="yozora-code-highlighter__line token-line"
+                              className="token-line css-7zjwmr"
                               key="6"
                               style={
                                 Object {
@@ -44399,7 +44399,7 @@ exports[`prop types snapshot 1`] = `
                               />
                             </div>
                             <div
-                              className="yozora-code-highlighter__line token-line"
+                              className="token-line css-7zjwmr"
                               key="7"
                               style={
                                 Object {
@@ -44712,7 +44712,7 @@ exports[`prop types snapshot 1`] = `
                               />
                             </div>
                             <div
-                              className="yozora-code-highlighter__line token-line"
+                              className="token-line css-7zjwmr"
                               key="8"
                               style={
                                 Object {
@@ -44766,7 +44766,7 @@ exports[`prop types snapshot 1`] = `
                               />
                             </div>
                             <div
-                              className="yozora-code-highlighter__line token-line"
+                              className="token-line css-7zjwmr"
                               key="9"
                               style={
                                 Object {
@@ -44798,7 +44798,7 @@ exports[`prop types snapshot 1`] = `
                               />
                             </div>
                             <div
-                              className="yozora-code-highlighter__line token-line"
+                              className="token-line css-7zjwmr"
                               key="10"
                               style={
                                 Object {
@@ -44830,7 +44830,7 @@ exports[`prop types snapshot 1`] = `
                               />
                             </div>
                             <div
-                              className="yozora-code-highlighter__line token-line"
+                              className="token-line css-7zjwmr"
                               key="11"
                               style={
                                 Object {
@@ -44864,7 +44864,7 @@ exports[`prop types snapshot 1`] = `
         </YozoraCodeEditor>
       </div>
       <div
-        className="yozora-code-live__previewer yozora-code-live__previewer--center"
+        className="css-1wemi5a"
         key="previewer"
       >
         <YozoraCodeEmbed
@@ -44884,7 +44884,7 @@ exports[`prop types snapshot 1`] = `
 "
         >
           <div
-            className="yozora-code-embed"
+            className="yozora-code-embed css-1lkb549"
           >
             <JsxRunner
               lang="jsx"

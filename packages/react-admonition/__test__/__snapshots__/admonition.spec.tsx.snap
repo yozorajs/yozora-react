@@ -2,15 +2,15 @@
 
 exports[`snapshot custom 1`] = `
 <div
-  class="yozora-admonition css-d6bzoh custom-class"
+  class="yozora-admonition css-fyyqnb custom-class"
   data-admonition-keyword="caution"
   style="color:orange"
 >
-  <h5
-    class="yozora-admonition__heading"
+  <div
+    class="css-1b06hov"
   >
     <span
-      class="yozora-admonition__heading-icon"
+      class="css-8eytv5"
     >
       <svg
         height="24px"
@@ -24,11 +24,11 @@ exports[`snapshot custom 1`] = `
       </svg>
     </span>
     <span
-      class="yozora-admonition__heading-title"
+      class="css-13o7eu2"
     >
       CAUTION
     </span>
-  </h5>
+  </div>
   <div>
     <p>
       some text1
@@ -45,14 +45,14 @@ exports[`snapshot custom 1`] = `
 
 exports[`snapshot default 1`] = `
 <div
-  class="yozora-admonition css-d6bzoh"
+  class="yozora-admonition css-fyyqnb"
   data-admonition-keyword="note"
 >
-  <h5
-    class="yozora-admonition__heading"
+  <div
+    class="css-1b06hov"
   >
     <span
-      class="yozora-admonition__heading-icon"
+      class="css-8eytv5"
     >
       <svg
         height="24px"
@@ -66,11 +66,11 @@ exports[`snapshot default 1`] = `
       </svg>
     </span>
     <span
-      class="yozora-admonition__heading-title"
+      class="css-13o7eu2"
     >
       NOTE
     </span>
-  </h5>
+  </div>
   <div>
     <p>
       some text1

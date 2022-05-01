@@ -1,3 +1,4 @@
+import { cx } from '@emotion/css'
 import CodeEmbed from '@yozora/react-code-embed'
 import CodeLiteral from '@yozora/react-code-literal'
 import CodeLive from '@yozora/react-code-live'
@@ -39,7 +40,6 @@ export const YozoraCode: React.FC<ICodeProps> = props => {
     runners = defaultRunners,
     darken,
     preferLineNo = true,
-    className,
     style,
   } = props
 
@@ -47,64 +47,62 @@ export const YozoraCode: React.FC<ICodeProps> = props => {
     () => parseCodeMeta(infoString ?? '', { preferLineNo }),
     [infoString, preferLineNo],
   )
+
   const { highlights, maxlines, title, collapsed, showlineno: showLineNo } = meta
+  const className = cx('yozora-code', props.className)
   const _yozoracodemode = lang ? meta._yozoracodemode ?? 'literal' : 'literal'
 
-  let children: React.ReactElement | null = null
-  switch (_yozoracodemode) {
-    case 'live': {
-      children = (
-        <CodeLive
-          lang={lang as string}
-          value={value}
-          meta={meta}
-          runners={runners}
-          title={title}
-          maxLines={maxlines}
-          collapsed={collapsed}
-          showLinenos={showLineNo}
-          darken={darken}
-          className={className}
-          style={style}
-        />
-      )
-      break
-    }
-    case 'embed': {
-      const runner = runners.find(item => item.pattern.test(lang as string))
-      if (runner != null) {
-        children = (
-          <CodeEmbed
+  if (lang) {
+    switch (_yozoracodemode) {
+      case 'live': {
+        return (
+          <CodeLive
             lang={lang as string}
             value={value}
             meta={meta}
-            runner={runner.runner}
+            runners={runners}
+            title={title}
+            maxLines={maxlines}
+            collapsed={collapsed}
+            showLinenos={showLineNo}
+            darken={darken}
             className={className}
             style={style}
           />
         )
       }
-      break
+      case 'embed': {
+        const runner = runners.find(item => item.pattern.test(lang as string))
+        if (runner != null) {
+          return (
+            <CodeEmbed
+              lang={lang as string}
+              value={value}
+              meta={meta}
+              runner={runner.runner}
+              className={className}
+              style={style}
+            />
+          )
+        }
+      }
     }
-    case 'literal':
-    default:
-      children = (
-        <CodeLiteral
-          lang={lang}
-          value={value}
-          title={title}
-          highlightLinenos={highlights}
-          maxLines={maxlines}
-          collapsed={collapsed}
-          showLineNo={showLineNo}
-          darken={darken}
-          className={className}
-          style={style}
-        />
-      )
   }
 
-  return <div className="yozora-code">{children}</div>
+  return (
+    <CodeLiteral
+      lang={lang}
+      value={value}
+      title={title}
+      highlightLinenos={highlights}
+      maxLines={maxlines}
+      collapsed={collapsed}
+      showLineNo={showLineNo}
+      darken={darken}
+      className={className}
+      style={style}
+    />
+  )
 }
 
 YozoraCode.propTypes = {

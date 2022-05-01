@@ -39,14 +39,13 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
-  "peerDependencies": {
-    "clsx": "^1.1.1",
-    "prop-types": "^15.7.2",
-    "react": ">= 17.0.0"
-  },
   "dependencies": {
     "@types/d3-graphviz": "^2.6.7",
     "d3-graphviz": "^2.6.1"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": ">= 17.0.0"
   },
   "browserslist": [
     "last 2 versions",

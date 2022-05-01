@@ -2,16 +2,16 @@
 
 exports[`snapshot embed 1`] = `
 <div
-  class="yozora-code-embed"
+  class="yozora-code-embed css-1lkb549 yozora-code"
 />
 `;
 
 exports[`snapshot literal 1`] = `
 <div
-  class="yozora-code-literal"
+  class="yozora-code-literal css-xgjmtr yozora-code"
 >
   <div
-    class="yozora-code-literal__toolbar"
+    class="css-11952oq"
   >
     <span
       class="css-9y6172"
@@ -30,13 +30,13 @@ exports[`snapshot literal 1`] = `
       />
     </span>
     <span
-      class="yozora-code-literal__title"
+      class="css-1oku3ac"
       title="/home/demo/a.tsx"
     >
-      /home/demo/a.tsx  | 6 lines.
+      /home/demo/a.tsx  | 6 lines.
     </span>
     <span
-      class="yozora-code-literal__copy-button"
+      class="css-5thvko"
     >
       <button
         aria-label="Copy to clipboard"
@@ -49,54 +49,54 @@ exports[`snapshot literal 1`] = `
     </span>
   </div>
   <code
-    class="yozora-code-literal__content"
+    class="css-ehogbo"
   >
     <pre>
       <div
-        class="yozora-code-highlighter prism-code language-jsx"
+        class="yozora-code-highlighter__content css-1k8659m prism-code language-jsx"
         style="color:#d4d4d4;background-color:none;line-height:1.6rem;max-height:0"
       >
         <div
-          class="yozora-code-highlighter__linenos"
+          class="yozora-code-highlighter__linenos css-e3qifw"
           style="width:2.2em"
         >
           <div
-            class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight"
+            class="css-1jtfvys"
           >
             <span>
               1
             </span>
           </div>
           <div
-            class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight"
+            class="css-1jtfvys"
           >
             <span>
               2
             </span>
           </div>
           <div
-            class="yozora-code-highlighter__line"
+            class="css-17fnzo2"
           >
             <span>
               3
             </span>
           </div>
           <div
-            class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight"
+            class="css-1jtfvys"
           >
             <span>
               4
             </span>
           </div>
           <div
-            class="yozora-code-highlighter__line"
+            class="css-17fnzo2"
           >
             <span>
               5
             </span>
           </div>
           <div
-            class="yozora-code-highlighter__line"
+            class="css-17fnzo2"
           >
             <span>
               6
@@ -104,13 +104,13 @@ exports[`snapshot literal 1`] = `
           </div>
         </div>
         <div
-          class="yozora-code-highlighter__codes"
+          class="yozora-code-highlighter__codes css-rv5jjl"
         >
           <div
-            class="yozora-code-highlighter__codes-wrapper"
+            class="css-1ttfemb"
           >
             <div
-              class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight token-line"
+              class="token-line css-2m46fv"
               style="color:#d4d4d4"
             >
               <span
@@ -152,7 +152,7 @@ exports[`snapshot literal 1`] = `
               />
             </div>
             <div
-              class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight token-line"
+              class="token-line css-2m46fv"
               style="color:#d4d4d4"
             >
               <span
@@ -199,7 +199,7 @@ exports[`snapshot literal 1`] = `
               />
             </div>
             <div
-              class="yozora-code-highlighter__line token-line"
+              class="token-line css-7zjwmr"
               style="color:#d4d4d4"
             >
               <span
@@ -246,7 +246,7 @@ exports[`snapshot literal 1`] = `
               />
             </div>
             <div
-              class="yozora-code-highlighter__line yozora-code-highlighter__line--highlight token-line"
+              class="token-line css-2m46fv"
               style="color:#d4d4d4"
             >
               <span
@@ -320,7 +320,7 @@ exports[`snapshot literal 1`] = `
               />
             </div>
             <div
-              class="yozora-code-highlighter__line token-line"
+              class="token-line css-7zjwmr"
               style="color:#d4d4d4"
             >
               <span
@@ -402,7 +402,7 @@ exports[`snapshot literal 1`] = `
               />
             </div>
             <div
-              class="yozora-code-highlighter__line token-line"
+              class="token-line css-7zjwmr"
               style="color:#d4d4d4"
             >
               <span
@@ -427,10 +427,10 @@ exports[`snapshot literal 1`] = `
 
 exports[`snapshot live 1`] = `
 <div
-  class="yozora-code-live"
+  class="yozora-code-live css-1wlwu1s yozora-code"
 >
   <div
-    class="yozora-code-live__toolbar"
+    class="css-11952oq"
   >
     <span
       class="css-9y6172"
@@ -449,13 +449,13 @@ exports[`snapshot live 1`] = `
       />
     </span>
     <span
-      class="yozora-code-live__title"
+      class="css-1oku3ac"
       title=""
     >
        
     </span>
     <span
-      class="yozora-code-live__copy-button"
+      class="css-5thvko"
     >
       <button
         aria-label="Copy to clipboard"
@@ -468,27 +468,27 @@ exports[`snapshot live 1`] = `
     </span>
   </div>
   <div
-    class="yozora-code-live__main yozora-code-live__main--vertical"
+    class="css-1xlu443"
   >
     <div
-      class="yozora-code-live__editor"
+      class="css-zquy5p"
     >
       <div
-        class="yozora-code-editor yozora-code-editor"
+        class="yozora-code-editor css-kc9la2 yozora-code-editor"
         padding="10"
         style="line-height:1.6rem;tab-size:2"
       >
         <div
-          class="yozora-code-editor__textarea-wrapper"
+          class="css-6gcr58"
         >
           <div
-            class="yozora-code-editor__textarea-linenos"
+            class="css-1tu59u4"
           />
           <textarea
             autocapitalize="off"
             autocomplete="off"
             autocorrect="off"
-            class="yozora-code-editor__textarea"
+            class="yozora-code-editor__textarea css-16s63i0"
             spellcheck="false"
             style="tab-size:2;white-space:pre;padding:0.5rem 0.6em 0 12px"
           >
@@ -502,54 +502,54 @@ exports[`snapshot live 1`] = `
         </div>
         <pre
           aria-hidden="true"
-          class="yozora-code-editor__previewer"
+          class="css-14t25us"
           style="tab-size:2;white-space:pre"
         >
           <div
-            class="yozora-code-highlighter prism-code language-jsx"
+            class="yozora-code-highlighter__content css-1k8659m prism-code language-jsx"
             style="color:#d4d4d4;background-color:none;line-height:1.6rem;max-height:8rem;min-height:100%"
           >
             <div
-              class="yozora-code-highlighter__linenos"
+              class="yozora-code-highlighter__linenos css-e3qifw"
               style="width:2.2em"
             >
               <div
-                class="yozora-code-highlighter__line"
+                class="css-17fnzo2"
               >
                 <span>
                   1
                 </span>
               </div>
               <div
-                class="yozora-code-highlighter__line"
+                class="css-17fnzo2"
               >
                 <span>
                   2
                 </span>
               </div>
               <div
-                class="yozora-code-highlighter__line"
+                class="css-17fnzo2"
               >
                 <span>
                   3
                 </span>
               </div>
               <div
-                class="yozora-code-highlighter__line"
+                class="css-17fnzo2"
               >
                 <span>
                   4
                 </span>
               </div>
               <div
-                class="yozora-code-highlighter__line"
+                class="css-17fnzo2"
               >
                 <span>
                   5
                 </span>
               </div>
               <div
-                class="yozora-code-highlighter__line"
+                class="css-17fnzo2"
               >
                 <span>
                   6
@@ -557,13 +557,13 @@ exports[`snapshot live 1`] = `
               </div>
             </div>
             <div
-              class="yozora-code-highlighter__codes"
+              class="yozora-code-highlighter__codes css-rv5jjl"
             >
               <div
-                class="yozora-code-highlighter__codes-wrapper"
+                class="css-1ttfemb"
               >
                 <div
-                  class="yozora-code-highlighter__line token-line"
+                  class="token-line css-7zjwmr"
                   style="color:#d4d4d4"
                 >
                   <span
@@ -605,7 +605,7 @@ exports[`snapshot live 1`] = `
                   />
                 </div>
                 <div
-                  class="yozora-code-highlighter__line token-line"
+                  class="token-line css-7zjwmr"
                   style="color:#d4d4d4"
                 >
                   <span
@@ -652,7 +652,7 @@ exports[`snapshot live 1`] = `
                   />
                 </div>
                 <div
-                  class="yozora-code-highlighter__line token-line"
+                  class="token-line css-7zjwmr"
                   style="color:#d4d4d4"
                 >
                   <span
@@ -699,7 +699,7 @@ exports[`snapshot live 1`] = `
                   />
                 </div>
                 <div
-                  class="yozora-code-highlighter__line token-line"
+                  class="token-line css-7zjwmr"
                   style="color:#d4d4d4"
                 >
                   <span
@@ -773,7 +773,7 @@ exports[`snapshot live 1`] = `
                   />
                 </div>
                 <div
-                  class="yozora-code-highlighter__line token-line"
+                  class="token-line css-7zjwmr"
                   style="color:#d4d4d4"
                 >
                   <span
@@ -855,7 +855,7 @@ exports[`snapshot live 1`] = `
                   />
                 </div>
                 <div
-                  class="yozora-code-highlighter__line token-line"
+                  class="token-line css-7zjwmr"
                   style="color:#d4d4d4"
                 >
                   <span
@@ -877,10 +877,10 @@ exports[`snapshot live 1`] = `
       </div>
     </div>
     <div
-      class="yozora-code-live__previewer yozora-code-live__previewer--center"
+      class="css-1wemi5a"
     >
       <div
-        class="yozora-code-embed"
+        class="yozora-code-embed css-1lkb549"
       />
     </div>
   </div>

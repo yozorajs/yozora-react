@@ -38,7 +38,6 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
   "dependencies": {
-    "@emotion/css": "^11.9.0",
     "@guanghechen/react-hooks": "^1.9.3",
     "@yozora/core-react-renderer": "^2.0.0-alpha.4",
     "@yozora/core-react-theme": "^2.0.0-alpha.4",
@@ -52,9 +51,9 @@
     "@yozora/react-mathjax": "^2.0.0-alpha.4"
   },
   "peerDependencies": {
+    "@emotion/css": "^11.9.0",
     "@yozora/ast": "^2.0.0",
     "@yozora/ast-util": "^2.0.0",
-    "clsx": "^1.1.1",
     "prop-types": "^15.7.2",
     "react": ">= 17.0.0"
   },

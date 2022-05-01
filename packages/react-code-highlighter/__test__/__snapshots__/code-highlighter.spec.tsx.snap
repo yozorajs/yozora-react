@@ -3,15 +3,15 @@
 exports[`basic rendering case snapshot 1`] = `
 <pre>
   <div
-    class="yozora-code-highlighter prism-code language-typescript"
+    class="yozora-code-highlighter__content css-1k8659m prism-code language-typescript"
     style="color:#d4d4d4;background-color:none;line-height:1.6rem;max-height:3.2rem;min-height:100%"
   >
     <div
-      class="yozora-code-highlighter__linenos"
+      class="yozora-code-highlighter__linenos css-e3qifw"
       style="width:2.2em"
     >
       <div
-        class="yozora-code-highlighter__line"
+        class="css-17fnzo2"
       >
         <span>
           1
@@ -19,13 +19,13 @@ exports[`basic rendering case snapshot 1`] = `
       </div>
     </div>
     <div
-      class="yozora-code-highlighter__codes"
+      class="yozora-code-highlighter__codes css-rv5jjl"
     >
       <div
-        class="yozora-code-highlighter__codes-wrapper"
+        class="css-1ttfemb"
       >
         <div
-          class="yozora-code-highlighter__line token-line"
+          class="token-line css-7zjwmr"
           style="color:#d4d4d4"
         >
           <span
