@@ -21,6 +21,27 @@ export const useStyles = (): string => {
           '--yozora-admonition--danger-border-color': colors.border.error,
           margin: spacing.margin.blockNode,
         },
+        '.yozora-footnote-definition': {
+          display: 'flex',
+          alignItems: 'flex-start',
+          justifyContent: 'flex-start',
+          width: '100%',
+          padding: 0,
+          margin: 0,
+          '.yozora-footnote-definition__title': {
+            flex: '0 0 auto',
+            display: 'inline-block',
+            userSelect: 'none',
+            marginTop: -1,
+          },
+          '.yozora-footnote-definition__content': {
+            flex: '1 1 auto',
+            overflowX: 'auto',
+            display: 'inline-block',
+            margin: 0,
+            padding: 0,
+          },
+        },
         '.yozora-footnote-reference': {
           '> a': {
             display: 'inline-block',

@@ -10,7 +10,7 @@ export * from './component/Provider'
 export * from './component/nodeRendererMap'
 
 export * from './YozoraMarkdown'
-export * from './YozoraFootnoteDefinitions'
+export * from './component/FootnoteDefinitions'
 
 export { MathJaxProvider } from '@yozora/react-mathjax'
 

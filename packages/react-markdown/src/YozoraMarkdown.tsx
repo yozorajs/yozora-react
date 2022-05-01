@@ -4,7 +4,7 @@ import { YozoraThemeContextType } from '@yozora/core-react-theme'
 import cn from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { YozoraFootnoteDefinitions } from './YozoraFootnoteDefinitions'
+import { FootnoteDefinitions } from './component/FootnoteDefinitions'
 
 export interface IYozoraMarkdownProps {
   /**
@@ -40,7 +40,7 @@ class YozoraMarkdownRenderer extends React.Component<IYozoraMarkdownProps> {
           <NodesRenderer nodes={ast.children} />
         </section>
         <footer>
-          <YozoraFootnoteDefinitions
+          <FootnoteDefinitions
             footnoteDefinitionsTitle={footnoteDefinitionsTitle}
             dontNeedFootnoteDefinitions={dontNeedFootnoteDefinitions}
           />
