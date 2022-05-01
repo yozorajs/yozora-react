@@ -160,7 +160,7 @@ const classes = {
     wordWrap: 'inherit',
   }),
   highlightLine: css({
-    background: 'var(--yozora-code__bg-highlight, hsla(30deg, 90%, 50%, 0.3))',
+    background: 'var(--yozora-colors-background-codeHighlight, hsla(30deg, 90%, 50%, 0.3))',
     borderColor: 'transparent',
   }),
   lineno: css({
@@ -171,7 +171,7 @@ const classes = {
     userSelect: 'none',
     textAlign: 'right',
     borderRight: '1px solid hsla(0deg, 0%, 80%, 0.8)',
-    borderColor: 'var(--yozora-code__color-border)',
+    borderColor: 'var(--yozora-colors-border-codeLineno)',
   }),
   code: css({
     flex: '1 1 auto',

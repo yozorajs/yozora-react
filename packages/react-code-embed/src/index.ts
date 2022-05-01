@@ -1,6 +1,3 @@
-import './style.styl'
-import YozoraCodeEmbed from './component'
-
-export default YozoraCodeEmbed
-export * from './types'
 export * from './component'
+export * from './types'
+export { YozoraCodeEmbed as default } from './component'

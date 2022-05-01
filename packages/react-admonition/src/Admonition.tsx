@@ -143,38 +143,38 @@ const classes = {
       display: 'block',
     },
     '&&[data-admonition-keyword="note"]': {
-      borderColor: 'var(--yozora-admonition--note__border-color, #d4d5d8)',
-      backgroundColor: 'var(--yozora-admonition--note__bg, #fdfdfe)',
+      borderColor: 'var(--yozora-colors-border-note, #d4d5d8)',
+      backgroundColor: 'var(--yozora-colors-background-note, #fdfdfe)',
       '.yozora-admonition__heading': {
-        color: 'var(--yozora-admonition--note__border-color, #d4d5d8)',
+        color: 'var(--yozora-colors-border-note, #d4d5d8)',
       },
     },
     '&&[data-admonition-keyword="info"]': {
-      borderColor: 'var(--yozora-admonition--info__border-color, #4cb3d4)',
-      backgroundColor: 'var(--yozora-admonition--info__bg, #eef9fd)',
+      borderColor: 'var(--yozora-colors-border-info, #4cb3d4)',
+      backgroundColor: 'var(--yozora-colors-background-info, #eef9fd)',
       '.yozora-admonition__heading': {
-        color: 'var(--yozora-admonition--info__border-color, #4cb3d4)',
+        color: 'var(--yozora-colors-border-info, #4cb3d4)',
       },
     },
     '&&[data-admonition-keyword="tip"]': {
-      borderColor: 'var(--yozora-admonition--tip__border-color, #009400)',
-      backgroundColor: 'var(--yozora-admonition--tip__bg, #e6f6e6)',
+      borderColor: 'var(--yozora-colors-border-success, #009400)',
+      backgroundColor: 'var(--yozora-colors-background-success, #e6f6e6)',
       '.yozora-admonition__heading': {
-        color: 'var(--yozora-admonition--tip__border-color, #009400)',
+        color: 'var(--yozora-colors-border-success, #009400)',
       },
     },
     '&&[data-admonition-keyword="caution"]': {
-      borderColor: 'var(--yozora-admonition--caution__border-color, #e6a700)',
-      backgroundColor: 'var(--yozora-admonition--caution__bg, #fff8e6)',
+      borderColor: 'var(--yozora-colors-border-warning, #e6a700)',
+      backgroundColor: 'var(--yozora-colors-background-warning, #fff8e6)',
       '.yozora-admonition__heading': {
-        color: 'var(--yozora-admonition--caution__border-color, #e6a700)',
+        color: 'var(--yozora-colors-border-warning, #e6a700)',
       },
     },
     '&&[data-admonition-keyword="danger"]': {
-      borderColor: 'var(--yozora-admonition--danger__border-color, #e13238)',
-      backgroundColor: 'var(--yozora-admonition--danger__bg, #ffebec)',
+      borderColor: 'var(--yozora-colors-border-error, #e13238)',
+      backgroundColor: 'var(--yozora-colors-background-error, #ffebec)',
       '.yozora-admonition__heading': {
-        color: 'var(--yozora-admonition--danger__border-color, #e13238)',
+        color: 'var(--yozora-colors-border-error, #e13238)',
       },
     },
   }),

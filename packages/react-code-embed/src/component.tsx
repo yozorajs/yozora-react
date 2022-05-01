@@ -1,6 +1,7 @@
-import cn from 'clsx'
+import { cx } from '@emotion/css'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { classes } from './style'
 import type { IYozoraCodeEmbedProps, IYozoraCodeEmbedState } from './types'
 
 /**
@@ -29,7 +30,7 @@ export class YozoraCodeEmbed extends React.Component<IYozoraCodeEmbedProps, IYoz
   }
 
   public override componentDidCatch(error: unknown, info: unknown): void {
-    this.setError(error)
+    this._onError(error)
     console.error(info)
   }
 
@@ -45,21 +46,19 @@ export class YozoraCodeEmbed extends React.Component<IYozoraCodeEmbedProps, IYoz
     const { error } = this.state
 
     return (
-      <div className={cn('yozora-code-embed', className)} style={style}>
+      <div className={cx('yozora-code-embed', classes.container, className)} style={style}>
         {error == null ? (
-          <Runner lang={lang} value={value} meta={meta} scope={scope} onError={this.setError} />
+          <Runner lang={lang} value={value} meta={meta} scope={scope} onError={this._onError} />
         ) : (
-          <div className={'yozora-code-embed__error-wrapper'}>
-            <div className="yozora-code-embed__error">{error as any}</div>
+          <div className={classes.error}>
+            <div className={classes.errorDetails}>{error as any}</div>
           </div>
         )}
       </div>
     )
   }
 
-  protected setError = (error: unknown): void => {
+  protected _onError = (error: unknown): void => {
     this.setState({ error })
   }
 }
-
-export default YozoraCodeEmbed
