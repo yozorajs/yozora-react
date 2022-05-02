@@ -79,7 +79,6 @@ Render a simple copy button.
   ```tsx
   import React from 'react'
   import CopyButton from '@yozora/react-common-copy-button'
-  import '@yozora/react-common-copy-button/lib/esm/index.css'
 
   const wrapper = (<CopyButton value="waw" style={ { color: 'orange' } } />)
   ```

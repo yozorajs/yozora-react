@@ -80,7 +80,6 @@ as it's seems not been updated for several months.
   ```tsx
   import React, { useState } from 'react'
   import CodeEditor from '@yozora/react-code-editor'
-  import '@yozora/react-code-editor/lib/esm/index.css'
 
   function Wrapper() {
     const [code, setCode] = useState<string>('let a: number = 1 + 2;')
@@ -120,6 +119,15 @@ Name                | Type                            | Required  | Default   | 
   CSS class `'yozora-code-editor'`
 
 * `theme`: Default theme depends on the value of `darken`.
+
+### CSS variables
+
+Name                          | Default value
+:----------------------------:|:----------------:
+`--yozora-colors-border-code` | `#d3d3d3`
+`--yozora-colors-caret-code`  | `#ed6c60`
+`--yozora-fonts-family-code`  | `Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif`
+`--yozora-fonts-size-code`    | `1rem`
 
 
 ## Related

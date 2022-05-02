@@ -36,14 +36,14 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
     "test": "echo 'no test yet.'"
   },
+  "dependencies": {
+    "@guanghechen/react-hooks": "^1.9.3",
+    "@loadable/component": "^5.15.0"
+  },
   "peerDependencies": {
     "@yozora/ast": "^2.0.0",
     "prop-types": "^15.7.2",
     "react": ">= 17.0.0"
-  },
-  "dependencies": {
-    "@guanghechen/react-hooks": "^1.9.3",
-    "@loadable/component": "^5.15.0"
   },
   "devDependencies": {
     "@yozora/react-code-renderer-graphviz": "^2.0.0-alpha.4",

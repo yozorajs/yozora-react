@@ -1,6 +1,6 @@
 import { cx } from '@emotion/css'
+import type { PrismTheme } from '@yozora/react-code-highlighter'
 import CodeHighlighter from '@yozora/react-code-highlighter'
-import type { PrismTheme } from 'prism-react-renderer'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { SimpleCodeEditor } from './editor'
 

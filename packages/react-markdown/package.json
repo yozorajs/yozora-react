@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@guanghechen/react-hooks": "^1.9.3",
+    "@yozora/ast": "^2.0.0",
     "@yozora/core-react-renderer": "^2.0.0-alpha.4",
     "@yozora/core-react-theme": "^2.0.0-alpha.4",
     "@yozora/react-admonition": "^2.0.0-alpha.4",
@@ -52,8 +53,6 @@
   },
   "peerDependencies": {
     "@emotion/css": "^11.9.0",
-    "@yozora/ast": "^2.0.0",
-    "@yozora/ast-util": "^2.0.0",
     "prop-types": "^15.7.2",
     "react": ">= 17.0.0"
   },

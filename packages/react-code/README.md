@@ -81,7 +81,6 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   ```tsx
   import React from 'react'
   import Code from '@yozora/react-code'
-  import '@yozora/react-code/lib/esm/index.css'
 
   const wrapper = (
     <Code
@@ -99,7 +98,7 @@ Name                | Type                  | Required  | Default   | Descriptio
 `darken`            | `boolean`             | `false`   | -         | Enable the darken mode
 `lang`              | `string`              | `false`   | -         | Language of the source codes
 `meta`              | `string`              | `false`   | -         | Meta data of the code block
-`preferLinenos`     | `boolean`             | `false`   | `true`    | Display linenos in default
+`preferLineNo`      | `boolean`             | `false`   | `true`    | Display linenos in default
 `runners`           | `CodeRunnerItem[]`    | `false`   | See below | Code runners.
 `style`             | `React.CSSProperties` | `false`   | -         | Root css style
 `value`             | `string`              | `true`    | -         | Literal source codes
@@ -131,28 +130,17 @@ Name                | Type                  | Required  | Default   | Descriptio
 * `meta`:
 
   ```typescript
-  interface CodeMetaData extends CodeRunnerMetaData {
+  import type { ICodeMetaData as IBaseCodeMetaData } from '@yozora/core-react-renderer'
+  import type { ICodeRunnerItem, ICodeRunnerMetaData } from '@yozora/react-code-runners'
+
+  /**
+  * Meta data of the fenced-code.
+  */
+  export interface ICodeMetaData extends IBaseCodeMetaData, ICodeRunnerMetaData {
     /**
-     * The line number of the highlighted row.
-     */
-    highlights: number[]
-    /**
-     * Maximum number of rows displayed
-     * @default -1
-     */
-    maxlines: number
-    /**
-     * Code title.
-     */
-    title: string
-    /**
-     * Whether to display the line numbers.
-     */
-    showLinenos: boolean
-    /**
-     * Whether to collapse the code component.
-     */
-    collapsed?: boolean
+    * Rendering mode.
+    */
+    _yozoracodemode: 'live' | 'embed' | 'literal' | string
   }
   ```
 

@@ -79,7 +79,6 @@ Light buttons, imitate the window action icons in MacOS.
   ```tsx
   import React from 'react'
   import LightButtons from '@yozora/react-common-light-buttons'
-  import '@yozora/react-common-light-buttons/lib/esm/index.css'
 
   const wrapper = (
     <LightButtons

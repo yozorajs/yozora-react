@@ -39,12 +39,12 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir ."
   },
+  "dependencies": {
+    "buble": "^0.20.0"
+  },
   "peerDependencies": {
     "prop-types": "^15.7.2",
     "react": ">= 17.0.0"
-  },
-  "dependencies": {
-    "buble": "^0.20.0"
   },
   "browserslist": [
     "last 2 versions",

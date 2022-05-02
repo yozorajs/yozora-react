@@ -80,10 +80,10 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
   ```tsx
   import React from 'react'
-  import CodeLive, { CodeRendererProps } from '@yozora/react-code-live'
-  import '@yozora/react-code-live/lib/esm/index.css'
+  import CodeLive from '@yozora/react-code-live'
+  import type { ICodeRunnerProps } from '@yozora/react-code-runners'
 
-  const JsxRenderer = ({ value }: CodeRendererProps): React.ReactElement => {
+  const JsxRenderer = ({ value }: ICodeRunnerProps): React.ReactElement => {
     // eslint-disable-next-line no-new-func
     const f = new Function(code)
     const v = f()
@@ -115,13 +115,26 @@ Name                | Type                  | Required  | Default | Description
 `highlightLinenos`  | `number[]`            | `false`   | -       | Line number of Lines that should be highlighted
 `lang`              | `string`              | `false`   | -       | Language of the source codes
 `maxLines`          | `number`              | `number`  | -       | Maximum number of rows displayed
-`showLinenos`       | `boolean`             | `false`   | -       | Whether to display the line numbers
+`showLineNo`        | `boolean`             | `false`   | -       | Whether to display the line numbers
 `style`             | `React.CSSProperties` | `false`   | -       | Root css style
 `title`             | `string`              | `false`   | -       | Code title
 `value`             | `string`              | `true`    | -       | Literal source codes
 
 * `className`: The root element of this component will always bind with the
   CSS class `'yozora-code-literal'`.
+
+### CSS variables
+
+Name                              | Default value
+:--------------------------------:|:----------------:
+`--yozora-colors-background-code` | `#f5f5f5`
+`--yozora-colors-border-code`     | `#d3d3d3`
+`--yozora-colors-caret-code`      | `#ed6c60`
+`--yozora-colors-selection-code`  | `hsla(200deg, 30%, 70%, 0.3)`
+`--yozora-colors-text-codeTitle`  | `hsla(0deg, 0%, 30%, 0.8)`
+`--yozora-fonts-family-code`      | `Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif`
+`--yozora-fonts-family-heading`   | `'Comic Sans MS', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif`
+`--yozora-fonts-size-code`        | `1rem`
 
 
 ## Related

@@ -1,7 +1,7 @@
 import { css } from '@emotion/css'
 
 const vars = {
-  border: 'var(--yozora-admonition-border-width, 5px) solid transparent',
+  border: '5px solid transparent',
   noteBorderColor: 'var(--yozora-colors-border-note, #d4d5d8)',
   noteBackground: 'var(--yozora-colors-background-note, #fdfdfe)',
   infoBorderColor: 'var(--yozora-colors-border-info, #4cb3d4)',

@@ -92,19 +92,19 @@ or [@yozora/react-code-live][].
 * Create a JsxRunner.
 
   ```tsx title="./runner-jsx.tsx"
+  import styled from '@emotion/styled'
   import loadable from '@loadable/component'
   import type { EcmaImport } from '@yozora/ast'
-  import type { CodeRendererJsxProps } from '@yozora/react-code-renderer-jsx'
-  import type { CodeRunner } from '@yozora/react-code-runners'
+  import type { ICodeRendererJsxProps } from '@yozora/react-code-renderer-jsx'
+  import type { ICodeRunner } from '@yozora/react-code-runners'
   import { createUseJsxRunner } from '@yozora/react-code-runners'
   import { useCallback, useEffect, useMemo, useState } from 'react'
-  import styled from 'styled-components'
 
-  const JsxRenderer = loadable<CodeRendererJsxProps>(
+  const JsxRenderer = loadable<ICodeRendererJsxProps>(
     () => import('@yozora/react-code-renderer-jsx') as any,
   )
 
-  export const useJsxRunner: (ecmaImports: EcmaImport[]) => CodeRunner =
+  export const useJsxRunner: (ecmaImports: EcmaImport[]) => ICodeRunner =
     createUseJsxRunner(
       {
         styled,
@@ -127,11 +127,11 @@ or [@yozora/react-code-live][].
 * Create a MathRunner.
 
   ```tsx title="./runner-math.tsx"
-  import type { CodeRunner } from '@yozora/react-code-runners'
+  import type { ICodeRunner } from '@yozora/react-code-runners'
   import { createMathRunner } from '@yozora/react-code-runners'
   import { MathJaxNode } from '@yozora/react-mathjax'
 
-  export const MathRunner: CodeRunner = createMathRunner(
+  export const MathRunner: ICodeRunner = createMathRunner(
     props => <MathJaxNode className="yozora-math" inline={false} formula={props.value} />
   )
   ```
@@ -140,15 +140,15 @@ or [@yozora/react-code-live][].
 
   ```tsx title="./runner.tsx"
   import type { EcmaImport } from '@yozora/ast'
-  import type { CodeRunnerItem } from '@yozora/react-code-runners'
-  import { useMemo } from 'react'
+  import type { ICodeRunnerItem } from '@yozora/react-code-runners'
+  import React  from 'react'
   import GraphvizRunner from './runner-graphviz'
   import { useJsxRunner } from './runner-jsx'
   import MathRunner from './runner-math'
 
-  export function useCodeRunners(ecmaImports: EcmaImport[]): CodeRunnerItem[] {
+  export function useCodeRunners(ecmaImports: EcmaImport[]): ICodeRunnerItem[] {
     const JsxRunner = useJsxRunner(ecmaImports)
-    return useMemo(
+    return React.useMemo(
       () => [
         {
           title: 'jsx',

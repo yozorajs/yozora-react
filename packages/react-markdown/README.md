@@ -327,7 +327,6 @@ This component is designed to render data of [@yozora/ast][].
   :--------------------------:|:---------------------:|:---------:|:-------:|:-------------
   `codeRunners`               | See below             | `false`   | -       | Code runners, passed to [@yozora/react-code-embed][] and [@yozora/react-code-live][] 
   `darken`                    | `boolean`             | `false`   | `false` | Enable the darken mode
-  `preferLinenos`             | `boolean`             | `false`   | `true`  | Display linenos as the default behavior in YozoraCode components
   `definitionMap`             | See below             | `true`    | -       | Link / Image reference definitions
   `footnoteDefinitionMap`     | See below             | `true`    | -       | Footnote reference definitions
   `customRendererMap`         | See below             | `false`   | -       | [@yozora/ast] renderer map
@@ -469,7 +468,6 @@ This component is designed to render data of [@yozora/ast][].
 This component has some built-in sub-components for rendering data of [@yozora/ast]. 
 
 * [@yozora/react-admonition][]
-* [@yozora/react-footnote-definitions][]
 * [@yozora/react-inline-code][]
 
 ## Related
@@ -519,7 +517,6 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 [@yozora/react-code]: https://www.npmjs.com/package/@yozora/react-code
 [@yozora/react-code-embed]: https://www.npmjs.com/package/@yozora/react-code-embed
 [@yozora/react-code-live]: https://www.npmjs.com/package/@yozora/react-code-live
-[@yozora/react-footnote-definitions]: https://www.npmjs.com/package/@yozora/react-footnote-definitions
 [@yozora/react-mathjax]: https://www.npmjs.com/package/@yozora/react-mathjax
 [@yozora/tokenizer-admonition]: https://www.npmjs.com/package/@yozora/tokenizer-admonition
 [@yozora/tokenizer-autolink]: https://www.npmjs.com/package/@yozora/tokenizer-autolink

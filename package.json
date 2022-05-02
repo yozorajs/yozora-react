@@ -46,6 +46,7 @@
   ],
   "devDependencies": {
     "@babel/core": "7.17.9",
+    "@emotion/css": "^11.9.0",
     "@guanghechen/eslint-config": "^1.9.3",
     "@guanghechen/eslint-config-jsx": "^1.9.3",
     "@guanghechen/eslint-config-ts": "^1.9.3",

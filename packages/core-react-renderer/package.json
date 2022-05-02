@@ -36,18 +36,16 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
     "test": "echo 'no test yet.'"
   },
-  "peerDependencies": {
-    "prop-types": "^15.7.2",
-    "react": ">= 17.0.0"
-  },
   "dependencies": {
-    "@emotion/css": "^11.9.0",
     "@guanghechen/parse-lineno": "^1.9.3",
     "@yozora/core-react-theme": "^2.0.0-alpha.4",
     "@yozora/react-code-highlighter": "^2.0.0-alpha.4"
   },
-  "devDependencies": {
-    "@yozora/ast": "^2.0.0"
+  "peerDependencies": {
+    "@emotion/css": "^11.9.0",
+    "@yozora/ast": "^2.0.0",
+    "prop-types": "^15.7.2",
+    "react": ">= 17.0.0"
   },
   "browserslist": [
     "last 2 versions",

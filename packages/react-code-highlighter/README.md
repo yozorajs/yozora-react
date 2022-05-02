@@ -77,16 +77,15 @@ This package is designed to highlight [mdast code][] type data
 * Basic:
 
   ```tsx
-  import React, { useEffect, useState } from 'react'
+  import React from 'react'
   import CodeHighlighter from '@yozora/react-code-highlighter'
-  import '@yozora/react-code-highlighter/lib/esm/index.css'
 
   function Wrapper() {
-    const [code, setCode] = useState<string>('let a: number = 1 + 2;')
-    const [lineCount, setLineCount] = useState<number>(0)
+    const [code, setCode] = React.useState<string>('let a: number = 1 + 2;')
+    const [lineCount, setLineCount] = React.useState<number>(0)
     const lineNoWidth = `${ Math.max(2, ('' + lineCount).length) + 0.5 }em`
 
-    useEffect(() => {
+    React.useEffect(() => {
       const nextCode = (
         'let a = 1, b = 2\n' +
         Array.from(new Array(100)).map((x, i) => '// ' + i).join('\n') +
@@ -121,6 +120,13 @@ This package is designed to highlight [mdast code][] type data
     `linenoWidth`        | `React.CSSProperties['width']`  | `false`   | `0`                 | Code line number width
     `linenoColor`        | `React.CSSProperties['color']`  | `false`   | `#858585`           | Code line number color
     `onLineCountChange`  | `(lineCount: number) => void`   | `false`   | -                   | Callback of Code line count changing
+
+### CSS variables
+
+Name                                        | Default value
+:------------------------------------------:|:----------------:
+`--yozora-colors-background-codeHighlight`  | `hsla(30deg, 90%, 50%, 0.3)`
+`--yozora-colors-border-codeLineno`         | `hsla(0deg, 0%, 80%, 0.8)`
 
 
 ## FAQ
