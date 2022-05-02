@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-markdown",
-  "version": "2.0.0-alpha.5",
+  "version": "2.0.0-alpha.6",
   "description": "render markdown content in react",
   "author": {
     "name": "guanghechen",
@@ -40,16 +40,16 @@
   "dependencies": {
     "@guanghechen/react-hooks": "^1.9.4",
     "@yozora/ast": "^2.0.0",
-    "@yozora/core-react-renderer": "^2.0.0-alpha.5",
-    "@yozora/core-react-theme": "^2.0.0-alpha.5",
-    "@yozora/react-admonition": "^2.0.0-alpha.5",
-    "@yozora/react-code": "^2.0.0-alpha.5",
-    "@yozora/react-code-editor": "^2.0.0-alpha.5",
-    "@yozora/react-code-embed": "^2.0.0-alpha.5",
-    "@yozora/react-code-highlighter": "^2.0.0-alpha.5",
-    "@yozora/react-code-live": "^2.0.0-alpha.5",
-    "@yozora/react-code-renderer-jsx": "^2.0.0-alpha.5",
-    "@yozora/react-mathjax": "^2.0.0-alpha.5"
+    "@yozora/core-react-renderer": "^2.0.0-alpha.6",
+    "@yozora/core-react-theme": "^2.0.0-alpha.6",
+    "@yozora/react-admonition": "^2.0.0-alpha.6",
+    "@yozora/react-code": "^2.0.0-alpha.6",
+    "@yozora/react-code-editor": "^2.0.0-alpha.6",
+    "@yozora/react-code-embed": "^2.0.0-alpha.6",
+    "@yozora/react-code-highlighter": "^2.0.0-alpha.6",
+    "@yozora/react-code-live": "^2.0.0-alpha.6",
+    "@yozora/react-code-renderer-jsx": "^2.0.0-alpha.6",
+    "@yozora/react-mathjax": "^2.0.0-alpha.6"
   },
   "peerDependencies": {
     "@emotion/css": "^11.9.0",
