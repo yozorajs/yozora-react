@@ -12,11 +12,11 @@ const vars = {
   infoBorderColor: 'var(--yozora-colors-border-info, #4cb3d4)',
   noteBorderColor: 'var(--yozora-colors-border-note, #d4d5d8)',
   tipBorderColor: 'var(--yozora-colors-border-success, #009400)',
-  cautionTextColor: 'var(--yozora-colors-text-warning, #fff8e6)',
-  dangerTextColor: 'var(--yozora-colors-text-error, #ffebec)',
-  infoTextColor: 'var(--yozora-colors-text-info, #eef9fd)',
-  noteTextColor: 'var(--yozora-colors-text-note, #fdfdfe)',
-  tipTextColor: 'var(--yozora-colors-text-success, #e6f6e6)',
+  cautionTextColor: 'var(--yozora-colors-text-warning, #4d3800)',
+  dangerTextColor: 'var(--yozora-colors-text-error, #4d3800)',
+  infoTextColor: 'var(--yozora-colors-text-info, #4d3800)',
+  noteTextColor: 'var(--yozora-colors-text-note, #4d3800)',
+  tipTextColor: 'var(--yozora-colors-text-success, #4d3800)',
 }
 
 export const classes = {

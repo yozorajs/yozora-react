@@ -138,13 +138,11 @@ export const useStyles = (): string => {
       }),
       css({
         '.yozora-admonition': {
-          '.yozora-admonition__heading': {
-            '.yozora-math': {
-              color: 'inherit',
-            },
-            '.yozora-inline-math': {
-              color: 'inherit',
-            },
+          '.yozora-math': {
+            color: 'inherit',
+          },
+          '.yozora-inline-math': {
+            color: 'inherit',
           },
         },
         '.yozora-list-item': {
