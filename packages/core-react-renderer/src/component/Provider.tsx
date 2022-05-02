@@ -1,4 +1,5 @@
 import { cx } from '@emotion/css'
+import { useDeepCompareMemo } from '@guanghechen/react-hooks'
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -55,7 +56,7 @@ export const NodeRendererContextProvider: React.FC<INodeRendererContextProviderP
   const rendererMap: Readonly<INodeRendererMap> = useNodeRendererMap(props.customRendererMap)
   const [state, dispatch] = React.useReducer(reducer, {}, initNodeRendererState)
 
-  const context: INodeRendererContext = React.useMemo<INodeRendererContext>(
+  const context: INodeRendererContext = useDeepCompareMemo<INodeRendererContext>(
     () => ({
       ...state,
       definitionMap: definitionMap ?? {},

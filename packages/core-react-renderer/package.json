@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@guanghechen/parse-lineno": "^1.9.4",
+    "@guanghechen/react-hooks": "^1.9.4",
     "@yozora/core-react-theme": "^2.0.0-alpha.5",
     "@yozora/react-code-highlighter": "^2.0.0-alpha.5"
   },
