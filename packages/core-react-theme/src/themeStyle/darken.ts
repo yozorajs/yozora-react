@@ -18,9 +18,9 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
       code: '#1e1e1e',
       codeHighlight: 'hsla(210deg, 100%, 84%, 0.2)',
       inlineCode: 'hsla(210deg, 15%, 60%, 0.15)',
-      tableHead: '#eff0f0',
-      tableOddRow: '#fff',
-      tableEvenRow: '#f6f8fa',
+      tableHead: '#28292a',
+      tableOddRow: '#18191a',
+      tableEvenRow: '#28292a',
     },
     border: {
       note: '#d4d5d8',
@@ -35,7 +35,7 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
       codeLineno: 'hsla(0deg, 0%, 30%, 0.8)',
       heading: 'hsla(216deg, 20%, 80%, 0.92)',
       image: '#7a6390',
-      table: '#dfe2e5',
+      table: '#808080',
       thematicBreak: '#e1e4e8',
     },
     text: {
