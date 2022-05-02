@@ -36,6 +36,9 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build",
     "test": "echo 'no test yet.'"
   },
+  "dependencies": {
+    "@guanghechen/react-hooks": "^1.9.4"
+  },
   "peerDependencies": {
     "@emotion/css": "^11.9.0",
     "prop-types": "^15.7.2",

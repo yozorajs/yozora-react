@@ -3,12 +3,14 @@ import { createLightThemeStyle } from './themeStyle/light'
 import type { IThemeStyle } from './types'
 import { Theme } from './types'
 
-export interface IYozoraThemeContext {
+export interface IYozoraThemePreference {
+  showCodeLineNo: boolean
+}
+
+export interface IYozoraThemeContext<D = unknown> {
   theme: Theme
-  themeStyle: IThemeStyle
-  preference: {
-    showCodeLineNo: boolean
-  }
+  themeStyle: IThemeStyle<D>
+  preference: IYozoraThemePreference
 }
 
 export const YozoraThemeContextType = React.createContext<IYozoraThemeContext>({
@@ -19,5 +21,5 @@ export const YozoraThemeContextType = React.createContext<IYozoraThemeContext>({
   },
 })
 
-export const useThemeContext = (): IYozoraThemeContext =>
-  React.useContext<IYozoraThemeContext>(YozoraThemeContextType)
+export const useThemeContext = <D>(): IYozoraThemeContext<D> =>
+  React.useContext<IYozoraThemeContext>(YozoraThemeContextType) as IYozoraThemeContext<D>
