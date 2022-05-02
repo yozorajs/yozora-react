@@ -52,7 +52,7 @@ export interface IMarkdownContextProviderProps {
  * @returns
  */
 export const MarkdownContextProvider: React.FC<IMarkdownContextProviderProps> = props => {
-  const { definitionMap, footnoteDefinitionMap, children } = props
+  const { definitionMap, footnoteDefinitionMap, children, ImageViewer } = props
 
   const customRendererMap = React.useMemo(
     () => ({
@@ -71,6 +71,7 @@ export const MarkdownContextProvider: React.FC<IMarkdownContextProviderProps> = 
       customRendererMap={customRendererMap}
       customStyleMap={props.customStyleMap}
       rootClassName={rootClassName}
+      ImageViewer={ImageViewer}
     >
       {children}
     </NodeRendererContextProvider>
