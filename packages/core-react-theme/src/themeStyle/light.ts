@@ -1,16 +1,7 @@
-import type { IThemeColors, IThemeEffects, IThemePalette, IThemeStyle } from '../types'
+import type { IThemeColors, IThemeEffects, IThemeStyle } from '../types'
 import { createBreakPoints, createFonts, createSpacing } from './_base'
 
 export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeStyle<T> => {
-  const palette: IThemePalette = {
-    primary: '#42a5f5',
-    secondary: '#ba68c8',
-    info: '#03a9f4',
-    success: '#4caf50',
-    warning: '#ff9800',
-    error: '#ef5350',
-  }
-
   const colors: IThemeColors = {
     background: {
       note: '#fdfdfe',
@@ -19,8 +10,11 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
       warning: '#fff8e6',
       error: '#ffebec',
 
+      // Markdown style
+      body: 'inherit',
+
       // elements
-      blockquote: '#fafaf9',
+      blockquote: 'inherit',
       code: '#f5f5f5',
       codeHighlight: 'hsla(30deg, 90%, 50%, 0.3)',
       inlineCode: 'hsla(210deg, 15%, 60%, 0.15)',
@@ -36,7 +30,7 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
       error: '#e13238',
 
       // elements
-      blockquote: '#dfe2e5',
+      blockquote: '#dadde1',
       code: 'hsla(0deg, 0%, 80%, 0.8)',
       codeLineno: 'hsla(0deg, 0%, 80%, 0.8)',
       heading: 'hsla(216deg, 20%, 80%, 0.92)',
@@ -50,6 +44,9 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
       success: '#474748',
       warning: '#474748',
       error: '#474748',
+
+      // Markdown style
+      body: '#1c1e21',
 
       // elements
       codeTitle: 'hsla(0deg, 0%, 30%, 0.8)',
@@ -99,7 +96,6 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
     colors,
     effects,
     fonts: createFonts(),
-    palette,
     spacing: createSpacing(),
     custom,
   }

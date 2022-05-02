@@ -1,16 +1,7 @@
-import type { IThemeColors, IThemeEffects, IThemePalette, IThemeStyle } from '../types'
+import type { IThemeColors, IThemeEffects, IThemeStyle } from '../types'
 import { createBreakPoints, createFonts, createSpacing } from './_base'
 
 export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): IThemeStyle<T> => {
-  const palette: IThemePalette = {
-    primary: '#1565c0',
-    secondary: '#7b1fa2',
-    info: '#01579b',
-    success: '#1b5e20',
-    warning: '#e65100',
-    error: '#c62828',
-  }
-
   const colors: IThemeColors = {
     background: {
       note: '#474748',
@@ -19,8 +10,11 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
       warning: '#4d3800',
       error: '#4b1113',
 
+      // Markdown style
+      body: '#18191a',
+
       // elements
-      blockquote: '#fafaf9',
+      blockquote: 'inherit',
       code: '#1e1e1e',
       codeHighlight: 'hsla(210deg, 100%, 84%, 0.2)',
       inlineCode: 'hsla(210deg, 15%, 60%, 0.15)',
@@ -36,7 +30,7 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
       error: '#e13238',
 
       // elements
-      blockquote: '#dfe2e5',
+      blockquote: '#606770',
       code: 'hsla(0deg, 0%, 30%, 0.8)',
       codeLineno: 'hsla(0deg, 0%, 30%, 0.8)',
       heading: 'hsla(216deg, 20%, 80%, 0.92)',
@@ -51,6 +45,9 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
       warning: '#fdfdfe',
       error: '#fdfdfe',
 
+      // Markdown style
+      body: '#f5f6f7',
+
       // elements
       codeTitle: 'hsla(0deg, 0%, 90%, 0.8)',
       deleted: '#acb2b9',
@@ -58,7 +55,7 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
       imageTitle: '#808080',
       inlineCode: '#d81848',
       link: '#4682B4',
-      math: '#3d3df5',
+      math: '#ddd',
     },
     selection: {
       code: 'hsla(200deg, 30%, 70%, 0.3)',
@@ -99,7 +96,6 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
     colors,
     effects,
     fonts: createFonts(),
-    palette,
     spacing: createSpacing(),
     custom,
   }

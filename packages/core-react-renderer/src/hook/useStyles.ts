@@ -6,7 +6,7 @@ import type { INodeStyleMap } from '../types'
 export const useStyles = (customStyles: Readonly<Partial<INodeStyleMap>> | undefined): string => {
   const { themeStyle } = useThemeContext()
   return React.useMemo<string>(() => {
-    const { colors, effects, fonts, spacing } = themeStyle
+    const { breakpoints, colors, effects, fonts, spacing } = themeStyle
     const styleMap: INodeStyleMap = {
       blockquote: css({
         '.yozora-blockquote': {
@@ -33,7 +33,9 @@ export const useStyles = (customStyles: Readonly<Partial<INodeStyleMap>> | undef
       }),
       delete: css({
         '.yozora-delete': {
+          marginRight: '4px',
           color: colors.text.deleted,
+          fontStyle: 'italic',
           textDecoration: 'line-through',
         },
       }),
@@ -134,6 +136,7 @@ export const useStyles = (customStyles: Readonly<Partial<INodeStyleMap>> | undef
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          margin: 0,
           '> img': {
             flex: '1 0 auto',
             boxSizing: 'border-box',
@@ -324,6 +327,10 @@ export const useStyles = (customStyles: Readonly<Partial<INodeStyleMap>> | undef
         WebkitFontSmoothing: 'antialiased',
         fontFamily: fonts.family.body,
         wordBreak: 'break-all',
+        background: colors.background.body,
+        color: colors.text.body,
+        userSelect: 'unset',
+
         '& ::-webkit-scrollbar': {
           width: 4,
           height: 4,
@@ -351,6 +358,15 @@ export const useStyles = (customStyles: Readonly<Partial<INodeStyleMap>> | undef
           },
           '&:hover': {
             color: effects.hover.colors.text.link,
+          },
+        },
+      }),
+      // Adaptive small screen.
+      css({
+        [`@media screen and ${breakpoints.xs.exactOrMinus}`]: {
+          '.yozora-paragraph': {
+            letterSpacing: 0,
+            lineHeight: 1.6,
           },
         },
       }),

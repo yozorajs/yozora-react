@@ -8,7 +8,6 @@ export interface IThemeStyle<D = unknown> {
   colors: IThemeColors
   effects: IThemeEffects
   fonts: IThemeFonts
-  palette: IThemePalette
   spacing: IThemeSpacing
   custom: D
 }
@@ -34,6 +33,9 @@ export interface IThemeColors {
     success: string
     warning: string
     error: string
+
+    // Markdown style
+    body: string
 
     // elements
     blockquote: string
@@ -66,6 +68,9 @@ export interface IThemeColors {
     success: string
     warning: string
     error: string
+
+    // Markdown style
+    body: string
 
     // elements
     codeTitle: string
@@ -107,15 +112,6 @@ export interface IThemeFonts {
   size: {
     code: string
   }
-}
-
-export interface IThemePalette {
-  primary: string
-  secondary: string
-  info: string
-  success: string
-  warning: string
-  error: string
 }
 
 export interface IThemeSpacing {

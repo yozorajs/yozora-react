@@ -158,8 +158,8 @@ export const useStyles = (): string => {
           background: 'hsla(0deg, 0%, 90%, 0.2)',
         },
       }),
+      // Adaptive small screen.
       css({
-        // Adaptive small screen.
         [`@media screen and ${breakpoints.xs.exactOrMinus}`]: {
           '.yozora-code-literal': {
             border: 'none',
@@ -190,6 +190,7 @@ export const useStyles = (): string => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 padding: '1rem 0',
+                margin: 0,
               },
               '+ .yozora-math': {
                 marginTop: '-1rem',
