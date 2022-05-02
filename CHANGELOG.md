@@ -1,5 +1,65 @@
 # Changelog
 
+<a name="2.0.0-alpha.5"></a>
+## 2.0.0-alpha.5 (2022-05-02)
+
+### Added
+
+- ✅ test: update snapshots &amp; update dependencies [[34e6f5b](https://github.com/guanghechen/yozora-react/commit/34e6f5bc9cb0372f7aea3d9a0b78df0d2c288321)]
+- ✅ test: fix test errors [[2b7d891](https://github.com/guanghechen/yozora-react/commit/2b7d89184b5f11c0f7538bca1048bf3e5640a84f)]
+- ✅ test: update tests [[96848d3](https://github.com/guanghechen/yozora-react/commit/96848d3d5e29671d242d15a3219627c4a0c74b03)]
+- ✨ feat: add @yozora/code-react-renderer [[0ced5f8](https://github.com/guanghechen/yozora-react/commit/0ced5f8328f8f2c53c65ae72a8775da7fbda2dad)]
+- ✨ feat: serve ThemeContext in @yozora/react-core [[709b659](https://github.com/guanghechen/yozora-react/commit/709b65927629c32d698f2c12c7e98041381f5678)]
+
+### Changed
+
+- 🎨 improve: rename components [[13943e3](https://github.com/guanghechen/yozora-react/commit/13943e3dc352fdd79032b15a141d7a423f8a6151)]
+- 🎨 improve: tweak styles [[d40a6ee](https://github.com/guanghechen/yozora-react/commit/d40a6ee073d63eee269d3f87c489c4a0650f393a)]
+- 🎨 improve(admonition): tweak styles [[8ea99bb](https://github.com/guanghechen/yozora-react/commit/8ea99bb5ff26235178112e0f963aa010021e6757)]
+- 🎨 improve: tweak theme [[36ad2f9](https://github.com/guanghechen/yozora-react/commit/36ad2f9dbc39e2898a24030f38ffd6265a835509)]
+- 🎨 refactor(core-react-theme): add YozoraThemeContextProvider [[d4eb9bb](https://github.com/guanghechen/yozora-react/commit/d4eb9bb0ae67577654d1fbe5e8873b37cc77cbc3)]
+- ⬆️ chore: upgrade dependencies [[e88cd7e](https://github.com/guanghechen/yozora-react/commit/e88cd7eebf7ffa56cc476c761df9864f8455d278)]
+- 🎨 refactor: remove stylus &amp; prefer jss [[dd68bd2](https://github.com/guanghechen/yozora-react/commit/dd68bd216074e9b9c14a6da214adbbd5429b7151)]
+- 🎨 refactor(@yozora/react-code-live): prefer jss (@emotion/css) [[9e54987](https://github.com/guanghechen/yozora-react/commit/9e549879b96c9c270babb50b8ee22bb2dd2c416a)]
+- 🎨 refactor(@yozora/react-code-editor): prefer jss (@emotion/css) [[3909c48](https://github.com/guanghechen/yozora-react/commit/3909c48580af595f2406a420c96f581d3a8eeb20)]
+- 🎨 refactor(@yozora/react-code-literal): prefer jss [[a931030](https://github.com/guanghechen/yozora-react/commit/a931030b2a54c2a51329d01086f226667d463cbe)]
+- 🎨 refactor(@yozora/react-code-embed): prefer jss (@emotion/css) [[cd88cb8](https://github.com/guanghechen/yozora-react/commit/cd88cb812b4a80fe9af3b78666200a46d6dbfff0)]
+- 🎨 refactor(@yozora/react-code-highlighter): prefer jss (@emotion/css) [[da39a11](https://github.com/guanghechen/yozora-react/commit/da39a112494aca18c73d77c5defe0993b8fd5ed0)]
+- 🎨 improve: remove @yozora/react-footnote-definition [[da80d5d](https://github.com/guanghechen/yozora-react/commit/da80d5d1936939f1c52c8b4373bfc6480ae87498)]
+- 🚚 move: move INodeRendererMap from &#x27;types/&#x27; to &#x27;nodeRendererMap/&#x27; [[5458d8f](https://github.com/guanghechen/yozora-react/commit/5458d8f513417d8fc23e570be1bd3571718d6cf7)]
+- 🎨 improve: remove @yozora/react-list-item [[4b70dfc](https://github.com/guanghechen/yozora-react/commit/4b70dfc1e21949849d939f9f3270b95490eeabc9)]
+- 🎨 improve: remove markdown context [[9dddcb0](https://github.com/guanghechen/yozora-react/commit/9dddcb0016dbf78ffa6ab678702756010f84ddff)]
+- 🎨 improve: rename files [[6a90085](https://github.com/guanghechen/yozora-react/commit/6a900858abe0ea2c01363e412165e9a0c09624a3)]
+- 🎨 refactor: refactor @yozora/react-admonition [[1f9179b](https://github.com/guanghechen/yozora-react/commit/1f9179b936467d84b339f292012ba17c1044828c)]
+- 🎨 refactor: prefer jss instead of stylus [[e7c534b](https://github.com/guanghechen/yozora-react/commit/e7c534b33a7a232086b03206fa293a49d0fe7cd8)]
+- 🔧 chore: remove unused dependencies [[471494f](https://github.com/guanghechen/yozora-react/commit/471494f467de4ff9d5f1d75940d24b3655928edb)]
+- 🎨 refactor: remove @yozora/react-footnote-reference &amp; refactor codes [[84fe9a2](https://github.com/guanghechen/yozora-react/commit/84fe9a2faae7baf81aa4195aef475d6d0a7e5e7a)]
+- 🎨 improve: build MathRenderer and InlineMathRenderer without dependencies [[ad12f36](https://github.com/guanghechen/yozora-react/commit/ad12f3606911e674121532acb0c4e9a9542d275d)]
+- 🚚 rename: rename package folder name (add &#x27;react-&#x27; prefix) [[aa319d0](https://github.com/guanghechen/yozora-react/commit/aa319d05a1e406eb1d2954ff47289530573f2150)]
+- 🎨 refactor: refactor codes with @yozora/core-react-renderer and @yozora/core-react-theme [[d4f76df](https://github.com/guanghechen/yozora-react/commit/d4f76df2f06da3007034114c0cd6786097b033ad)]
+- 🎨 refactor: rename @yozora/react-core to @yozora/core-react-theme [[8853398](https://github.com/guanghechen/yozora-react/commit/885339859237dbdea3ff84dc611f05553dfb552b)]
+- 🎨 refactor: prefer jss [[34d127b](https://github.com/guanghechen/yozora-react/commit/34d127bc8ab652a077c6bf001d8f120da3b0d2b4)]
+- 🎨 refactor: prefer jss [[4ff436d](https://github.com/guanghechen/yozora-react/commit/4ff436d20142751453edacce9f9d9f14e3de535c)]
+- ⬆️ chore: upgrade dependencies [[2b77b9c](https://github.com/guanghechen/yozora-react/commit/2b77b9c002a20675c6d4c9282283c04874b16087)]
+
+### Removed
+
+- 🔥 improve: remove @yozora/react-math and @yozora/react-inline-math [[f137ccc](https://github.com/guanghechen/yozora-react/commit/f137cccb89b05773fb1ea2c17cd8d839c23291b2)]
+- 🔥 improve: remove dead packages [[b4e6026](https://github.com/guanghechen/yozora-react/commit/b4e602604ad22f37be45d42a8e5c94341db8cccc)]
+
+### Fixed
+
+- 🐛 fix: fix issues [[ed98a39](https://github.com/guanghechen/yozora-react/commit/ed98a39ebdc5545f32b075eef86ad0a867fa900d)]
+- 🐛 fix: fix build error (circular dependencices) [[05c6530](https://github.com/guanghechen/yozora-react/commit/05c6530bf7a89075f3fbfd77989a659c363082c2)]
+- 🐛 fix: show the image previewer when click it [[75e5cf1](https://github.com/guanghechen/yozora-react/commit/75e5cf14089f32f78dbab2c87f4d2479157b15e0)]
+
+### Miscellaneous
+
+- 📝 docs: update README and snapshots [[6d119ef](https://github.com/guanghechen/yozora-react/commit/6d119ef7e9b2075a728f3edec598abe108375a41)]
+- 📝 docs: update README &amp; update package.json [[5cff36d](https://github.com/guanghechen/yozora-react/commit/5cff36ddd9cdf293b83bcd9850a0fc8fc11b5d32)]
+- 📝 docs: update CHANGELOG [[a134158](https://github.com/guanghechen/yozora-react/commit/a134158a57b7a526645aa26b9fdea5546944a603)]
+
+
 <a name="2.0.0-alpha.4"></a>
 ## 2.0.0-alpha.4 (2022-01-15)
 
