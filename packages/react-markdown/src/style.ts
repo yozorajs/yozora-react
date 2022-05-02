@@ -5,7 +5,7 @@ import React from 'react'
 export const useStyles = (): string => {
   const { themeStyle } = useThemeContext()
   return React.useMemo(() => {
-    const { breakpoints, colors, effects, fonts, spacing } = themeStyle
+    const { breakpoints, colors, effects, spacing } = themeStyle
     return cx(
       css({
         '.yozora-admonition.yozora-admonition': {
@@ -62,7 +62,7 @@ export const useStyles = (): string => {
             fontVariant: 'tabular-nums',
             fontFeatureSettings: '"tnum"',
             whiteSpace: 'nowrap',
-            cursor: 'not-allowed',
+            cursor: 'default',
             touchAction: 'manipulation',
             userSelect: 'none',
 

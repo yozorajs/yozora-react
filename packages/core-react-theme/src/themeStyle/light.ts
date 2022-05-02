@@ -45,6 +45,12 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
       thematicBreak: '#e1e4e8',
     },
     text: {
+      note: '#474748',
+      info: '#474748',
+      success: '#474748',
+      warning: '#474748',
+      error: '#474748',
+
       // elements
       codeTitle: 'hsla(0deg, 0%, 30%, 0.8)',
       deleted: '#acb2b9',

@@ -61,6 +61,12 @@ export interface IThemeColors {
     thematicBreak: string
   }
   text: {
+    note: string
+    info: string
+    success: string
+    warning: string
+    error: string
+
     // elements
     codeTitle: string
     deleted: string

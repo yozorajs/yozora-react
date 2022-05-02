@@ -13,11 +13,11 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
 
   const colors: IThemeColors = {
     background: {
-      note: '#fdfdfe',
-      info: '#eef9fd',
-      success: '#e6f6e6',
-      warning: '#fff8e6',
-      error: '#ffebec',
+      note: '#474748',
+      info: '#193c47',
+      success: '#003100',
+      warning: '#4d3800',
+      error: '#4b1113',
 
       // elements
       blockquote: '#fafaf9',
@@ -45,6 +45,12 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
       thematicBreak: '#e1e4e8',
     },
     text: {
+      note: '#fdfdfe',
+      info: '#fdfdfe',
+      success: '#fdfdfe',
+      warning: '#fdfdfe',
+      error: '#fdfdfe',
+
       // elements
       codeTitle: 'hsla(0deg, 0%, 90%, 0.8)',
       deleted: '#acb2b9',

@@ -2,32 +2,22 @@ import { css } from '@emotion/css'
 
 const vars = {
   border: '5px solid transparent',
-  noteBorderColor: 'var(--yozora-colors-border-note, #d4d5d8)',
-  noteBackground: 'var(--yozora-colors-background-note, #fdfdfe)',
-  infoBorderColor: 'var(--yozora-colors-border-info, #4cb3d4)',
+  cautionBackground: 'var(--yozora-colors-background-warning, #fff8e6)',
+  dangerBackground: 'var(--yozora-colors-background-error, #ffebec)',
   infoBackground: 'var(--yozora-colors-background-info, #eef9fd)',
-  tipBorderColor: 'var(--yozora-colors-border-success, #009400)',
+  noteBackground: 'var(--yozora-colors-background-note, #fdfdfe)',
   tipBackground: 'var(--yozora-colors-background-success, #e6f6e6)',
   cautionBorderColor: 'var(--yozora-colors-border-warning, #e6a700)',
-  cautionBackground: 'var(--yozora-colors-background-warning, #fff8e6)',
   dangerBorderColor: 'var(--yozora-colors-border-error, #e13238)',
-  dangerBackground: 'var(--yozora-colors-background-error, #ffebec)',
+  infoBorderColor: 'var(--yozora-colors-border-info, #4cb3d4)',
+  noteBorderColor: 'var(--yozora-colors-border-note, #d4d5d8)',
+  tipBorderColor: 'var(--yozora-colors-border-success, #009400)',
+  cautionTextColor: 'var(--yozora-colors-text-warning, #fff8e6)',
+  dangerTextColor: 'var(--yozora-colors-text-error, #ffebec)',
+  infoTextColor: 'var(--yozora-colors-text-info, #eef9fd)',
+  noteTextColor: 'var(--yozora-colors-text-note, #fdfdfe)',
+  tipTextColor: 'var(--yozora-colors-text-success, #e6f6e6)',
 }
-
-const headingCls: string = css({
-  display: 'flex',
-  alignItems: 'flex-start',
-  lineHeight: 1.6,
-  fontSize: '0.857rem',
-  margin: '0 0 8px 0',
-  verticalAlign: 'middle',
-  letterSpacing: '1px',
-  textRendering: 'optimizeLegibility',
-  textSizeAdjust: '100%',
-  textTransform: 'none',
-  overflowWrap: 'break-word',
-  fontFamily: `system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif`,
-})
 
 export const classes = {
   container: css({
@@ -39,47 +29,50 @@ export const classes = {
     '&&[data-admonition-keyword="note"]': {
       borderColor: vars.noteBorderColor,
       backgroundColor: vars.noteBackground,
-      [`.${headingCls}`]: {
-        color: vars.noteBorderColor,
-      },
+      color: vars.noteTextColor,
     },
     '&&[data-admonition-keyword="info"]': {
       borderColor: vars.infoBorderColor,
       backgroundColor: vars.infoBackground,
-      [`.${headingCls}`]: {
-        color: vars.infoBorderColor,
-      },
+      color: vars.infoTextColor,
     },
     '&&[data-admonition-keyword="tip"]': {
       borderColor: vars.tipBorderColor,
       backgroundColor: vars.tipBackground,
-      [`.${headingCls}`]: {
-        color: vars.tipBorderColor,
-      },
+      color: vars.tipTextColor,
     },
     '&&[data-admonition-keyword="caution"]': {
       borderColor: vars.cautionBorderColor,
       backgroundColor: vars.cautionBackground,
-      [`.${headingCls}`]: {
-        color: vars.cautionBorderColor,
-      },
+      color: vars.cautionTextColor,
     },
     '&&[data-admonition-keyword="danger"]': {
       borderColor: vars.dangerBorderColor,
       backgroundColor: vars.dangerBackground,
-      [`.${headingCls}`]: {
-        color: vars.dangerBorderColor,
-      },
+      color: vars.dangerTextColor,
     },
   }),
-  heading: headingCls,
+  heading: css({
+    display: 'flex',
+    alignItems: 'flex-start',
+    lineHeight: 1.6,
+    fontSize: '0.857rem',
+    margin: '0 0 8px 0',
+    verticalAlign: 'middle',
+    letterSpacing: '1px',
+    textRendering: 'optimizeLegibility',
+    textSizeAdjust: '100%',
+    textTransform: 'none',
+    overflowWrap: 'break-word',
+    fontFamily: `system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif`,
+  }),
+  body: css({}),
   icon: css({
     marginRight: '0.5rem',
     '> svg:first-child path': {
       fill: 'currentColor',
     },
   }),
-
   title: css({
     display: 'block',
   }),

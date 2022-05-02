@@ -90,15 +90,17 @@ export const Admonition: React.FC<IAdmonitionProps> = props => {
       data-admonition-keyword={modifier}
       style={style}
     >
-      <div key="heading" className={classes.heading}>
+      <h5 key="heading" className={classes.heading}>
         <span key="icon" className={classes.icon}>
           {icon}
         </span>
         <span key="title" className={classes.title}>
           {title}
         </span>
+      </h5>
+      <div key="main" className={classes.body}>
+        {children}
       </div>
-      <div key="main">{children}</div>
     </div>
   )
 }
