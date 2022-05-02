@@ -86,16 +86,16 @@ This component is designed to render data of [@yozora/ast][].
 
   ```tsx
   import loadable from '@loadable/component'
-  import { Theme, ThemeContextProvider } from '@yozora/core-react-theme'
-  import { Markdown, MarkdownContextProvider } from '@yozora/react-markdown'
+  import { Theme, ThemeProvider } from '@yozora/core-react-theme'
+  import { Markdown, MarkdownProvider } from '@yozora/react-markdown'
 
   const ImageViewer = loadable(() => import('react-viewer'))
 
-  <ThemeContextProvider theme={Theme.LIGHT}>
-    <MarkdownContextProvider ImageViewer={ImageViewer}>
+  <ThemeProvider theme={Theme.LIGHT}>
+    <MarkdownProvider ImageViewer={ImageViewer}>
       <Markdown ast={ast} />
-    </MarkdownContextProvider>
-  </ThemeContextProvider>
+    </MarkdownProvider>
+  </ThemeProvider>
   ```
 
 * In additional, if you want to render a markdown source contents from scratch, 
@@ -114,36 +114,36 @@ This component is designed to render data of [@yozora/ast][].
   ```typescript
   import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
   import YozoraParser from '@yozora/parser'
-  import { Theme, ThemeContextProvider } from '@yozora/core-react-theme'
-  import { Markdown, MarkdownContextProvider } from '@yozora/react-markdown'
+  import { Theme, ThemeProvider } from '@yozora/core-react-theme'
+  import { Markdown, MarkdownProvider } from '@yozora/react-markdown'
 
   const parser = new YozoraParser()
   const ast = parser.parse(`source markdown contents`, { shouldReservePosition: true })
   const definitionMap = calcDefinitionMap(ast)
   const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
-  <ThemeContextProvider theme={Theme.LIGHT}>
-    <MarkdownContextProvider
+  <ThemeProvider theme={Theme.LIGHT}>
+    <MarkdownProvider
       definitionMap={definitionMap}
       footnoteDefinitionMap={footnoteDefinitionMap}
     >
       <Markdown ast={ast} />
-    </MarkdownContextProvider>
-  </ThemeContextProvider>
+    </MarkdownProvider>
+  </ThemeProvider>
   ```
 
 * Render formula with mathjax.
 
   ```tsx
-  import { Theme, ThemeContextProvider } from '@yozora/core-react-theme'
-  import { MathJaxProvider, Markdown, MarkdownContextProvider } from '@yozora/react-markdown'
+  import { Theme, ThemeProvider } from '@yozora/core-react-theme'
+  import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-markdown'
 
   <MathJaxProvider
-    <ThemeContextProvider theme={Theme.LIGHT}>
-      <MarkdownContextProvider>
+    <ThemeProvider theme={Theme.LIGHT}>
+      <MarkdownProvider>
         <Markdown ast={ast} />
-      </MarkdownContextProvider>
-    </ThemeContextProvider>
+      </MarkdownProvider>
+    </ThemeProvider>
   </MathJaxProvider>
   ```
 
@@ -155,10 +155,10 @@ This component is designed to render data of [@yozora/ast][].
   import { LinkReferenceType, LinkType } from '@yozora/ast'
   import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
   import { NodeRendererContextType, NodesRenderer  } from '@yozora/core-react-renderer'
-  import { Theme, ThemeContextProvider } from '@yozora/core-react-theme'
+  import { Theme, ThemeProvider } from '@yozora/core-react-theme'
   import YozoraParser from '@yozora/parser'
   import type { INodeRendererMap } from '@yozora/react-markdown'
-  import { MathJaxProvider, Markdown, MarkdownContextProvider } from '@yozora/react-markdown'
+  import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-markdown'
 
   const sourceContents = `markdown contents`
   const parser = new YozoraParser()
@@ -194,14 +194,14 @@ This component is designed to render data of [@yozora/ast][].
 
   const wrapper = (
     <MathJaxProvider mathjaxSrc="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-      <ThemeContextProvider theme={Theme.LIGHT}>
-        <MarkdownContextProvider
+      <ThemeProvider theme={Theme.LIGHT}>
+        <MarkdownProvider
           definitionMap={definitionMap}
           footnoteDefinitionMap={footnoteDefinitionMap}
         >
           <Markdown ast={ast} />
-        </MarkdownContextProvider>
-      </ThemeContextProvider>
+        </MarkdownProvider>
+      </ThemeProvider>
     </MathJaxProvider>
   )
   ```
@@ -218,13 +218,13 @@ This component is designed to render data of [@yozora/ast][].
   import type { Engine } from 'd3-graphviz'
   import React from 'react'
 
-  <YozoraMarkdownContextProvider
+  <YozoraMarkdownProvider
     definitionMap={definitionMap}
     footnoteDefinitionMap={footnoteDefinitionMap}
     codeRunners={codeRunners}
   >
     <YozoraMarkdown ast={ast} />
-  </YozoraMarkdownContextProvider>
+  </YozoraMarkdownProvider>
 
   const codeRunners: CodeRunnerItem[] = [
     {
@@ -261,16 +261,16 @@ This component is designed to render data of [@yozora/ast][].
 * Don't need the footnote definitions:
 
   ```tsx
-  import { Theme, ThemeContextProvider } from '@yozora/core-react-theme'
-  import { Markdown, MarkdownContextProvider } from '@yozora/react-markdown'
+  import { Theme, ThemeProvider } from '@yozora/core-react-theme'
+  import { Markdown, MarkdownProvider } from '@yozora/react-markdown'
 
   function Demo() {
     return (
-      <ThemeContextProvider theme={Theme.LIGHT}>
-        <MarkdownContextProvider definitionMap={definitionMap}>
+      <ThemeProvider theme={Theme.LIGHT}>
+        <MarkdownProvider definitionMap={definitionMap}>
           <Markdown ast={ast} dontNeedFootnoteDefinitions={true} />
-        </MarkdownContextProvider>
-      </ThemeContextProvider>
+        </MarkdownProvider>
+      </ThemeProvider>
     )
   }
   ```

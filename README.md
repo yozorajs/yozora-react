@@ -79,9 +79,9 @@ See [@yozora/react-markdown][]
 ```tsx
 import loadable from '@loadable/component'
 import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
-import { Theme, ThemeContextProvider } from '@yozora/core-react-theme'
+import { Theme, ThemeProvider } from '@yozora/core-react-theme'
 import YozoraParser from '@yozora/parser'
-import { MathJaxProvider, Markdown, MarkdownContextProvider } from '@yozora/react-markdown'
+import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-markdown'
 
 const ImageViewer = loadable(() => import('react-viewer'))
 
@@ -91,15 +91,15 @@ const definitionMap = calcDefinitionMap(ast)
 const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
 <MathJaxProvider>
-  <ThemeContextProvider theme={Theme.LIGHT}>
-    <MarkdownContextProvider
+  <ThemeProvider theme={Theme.LIGHT}>
+    <MarkdownProvider
       definitionMap={definitionMap}
       footnoteDefinitionMap={footnoteDefinitionMap}
       ImageViewer={ImageViewer}
     >
       <Markdown ast={ast} />
-    </MarkdownContextProvider>
-  </ThemeContextProvider>
+    </MarkdownProvider>
+  </ThemeProvider>
 </MathJaxProvider>
 ```
 

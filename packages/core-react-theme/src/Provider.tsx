@@ -6,7 +6,7 @@ import type { IThemeStyle } from './types'
 import { Theme } from './types'
 import { createPreference, defaultThemeStyleCreator } from './util'
 
-export interface IThemeContextProviderProps<D = unknown> {
+export interface IThemeProviderProps<D = unknown> {
   theme?: Theme
   preference?: Partial<IThemePreference>
   customStyle?: D
@@ -14,7 +14,7 @@ export interface IThemeContextProviderProps<D = unknown> {
   createThemeStyle?(theme: Theme, custom?: D): IThemeStyle
 }
 
-export const ThemeContextProvider: React.FC<IThemeContextProviderProps> = props => {
+export const ThemeProvider: React.FC<IThemeProviderProps> = props => {
   const {
     theme = Theme.LIGHT,
     preference,
@@ -32,4 +32,4 @@ export const ThemeContextProvider: React.FC<IThemeContextProviderProps> = props 
   return <ThemeContextType.Provider value={context}>{props.children}</ThemeContextType.Provider>
 }
 
-ThemeContextProvider.displayName = 'YozoraThemeContextProvider'
+ThemeProvider.displayName = 'YozoraThemeProvider'

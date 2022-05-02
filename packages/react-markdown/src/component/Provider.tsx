@@ -1,8 +1,8 @@
 import { cx } from '@emotion/css'
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
 import { CodeType } from '@yozora/ast'
-import type { INodeRendererContextProviderProps, INodeStyleMap } from '@yozora/core-react-renderer'
-import { NodeRendererContextProvider } from '@yozora/core-react-renderer'
+import type { INodeRendererProviderProps, INodeStyleMap } from '@yozora/core-react-renderer'
+import { NodeRendererProvider } from '@yozora/core-react-renderer'
 import type { ICodeRunnerItem } from '@yozora/react-code-runners'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -11,7 +11,7 @@ import type { INodeRendererMap } from './nodeRendererMap'
 import { defaultNodeRendererMap } from './nodeRendererMap'
 import { createCodeRenderer } from './renderer/code'
 
-export interface IMarkdownContextProviderProps {
+export interface IMarkdownProviderProps {
   /**
    * Link / Image reference definitions.
    */
@@ -43,7 +43,7 @@ export interface IMarkdownContextProviderProps {
   /**
    * Custom image viewer.
    */
-  ImageViewer?: INodeRendererContextProviderProps['ImageViewer']
+  ImageViewer?: INodeRendererProviderProps['ImageViewer']
 }
 
 /**
@@ -51,7 +51,7 @@ export interface IMarkdownContextProviderProps {
  * @param props
  * @returns
  */
-export const MarkdownContextProvider: React.FC<IMarkdownContextProviderProps> = props => {
+export const MarkdownProvider: React.FC<IMarkdownProviderProps> = props => {
   const { definitionMap, footnoteDefinitionMap, children, ImageViewer } = props
 
   const customRendererMap = React.useMemo(
@@ -65,7 +65,7 @@ export const MarkdownContextProvider: React.FC<IMarkdownContextProviderProps> = 
 
   const rootClassName: string = cx(useStyles(), props.rootClassName)
   return (
-    <NodeRendererContextProvider
+    <NodeRendererProvider
       definitionMap={definitionMap}
       footnoteDefinitionMap={footnoteDefinitionMap}
       customRendererMap={customRendererMap}
@@ -74,11 +74,11 @@ export const MarkdownContextProvider: React.FC<IMarkdownContextProviderProps> = 
       ImageViewer={ImageViewer}
     >
       {children}
-    </NodeRendererContextProvider>
+    </NodeRendererProvider>
   )
 }
 
-MarkdownContextProvider.propTypes = {
+MarkdownProvider.propTypes = {
   definitionMap: PropTypes.object.isRequired as any,
   footnoteDefinitionMap: PropTypes.object.isRequired as any,
   codeRunners: PropTypes.array,
@@ -89,4 +89,4 @@ MarkdownContextProvider.propTypes = {
   ImageViewer: PropTypes.any,
 }
 
-MarkdownContextProvider.displayName = 'YozoraMarkdownContextProvider'
+MarkdownProvider.displayName = 'YozoraMarkdownProvider'

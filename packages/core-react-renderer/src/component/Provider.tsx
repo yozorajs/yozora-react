@@ -13,7 +13,7 @@ import type { INodeRendererMap, INodeStyleMap } from '../types'
 import { YozoraImageViewer } from './ImagePreviewer'
 import type { IYozoraImageViewerProps } from './ImagePreviewer'
 
-export interface INodeRendererContextProviderProps {
+export interface INodeRendererProviderProps {
   /**
    * Link / Image reference definitions.
    */
@@ -49,7 +49,7 @@ export interface INodeRendererContextProviderProps {
  * @param props
  * @returns
  */
-export const NodeRendererContextProvider: React.FC<INodeRendererContextProviderProps> = props => {
+export const NodeRendererProvider: React.FC<INodeRendererProviderProps> = props => {
   const { definitionMap, footnoteDefinitionMap, ImageViewer } = props
   const className: string = cx(useStyles(props.customStyleMap), props.rootClassName)
 
@@ -75,7 +75,7 @@ export const NodeRendererContextProvider: React.FC<INodeRendererContextProviderP
   )
 }
 
-NodeRendererContextProvider.propTypes = {
+NodeRendererProvider.propTypes = {
   definitionMap: PropTypes.object.isRequired as any,
   customRendererMap: PropTypes.object as any,
   customStyleMap: PropTypes.object as any,
@@ -83,4 +83,4 @@ NodeRendererContextProvider.propTypes = {
   rootClassName: PropTypes.string,
   ImageViewer: PropTypes.any,
 }
-NodeRendererContextProvider.displayName = 'YozoraNodeRendererContextProvider'
+NodeRendererProvider.displayName = 'YozoraNodeRendererProvider'
