@@ -1,5 +1,23 @@
 # Changelog
 
+<a name="2.0.0-alpha.6"></a>
+## 2.0.0-alpha.6 (2022-05-02)
+
+### Changed
+
+- 🎨 rename: rename &#x27;*ContextProvider&#x27; to &#x27;*Provider&#x27; [[9e8198d](https://github.com/guanghechen/yozora-react/commit/9e8198d77255168816bfe3727c435eaefbe2be80)]
+- 🎨 improve: tweak table styles [[ceeeecb](https://github.com/guanghechen/yozora-react/commit/ceeeecbb9ea5992a1b5c14e73cccfd6f22c7d4e4)]
+
+### Fixed
+
+- 🐛 fix: image viewer not opened expectedly [[999b9b8](https://github.com/guanghechen/yozora-react/commit/999b9b8ad1fafd5bbf458101765767aa88f4b912)]
+
+### Miscellaneous
+
+-   improve: use &#x27;useDeepCompareMemo&#x27; to cache NodeRendererContext [[f7690b0](https://github.com/guanghechen/yozora-react/commit/f7690b0214c6b2dcce9c38f7b55dea1b1bbd42ee)]
+- 📝 docs: update CHANGELOG [[2e683bd](https://github.com/guanghechen/yozora-react/commit/2e683bd1e9ec027d4571e4108c8e73d936c0ab82)]
+
+
 <a name="2.0.0-alpha.5"></a>
 ## 2.0.0-alpha.5 (2022-05-02)
 
