@@ -12,4 +12,4 @@ export * from './component/Provider'
 export * from './component/nodeRendererMap'
 
 export { MathJaxProvider } from '@yozora/react-mathjax'
-export { YozoraMarkdown as default } from './component/Markdown'
+export { Markdown as default } from './component/Markdown'

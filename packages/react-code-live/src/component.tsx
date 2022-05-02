@@ -19,7 +19,7 @@ import { debounce } from './util'
  * @see https://www.npmjs.com/package/@yozora/react-code-embed
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
-export const YozoraCodeLive: React.FC<ICodeLiveProps> = props => {
+export const CodeLive: React.FC<ICodeLiveProps> = props => {
   const {
     runners,
     lang,
@@ -98,7 +98,7 @@ export const YozoraCodeLive: React.FC<ICodeLiveProps> = props => {
   )
 }
 
-YozoraCodeLive.propTypes = {
+CodeLive.propTypes = {
   autoFocus: PropTypes.bool,
   centerPreviewer: PropTypes.bool,
   className: PropTypes.string,
@@ -115,5 +115,4 @@ YozoraCodeLive.propTypes = {
   title: PropTypes.string,
   value: PropTypes.string.isRequired,
 }
-
-YozoraCodeLive.displayName = 'YozoraCodeLive'
+CodeLive.displayName = 'YozoraCodeLive'

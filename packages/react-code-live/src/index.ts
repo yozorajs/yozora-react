@@ -1,3 +1,3 @@
 export * from './component'
 export * from './types'
-export { YozoraCodeLive as default } from './component'
+export { CodeLive as default } from './component'

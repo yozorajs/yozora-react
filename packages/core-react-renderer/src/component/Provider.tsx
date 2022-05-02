@@ -83,4 +83,4 @@ NodeRendererContextProvider.propTypes = {
   ImageViewer: PropTypes.any,
 }
 
-NodeRendererContextProvider.displayName = 'YozoraNodeRendererProvider'
+NodeRendererContextProvider.displayName = 'YozoraNodeRendererContextProvider'

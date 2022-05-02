@@ -1,5 +1,5 @@
 import type { Code } from '@yozora/ast'
-import { YozoraThemeContextType } from '@yozora/core-react-theme'
+import { ThemeContextType } from '@yozora/core-react-theme'
 import CodeHighlighter from '@yozora/react-code-highlighter'
 import React from 'react'
 import type { INodeRenderer } from '../../types'
@@ -14,7 +14,7 @@ import { parseCodeMeta } from '../../util/code'
  */
 export const CodeRenderer: INodeRenderer<Code> = props => {
   const { lang, meta } = props
-  const { theme, preference } = React.useContext(YozoraThemeContextType)
+  const { theme, preference } = React.useContext(ThemeContextType)
 
   // Remove trailing line endings.
   const value: string = props.value.replace(/[\r\n]+$/, '')

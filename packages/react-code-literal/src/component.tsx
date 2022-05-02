@@ -17,7 +17,7 @@ import type { ICodeLiteralProps } from './types'
  * @see https://www.npmjs.com/package/@yozora/react-code-embed
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
-export const YozoraCodeLiteral: React.FC<ICodeLiteralProps> = props => {
+export const CodeLiteral: React.FC<ICodeLiteralProps> = props => {
   const { value, lang, title, highlightLinenos, maxLines, showLineNo, darken, className, style } =
     props
 
@@ -68,7 +68,7 @@ export const YozoraCodeLiteral: React.FC<ICodeLiteralProps> = props => {
   )
 }
 
-YozoraCodeLiteral.propTypes = {
+CodeLiteral.propTypes = {
   className: PropTypes.string,
   collapsed: PropTypes.bool,
   darken: PropTypes.bool,
@@ -80,4 +80,4 @@ YozoraCodeLiteral.propTypes = {
   title: PropTypes.string,
   value: PropTypes.string.isRequired,
 }
-YozoraCodeLiteral.displayName = 'YozoraCodeLiteral'
+CodeLiteral.displayName = 'YozoraCodeLiteral'

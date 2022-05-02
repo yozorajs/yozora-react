@@ -1,21 +1,27 @@
 import { useDeepCompareMemo } from '@guanghechen/react-hooks'
 import React from 'react'
-import type { IYozoraThemeContext, IYozoraThemePreference } from './context'
-import { YozoraThemeContextType } from './context'
-import type { IThemeStyle, Theme } from './types'
+import type { IThemeContext, IThemePreference } from './context'
+import { ThemeContextType } from './context'
+import type { IThemeStyle } from './types'
+import { Theme } from './types'
 import { createPreference, defaultThemeStyleCreator } from './util'
 
-export interface IYozoraThemeContextProviderProps<D = unknown> {
-  theme: Theme
-  preference?: Partial<IYozoraThemePreference>
+export interface IThemeContextProviderProps<D = unknown> {
+  theme?: Theme
+  preference?: Partial<IThemePreference>
   customStyle?: D
   children?: React.ReactNode
   createThemeStyle?(theme: Theme, custom?: D): IThemeStyle
 }
 
-export const YozoraThemeContextProvider: React.FC<IYozoraThemeContextProviderProps> = props => {
-  const { theme, preference, customStyle, createThemeStyle = defaultThemeStyleCreator } = props
-  const context: IYozoraThemeContext = useDeepCompareMemo(
+export const ThemeContextProvider: React.FC<IThemeContextProviderProps> = props => {
+  const {
+    theme = Theme.LIGHT,
+    preference,
+    customStyle,
+    createThemeStyle = defaultThemeStyleCreator,
+  } = props
+  const context: IThemeContext = useDeepCompareMemo(
     () => ({
       theme,
       themeStyle: createThemeStyle(theme, customStyle),
@@ -23,11 +29,7 @@ export const YozoraThemeContextProvider: React.FC<IYozoraThemeContextProviderPro
     }),
     [theme, customStyle, preference],
   )
-  return (
-    <YozoraThemeContextType.Provider value={context}>
-      {props.children}
-    </YozoraThemeContextType.Provider>
-  )
+  return <ThemeContextType.Provider value={context}>{props.children}</ThemeContextType.Provider>
 }
 
-YozoraThemeContextProvider.displayName = 'YozoraThemeContextProvider'
+ThemeContextProvider.displayName = 'YozoraThemeContextProvider'

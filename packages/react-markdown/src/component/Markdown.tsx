@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { FootnoteDefinitions } from './FootnoteDefinitions'
 
-export interface IYozoraMarkdownProps {
+export interface IMarkdownProps {
   /**
    * Root node of Yozora Markdown AST.
    */
@@ -28,7 +28,8 @@ export interface IYozoraMarkdownProps {
   style?: React.CSSProperties
 }
 
-export class YozoraMarkdown extends React.Component<IYozoraMarkdownProps> {
+export class Markdown extends React.Component<IMarkdownProps> {
+  public static displayName = 'YozoraMarkdown'
   public static propTypes = {
     ast: PropTypes.any.isRequired,
     footnoteDefinitionsTitle: PropTypes.node,
@@ -56,7 +57,7 @@ export class YozoraMarkdown extends React.Component<IYozoraMarkdownProps> {
     )
   }
 
-  public override shouldComponentUpdate(nextProps: IYozoraMarkdownProps): boolean {
+  public override shouldComponentUpdate(nextProps: IMarkdownProps): boolean {
     const prevProps = this.props
     return (
       prevProps.ast !== nextProps.ast ||

@@ -32,7 +32,7 @@ export const defaultRunners: ICodeRunnerItem[] = [
  * @see https://www.npmjs.com/package/@yozora/react-code-embed
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
-export const YozoraCode: React.FC<ICodeProps> = props => {
+export const Code: React.FC<ICodeProps> = props => {
   const {
     lang,
     value,
@@ -105,7 +105,7 @@ export const YozoraCode: React.FC<ICodeProps> = props => {
   )
 }
 
-YozoraCode.propTypes = {
+Code.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.string,
   runners: PropTypes.array,
@@ -115,4 +115,4 @@ YozoraCode.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
 }
-YozoraCode.displayName = 'YozoraCode'
+Code.displayName = 'YozoraCode'

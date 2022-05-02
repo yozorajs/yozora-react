@@ -1,6 +1,7 @@
-import { css, cx } from '@emotion/css'
+import { cx } from '@emotion/css'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { classes } from './style'
 
 export interface ILightButtonsProps {
   /**
@@ -63,29 +64,4 @@ LightButtons.propTypes = {
   onMinimize: PropTypes.func,
   style: PropTypes.object,
 }
-
 LightButtons.displayName = 'YozoraLightButtons'
-export default LightButtons
-
-const classes = {
-  container: css({
-    userSelect: 'none',
-  }),
-  lightBtn: css({
-    display: 'inline-block',
-    boxSizing: 'border-box',
-    height: '12px',
-    width: '12px',
-    borderRadius: '50%',
-    marginLeft: '8px',
-  }),
-  lightBtnClose: css({
-    backgroundColor: '#ed6c60',
-  }),
-  lightBtnMinimize: css({
-    backgroundColor: '#f7c151',
-  }),
-  lightBtnMaximize: css({
-    backgroundColor: '#64c856',
-  }),
-}

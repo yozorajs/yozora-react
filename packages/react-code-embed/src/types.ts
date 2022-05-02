@@ -3,7 +3,7 @@ import type { ICodeRunner } from '@yozora/react-code-runners'
 /**
  * Embed mode block code
  */
-export interface IYozoraCodeEmbedProps {
+export interface ICodeEmbedProps {
   /**
    * Code language
    */
@@ -36,7 +36,7 @@ export interface IYozoraCodeEmbedProps {
   runner: ICodeRunner
 }
 
-export interface IYozoraCodeEmbedState {
+export interface ICodeEmbedState {
   /**
    *
    */

@@ -1,4 +1,4 @@
-import type { IYozoraThemePreference } from './context'
+import type { IThemePreference } from './context'
 import { createDarkenThemeStyle } from './themeStyle/darken'
 import { createLightThemeStyle } from './themeStyle/light'
 import type { IThemeStyle } from './types'
@@ -16,8 +16,8 @@ export const defaultThemeStyleCreator = <D = unknown>(theme: Theme, custom?: D):
 }
 
 export const createPreference = (
-  customPreference?: Partial<IYozoraThemePreference> | undefined,
-): IYozoraThemePreference => {
+  customPreference?: Partial<IThemePreference> | undefined,
+): IThemePreference => {
   return {
     showCodeLineNo: true,
     ...customPreference,

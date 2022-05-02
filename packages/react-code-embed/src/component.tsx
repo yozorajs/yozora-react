@@ -2,7 +2,7 @@ import { cx } from '@emotion/css'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { classes } from './style'
-import type { IYozoraCodeEmbedProps, IYozoraCodeEmbedState } from './types'
+import type { ICodeEmbedProps, ICodeEmbedState } from './types'
 
 /**
  * Render yozora `code`
@@ -14,7 +14,8 @@ import type { IYozoraCodeEmbedProps, IYozoraCodeEmbedState } from './types'
  * @see https://www.npmjs.com/package/@yozora/react-code-literal
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
-export class YozoraCodeEmbed extends React.Component<IYozoraCodeEmbedProps, IYozoraCodeEmbedState> {
+export class CodeEmbed extends React.Component<ICodeEmbedProps, ICodeEmbedState> {
+  public static displayName = 'YozoraCodeEmbed'
   public static propTypes = {
     lang: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
@@ -24,7 +25,7 @@ export class YozoraCodeEmbed extends React.Component<IYozoraCodeEmbedProps, IYoz
     style: PropTypes.object,
   }
 
-  constructor(props: IYozoraCodeEmbedProps) {
+  constructor(props: ICodeEmbedProps) {
     super(props)
     this.state = { error: null }
   }
@@ -34,7 +35,7 @@ export class YozoraCodeEmbed extends React.Component<IYozoraCodeEmbedProps, IYoz
     console.error(info)
   }
 
-  public override componentDidUpdate(prevProps: IYozoraCodeEmbedProps): void {
+  public override componentDidUpdate(prevProps: ICodeEmbedProps): void {
     // Clear error when the input value changed.
     if (prevProps.value !== this.props.value) {
       this.setState({ error: null })

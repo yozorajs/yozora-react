@@ -134,4 +134,3 @@ CodeHighlighterContent.propTypes = {
   className: PropTypes.string,
   style: PropTypes.any,
 }
-CodeHighlighterContent.displayName = 'YozoraCodeHighlighterContent'

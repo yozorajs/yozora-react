@@ -51,7 +51,7 @@ export interface IMarkdownContextProviderProps {
  * @param props
  * @returns
  */
-export const Provider: React.FC<IMarkdownContextProviderProps> = props => {
+export const MarkdownContextProvider: React.FC<IMarkdownContextProviderProps> = props => {
   const { definitionMap, footnoteDefinitionMap, children } = props
 
   const customRendererMap = React.useMemo(
@@ -77,7 +77,7 @@ export const Provider: React.FC<IMarkdownContextProviderProps> = props => {
   )
 }
 
-Provider.propTypes = {
+MarkdownContextProvider.propTypes = {
   definitionMap: PropTypes.object.isRequired as any,
   footnoteDefinitionMap: PropTypes.object.isRequired as any,
   codeRunners: PropTypes.array,
@@ -88,4 +88,4 @@ Provider.propTypes = {
   ImageViewer: PropTypes.any,
 }
 
-Provider.displayName = 'YozoraMarkdownProvider'
+MarkdownContextProvider.displayName = 'YozoraMarkdownContextProvider'
