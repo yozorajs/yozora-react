@@ -41695,7 +41695,7 @@ exports[`prop types snapshot 1`] = `
                       }
                     }
                   >
-                    <YozoraCodeHighlighterContent
+                    <CodeHighlighterContent
                       className="prism-code language-jsx"
                       codesRef={
                         Object {
@@ -44855,7 +44855,7 @@ exports[`prop types snapshot 1`] = `
                           </div>
                         </div>
                       </div>
-                    </YozoraCodeHighlighterContent>
+                    </CodeHighlighterContent>
                   </Highlight>
                 </YozoraCodeHighlighter>
               </pre>

@@ -79,41 +79,42 @@ See [@yozora/react-markdown][]
 ```tsx
 import loadable from '@loadable/component'
 import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
-import { 
-  MathJaxProvider,
-  YozoraImagePreviewer,
-  YozoraMarkdown, 
-  YozoraMarkdownContextProvider, 
-} from '@yozora/react-markdown'
+import { Theme, ThemeContextProvider } from '@yozora/core-react-theme'
 import YozoraParser from '@yozora/parser'
-import '@yozora/react-markdown/lib/esm/index.css'
+import { MathJaxProvider, Markdown, MarkdownContextProvider } from '@yozora/react-markdown'
 
-const Viewer = loadable(() => import('react-viewer'))
+const ImageViewer = loadable(() => import('react-viewer'))
 
-const parser = new YozoraParser({
-  defaultParseOptions: { shouldReservePosition: false },
-})
-
-const ast = parser.parse(`source markdown contents`)
+const parser = new YozoraParser()
+const ast = parser.parse(`source markdown contents`, { shouldReservePosition: true })
 const definitionMap = calcDefinitionMap(ast)
 const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
-<MathJaxProvider
-  <YozoraMarkdownContextProvider
-    definitionMap={definitionMap}
-    footnoteDefinitionMap={footnoteDefinitionMap}
-  >
-    <YozoraMarkdown ast={ast} />
-    <YozoraImagePreviewer ImageViewer={Viewer} />
-  </YozoraMarkdownContextProvider>
+<MathJaxProvider>
+  <ThemeContextProvider theme={Theme.LIGHT}>
+    <MarkdownContextProvider
+      definitionMap={definitionMap}
+      footnoteDefinitionMap={footnoteDefinitionMap}
+      ImageViewer={ImageViewer}
+    >
+      <Markdown ast={ast} />
+    </MarkdownContextProvider>
+  </ThemeContextProvider>
 </MathJaxProvider>
 ```
 
 ## Overview
 
+## Core
+
+Package Name                            | Description
+:--------------------------------------:|:--------------------------------------
+[@yozora/core-react-renderer][]         | Provider `NodesRenderer` and simple markdown renderers.
+[@yozora/core-react-theme][]            | Provider markdown theme context.
+
 ### Markdown components
 
-Component Name                          | Token Name
+Package Name                            | Token Name
 :--------------------------------------:|:--------------------------------------
 [@yozora/react-admonition][]            | [admonition][yozora/admonition]
 [@yozora/react-code][]                  | [code][yozora/code]
@@ -121,7 +122,7 @@ Component Name                          | Token Name
 
 ### Other components
 
-Component Name                            | Description
+Package Name                              | Description
 :----------------------------------------:|:----------------------------------
 [@yozora/react-code-editor][]             | A simple code editor.
 [@yozora/react-code-embed][]              | A simple code editor online.
@@ -137,6 +138,8 @@ Component Name                            | Description
 [react-live]: https://github.com/FormidableLabs/react-live
 
 <!-- yozora component links -->
+[@yozora/core-react-renderer]: https://github.com/yozorajs/yozora-react/tree/main/packages/core-react-renderer#readme
+[@yozora/core-react-theme]: https://github.com/yozorajs/yozora-react/tree/main/packages/core-react-theme#readme
 [@yozora/react-admonition]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-admonition#readme
 [@yozora/react-code]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-code#readme
 [@yozora/react-code-editor]: https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-editor#readme
