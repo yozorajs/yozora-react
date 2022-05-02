@@ -37,7 +37,7 @@
     "test": "echo 'no test yet.'"
   },
   "dependencies": {
-    "@guanghechen/react-hooks": "^1.9.3",
+    "@guanghechen/react-hooks": "^1.9.4",
     "@loadable/component": "^5.15.0"
   },
   "peerDependencies": {
