@@ -329,7 +329,7 @@ exports[`snapshot literal 1`] = `
                       
               </span>
               <span
-                class="token keyword"
+                class="token keyword control-flow"
                 style="color:rgb(86, 156, 214)"
               >
                 return
@@ -782,7 +782,7 @@ exports[`snapshot live 1`] = `
                           
                   </span>
                   <span
-                    class="token keyword"
+                    class="token keyword control-flow"
                     style="color:rgb(86, 156, 214)"
                   >
                     return
