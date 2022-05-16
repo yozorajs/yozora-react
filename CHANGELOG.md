@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="2.0.0-alpha.7"></a>
+## 2.0.0-alpha.7 (2022-05-16)
+
+### Changed
+
+- ⬆️ chore: upgrade dependencies [[4464bd3](https://github.com/guanghechen/yozora-react/commit/4464bd345ac96f41c6eac90f8a74b5508473c009)]
+- 💄 improve: tweak admonition style [[46a0dc1](https://github.com/guanghechen/yozora-react/commit/46a0dc152f3dd937f9281a66d254ac8417962fdd)]
+
+### Miscellaneous
+
+- 📝 docs: updaate CHANGELOG [[f4eb04b](https://github.com/guanghechen/yozora-react/commit/f4eb04bcb3a79a6d90626fa27fc7897f4b9ddaa1)]
+
+
 <a name="2.0.0-alpha.6"></a>
 ## 2.0.0-alpha.6 (2022-05-02)
 
