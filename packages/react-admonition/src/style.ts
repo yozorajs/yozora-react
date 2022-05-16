@@ -19,6 +19,21 @@ const vars = {
   tipTextColor: 'var(--yozora-colors-text-success, #4d3800)',
 }
 
+const heading: string = css({
+  display: 'flex',
+  alignItems: 'flex-start',
+  lineHeight: 1.6,
+  fontSize: '0.857rem',
+  margin: '0 0 8px 0',
+  verticalAlign: 'middle',
+  letterSpacing: '1px',
+  textRendering: 'optimizeLegibility',
+  textSizeAdjust: '100%',
+  textTransform: 'none',
+  overflowWrap: 'break-word',
+  fontFamily: `system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif`,
+})
+
 export const classes = {
   container: css({
     padding: '1em',
@@ -30,42 +45,44 @@ export const classes = {
       borderColor: vars.noteBorderColor,
       backgroundColor: vars.noteBackground,
       color: vars.noteTextColor,
+      [`.${heading}`]: {
+        color: vars.noteBorderColor,
+      },
     },
     '&&[data-admonition-keyword="info"]': {
       borderColor: vars.infoBorderColor,
       backgroundColor: vars.infoBackground,
       color: vars.infoTextColor,
+      [`.${heading}`]: {
+        color: vars.infoBorderColor,
+      },
     },
     '&&[data-admonition-keyword="tip"]': {
       borderColor: vars.tipBorderColor,
       backgroundColor: vars.tipBackground,
       color: vars.tipTextColor,
+      [`.${heading}`]: {
+        color: vars.tipBorderColor,
+      },
     },
     '&&[data-admonition-keyword="caution"]': {
       borderColor: vars.cautionBorderColor,
       backgroundColor: vars.cautionBackground,
       color: vars.cautionTextColor,
+      [`.${heading}`]: {
+        color: vars.cautionBorderColor,
+      },
     },
     '&&[data-admonition-keyword="danger"]': {
       borderColor: vars.dangerBorderColor,
       backgroundColor: vars.dangerBackground,
       color: vars.dangerTextColor,
+      [`.${heading}`]: {
+        color: vars.dangerBorderColor,
+      },
     },
   }),
-  heading: css({
-    display: 'flex',
-    alignItems: 'flex-start',
-    lineHeight: 1.6,
-    fontSize: '0.857rem',
-    margin: '0 0 8px 0',
-    verticalAlign: 'middle',
-    letterSpacing: '1px',
-    textRendering: 'optimizeLegibility',
-    textSizeAdjust: '100%',
-    textTransform: 'none',
-    overflowWrap: 'break-word',
-    fontFamily: `system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif`,
-  }),
+  heading,
   body: css({}),
   icon: css({
     marginRight: '0.5rem',
