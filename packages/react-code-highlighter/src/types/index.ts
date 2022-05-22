@@ -9,7 +9,7 @@ export interface ICodeHighlighterProps {
   /**
    * Code language
    */
-  lang?: string
+  lang?: string | null
   /**
    * Line number of Lines that should be highlighted.
    */

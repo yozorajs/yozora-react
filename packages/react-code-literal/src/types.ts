@@ -6,7 +6,7 @@ export interface ICodeLiteralProps {
   /**
    * Language of the source code.
    */
-  lang?: string
+  lang?: string | null
   /**
    * Code title
    */

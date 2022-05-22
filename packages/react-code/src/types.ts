@@ -9,11 +9,11 @@ export interface ICodeProps {
   /**
    * Language of the source code.
    */
-  lang?: string
+  lang?: string | null
   /**
    * Meta data of the code block.
    */
-  meta?: string
+  meta?: string | null
   /**
    * Code runners.
    */
