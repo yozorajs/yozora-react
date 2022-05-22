@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="2.0.0"></a>
+## 2.0.0 (2022-05-22)
+
+### Changed
+
+- ⬆️ chore: ugprade dependencies [[7c9f111](https://github.com/guanghechen/yozora-react/commit/7c9f11120fb91bb7428185c4eedb9ffd7b9e031e)]
+
+### Miscellaneous
+
+-  fix type errors [[8806ede](https://github.com/guanghechen/yozora-react/commit/8806ede9e1f92ead670e83ae5b5e43f008b9857e)]
+- 📝 docs: update CHANGELOG [[5ea75c2](https://github.com/guanghechen/yozora-react/commit/5ea75c2be5aadbee440aeeeeec1d563c63e51d62)]
+
+
 <a name="2.0.0-alpha.7"></a>
 ## 2.0.0-alpha.7 (2022-05-16)
 
