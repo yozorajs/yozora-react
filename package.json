@@ -14,7 +14,7 @@
   "homepage": "https://github.com/yozorajs/yozora-react/#readme",
   "license": "MIT",
   "engines": {
-    "node": ">= 14.15.0"
+    "node": ">= 16.0.0"
   },
   "scripts": {
     ":publish": "yarn test && lerna publish",
