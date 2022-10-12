@@ -14,7 +14,7 @@ exports[`basic rendering case snapshot: bad code 1`] = `
     "
       inline={false}
       onError={[Function]}
-      scope={Object {}}
+      scope={{}}
     />
     <pre>
       SyntaxError: No-Inline evaluations must call \`render\`.
@@ -53,7 +53,7 @@ exports[`basic rendering case snapshot: block code 1`] = `
     "
       inline={false}
       onError={[Function]}
-      scope={Object {}}
+      scope={{}}
     />
     <pre>
       ReferenceError: styled is not defined
@@ -84,7 +84,7 @@ exports[`basic rendering case snapshot: inline code 1`] = `
     "
       inline={true}
       onError={[Function]}
-      scope={Object {}}
+      scope={{}}
     >
       <ErrorBoundary>
         <div>
