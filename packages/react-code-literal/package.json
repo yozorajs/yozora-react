@@ -11,7 +11,7 @@
     "url": "https://github.com/yozorajs/yozora-react.git",
     "directory": "packages/react-code-literal"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-literal#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-literal#readme",
   "keywords": [
     "mdast code renderer",
     "markdown"

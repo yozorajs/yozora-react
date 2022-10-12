@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-admonition#readme">@yozora/react-admonition</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-admonition#readme">@yozora/react-admonition</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-admonition">

@@ -11,7 +11,7 @@
     "url": "https://github.com/yozorajs/yozora-react.git",
     "directory": "packages/react-admonition"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/react-admonition#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-admonition#readme",
   "keywords": [
     "mdast node renderer",
     "markdown admonition"

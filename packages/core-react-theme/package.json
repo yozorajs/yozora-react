@@ -11,7 +11,7 @@
     "url": "https://github.com/yozorajs/yozora-react.git",
     "directory": "packages/core-react-renderer"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/core-react-renderer#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/core-react-renderer#readme",
   "keywords": [],
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",

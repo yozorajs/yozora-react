@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-code-highlighter#readme">@yozora/react-code-highlighter</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-highlighter#readme">@yozora/react-code-highlighter</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-code-highlighter">

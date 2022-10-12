@@ -6,14 +6,14 @@
     "publish": {
       "graphType": "all",
       "verifyAccess": false,
-      "ignoreChanges": ["*.md", "**/__test__/**/*"],
+      "ignoreChanges": ["*.md", "*.txt", "**/__test__/**"],
       "message": ":bookmark:  release: publish %s",
       "push": false,
       "private": false,
       "forcePublish": true
     },
     "version": {
-      "allowBranch": "main",
+      "allowBranch": ["main", "release-*"],
       "forcePublish": true
     }
   }

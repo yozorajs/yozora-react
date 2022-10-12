@@ -11,7 +11,7 @@
     "url": "https://github.com/yozorajs/yozora-react.git",
     "directory": "packages/react-markdown"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/react-markdown#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-markdown#readme",
   "keywords": [
     "react markdown component"
   ],
