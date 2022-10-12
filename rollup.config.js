@@ -28,7 +28,7 @@ const paths = {
     }),
 }
 
-export async function rollupConfig() {
+export default async function rollupConfig() {
   const { default: manifest } = await import(path.resolve('package.json'))
 
   const stylusOptions = {
@@ -120,6 +120,3 @@ export async function rollupConfig() {
     }
   })
 }
-
-const configs = rollupConfig()
-export default configs
