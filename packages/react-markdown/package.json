@@ -38,8 +38,8 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
   "dependencies": {
-    "@guanghechen/react-hooks": "^1.9.4",
-    "@yozora/ast": "^2.0.2-alpha.0",
+    "@guanghechen/react-hooks": "^2.1.0",
+    "@yozora/ast": "^2.0.3",
     "@yozora/core-react-renderer": "^2.0.0",
     "@yozora/core-react-theme": "^2.0.0",
     "@yozora/react-admonition": "^2.0.0",

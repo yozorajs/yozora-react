@@ -1,5 +1,3 @@
-import './third-party'
-
 export interface MathJax {
   Hub: {
     Config(options: MathJaxConfig): void
