@@ -1,5 +1,33 @@
 # Changelog
 
+<a name="2.0.1"></a>
+## 2.0.1 (2022-10-12)
+
+### Added
+
+- ✅ test: update jest configrautions &amp; update test snapshots [[3eb8aa3](https://github.com/yozorajs/yozora-react/commit/3eb8aa39354094e72217fb13f6e75b85c714c567)]
+
+### Changed
+
+- 🔧 chore: fix prettier configurations [[33b75d7](https://github.com/yozorajs/yozora-react/commit/33b75d76ea83e56e853852b8f355152706cbf166)]
+- 🔧 chore: update engine required version [[254dde1](https://github.com/yozorajs/yozora-react/commit/254dde148f7a332c9d659f9ffce9b8f652cfde0c)]
+- 🔧 chore: update build scripts [[6b73867](https://github.com/yozorajs/yozora-react/commit/6b73867d816a07020a2b32f268569dd5f7b82384)]
+- ⬆️ chore: upgrade dependencies [[1eb1b86](https://github.com/yozorajs/yozora-react/commit/1eb1b8694ac28f1fea9f541554429b7edd6c8799)]
+
+### Removed
+
+- 🔥 improve: remove dead codes [[9b128a6](https://github.com/yozorajs/yozora-react/commit/9b128a6b767e38cb602cc8325735a7ff06513f7d)]
+
+### Fixed
+
+- 💚 chore: update ci settings [[dec9d58](https://github.com/yozorajs/yozora-react/commit/dec9d5842395f29bc6cd55cc2b8b72f5c6679369)]
+
+### Miscellaneous
+
+- 📄 docs: update LICENSE [[2863a0b](https://github.com/yozorajs/yozora-react/commit/2863a0bfabf8777a67f1cb367348f8e852e586ae)]
+- 📝 docs: update links [[2456c4a](https://github.com/yozorajs/yozora-react/commit/2456c4a6c5818d41aa61ba312644b594b12a86eb)]
+
+
 <a name="2.0.0"></a>
 ## 2.0.0 (2022-05-22)
 
@@ -10,7 +38,6 @@
 ### Miscellaneous
 
 -  fix type errors [[8806ede](https://github.com/guanghechen/yozora-react/commit/8806ede9e1f92ead670e83ae5b5e43f008b9857e)]
-- 📝 docs: update CHANGELOG [[5ea75c2](https://github.com/guanghechen/yozora-react/commit/5ea75c2be5aadbee440aeeeeec1d563c63e51d62)]
 
 
 <a name="2.0.0-alpha.7"></a>
@@ -20,10 +47,6 @@
 
 - ⬆️ chore: upgrade dependencies [[4464bd3](https://github.com/guanghechen/yozora-react/commit/4464bd345ac96f41c6eac90f8a74b5508473c009)]
 - 💄 improve: tweak admonition style [[46a0dc1](https://github.com/guanghechen/yozora-react/commit/46a0dc152f3dd937f9281a66d254ac8417962fdd)]
-
-### Miscellaneous
-
-- 📝 docs: updaate CHANGELOG [[f4eb04b](https://github.com/guanghechen/yozora-react/commit/f4eb04bcb3a79a6d90626fa27fc7897f4b9ddaa1)]
 
 
 <a name="2.0.0-alpha.6"></a>
@@ -41,7 +64,6 @@
 ### Miscellaneous
 
 -   improve: use &#x27;useDeepCompareMemo&#x27; to cache NodeRendererContext [[f7690b0](https://github.com/guanghechen/yozora-react/commit/f7690b0214c6b2dcce9c38f7b55dea1b1bbd42ee)]
-- 📝 docs: update CHANGELOG [[2e683bd](https://github.com/guanghechen/yozora-react/commit/2e683bd1e9ec027d4571e4108c8e73d936c0ab82)]
 
 
 <a name="2.0.0-alpha.5"></a>
@@ -101,7 +123,6 @@
 
 - 📝 docs: update README and snapshots [[6d119ef](https://github.com/guanghechen/yozora-react/commit/6d119ef7e9b2075a728f3edec598abe108375a41)]
 - 📝 docs: update README &amp; update package.json [[5cff36d](https://github.com/guanghechen/yozora-react/commit/5cff36ddd9cdf293b83bcd9850a0fc8fc11b5d32)]
-- 📝 docs: update CHANGELOG [[a134158](https://github.com/guanghechen/yozora-react/commit/a134158a57b7a526645aa26b9fdea5546944a603)]
 
 
 <a name="2.0.0-alpha.4"></a>
@@ -122,7 +143,6 @@
 ### Miscellaneous
 
 -  fix: fix style errors [[a62c9b2](https://github.com/guanghechen/yozora-react/commit/a62c9b2a8f519bba6ddee7da0bbbf63bf970199b)]
-- 📝 docs: update CHANGELOG [[6454722](https://github.com/guanghechen/yozora-react/commit/6454722dd3b3f18f8569c49d880277724403bfd5)]
 
 
 <a name="2.0.0-alpha.3"></a>
@@ -132,10 +152,6 @@
 
 - ⬆️ chore: upgrade dependencies [[31802d8](https://github.com/guanghechen/yozora-react/commit/31802d8713fc9b23c41d2d056322830b499509ad)]
 
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[756ecef](https://github.com/guanghechen/yozora-react/commit/756ecef66f10758e0567065fea4c2f2284f82d5d)]
-
 
 <a name="2.0.0-alpha.2"></a>
 ## 2.0.0-alpha.2 (2022-01-13)
@@ -144,10 +160,6 @@
 
 - 👽 improve: fix types error due to the upgrade of @yozora/ast [[f855f4f](https://github.com/guanghechen/yozora-react/commit/f855f4f4a7e474ec8521992159dbcf5a4992bae9)]
 - ⬆️ chore: upgrade @yozora/ast [[c0b4a94](https://github.com/guanghechen/yozora-react/commit/c0b4a94600875634845cd79fcd67d83c3870bfa2)]
-
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[47f14ab](https://github.com/guanghechen/yozora-react/commit/47f14ab3394e029e29e662d1aba802d871b890c1)]
 
 
 <a name="2.0.0-alpha.1"></a>
@@ -164,7 +176,6 @@
 ### Miscellaneous
 
 - 📝 docs: update README [[66ade1c](https://github.com/guanghechen/yozora-react/commit/66ade1c384aec01cfbbd9956c6da9be1a134608f)]
-- 📝 docs: update CHANGELOG [[88959f2](https://github.com/guanghechen/yozora-react/commit/88959f2f7d03bdefb75ea40c0c5fc9bfd20f716b)]
 
 
 <a name="2.0.0-alpha.0"></a>
@@ -185,10 +196,6 @@
 
 - 💥 feat: [breaking] rename types with &#x27;I&#x27; prefix [[117f2ae](https://github.com/guanghechen/yozora-react/commit/117f2aef50311228cc9e4fb8e95615f006d417f9)]
 
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[b0b206b](https://github.com/guanghechen/yozora-react/commit/b0b206b9af323e5679278040dda535a1fa7037b5)]
-
 
 <a name="1.0.0-alpha.40"></a>
 ## 1.0.0-alpha.40 (2021-09-04)
@@ -203,10 +210,6 @@
 - 💄 improve: prefer pseudo elements [[6ca5b02](https://github.com/guanghechen/yozora-react/commit/6ca5b0262d4475551fffe1ef5e8f18be9ae42073)]
 - 💄 improve: tweak letter spacing and font color [[4b5b802](https://github.com/guanghechen/yozora-react/commit/4b5b802f03b5e12dd86f901a36b989219019c15f)]
 - 💄 improve: tweak paddings [[2606122](https://github.com/guanghechen/yozora-react/commit/2606122026db0b15bab78bfbab347e3ed58f526a)]
-
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[dee5350](https://github.com/guanghechen/yozora-react/commit/dee5350f85fee975a5a2dc6f9f89df0a9fbc841b)]
 
 
 <a name="1.0.0-alpha.39"></a>
@@ -226,7 +229,6 @@
 
 - 🚧 feat(YozoraMarkdownProvider): support new props &#x27;preferLinenos&#x27; [[35d771b](https://github.com/guanghechen/yozora-react/commit/35d771b6b6a24304bd265efd6ef281fb599a37c3)]
 - 🚧 feat(react-code): support to toggle linenos [[87e6507](https://github.com/guanghechen/yozora-react/commit/87e6507d47dc8d48f99b1ae1ca9de4742a2544fa)]
-- 📝 docs: update CHANGELOG [[3ea78a1](https://github.com/guanghechen/yozora-react/commit/3ea78a192234f330fc462c9255b3449c706a4f59)]
 
 
 <a name="1.0.0-alpha.38"></a>
@@ -238,10 +240,6 @@
 - ⬆️ chore: upgrade devDependencies [[e2882be](https://github.com/guanghechen/yozora-react/commit/e2882bee957eb4dd7eaaf832045413a093e7a40c)]
 - 💄 improve: tweak styles [[361b71d](https://github.com/guanghechen/yozora-react/commit/361b71d5a6c247a56636f297e3fa883e51f2fda7)]
 - ⬆️ chore: upgrade devDependencies [[439e56e](https://github.com/guanghechen/yozora-react/commit/439e56ebc9a12fbbf70b9667893134f7c0c67d20)]
-
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[b614a0d](https://github.com/guanghechen/yozora-react/commit/b614a0dc829698bfc0c95fec7cb28058da82db19)]
 
 
 <a name="1.0.0-alpha.37"></a>
@@ -259,7 +257,6 @@
 - 🚧 improve(markdown): change the props of Mardown [[b95226a](https://github.com/guanghechen/yozora-react/commit/b95226a8d4e40c03b7bd42c992b290d208367718)]
 - 🚧 feat(markdown): provide new react hook &#x27;useFootnoteDefinitions&#x27; to support customizing whether to render footnote definitions in YozoraMarkdown [[f6b30df](https://github.com/guanghechen/yozora-react/commit/f6b30df4a02a302ba11861b32fc2af628ba44cda)]
 -  feat(react-code): rename mode as yozoraCodeMode [[00671fc](https://github.com/guanghechen/yozora-react/commit/00671fccd2ce5f213253692ae23890ad065a327d)]
-- 📝 docs: update CHANGELOG [[cadf6d4](https://github.com/guanghechen/yozora-react/commit/cadf6d4ee03c8ac212b4f140e580f337285e2e37)]
 
 
 <a name="1.0.0-alpha.36"></a>
@@ -274,7 +271,6 @@
 
 -  types: fix invalid type references [[ecf75a1](https://github.com/guanghechen/yozora-react/commit/ecf75a1d050f25ad54be94b78cb88e15c81e5333)]
 -  Merge branch &#x27;develop&#x27; into main [[6e8a732](https://github.com/guanghechen/yozora-react/commit/6e8a7322d39692b4b18ffbedfd447b5a7006b305)]
-- 📝 docs: update CHANGELOG [[1dbfdc1](https://github.com/guanghechen/yozora-react/commit/1dbfdc1770ddd83465c1f57692590e3dfedc85c9)]
 -  improve: reuse types defined in @yozora/react-code-runners [[652fcdd](https://github.com/guanghechen/yozora-react/commit/652fcdd125f00d2a143e7b3c35abfcc98bf1d678)]
 
 
@@ -285,10 +281,6 @@
 
 - 💄 improve: tweak colors in darken mode [[c860845](https://github.com/guanghechen/yozora-react/commit/c860845c61282b16a41d0b71dea49c2401fd6b5e)]
 - 🔧 chore: update stylus scripts [[947bf6a](https://github.com/guanghechen/yozora-react/commit/947bf6aeafb13a6fdb44eb084cdf130ba0707da6)]
-
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[dbe85b4](https://github.com/guanghechen/yozora-react/commit/dbe85b4cbf49c4e951479c6750db9edcda6c3f9a)]
 
 
 <a name="1.0.0-alpha.34"></a>
@@ -308,7 +300,6 @@
 - 📝 docs: update READMEs [[bd6fdb5](https://github.com/guanghechen/yozora-react/commit/bd6fdb531b30413d2fb7f214bc0356627acbb07c)]
 -  style: fix lint warnings [[d375d2b](https://github.com/guanghechen/yozora-react/commit/d375d2b3180d5e6c91c4f522566c1cc4b6a8beef)]
 -  feat: export YozoraMarkdownContext [[50aa8fc](https://github.com/guanghechen/yozora-react/commit/50aa8fcca2aaed10ab931b4eceeea011f25a7c60)]
-- 📝 docs: update CHANGELOG [[aeee7a0](https://github.com/guanghechen/yozora-react/commit/aeee7a020a223beebee6be0e2806c70d60eb1750)]
 
 
 <a name="1.0.0-alpha.33"></a>
@@ -337,7 +328,6 @@
 - 🚧 feat(common-light-buttons): use stylus files instead of styled-components [[8f597b9](https://github.com/guanghechen/yozora-react/commit/8f597b936f4cad0f5ba42d89b14050ff344a6a33)]
 - 🚧 feat(common-copy-button): use stylus files instead of styled-components [[5a2e50f](https://github.com/guanghechen/yozora-react/commit/5a2e50f9d849548c3a22647df2fac3531ea76f37)]
 - 🔨 chore: use path alias [[013a94e](https://github.com/guanghechen/yozora-react/commit/013a94e3b51832219ebf988a4d36fc41057c29c6)]
-- 📝 docs: update CHANGELOG [[3e7e296](https://github.com/guanghechen/yozora-react/commit/3e7e296c5e72464876b1caef098b4cdef6da007b)]
 
 
 <a name="1.0.0-alpha.32"></a>
@@ -361,7 +351,6 @@
 - 🚧 feat(code-literal): use stylus files instead of styled-components [[35883dd](https://github.com/guanghechen/yozora-react/commit/35883dd30c42c292d403bbab71788c58ab7856a4)]
 - 🚧 feat(code-live): use stylus files instead of styled-components [[4b68fb6](https://github.com/guanghechen/yozora-react/commit/4b68fb6bbd0f70694968bf6776c1863d7e23b6bc)]
 - 🔨 chore: add layout mixin of stylus [[76615c6](https://github.com/guanghechen/yozora-react/commit/76615c696ac5e0f502be4242b4b7b9defa1902c8)]
-- 📝 docs: update CHANGELOG [[d6ddcc8](https://github.com/guanghechen/yozora-react/commit/d6ddcc8da3c2d32143e2081d0a51888d1657bc8c)]
 
 
 <a name="1.0.0-alpha.31"></a>
@@ -384,7 +373,6 @@
 - 🚧 improve(Markdown): display the current clicked image when open the image viewer [[9886334](https://github.com/guanghechen/yozora-react/commit/9886334cd120231a8539832eafcf362b3275aef6)]
 - 🚧 feat(image): render image title [[cf0c60a](https://github.com/guanghechen/yozora-react/commit/cf0c60aa94af8a62bb4a8edd114a3bfca46fd8fc)]
 -  feat(markdown): render ecmaImport as null in default [[4d9e9c9](https://github.com/guanghechen/yozora-react/commit/4d9e9c9918051be1eb7d088d047834bbdb4a22ed)]
-- 📝 docs: update CHANGELOG [[d4e60c0](https://github.com/guanghechen/yozora-react/commit/d4e60c079370de92f18360fc605dbb69fc17c00d)]
 
 
 <a name="1.0.0-alpha.30"></a>
@@ -393,10 +381,6 @@
 ### Fixed
 
 - 🐛 fix: fix invalid css variables [[bc82025](https://github.com/guanghechen/yozora-react/commit/bc82025f42fbc464a8d53517dd943670e56f613e)]
-
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[83c7c89](https://github.com/guanghechen/yozora-react/commit/83c7c89036b0f4fbf05834e07e331f672d08aa47)]
 
 
 <a name="1.0.0-alpha.29"></a>
@@ -431,7 +415,6 @@
 - 🚧 feat(break): add css styles written in stylus [[d7f2f47](https://github.com/guanghechen/yozora-react/commit/d7f2f47e94f65b471d958378c05ed0247a29ba08)]
 - 🚧 feat(blockquote): add css styles written in stylus [[cb2d43a](https://github.com/guanghechen/yozora-react/commit/cb2d43a29eed6a917bba4f382a1372abdf13d433)]
 - 🚧 feat(admonition): add css styles written in stylus [[111429f](https://github.com/guanghechen/yozora-react/commit/111429f5753110801da45a34d1a0167c8ebcbaed)]
-- 📝 docs: update CHANGELOG [[118296f](https://github.com/guanghechen/yozora-react/commit/118296f88683e84bbc9ebffb3c9b7eb966e24976)]
 
 
 <a name="1.0.0-alpha.28"></a>
@@ -453,7 +436,6 @@
 ### Miscellaneous
 
 - 📝 docs: fix invalid reference url of ci badge [[5f386ba](https://github.com/guanghechen/yozora-react/commit/5f386baa2d5a384e2a449b9fb94d19f4c1df764b)]
-- 📝 docs: update CHANGELOG [[ab8aab5](https://github.com/guanghechen/yozora-react/commit/ab8aab54009adf111dd4f6ce24947be1f2b34bb5)]
 
 
 <a name="1.0.0-alpha.27"></a>
@@ -467,7 +449,6 @@
 ### Miscellaneous
 
 - 🚧 improve(react-markdown): no longer built-in MathjaxProvider (Mathjax Context), you need to add it manually [[aec2c0c](https://github.com/guanghechen/yozora-react/commit/aec2c0c6170510f72f23ed0ef40e1221edcbcdbf)]
-- 📝 docs: update CHANGELOG [[f0208e8](https://github.com/guanghechen/yozora-react/commit/f0208e82e3524fdaf21607ba065a3731b66c6bf6)]
 
 
 <a name="1.0.0-alpha.26"></a>
@@ -486,7 +467,6 @@
 
 - 📝 docs: update README [[b9f0bc1](https://github.com/guanghechen/yozora-react/commit/b9f0bc112d2a4554d730f01c6c4d7e99beb65b54)]
 -  improve: update types [[46e2097](https://github.com/guanghechen/yozora-react/commit/46e209711e8cc74b5d2df0ae1edbff12c3161932)]
-- 📝 docs: update CHANGELOG [[87a6130](https://github.com/guanghechen/yozora-react/commit/87a61303d0d05153e0ee408c439073cbf32a4a0b)]
 
 
 <a name="1.0.0-alpha.25"></a>
@@ -495,10 +475,6 @@
 ### Fixed
 
 - 🐛 fix: trigger re-render when rendererMap changed [[1f60ac9](https://github.com/guanghechen/yozora-react/commit/1f60ac92e96bb964648db804c88aef35ba322694)]
-
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[cf7ce0b](https://github.com/guanghechen/yozora-react/commit/cf7ce0b87b7204f8cb05cb1cf0672659df6224d7)]
 
 
 <a name="1.0.0-alpha.24"></a>
@@ -509,7 +485,6 @@
 -  improve: tightening types constraints [[edf141d](https://github.com/guanghechen/yozora-react/commit/edf141de220096cf534532ce1f81feff9002277e)]
 -  improve(markdown): support new props &#x27;codeRunners&#x27;, passed to @yozora/react-code-embed and @yozora/react-code-live [[7db8825](https://github.com/guanghechen/yozora-react/commit/7db88255394d399286d04f5a98d07f9ee3f5b0bd)]
 -  improve: support to specify props &#x27;scope&#x27; to CodeEmbed and CodeLive [[6b36638](https://github.com/guanghechen/yozora-react/commit/6b3663892cabbf4b010c9df2bc8d324b39dcd989)]
-- 📝 docs: update CHANGELOG [[5577dd4](https://github.com/guanghechen/yozora-react/commit/5577dd46edaa4bb256293861bb768550979177a4)]
 
 
 <a name="1.0.0-alpha.23"></a>
@@ -527,10 +502,6 @@
 
 - 🐛 fix(code-highglighter): fix bundling erros in vite + react projects [[5f3ef1a](https://github.com/guanghechen/yozora-react/commit/5f3ef1a8f22adaa780251aedbf3cac975c4f8a13)]
 
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[2fed77c](https://github.com/guanghechen/yozora-react/commit/2fed77ce3ed72c0c45adf3052bedc35a9a3293f2)]
-
 
 <a name="1.0.0-alpha.22"></a>
 ## 1.0.0-alpha.22 (2021-07-19)
@@ -538,10 +509,6 @@
 ### Fixed
 
 - 🐛 fix: fix invalid css variables [[2b1fd6f](https://github.com/guanghechen/yozora-react/commit/2b1fd6f9ae20e88e7f98bb811f44fe80c83231fb)]
-
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[2fa980d](https://github.com/guanghechen/yozora-react/commit/2fa980dc793e0b99c845bc80b3e66b46d3e75107)]
 
 
 <a name="1.0.0-alpha.21"></a>
@@ -559,7 +526,6 @@
 ### Miscellaneous
 
 -  improve(react-code-highlighter): enable &#x27;prism-dot&#x27; in default [[b769af1](https://github.com/guanghechen/yozora-react/commit/b769af18689229e9e561c351f85e9f7598d054cd)]
-- 📝 docs: update CHANGELOG [[fd4ae67](https://github.com/guanghechen/yozora-react/commit/fd4ae67496325de8df963e2a46f5c901402e2fae)]
 
 
 <a name="1.0.0-alpha.20"></a>
@@ -577,7 +543,6 @@
 ### Miscellaneous
 
 - 📝 docs: update README [[65f59cc](https://github.com/guanghechen/yozora-react/commit/65f59ccc9fa688b26d2c693dd364a60ef7bee6b2)]
-- 📝 docs: update CHANGELOG [[b70efbe](https://github.com/guanghechen/yozora-react/commit/b70efbe0b874bd3a75d14bb98837f0ee004715b7)]
 
 
 <a name="1.0.0-alpha.19"></a>
@@ -600,7 +565,6 @@
 ### Miscellaneous
 
 - 🔨 chore: update ci configs [[4dc490a](https://github.com/guanghechen/yozora-react/commit/4dc490af19f0e78428aa6543dfe76eae7c48fed6)]
-- 📝 docs: update CHANGELOG [[9e34352](https://github.com/guanghechen/yozora-react/commit/9e34352c3e1eeb499fe4204368f7a4bf5d0ef29f)]
 
 
 <a name="1.0.0-alpha.18"></a>
@@ -618,10 +582,6 @@
 
 - 🎨 improve(markdown): support to customize the mathjax resource [[3d08d02](https://github.com/guanghechen/yozora-react/commit/3d08d02792aad34c0f579d2f65da5b3f78e71854)]
 - ⬆️ chore: ugprade dev dependencies [[750009f](https://github.com/guanghechen/yozora-react/commit/750009fd1b17e9ba0f7ad90c0de79c5f9722a031)]
-
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[68ca2d6](https://github.com/guanghechen/yozora-react/commit/68ca2d62006ff31b14985ca47161133d3933c41a)]
 
 
 <a name="1.0.0-alpha.16"></a>
@@ -644,10 +604,6 @@
 
 - 🐛 fix(code-embed): the height of error boundary is displayed as 0 [[942d134](https://github.com/guanghechen/yozora-react/commit/942d134c6c80c51a0cb8a7aaa92cb602898af1a6)]
 
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[e7824d6](https://github.com/guanghechen/yozora-react/commit/e7824d67ec4b891c6ed1fce8fdfab9cc80c0a46c)]
-
 
 <a name="1.0.0-alpha.15"></a>
 ## 1.0.0-alpha.15 (2021-06-22)
@@ -667,7 +623,6 @@
 ### Miscellaneous
 
 -  improve(code-literal,code-live):  support to toggle collapsed through double-click [[d063eb1](https://github.com/guanghechen/yozora-react/commit/d063eb10fc1964740b178ef323cf632babe81140)]
-- 📝 docs: update CHANGELOG [[0a41c33](https://github.com/guanghechen/yozora-react/commit/0a41c335bdf00f77466340544f95130933241a9c)]
 
 
 <a name="1.0.0-alpha.14"></a>
@@ -693,7 +648,6 @@
 - 📝 docs: update README [[2ff45e7](https://github.com/guanghechen/yozora-react/commit/2ff45e738e9ec0669af73cb0b319374bb6a74754)]
 -  improve(code-embed): add error boundary [[5e782f6](https://github.com/guanghechen/yozora-react/commit/5e782f6237f00b10a55be94e4b39f7d9ba4136fb)]
 -  improve(code): re-export types from @yozora/react-code-live and @yozora/react-code-embed [[ed21ee4](https://github.com/guanghechen/yozora-react/commit/ed21ee402bd8606bffc13bad1593d37b28546025)]
-- 📝 docs: update CHANGELOG [[29deff8](https://github.com/guanghechen/yozora-react/commit/29deff883132d553e009fa225a4f0719ad937bf7)]
 
 
 <a name="0.0.0"></a>
@@ -714,10 +668,6 @@
 - 🔧 chore: don&#x27;t run &#x27;yarn-deduplicate&#x27; in ci environment [[a97fa45](https://github.com/guanghechen/yozora-react/commit/a97fa4569e96f5f09ed8d60e5487a276c42ca342)]
 - ⬆️ chore: upgrade dependencies &amp; fix lint errors [[93b39a2](https://github.com/guanghechen/yozora-react/commit/93b39a2f51057e6d6401e27f7220b60f502e2c50)]
 
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[65317e4](https://github.com/guanghechen/yozora-react/commit/65317e4247994bcb633757483a648e490e713a1d)]
-
 
 <a name="1.0.0-alpha.12"></a>
 ## 1.0.0-alpha.12 (2021-06-08)
@@ -730,7 +680,6 @@
 ### Miscellaneous
 
 -  Move repository from github.com/guanghechen to github.com/yozorajs [[e8a30f9](https://github.com/guanghechen/yozora-react/commit/e8a30f9c0bb61c2e70d18a00807d52330d25ea36)]
-- 📝 docs: update CHANGELOG [[b53f576](https://github.com/guanghechen/yozora-react/commit/b53f5763876a717ec51789d2c2cb5a3bfd66f698)]
 
 
 <a name="1.0.0-alpha.11"></a>
@@ -741,10 +690,6 @@
 - ⬆️ chore: upgrade dependencies [[ffaac9f](https://github.com/guanghechen/yozora-react/commit/ffaac9fee5206fceccb0042e984d9b6e140a3422)]
 - 🎨 improve: fix postcss warnings [[05f1fa9](https://github.com/guanghechen/yozora-react/commit/05f1fa96e4c61fe66ea087fc11ff7a4d91bee709)]
 - 💄 fix(code-highlighter): highlighted lines should cover the entire line [[7e7f9a2](https://github.com/guanghechen/yozora-react/commit/7e7f9a2de87e4818ec3056cf5aaac13173a234a2)]
-
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[7584397](https://github.com/guanghechen/yozora-react/commit/7584397a85054229a60fc69c8e3a7bf96aa165df)]
 
 
 <a name="1.0.0-alpha.10"></a>
@@ -759,10 +704,6 @@
 - 💄 fix(code-highlighter): highlighted lines should cover the entire line [[cabab2b](https://github.com/guanghechen/yozora-react/commit/cabab2b26b3abff9f58784a71905769d59aa8d95)]
 - 💄 fix(code-highlighter): remove excess gaps when collapsed [[66910bd](https://github.com/guanghechen/yozora-react/commit/66910bdfd241c2b14ef569406c78748c400489f6)]
 
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[4911b84](https://github.com/guanghechen/yozora-react/commit/4911b840978f0e5722996ed9d2a9b363fb271575)]
-
 
 <a name="1.0.0-alpha.9"></a>
 ## 1.0.0-alpha.9 (2021-06-04)
@@ -771,10 +712,6 @@
 
 - 🔧 chore: update dependenceis [[3c76019](https://github.com/guanghechen/yozora-react/commit/3c760199ae2b03b9e16c729bbe90ec1c6c468225)]
 - 🔧 chore: update ci [[304b1d5](https://github.com/guanghechen/yozora-react/commit/304b1d5dde828b8b6a2b196f4a803289dae99530)]
-
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[a6d4bc8](https://github.com/guanghechen/yozora-react/commit/a6d4bc8e3053b9622e120fd3d79681d042f18992)]
 
 
 <a name="1.0.0-alpha.8"></a>
@@ -795,7 +732,6 @@
 ### Miscellaneous
 
 - 🚧 improve: don&#x27;t display equation numbers [[5de528c](https://github.com/guanghechen/yozora-react/commit/5de528c078f05fe1cae507d64a6a83cd45fb4d14)]
-- 📝 docs: update CHANGELOG [[39bafb5](https://github.com/guanghechen/yozora-react/commit/39bafb5a9eac0f5187e6e3e2e3ee7d76ec944df0)]
 
 
 <a name="1.0.0-alpha.7"></a>
@@ -819,7 +755,6 @@
 ### Miscellaneous
 
 - 📝 docs: update READMEs [[b10d54d](https://github.com/guanghechen/yozora-react/commit/b10d54dede84fc0dab8cbba0479a86121d46b301)]
-- 📝 docs: udpate CHANGELOG [[16855d7](https://github.com/guanghechen/yozora-react/commit/16855d7a6989e7b3916acc2769a1a5b64520bb49)]
 
 
 <a name="1.0.0-alpha.6"></a>
@@ -834,10 +769,6 @@
 - 💄 improve(code-highlighter,code-editor): fix invalid css variables &amp; tweak padding-bottom [[ccf1af7](https://github.com/guanghechen/yozora-react/commit/ccf1af7107be95b73278ffe9331ce9a83590416e)]
 - 💄 improve(code-literal): show count of lines when collapsed [[463521d](https://github.com/guanghechen/yozora-react/commit/463521deba07c450c03ffbb24dc4e98c0a37ace9)]
 - 💄 improve(code-editor, code-highlighter: tweak line-height [[93f2818](https://github.com/guanghechen/yozora-react/commit/93f28183bf1e32bb3b29b6e25c1fed0869cbc136)]
-
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[cbad409](https://github.com/guanghechen/yozora-react/commit/cbad409cb0e572ccd0a7bc465b45be0f966cb738)]
 
 
 <a name="1.0.0-alpha.5"></a>
@@ -854,10 +785,6 @@
 ### Fixed
 
 - 🐛 fix(code-literal) background color missing [[d1f50c5](https://github.com/guanghechen/yozora-react/commit/d1f50c5fd7e30d4dc1d7d1ab735db0ba51089656)]
-
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[5a81550](https://github.com/guanghechen/yozora-react/commit/5a8155018fcbd49c732433caa256e33f4396a1d0)]
 
 
 <a name="1.0.0-alpha.4"></a>
@@ -878,10 +805,6 @@
 - 🐛 fix: fix code-editor scroll issues [[9efb65f](https://github.com/guanghechen/yozora-react/commit/9efb65f1ae756094eda6f27747d573032a3813f4)]
 - 🐛 fix(image): prevent images from overflowing the container [[1a9425e](https://github.com/guanghechen/yozora-react/commit/1a9425e0d527c60097d47f3569047eed58b11fcd)]
 
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[c7e31c6](https://github.com/guanghechen/yozora-react/commit/c7e31c6d9549525ae458c913173d8513130d918e)]
-
 
 <a name="1.0.0-alpha.3"></a>
 ## 1.0.0-alpha.3 (2021-05-27)
@@ -895,10 +818,6 @@
 - 💄 improve(code-highlighter): fill the parent container in vertical direction except it is collapsed [[e989199](https://github.com/guanghechen/yozora-react/commit/e989199ca99ea0d6e3bad74bddaa4ed4d0f81c36)]
 - 🔧 chore: upgrade dependencies [[1f1d46d](https://github.com/guanghechen/yozora-react/commit/1f1d46d5a84ca547756d8f0a11348cd7734ec9f8)]
 - 🎨 improve: rename inner variable names [[f514fc4](https://github.com/guanghechen/yozora-react/commit/f514fc44a62bf1025e7eeda3ce616f2d06ae887f)]
-
-### Miscellaneous
-
-- 📝 docs: update CHANGELOG [[a958627](https://github.com/guanghechen/yozora-react/commit/a958627b5deabafa546c390ec50fc442e1d94671)]
 
 
 <a name="1.0.0-alpha.2"></a>
@@ -915,7 +834,6 @@
 ### Miscellaneous
 
 - 🔀 Merge branch &#x27;develop&#x27; [[b54f5da](https://github.com/guanghechen/yozora-react/commit/b54f5daff5af26018ef58dfcb7d17aa8b41fc273)]
-- 📝 docs: update CHANGELOG [[48a49e8](https://github.com/guanghechen/yozora-react/commit/48a49e88be23742d388ee536e4cb320fbc06f5da)]
 
 
 <a name="1.0.0-alpha.1"></a>
@@ -939,7 +857,6 @@
 ### Miscellaneous
 
 - 🔀 Merge branch &#x27;develop&#x27; [[857b28a](https://github.com/guanghechen/yozora-react/commit/857b28a5ed302bfdba20f1ee79d89de8748aaf3a)]
-- 📝 docs: update CHANGELOG [[4ac7a1d](https://github.com/guanghechen/yozora-react/commit/4ac7a1d817c6ebd94707cde4648ed051a4794b49)]
 
 
 <a name="1.0.0-alpha.0"></a>
@@ -1023,7 +940,6 @@
 - 📝 docs(text): update code comments and README [[cf8a1ad](https://github.com/guanghechen/yozora-react/commit/cf8a1ad693a3f7afb3d8fb3be8b4aae4e2a26abb)]
 - 🙈 wrench: ignore coverage/ [[09ae83d](https://github.com/guanghechen/yozora-react/commit/09ae83d15b0d1e2c7fbeb46a6cf63e471d33dcbb)]
 - 📝 docs: update READMEs [[223a81f](https://github.com/guanghechen/yozora-react/commit/223a81f65dc910fb628e61127e5d8ea1c4bc594a)]
-- 📝 docs: add CHANGELOG [[cd5c9e0](https://github.com/guanghechen/yozora-react/commit/cd5c9e0df8b668cc4d10d61e8cf93dbadb935dab)]
 
 
 <a name="0.0.10"></a>
