@@ -37,8 +37,8 @@
     "test": "echo 'no test yet.'"
   },
   "dependencies": {
-    "@guanghechen/parse-lineno": "^2.1.0",
-    "@guanghechen/react-hooks": "^2.1.0",
+    "@guanghechen/parse-lineno": "^2.1.1",
+    "@guanghechen/react-hooks": "^2.1.1",
     "@yozora/core-react-theme": "^2.0.1",
     "@yozora/react-code-highlighter": "^2.0.1"
   },
