@@ -7,10 +7,11 @@ name: Build
 on:
   push:
     tags:
-      - 'v*'
+      - v*
   pull_request:
     branches:
       - main
+      - release-*
   workflow_dispatch:
 
 jobs:
@@ -21,16 +22,13 @@ jobs:
         node-version:
           - 16.x
     steps:
-      - name: Checkout 🛎️
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - name: Installation
         run: yarn || yarn || yarn # 3 attempts to avoid timeout errors...
-      - name: Clean
-        run: yarn clean || yarn clean || yarn clean # 3 attempts to avoid timeout errors...
       - name: Build
         run: yarn build
       - name: Test
