@@ -1,6 +1,5 @@
 import type { Strong } from '@yozora/ast'
 import React from 'react'
-import type { INodeRenderer } from '../../types'
 import { NodesRenderer } from '../NodesRenderer'
 
 /**
@@ -9,10 +8,12 @@ import { NodesRenderer } from '../NodesRenderer'
  * @see https://www.npmjs.com/package/@yozora/ast#strong
  * @see https://www.npmjs.com/package/@yozora/tokenizer-emphasis
  */
-export const StrongRenderer: INodeRenderer<Strong> = props => {
-  return (
-    <strong className="yozora-strong">
-      <NodesRenderer nodes={props.children} />
-    </strong>
-  )
+export class StrongRenderer extends React.PureComponent<Strong> {
+  public override render(): React.ReactElement {
+    return (
+      <strong className="yozora-strong">
+        <NodesRenderer nodes={this.props.children} />
+      </strong>
+    )
+  }
 }

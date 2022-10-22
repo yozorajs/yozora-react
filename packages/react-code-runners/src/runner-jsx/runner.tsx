@@ -1,5 +1,5 @@
-import { useDeepCompareMemo } from '@guanghechen/react-hooks'
 import type { EcmaImport as IEcmaImport } from '@yozora/ast'
+import { useDeepCompareMemo } from '@yozora/core-react-hook'
 import type { ICodeRendererJsxProps } from '@yozora/react-code-renderer-jsx'
 import React, { useEffect, useMemo, useState } from 'react'
 import type { IAsyncRunnerScopes, ICodeRunner, ICodeRunnerScope } from '../types'

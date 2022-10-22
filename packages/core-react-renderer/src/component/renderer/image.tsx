@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import type { Image } from '@yozora/ast'
 import React from 'react'
 import { NodeRendererActionsType } from '../../context/action'
@@ -36,17 +37,42 @@ export const ImageRenderer: INodeRenderer<Image> = props => {
   }, [dispatch, src, alt])
 
   return (
-    <figure className="yozora-image">
-      <img
-        alt={alt}
-        src={src}
-        title={title}
-        srcSet={srcSet}
-        sizes={sizes}
-        loading={loading}
-        onClick={onImageClick}
-      />
-      {title && <figcaption>{title}</figcaption>}
-    </figure>
+    <ImageRendererInner
+      alt={alt}
+      src={src}
+      title={title}
+      srcSet={srcSet}
+      sizes={sizes}
+      loading={loading}
+      onClick={onImageClick}
+    />
   )
+}
+
+class ImageRendererInner extends React.PureComponent<{
+  src: string
+  alt: string
+  title: string | undefined
+  srcSet: string | undefined
+  sizes: string | undefined
+  loading: 'eager' | 'lazy' | undefined
+  onClick: React.MouseEventHandler<HTMLImageElement>
+}> {
+  public override render(): React.ReactElement {
+    const { src, alt, title, srcSet, sizes, loading, onClick } = this.props
+    return (
+      <figure className="yozora-image">
+        <img
+          alt={alt}
+          src={src}
+          title={title}
+          srcSet={srcSet}
+          sizes={sizes}
+          loading={loading}
+          onClick={onClick}
+        />
+        {title && <figcaption>{title}</figcaption>}
+      </figure>
+    )
+  }
 }

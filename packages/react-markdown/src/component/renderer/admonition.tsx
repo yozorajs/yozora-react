@@ -1,5 +1,4 @@
 import type { Admonition } from '@yozora/ast'
-import type { INodeRenderer } from '@yozora/core-react-renderer'
 import { NodesRenderer } from '@yozora/core-react-renderer'
 import AdmonitionRenderer0 from '@yozora/react-admonition'
 import React from 'react'
@@ -11,11 +10,15 @@ import React from 'react'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-admonition
  * @see https://www.npmjs.com/package/@yozora/react-admonition
  */
-export const AdmonitionRenderer: INodeRenderer<Admonition> = props => {
-  const title = props.title.length > 0 ? <NodesRenderer nodes={props.title} /> : undefined
-  return (
-    <AdmonitionRenderer0 keyword={props.keyword} title={title}>
-      <NodesRenderer nodes={props.children} />
-    </AdmonitionRenderer0>
-  )
+export class AdmonitionRenderer extends React.PureComponent<Admonition> {
+  public override render(): React.ReactElement {
+    const { keyword, title: title0, children } = this.props
+    const title = title0.length > 0 ? <NodesRenderer nodes={title0} /> : undefined
+
+    return (
+      <AdmonitionRenderer0 keyword={keyword} title={title}>
+        <NodesRenderer nodes={children} />
+      </AdmonitionRenderer0>
+    )
+  }
 }

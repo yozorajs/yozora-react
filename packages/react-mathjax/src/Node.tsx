@@ -1,9 +1,10 @@
 /* eslint-disable new-cap */
 import PropTypes from 'prop-types'
 import React from 'react'
-import { MathJaxContext } from './Context'
-import type { MathJax, MathJaxContextValue } from './types'
-import { processMathJax } from './util'
+import { MathJaxContextType } from './Context'
+import type { IMathJax } from './types'
+import { MathJaxLanguage } from './types'
+import { cancelProcessMathJax, processMathJax } from './util/process'
 
 export interface IMathJaxNodeProps {
   /**
@@ -29,28 +30,54 @@ export interface IMathJaxNodeProps {
   onRender?(): void
 }
 
+export const MathJaxNode: React.FC<IMathJaxNodeProps> = props => {
+  const { inline, className, style, onRender } = props
+  const { MathJax, language } = React.useContext(MathJaxContextType)
+  const formula = props.formula.trim()
+
+  if (MathJax) {
+    return (
+      <MathJaxNodeWithContext
+        MathJax={MathJax}
+        language={language}
+        formula={formula}
+        inline={inline}
+        className={className}
+        style={style}
+        onRender={onRender}
+      />
+    )
+  }
+
+  // Fallback, show source formula.
+  return inline ? (
+    <span className={className} style={style}>
+      ${formula}$
+    </span>
+  ) : (
+    <div className={className} style={style}>
+      $${formula}$$
+    </div>
+  )
+}
+
 export interface IMathJaxNodeWithContextProps extends IMathJaxNodeProps {
-  /**
-   * Type of the formula string.
-   */
-  language: 'tex' | 'asciimath'
-  /**
-   * MathJax instance.
-   */
-  MathJax: MathJax
+  MathJax: IMathJax
+  language: string
 }
 
 export class MathJaxNodeWithContext extends React.Component<IMathJaxNodeWithContextProps> {
-  protected readonly nodeRef = React.createRef<HTMLElement>()
-  protected scriptNode: HTMLScriptElement | null = null
+  protected readonly _nodeRef = React.createRef<HTMLDivElement>()
+  protected _formulaNode: HTMLScriptElement | null = null
 
   public static propTypes = {
-    language: PropTypes.oneOf(['tex', 'asciimath']).isRequired,
     MathJax: PropTypes.object.isRequired,
+    language: PropTypes.oneOf([MathJaxLanguage.TEX, MathJaxLanguage.ASCIIMATH]).isRequired,
     formula: PropTypes.node.isRequired,
     inline: PropTypes.bool,
     className: PropTypes.string,
     style: PropTypes.object,
+    onRender: PropTypes.func,
   }
 
   public static defaultProps = {
@@ -58,70 +85,71 @@ export class MathJaxNodeWithContext extends React.Component<IMathJaxNodeWithCont
   }
 
   public override render(): React.ReactElement {
-    const { className, style, inline } = this.props
-    const T = inline ? 'span' : 'div'
-
-    return <T ref={this.nodeRef as any} className={className} style={style} />
+    const { inline, className, style } = this.props
+    return React.createElement(inline ? 'span' : 'div', { ref: this._nodeRef, className, style })
   }
 
-  /**
-   * Render the math once the node is mounted.
-   */
+  // Render the math once the node is mounted.
   public override componentDidMount(): void {
-    this.typeset(false)
+    this._typeset(false)
   }
 
-  public override componentDidUpdate(prevProps: IMathJaxNodeProps): void {
-    const forceUpdate = this.shouldComponentUpdate(prevProps)
-    this.typeset(forceUpdate)
-  }
-
-  public override shouldComponentUpdate(nextProps: IMathJaxNodeProps): boolean {
-    const props = this.props
-    return nextProps.formula !== props.formula || nextProps.inline !== props.inline
+  public override componentDidUpdate(prevProps: IMathJaxNodeWithContextProps): void {
+    this._typeset(this.shouldComponentUpdate(prevProps))
   }
 
   public override componentWillUnmount(): void {
-    this.clear()
+    this._clear()
   }
 
-  /**
-   * Clear the jax
-   */
-  protected clear(): void {
-    const { MathJax } = this.props
-    if (MathJax == null || this.scriptNode == null) return
+  public override shouldComponentUpdate(nextProps: IMathJaxNodeWithContextProps): boolean {
+    const props = this.props
+    return (
+      nextProps.MathJax !== props.MathJax ||
+      nextProps.language !== props.language ||
+      nextProps.formula !== props.formula ||
+      nextProps.inline !== props.inline ||
+      nextProps.className !== props.className ||
+      nextProps.style !== props.style
+    )
+  }
 
-    const jax = MathJax.Hub.getJaxFor(this.scriptNode)
-    if (jax != null) jax.Remove()
+  // Clear the jax
+  protected _clear(): void {
+    const { MathJax } = this.props
+    if (MathJax && this._formulaNode) {
+      cancelProcessMathJax(MathJax, this._formulaNode)
+    }
   }
 
   /**
    * Update math in the node
-   * @param forceUpdate
+   * @param isForceUpdate
    */
-  protected typeset(forceUpdate: boolean): void | never {
-    const { MathJax } = this.props
-    if (MathJax == null) {
-      console.warn(`Cannot find MathJax instance!`)
-      return
+  protected _typeset(isForceUpdate: boolean): void | never {
+    const { MathJax, formula, onRender } = this.props
+    if (!MathJax) {
+      throw new Error(
+        `Could not find MathJax while attempting typeset! Probably MathJax script hasn't been loaded or MathJaxContextType.Provider is not in the hierarchy`,
+      )
     }
 
-    if (forceUpdate) this.clear()
+    if (isForceUpdate) {
+      this._clear()
+    }
 
-    const { formula, onRender } = this.props
-    if (forceUpdate || this.scriptNode == null) {
-      this.setFormula(formula)
-      processMathJax(MathJax, this.scriptNode!, onRender)
+    if (isForceUpdate || !this._formulaNode) {
+      this._setFormula(formula)
+      processMathJax(MathJax, this._formulaNode!, onRender)
       return
     }
 
     MathJax.Hub.Queue(() => {
-      const jax = MathJax.Hub.getJaxFor(this.scriptNode!)
-      if (jax != null) jax.Text(formula, onRender)
+      const jax = MathJax.Hub.getJaxFor(this._formulaNode!)
+      if (jax?.Text) jax.Text(formula, onRender)
       else {
-        this.setFormula(formula)
-        processMathJax(MathJax, this.scriptNode!, onRender)
+        this._setFormula(formula)
+        processMathJax(MathJax, this._formulaNode!, onRender)
       }
     })
   }
@@ -130,35 +158,20 @@ export class MathJaxNodeWithContext extends React.Component<IMathJaxNodeWithCont
    * Create / Update a script tag for rendering formula.
    * @param formula
    */
-  protected setFormula(formula: string): void {
-    const current = this.nodeRef.current
+  protected _setFormula(formula: string): void {
+    const current = this._nodeRef.current
     if (current == null) return
 
     const { language, inline } = this.props
-    if (this.scriptNode == null) {
-      const scriptNode = document.createElement('script')
-      scriptNode.type = `math/${language}; ${inline ? '' : 'mode=display'}`
-      current.appendChild(scriptNode)
-      this.scriptNode = scriptNode
+    if (!this._formulaNode) {
+      this._formulaNode = document.createElement('script')
+      this._formulaNode.type = `math/${language}; ${inline ? '' : 'mode=display'}`
     }
-    this.scriptNode.textContent = formula
-  }
-}
 
-export class MathJaxNode extends React.PureComponent<IMathJaxNodeProps> {
-  public override render(): React.ReactElement {
-    return (
-      <MathJaxContext.Consumer>
-        {({ MathJax, language }: MathJaxContextValue): React.ReactElement => {
-          if (!MathJax) {
-            const { formula, inline, ...rest } = this.props
-            const T = inline ? 'span' : 'div'
-            return <T {...rest}>{formula}</T>
-          }
+    if (!current.contains(this._formulaNode)) {
+      current.appendChild(this._formulaNode)
+    }
 
-          return <MathJaxNodeWithContext {...this.props} MathJax={MathJax} language={language} />
-        }}
-      </MathJaxContext.Consumer>
-    )
+    this._formulaNode.textContent = formula
   }
 }

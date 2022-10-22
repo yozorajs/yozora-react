@@ -1,6 +1,5 @@
 import type { List } from '@yozora/ast'
 import React from 'react'
-import type { INodeRenderer } from '../../types'
 import { NodesRenderer } from '../NodesRenderer'
 
 /**
@@ -9,20 +8,22 @@ import { NodesRenderer } from '../NodesRenderer'
  * @see https://www.npmjs.com/package/@yozora/ast#list
  * @see https://www.npmjs.com/package/@yozora/tokenizer-list
  */
-export const ListRenderer: INodeRenderer<List> = props => {
-  const { ordered, orderType, start } = props
+export class ListRenderer extends React.PureComponent<List> {
+  public override render(): React.ReactElement {
+    const { ordered, orderType, start, children } = this.props
 
-  if (ordered) {
+    if (ordered) {
+      return (
+        <ol className="yozora-list" type={orderType} start={start}>
+          <NodesRenderer nodes={children} />
+        </ol>
+      )
+    }
+
     return (
-      <ol className="yozora-list" type={orderType} start={start}>
-        <NodesRenderer nodes={props.children} />
-      </ol>
+      <ul className="yozora-list">
+        <NodesRenderer nodes={children} />
+      </ul>
     )
   }
-
-  return (
-    <ul className="yozora-list">
-      <NodesRenderer nodes={props.children} />
-    </ul>
-  )
 }

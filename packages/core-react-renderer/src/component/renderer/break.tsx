@@ -1,6 +1,5 @@
 import type { Break } from '@yozora/ast'
 import React from 'react'
-import type { INodeRenderer } from '../../types'
 
 /**
  * Render yozora `Break`.
@@ -8,6 +7,8 @@ import type { INodeRenderer } from '../../types'
  * @see https://www.npmjs.com/package/@yozora/ast#break
  * @see https://www.npmjs.com/package/@yozora/tokenizer-break
  */
-export const BreakRenderer: INodeRenderer<Break> = () => {
-  return <br className="yozora-break" />
+export class BreakRenderer extends React.PureComponent<Break> {
+  public override render(): React.ReactElement {
+    return <br className="yozora-break" />
+  }
 }

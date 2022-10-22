@@ -1,5 +1,4 @@
 import type { InlineMath } from '@yozora/ast'
-import type { INodeRenderer } from '@yozora/core-react-renderer'
 import { MathJaxNode } from '@yozora/react-mathjax'
 import React from 'react'
 
@@ -9,6 +8,8 @@ import React from 'react'
  * @see https://www.npmjs.com/package/@yozora/ast#inlinemath
  * @see https://www.npmjs.com/package/@yozora/tokenizer-inline-math
  */
-export const InlineMathRenderer: INodeRenderer<InlineMath> = props => {
-  return <MathJaxNode className="yozora-inline-math" inline={true} formula={props.value} />
+export class InlineMathRenderer extends React.PureComponent<InlineMath> {
+  public override render(): React.ReactElement {
+    return <MathJaxNode className="yozora-inline-math" inline={true} formula={this.props.value} />
+  }
 }

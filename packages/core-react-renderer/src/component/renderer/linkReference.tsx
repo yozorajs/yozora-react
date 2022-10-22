@@ -1,4 +1,5 @@
-import type { LinkReference } from '@yozora/ast'
+/* eslint-disable react/prop-types */
+import type { LinkReference, Node } from '@yozora/ast'
 import React from 'react'
 import { useNodeRendererContext } from '../../context/context'
 import type { INodeRenderer } from '../../types'
@@ -15,16 +16,27 @@ export const LinkReferenceRenderer: INodeRenderer<LinkReference> = props => {
   const definition = definitionMap[props.identifier]
   const url: string = definition?.url ?? ''
   const title: string | undefined = definition?.title
+  // eslint-disable-next-line react/no-children-prop
+  return <LinkReferenceRendererInner url={url} title={title} children={props.children} />
+}
 
-  return (
-    <a
-      className="yozora-link-reference yozora-link"
-      href={url}
-      title={title}
-      rel="noopener, noreferrer"
-      target="_blank"
-    >
-      <NodesRenderer nodes={props.children} />
-    </a>
-  )
+class LinkReferenceRendererInner extends React.PureComponent<{
+  url: string
+  title: string | undefined
+  children?: Node[]
+}> {
+  public override render(): React.ReactElement {
+    const { url, title, children } = this.props
+    return (
+      <a
+        className="yozora-link-reference yozora-link"
+        href={url}
+        title={title}
+        rel="noopener, noreferrer"
+        target="_blank"
+      >
+        <NodesRenderer nodes={children} />
+      </a>
+    )
+  }
 }

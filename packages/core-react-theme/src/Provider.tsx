@@ -1,4 +1,4 @@
-import { useDeepCompareMemo } from '@guanghechen/react-hooks'
+import { useDeepCompareMemo } from '@yozora/core-react-hook'
 import React from 'react'
 import type { IThemeContext, IThemePreference } from './context'
 import { ThemeContextType } from './context'

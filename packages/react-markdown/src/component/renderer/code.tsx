@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import type { Code } from '@yozora/ast'
 import type { INodeRenderer } from '@yozora/core-react-renderer'
 import { useThemeContext } from '@yozora/core-react-theme'

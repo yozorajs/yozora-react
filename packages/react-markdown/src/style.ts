@@ -129,6 +129,7 @@ export const useStyles = (): string => {
           },
         },
         '.yozora-math': {
+          display: 'block',
           overflow: 'auto',
           border: 'none',
           margin: '0 0 1em',

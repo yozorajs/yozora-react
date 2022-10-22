@@ -27,6 +27,7 @@ import type {
   ListItem,
   ListItemType,
   ListType,
+  Node,
   Paragraph,
   ParagraphType,
   Strong,
@@ -37,16 +38,11 @@ import type {
   TextType,
   ThematicBreak,
   ThematicBreakType,
-  Node as YastNode,
 } from '@yozora/ast'
 import type React from 'react'
 
-export type INodeRendererProps<T extends YastNode> = T
-
 // Renderer for Yozora markdown AST node.
-export type INodeRenderer<T extends YastNode = YastNode> = React.ComponentType<
-  INodeRendererProps<T>
->
+export type INodeRenderer<T extends Node = Node> = React.ComponentType<T> | React.FC<T>
 
 /**
  * Renderer map.
@@ -72,7 +68,7 @@ export interface INodeRendererMap {
   [TextType]: INodeRenderer<Text>
   [ThematicBreakType]: INodeRenderer<ThematicBreak>
   _fallback: INodeRenderer
-  [key: string]: INodeRenderer<YastNode & any>
+  [key: string]: INodeRenderer<Node & any>
 }
 
 export type INodeStyleMap = Record<Exclude<keyof INodeRendererMap, '_fallback'>, string>

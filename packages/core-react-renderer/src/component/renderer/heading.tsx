@@ -1,7 +1,10 @@
 import type { Heading } from '@yozora/ast'
 import React from 'react'
-import type { INodeRenderer } from '../../types'
 import { NodesRenderer } from '../NodesRenderer'
+
+interface IHeadingRendererProps extends Heading {
+  linkIcon?: React.ReactNode
+}
 
 /**
  * Render `heading` content.
@@ -9,25 +12,27 @@ import { NodesRenderer } from '../NodesRenderer'
  * @see https://www.npmjs.com/package/@yozora/ast#heading
  * @see https://www.npmjs.com/package/@yozora/tokenizer-heading
  */
-export const HeadingRenderer: INodeRenderer<Heading & { linkIcon?: React.ReactNode }> = props => {
-  const { depth, identifier, linkIcon = '¶' } = props
+export class HeadingRenderer extends React.PureComponent<IHeadingRendererProps> {
+  public override render(): React.ReactElement {
+    const { depth, identifier, children, linkIcon = '¶' } = this.props
 
-  const id = identifier == null ? undefined : encodeURIComponent(identifier)
-  const H: any = ('h' + depth) as keyof JSX.IntrinsicElements
+    const id = identifier == null ? undefined : encodeURIComponent(identifier)
+    const H: any = ('h' + depth) as keyof JSX.IntrinsicElements
 
-  let className = 'yozora-heading'
-  if (identifier) className += ' yozora-heading--toc'
+    let className = 'yozora-heading'
+    if (identifier) className += ' yozora-heading--toc'
 
-  return (
-    <H id={id} className={className}>
-      <p className="yozora-heading__content">
-        <NodesRenderer nodes={props.children} />
-      </p>
-      {identifier && (
-        <a className="yozora-heading__anchor" href={'#' + id}>
-          {linkIcon}
-        </a>
-      )}
-    </H>
-  )
+    return (
+      <H id={id} className={className}>
+        <p className="yozora-heading__content">
+          <NodesRenderer nodes={children} />
+        </p>
+        {identifier && (
+          <a className="yozora-heading__anchor" href={'#' + id}>
+            {linkIcon}
+          </a>
+        )}
+      </H>
+    )
+  }
 }
