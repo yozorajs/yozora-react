@@ -39,6 +39,7 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
   "dependencies": {
+    "@yozora/core-react-hook": "^2.0.2",
     "load-script": "^2.0.0"
   },
   "peerDependencies": {

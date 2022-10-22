@@ -537,13 +537,6 @@
     fs-extra "^10.1.0"
     reserved-words "0.1.2"
 
-"@guanghechen/react-hooks@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.npmjs.org/@guanghechen/react-hooks/-/react-hooks-2.1.1.tgz#73d25586c340336748a9418601e24d337b420f79"
-  integrity sha512-n4ytpLjKkQYRolyaVavV62J+/ZU6YlyZmABooZL9kS3hsfMvP8D9HU+jhKwT4ERQWqQzOp9hLyTq5ab0EXPCPA==
-  dependencies:
-    fast-deep-equal "^3.1.3"
-
 "@guanghechen/rollup-config-tsx@^2.1.1":
   version "2.1.1"
   resolved "https://registry.npmjs.org/@guanghechen/rollup-config-tsx/-/rollup-config-tsx-2.1.1.tgz#176c4fbe2865a3fd19c203a896bbf12cf10bc341"

@@ -1,24 +1,24 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-hook#readme">@yozora/react-hook</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/core-react-hook#readme">@yozora/core-react-hook</a>
   </h1>
   <div align="center">
-    <a href="https://www.npmjs.com/package/@yozora/react-hook">
+    <a href="https://www.npmjs.com/package/@yozora/core-react-hook">
       <img
         alt="Npm Version"
-        src="https://img.shields.io/npm/v/@yozora/react-hook.svg"
+        src="https://img.shields.io/npm/v/@yozora/core-react-hook.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-hook">
+    <a href="https://www.npmjs.com/package/@yozora/core-react-hook">
       <img
         alt="Npm Download"
-        src="https://img.shields.io/npm/dm/@yozora/react-hook.svg"
+        src="https://img.shields.io/npm/dm/@yozora/core-react-hook.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-hook">
+    <a href="https://www.npmjs.com/package/@yozora/core-react-hook">
       <img
         alt="Npm License"
-        src="https://img.shields.io/npm/l/@yozora/react-hook.svg"
+        src="https://img.shields.io/npm/l/@yozora/core-react-hook.svg"
       />
     </a>
     <a href="#install">
@@ -30,13 +30,13 @@
     <a href="https://github.com/nodejs/node">
       <img
         alt="Node.js Version"
-        src="https://img.shields.io/node/v/@yozora/react-hook"
+        src="https://img.shields.io/node/v/@yozora/core-react-hook"
       />
     </a>
     <a href="https://github.com/facebook/react">
       <img
         alt="React version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-hook/peer/react"
+        src="https://img.shields.io/npm/dependency-version/@yozora/core-react-hook/peer/react"
       />
     </a>
     <a href="https://github.com/facebook/jest">
@@ -63,13 +63,13 @@ Provide some common react hooks.
 * npm
 
   ```bash
-  npm install --save @yozora/react-hook
+  npm install --save @yozora/core-react-hook
   ```
 
 * yarn
 
   ```bash
-  yarn add @yozora/react-hook
+  yarn add @yozora/core-react-hook
   ```
 
 
