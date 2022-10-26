@@ -5,7 +5,7 @@ import CodeLive from '@yozora/react-code-live'
 import JsxRenderer from '@yozora/react-code-renderer-jsx'
 import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/react-code-runners'
 import PropTypes from 'prop-types'
-import React, { useMemo } from 'react'
+import React from 'react'
 import type { ICodeMetaData, ICodeProps } from './types'
 import { parseCodeMeta } from './util'
 
@@ -43,7 +43,7 @@ export const Code: React.FC<ICodeProps> = props => {
     style,
   } = props
 
-  const meta = useMemo<ICodeMetaData>(
+  const meta = React.useMemo<ICodeMetaData>(
     () => parseCodeMeta(infoString ?? '', { preferLineNo }),
     [infoString, preferLineNo],
   )

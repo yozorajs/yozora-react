@@ -1,7 +1,7 @@
 import type { Engine, GraphvizOptions } from 'd3-graphviz'
 import { graphviz } from 'd3-graphviz'
 import PropTypes from 'prop-types'
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 
 export interface IGraphvizRendererProps {
   /**
@@ -26,9 +26,9 @@ export interface IGraphvizRendererProps {
 
 export const GraphvizRenderer: React.FC<IGraphvizRendererProps> = props => {
   const { code, engine = 'dot', options, onError } = props
-  const graphRef = useRef<HTMLDivElement>(null)
+  const graphRef = React.useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (graphRef.current == null) return
 
     try {

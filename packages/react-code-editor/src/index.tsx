@@ -1,7 +1,7 @@
 import { cx } from '@emotion/css'
 import type { PrismTheme } from '@yozora/react-code-highlighter'
 import CodeHighlighter from '@yozora/react-code-highlighter'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { SimpleCodeEditor } from './editor'
 
 /**
@@ -99,10 +99,10 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
     lineHeight = '1.6rem',
   } = props
 
-  const codesRef = useRef<HTMLDivElement>(null)
-  const [code, setCode] = useState<string>(props.code)
-  const [linenoWidth, setLinenoWidth] = useState<React.CSSProperties['width']>()
-  const highlightCode = useCallback<React.FC<string>>(
+  const codesRef = React.useRef<HTMLDivElement>(null)
+  const [code, setCode] = React.useState<string>(props.code)
+  const [linenoWidth, setLinenoWidth] = React.useState<React.CSSProperties['width']>()
+  const highlightCode = React.useCallback<React.FC<string>>(
     code => (
       <CodeHighlighter
         codesRef={codesRef}
@@ -120,7 +120,7 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
     [lang, darken, theme, collapsed, showLinenos, lineHeight, maxLines],
   )
 
-  const handleChange = useCallback(
+  const handleChange = React.useCallback(
     (nextCode: string) => {
       setCode(nextCode)
       onChange(nextCode)
@@ -129,11 +129,11 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
   )
 
   // Reset code if the props.code has changed
-  useEffect((): void => setCode(props.code), [props.code])
+  React.useEffect((): void => setCode(props.code), [props.code])
 
   // Sync the scroll events.
   /* istanbul ignore next */
-  const syncScrollEvents = useCallback<React.UIEventHandler<HTMLTextAreaElement>>(e => {
+  const syncScrollEvents = React.useCallback<React.UIEventHandler<HTMLTextAreaElement>>(e => {
     const textarea = e.target as HTMLTextAreaElement
     if (textarea == null) return
 

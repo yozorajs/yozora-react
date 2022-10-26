@@ -1,7 +1,7 @@
 import type { EcmaImport as IEcmaImport } from '@yozora/ast'
 import { useDeepCompareMemo } from '@yozora/core-react-hook'
 import type { ICodeRendererJsxProps } from '@yozora/react-code-renderer-jsx'
-import React, { useEffect, useMemo, useState } from 'react'
+import React from 'react'
 import type { IAsyncRunnerScopes, ICodeRunner, ICodeRunnerScope } from '../types'
 import { CodeRunnerPropTypes } from '../types'
 import type { IDynamicImportRule } from './lazy'
@@ -42,10 +42,10 @@ export function createUseJsxRunner(
     }, [ecmaImports])
 
     // Whether if the async runner scopes prepared.
-    const [prepared, setPrepared] = useState<boolean>(pending === true)
+    const [prepared, setPrepared] = React.useState<boolean>(pending === true)
 
     // Trigger re-render if the async runner scopes prepared.
-    useEffect(() => {
+    React.useEffect(() => {
       if (pending === true) return
 
       let canceled = false
@@ -55,7 +55,7 @@ export function createUseJsxRunner(
       }
     }, [pending])
 
-    return useMemo<ICodeRunner>(() => {
+    return React.useMemo<ICodeRunner>(() => {
       const JsxRunner: ICodeRunner = props => {
         const { value, onError, meta = {} } = props
         const inline = (meta.renderMode ?? defaultRenderMode) === 'inline'

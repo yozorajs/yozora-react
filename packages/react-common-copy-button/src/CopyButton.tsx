@@ -1,6 +1,6 @@
 import { cx } from '@emotion/css'
 import PropTypes from 'prop-types'
-import React, { useCallback, useState } from 'react'
+import React from 'react'
 import { classes } from './style'
 import { copyToClipboard } from './util'
 
@@ -40,9 +40,9 @@ export interface CopyButtonProps {
 export const CopyButton: React.FC<CopyButtonProps> = props => {
   const { value, statusNodeMap = defaultStatusNodeMap, className, style } = props
 
-  const [status, setStatus] = useState<ICopyStatus>('waiting')
+  const [status, setStatus] = React.useState<ICopyStatus>('waiting')
 
-  const handleCopy = useCallback(() => {
+  const handleCopy = React.useCallback(() => {
     setStatus('copying')
     copyToClipboard(value)
       .then((succeed: boolean) => setStatus(succeed ? 'succeed' : 'failed'))

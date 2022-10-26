@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useCallback, useEffect, useState } from 'react'
+import React from 'react'
 import { renderElement, renderElementAsync } from './eval'
 
 /**
@@ -32,9 +32,9 @@ export interface ICodeRendererJsxProps {
  */
 export const CodeRendererJsx: React.FC<ICodeRendererJsxProps> = props => {
   const { code, inline, scope, onError } = props
-  const [Element, setElement] = useState<React.ElementType | null>(null)
+  const [Element, setElement] = React.useState<React.ElementType | null>(null)
 
-  const transpile = useCallback(
+  const transpile = React.useCallback(
     (code: string): void => {
       const handleError = (error: any): void => {
         const errInfo: string = (error || '').toString()
@@ -63,7 +63,7 @@ export const CodeRendererJsx: React.FC<ICodeRendererJsxProps> = props => {
     [inline, scope, onError],
   )
 
-  useEffect((): void => transpile(code), [code, transpile])
+  React.useEffect((): void => transpile(code), [code, transpile])
 
   if (Element == null) return null
   return <Element />
