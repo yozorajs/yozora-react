@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="2.1.0-alpha.2"></a>
+## 2.1.0-alpha.2 (2022-10-26)
+
+### Changed
+
+- ⏪ revert: revert better-react-mathjax [[40dfde5](https://github.com/yozorajs/yozora-react/commit/40dfde577be84d4aa105ccb25d7228f0c47e2010)]
+
+
 <a name="2.1.0-alpha.1"></a>
 ## 2.1.0-alpha.1 (2022-10-26)
 
