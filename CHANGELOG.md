@@ -1,5 +1,40 @@
 # Changelog
 
+<a name="2.1.0-alpha.1"></a>
+## 2.1.0-alpha.1 (2022-10-26)
+
+### Changed
+
+- 💄 improve: tweak styles [[35fc442](https://github.com/yozorajs/yozora-react/commit/35fc442a10fd9cb10181d1a272021590f6b592b9)]
+- 🎨 style: make code tidy [[4edf0cb](https://github.com/yozorajs/yozora-react/commit/4edf0cb471de510d3cc67fdc6afdf1736bac083e)]
+
+### Breaking changes
+
+- 💥 refactor: use better-react-mathjax to drive @yozora/react-mathjax [[194820d](https://github.com/yozorajs/yozora-react/commit/194820d14abe76d942651639f5340bcffa1bc619)]
+
+### Fixed
+
+- 💚 chore: fix ci config [[fb7c7ca](https://github.com/yozorajs/yozora-react/commit/fb7c7cafb38f8dd7fbf271208fdf94ae6bc9ac0f)]
+
+### Miscellaneous
+
+- 📝 docs: update README [[aeadb90](https://github.com/yozorajs/yozora-react/commit/aeadb900172b49eb726266ae525318af03503e4a)]
+
+
+<a name="2.1.0-alpha.0"></a>
+## 2.1.0-alpha.0 (2022-10-22)
+
+### Added
+
+- ✨ feat: add @yozora/core-react-hook [[a7d9ffc](https://github.com/yozorajs/yozora-react/commit/a7d9ffc6e329ea5342082d30f9622c533cb86b03)]
+
+### Changed
+
+- ⬆️ chore: upgrade dependencies [[438bcc2](https://github.com/yozorajs/yozora-react/commit/438bcc263d71a56a08b06d2e26145c7555322e38)]
+- 🔧 chore: fix dependencies [[78cbaf5](https://github.com/yozorajs/yozora-react/commit/78cbaf55a296c9117f1b104fb207837fe1045289)]
+- 🎨 refactor: prefer pure component [[a1b3594](https://github.com/yozorajs/yozora-react/commit/a1b3594b85d9bcaf16b2757d8c44c9988b639b51)]
+
+
 <a name="2.0.2"></a>
 ## 2.0.2 (2022-10-13)
 
