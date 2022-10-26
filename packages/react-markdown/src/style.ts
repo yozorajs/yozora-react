@@ -35,13 +35,15 @@ export const useStyles = (): string => {
         '.yozora-footnote-reference': {
           '> a': {
             display: 'inline-block',
-            lineHeight: 1.2,
+            fontSize: '10px',
+            letterSpacing: '1px',
             textDecoration: 'none',
             '&:active': {
               color: effects.active.colors.text.link,
             },
             '&:hover': {
               color: effects.hover.colors.text.link,
+              letterSpacing: '2px',
               transform: 'scale(1.2)',
             },
             '&:visited': {
@@ -130,11 +132,14 @@ export const useStyles = (): string => {
         },
         '.yozora-math': {
           display: 'block',
-          overflow: 'auto',
+          overflow: 'visible',
           border: 'none',
           margin: '0 0 1em',
           background: 'transparent',
           color: colors.text.math,
+          '> mjx-container': {
+            margin: '0 !important',
+          },
         },
       }),
       css({
