@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-embed",
-  "version": "2.1.0-alpha.0",
+  "version": "2.1.0-alpha.1",
   "description": "code embed in react",
   "author": {
     "name": "guanghechen",
@@ -45,7 +45,7 @@
     "react": ">= 17.0.0"
   },
   "devDependencies": {
-    "@yozora/react-code-runners": "^2.1.0-alpha.0"
+    "@yozora/react-code-runners": "^2.1.0-alpha.1"
   },
   "browserslist": [
     "last 2 versions",
