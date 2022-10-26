@@ -1,64 +1,82 @@
-/* eslint-disable new-cap */
-import { useEventCallback } from '@yozora/core-react-hook'
+import type {
+  MathJax2Config,
+  MathJax2Object,
+  MathJax3Config,
+  MathJax3Object,
+} from 'better-react-mathjax'
+import { MathJaxContext } from 'better-react-mathjax'
 import React from 'react'
-import { MathJaxContextType, initialMathJaxContext } from './Context'
-import type { IMathJax, IMathJaxConfig, IMathJaxContext, MathJaxLanguage } from './types'
-import { loadMathJax } from './util/load'
 
-export interface IMathJaxProviderProps {
+export type ITypesettingFunction =
+  | 'tex2chtml'
+  | 'tex2chtmlPromise'
+  | 'tex2svg'
+  | 'tex2svgPromise'
+  | 'tex2mml'
+  | 'tex2mmlPromise'
+  | 'mathml2chtml'
+  | 'mathml2chtmlPromise'
+  | 'mathml2svg'
+  | 'mathml2svgPromise'
+  | 'mathml2mml'
+  | 'mathml2mmlPromise'
+  | 'asciimath2chtml'
+  | 'asciimath2chtmlPromise'
+  | 'asciimath2svg'
+  | 'asciimath2svgPromise'
+  | 'asciimath2mml'
+  | 'asciimath2mmlPromise'
+
+interface IMathjaxProviderStaticProps {
   /**
    * Sub components.
    */
   children?: React.ReactNode
   /**
-   * Contents / Animation displayed at waiting MathJax loading.
-   * @default null
-   */
-  loading?: React.ReactNode
-  /**
    * http / https url for loading mathjax.
-   * @default 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML'
+   * @example 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML'
    */
-  mathjaxSrc?: string
+  src?: string
   /**
-   * MathJax config
+   * Controls whether the content of the MathJax component should be hidden until after typesetting is finished.
+   * @default 'first'
+   * @see https://github.com/fast-reflexes/better-react-mathjax#hideuntiltypeset-first--every--undefined
    */
-  mathjaxConfig?: IMathJaxConfig
+  hideUntilTypeset?: 'first' | 'every'
   /**
-   * MathJax options.
+   * Controls how typesetting by MathJax is done in the DOM.
+   * @default 'post'
+   * @see https://github.com/fast-reflexes/better-react-mathjax#rendermode-pre--post--undefined
    */
-  mathjaxOptions?: {
-    /**
-     * Delay between updates.
-     * @default 0
-     */
-    processSectionDelay?: number
-    /**
-     * Type of the formula string.
-     * @default 'tex'
-     */
-    language?: MathJaxLanguage
-  }
+  renderMode?: 'pre' | 'post'
   /**
    * Triggered on mathjax loaded.
-   * @param MathJax
    */
-  onLoad?(MathJax: IMathJax): void
+  onLoad?(): void
   /**
    * Triggered on mathjax thrown an error.
-   *
-   * @param MathJax
-   * @param error
    */
-  onError?(MathJax: IMathJax, error: any): void
+  onError?(error: unknown): void
 }
 
-const defaultProps: IMathJaxProviderProps = {
-  loading: null,
-  //
-  mathjaxSrc: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-MML-AM_CHTML',
-  // 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_SVG',
-  mathjaxConfig: {
+interface IMathjax2Options {
+  version: 2
+  config?: MathJax2Config
+  onStartup?(mathJax: MathJax2Object): void
+}
+
+interface IMathjax3Options {
+  version?: 3
+  config?: MathJax3Config
+  onStartup?(mathJax: MathJax3Object): void
+}
+
+export type IMathJaxProviderProps = IMathjaxProviderStaticProps &
+  (IMathjax2Options | IMathjax3Options)
+
+export const defaultMathJax2Options: Readonly<IMathjax2Options> = {
+  version: 2,
+  config: {
     tex2jax: { inlineMath: [] },
     SVG: { blacker: 1 },
     showMathMenu: false,
@@ -66,61 +84,48 @@ const defaultProps: IMathJaxProviderProps = {
   },
 }
 
-export const MathJaxProvider: React.FC<IMathJaxProviderProps> = props => {
-  const { loading, mathjaxSrc, mathjaxConfig, mathjaxOptions, children } = {
-    ...props,
-    ...defaultProps,
+export const defaultMathJax3Options: Readonly<IMathjax3Options> = {
+  version: 3,
+  config: {
+    tex: {
+      inlineMath: [['$', '$']],
+      displayMath: [['$$', '$$']],
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'code', 'a'],
+    },
+    chtml: {
+      scale: 1,
+    },
+    startup: {
+      // Don't perform an initial typeset of the page when MathJax loads.
+      // Our React components will trigger typesetting as needed.
+      typeset: false,
+    },
+  },
+}
+
+export class MathJaxProvider extends React.PureComponent<IMathJaxProviderProps> {
+  public static readonly defaultProps: IMathJaxProviderProps = {
+    ...defaultMathJax3Options,
+    hideUntilTypeset: 'first',
+    renderMode: 'post',
   }
-  const { processSectionDelay = 0 } = mathjaxOptions ?? {}
 
-  const [loaded, setLoaded] = React.useState<boolean>(false)
-  const [context, setContext] = React.useState<IMathJaxContext>(initialMathJaxContext)
-  const onLoad = useEventCallback((MathJax: IMathJax) => props.onLoad?.(MathJax))
-  const onError = useEventCallback((MathJax: IMathJax, error: unknown) =>
-    props.onError?.(MathJax, error),
-  )
-
-  React.useEffect(() => {
-    let cancelled = false
-    type IResult = [IMathJax, () => void]
-    const promise = loadMathJax({ mathjaxSrc: mathjaxSrc! }).then<IResult>((MathJax): IResult => {
-      if (cancelled) return [MathJax, () => {}]
-
-      MathJax.Hub.Config(mathjaxConfig)
-      MathJax.Hub.Register.StartupHook('End', function onStartup(): void {
-        if (!cancelled) {
-          // eslint-disable-next-line no-param-reassign
-          MathJax.Hub.processSectionDelay = processSectionDelay
-          setLoaded(true)
-          setContext(context => ({ ...context, MathJax }))
-        }
-        onLoad?.(MathJax)
-      })
-      MathJax.Hub.Register.MessageHook('Math Processing Error', (error: any) => {
-        onError?.(MathJax, error)
-      })
-
-      const unregister = (): void => {
-        const jaxList = MathJax.Hub.getAllJax()
-        for (const jax of jaxList) {
-          const script = jax.SourceElement()
-          jax.Remove()
-          const preview = script.previousSibling
-          if (preview && preview.className === 'MathJax_Preview')
-            preview.parentNode.removeChild(preview)
-        }
-      }
-      return [MathJax, unregister]
-    })
-
-    return () => {
-      cancelled = true
-      void promise.then(([, unregister]) => unregister())
-    }
-  }, [mathjaxSrc, mathjaxConfig, processSectionDelay, onLoad, onError])
-
-  // Try to render loading animation / contents when the MathJax is not loaded.
-  if (!loaded && loading) return <React.Fragment>{loading}</React.Fragment>
-
-  return <MathJaxContextType.Provider value={context}>{children}</MathJaxContextType.Provider>
+  public override render(): React.ReactElement {
+    const { version, config, src, children, onLoad, onStartup, onError } = this
+      .props as IMathjax3Options & IMathjaxProviderStaticProps
+    return (
+      <MathJaxContext
+        version={version}
+        config={config}
+        src={src}
+        onLoad={onLoad}
+        onStartup={onStartup}
+        onError={onError}
+      >
+        {children}
+      </MathJaxContext>
+    )
+  }
 }
