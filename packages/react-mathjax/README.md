@@ -76,6 +76,8 @@ The default version is [mathjax@2.7.4](https://cdnjs.cloudflare.com/ajax/libs/ma
 
 ## Usage
 
+@yozora/react-mathjax is powered by better-react-mathjax, see the options on https://github.com/fast-reflexes/better-react-mathjax/blob/6a565eba4c2424c6c1c191a5b55d8a1681d88a02/README.md.
+
 * Basic:
 
   ```tsx
@@ -102,82 +104,86 @@ The default version is [mathjax@2.7.4](https://cdnjs.cloudflare.com/ajax/libs/ma
 
 ### Props
 
-* `MathJaxProviderProps`
+* `IMathJaxProviderProps`
 
   ```typescript
-  interface MathJaxProviderProps {
+  export type IMathJaxProviderProps = IMathjaxProviderStaticProps &
+    (IMathjax2Options | IMathjax3Options)
+
+  interface IMathjaxProviderStaticProps {
     /**
     * Sub components.
     */
     children?: React.ReactNode
     /**
-    * Contents / Animation displayed at waiting MathJax loading.
-    * @default null
-    */
-    loading?: React.ReactNode
-    /**
     * http / https url for loading mathjax.
-    * @default 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML'
+    * @example 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML'
     */
-    mathjaxSrc?: string
+    src?: string
     /**
-    * Mathjax config
+    * Controls whether the content of the MathJax component should be hidden until after typesetting is finished.
+    * @default 'first'
+    * @see https://github.com/fast-reflexes/better-react-mathjax#hideuntiltypeset-first--every--undefined
     */
-    mathjaxConfig?: MathJaxConfig
+    hideUntilTypeset?: 'first' | 'every'
     /**
-    * Mathjax options.
+    * Controls how typesetting by MathJax is done in the DOM.
+    * @default 'post'
+    * @see https://github.com/fast-reflexes/better-react-mathjax#rendermode-pre--post--undefined
     */
-    mathjaxOptions?: {
-      /**
-      * Delay between updates.
-      * @default 0
-      */
-      processSectionDelay?: number
-      /**
-      * Type of the formula string.
-      * @default 'tex'
-      */
-      language?: 'tex' | 'asciimath'
-    }
+    renderMode?: 'pre' | 'post'
     /**
     * Triggered on mathjax loaded.
-    * @param MathJax
     */
-    onLoad?(MathJax: MathJax): void
+    onLoad?(): void
     /**
     * Triggered on mathjax thrown an error.
-    *
-    * @param MathJax
-    * @param error
     */
-    onError?(MathJax: MathJax, error: any): void
+    onError?(error: unknown): void
+  }
+
+  interface IMathjax2Options {
+    version: 2
+    config?: MathJax2Config
+    onStartup?(mathJax: MathJax2Object): void
+  }
+
+  interface IMathjax3Options {
+    version?: 3
+    config?: MathJax3Config
+    onStartup?(mathJax: MathJax3Object): void
   }
   ```
 
-* `MathJaxNodeProps` 
+* `IMathJaxNodeProps` 
 
   ```typescript
-  interface MathJaxNodeProps {
+  export interface IMathJaxNodeProps {
     /**
-     * The literal formula string.
-     */
+    * The literal formula string.
+    */
     formula: string
     /**
-     * Whether to render the formulas in inline mode.
-     * @default false
-     */
+    * Whether to render the formulas in inline mode.
+    * @default false
+    */
     inline?: boolean
     /**
-     * CSS class name.
-     */
+    * @default false
+    * @see https://github.com/fast-reflexes/better-react-mathjax#dynamic-boolean--undefined
+    */
+    dynamic?: boolean
+    /**
+    * CSS class name.
+    */
     className?: string
     /**
-     * CSS style properties
-     */
+    * CSS style properties
+    */
     style?: React.CSSProperties
     /**
-     * On mathjax rendering.
-     */
+    * On mathjax rendering.
+    */
     onRender?(): void
   }
   ```
@@ -186,7 +192,9 @@ The default version is [mathjax@2.7.4](https://cdnjs.cloudflare.com/ajax/libs/ma
 
 * [react-mathjax][]
 * [mathjax][]
+* [better-react-mathjax][]
 
 [react-mathjax]: https://github.com/SamyPesse/react-mathjax
 [react-mathjax2]: https://github.com/wko27/react-mathjax
 [mathjax]: https://www.mathjaxjax.org/
+[better-react-mathjax]: https://github.com/fast-reflexes/better-react-mathjax
