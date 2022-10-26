@@ -39,7 +39,8 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
   "dependencies": {
-    "better-react-mathjax": "^2.0.2"
+    "@yozora/core-react-hook": "^2.1.0-alpha.0",
+    "load-script": "^2.0.0"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
