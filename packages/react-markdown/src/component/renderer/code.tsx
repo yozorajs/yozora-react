@@ -21,8 +21,8 @@ export const createCodeRenderer = (
 ): INodeRenderer<Code> => {
   const CodeRenderer: INodeRenderer<Code> = props => {
     const { lang, meta } = props
-    const { theme, preference } = useThemeContext()
-    const darken: boolean = theme === 'darken'
+    const { themeSchema, preference } = useThemeContext()
+    const darken: boolean = themeSchema === 'darken'
 
     // Remove trailing line endings.
     const value: string = props.value.replace(/[\r\n]+$/, '')

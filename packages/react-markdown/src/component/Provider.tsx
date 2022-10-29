@@ -1,7 +1,7 @@
 import { cx } from '@emotion/css'
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
 import { CodeType } from '@yozora/ast'
-import type { INodeRendererProviderProps, INodeStyleMap } from '@yozora/core-react-renderer'
+import type { INodeRendererProviderProps } from '@yozora/core-react-renderer'
 import { NodeRendererProvider } from '@yozora/core-react-renderer'
 import type { ICodeRunnerItem } from '@yozora/react-code-runners'
 import PropTypes from 'prop-types'
@@ -28,10 +28,6 @@ export interface IMarkdownProviderProps {
    * custom token renderer map.
    */
   customRendererMap?: Readonly<Partial<INodeRendererMap>>
-  /**
-   * Custom token style map.
-   */
-  customStyleMap?: Readonly<Partial<INodeStyleMap>>
   /**
    * Descendant elements.
    */
@@ -69,7 +65,6 @@ export const MarkdownProvider: React.FC<IMarkdownProviderProps> = props => {
       definitionMap={definitionMap}
       footnoteDefinitionMap={footnoteDefinitionMap}
       customRendererMap={customRendererMap}
-      customStyleMap={props.customStyleMap}
       rootClassName={rootClassName}
       ImageViewer={ImageViewer}
     >
@@ -83,7 +78,6 @@ MarkdownProvider.propTypes = {
   footnoteDefinitionMap: PropTypes.object.isRequired as any,
   codeRunners: PropTypes.array,
   customRendererMap: PropTypes.object as any,
-  customStyleMap: PropTypes.object as any,
   children: PropTypes.node,
   rootClassName: PropTypes.string,
   ImageViewer: PropTypes.any,

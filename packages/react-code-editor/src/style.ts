@@ -1,10 +1,10 @@
 import { css, cx } from '@emotion/css'
 
 const vars = {
-  border: '1px solid var(--yozora-colors-border-code, #d3d3d3)',
-  caretColor: 'var(--yozora-colors-caret-code, #ed6c60)',
-  codeFontFamily: `var(--yozora-fonts-family-code, Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif)`,
-  codeFontSize: 'var(--yozora-fonts-size-code, 1rem)',
+  border: '1px solid var(--color-border-code, #d3d3d3)',
+  caretColor: 'var(--color-codeCaret, #ed6c60)',
+  codeFontFamily: `var(--font-family-code, Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif)`,
+  codeFontSize: 'var(--font-size-code, 1rem)',
 }
 
 const baseEditorAreaCls: string = css({

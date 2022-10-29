@@ -1,7 +1,11 @@
-import type { IThemeColors, IThemeEffects, IThemeStyle } from '../types'
-import { createBreakPoints, createFonts, createSpacing } from './_base'
+import type { IThemeColors } from '../types/colors'
+import type { IThemeEffects } from '../types/effects'
+import type { IThemeStyles } from '../types/themeStyles'
+import { createBreakpoints } from '../util/breakpoints'
+import { createFonts } from '../util/fonts'
+import { createSpacing } from '../util/spacing'
 
-export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeStyle<T> => {
+export const createLightThemeStyle = (): IThemeStyles => {
   const colors: IThemeColors = {
     background: {
       note: '#fdfdfe',
@@ -9,11 +13,8 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
       success: '#e6f6e6',
       warning: '#fff8e6',
       error: '#ffebec',
-
-      // Markdown style
       body: 'inherit',
 
-      // elements
       blockquote: 'inherit',
       code: '#f5f5f5',
       codeHighlight: 'hsla(30deg, 90%, 50%, 0.3)',
@@ -29,7 +30,6 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
       warning: '#e6a700',
       error: '#e13238',
 
-      // elements
       blockquote: '#dadde1',
       code: 'hsla(0deg, 0%, 80%, 0.8)',
       codeLineno: 'hsla(0deg, 0%, 80%, 0.8)',
@@ -44,24 +44,17 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
       success: '#474748',
       warning: '#474748',
       error: '#474748',
+      body: '#b3b3b3',
 
-      // Markdown style
-      body: '#1c1e21',
-
-      // elements
+      codeCaret: '#ed6c60',
+      codeSelection: 'hsla(200deg, 30%, 70%, 0.3)',
       codeTitle: 'hsla(0deg, 0%, 30%, 0.8)',
-      deleted: '#acb2b9',
+      delete: '#acb2b9',
       heading: '#586069',
       imageTitle: '#808080',
       inlineCode: '#d81848',
       link: '#4682B4',
       math: '#0036a3',
-    },
-    selection: {
-      code: 'hsla(200deg, 30%, 70%, 0.3)',
-    },
-    caret: {
-      code: '#ed6c60',
     },
   }
 
@@ -92,11 +85,10 @@ export const createLightThemeStyle = <T = unknown>(custom: T = {} as T): IThemeS
   }
 
   return {
-    breakpoints: createBreakPoints(),
+    breakpoints: createBreakpoints(),
     colors,
     effects,
     fonts: createFonts(),
     spacing: createSpacing(),
-    custom,
   }
 }

@@ -1,6 +1,7 @@
 import { cx } from '@emotion/css'
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
 import { useDeepCompareMemo } from '@yozora/core-react-hook'
+import { useThemeClassName } from '@yozora/core-react-theme'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { NodeRendererContextType } from '../context/context'
@@ -9,9 +10,9 @@ import { reducer } from '../context/reducer'
 import { initNodeRendererState } from '../context/state'
 import { useNodeRendererMap } from '../hook/useNodeRendererMap'
 import { useStyles } from '../hook/useStyles'
-import type { INodeRendererMap, INodeStyleMap } from '../types'
-import { YozoraImageViewer } from './ImagePreviewer'
-import type { IYozoraImageViewerProps } from './ImagePreviewer'
+import type { INodeRendererMap } from '../types'
+import { ImagePreviewer } from './ImagePreviewer'
+import type { IImagePreviewerProps } from './ImagePreviewer'
 
 export interface INodeRendererProviderProps {
   /**
@@ -27,10 +28,6 @@ export interface INodeRendererProviderProps {
    */
   customRendererMap?: Readonly<Partial<INodeRendererMap>>
   /**
-   * Custom token style map.
-   */
-  customStyleMap?: Readonly<Partial<INodeStyleMap>>
-  /**
    * Descendant elements.
    */
   children?: React.ReactNode
@@ -41,7 +38,7 @@ export interface INodeRendererProviderProps {
   /**
    * Custom image viewer.
    */
-  ImageViewer?: IYozoraImageViewerProps['ImageViewer']
+  ImageViewer?: IImagePreviewerProps['ImageViewer']
 }
 
 /**
@@ -51,7 +48,8 @@ export interface INodeRendererProviderProps {
  */
 export const NodeRendererProvider: React.FC<INodeRendererProviderProps> = props => {
   const { definitionMap, footnoteDefinitionMap, ImageViewer } = props
-  const className: string = cx(useStyles(props.customStyleMap), props.rootClassName)
+  const themeRootCls: string = useThemeClassName()
+  const className: string = cx(themeRootCls, useStyles(), props.rootClassName)
 
   const rendererMap: Readonly<INodeRendererMap> = useNodeRendererMap(props.customRendererMap)
   const [state, dispatch] = React.useReducer(reducer, {}, initNodeRendererState)
@@ -70,7 +68,7 @@ export const NodeRendererProvider: React.FC<INodeRendererProviderProps> = props 
   return (
     <NodeRendererContextType.Provider value={context}>
       <div className={className}>{props.children}</div>
-      <YozoraImageViewer ImageViewer={ImageViewer} />
+      <ImagePreviewer ImageViewer={ImageViewer} />
     </NodeRendererContextType.Provider>
   )
 }
@@ -78,7 +76,6 @@ export const NodeRendererProvider: React.FC<INodeRendererProviderProps> = props 
 NodeRendererProvider.propTypes = {
   definitionMap: PropTypes.object.isRequired as any,
   customRendererMap: PropTypes.object as any,
-  customStyleMap: PropTypes.object as any,
   children: PropTypes.node.isRequired,
   rootClassName: PropTypes.string,
   ImageViewer: PropTypes.any,

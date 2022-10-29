@@ -31,7 +31,7 @@ export interface IImageViewerProps {
   onMaskClick(): void
 }
 
-export interface IYozoraImageViewerProps {
+export interface IImagePreviewerProps {
   /**
    * Image viewer
    *
@@ -55,7 +55,7 @@ export interface IYozoraImageViewerProps {
  * @param param0
  * @returns
  */
-export const YozoraImageViewer: React.FC<IYozoraImageViewerProps> = ({ ImageViewer }) => {
+export const ImagePreviewer: React.FC<IImagePreviewerProps> = ({ ImageViewer }) => {
   const { imageActivatedIndex, imageViewerVisible, images, dispatch } = useNodeRendererContext()
   const handleCloseImageViewer = React.useCallback<() => void>(
     () =>
@@ -80,8 +80,6 @@ export const YozoraImageViewer: React.FC<IYozoraImageViewerProps> = ({ ImageView
   )
 }
 
-YozoraImageViewer.propTypes = {
+ImagePreviewer.propTypes = {
   ImageViewer: PropTypes.any,
 }
-
-YozoraImageViewer.displayName = 'YozoraImageViewer'

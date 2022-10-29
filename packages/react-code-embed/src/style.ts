@@ -1,8 +1,8 @@
 import { css } from '@emotion/css'
 
 const vars = {
-  border: '1px solid var(--yozora-colors-border-error, red)',
-  errorColor: 'var(--yozora-colors-border-error, red)',
+  border: '1px solid var(--color-border-error, red)',
+  errorColor: 'var(--color-border-error, red)',
 }
 
 export const classes = {

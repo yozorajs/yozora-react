@@ -1,7 +1,11 @@
-import type { IThemeColors, IThemeEffects, IThemeStyle } from '../types'
-import { createBreakPoints, createFonts, createSpacing } from './_base'
+import type { IThemeColors } from '../types/colors'
+import type { IThemeEffects } from '../types/effects'
+import type { IThemeStyles } from '../types/themeStyles'
+import { createBreakpoints } from '../util/breakpoints'
+import { createFonts } from '../util/fonts'
+import { createSpacing } from '../util/spacing'
 
-export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): IThemeStyle<T> => {
+export const createDarkenThemeStyle = (): IThemeStyles => {
   const colors: IThemeColors = {
     background: {
       note: '#474748',
@@ -9,11 +13,8 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
       success: '#003100',
       warning: '#4d3800',
       error: '#4b1113',
-
-      // Markdown style
       body: '#18191a',
 
-      // elements
       blockquote: 'inherit',
       code: '#1e1e1e',
       codeHighlight: 'hsla(210deg, 100%, 84%, 0.2)',
@@ -29,7 +30,6 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
       warning: '#e6a700',
       error: '#e13238',
 
-      // elements
       blockquote: '#606770',
       code: 'hsla(0deg, 0%, 30%, 0.8)',
       codeLineno: 'hsla(0deg, 0%, 30%, 0.8)',
@@ -44,24 +44,17 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
       success: '#fdfdfe',
       warning: '#fdfdfe',
       error: '#fdfdfe',
+      body: '#4d4d4d',
 
-      // Markdown style
-      body: '#f5f6f7',
-
-      // elements
+      codeCaret: '#aeafad',
+      codeSelection: 'hsla(200deg, 30%, 70%, 0.3)',
       codeTitle: 'hsla(0deg, 0%, 90%, 0.8)',
-      deleted: '#acb2b9',
+      delete: '#acb2b9',
       heading: '#586069',
       imageTitle: '#808080',
       inlineCode: '#d81848',
       link: '#4682B4',
       math: '#ddd',
-    },
-    selection: {
-      code: 'hsla(200deg, 30%, 70%, 0.3)',
-    },
-    caret: {
-      code: '#aeafad',
     },
   }
 
@@ -92,11 +85,10 @@ export const createDarkenThemeStyle = <T = unknown>(custom: T = {} as T): ITheme
   }
 
   return {
-    breakpoints: createBreakPoints(),
+    breakpoints: createBreakpoints(),
     colors,
     effects,
     fonts: createFonts(),
     spacing: createSpacing(),
-    custom,
   }
 }

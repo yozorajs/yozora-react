@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import type { Code } from '@yozora/ast'
 import type { IThemePreference } from '@yozora/core-react-theme'
-import { Theme, ThemeContextType } from '@yozora/core-react-theme'
+import { ThemeSchema, useThemeContext } from '@yozora/core-react-theme'
 import CodeHighlighter from '@yozora/react-code-highlighter'
 import React from 'react'
 import type { INodeRenderer } from '../../types'
@@ -16,13 +16,13 @@ import { parseCodeMeta } from '../../util/code'
  */
 export const CodeRenderer: INodeRenderer<Code> = props => {
   const { lang, meta, value } = props
-  const { theme, preference } = React.useContext(ThemeContextType)
+  const { themeSchema, preference } = useThemeContext()
   return (
     <CodeRendererInner
       lang={lang}
       meta={meta}
       value={value}
-      theme={theme}
+      themeSchema={themeSchema}
       preference={preference}
     />
   )
@@ -32,16 +32,16 @@ class CodeRendererInner extends React.PureComponent<{
   lang: string | null
   meta: string | null
   value: string
-  theme: Theme
+  themeSchema: ThemeSchema
   preference: IThemePreference
 }> {
   public override render(): React.ReactElement {
-    const { lang, meta, theme, preference } = this.props
+    const { lang, meta, themeSchema: theme, preference } = this.props
 
     // Remove trailing line endings.
     const value: string = this.props.value.replace(/[\r\n]+$/, '')
     const metaData = parseCodeMeta(meta ?? '', { preferLineNo: preference.showCodeLineNo })
-    const darken: boolean = theme === Theme.DARKEN
+    const darken: boolean = theme === ThemeSchema.DARKEN
 
     return (
       <code className="yozora-code">

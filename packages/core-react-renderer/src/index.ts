@@ -15,7 +15,6 @@ export * from './component/renderer/strong'
 export * from './component/renderer/table'
 export * from './component/renderer/text'
 export * from './component/renderer/thematicBreak'
-
 export * from './component/ImagePreviewer'
 export * from './component/NodesRenderer'
 export * from './component/Provider'
@@ -27,6 +26,9 @@ export * from './context/state'
 
 export * from './hook/useNodeRendererMap'
 export * from './hook/useStyles'
+
+export * from './style/basicStyle'
+export * from './style/nodeStyle'
 
 export * from './util/code'
 

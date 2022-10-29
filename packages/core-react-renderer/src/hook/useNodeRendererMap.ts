@@ -20,7 +20,7 @@ import {
   TextType,
   ThematicBreakType,
 } from '@yozora/ast'
-import React from 'react'
+import { useDeepCompareMemo } from '@yozora/core-react-hook'
 import { BlockquoteRenderer } from '../component/renderer/blockquote'
 import { BreakRenderer } from '../component/renderer/break'
 import { CodeRenderer } from '../component/renderer/code'
@@ -44,7 +44,7 @@ import type { INodeRendererMap } from '../types'
 export function useNodeRendererMap(
   customRendererMap?: Readonly<Partial<INodeRendererMap>>,
 ): Readonly<INodeRendererMap> {
-  const rendererMap: INodeRendererMap = React.useMemo<INodeRendererMap>(() => {
+  const rendererMap: INodeRendererMap = useDeepCompareMemo<INodeRendererMap>(() => {
     if (customRendererMap == null) return defaultNodeRendererMap
 
     let hasChanged = false

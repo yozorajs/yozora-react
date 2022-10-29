@@ -1,14 +1,14 @@
 import { css } from '@emotion/css'
 
 const vars = {
-  border: '1px solid var(--yozora-colors-border-code, #d3d3d3)',
-  background: 'var(--yozora-colors-background-code, #f5f5f5)',
-  caretColor: 'var(--yozora-colors-caret-code, #ed6c60)',
-  codeFontFamily: `var(--yozora-fonts-family-code, Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif)`,
-  codeFontSize: 'var(--yozora-fonts-size-code, 1rem)',
-  selectionBackground: 'var(--yozora-colors-selection-code, hsla(200deg, 30%, 70%, 0.3))',
-  titleFontFamily: `var(--yozora-fonts-family-heading, 'Comic Sans MS', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif)`,
-  titleFontColor: 'var(--yozora-colors-text-codeTitle, hsla(0deg, 0%, 30%, 0.8))',
+  border: '1px solid var(--color-border-code, #d3d3d3)',
+  background: 'var(--color-bg-code, #f5f5f5)',
+  caretColor: 'var(--color-codeCaret, #ed6c60)',
+  codeFontFamily: `var(--font-family-code, Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif)`,
+  codeFontSize: 'var(--font-size-code, 1rem)',
+  selectionBackground: 'var(--color-codeSelection, hsla(200deg, 30%, 70%, 0.3))',
+  titleFontFamily: `var(--font-family-heading, 'Comic Sans MS', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif)`,
+  titleFontColor: 'var(--color-codeTitle, hsla(0deg, 0%, 30%, 0.8))',
 }
 
 const copyBtnCls: string = css({

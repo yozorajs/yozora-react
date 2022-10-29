@@ -1,3 +1,4 @@
+import type { CSSInterpolation } from '@emotion/css'
 import type {
   Blockquote,
   BlockquoteType,
@@ -71,7 +72,10 @@ export interface INodeRendererMap {
   [key: string]: INodeRenderer<Node & any>
 }
 
-export type INodeStyleMap = Record<Exclude<keyof INodeRendererMap, '_fallback'>, string>
+export type INodeStyleMap = Record<
+  Exclude<keyof INodeRendererMap, '_fallback'>,
+  Record<string, CSSInterpolation>
+>
 
 /**
  * Preview image item.

@@ -1,25 +1,25 @@
 import React from 'react'
-import { createLightThemeStyle } from './themeStyle/light'
-import type { IThemeStyle } from './types'
-import { Theme } from './types'
+import { ThemeSchema } from './constant'
+import { createLightThemeStyle } from './schema/light'
+import type { IThemeStyles } from './types/themeStyles'
 
 export interface IThemePreference {
   showCodeLineNo: boolean
 }
 
-export interface IThemeContext<D = unknown> {
-  theme: Theme
-  themeStyle: IThemeStyle<D>
+export interface IThemeContext {
+  themeSchema: ThemeSchema
+  themeStyles: IThemeStyles
   preference: IThemePreference
 }
 
-export const ThemeContextType = React.createContext<IThemeContext>({
-  theme: Theme.LIGHT,
-  themeStyle: createLightThemeStyle(),
+const ThemeContextType = React.createContext<IThemeContext>({
+  themeSchema: ThemeSchema.LIGHT,
+  themeStyles: createLightThemeStyle(),
   preference: {
     showCodeLineNo: true,
   },
 })
 
-export const useThemeContext = <D>(): IThemeContext<D> =>
-  React.useContext<IThemeContext>(ThemeContextType) as IThemeContext<D>
+export const useThemeContext = (): IThemeContext => React.useContext(ThemeContextType)
+export const ThemeProvider = ThemeContextType.Provider
