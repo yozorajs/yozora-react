@@ -8,10 +8,10 @@ exports[`snapshot embed 1`] = `
 
 exports[`snapshot literal 1`] = `
 <div
-  class="yozora-code-literal css-xgjmtr yozora-code"
+  class="yozora-code-literal css-dc8oyl yozora-code"
 >
   <div
-    class="css-11952oq"
+    class="css-sgdhwv"
   >
     <span
       class="css-9y6172"
@@ -30,13 +30,13 @@ exports[`snapshot literal 1`] = `
       />
     </span>
     <span
-      class="css-1oku3ac"
+      class="css-1p3aks"
       title="/home/demo/a.tsx"
     >
       /home/demo/a.tsx  | 6 lines.
     </span>
     <span
-      class="css-5thvko"
+      class="css-nsmueo"
     >
       <button
         aria-label="Copy to clipboard"
@@ -49,7 +49,7 @@ exports[`snapshot literal 1`] = `
     </span>
   </div>
   <code
-    class="css-ehogbo"
+    class="css-1ox3y4c"
   >
     <pre>
       <div
@@ -57,18 +57,18 @@ exports[`snapshot literal 1`] = `
         style="color:#d4d4d4;background-color:none;line-height:1.6rem;max-height:0"
       >
         <div
-          class="yozora-code-highlighter__linenos css-e3qifw"
+          class="yozora-code-highlighter__linenos css-hfkijx"
           style="width:2.2em"
         >
           <div
-            class="css-1jtfvys"
+            class="css-1tv7wth"
           >
             <span>
               1
             </span>
           </div>
           <div
-            class="css-1jtfvys"
+            class="css-1tv7wth"
           >
             <span>
               2
@@ -82,7 +82,7 @@ exports[`snapshot literal 1`] = `
             </span>
           </div>
           <div
-            class="css-1jtfvys"
+            class="css-1tv7wth"
           >
             <span>
               4
@@ -110,7 +110,7 @@ exports[`snapshot literal 1`] = `
             class="css-1ttfemb"
           >
             <div
-              class="token-line css-2m46fv"
+              class="token-line css-1c96lhs"
               style="color:#d4d4d4"
             >
               <span
@@ -152,7 +152,7 @@ exports[`snapshot literal 1`] = `
               />
             </div>
             <div
-              class="token-line css-2m46fv"
+              class="token-line css-1c96lhs"
               style="color:#d4d4d4"
             >
               <span
@@ -246,7 +246,7 @@ exports[`snapshot literal 1`] = `
               />
             </div>
             <div
-              class="token-line css-2m46fv"
+              class="token-line css-1c96lhs"
               style="color:#d4d4d4"
             >
               <span
@@ -427,10 +427,10 @@ exports[`snapshot literal 1`] = `
 
 exports[`snapshot live 1`] = `
 <div
-  class="yozora-code-live css-1wlwu1s yozora-code"
+  class="yozora-code-live css-1krrxab yozora-code"
 >
   <div
-    class="css-11952oq"
+    class="css-sgdhwv"
   >
     <span
       class="css-9y6172"
@@ -449,13 +449,13 @@ exports[`snapshot live 1`] = `
       />
     </span>
     <span
-      class="css-1oku3ac"
+      class="css-1p3aks"
       title=""
     >
        
     </span>
     <span
-      class="css-5thvko"
+      class="css-nsmueo"
     >
       <button
         aria-label="Copy to clipboard"
@@ -468,13 +468,13 @@ exports[`snapshot live 1`] = `
     </span>
   </div>
   <div
-    class="css-1xlu443"
+    class="css-fr69ae"
   >
     <div
-      class="css-zquy5p"
+      class="css-1eksy5g"
     >
       <div
-        class="yozora-code-editor css-kc9la2 yozora-code-editor"
+        class="yozora-code-editor css-kt1ey1 yozora-code-editor"
         padding="10"
         style="line-height:1.6rem;tab-size:2"
       >
@@ -488,7 +488,7 @@ exports[`snapshot live 1`] = `
             autocapitalize="off"
             autocomplete="off"
             autocorrect="off"
-            class="yozora-code-editor__textarea css-16s63i0"
+            class="yozora-code-editor__textarea css-1pinvdg"
             spellcheck="false"
             style="tab-size:2;white-space:pre;padding:0.5rem 0.6em 0 12px"
           >
@@ -510,7 +510,7 @@ exports[`snapshot live 1`] = `
             style="color:#d4d4d4;background-color:none;line-height:1.6rem;max-height:8rem;min-height:100%"
           >
             <div
-              class="yozora-code-highlighter__linenos css-e3qifw"
+              class="yozora-code-highlighter__linenos css-hfkijx"
               style="width:2.2em"
             >
               <div
