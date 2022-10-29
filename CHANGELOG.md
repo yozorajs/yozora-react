@@ -1,5 +1,21 @@
 # Changelog
 
+<a name="2.1.0-alpha.3"></a>
+## 2.1.0-alpha.3 (2022-10-29)
+
+### Added
+
+- ✅ test: update test snapshots [[46fc7d4](https://github.com/yozorajs/yozora-react/commit/46fc7d4f08161954600bae03539c88a97d51fd2d)]
+
+### Changed
+
+- 🎨 improve: refactor themes [[ca815e4](https://github.com/yozorajs/yozora-react/commit/ca815e4440403e43a6b648b4d6e74a230f86c637)]
+
+### Miscellaneous
+
+- 📝 docs: update README [[4391d4f](https://github.com/yozorajs/yozora-react/commit/4391d4f8ece4d1e61da5d708dc87bf8a57ce1903)]
+
+
 <a name="2.1.0-alpha.2"></a>
 ## 2.1.0-alpha.2 (2022-10-26)
 
