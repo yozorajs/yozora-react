@@ -207,7 +207,7 @@ const basicStyle: string = css({
   },
   '.yozora-math': {
     display: 'block',
-    overflow: 'visible',
+    overflow: 'auto',
     border: 'none',
     margin: '0 0 1em',
     background: 'transparent',
