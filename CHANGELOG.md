@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="2.1.0-alpha.4"></a>
+## 2.1.0-alpha.4 (2022-10-30)
+
+### Changed
+
+- 💄 improve: tweak darken theme [[f43787d](https://github.com/yozorajs/yozora-react/commit/f43787dfe0b389fab992b91c900d0df09826e709)]
+
+
 <a name="2.1.0-alpha.3"></a>
 ## 2.1.0-alpha.3 (2022-10-29)
 
