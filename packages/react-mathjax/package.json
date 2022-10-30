@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-mathjax",
-  "version": "2.1.0-alpha.3",
+  "version": "2.1.0-alpha.4",
   "description": "render formula with mathjax in react",
   "author": {
     "name": "guanghechen",
@@ -39,7 +39,7 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
   "dependencies": {
-    "@yozora/core-react-hook": "^2.1.0-alpha.3",
+    "@yozora/core-react-hook": "^2.1.0-alpha.4",
     "load-script": "^2.0.0"
   },
   "peerDependencies": {
