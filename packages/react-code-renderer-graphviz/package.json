@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-renderer-graphviz",
-  "version": "2.1.0-alpha.4",
+  "version": "2.1.0",
   "description": "render graphviz (dot) code",
   "author": {
     "name": "guanghechen",

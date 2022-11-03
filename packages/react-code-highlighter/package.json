@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-highlighter",
-  "version": "2.1.0-alpha.4",
+  "version": "2.1.0",
   "description": "highlight markdown code in react",
   "author": {
     "name": "guanghechen",
