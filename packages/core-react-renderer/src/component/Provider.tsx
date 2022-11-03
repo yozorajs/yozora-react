@@ -1,6 +1,6 @@
 import { cx } from '@emotion/css'
+import { useDeepCompareMemo } from '@guanghechen/react-hooks'
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
-import { useDeepCompareMemo } from '@yozora/core-react-hook'
 import { useThemeClassName } from '@yozora/core-react-theme'
 import PropTypes from 'prop-types'
 import React from 'react'

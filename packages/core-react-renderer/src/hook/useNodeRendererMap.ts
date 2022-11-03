@@ -1,3 +1,4 @@
+import { useDeepCompareMemo } from '@guanghechen/react-hooks'
 import {
   BlockquoteType,
   BreakType,
@@ -20,7 +21,6 @@ import {
   TextType,
   ThematicBreakType,
 } from '@yozora/ast'
-import { useDeepCompareMemo } from '@yozora/core-react-hook'
 import { BlockquoteRenderer } from '../component/renderer/blockquote'
 import { BreakRenderer } from '../component/renderer/break'
 import { CodeRenderer } from '../component/renderer/code'

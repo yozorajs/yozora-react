@@ -3,7 +3,6 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@yozora/core-react-hook": ["./packages/core-react-hook/src"],
       "@yozora/core-react-renderer": ["./packages/core-react-renderer/src"],
       "@yozora/core-react-theme": ["./packages/core-react-theme/src"],
       "@yozora/react-admonition": ["./packages/react-admonition/src"],

@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-import { useEventCallback } from '@yozora/core-react-hook'
+import { useEventCallback } from '@guanghechen/react-hooks'
 import React from 'react'
 import { MathJaxContextType, initialMathJaxContext } from './Context'
 import type { IMathJax, IMathJaxConfig, IMathJaxContext, MathJaxLanguage } from './types'

@@ -1,5 +1,5 @@
 import { css } from '@emotion/css'
-import { useDeepCompareMemo } from '@yozora/core-react-hook'
+import { useDeepCompareMemo } from '@guanghechen/react-hooks'
 import { useThemeContext } from './context'
 import { createCssVariables } from './util/themeStyles'
 

@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css'
-import { useDeepCompareMemo } from '@yozora/core-react-hook'
+import { useDeepCompareMemo } from '@guanghechen/react-hooks'
 import { useThemeContext } from '@yozora/core-react-theme'
 
 export const useStyles = (): string => {
