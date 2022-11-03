@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="2.1.0"></a>
+## 2.1.0 (2022-11-03)
+
+### Removed
+
+- 🔥 remove @yozora/core-react-hook, use @guanghechen/react-hooks instead [[3fff728](https://github.com/yozorajs/yozora-react/commit/3fff72897c93542175816572638404fe2d4eaa17)]
+
+
 <a name="2.1.0-alpha.4"></a>
 ## 2.1.0-alpha.4 (2022-10-30)
 
