@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="2.2.1"></a>
+## 2.2.1 (2023-01-07)
+
+### Changed
+
+- ⬆️ chore: upgrade dependencies [[5652b48](https://github.com/yozorajs/yozora-react/commit/5652b4867df6e61767552bf8853e0b42a7399b09)]
+
+
 <a name="2.2.0"></a>
 ## 2.2.0 (2023-01-07)
 
