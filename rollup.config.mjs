@@ -1,10 +1,12 @@
 import createRollupConfigs from '@guanghechen/rollup-config-tsx'
 import alias from '@rollup/plugin-alias'
 import resolve from '@rollup/plugin-node-resolve'
-import fs from 'fs-extra'
-import path from 'path'
-import tsconfig from './tsconfig.json'
+import fs from 'node:fs'
+import path from 'node:path'
+import url from 'node:url'
+import tsconfig from './tsconfig.json' assert { type: 'json'}
 
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const resolvePath = (...p) => path.join(__dirname, ...p)
 
 const paths = {
@@ -29,13 +31,16 @@ const paths = {
 }
 
 export default async function rollupConfig() {
-  const { default: manifest } = await import(path.resolve('package.json'))
+  const { default: manifest } = await import(
+    path.resolve('package.json'),
+    { assert: { type: 'json' } },
+  )
 
   const stylusOptions = {
     imports: [path.join(paths._shared, 'src/stylus/index.styl')],
     paths: [resolvePath('node_modules')],
   }
-  const configs = createRollupConfigs({
+  const configs = await createRollupConfigs({
     manifest,
     pluginOptions: {
       commonjsOptions: {
@@ -111,7 +116,7 @@ export default async function rollupConfig() {
       plugins: [
         alias({
           customResolver: resolve({
-            extensions: ['.css', '.js', '.jsx', '.json', '.mjs', '.styl', '.ts', '.tsx'],
+            extensions: ['.css', '.js', '.jsx', '.json', '.mjs', '.styl', '.ts', '.tsx', '.mjs', '.mts'],
           }),
           entries: [...paths.alias],
         }),

@@ -2,6 +2,7 @@
   "extends": "./tsconfig.settings.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "outDir": "lib",
     "paths": {
       "@yozora/core-react-renderer": ["./packages/core-react-renderer/src"],
       "@yozora/core-react-theme": ["./packages/core-react-theme/src"],
