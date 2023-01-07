@@ -44,7 +44,7 @@
     "test": "cross-env TS_NODE_FILES=true NODE_OPTIONS=--experimental-vm-modules jest --config ../../jest.config.mjs --rootDir ."
   },
   "dependencies": {
-    "@guanghechen/parse-lineno": "^2.2.0",
+    "@guanghechen/parse-lineno": "^2.2.2",
     "@yozora/core-react-renderer": "^2.2.0",
     "@yozora/react-code-embed": "^2.2.0",
     "@yozora/react-code-highlighter": "^2.2.0",
