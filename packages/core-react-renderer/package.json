@@ -1,6 +1,6 @@
 {
   "name": "@yozora/core-react-renderer",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Yozora renderer in react.",
   "author": {
     "name": "guanghechen",
@@ -42,8 +42,8 @@
   "dependencies": {
     "@guanghechen/parse-lineno": "^2.2.0",
     "@guanghechen/react-hooks": "^2.2.0",
-    "@yozora/core-react-theme": "^2.1.0",
-    "@yozora/react-code-highlighter": "^2.1.0"
+    "@yozora/core-react-theme": "^2.2.0",
+    "@yozora/react-code-highlighter": "^2.2.0"
   },
   "peerDependencies": {
     "@emotion/css": "^11.9.0",
