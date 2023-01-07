@@ -1,5 +1,19 @@
 # Changelog
 
+<a name="2.2.0"></a>
+## 2.2.0 (2023-01-07)
+
+### Changed
+
+- 🔧 chore: add missing devDependencies [[d5fd43c](https://github.com/yozorajs/yozora-react/commit/d5fd43cb58479343f9479d1187672a02ce01b217)]
+- ⬆️ chore: upgrade devDependencies [[ef5b961](https://github.com/yozorajs/yozora-react/commit/ef5b961a659cf41dfee01acc9b69112e509f152c)]
+- 🔧 chore: use yarn@3 [[6462a2f](https://github.com/yozorajs/yozora-react/commit/6462a2f32a33f24850d9c36246d67cb9393f082b)]
+
+### Fixed
+
+- 💚 chore: fix ci [[c0f71e4](https://github.com/yozorajs/yozora-react/commit/c0f71e4357c9cd8a289ee5f6acb84ec06d393786)]
+
+
 <a name="2.1.0"></a>
 ## 2.1.0 (2022-11-03)
 
