@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-editor",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "simple code editor",
   "author": {
     "name": "guanghechen",
@@ -37,7 +37,7 @@
     "test": "cross-env TS_NODE_FILES=true NODE_OPTIONS=--experimental-vm-modules jest --config ../../jest.config.mjs --rootDir ."
   },
   "dependencies": {
-    "@yozora/react-code-highlighter": "^2.2.1"
+    "@yozora/react-code-highlighter": "^2.2.2"
   },
   "peerDependencies": {
     "@emotion/css": "^11.9.0",

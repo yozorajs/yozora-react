@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-admonition",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "render markdown admonition in react",
   "author": {
     "name": "guanghechen",

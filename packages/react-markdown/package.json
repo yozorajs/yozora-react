@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-markdown",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "render markdown content in react",
   "author": {
     "name": "guanghechen",
@@ -44,16 +44,16 @@
   "dependencies": {
     "@guanghechen/react-hooks": "^2.2.2",
     "@yozora/ast": "^2.0.5",
-    "@yozora/core-react-renderer": "^2.2.1",
-    "@yozora/core-react-theme": "^2.2.1",
-    "@yozora/react-admonition": "^2.2.1",
-    "@yozora/react-code": "^2.2.1",
-    "@yozora/react-code-editor": "^2.2.1",
-    "@yozora/react-code-embed": "^2.2.1",
-    "@yozora/react-code-highlighter": "^2.2.1",
-    "@yozora/react-code-live": "^2.2.1",
-    "@yozora/react-code-renderer-jsx": "^2.2.1",
-    "@yozora/react-mathjax": "^2.2.1"
+    "@yozora/core-react-renderer": "^2.2.2",
+    "@yozora/core-react-theme": "^2.2.2",
+    "@yozora/react-admonition": "^2.2.2",
+    "@yozora/react-code": "^2.2.2",
+    "@yozora/react-code-editor": "^2.2.2",
+    "@yozora/react-code-embed": "^2.2.2",
+    "@yozora/react-code-highlighter": "^2.2.2",
+    "@yozora/react-code-live": "^2.2.2",
+    "@yozora/react-code-renderer-jsx": "^2.2.2",
+    "@yozora/react-mathjax": "^2.2.2"
   },
   "peerDependencies": {
     "@emotion/css": "^11.9.0",
