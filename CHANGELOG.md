@@ -1,5 +1,14 @@
 # Changelog
 
+<a name="2.2.2"></a>
+## 2.2.2 (2023-01-09)
+
+### Changed
+
+- ⬆️ chore: upgrade devDependencies [[909753e](https://github.com/yozorajs/yozora-react/commit/909753e15d634c1d262d865024938ccfeb23c336)]
+- 🔧 chore: update yarn.lock when publish new release [[ce576b2](https://github.com/yozorajs/yozora-react/commit/ce576b2b15ca68b083eb43cfba48e82fd2466aef)]
+
+
 <a name="2.2.1"></a>
 ## 2.2.1 (2023-01-07)
 
