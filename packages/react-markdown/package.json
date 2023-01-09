@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@guanghechen/react-hooks": "^2.2.2",
-    "@yozora/ast": "^2.0.5-alpha.0",
+    "@yozora/ast": "^2.0.5",
     "@yozora/core-react-renderer": "^2.2.1",
     "@yozora/core-react-theme": "^2.2.1",
     "@yozora/react-admonition": "^2.2.1",
