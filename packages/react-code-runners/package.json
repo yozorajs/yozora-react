@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-runners",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "Live code runners",
   "author": {
     "name": "guanghechen",
@@ -49,8 +49,8 @@
     "react": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@yozora/react-code-renderer-graphviz": "^2.2.2",
-    "@yozora/react-code-renderer-jsx": "^2.2.2"
+    "@yozora/react-code-renderer-graphviz": "^2.3.0",
+    "@yozora/react-code-renderer-jsx": "^2.3.0"
   },
   "browserslist": [
     "last 2 versions",

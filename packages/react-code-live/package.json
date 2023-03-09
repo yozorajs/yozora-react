@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-live",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "code live in react",
   "author": {
     "name": "guanghechen",
@@ -44,10 +44,10 @@
     "test": "cross-env TS_NODE_FILES=true NODE_OPTIONS=--experimental-vm-modules jest --config ../../jest.config.mjs --rootDir ."
   },
   "dependencies": {
-    "@yozora/react-code-editor": "^2.2.2",
-    "@yozora/react-code-embed": "^2.2.2",
-    "@yozora/react-common-copy-button": "^2.2.2",
-    "@yozora/react-common-light-buttons": "^2.2.2"
+    "@yozora/react-code-editor": "^2.3.0",
+    "@yozora/react-code-embed": "^2.3.0",
+    "@yozora/react-common-copy-button": "^2.3.0",
+    "@yozora/react-common-light-buttons": "^2.3.0"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",
@@ -55,7 +55,7 @@
     "react": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@yozora/react-code-runners": "^2.2.2",
+    "@yozora/react-code-runners": "^2.3.0",
     "cross-env": "^7.0.3",
     "jest": "^29.5.0",
     "rimraf": "^4.4.0",

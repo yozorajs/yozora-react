@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "render markdown code in react",
   "author": {
     "name": "guanghechen",
@@ -45,12 +45,12 @@
   },
   "dependencies": {
     "@guanghechen/parse-lineno": "^2.2.4",
-    "@yozora/core-react-renderer": "^2.2.2",
-    "@yozora/react-code-embed": "^2.2.2",
-    "@yozora/react-code-highlighter": "^2.2.2",
-    "@yozora/react-code-literal": "^2.2.2",
-    "@yozora/react-code-live": "^2.2.2",
-    "@yozora/react-code-renderer-jsx": "^2.2.2"
+    "@yozora/core-react-renderer": "^2.3.0",
+    "@yozora/react-code-embed": "^2.3.0",
+    "@yozora/react-code-highlighter": "^2.3.0",
+    "@yozora/react-code-literal": "^2.3.0",
+    "@yozora/react-code-live": "^2.3.0",
+    "@yozora/react-code-renderer-jsx": "^2.3.0"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",
