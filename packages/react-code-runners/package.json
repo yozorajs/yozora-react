@@ -40,8 +40,8 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@guanghechen/react-hooks": "^2.2.2",
-    "@loadable/component": "^5.15.2"
+    "@guanghechen/react-hooks": "^2.2.4",
+    "@loadable/component": "^5.15.3"
   },
   "peerDependencies": {
     "@yozora/ast": "^2.0.0",

@@ -40,8 +40,8 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@guanghechen/parse-lineno": "^2.2.2",
-    "@guanghechen/react-hooks": "^2.2.2",
+    "@guanghechen/parse-lineno": "^2.2.4",
+    "@guanghechen/react-hooks": "^2.2.4",
     "@yozora/core-react-theme": "^2.2.2",
     "@yozora/react-code-highlighter": "^2.2.2"
   },
