@@ -1,5 +1,20 @@
 # Changelog
 
+<a name="2.3.0"></a>
+## 2.3.0 (2023-03-09)
+
+### Added
+
+- ✅ test: fix test coverage [[bd79fc7](https://github.com/yozorajs/yozora-react/commit/bd79fc7166a8b4fde064d586d91b9bd6be4f838b)]
+- ✅ test: fix tests [[907fd13](https://github.com/yozorajs/yozora-react/commit/907fd133f63cad669b9b0f4573fa1ff4b4d567db)]
+
+### Changed
+
+- 🎨 refactor react-code-highlighter [[6dab09e](https://github.com/yozorajs/yozora-react/commit/6dab09edd83d07aa4c6b3c23655fe19022e3aa72)]
+- 🔧 chore: migrate from enzyme to @testing-library [[1d03fac](https://github.com/yozorajs/yozora-react/commit/1d03fac64eea0de1846253c075dba9689fa25c46)]
+- ⬆️ chore: upgrade dependencies [[39b3a95](https://github.com/yozorajs/yozora-react/commit/39b3a9555e92628acb6c866c40fecaa5a8157044)]
+
+
 <a name="2.2.2"></a>
 ## 2.2.2 (2023-01-09)
 
