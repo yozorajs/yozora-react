@@ -1,5 +1,5 @@
 import { cx } from '@emotion/css'
-import type { PrismTheme } from '@yozora/react-code-highlighter'
+import type { IPrismTheme } from '@yozora/react-code-highlighter'
 import CodeHighlighter from '@yozora/react-code-highlighter'
 import React from 'react'
 import { SimpleCodeEditor } from './editor'
@@ -40,7 +40,7 @@ export interface CodeEditorProps {
   /**
    * Code highlight theme.
    */
-  theme?: PrismTheme
+  theme?: IPrismTheme
   /**
    * CSS class name for the underlying textarea
    */

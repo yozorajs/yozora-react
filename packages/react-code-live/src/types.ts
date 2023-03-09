@@ -1,5 +1,5 @@
+import type { IPrismTheme } from '@yozora/react-code-highlighter'
 import type { ICodeRunnerItem, ICodeRunnerScope } from '@yozora/react-code-runners'
-import type { PrismTheme } from 'prism-react-renderer'
 
 /**
  * Live mode block code
@@ -60,7 +60,7 @@ export interface ICodeLiveProps {
   /**
    * Code highlight theme.
    */
-  theme?: PrismTheme
+  theme?: IPrismTheme
   /**
    * Set this code live auto focus.
    */

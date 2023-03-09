@@ -1,8 +1,9 @@
-import { Prism } from 'prism-react-renderer'
-
 /**
  * @see https://github.com/PrismJS/prism/blob/master/components/prism-dot.js
  */
+
+import Prism from 'prismjs'
+
 const ID =
   '(?:' +
   [
@@ -26,11 +27,6 @@ const IDInside = {
   },
 }
 
-/**
- * @param {string} source
- * @param {string} flags
- * @returns {RegExp}
- */
 function withID(source: string, flags?: string): RegExp {
   return RegExp(
     source.replace(/<ID>/g, function () {
@@ -40,7 +36,7 @@ function withID(source: string, flags?: string): RegExp {
   )
 }
 
-Prism.languages['gv'] = Prism.languages['dot'] = {
+Prism.languages.dot = {
   comment: {
     pattern: /\/\/.*|\/\*[\s\S]*?\*\/|^#.*/m,
     greedy: true,
@@ -66,7 +62,7 @@ Prism.languages['gv'] = Prism.languages['dot'] = {
   },
   keyword: /\b(?:digraph|edge|graph|node|strict|subgraph)\b/i,
   'compass-point': {
-    pattern: /(:[ \t\r\n]*)(?:[ns][ew]?|[ewc_])(?![\w\x80-\uFFFF])/,
+    pattern: /(:[ \t\r\n]*)(?:[ewc_]|[ns][ew]?)(?![\w\x80-\uFFFF])/,
     lookbehind: true,
     alias: 'builtin',
   },
@@ -79,3 +75,5 @@ Prism.languages['gv'] = Prism.languages['dot'] = {
   operator: /[=:]|-[->]/,
   punctuation: /[[\]{};,]/,
 }
+
+Prism.languages.gv = Prism.languages.dot

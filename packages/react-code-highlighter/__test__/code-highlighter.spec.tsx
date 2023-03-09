@@ -6,6 +6,7 @@ describe('basic rendering case', () => {
   test('lineno change', () => {
     function Wrapper(): React.ReactElement {
       const [code, setCode] = useState<string>('let a: number = 1 + 2;')
+      const countOfLine: number = code.split(/\r\n|\n|\r/g).length
 
       useEffect(() => {
         const nextCode =
@@ -18,14 +19,14 @@ describe('basic rendering case', () => {
       }, [])
 
       return (
-        <pre data-line-count={code.split(/\r\n|\n|\r/g).length}>
+        <pre data-testid="pre" data-line-count={countOfLine}>
           <CodeHighlighter lang="typescript" value={code} />
         </pre>
       )
     }
 
     const view = render(<Wrapper />)
-    expect(view.baseElement).toHaveAttribute('data-line-count', String(103))
+    expect(view.getByTestId('pre')).toHaveAttribute('data-line-count', String(103))
   })
 
   test('snapshot', () => {

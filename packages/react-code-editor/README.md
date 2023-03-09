@@ -113,7 +113,7 @@ Name                | Type                            | Required  | Default   | 
 `style`             | `React.CSSProperties`           | `false`   | -         | CSS style object for the container
 `textareaClassName` | `string`                        | `false`   | -         | CSS class name for the underlying textarea
 `textareaStyle`     | `React.CSSProperties`           | `false`   | -         | CSS style object for the underlying textarea
-`theme`             | `PrismTheme`                    | `false`   | See below | Highlight prism theme.
+`theme`             | `IPrismTheme`                   | `false`   | See below | Highlight prism theme.
 
 * `className`: The root element of this component will always bind with the
   CSS class `'yozora-code-editor'`

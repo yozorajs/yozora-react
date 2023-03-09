@@ -2,12 +2,7 @@ import type React from 'react'
 
 const lineHeightRegex = /^([\d.]+)([\S]*)$/
 
-/**
- * Calc css height.
- * @param lineHeight
- * @param countOfLines
- * @returns
- */
+// Calculate css height.
 export function calcHeight(
   lineHeight: React.CSSProperties['lineHeight'],
   countOfLines: number,
