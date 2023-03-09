@@ -2,7 +2,7 @@ import { cx } from '@emotion/css'
 import type { IPrismTheme } from '@yozora/react-code-highlighter'
 import CodeHighlighter from '@yozora/react-code-highlighter'
 import React from 'react'
-import { SimpleCodeEditor } from './editor'
+import { SimpleCodeEditor } from './SimpleCodeEditor'
 
 /**
  * Props for creating CodeEditor
@@ -80,7 +80,7 @@ export interface CodeEditorProps {
  * Simple live code editor
  * @param props
  */
-export function CodeEditor(props: CodeEditorProps): React.ReactElement {
+export const CodeEditor: React.FC<CodeEditorProps> = props => {
   const {
     lang,
     maxLines,
@@ -172,6 +172,4 @@ export function CodeEditor(props: CodeEditorProps): React.ReactElement {
     />
   )
 }
-
 CodeEditor.displayName = 'YozoraCodeEditor'
-export default CodeEditor

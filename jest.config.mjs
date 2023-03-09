@@ -5,6 +5,9 @@ import url from 'node:url'
 export default async function () {
   const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
   const baseConfig = await tsMonorepoConfig(__dirname, { useESM: true })
+  const { default: manifest } = await import(path.resolve('package.json'), {
+    assert: { type: 'json' },
+  })
 
   const config = {
     ...baseConfig,
@@ -26,6 +29,7 @@ export default async function () {
         functions: 60,
         lines: 90,
         statements: 90,
+        ...manifest.jest?.coverageThreshold?.global,
       },
     },
   }

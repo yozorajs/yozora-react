@@ -1,7 +1,6 @@
 import { cx } from '@emotion/css'
 import React from 'react'
-import { classes } from './style'
-import type { IEditorHistory, IEditorOperationRecord, IEditorProps, IEditorState } from './types'
+import { classes } from '../style'
 import {
   HISTORY_LIMIT,
   HISTORY_TIME_GAP,
@@ -11,7 +10,13 @@ import {
   isMacLike,
   isWindows,
   regexps,
-} from './util'
+} from '../util'
+import type {
+  IEditorHistory,
+  IEditorOperationRecord,
+  IEditorProps,
+  IEditorState,
+} from './SimpleCodeEditor.types'
 
 /**
  * Based on react-simple-code-editor, developed by satya164
