@@ -81,17 +81,19 @@ This package is designed to live render jsx, inspired by [react live][].
   import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
   import React from 'react'
 
+  const scope = { styled }
+
   function JsxPreview(props: { code: string, inline: boolean }) {
     const [error, setError] = React.useState<any>(null)
     return (
       <div>
         <CodeRendererJsx
-          code={ props.code }
-          inline={ props.inline }
-          scope={ { styled } }
-          onError={ setError }
+          code={props.code}
+          inline={props.inline}
+          scope={scope}
+          onError={setError}
         />
-        <pre>{ error }</pre>
+        <pre>{error}</pre>
       </div >
     )
   }
@@ -108,9 +110,7 @@ This package is designed to live render jsx, inspired by [react live][].
     )
   `
 
-  const wrapper = (
-    <JsxPreview code={ code } inline={ true } >
-  )
+  const wrapper = <JsxPreview code={ code } inline={ true } >
   ```
 
 * Block code: Call the `render()` function with `React.ReactNode` explicitly

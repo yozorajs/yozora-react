@@ -1,7 +1,7 @@
 import { parseCodeMeta } from '../src'
 
-describe('parseCodeMeta', function () {
-  test('basic', function () {
+describe('parseCodeMeta', () => {
+  test('basic', () => {
     expect(parseCodeMeta(`{1-2,2-3} live collapsed`, { preferLineNo: false })).toEqual({
       _yozoracodemode: 'live',
       highlights: [1, 2, 3],
@@ -51,7 +51,7 @@ describe('parseCodeMeta', function () {
     })
   })
 
-  test('edge conditions', function () {
+  test('edge conditions', () => {
     expect(parseCodeMeta(`{1-2,2-3} highlights="2,4-5"`, { preferLineNo: true })).toEqual({
       _yozoracodemode: 'literal',
       highlights: [1, 2, 3, 4, 5],
@@ -98,7 +98,7 @@ describe('parseCodeMeta', function () {
     })
   })
 
-  test('additional properties', function () {
+  test('additional properties', () => {
     expect(
       parseCodeMeta(`live sourcefile="./waw.ts" hidden maxlines=20`, {
         preferLineNo: true,

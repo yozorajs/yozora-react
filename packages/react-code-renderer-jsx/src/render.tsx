@@ -2,9 +2,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { renderElement, renderElementAsync } from './eval'
 
-/**
- * Props of CodeRendererJsx
- */
 export interface ICodeRendererJsxProps {
   /**
    * Source code content
@@ -27,17 +24,14 @@ export interface ICodeRendererJsxProps {
   onError(error: string | null): void
 }
 
-/**
- * Renderer jsx code
- */
 export const CodeRendererJsx: React.FC<ICodeRendererJsxProps> = props => {
   const { code, inline, scope, onError } = props
   const [Element, setElement] = React.useState<React.ElementType | null>(null)
 
   const transpile = React.useCallback(
     (code: string): void => {
-      const handleError = (error: any): void => {
-        const errInfo: string = (error || '').toString()
+      const handleError = (error: unknown): void => {
+        const errInfo = String(error ?? '')
         onError(errInfo)
         setElement(null)
       }

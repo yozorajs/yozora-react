@@ -21,14 +21,6 @@ export interface IDynamicImportRule {
   importFunc(match: RegExpExecArray): IDynamicImportFunc
 }
 
-/**
- *
- * @param ecmaImport
- * @param nextCustomScopes
- * @param Placeholders
- * @param rules
- * @returns
- */
 export function dynamicImport(
   ecmaImport: Readonly<IEcmaImport>,
   nextCustomScopes: ICodeRunnerScope,

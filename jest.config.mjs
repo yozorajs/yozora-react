@@ -13,8 +13,7 @@ export default async function () {
       ...baseConfig.moduleNameMapper,
       '\\.styl$': path.join(__dirname, 'jest.identity-obj-proxy.js'),
     },
-    setupFilesAfterEnv: ['<rootDir>/../../jest.setupEnzyme.ts'],
-    snapshotSerializers: ['enzyme-to-json/serializer'],
+    setupFilesAfterEnv: ['<rootDir>/../../jest.setup.ts'],
     collectCoverageFrom: [
       '<rootDir>/index.js',
       '<rootDir>/src/**/*.{js,jsx,ts,tsx}',

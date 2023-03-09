@@ -38,7 +38,7 @@ const runners: ICodeRunnerItem[] = [
   },
 ]
 
-describe('prop types', function () {
+describe('prop types', () => {
   beforeEach(() => {
     jest.spyOn(global.console, 'error').mockImplementation((...args) => {
       throw new Error(args.join(' '))

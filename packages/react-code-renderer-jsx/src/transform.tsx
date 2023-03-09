@@ -12,9 +12,7 @@ const opts = {
 }
 
 /**
- * Transpile jsx
- *
- * @param code
+ * Transpile jsx.
  * @see https://github.com/FormidableLabs/react-live/blob/2d8246b920813e4725a6037c94d9a4d00dd8cd2a/src/utils/transpile/transform.js
  */
 export function transform(code: string): string {

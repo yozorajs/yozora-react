@@ -115,11 +115,8 @@ This package is designed to render graphviz (dot) in react, inspired by [graphvi
     const [error, setError] = React.useState<any>(null)
     return (
       <div>
-        <GraphvizRenderer 
-          code={ props.code }
-          onError={ setError }
-        />
-        <pre>{ error }</pre>
+        <GraphvizRenderer code={props.code} onError={setError} />
+        <pre>{error}</pre>
       </div >
     )
   }

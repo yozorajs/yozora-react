@@ -2,7 +2,7 @@ import { render } from 'enzyme'
 import React from 'react'
 import Code from '../src'
 
-describe('prop types', function () {
+describe('prop types', () => {
   beforeEach(() => {
     jest.spyOn(global.console, 'error').mockImplementation((...args) => {
       throw new Error(args.join(' '))
@@ -25,9 +25,9 @@ describe('prop types', function () {
   })
 })
 
-describe('snapshot', function () {
+describe('snapshot', () => {
   const code = `
-    function () {
+    () => {
       const a = 1;
       const b = 2;
       const c = a * a + b * b;

@@ -11,6 +11,8 @@ export async function copyToClipboard(text: string): Promise<boolean> {
       return true
     }
 
+    if (typeof window === 'undefined') return false
+
     // For old browsers like explorer 11.
     if ((window as any).clipboardData?.setData) {
       ;(window as any).clipboardData.setData('Text', text)
@@ -32,6 +34,8 @@ export async function copyToClipboard(text: string): Promise<boolean> {
  * @returns
  */
 function copyThroughExecCommand(text: string): boolean {
+  if (typeof document === 'undefined') return false
+
   // Put the text to copy into a <textarea>
   const textarea = document.createElement('textarea')
   textarea.value = text
@@ -44,9 +48,9 @@ function copyThroughExecCommand(text: string): boolean {
   // Copy text to the clipboard
   let success = false
   try {
-    success = window.document.execCommand('copy')
+    success = document.execCommand('copy')
   } finally {
-    window.document.body.removeChild(textarea)
+    document.body.removeChild(textarea)
   }
   return success
 }

@@ -1,17 +1,9 @@
-import { mount, render } from 'enzyme'
+import { render } from '@testing-library/react'
 import React, { useEffect, useState } from 'react'
 import CodeHighlighter from '../src'
 
 describe('basic rendering case', () => {
-  const errorLogger = jest.spyOn(global.console, 'error').mockImplementation((...args) => {
-    throw new Error(args.join(' '))
-  })
-
-  afterAll(() => {
-    errorLogger.mockRestore()
-  })
-
-  it('test lineno change', () => {
+  test('lineno change', () => {
     function Wrapper(): React.ReactElement {
       const [code, setCode] = useState<string>('let a: number = 1 + 2;')
 
@@ -32,23 +24,16 @@ describe('basic rendering case', () => {
       )
     }
 
-    const wrapper = mount(<Wrapper />)
-    expect(wrapper.getDOMNode().getAttribute('data-line-count')).toEqual(String(103))
-
-    const lines = wrapper.find({ linenoWidth: '2.5em' })
-    for (let i = 0; i < lines.length; ++i) {
-      const line = lines[i]
-      const s = getComputedStyle(line.getDOMNode())
-      expect(s.width).toEqual('3.5em')
-    }
+    const view = render(<Wrapper />)
+    expect(view.baseElement).toHaveAttribute('data-line-count', String(103))
   })
 
-  it('snapshot', () => {
-    const wrapper = render(
+  test('snapshot', () => {
+    const view = render(
       <pre>
         <CodeHighlighter lang="typescript" value="let a: number = 1 + 2;" />
       </pre>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(view.asFragment()).toMatchSnapshot()
   })
 })

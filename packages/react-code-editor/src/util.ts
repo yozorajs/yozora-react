@@ -55,6 +55,5 @@ export const regexps = {
  * @param text
  * @param endPos
  */
-export function getLines(text: string, endPos: number): string[] {
-  return text.substring(0, endPos).split('\n')
-}
+export const getLines = (text: string, endPos: number): string[] =>
+  text.substring(0, endPos).split('\n')

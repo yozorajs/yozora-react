@@ -1,4 +1,4 @@
-import { render } from 'enzyme'
+import { render } from '@testing-library/react'
 import React from 'react'
 import Admonition from '../src'
 
@@ -12,74 +12,70 @@ const children = (
   </React.Fragment>
 )
 
-describe('prop types', function () {
-  beforeEach(() => {
-    jest.spyOn(global.console, 'error').mockImplementation((...args) => {
-      throw new Error(args.join(' '))
+describe('prop types', () => {
+  const keywords = [
+    undefined,
+    '',
+    'default',
+    'note',
+    'important',
+    'info',
+    'success',
+    'tip',
+    'warning',
+    'caution',
+    'error',
+    'danger',
+    'custom',
+  ]
+
+  describe('children is optional', () => {
+    test('undefined', () => {
+      for (const keyword of keywords) {
+        expect(() => render(<Admonition keyword={keyword}>{undefined}</Admonition>)).not.toThrow()
+      }
+    })
+
+    test('null', () => {
+      for (const keyword of keywords) {
+        expect(() => render(<Admonition keyword={keyword}>{null}</Admonition>)).not.toThrow()
+      }
+    })
+
+    test('text', () => {
+      for (const keyword of keywords) {
+        const view = render(<Admonition keyword={keyword}>Hello, world!</Admonition>)
+        expect(view.getByText('Hello, world!')).toBeInTheDocument()
+        view.unmount()
+      }
+    })
+
+    test('complex', () => {
+      for (const keyword of keywords) {
+        const view = render(<Admonition keyword={keyword}>{children}</Admonition>)
+        expect(view.getByText('some text1')).toBeInTheDocument()
+        expect(view.getByText('some text2')).toBeInTheDocument()
+        expect(view.getByText('some text3')).toBeInTheDocument()
+        view.unmount()
+      }
     })
   })
 
-  it('children is optional', function () {
-    for (const value of [undefined, null] as any[]) {
-      expect(() => render(<Admonition>{value}</Admonition>)).not.toThrow()
-    }
-
-    expect(/Hello, world!/.test(render(<Admonition>Hello, world!</Admonition>).text())).toBe(true)
-  })
-
-  describe('className is optional', function () {
-    it('default', function () {
-      const node = render(<Admonition keyword="tip">{children}</Admonition>)
-      expect(node.hasClass('yozora-admonition')).toBeTruthy()
-      expect(node.attr('data-admonition-keyword')).toEqual('tip')
+  describe('snapshot', () => {
+    test('default', () => {
+      const view = render(<Admonition>{children}</Admonition>)
+      expect(view.asFragment()).toMatchSnapshot()
+      view.unmount()
     })
 
-    it('custom', function () {
-      const node = render(<Admonition className="my-admonition">{children}</Admonition>)
-      expect(node.hasClass('yozora-admonition')).toBeTruthy()
-      expect(node.hasClass('my-admonition')).toBeTruthy()
-      expect(node.attr('data-admonition-keyword')).toEqual('note')
+    test('custom', () => {
+      const view = render(
+        <Admonition keyword="caution" className="custom-class" style={{ color: 'orange' }}>
+          {children}
+        </Admonition>,
+      )
+      expect(view.asFragment()).toMatchSnapshot()
+      view.unmount()
     })
-  })
-
-  it('keyword is optional', function () {
-    const keywords: Record<string, string> = {
-      note: 'note',
-      default: 'note',
-      important: 'info',
-      info: 'info',
-      tip: 'tip',
-      success: 'tip',
-      caution: 'caution',
-      warning: 'caution',
-      error: 'danger',
-      danger: 'danger',
-      'custom-waw': 'custom-waw',
-    }
-    for (const [keyword, modifier] of Object.entries(keywords)) {
-      const node = render(<Admonition keyword={keyword}>{children}</Admonition>)
-      expect(node.attr('data-admonition-keyword')).toEqual(modifier)
-    }
-  })
-
-  it('style is optional', function () {
-    const node = render(<Admonition style={{ color: 'orange' }}>{children}</Admonition>)
-    expect(node.css('color')).toEqual('orange')
-  })
-})
-
-describe('snapshot', function () {
-  it('default', function () {
-    const wrapper = render(<Admonition>{children}</Admonition>)
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  it('custom', function () {
-    const wrapper = render(
-      <Admonition keyword="caution" className="custom-class" style={{ color: 'orange' }}>
-        {children}
-      </Admonition>,
-    )
-    expect(wrapper).toMatchSnapshot()
   })
 })

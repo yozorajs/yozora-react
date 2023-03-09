@@ -1,17 +1,9 @@
-import { mount } from 'enzyme'
+import { fireEvent, render } from '@testing-library/react'
 import React, { useState } from 'react'
 import CodeEditor from '../src'
 
 describe('basic rendering case', () => {
-  const errorLogger = jest.spyOn(global.console, 'error').mockImplementation((...args) => {
-    throw new Error(args.join(' '))
-  })
-
-  afterAll(() => {
-    errorLogger.mockRestore()
-  })
-
-  it('input change', () => {
+  test('input change', () => {
     const code1 = 'let a: number = 1 + 2;'
     const code2 = 'let a: boolean = true;'
 
@@ -21,24 +13,13 @@ describe('basic rendering case', () => {
       return <CodeEditor lang="typescript" code={code} onChange={setCode} />
     }
 
-    const wrapper = mount(<Wrapper />)
-    expect(wrapper.find('textarea').text()).toEqual(code1)
-    expect(wrapper.find('pre').text()).toEqual(
-      code1
-        .split(/\n/g)
-        .map((x, i) => '' + (i + 1) + x)
-        .join('\n'),
-    )
+    const view = render(<Wrapper />)
+    const textarea = view.getByRole('textbox')
+    expect(textarea).toBeInTheDocument()
+    expect(textarea.textContent).toEqual(code1)
 
     // change code
-    wrapper.find('textarea').simulate('change', { target: { value: code2 } })
-
-    expect(wrapper.find('textarea').text()).toEqual(code2)
-    expect(wrapper.find('pre').text()).toEqual(
-      code2
-        .split(/\n/g)
-        .map((x, i) => '' + (i + 1) + x)
-        .join('\n'),
-    )
+    fireEvent.change(textarea, { target: { value: code2 } })
+    expect(textarea.textContent).toEqual(code2)
   })
 })

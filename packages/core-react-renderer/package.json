@@ -46,10 +46,10 @@
     "@yozora/react-code-highlighter": "^2.2.2"
   },
   "peerDependencies": {
-    "@emotion/css": "^11.9.0",
+    "@emotion/css": "^11.0.0",
     "@yozora/ast": "^2.0.0",
     "prop-types": "^15.7.2",
-    "react": ">= 17.0.0"
+    "react": "^17.0.0 || ^18.0.0"
   },
   "browserslist": [
     "last 2 versions",

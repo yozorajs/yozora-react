@@ -1,90 +1,94 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot custom 1`] = `
-<div
-  class="yozora-admonition css-w5rgiv custom-class"
-  data-admonition-keyword="caution"
-  style="color:orange"
->
-  <h5
-    class="css-1b06hov"
-  >
-    <span
-      class="css-8eytv5"
-    >
-      <svg
-        height="24px"
-        viewBox="0 0 24 24"
-        width="24px"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
-        />
-      </svg>
-    </span>
-    <span
-      class="css-13o7eu2"
-    >
-      CAUTION
-    </span>
-  </h5>
+exports[`prop types snapshot custom 1`] = `
+<DocumentFragment>
   <div
-    class="css-0"
+    class="yozora-admonition css-w5rgiv custom-class"
+    data-admonition-keyword="caution"
+    style="color: orange;"
   >
-    <p>
-      some text1
-      <span>
-        some text2
+    <h5
+      class="css-1b06hov"
+    >
+      <span
+        class="css-8eytv5"
+      >
+        <svg
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+          />
+        </svg>
       </span>
-    </p>
-    <blockquote>
-      some text3
-    </blockquote>
+      <span
+        class="css-13o7eu2"
+      >
+        CAUTION
+      </span>
+    </h5>
+    <div
+      class="css-0"
+    >
+      <p>
+        some text1
+        <span>
+          some text2
+        </span>
+      </p>
+      <blockquote>
+        some text3
+      </blockquote>
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
-exports[`snapshot default 1`] = `
-<div
-  class="yozora-admonition css-w5rgiv"
-  data-admonition-keyword="note"
->
-  <h5
-    class="css-1b06hov"
-  >
-    <span
-      class="css-8eytv5"
-    >
-      <svg
-        height="24px"
-        viewBox="0 0 24 24"
-        width="24px"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-        />
-      </svg>
-    </span>
-    <span
-      class="css-13o7eu2"
-    >
-      NOTE
-    </span>
-  </h5>
+exports[`prop types snapshot default 1`] = `
+<DocumentFragment>
   <div
-    class="css-0"
+    class="yozora-admonition css-w5rgiv"
+    data-admonition-keyword="note"
   >
-    <p>
-      some text1
-      <span>
-        some text2
+    <h5
+      class="css-1b06hov"
+    >
+      <span
+        class="css-8eytv5"
+      >
+        <svg
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+          />
+        </svg>
       </span>
-    </p>
-    <blockquote>
-      some text3
-    </blockquote>
+      <span
+        class="css-13o7eu2"
+      >
+        NOTE
+      </span>
+    </h5>
+    <div
+      class="css-0"
+    >
+      <p>
+        some text1
+        <span>
+          some text2
+        </span>
+      </p>
+      <blockquote>
+        some text3
+      </blockquote>
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;

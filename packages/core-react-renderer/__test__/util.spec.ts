@@ -1,7 +1,7 @@
 import { convertToBoolean, parseCodeMeta } from '../src'
 
-describe('parseCodeMeta', function () {
-  test('basic', function () {
+describe('parseCodeMeta', () => {
+  test('basic', () => {
     expect(parseCodeMeta(`{1-2,2-3} live collapsed`, { preferLineNo: false })).toEqual({
       live: true,
       highlights: [1, 2, 3],
@@ -51,7 +51,7 @@ describe('parseCodeMeta', function () {
     })
   })
 
-  test('edge conditions', function () {
+  test('edge conditions', () => {
     expect(parseCodeMeta(`{1-2,2-3} highlights="2,4-5"`, { preferLineNo: true })).toEqual({
       highlights: [1, 2, 3, 4, 5],
       maxlines: -1,
@@ -100,7 +100,7 @@ describe('parseCodeMeta', function () {
     })
   })
 
-  test('additional properties', function () {
+  test('additional properties', () => {
     expect(
       parseCodeMeta(`live sourcefile="./waw.ts" hidden maxlines=20`, {
         preferLineNo: true,
@@ -117,7 +117,7 @@ describe('parseCodeMeta', function () {
     })
   })
 
-  test('convertToBoolean', function () {
+  test('convertToBoolean', () => {
     expect(convertToBoolean(undefined)).toBe(true)
     expect(convertToBoolean('')).toBe(true)
     expect(convertToBoolean('true')).toBe(true)

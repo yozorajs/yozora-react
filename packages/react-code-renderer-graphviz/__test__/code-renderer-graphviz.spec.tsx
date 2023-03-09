@@ -1,4 +1,5 @@
-import { mount } from 'enzyme'
+import { jest } from '@jest/globals'
+import { render } from '@testing-library/react'
 import React from 'react'
 import CodeRendererGraphviz from '../src'
 
@@ -12,13 +13,6 @@ describe('basic rendering case', () => {
      * @see https://github.com/jsdom/jsdom/issues/1423
      */
     ;(SVGElement.prototype as any).getTotalLength = jest.fn()
-
-    /**
-     * Intercepting error messages and throw it as an unexpected error.
-     */
-    jest.spyOn(global.console, 'error').mockImplementation((...args) => {
-      throw new Error(args.join(' '))
-    })
   })
 
   it('snapshot', () => {
@@ -44,7 +38,9 @@ describe('basic rendering case', () => {
         8 -> 5 [label = "S(a)"];
       }
     `
+    const view = render(<CodeRendererGraphviz code={code} />)
 
-    expect(mount(<CodeRendererGraphviz code={code} />)).toMatchSnapshot('finite state machine')
+    expect(view.getByText('finite_state_machine')).toBeInTheDocument()
+    expect(view.asFragment()).toMatchSnapshot()
   })
 })

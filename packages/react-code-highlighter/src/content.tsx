@@ -5,9 +5,7 @@ import { classes } from './style'
 import type { IHighlightContentProps } from './types'
 import { calcHeight } from './util'
 
-/**
- * Content of CodeHighlighter.
- */
+// Content of CodeHighlighter.
 export const CodeHighlighterContent: React.FC<IHighlightContentProps> = props => {
   const {
     codesRef,

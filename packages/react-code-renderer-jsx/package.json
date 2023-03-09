@@ -42,7 +42,13 @@
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
-    "react": ">= 17.0.0"
+    "react": "^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@emotion/css": "^11.10.6",
+    "cross-env": "^7.0.3",
+    "jest": "^29.5.0",
+    "rimraf": "^4.4.0"
   },
   "browserslist": [
     "last 2 versions",

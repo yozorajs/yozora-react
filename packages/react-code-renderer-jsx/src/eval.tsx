@@ -35,7 +35,7 @@ export function renderElement(
   const codeTrimmed = code.trim().replace(/;$/, '')
 
   // NOTE: Workaround for classes and arrow functions.
-  const transformed = transform(`return (${codeTrimmed})`)
+  const transformed = transform(`return(${codeTrimmed})`)
   return errorBoundary(evalCode(transformed, scope), onError)
 }
 
