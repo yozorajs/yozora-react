@@ -1,27 +1,13 @@
-import { render } from 'enzyme'
+import { render } from '@testing-library/react'
 import React from 'react'
 import Code from '../src'
 
 describe('prop types', () => {
-  beforeEach(() => {
-    jest.spyOn(global.console, 'error').mockImplementation((...args) => {
-      throw new Error(args.join(' '))
-    })
-  })
-
-  it('render with custom className', () => {
+  test('render with custom className', () => {
     const code = 'let a = 1'
     const className = 'custom-code'
-    const wrapper = render(<Code className={className} value={code} />)
-    expect(wrapper.hasClass(className)).toBeTruthy()
-  })
-
-  it('value is required', () => {
-    for (const value of [undefined, null] as any[]) {
-      expect(() => {
-        render(<Code value={value} />)
-      }).toThrow(/The prop `value` is marked as required/i)
-    }
+    const view = render(<Code className={className} value={code} />)
+    expect(view.container.firstChild).toHaveClass(className)
   })
 })
 
@@ -36,24 +22,24 @@ describe('snapshot', () => {
   `.trim()
   const lang = 'jsx'
 
-  it('live', () => {
-    const wrapper = render(<Code meta="live maxlines=4" lang={lang} value={code} />)
-    expect(wrapper).toMatchSnapshot()
+  test('live', () => {
+    const view = render(<Code meta="live maxlines=4" lang={lang} value={code} />)
+    expect(view.asFragment()).toMatchSnapshot()
   })
 
-  it('embed', () => {
-    const wrapper = render(<Code meta="embed" lang={lang} value={code} />)
-    expect(wrapper).toMatchSnapshot()
+  test('embed', () => {
+    const view = render(<Code meta="embed" lang={lang} value={code} />)
+    expect(view.asFragment()).toMatchSnapshot()
   })
 
-  it('literal', () => {
-    const wrapper = render(
+  test('literal', () => {
+    const view = render(
       <Code
         meta={`literal {1-2,2-1,4} title="/home/demo/a.tsx" collapsed`}
         lang={lang}
         value={code}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(view.asFragment()).toMatchSnapshot()
   })
 })

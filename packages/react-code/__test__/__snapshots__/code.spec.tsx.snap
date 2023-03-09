@@ -1,888 +1,889 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot embed 1`] = `
-<div
-  class="yozora-code-embed css-1lkb549 yozora-code"
-/>
+<DocumentFragment>
+  <div
+    class="yozora-code-embed css-1lkb549 yozora-code"
+  >
+    <span>
+      Answer: 5
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`snapshot literal 1`] = `
-<div
-  class="yozora-code-literal css-dc8oyl yozora-code"
->
+<DocumentFragment>
   <div
-    class="css-sgdhwv"
+    class="yozora-code-literal css-dc8oyl yozora-code"
   >
-    <span
-      class="css-9y6172"
+    <div
+      class="css-sgdhwv"
     >
       <span
-        class="css-t4q37b"
-        title="close"
-      />
-      <span
-        class="css-p28dfd"
-        title="minimize"
-      />
-      <span
-        class="css-6luv6p"
-        title="maximize"
-      />
-    </span>
-    <span
-      class="css-1p3aks"
-      title="/home/demo/a.tsx"
-    >
-      /home/demo/a.tsx  | 6 lines.
-    </span>
-    <span
-      class="css-nsmueo"
-    >
-      <button
-        aria-label="Copy to clipboard"
-        class="css-jbwb7c"
-        data-copy-status="waiting"
-        type="button"
+        class="css-9y6172"
       >
-        copy
-      </button>
-    </span>
-  </div>
-  <code
-    class="css-1ox3y4c"
-  >
-    <pre>
-      <div
-        class="yozora-code-highlighter__content css-1k8659m prism-code language-jsx"
-        style="color:#d4d4d4;background-color:none;line-height:1.6rem;max-height:0"
+        <span
+          class="css-t4q37b"
+          title="close"
+        />
+        <span
+          class="css-p28dfd"
+          title="minimize"
+        />
+        <span
+          class="css-6luv6p"
+          title="maximize"
+        />
+      </span>
+      <span
+        class="css-1p3aks"
+        title="/home/demo/a.tsx"
       >
+        /home/demo/a.tsx  | 6 lines.
+      </span>
+      <span
+        class="css-nsmueo"
+      >
+        <button
+          aria-label="Copy to clipboard"
+          class="css-jbwb7c"
+          data-copy-status="waiting"
+          type="button"
+        >
+          copy
+        </button>
+      </span>
+    </div>
+    <code
+      class="css-1ox3y4c"
+    >
+      <pre>
         <div
-          class="yozora-code-highlighter__linenos css-hfkijx"
-          style="width:2.2em"
+          class="css-1k8659m prism-code language-jsx"
+          style="color: rgb(212, 212, 212); line-height: 1.6rem; max-height: 0;"
         >
           <div
-            class="css-1tv7wth"
-          >
-            <span>
-              1
-            </span>
-          </div>
-          <div
-            class="css-1tv7wth"
-          >
-            <span>
-              2
-            </span>
-          </div>
-          <div
-            class="css-17fnzo2"
-          >
-            <span>
-              3
-            </span>
-          </div>
-          <div
-            class="css-1tv7wth"
-          >
-            <span>
-              4
-            </span>
-          </div>
-          <div
-            class="css-17fnzo2"
-          >
-            <span>
-              5
-            </span>
-          </div>
-          <div
-            class="css-17fnzo2"
-          >
-            <span>
-              6
-            </span>
-          </div>
-        </div>
-        <div
-          class="yozora-code-highlighter__codes css-rv5jjl"
-        >
-          <div
-            class="css-1ttfemb"
+            class="css-hfkijx"
+            style="width: 2.2em;"
           >
             <div
-              class="token-line css-1c96lhs"
-              style="color:#d4d4d4"
+              class="css-1tv7wth"
             >
-              <span
-                class="token keyword"
-                style="color:rgb(86, 156, 214)"
-              >
-                function
-              </span>
-              <span
-                class="token plain"
-              >
-
-              </span>
-              <span
-                class="token punctuation"
-                style="color:rgb(106, 153, 85)"
-              >
-                (
-              </span>
-              <span
-                class="token punctuation"
-                style="color:rgb(106, 153, 85)"
-              >
-                )
-              </span>
-              <span
-                class="token plain"
-              >
-
-              </span>
-              <span
-                class="token punctuation"
-                style="color:rgb(106, 153, 85)"
-              >
-                {
-              </span>
-              <span
-                class="token plain"
-              />
-            </div>
-            <div
-              class="token-line css-1c96lhs"
-              style="color:#d4d4d4"
-            >
-              <span
-                class="token plain"
-              >
-
-              </span>
-              <span
-                class="token keyword"
-                style="color:rgb(86, 156, 214)"
-              >
-                const
-              </span>
-              <span
-                class="token plain"
-              >
-                 a
-              </span>
-              <span
-                class="token operator"
-                style="color:rgb(212, 212, 212)"
-              >
-                =
-              </span>
-              <span
-                class="token plain"
-              >
-
-              </span>
-              <span
-                class="token number"
-                style="color:rgb(181, 206, 168)"
-              >
+              <span>
                 1
               </span>
-              <span
-                class="token punctuation"
-                style="color:rgb(106, 153, 85)"
-              >
-                ;
-              </span>
-              <span
-                class="token plain"
-              />
             </div>
             <div
-              class="token-line css-7zjwmr"
-              style="color:#d4d4d4"
+              class="css-1tv7wth"
             >
-              <span
-                class="token plain"
-              >
-
-              </span>
-              <span
-                class="token keyword"
-                style="color:rgb(86, 156, 214)"
-              >
-                const
-              </span>
-              <span
-                class="token plain"
-              >
-                 b
-              </span>
-              <span
-                class="token operator"
-                style="color:rgb(212, 212, 212)"
-              >
-                =
-              </span>
-              <span
-                class="token plain"
-              >
-
-              </span>
-              <span
-                class="token number"
-                style="color:rgb(181, 206, 168)"
-              >
+              <span>
                 2
               </span>
-              <span
-                class="token punctuation"
-                style="color:rgb(106, 153, 85)"
-              >
-                ;
-              </span>
-              <span
-                class="token plain"
-              />
             </div>
             <div
-              class="token-line css-1c96lhs"
-              style="color:#d4d4d4"
+              class="css-17fnzo2"
             >
-              <span
-                class="token plain"
-              >
-
+              <span>
+                3
               </span>
-              <span
-                class="token keyword"
-                style="color:rgb(86, 156, 214)"
-              >
-                const
-              </span>
-              <span
-                class="token plain"
-              >
-                 c
-              </span>
-              <span
-                class="token operator"
-                style="color:rgb(212, 212, 212)"
-              >
-                =
-              </span>
-              <span
-                class="token plain"
-              >
-                 a
-              </span>
-              <span
-                class="token operator"
-                style="color:rgb(212, 212, 212)"
-              >
-                *
-              </span>
-              <span
-                class="token plain"
-              >
-                 a
-              </span>
-              <span
-                class="token operator"
-                style="color:rgb(212, 212, 212)"
-              >
-                +
-              </span>
-              <span
-                class="token plain"
-              >
-                 b
-              </span>
-              <span
-                class="token operator"
-                style="color:rgb(212, 212, 212)"
-              >
-                *
-              </span>
-              <span
-                class="token plain"
-              >
-                 b
-              </span>
-              <span
-                class="token punctuation"
-                style="color:rgb(106, 153, 85)"
-              >
-                ;
-              </span>
-              <span
-                class="token plain"
-              />
             </div>
             <div
-              class="token-line css-7zjwmr"
-              style="color:#d4d4d4"
+              class="css-1tv7wth"
             >
-              <span
-                class="token plain"
-              >
-
+              <span>
+                4
               </span>
-              <span
-                class="token keyword control-flow"
-                style="color:rgb(86, 156, 214)"
-              >
-                return
-              </span>
-              <span
-                class="token plain"
-              >
-
-              </span>
-              <span
-                class="token tag punctuation"
-                style="color:rgb(106, 153, 85)"
-              >
-                &lt;
-              </span>
-              <span
-                class="token tag"
-                style="color:rgb(86, 156, 214)"
-              >
-                span
-              </span>
-              <span
-                class="token tag punctuation"
-                style="color:rgb(106, 153, 85)"
-              >
-                &gt;
-              </span>
-              <span
-                class="token plain-text"
-              >
-                Answer:
-              </span>
-              <span
-                class="token punctuation"
-                style="color:rgb(106, 153, 85)"
-              >
-                {
-              </span>
-              <span
-                class="token plain"
-              >
-                c
-              </span>
-              <span
-                class="token punctuation"
-                style="color:rgb(106, 153, 85)"
-              >
-                }
-              </span>
-              <span
-                class="token tag punctuation"
-                style="color:rgb(106, 153, 85)"
-              >
-                &lt;/
-              </span>
-              <span
-                class="token tag"
-                style="color:rgb(86, 156, 214)"
-              >
-                span
-              </span>
-              <span
-                class="token tag punctuation"
-                style="color:rgb(106, 153, 85)"
-              >
-                &gt;
-              </span>
-              <span
-                class="token plain"
-              />
             </div>
             <div
-              class="token-line css-7zjwmr"
-              style="color:#d4d4d4"
+              class="css-17fnzo2"
             >
-              <span
-                class="token plain"
-              >
-
+              <span>
+                5
               </span>
-              <span
-                class="token punctuation"
-                style="color:rgb(106, 153, 85)"
-              >
-                }
+            </div>
+            <div
+              class="css-17fnzo2"
+            >
+              <span>
+                6
               </span>
             </div>
           </div>
+          <div
+            class="css-rv5jjl"
+          >
+            <div
+              class="css-1ttfemb"
+            >
+              <div
+                class="token-line css-1c96lhs"
+                style="color: rgb(212, 212, 212);"
+              >
+                <span
+                  class="token punctuation"
+                  style="color: rgb(106, 153, 85);"
+                >
+                  (
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color: rgb(106, 153, 85);"
+                >
+                  )
+                </span>
+                <span
+                  class="token plain"
+                >
+                   
+                </span>
+                <span
+                  class="token operator"
+                  style="color: rgb(212, 212, 212);"
+                >
+                  =&gt;
+                </span>
+                <span
+                  class="token plain"
+                >
+                   
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color: rgb(106, 153, 85);"
+                >
+                  {
+                </span>
+                <span
+                  class="token plain"
+                />
+              </div>
+              <div
+                class="token-line css-1c96lhs"
+                style="color: rgb(212, 212, 212);"
+              >
+                <span
+                  class="token plain"
+                >
+                        
+                </span>
+                <span
+                  class="token keyword"
+                  style="color: rgb(86, 156, 214);"
+                >
+                  const
+                </span>
+                <span
+                  class="token plain"
+                >
+                   a 
+                </span>
+                <span
+                  class="token operator"
+                  style="color: rgb(212, 212, 212);"
+                >
+                  =
+                </span>
+                <span
+                  class="token plain"
+                >
+                   
+                </span>
+                <span
+                  class="token number"
+                  style="color: rgb(181, 206, 168);"
+                >
+                  1
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color: rgb(106, 153, 85);"
+                >
+                  ;
+                </span>
+                <span
+                  class="token plain"
+                />
+              </div>
+              <div
+                class="token-line css-7zjwmr"
+                style="color: rgb(212, 212, 212);"
+              >
+                <span
+                  class="token plain"
+                >
+                        
+                </span>
+                <span
+                  class="token keyword"
+                  style="color: rgb(86, 156, 214);"
+                >
+                  const
+                </span>
+                <span
+                  class="token plain"
+                >
+                   b 
+                </span>
+                <span
+                  class="token operator"
+                  style="color: rgb(212, 212, 212);"
+                >
+                  =
+                </span>
+                <span
+                  class="token plain"
+                >
+                   
+                </span>
+                <span
+                  class="token number"
+                  style="color: rgb(181, 206, 168);"
+                >
+                  2
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color: rgb(106, 153, 85);"
+                >
+                  ;
+                </span>
+                <span
+                  class="token plain"
+                />
+              </div>
+              <div
+                class="token-line css-1c96lhs"
+                style="color: rgb(212, 212, 212);"
+              >
+                <span
+                  class="token plain"
+                >
+                        
+                </span>
+                <span
+                  class="token keyword"
+                  style="color: rgb(86, 156, 214);"
+                >
+                  const
+                </span>
+                <span
+                  class="token plain"
+                >
+                   c 
+                </span>
+                <span
+                  class="token operator"
+                  style="color: rgb(212, 212, 212);"
+                >
+                  =
+                </span>
+                <span
+                  class="token plain"
+                >
+                   a 
+                </span>
+                <span
+                  class="token operator"
+                  style="color: rgb(212, 212, 212);"
+                >
+                  *
+                </span>
+                <span
+                  class="token plain"
+                >
+                   a 
+                </span>
+                <span
+                  class="token operator"
+                  style="color: rgb(212, 212, 212);"
+                >
+                  +
+                </span>
+                <span
+                  class="token plain"
+                >
+                   b 
+                </span>
+                <span
+                  class="token operator"
+                  style="color: rgb(212, 212, 212);"
+                >
+                  *
+                </span>
+                <span
+                  class="token plain"
+                >
+                   b
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color: rgb(106, 153, 85);"
+                >
+                  ;
+                </span>
+                <span
+                  class="token plain"
+                />
+              </div>
+              <div
+                class="token-line css-7zjwmr"
+                style="color: rgb(212, 212, 212);"
+              >
+                <span
+                  class="token plain"
+                >
+                        
+                </span>
+                <span
+                  class="token keyword"
+                  style="color: rgb(86, 156, 214);"
+                >
+                  return
+                </span>
+                <span
+                  class="token plain"
+                >
+                   
+                </span>
+                <span
+                  class="token tag punctuation"
+                  style="color: rgb(106, 153, 85);"
+                >
+                  &lt;
+                </span>
+                <span
+                  class="token tag"
+                  style="color: rgb(86, 156, 214);"
+                >
+                  span
+                </span>
+                <span
+                  class="token tag punctuation"
+                  style="color: rgb(106, 153, 85);"
+                >
+                  &gt;
+                </span>
+                <span
+                  class="token plain-text"
+                >
+                  Answer: 
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color: rgb(106, 153, 85);"
+                >
+                  {
+                </span>
+                <span
+                  class="token plain"
+                >
+                  c
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color: rgb(106, 153, 85);"
+                >
+                  }
+                </span>
+                <span
+                  class="token tag punctuation"
+                  style="color: rgb(106, 153, 85);"
+                >
+                  &lt;/
+                </span>
+                <span
+                  class="token tag"
+                  style="color: rgb(86, 156, 214);"
+                >
+                  span
+                </span>
+                <span
+                  class="token tag punctuation"
+                  style="color: rgb(106, 153, 85);"
+                >
+                  &gt;
+                </span>
+                <span
+                  class="token plain"
+                />
+              </div>
+              <div
+                class="token-line css-7zjwmr"
+                style="color: rgb(212, 212, 212);"
+              >
+                <span
+                  class="token plain"
+                >
+                      
+                </span>
+                <span
+                  class="token punctuation"
+                  style="color: rgb(106, 153, 85);"
+                >
+                  }
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </pre>
-  </code>
-</div>
+      </pre>
+    </code>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`snapshot live 1`] = `
-<div
-  class="yozora-code-live css-1krrxab yozora-code"
->
+<DocumentFragment>
   <div
-    class="css-sgdhwv"
-  >
-    <span
-      class="css-9y6172"
-    >
-      <span
-        class="css-t4q37b"
-        title="close"
-      />
-      <span
-        class="css-p28dfd"
-        title="minimize"
-      />
-      <span
-        class="css-6luv6p"
-        title="maximize"
-      />
-    </span>
-    <span
-      class="css-1p3aks"
-      title=""
-    >
-
-    </span>
-    <span
-      class="css-nsmueo"
-    >
-      <button
-        aria-label="Copy to clipboard"
-        class="css-jbwb7c"
-        data-copy-status="waiting"
-        type="button"
-      >
-        copy
-      </button>
-    </span>
-  </div>
-  <div
-    class="css-fr69ae"
+    class="yozora-code-live css-1krrxab yozora-code"
   >
     <div
-      class="css-1eksy5g"
+      class="css-sgdhwv"
+    >
+      <span
+        class="css-9y6172"
+      >
+        <span
+          class="css-t4q37b"
+          title="close"
+        />
+        <span
+          class="css-p28dfd"
+          title="minimize"
+        />
+        <span
+          class="css-6luv6p"
+          title="maximize"
+        />
+      </span>
+      <span
+        class="css-1p3aks"
+        title=""
+      >
+         
+      </span>
+      <span
+        class="css-nsmueo"
+      >
+        <button
+          aria-label="Copy to clipboard"
+          class="css-jbwb7c"
+          data-copy-status="waiting"
+          type="button"
+        >
+          copy
+        </button>
+      </span>
+    </div>
+    <div
+      class="css-fr69ae"
     >
       <div
-        class="yozora-code-editor css-kt1ey1 yozora-code-editor"
-        padding="10"
-        style="line-height:1.6rem;tab-size:2"
+        class="css-1eksy5g"
       >
         <div
-          class="css-6gcr58"
+          class="yozora-code-editor css-kt1ey1 yozora-code-editor"
+          padding="10"
+          style="line-height: 1.6rem; tab-size: 2;"
         >
           <div
-            class="css-1tu59u4"
-          />
-          <textarea
-            autocapitalize="off"
-            autocomplete="off"
-            autocorrect="off"
-            class="yozora-code-editor__textarea css-1pinvdg"
-            spellcheck="false"
-            style="tab-size:2;white-space:pre;padding:0.5rem 0.6em 0 12px"
+            class="css-6gcr58"
           >
-            () => {
+            <div
+              class="css-1tu59u4"
+              style="width: 2.2em;"
+            />
+            <textarea
+              autocapitalize="off"
+              autocomplete="off"
+              autocorrect="off"
+              class="yozora-code-editor__textarea css-1pinvdg"
+              spellcheck="false"
+              style="tab-size: 2; white-space: pre; padding: 0.5rem 0.6em 0px 12px;"
+            >
+              () =&gt; {
       const a = 1;
       const b = 2;
       const c = a * a + b * b;
       return &lt;span&gt;Answer: {c}&lt;/span&gt;
     }
-          </textarea>
-        </div>
-        <pre
-          aria-hidden="true"
-          class="css-14t25us"
-          style="tab-size:2;white-space:pre"
-        >
-          <div
-            class="yozora-code-highlighter__content css-1k8659m prism-code language-jsx"
-            style="color:#d4d4d4;background-color:none;line-height:1.6rem;max-height:8rem;min-height:100%"
+            </textarea>
+          </div>
+          <pre
+            aria-hidden="true"
+            class="css-14t25us"
+            style="tab-size: 2; white-space: pre;"
           >
             <div
-              class="yozora-code-highlighter__linenos css-hfkijx"
-              style="width:2.2em"
+              class="css-1k8659m prism-code language-jsx"
+              style="color: rgb(212, 212, 212); line-height: 1.6rem; max-height: 8rem; min-height: 100%;"
             >
               <div
-                class="css-17fnzo2"
-              >
-                <span>
-                  1
-                </span>
-              </div>
-              <div
-                class="css-17fnzo2"
-              >
-                <span>
-                  2
-                </span>
-              </div>
-              <div
-                class="css-17fnzo2"
-              >
-                <span>
-                  3
-                </span>
-              </div>
-              <div
-                class="css-17fnzo2"
-              >
-                <span>
-                  4
-                </span>
-              </div>
-              <div
-                class="css-17fnzo2"
-              >
-                <span>
-                  5
-                </span>
-              </div>
-              <div
-                class="css-17fnzo2"
-              >
-                <span>
-                  6
-                </span>
-              </div>
-            </div>
-            <div
-              class="yozora-code-highlighter__codes css-rv5jjl"
-            >
-              <div
-                class="css-1ttfemb"
+                class="css-hfkijx"
+                style="width: 2.2em;"
               >
                 <div
-                  class="token-line css-7zjwmr"
-                  style="color:#d4d4d4"
+                  class="css-17fnzo2"
                 >
-                  <span
-                    class="token keyword"
-                    style="color:rgb(86, 156, 214)"
-                  >
-                    function
-                  </span>
-                  <span
-                    class="token plain"
-                  >
-
-                  </span>
-                  <span
-                    class="token punctuation"
-                    style="color:rgb(106, 153, 85)"
-                  >
-                    (
-                  </span>
-                  <span
-                    class="token punctuation"
-                    style="color:rgb(106, 153, 85)"
-                  >
-                    )
-                  </span>
-                  <span
-                    class="token plain"
-                  >
-
-                  </span>
-                  <span
-                    class="token punctuation"
-                    style="color:rgb(106, 153, 85)"
-                  >
-                    {
-                  </span>
-                  <span
-                    class="token plain"
-                  />
-                </div>
-                <div
-                  class="token-line css-7zjwmr"
-                  style="color:#d4d4d4"
-                >
-                  <span
-                    class="token plain"
-                  >
-
-                  </span>
-                  <span
-                    class="token keyword"
-                    style="color:rgb(86, 156, 214)"
-                  >
-                    const
-                  </span>
-                  <span
-                    class="token plain"
-                  >
-                     a
-                  </span>
-                  <span
-                    class="token operator"
-                    style="color:rgb(212, 212, 212)"
-                  >
-                    =
-                  </span>
-                  <span
-                    class="token plain"
-                  >
-
-                  </span>
-                  <span
-                    class="token number"
-                    style="color:rgb(181, 206, 168)"
-                  >
+                  <span>
                     1
                   </span>
-                  <span
-                    class="token punctuation"
-                    style="color:rgb(106, 153, 85)"
-                  >
-                    ;
-                  </span>
-                  <span
-                    class="token plain"
-                  />
                 </div>
                 <div
-                  class="token-line css-7zjwmr"
-                  style="color:#d4d4d4"
+                  class="css-17fnzo2"
                 >
-                  <span
-                    class="token plain"
-                  >
-
-                  </span>
-                  <span
-                    class="token keyword"
-                    style="color:rgb(86, 156, 214)"
-                  >
-                    const
-                  </span>
-                  <span
-                    class="token plain"
-                  >
-                     b
-                  </span>
-                  <span
-                    class="token operator"
-                    style="color:rgb(212, 212, 212)"
-                  >
-                    =
-                  </span>
-                  <span
-                    class="token plain"
-                  >
-
-                  </span>
-                  <span
-                    class="token number"
-                    style="color:rgb(181, 206, 168)"
-                  >
+                  <span>
                     2
                   </span>
-                  <span
-                    class="token punctuation"
-                    style="color:rgb(106, 153, 85)"
-                  >
-                    ;
-                  </span>
-                  <span
-                    class="token plain"
-                  />
                 </div>
                 <div
-                  class="token-line css-7zjwmr"
-                  style="color:#d4d4d4"
+                  class="css-17fnzo2"
                 >
-                  <span
-                    class="token plain"
-                  >
-
+                  <span>
+                    3
                   </span>
-                  <span
-                    class="token keyword"
-                    style="color:rgb(86, 156, 214)"
-                  >
-                    const
-                  </span>
-                  <span
-                    class="token plain"
-                  >
-                     c
-                  </span>
-                  <span
-                    class="token operator"
-                    style="color:rgb(212, 212, 212)"
-                  >
-                    =
-                  </span>
-                  <span
-                    class="token plain"
-                  >
-                     a
-                  </span>
-                  <span
-                    class="token operator"
-                    style="color:rgb(212, 212, 212)"
-                  >
-                    *
-                  </span>
-                  <span
-                    class="token plain"
-                  >
-                     a
-                  </span>
-                  <span
-                    class="token operator"
-                    style="color:rgb(212, 212, 212)"
-                  >
-                    +
-                  </span>
-                  <span
-                    class="token plain"
-                  >
-                     b
-                  </span>
-                  <span
-                    class="token operator"
-                    style="color:rgb(212, 212, 212)"
-                  >
-                    *
-                  </span>
-                  <span
-                    class="token plain"
-                  >
-                     b
-                  </span>
-                  <span
-                    class="token punctuation"
-                    style="color:rgb(106, 153, 85)"
-                  >
-                    ;
-                  </span>
-                  <span
-                    class="token plain"
-                  />
                 </div>
                 <div
-                  class="token-line css-7zjwmr"
-                  style="color:#d4d4d4"
+                  class="css-17fnzo2"
                 >
-                  <span
-                    class="token plain"
-                  >
-
-                  </span>
-                  <span
-                    class="token keyword control-flow"
-                    style="color:rgb(86, 156, 214)"
-                  >
-                    return
-                  </span>
-                  <span
-                    class="token plain"
-                  >
-
-                  </span>
-                  <span
-                    class="token tag punctuation"
-                    style="color:rgb(106, 153, 85)"
-                  >
-                    &lt;
-                  </span>
-                  <span
-                    class="token tag"
-                    style="color:rgb(86, 156, 214)"
-                  >
-                    span
-                  </span>
-                  <span
-                    class="token tag punctuation"
-                    style="color:rgb(106, 153, 85)"
-                  >
-                    &gt;
-                  </span>
-                  <span
-                    class="token plain-text"
-                  >
-                    Answer:
-                  </span>
-                  <span
-                    class="token punctuation"
-                    style="color:rgb(106, 153, 85)"
-                  >
-                    {
-                  </span>
-                  <span
-                    class="token plain"
-                  >
-                    c
-                  </span>
-                  <span
-                    class="token punctuation"
-                    style="color:rgb(106, 153, 85)"
-                  >
-                    }
-                  </span>
-                  <span
-                    class="token tag punctuation"
-                    style="color:rgb(106, 153, 85)"
-                  >
-                    &lt;/
-                  </span>
-                  <span
-                    class="token tag"
-                    style="color:rgb(86, 156, 214)"
-                  >
-                    span
-                  </span>
-                  <span
-                    class="token tag punctuation"
-                    style="color:rgb(106, 153, 85)"
-                  >
-                    &gt;
-                  </span>
-                  <span
-                    class="token plain"
-                  />
-                </div>
-                <div
-                  class="token-line css-7zjwmr"
-                  style="color:#d4d4d4"
-                >
-                  <span
-                    class="token plain"
-                  >
-
-                  </span>
-                  <span
-                    class="token punctuation"
-                    style="color:rgb(106, 153, 85)"
-                  >
-                    }
+                  <span>
+                    4
                   </span>
                 </div>
               </div>
+              <div
+                class="css-rv5jjl"
+              >
+                <div
+                  class="css-1ttfemb"
+                >
+                  <div
+                    class="token-line css-7zjwmr"
+                    style="color: rgb(212, 212, 212);"
+                  >
+                    <span
+                      class="token punctuation"
+                      style="color: rgb(106, 153, 85);"
+                    >
+                      (
+                    </span>
+                    <span
+                      class="token punctuation"
+                      style="color: rgb(106, 153, 85);"
+                    >
+                      )
+                    </span>
+                    <span
+                      class="token plain"
+                    >
+                       
+                    </span>
+                    <span
+                      class="token operator"
+                      style="color: rgb(212, 212, 212);"
+                    >
+                      =&gt;
+                    </span>
+                    <span
+                      class="token plain"
+                    >
+                       
+                    </span>
+                    <span
+                      class="token punctuation"
+                      style="color: rgb(106, 153, 85);"
+                    >
+                      {
+                    </span>
+                    <span
+                      class="token plain"
+                    />
+                  </div>
+                  <div
+                    class="token-line css-7zjwmr"
+                    style="color: rgb(212, 212, 212);"
+                  >
+                    <span
+                      class="token plain"
+                    >
+                            
+                    </span>
+                    <span
+                      class="token keyword"
+                      style="color: rgb(86, 156, 214);"
+                    >
+                      const
+                    </span>
+                    <span
+                      class="token plain"
+                    >
+                       a 
+                    </span>
+                    <span
+                      class="token operator"
+                      style="color: rgb(212, 212, 212);"
+                    >
+                      =
+                    </span>
+                    <span
+                      class="token plain"
+                    >
+                       
+                    </span>
+                    <span
+                      class="token number"
+                      style="color: rgb(181, 206, 168);"
+                    >
+                      1
+                    </span>
+                    <span
+                      class="token punctuation"
+                      style="color: rgb(106, 153, 85);"
+                    >
+                      ;
+                    </span>
+                    <span
+                      class="token plain"
+                    />
+                  </div>
+                  <div
+                    class="token-line css-7zjwmr"
+                    style="color: rgb(212, 212, 212);"
+                  >
+                    <span
+                      class="token plain"
+                    >
+                            
+                    </span>
+                    <span
+                      class="token keyword"
+                      style="color: rgb(86, 156, 214);"
+                    >
+                      const
+                    </span>
+                    <span
+                      class="token plain"
+                    >
+                       b 
+                    </span>
+                    <span
+                      class="token operator"
+                      style="color: rgb(212, 212, 212);"
+                    >
+                      =
+                    </span>
+                    <span
+                      class="token plain"
+                    >
+                       
+                    </span>
+                    <span
+                      class="token number"
+                      style="color: rgb(181, 206, 168);"
+                    >
+                      2
+                    </span>
+                    <span
+                      class="token punctuation"
+                      style="color: rgb(106, 153, 85);"
+                    >
+                      ;
+                    </span>
+                    <span
+                      class="token plain"
+                    />
+                  </div>
+                  <div
+                    class="token-line css-7zjwmr"
+                    style="color: rgb(212, 212, 212);"
+                  >
+                    <span
+                      class="token plain"
+                    >
+                            
+                    </span>
+                    <span
+                      class="token keyword"
+                      style="color: rgb(86, 156, 214);"
+                    >
+                      const
+                    </span>
+                    <span
+                      class="token plain"
+                    >
+                       c 
+                    </span>
+                    <span
+                      class="token operator"
+                      style="color: rgb(212, 212, 212);"
+                    >
+                      =
+                    </span>
+                    <span
+                      class="token plain"
+                    >
+                       a 
+                    </span>
+                    <span
+                      class="token operator"
+                      style="color: rgb(212, 212, 212);"
+                    >
+                      *
+                    </span>
+                    <span
+                      class="token plain"
+                    >
+                       a 
+                    </span>
+                    <span
+                      class="token operator"
+                      style="color: rgb(212, 212, 212);"
+                    >
+                      +
+                    </span>
+                    <span
+                      class="token plain"
+                    >
+                       b 
+                    </span>
+                    <span
+                      class="token operator"
+                      style="color: rgb(212, 212, 212);"
+                    >
+                      *
+                    </span>
+                    <span
+                      class="token plain"
+                    >
+                       b
+                    </span>
+                    <span
+                      class="token punctuation"
+                      style="color: rgb(106, 153, 85);"
+                    >
+                      ;
+                    </span>
+                    <span
+                      class="token plain"
+                    />
+                  </div>
+                  <div
+                    class="token-line css-7zjwmr"
+                    style="color: rgb(212, 212, 212);"
+                  >
+                    <span
+                      class="token plain"
+                    >
+                            
+                    </span>
+                    <span
+                      class="token keyword"
+                      style="color: rgb(86, 156, 214);"
+                    >
+                      return
+                    </span>
+                    <span
+                      class="token plain"
+                    >
+                       
+                    </span>
+                    <span
+                      class="token tag punctuation"
+                      style="color: rgb(106, 153, 85);"
+                    >
+                      &lt;
+                    </span>
+                    <span
+                      class="token tag"
+                      style="color: rgb(86, 156, 214);"
+                    >
+                      span
+                    </span>
+                    <span
+                      class="token tag punctuation"
+                      style="color: rgb(106, 153, 85);"
+                    >
+                      &gt;
+                    </span>
+                    <span
+                      class="token plain-text"
+                    >
+                      Answer: 
+                    </span>
+                    <span
+                      class="token punctuation"
+                      style="color: rgb(106, 153, 85);"
+                    >
+                      {
+                    </span>
+                    <span
+                      class="token plain"
+                    >
+                      c
+                    </span>
+                    <span
+                      class="token punctuation"
+                      style="color: rgb(106, 153, 85);"
+                    >
+                      }
+                    </span>
+                    <span
+                      class="token tag punctuation"
+                      style="color: rgb(106, 153, 85);"
+                    >
+                      &lt;/
+                    </span>
+                    <span
+                      class="token tag"
+                      style="color: rgb(86, 156, 214);"
+                    >
+                      span
+                    </span>
+                    <span
+                      class="token tag punctuation"
+                      style="color: rgb(106, 153, 85);"
+                    >
+                      &gt;
+                    </span>
+                    <span
+                      class="token plain"
+                    />
+                  </div>
+                  <div
+                    class="token-line css-7zjwmr"
+                    style="color: rgb(212, 212, 212);"
+                  >
+                    <span
+                      class="token plain"
+                    >
+                          
+                    </span>
+                    <span
+                      class="token punctuation"
+                      style="color: rgb(106, 153, 85);"
+                    >
+                      }
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </pre>
+          </pre>
+        </div>
+      </div>
+      <div
+        class="css-1wemi5a"
+      >
+        <div
+          class="yozora-code-embed css-1lkb549"
+        >
+          <span>
+            Answer: 5
+          </span>
+        </div>
       </div>
     </div>
-    <div
-      class="css-1wemi5a"
-    >
-      <div
-        class="yozora-code-embed css-1lkb549"
-      />
-    </div>
   </div>
-</div>
+</DocumentFragment>
 `;

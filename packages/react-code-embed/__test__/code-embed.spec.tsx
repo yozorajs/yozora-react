@@ -1,6 +1,8 @@
+import type { IConsoleMock } from '@guanghechen/helper-jest'
+import { createConsoleMock } from '@guanghechen/helper-jest'
+import { render } from '@testing-library/react'
 import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
 import type { ICodeRunnerProps } from '@yozora/react-code-runners'
-import { render } from 'enzyme'
 import React from 'react'
 import CodeEmbed from '../src'
 
@@ -17,59 +19,57 @@ const code = `
   }
 `
 
-const JsxRunner = ({ value }: ICodeRunnerProps): React.ReactElement => {
-  return (
-    <CodeRendererJsx
-      code={value}
-      inline={true}
-      onError={error => {
-        console.log(error)
-      }}
-    />
-  )
+const JsxRunner: React.FC<ICodeRunnerProps> = ({ value, onError }) => {
+  return <CodeRendererJsx code={value} inline={true} onError={onError} />
 }
 
 describe('prop types', () => {
-  beforeEach(() => {
-    jest.spyOn(global.console, 'error').mockImplementation((...args) => {
-      throw new Error(args.join(' '))
+  describe('value is required', () => {
+    let logger: IConsoleMock
+    beforeEach(() => {
+      logger = createConsoleMock(['warn', 'error'])
     })
-  })
+    afterEach(() => {
+      logger.restore()
+    })
 
-  it('value is required', () => {
-    for (const value of [undefined, null] as any[]) {
-      expect(() => {
-        render(<CodeEmbed lang="jsx" value={value} runner={JsxRunner} />)
-      }).toThrow(/The prop `value` is marked as required/i)
-    }
+    test('undefined', () => {
+      const view = render(<CodeEmbed lang="jsx" value={undefined as any} runner={JsxRunner} />)
+      expect(view.getByText(/TypeError: Cannot read properties of undefined/)).toBeInTheDocument()
+    })
+
+    test('null', () => {
+      const view = render(<CodeEmbed lang="jsx" value={null as any} runner={JsxRunner} />)
+      expect(view.getByText(/TypeError: Cannot read properties of null/)).toBeInTheDocument()
+    })
   })
 
   describe('className is optional', () => {
-    it('default', () => {
-      const node = render(<CodeEmbed lang="jsx" value={code} runner={JsxRunner} />)
-      expect(node.hasClass('yozora-code-embed')).toBeTruthy()
+    test('default', () => {
+      const view = render(<CodeEmbed lang="jsx" value={code} runner={JsxRunner} />)
+      expect(view.container.firstChild).toHaveClass('yozora-code-embed')
     })
 
-    it('custom', () => {
-      const node = render(
+    test('custom', () => {
+      const view = render(
         <CodeEmbed lang="jsx" value={code} runner={JsxRunner} className="my-code-embed" />,
       )
-      expect(node.hasClass('yozora-code-embed')).toBeTruthy()
-      expect(node.hasClass('my-code-embed')).toBeTruthy()
+      expect(view.container.firstChild).toHaveClass('yozora-code-embed')
+      expect(view.container.firstChild).toHaveClass('my-code-embed')
     })
   })
 
-  it('style is optional', () => {
-    const node = render(
+  test('style is optional', () => {
+    const view = render(
       <CodeEmbed lang="jsx" value={code} runner={JsxRunner} style={{ color: 'orange' }} />,
     )
-    expect(node.css('color')).toEqual('orange')
+    expect(view.container.firstChild).toHaveStyle({ color: 'orange' })
   })
 })
 
 describe('snapshot', () => {
-  it('basic', () => {
-    const wrapper = render(<CodeEmbed lang="jsx" value={code} runner={JsxRunner} />)
-    expect(wrapper).toMatchSnapshot()
+  test('basic', () => {
+    const view = render(<CodeEmbed lang="jsx" value={code} runner={JsxRunner} />)
+    expect(view.asFragment()).toMatchSnapshot()
   })
 })

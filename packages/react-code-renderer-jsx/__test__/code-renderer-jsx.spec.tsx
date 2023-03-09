@@ -85,7 +85,7 @@ describe('basic', () => {
 
       const textElement = view.getByText('Hello, world')
       expect(textElement).toBeInTheDocument()
-      expect(window.getComputedStyle(textElement).color).toBe('orange')
+      expect(textElement).toHaveStyle({ color: 'orange' })
     })
 
     test('`render` must be called with valid JSX.', () => {

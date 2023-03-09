@@ -1,8 +1,8 @@
+import { jest } from '@jest/globals'
+import { fireEvent, render, waitFor } from '@testing-library/react'
 import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
 import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/react-code-runners'
-import { mount } from 'enzyme'
 import React from 'react'
-import { act } from 'react-dom/test-utils'
 import CodeLive from '../src'
 
 const code = `
@@ -11,23 +11,15 @@ const code = `
     return (
       <div>
         <button onClick={() => setCount(c => c + 1)}>+</button>
-        <span data-type="value">{count}</span>
+        <span data-testid="value">{count}</span>
         <button onClick={() => setCount(c => c - 1)}>-</button>
       </div>
     )
   }
 `
 
-const JsxRunner = ({ value }: ICodeRunnerProps): React.ReactElement => {
-  return (
-    <CodeRendererJsx
-      code={value}
-      inline={true}
-      onError={error => {
-        if (error != null) console.log(error)
-      }}
-    />
-  )
+const JsxRunner: React.FC<ICodeRunnerProps> = ({ value, onError }) => {
+  return <CodeRendererJsx code={value} inline={true} onError={onError} />
 }
 
 const runners: ICodeRunnerItem[] = [
@@ -38,42 +30,45 @@ const runners: ICodeRunnerItem[] = [
   },
 ]
 
+// Fake timers using Jest
+beforeEach(() => {
+  jest.useFakeTimers()
+})
+
+// Running all pending timers and switching to real timers using Jest
+afterEach(() => {
+  jest.runOnlyPendingTimers()
+  jest.useRealTimers()
+})
+
 describe('prop types', () => {
-  beforeEach(() => {
-    jest.spyOn(global.console, 'error').mockImplementation((...args) => {
-      throw new Error(args.join(' '))
+  test('change and debounce', async () => {
+    const code1 = 'function Demo() { return <span data-testid="value">3</span> }'
+    const code2 = 'function Demo() { return <span data-testid="value">4</span> }'
+
+    const view = render(<CodeLive lang="jsx" value={code1} runners={runners} />)
+    await waitFor(() => {
+      const textarea = view.getByRole('textbox')
+      expect(textarea.textContent).toEqual(code1)
+      expect(view.getByTestId('value').textContent).toEqual('3')
     })
-  })
-
-  it('change and debounce', async () => {
-    const code1 = 'function Demo() { return <span data-type="value">3</span> }'
-    const code2 = 'function Demo() { return <span data-type="value">4</span> }'
-
-    const wrapper = mount(<CodeLive lang="jsx" value={code1} runners={runners} />)
-
-    expect(wrapper.find('textarea').text()).toEqual(code1)
-    expect(wrapper.find('[data-type="value"]').text()).toEqual('3')
 
     // change code
-    wrapper.find('textarea').simulate('change', { target: { value: code2 } })
-    expect(wrapper.find('textarea').text()).toEqual(code2)
-    expect(wrapper.find('[data-type="value"]').text()).toEqual('3')
+    fireEvent.change(view.getByRole('textbox'), { target: { value: code2 } })
 
-    // await debounce
-    await act(async () => {
-      await new Promise(resolve => setTimeout(resolve, 1000))
+    // Fast-forward time (await debounce)
+    await waitFor(() => {
+      expect(view.getByRole('textbox').textContent).toEqual(code2)
+      expect(view.getByTestId('value').textContent).toEqual('4')
     })
-    expect(wrapper.find('textarea').text()).toEqual(code2)
-
-    // TODO: The following asset should be truth.
-    // expect(wrapper.find('[data-type="value"]').text()).toEqual('4')
   })
+})
 
-  it('snapshot', () => {
-    const wrapper = mount(<CodeLive lang="jsx" value={code} runners={runners} />)
-
-    expect(wrapper.find('textarea').text()).toEqual(code)
-    expect(wrapper.find('[data-type="value"]').text()).toEqual('0')
-    expect(wrapper).toMatchSnapshot()
+describe('snapshot', () => {
+  test('basic', () => {
+    const view = render(<CodeLive lang="jsx" value={code} runners={runners} />)
+    expect(view.getByRole('textbox').textContent).toEqual(code)
+    expect(view.getByTestId('value').textContent).toEqual('0')
+    expect(view.asFragment()).toMatchSnapshot()
   })
 })

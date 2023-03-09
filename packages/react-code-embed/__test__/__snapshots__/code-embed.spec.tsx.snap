@@ -1,7 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot basic 1`] = `
-<div
-  class="yozora-code-embed css-1lkb549"
-/>
+<DocumentFragment>
+  <div
+    class="yozora-code-embed css-1lkb549"
+  >
+    <div>
+      <button>
+        +
+      </button>
+      <span>
+        0
+      </span>
+      <button>
+        -
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
 `;

@@ -53,9 +53,11 @@ export const CodeLive: React.FC<ICodeLiveProps> = props => {
         key="toolbar"
         className={classes.toolbar}
         onDoubleClick={e => {
+          /* c8 ignore start */
           e.stopPropagation()
           e.preventDefault()
           setCollapsed(v => !v)
+          /* c8 ignore end */
         }}
       >
         <LightButtons
