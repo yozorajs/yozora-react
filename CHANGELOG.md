@@ -1,5 +1,19 @@
 # Changelog
 
+<a name="2.3.1"></a>
+## 2.3.1 (2023-03-11)
+
+### Changed
+
+- 🔧 chore: update package entries [[5525c5f](https://github.com/yozorajs/yozora-react/commit/5525c5fa133bf70f5d83a6545ad2199aa4b1712c)]
+
+### Miscellaneous
+
+- ⚰️ chore: remove stylus configs [[0c289bf](https://github.com/yozorajs/yozora-react/commit/0c289bf4690b82f1a4014f851f01d1efb3de3563)]
+- 📄 docs: update LICENSE [[f56b05b](https://github.com/yozorajs/yozora-react/commit/f56b05b3fbc635ab3dd4fa15955edc9804645d2b)]
+- ⬆ chore: upgrade dependencies [[79a2754](https://github.com/yozorajs/yozora-react/commit/79a275482533ee0677e4499c79b3f9d7421eff43)]
+
+
 <a name="2.3.0"></a>
 ## 2.3.0 (2023-03-09)
 
