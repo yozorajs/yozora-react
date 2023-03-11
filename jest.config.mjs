@@ -12,10 +12,6 @@ export default async function () {
   const config = {
     ...baseConfig,
     testEnvironment: 'jsdom',
-    moduleNameMapper: {
-      ...baseConfig.moduleNameMapper,
-      '\\.styl$': path.join(__dirname, 'jest.identity-obj-proxy.js'),
-    },
     setupFilesAfterEnv: ['<rootDir>/../../jest.setup.ts'],
     collectCoverageFrom: [
       '<rootDir>/index.js',

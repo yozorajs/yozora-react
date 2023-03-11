@@ -36,10 +36,6 @@ export default async function rollupConfig() {
     { assert: { type: 'json' } },
   )
 
-  const stylusOptions = {
-    imports: [path.join(paths._shared, 'src/stylus/index.styl')],
-    paths: [resolvePath('node_modules')],
-  }
   const configs = await createRollupConfigs({
     manifest,
     pluginOptions: {
@@ -54,7 +50,6 @@ export default async function rollupConfig() {
         minimize: false,
         sourceMap: false,
         use: {
-          stylus: { ...stylusOptions },
         },
         modules: {
           localsConvention: 'camelCase',
@@ -73,30 +68,29 @@ export default async function rollupConfig() {
     },
     preprocessOptions: fs.existsSync(paths.styleFile)
       ? {
-          input: paths.styleFile,
-          pluginOptions: {
-            multiEntryOptions: {
-              exports: false,
+        input: paths.styleFile,
+        pluginOptions: {
+          multiEntryOptions: {
+            exports: false,
+          },
+          postcssOptions: {
+            use: {
             },
-            postcssOptions: {
-              use: {
-                stylus: { ...stylusOptions },
-              },
-              modules: {
-                localsConvention: 'camelCase',
-                generateScopedName: '[local]',
-              },
-              postcssUrlOptions: {
-                url: 'inline',
-                maxSize: 0.5, // 0.5 KB
-                assetsPath: paths.assetPath,
-                fallback: 'copy',
-                basePath: paths.basePath,
-                useHash: false,
-              },
+            modules: {
+              localsConvention: 'camelCase',
+              generateScopedName: '[local]',
+            },
+            postcssUrlOptions: {
+              url: 'inline',
+              maxSize: 0.5, // 0.5 KB
+              assetsPath: paths.assetPath,
+              fallback: 'copy',
+              basePath: paths.basePath,
+              useHash: false,
             },
           },
-        }
+        },
+      }
       : undefined,
   })
 
@@ -109,9 +103,9 @@ export default async function rollupConfig() {
       external:
         external instanceof Function
           ? id => {
-              if (yozoraCssRegex.test(id)) return false
-              return external(id)
-            }
+            if (yozoraCssRegex.test(id)) return false
+            return external(id)
+          }
           : external,
       plugins: [
         alias({
