@@ -2,7 +2,7 @@
  * @see https://github.com/PrismJS/prism/blob/master/components/prism-markup.js
  */
 
-import type { Environment, Grammar, TokenObject } from 'prismjs'
+import type { Environment, TokenObject } from 'prismjs'
 import Prism from 'prismjs'
 
 Prism.languages.markup = {
@@ -84,9 +84,9 @@ Prism.languages.markup = {
     /&#x?[\da-f]{1,8};/i,
   ],
 }
-;(Prism.languages.markup['tag'] as TokenObject).inside!['attr-value'].inside['entity'] =
+;(Prism.languages.markup['tag'] as any).inside!['attr-value'].inside['entity'] =
   Prism.languages.markup['entity']
-;(Prism.languages.markup['doctype'] as TokenObject).inside!['internal-subset'].inside =
+;(Prism.languages.markup['doctype'] as any).inside!['internal-subset'].inside =
   Prism.languages.markup
 
 // Plugin to make entity title show the real entity, idea by Roman Komarov
@@ -110,7 +110,7 @@ Object.defineProperty(Prism.languages.markup.tag, 'addInlined', {
    * addInlined('style', 'css');
    */
   value: function addInlined(tagName: string, lang: string): void {
-    const includedCdataInside = {}
+    const includedCdataInside: Record<string, any> = {}
     includedCdataInside['language-' + lang] = {
       pattern: /(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,
       lookbehind: true,
@@ -118,7 +118,7 @@ Object.defineProperty(Prism.languages.markup.tag, 'addInlined', {
     }
     includedCdataInside['cdata'] = /^<!\[CDATA\[|\]\]>$/i
 
-    const inside = {
+    const inside: Record<string, any> = {
       'included-cdata': {
         pattern: /<!\[CDATA\[[\s\S]*?\]\]>/i,
         inside: includedCdataInside,
@@ -129,7 +129,7 @@ Object.defineProperty(Prism.languages.markup.tag, 'addInlined', {
       inside: Prism.languages[lang],
     }
 
-    const def = {}
+    const def: Record<string, any> = {}
     def[tagName] = {
       pattern: RegExp(
         /(<__[^>]*>)(?:<!\[CDATA\[(?:[^\]]|\](?!\]>))*\]\]>|(?!<!\[CDATA\[)[\s\S])*?(?=<\/__>)/.source.replace(
@@ -161,7 +161,7 @@ Object.defineProperty(Prism.languages.markup.tag, 'addAttribute', {
    * addAttribute('style', 'css');
    */
   value: function (attrName: string, lang: string): void {
-    ;(Prism.languages.markup as Grammar & { tag: TokenObject }).tag.inside!['special-attr'].push({
+    ;(Prism.languages.markup as any).tag.inside!['special-attr'].push({
       pattern: RegExp(
         /(^|["'\s])/.source +
           '(?:' +

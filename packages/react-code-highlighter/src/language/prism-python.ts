@@ -2,7 +2,7 @@
  * @see https://github.com/PrismJS/prism/blob/master/components/prism-python.js
  */
 
-import type { GrammarValue, TokenObject } from 'prismjs'
+import type { GrammarValue } from 'prismjs'
 import Prism from 'prismjs'
 
 Prism.languages.python = {
@@ -70,8 +70,7 @@ Prism.languages.python = {
   operator: /[-+%=]=?|!=|:=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]/,
   punctuation: /[{}[\];(),.:]/,
 }
-;(Prism.languages.python['string-interpolation'] as TokenObject).inside![
-  'interpolation'
-].inside.rest = Prism.languages.python
+;(Prism.languages.python['string-interpolation'] as any).inside['interpolation'].inside.rest =
+  Prism.languages.python
 
 Prism.languages.py = Prism.languages.python

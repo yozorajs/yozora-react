@@ -27,7 +27,7 @@ Prism.languages.typescript = Prism.languages.extend('javascript', {
 
 // doesn't work with TS because TS is too complex
 delete (Prism.languages.typescript as any).parameter
-delete Prism.languages.typescript['literal-property']
+delete (Prism.languages.typescript as any)['literal-property']
 
 // a version of typescript specifically for highlighting types
 const typeInside = Prism.languages.extend('typescript', {})

@@ -2,6 +2,10 @@
 !**/*.ts
 !**/*.tsx
 !**/*.js
+!**/*.cjs
+!**/*.cts
+!**/*.mjs
+!**/*.mts
 !**/*.jsx
 !**/*.json
 !.eslintignore

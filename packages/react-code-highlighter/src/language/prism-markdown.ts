@@ -2,7 +2,7 @@
  * @see https://github.com/PrismJS/prism/blob/master/components/prism-markdown.js
  */
 
-import type { Grammar, Token } from 'prismjs'
+import type { Grammar, Token, TokenStream } from 'prismjs'
 import Prism from 'prismjs'
 
 // Allow only one line break
@@ -266,8 +266,8 @@ Prism.languages.insertBefore('markdown', 'prolog', {
 ;['url', 'bold', 'italic', 'strike'].forEach(function (token) {
   ;['url', 'bold', 'italic', 'strike', 'code-snippet'].forEach(function (inside) {
     if (token !== inside) {
-      Prism.languages.markdown[token].inside.content.inside[inside] =
-        Prism.languages.markdown[inside]
+      const markdown = Prism.languages.markdown as any
+      markdown[token].inside.content.inside[inside] = markdown[inside]
     }
   })
 })
@@ -277,13 +277,13 @@ Prism.hooks.add('after-tokenize', function (env) {
     return
   }
 
-  function walkTokens(tokens: Token[] | Token | string): void {
+  function walkTokens(tokens: TokenStream): void {
     if (!tokens || typeof tokens === 'string') {
       return
     }
 
     for (let i = 0, l = tokens.length; i < l; i++) {
-      const token = tokens[i]
+      const token: Token = (tokens as Token[])[i]
 
       if (token.type !== 'code') {
         walkTokens(token.content)
@@ -304,8 +304,8 @@ Prism.hooks.add('after-tokenize', function (env) {
        * ];
        */
 
-      const codeLang = token.content[1]
-      const codeBlock = token.content[3]
+      const codeLang = (token.content as Token[])[1]
+      const codeBlock = (token.content as Token[])[3]
 
       if (
         codeLang &&
@@ -420,7 +420,7 @@ function textContent(html: string): string {
 
       return fromCodePoint(value)
     } else {
-      const known = KNOWN_ENTITY_NAMES[code]
+      const known = KNOWN_ENTITY_NAMES[code as keyof typeof KNOWN_ENTITY_NAMES]
       if (known) {
         return known
       }

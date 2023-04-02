@@ -235,7 +235,7 @@ const toBeCopied = [
   'punctuation',
   'number',
 ]
-const inside = insideString.variable[1].inside
+const inside = (insideString as any).variable[1].inside
 for (let i = 0; i < toBeCopied.length; i++) {
   inside[toBeCopied[i]] = Prism.languages.bash[toBeCopied[i]]
 }

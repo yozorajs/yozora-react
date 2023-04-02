@@ -33,7 +33,7 @@ const PREFIXES = {
 
 // add a token for each prefix
 Object.keys(PREFIXES).forEach(function (name) {
-  const prefix = PREFIXES[name]
+  const prefix = PREFIXES[name as keyof typeof PREFIXES]
 
   const alias = []
   if (!/^\w+$/.test(name)) {
@@ -44,7 +44,7 @@ Object.keys(PREFIXES).forEach(function (name) {
     alias.push('bold')
   }
 
-  Prism.languages.diff[name] = {
+  ;(Prism.languages as any).diff[name] = {
     pattern: RegExp('^(?:[' + prefix + '].*(?:\r\n?|\n|(?![\\s\\S])))+', 'm'),
     alias: alias,
     inside: {

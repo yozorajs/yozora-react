@@ -53,7 +53,7 @@ Prism.languages.insertBefore('c', 'string', {
         },
         Prism.languages.c['string'],
       ],
-      char: Prism.languages.c['char'],
+      char: Prism.languages.c['char' as keyof Grammar],
       comment: Prism.languages.c['comment'],
       'macro-name': [
         {

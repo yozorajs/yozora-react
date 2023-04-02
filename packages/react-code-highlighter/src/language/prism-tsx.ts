@@ -11,7 +11,7 @@ Prism.languages.tsx = Prism.languages.extend('jsx', typescript)
 
 // doesn't work with TS because TS is too complex
 delete (Prism.languages.tsx as any).parameter
-delete Prism.languages.tsx['literal-property']
+delete (Prism.languages.tsx as any)['literal-property']
 
 // This will prevent collisions between TSX tags and TS generic types.
 // Idea by https://github.com/karlhorky

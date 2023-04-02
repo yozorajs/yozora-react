@@ -88,26 +88,26 @@ const walkTokens = function (tokens: Array<Token | string>): void {
     let notTagNorBrace = false
 
     if (typeof token !== 'string') {
-      if (token.type === 'tag' && token.content[0] && token.content[0].type === 'tag') {
+      const tokenContent = token.content as any
+      if (token.type === 'tag' && tokenContent[0] && tokenContent[0].type === 'tag') {
         // We found a tag, now find its kind
 
-        if (token.content[0].content[0].content === '</') {
+        if (tokenContent[0].content[0].content === '</') {
           // Closing tag
           if (
             openedTags.length > 0 &&
-            openedTags[openedTags.length - 1].tagName ===
-              stringifyToken(token.content[0].content[1])
+            openedTags[openedTags.length - 1].tagName === stringifyToken(tokenContent[0].content[1])
           ) {
             // Pop matching opening tag
             openedTags.pop()
           }
         } else {
-          if (token.content[token.content.length - 1].content === '/>') {
+          if (tokenContent[tokenContent.length - 1].content === '/>') {
             // Autoclosed tag, ignore
           } else {
             // Opening tag
             openedTags.push({
-              tagName: stringifyToken(token.content[0].content[1]),
+              tagName: stringifyToken(tokenContent[0].content[1]),
               openedBraces: 0,
             })
           }

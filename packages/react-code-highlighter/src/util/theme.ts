@@ -8,7 +8,7 @@ const languageMap = {
 
 export const themeToDict = (language: string, theme: IPrismTheme): IThemeDict => {
   // eslint-disable-next-line no-param-reassign
-  language = languageMap[language] ?? language
+  language = languageMap[language as keyof typeof languageMap] ?? language
 
   const { plain } = theme
   const base: IThemeDict = Object.create(null)

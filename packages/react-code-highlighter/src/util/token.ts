@@ -1,7 +1,7 @@
 /**
  * See https://github.com/FormidableLabs/prism-react-renderer/blob/d307f34360ecc4f0b4aadde4f72d09fd6dbf0132/src/utils/normalizeTokens.js
  */
-import type { TokenStream } from 'prismjs'
+import type { Token, TokenStream } from 'prismjs'
 import type { IToken } from '../types/prism'
 
 const newlineRegex = /\r\n|\r|\n/
@@ -53,7 +53,7 @@ export const normalizeTokens = (tokens: TokenStream): IToken[][] => {
       let types = typeArrStack[stackIndex]
 
       const tokenArr = tokenArrStack[stackIndex]
-      const token = tokenArr[i]
+      const token = (tokenArr as Array<string | Token>)[i]
 
       // Determine content and append type to types if necessary
       if (typeof token === 'string') {

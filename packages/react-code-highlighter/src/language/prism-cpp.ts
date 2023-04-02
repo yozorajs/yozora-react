@@ -118,5 +118,5 @@ Prism.languages.insertBefore(
     // All untokenized words that are not namespaces should be class names
     'class-name': /\b[a-z_]\w*\b(?!\s*::)/i,
   },
-  Prism.languages.cpp['base-clause'],
+  (Prism.languages as any).cpp['base-clause'],
 )
