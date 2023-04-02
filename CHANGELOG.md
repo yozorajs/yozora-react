@@ -1,5 +1,15 @@
 # Changelog
 
+<a name="2.3.2"></a>
+## 2.3.2 (2023-04-02)
+
+### Changed
+
+- 🔧 chore: don&#x27;t pack src/ folder into tarball [[1c036ad](https://github.com/yozorajs/yozora-react/commit/1c036ad9e5b09975fdb9a787f4b83e06be2866f4)]
+- ⬆️ chore: upgrade devDependencies [[6d71e4d](https://github.com/yozorajs/yozora-react/commit/6d71e4d2b326de0e0c4f517273d487022e407e3d)]
+- 🔧 chore: upgrade devDependencies &amp; use @guanghechen/rollup-config instead @guanghechen/rollup-config-tsx [[7442bf0](https://github.com/yozorajs/yozora-react/commit/7442bf0351a652998474f3b6e40541350729eb68)]
+
+
 <a name="2.3.1"></a>
 ## 2.3.1 (2023-03-11)
 
