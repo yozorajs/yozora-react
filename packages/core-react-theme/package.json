@@ -29,7 +29,7 @@
   },
   "files": [
     "lib/",
-    "lib/**/*.map",
+    "!lib/**/*.map",
     "package.json",
     "CHANGELOG.md",
     "LICENSE",
