@@ -9,12 +9,6 @@
         src="https://img.shields.io/github/license/guanghechen/yozora-react"
       />
     </a>
-    <a href="https://github.com/yozorajs/yozora-react/tags">
-      <img
-        alt="Package Version"
-        src="https://img.shields.io/github/v/tag/guanghechen/yozora-react?include_prereleases&sort=semver"
-      />
-    </a>
     <a href="https://github.com/yozorajs/yozora-react/search?l=typescript">
       <img
         alt="Github Top Language"
