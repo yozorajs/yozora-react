@@ -42,8 +42,8 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@guanghechen/react-hooks": "^2.2.6",
-    "@yozora/ast": "^2.1.4",
+    "@guanghechen/react-hooks": "^2.3.0",
+    "@yozora/ast": "^2.1.5",
     "@yozora/core-react-renderer": "^2.3.2",
     "@yozora/core-react-theme": "^2.3.2",
     "@yozora/react-admonition": "^2.3.2",
