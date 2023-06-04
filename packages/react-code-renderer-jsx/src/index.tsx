@@ -1,3 +1,4 @@
+export * from './element'
 export * from './error-boundary'
 export * from './eval'
 export * from './render'

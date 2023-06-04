@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { renderElement, renderElementAsync } from './eval'
+import { generateElement, renderElementAsync } from './element'
 
 export interface ICodeRendererJsxProps {
   /**
@@ -19,13 +19,18 @@ export interface ICodeRendererJsxProps {
    */
   scope?: Readonly<Record<string, unknown>>
   /**
+   * Whether if to enable typescript.
+   * @default true
+   */
+  enabledTypeScript?: boolean
+  /**
    * Error callback
    */
   onError(error: string | null): void
 }
 
 export const CodeRendererJsx: React.FC<ICodeRendererJsxProps> = props => {
-  const { code, inline, scope, onError } = props
+  const { code, inline, scope, enabledTypeScript = true, onError } = props
   const [Element, setElement] = React.useState<React.ElementType | null>(null)
 
   const transpile = React.useCallback(
@@ -43,24 +48,33 @@ export const CodeRendererJsx: React.FC<ICodeRendererJsxProps> = props => {
 
       try {
         if (inline) {
-          const element = renderElement(code, scope!, handleError)
+          const element = generateElement({
+            code,
+            scope: scope!,
+            enabledTypeScript,
+            onError: handleError,
+          })
           handleSuccess(element)
         } else {
           // Reset output for async (no inline) evaluation
           setElement(null)
-          renderElementAsync(code, scope!, handleError, handleSuccess)
+          renderElementAsync({
+            code,
+            scope: scope!,
+            enabledTypeScript,
+            onError: handleError,
+            onSuccess: handleSuccess,
+          })
         }
       } catch (error: any) {
         handleError(error)
       }
     },
-    [inline, scope, onError],
+    [inline, scope, enabledTypeScript, onError],
   )
 
   React.useEffect((): void => transpile(code), [code, transpile])
-
-  if (Element == null) return null
-  return <Element />
+  return Element ? <Element /> : null
 }
 
 CodeRendererJsx.defaultProps = {

@@ -1,20 +1,26 @@
-import { transform as _transform } from 'buble'
+import type { Options } from 'sucrase'
+import { transform as _transform } from 'sucrase'
 
-export const _polyKey = 'poly'
-export const _poly = { assign: Object.assign }
-
-const opts = {
-  objectAssign: `${_polyKey}.assign`,
-  transforms: {
-    dangerousForOf: true,
-    dangerousTaggedTemplateString: true,
-  },
+const defaultOpts: Options = {
+  jsxRuntime: 'classic',
+  transforms: ['jsx', 'imports'],
 }
+
+export type ICodeTransformer = (code: string) => string
 
 /**
  * Transpile jsx.
  * @see https://github.com/FormidableLabs/react-live/blob/2d8246b920813e4725a6037c94d9a4d00dd8cd2a/src/utils/transpile/transform.js
  */
-export function transform(code: string): string {
-  return _transform(code, opts).code
-}
+export const createCodeTransformer =
+  (opts: Options = defaultOpts): ICodeTransformer =>
+  (code: string): string =>
+    _transform(code, opts).code
+
+export const transformImports: ICodeTransformer = createCodeTransformer({ transforms: ['imports'] })
+export const transformJsx: ICodeTransformer = createCodeTransformer({
+  transforms: ['jsx', 'imports'],
+})
+export const transformTsx: ICodeTransformer = createCodeTransformer({
+  transforms: ['jsx', 'typescript', 'imports'],
+})
