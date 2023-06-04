@@ -48,7 +48,7 @@ const previewerCls: string = css({
   padding: 0,
   margin: 0,
   color: '#000',
-  background: '#fff',
+  background: vars.background,
 })
 
 export const classes = {
@@ -67,6 +67,13 @@ export const classes = {
     },
     '& ::selection': {
       background: vars.selectionBackground,
+    },
+    '&& ::-webkit-scrollbar': {
+      height: 4,
+      width: 4,
+    },
+    '&& ::-webkit-scrollbar-track': {
+      background: 'transparent',
     },
   }),
   toolbar: css({

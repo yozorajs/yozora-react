@@ -436,7 +436,7 @@ exports[`snapshot literal 1`] = `
 exports[`snapshot live 1`] = `
 <DocumentFragment>
   <div
-    class="yozora-code-live css-1krrxab yozora-code"
+    class="yozora-code-live css-1jh9kfk yozora-code"
   >
     <div
       class="css-sgdhwv"
@@ -477,7 +477,7 @@ exports[`snapshot live 1`] = `
       </span>
     </div>
     <div
-      class="css-fr69ae"
+      class="css-17fon8l"
     >
       <div
         class="css-1eksy5g"
@@ -873,7 +873,7 @@ exports[`snapshot live 1`] = `
         </div>
       </div>
       <div
-        class="css-1wemi5a"
+        class="css-ov3fus"
       >
         <div
           class="yozora-code-embed css-1lkb549"

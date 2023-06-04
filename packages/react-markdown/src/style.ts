@@ -26,7 +26,7 @@ export const useStyles = (): string => {
               display: 'none',
               visibility: 'hidden',
             },
-            '.yozora-code-editor__textarea': {
+            '.yozora-code-editor.yozora-code-editor textarea': {
               fontSize: '0.9rem',
             },
             '.yozora-list-item': {
@@ -58,7 +58,7 @@ export const useStyles = (): string => {
               display: 'none',
               visibility: 'hidden',
             },
-            '.yozora-code-editor__textarea': {
+            '.yozora-code-editor.yozora-code-editor textarea': {
               fontSize: '0.9rem',
             },
           },

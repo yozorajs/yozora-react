@@ -2,7 +2,7 @@ import type { Options } from 'sucrase'
 import { transform as _transform } from 'sucrase'
 
 const defaultOpts: Options = {
-  jsxRuntime: 'classic',
+  jsxRuntime: 'automatic',
   transforms: ['jsx', 'imports'],
 }
 
