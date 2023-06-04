@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.4](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code@2.3.3...@yozora/react-code@2.3.4) (2023-06-04)
+
+
+### Performance Improvements
+
+* 🎨 prefer lowercase metadata for code ([03f5f46](https://github.com/yozorajs/yozora-react/commit/03f5f4609c9b42d7345be58d1da56c284869f3ba))
+* 🎨 tweak styles ([927c50a](https://github.com/yozorajs/yozora-react/commit/927c50af55232a76c6f634733de514434f1b90d3))
+
+
+
+
+
 ## 2.3.3 (2023-05-13)
 
 
