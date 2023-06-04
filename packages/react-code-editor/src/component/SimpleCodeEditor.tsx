@@ -101,11 +101,7 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
             ref={this.inputRef}
             id={textareaId}
             style={textareaStyle}
-            className={cx(
-              'yozora-code-editor__textarea',
-              classes.textareaContents,
-              textareaClassName,
-            )}
+            className={cx(classes.textareaContents, textareaClassName)}
             value={value}
             onChange={this._handleChange}
             onKeyDown={this._handleKeyDown}

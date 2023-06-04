@@ -22,7 +22,7 @@ export interface ICodeLiveProps {
    * @see https://github.github.com/gfm/#info-string
    * @see https://github.github.com/gfm/#example-113
    */
-  meta?: Readonly<Record<string, unknown>>
+  meta?: Readonly<Record<Lowercase<string>, unknown>>
   /**
    * Accessible context variables.
    */

@@ -58,7 +58,7 @@ export function createUseJsxRunner(
     return React.useMemo<ICodeRunner>(() => {
       const JsxRunner: ICodeRunner = props => {
         const { value, onError, meta = {} } = props
-        const inline = (meta.renderMode ?? defaultRenderMode) === 'inline'
+        const inline = (meta.jsxmode ?? defaultRenderMode) === 'inline'
 
         // Render the loadable component to trigger the dynamic-import loading.
         if (!prepared) {

@@ -64,7 +64,7 @@ exports[`snapshot basic 1`] = `
               autocapitalize="off"
               autocomplete="off"
               autocorrect="off"
-              class="yozora-code-editor__textarea css-1pinvdg"
+              class="css-1pinvdg"
               spellcheck="false"
               style="tab-size: 2; white-space: pre; padding: 0.5rem 0.6em 0px 12px;"
             >

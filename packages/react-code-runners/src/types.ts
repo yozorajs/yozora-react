@@ -9,11 +9,11 @@ export interface ICodeRunnerMetaData {
    * The render mode of a runner.
    * @default 'inline'
    */
-  renderMode?: 'inline' | 'block' | string
+  jsxmode?: 'inline' | 'block' | string
   /**
    * Additional attributes.
    */
-  [key: string]: unknown
+  [key: Lowercase<string>]: unknown
 }
 
 /**

@@ -15,8 +15,7 @@ export const defaultRunners: ICodeRunnerItem[] = [
     pattern: /^jsx$/,
     runner: function JsxRunner(props: ICodeRunnerProps): React.ReactElement {
       const { value, scope, onError, meta = {} } = props
-      const inline = meta.jsxMode == null || meta.jsxMode === 'inline'
-
+      const inline = meta.jsxmode == null || meta.jsxmode === 'inline'
       return <JsxRenderer code={value} inline={inline} scope={scope} onError={onError} />
     },
   },
@@ -47,8 +46,7 @@ export const Code: React.FC<ICodeProps> = props => {
     () => parseCodeMeta(infoString ?? '', { preferLineNo }),
     [infoString, preferLineNo],
   )
-
-  const { highlights, maxlines, title, collapsed, showlineno: showLineNo } = meta
+  const { highlights, maxlines, title, collapsed, showlineno } = meta
   const className = cx('yozora-code', props.className)
   const _yozoracodemode = lang ? meta._yozoracodemode ?? 'literal' : 'literal'
 
@@ -64,7 +62,7 @@ export const Code: React.FC<ICodeProps> = props => {
             title={title}
             maxLines={maxlines}
             collapsed={collapsed}
-            showLinenos={showLineNo}
+            showLinenos={showlineno}
             darken={darken}
             className={className}
             style={style}
@@ -97,7 +95,7 @@ export const Code: React.FC<ICodeProps> = props => {
       highlightLinenos={highlights}
       maxLines={maxlines}
       collapsed={collapsed}
-      showLineNo={showLineNo}
+      showLineNo={showlineno}
       darken={darken}
       className={className}
       style={style}

@@ -17,7 +17,7 @@ export interface ICodeEmbedProps {
    * @see https://github.github.com/gfm/#info-string
    * @see https://github.github.com/gfm/#example-113
    */
-  meta?: Record<string, unknown>
+  meta?: Record<Lowercase<string>, unknown>
   /**
    * Accessible context variables.
    */
