@@ -15,10 +15,10 @@ exports[`snapshot embed 1`] = `
 exports[`snapshot literal 1`] = `
 <DocumentFragment>
   <div
-    class="yozora-code-literal css-dc8oyl yozora-code"
+    class="yozora-code-literal css-173gu1h yozora-code"
   >
     <div
-      class="css-sgdhwv"
+      class="css-6es8dn"
     >
       <span
         class="css-9y6172"
@@ -37,13 +37,13 @@ exports[`snapshot literal 1`] = `
         />
       </span>
       <span
-        class="css-1p3aks"
+        class="css-1clrfog"
         title="/home/demo/a.tsx"
       >
         /home/demo/a.tsx  | 6 lines.
       </span>
       <span
-        class="css-nsmueo"
+        class="css-hldahc"
       >
         <button
           aria-label="Copy to clipboard"
@@ -56,7 +56,7 @@ exports[`snapshot literal 1`] = `
       </span>
     </div>
     <code
-      class="css-1ox3y4c"
+      class="css-1rutyox"
     >
       <pre>
         <div
@@ -64,18 +64,18 @@ exports[`snapshot literal 1`] = `
           style="color: rgb(212, 212, 212); line-height: 1.6rem; max-height: 0;"
         >
           <div
-            class="css-hfkijx"
+            class="css-1bwxi5h"
             style="width: 2.2em;"
           >
             <div
-              class="css-1tv7wth"
+              class="css-1cpddkg"
             >
               <span>
                 1
               </span>
             </div>
             <div
-              class="css-1tv7wth"
+              class="css-1cpddkg"
             >
               <span>
                 2
@@ -89,7 +89,7 @@ exports[`snapshot literal 1`] = `
               </span>
             </div>
             <div
-              class="css-1tv7wth"
+              class="css-1cpddkg"
             >
               <span>
                 4
@@ -117,7 +117,7 @@ exports[`snapshot literal 1`] = `
               class="css-1ttfemb"
             >
               <div
-                class="token-line css-1c96lhs"
+                class="token-line css-25uov9"
                 style="color: rgb(212, 212, 212);"
               >
                 <span
@@ -159,7 +159,7 @@ exports[`snapshot literal 1`] = `
                 />
               </div>
               <div
-                class="token-line css-1c96lhs"
+                class="token-line css-25uov9"
                 style="color: rgb(212, 212, 212);"
               >
                 <span
@@ -253,7 +253,7 @@ exports[`snapshot literal 1`] = `
                 />
               </div>
               <div
-                class="token-line css-1c96lhs"
+                class="token-line css-25uov9"
                 style="color: rgb(212, 212, 212);"
               >
                 <span
@@ -436,10 +436,10 @@ exports[`snapshot literal 1`] = `
 exports[`snapshot live 1`] = `
 <DocumentFragment>
   <div
-    class="yozora-code-live css-1jh9kfk yozora-code"
+    class="yozora-code-live css-11v0q8b yozora-code"
   >
     <div
-      class="css-sgdhwv"
+      class="css-6es8dn"
     >
       <span
         class="css-9y6172"
@@ -458,13 +458,13 @@ exports[`snapshot live 1`] = `
         />
       </span>
       <span
-        class="css-1p3aks"
+        class="css-1clrfog"
         title=""
       >
          
       </span>
       <span
-        class="css-nsmueo"
+        class="css-hldahc"
       >
         <button
           aria-label="Copy to clipboard"
@@ -477,13 +477,13 @@ exports[`snapshot live 1`] = `
       </span>
     </div>
     <div
-      class="css-17fon8l"
+      class="css-hqu8l8"
     >
       <div
-        class="css-1eksy5g"
+        class="css-1vl5apo"
       >
         <div
-          class="yozora-code-editor css-kt1ey1 yozora-code-editor"
+          class="yozora-code-editor css-puhuir yozora-code-editor"
           padding="10"
           style="line-height: 1.6rem; tab-size: 2;"
         >
@@ -498,7 +498,7 @@ exports[`snapshot live 1`] = `
               autocapitalize="off"
               autocomplete="off"
               autocorrect="off"
-              class="css-1pinvdg"
+              class="css-t3zh00"
               spellcheck="false"
               style="tab-size: 2; white-space: pre; padding: 0.5rem 0.6em 0px 12px;"
             >
@@ -520,7 +520,7 @@ exports[`snapshot live 1`] = `
               style="color: rgb(212, 212, 212); line-height: 1.6rem; max-height: 8rem; min-height: 100%;"
             >
               <div
-                class="css-hfkijx"
+                class="css-1bwxi5h"
                 style="width: 2.2em;"
               >
                 <div
@@ -873,7 +873,7 @@ exports[`snapshot live 1`] = `
         </div>
       </div>
       <div
-        class="css-ov3fus"
+        class="css-135a5xx"
       >
         <div
           class="yozora-code-embed css-1lkb549"

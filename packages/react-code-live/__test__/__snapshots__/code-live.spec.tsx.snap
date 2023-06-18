@@ -3,10 +3,10 @@
 exports[`snapshot basic 1`] = `
 <DocumentFragment>
   <div
-    class="yozora-code-live css-1jh9kfk"
+    class="yozora-code-live css-11v0q8b"
   >
     <div
-      class="css-sgdhwv"
+      class="css-6es8dn"
     >
       <span
         class="css-9y6172"
@@ -25,12 +25,12 @@ exports[`snapshot basic 1`] = `
         />
       </span>
       <span
-        class="css-1p3aks"
+        class="css-1clrfog"
       >
          
       </span>
       <span
-        class="css-nsmueo"
+        class="css-hldahc"
       >
         <button
           aria-label="Copy to clipboard"
@@ -43,13 +43,13 @@ exports[`snapshot basic 1`] = `
       </span>
     </div>
     <div
-      class="css-17fon8l"
+      class="css-hqu8l8"
     >
       <div
-        class="css-1eksy5g"
+        class="css-1vl5apo"
       >
         <div
-          class="yozora-code-editor css-kt1ey1 yozora-code-editor"
+          class="yozora-code-editor css-puhuir yozora-code-editor"
           padding="10"
           style="line-height: 1.6rem; tab-size: 2;"
         >
@@ -64,7 +64,7 @@ exports[`snapshot basic 1`] = `
               autocapitalize="off"
               autocomplete="off"
               autocorrect="off"
-              class="css-1pinvdg"
+              class="css-t3zh00"
               spellcheck="false"
               style="tab-size: 2; white-space: pre; padding: 0.5rem 0.6em 0px 12px;"
             >
@@ -91,7 +91,7 @@ exports[`snapshot basic 1`] = `
               style="color: rgb(212, 212, 212); line-height: 1.6rem; max-height: 20.8rem; min-height: 100%;"
             >
               <div
-                class="css-hfkijx"
+                class="css-1bwxi5h"
                 style="width: 2.2em;"
               >
                 <div
@@ -947,7 +947,7 @@ exports[`snapshot basic 1`] = `
         </div>
       </div>
       <div
-        class="css-ov3fus"
+        class="css-135a5xx"
       >
         <div
           class="yozora-code-embed css-1lkb549"
