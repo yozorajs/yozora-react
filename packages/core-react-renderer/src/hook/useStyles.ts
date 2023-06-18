@@ -1,15 +1,15 @@
 import { css, cx } from '@emotion/css'
-import { useDeepCompareMemo } from '@guanghechen/react-hooks'
 import { useThemeContext } from '@yozora/core-react-theme'
+import React from 'react'
 import { basicStyle } from '../style/basicStyle'
 import { nodeStyle } from '../style/nodeStyle'
 
 export const useStyles = (): string => {
-  const { breakpoints } = useThemeContext().themeStyles
-  return useDeepCompareMemo<string>(() => {
+  const { xsMinus } = useThemeContext().breakpoints
+  return React.useMemo<string>(() => {
     // Adaptive small screen.
     const xsStyle: string = css({
-      [`@media screen and ${breakpoints.xs.exactOrMinus}`]: {
+      [`@media screen and ${xsMinus}`]: {
         '.yozora-paragraph': {
           letterSpacing: 0,
           lineHeight: 1.6,
@@ -17,5 +17,5 @@ export const useStyles = (): string => {
       },
     })
     return cx(basicStyle, nodeStyle, xsStyle)
-  }, [breakpoints])
+  }, [xsMinus])
 }

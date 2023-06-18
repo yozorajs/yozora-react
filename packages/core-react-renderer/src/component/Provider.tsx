@@ -1,7 +1,6 @@
 import { cx } from '@emotion/css'
 import { useDeepCompareMemo } from '@guanghechen/react-hooks'
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
-import { useThemeClassName } from '@yozora/core-react-theme'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { NodeRendererContextType } from '../context/context'
@@ -48,9 +47,6 @@ export interface INodeRendererProviderProps {
  */
 export const NodeRendererProvider: React.FC<INodeRendererProviderProps> = props => {
   const { definitionMap, footnoteDefinitionMap, ImageViewer } = props
-  const themeRootCls: string = useThemeClassName()
-  const className: string = cx(themeRootCls, useStyles(), props.rootClassName)
-
   const rendererMap: Readonly<INodeRendererMap> = useNodeRendererMap(props.customRendererMap)
   const [state, dispatch] = React.useReducer(reducer, {}, initNodeRendererState)
 
@@ -65,6 +61,7 @@ export const NodeRendererProvider: React.FC<INodeRendererProviderProps> = props 
     [state, definitionMap, footnoteDefinitionMap, rendererMap, dispatch],
   )
 
+  const className: string = cx(useStyles(), props.rootClassName)
   return (
     <NodeRendererContextType.Provider value={context}>
       <div className={className}>{props.children}</div>

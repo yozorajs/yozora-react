@@ -32,7 +32,7 @@ const appendTypes = (types: string[], add: string[] | string): string[] => {
 }
 
 // Takes an array of Prism's tokens and groups them by line, turning plain
-// strings into tokens as well. Tokens can become recursive in some cases,
+// strings into tokens as well. tokens can become recursive in some cases,
 // which means that their types are concatenated. Plain-string tokens however
 // are always of type "plain".
 // This is not recursive to avoid exceeding the call-stack limit, since it's unclear

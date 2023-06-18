@@ -1,6 +1,7 @@
 import { css, cx } from '@emotion/css'
 import type { FootnoteDefinition } from '@yozora/ast'
 import { useNodeRendererContext } from '@yozora/core-react-renderer'
+import { tokens } from '@yozora/core-react-theme'
 import React from 'react'
 import { FootnoteDefinitionRenderer } from './renderer/footnoteDefinition'
 
@@ -48,7 +49,7 @@ const classes = {
   }),
   title: css({
     padding: 0,
-    borderBottom: '1px solid var(--color-border-heading)',
+    borderBottom: `1px solid ${tokens.colorBorderHeading}`,
     margin: '0 0 1rem',
     fontStyle: 'italic',
   }),

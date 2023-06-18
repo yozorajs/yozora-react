@@ -38,7 +38,7 @@ export interface ICodeMetaData {
   /**
    * Unknown key / value pairs.
    */
-  [key: string]: unknown
+  [key: Lowercase<string>]: unknown
 }
 
 export function parseCodeMeta(
@@ -70,7 +70,7 @@ export function parseCodeMeta(
     m = regex.exec(remainText)
     if (m === null) break
 
-    const key: string = m[1].toLowerCase()
+    const key: Lowercase<string> = m[1].toLowerCase() as Lowercase<string>
     const val: string | undefined = m[2] ?? m[3]
     switch (key) {
       case 'collapsed':
@@ -117,5 +117,5 @@ export function parseCodeMeta(
  */
 export function convertToBoolean(val: string | undefined): boolean {
   if (val === undefined) return true
-  return /^false$/i.test(val) === false
+  return !!val && val.toLowerCase() !== 'false'
 }

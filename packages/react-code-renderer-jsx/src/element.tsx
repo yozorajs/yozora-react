@@ -22,7 +22,7 @@ export function generateElement(params: {
   onError(error?: any): void
 }): React.ComponentClass {
   const { code, scope, enabledTypeScript, onError } = params
-  const transformed: string = compose(
+  const transformed: string = pipe(
     trimCode,
     enabledTypeScript ? transformTsx : transformJsx,
     trimCode,
@@ -64,6 +64,6 @@ export function renderElementAsync(params: {
   evalCode(transformed, { React, ...scope, render })
 }
 
-function compose(...transformers: ICodeTransformer[]): ICodeTransformer {
+function pipe(...transformers: ICodeTransformer[]): ICodeTransformer {
   return transformers.reduce((acc, currentFn) => code => currentFn(acc(code)))
 }

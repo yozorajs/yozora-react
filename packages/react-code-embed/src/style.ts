@@ -1,8 +1,9 @@
 import { css } from '@emotion/css'
+import { TokenNames } from '@yozora/core-react-theme'
 
 const vars = {
-  border: '1px solid var(--color-border-error, red)',
-  errorColor: 'var(--color-border-error, red)',
+  border: `1px solid var(${TokenNames.colorBorderError}, red)`,
+  errorColor: `var(${TokenNames.colorBorderError}, red)`,
 }
 
 export const classes = {

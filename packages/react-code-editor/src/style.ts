@@ -1,10 +1,11 @@
 import { css, cx } from '@emotion/css'
+import { TokenNames } from '@yozora/core-react-theme'
 
 const vars = {
-  border: '1px solid var(--color-border-code, #d3d3d3)',
-  caretColor: 'var(--color-codeCaret, #ed6c60)',
-  codeFontFamily: `var(--font-family-code, Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif)`,
-  codeFontSize: 'var(--font-size-code, 1rem)',
+  border: `1px solid var(${TokenNames.colorBorderCode}, #d3d3d3)`,
+  caretColor: `var(${TokenNames.colorCodeCaret}, #ed6c60)`,
+  codeFontFamily: `var(${TokenNames.fontFamilyCode}, Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif)`,
+  codeFontSize: `var(${TokenNames.fontSizeCode}, 1rem)`,
 }
 
 const baseEditorAreaCls: string = css({

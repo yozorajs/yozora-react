@@ -1,4 +1,5 @@
 import { css } from '@emotion/css'
+import { tokens } from '@yozora/core-react-theme'
 
 export const basicStyle: string = css({
   MozOsxFontSmoothing: 'grayscale',
@@ -23,13 +24,13 @@ export const basicStyle: string = css({
     },
   },
   a: {
-    color: 'var(--color-link)',
+    color: tokens.colorLink,
     textDecoration: 'none',
     '&:visited': {
-      color: 'var(--visited-color-link)',
+      color: tokens.colorLinkVisit,
     },
     '&:hover': {
-      color: 'var(--hover-color-link)',
+      color: tokens.colorLinkHover,
     },
   },
 })

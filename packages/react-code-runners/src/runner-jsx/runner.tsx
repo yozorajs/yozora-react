@@ -7,21 +7,20 @@ import { CodeRunnerPropTypes } from '../types'
 import type { IDynamicImportRule } from './lazy'
 import { dynamicImport } from './lazy'
 
+export interface ICreateUseJsxRunnerParams {
+  presetJsxScope: Readonly<ICodeRunnerScope> // preset jsx scopes
+  rules: ReadonlyArray<IDynamicImportRule> // dynamic import rules (webpack required)
+  JsxRenderer: React.ComponentType<ICodeRendererJsxProps> // jsx renderer
+  defaultRenderMode: 'inline' | 'block' // default jsx render mode: block / inline.
+}
+
 /**
  * Create a jsx live code runner creator.
- *
- * @param presetJsxScope      preset jsx scopes
- * @param rules               dynamic import rules (webpack required)
- * @param JsxRenderer         jsx renderer
- * @param defaultRenderMode   default jsx render mode: block / inline.
- * @returns
  */
 export function createUseJsxRunner(
-  presetJsxScope: Readonly<ICodeRunnerScope>,
-  rules: ReadonlyArray<IDynamicImportRule>,
-  JsxRenderer: React.ComponentType<ICodeRendererJsxProps>,
-  defaultRenderMode: 'inline' | 'block',
+  params: ICreateUseJsxRunnerParams,
 ): (ecmaImports: IEcmaImport[]) => ICodeRunner {
+  const { presetJsxScope, rules, JsxRenderer, defaultRenderMode } = params
   return function useJsxRunner(ecmaImports: IEcmaImport[]): ICodeRunner {
     const { scope, pending, Placeholders } = useDeepCompareMemo<IAsyncRunnerScopes>(() => {
       const scope: ICodeRunnerScope = { ...presetJsxScope }

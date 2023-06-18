@@ -1,8 +1,9 @@
 import { css } from '@emotion/css'
+import { TokenNames } from '@yozora/core-react-theme'
 
 const vars = {
-  border: '1px solid var(--color-border-codeLineno, hsla(0deg, 0%, 80%, 0.8))',
-  highlightBackground: 'var(--color-bg-codeHighlight, hsla(30deg, 90%, 50%, 0.3))',
+  border: `1px solid var(${TokenNames.colorBorderCodeLineno}, hsla(0deg, 0%, 80%, 0.8))`,
+  highlightBackground: `var(${TokenNames.colorBgCodeHighlight}, hsla(30deg, 90%, 50%, 0.3))`,
 }
 
 export const classes = {

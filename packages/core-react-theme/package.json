@@ -39,19 +39,17 @@
     "build": "rimraf lib/ && cross-env NODE_ENV=production rollup -c ../../rollup.config.mjs",
     "prepublishOnly": "yarn build"
   },
-  "dependencies": {
-    "@guanghechen/react-hooks": "^2.3.0"
-  },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",
+    "@guanghechen/react-hooks": "^2.3.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
     "jest": "^29.5.0",
-    "rimraf": "^5.0.0",
-    "rollup": "^3.21.6"
+    "rimraf": "^5.0.1",
+    "rollup": "^3.25.1"
   },
   "browserslist": [
     "last 2 versions",

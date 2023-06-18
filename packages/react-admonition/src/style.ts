@@ -1,22 +1,23 @@
 import { css } from '@emotion/css'
+import { TokenNames } from '@yozora/core-react-theme'
 
 const vars = {
   border: '5px solid transparent',
-  cautionBackground: 'var(--color-bg-warning, #fff8e6)',
-  dangerBackground: 'var(--color-bg-error, #ffebec)',
-  infoBackground: 'var(--color-bg-info, #eef9fd)',
-  noteBackground: 'var(--color-bg-note, #fdfdfe)',
-  tipBackground: 'var(--color-bg-success, #e6f6e6)',
-  cautionBorderColor: 'var(--color-border-warning, #e6a700)',
-  dangerBorderColor: 'var(--color-border-error, #e13238)',
-  infoBorderColor: 'var(--color-border-info, #4cb3d4)',
-  noteBorderColor: 'var(--color-border-note, #d4d5d8)',
-  tipBorderColor: 'var(--color-border-success, #009400)',
-  cautionTextColor: 'var(--color-warning, #4d3800)',
-  dangerTextColor: 'var(--color-error, #4d3800)',
-  infoTextColor: 'var(--color-info, #4d3800)',
-  noteTextColor: 'var(--color-note, #4d3800)',
-  tipTextColor: 'var(--color-success, #4d3800)',
+  cautionBackground: `var(${TokenNames.colorBgWarning}, #fff8e6)`,
+  dangerBackground: `var(${TokenNames.colorBgError}, #ffebec)`,
+  infoBackground: `var(${TokenNames.colorBgInfo}, #eef9fd)`,
+  noteBackground: `var(${TokenNames.colorBgNote}, #fdfdfe)`,
+  tipBackground: `var(${TokenNames.colorBgSuccess}, #e6f6e6)`,
+  cautionBorderColor: `var(${TokenNames.colorBorderWarning}, #e6a700)`,
+  dangerBorderColor: `var(${TokenNames.colorBorderError}, #e13238)`,
+  infoBorderColor: `var(${TokenNames.colorBorderInfo}, #4cb3d4)`,
+  noteBorderColor: `var(${TokenNames.colorBorderNote}, #d4d5d8)`,
+  tipBorderColor: `var(${TokenNames.colorBorderSuccess}, #009400)`,
+  cautionTextColor: `var(${TokenNames.colorWarning}, #4d3800)`,
+  dangerTextColor: `var(${TokenNames.colorError}, #4d3800)`,
+  infoTextColor: `var(${TokenNames.colorInfo}, #4d3800)`,
+  noteTextColor: `var(${TokenNames.colorNote}, #4d3800)`,
+  tipTextColor: `var(${TokenNames.colorSuccess}, #4d3800)`,
 }
 
 const heading: string = css({

@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-editor",
-  "version": "2.3.4",
+  "version": "2.3.3",
   "description": "simple code editor",
   "author": {
     "name": "guanghechen",
@@ -40,9 +40,10 @@
   "scripts": {
     "build": "rimraf lib/ && cross-env NODE_ENV=production rollup -c ../../rollup.config.mjs",
     "prepublishOnly": "yarn build",
-    "test": "cross-env TS_NODE_FILES=true NODE_OPTIONS=--experimental-vm-modules jest --config ../../jest.config.mjs --rootDir ."
+    "test": "node --experimental-vm-modules ../../node_modules/.bin/jest --config ../../jest.config.mjs --rootDir ."
   },
   "dependencies": {
+    "@yozora/core-react-theme": "^2.3.3",
     "@yozora/react-code-highlighter": "^2.3.3"
   },
   "peerDependencies": {
@@ -51,10 +52,10 @@
     "react": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@emotion/css": "^11.11.0",
+    "@emotion/css": "^11.11.2",
     "cross-env": "^7.0.3",
     "jest": "^29.5.0",
-    "rimraf": "^5.0.0"
+    "rimraf": "^5.0.1"
   },
   "browserslist": [
     "last 2 versions",

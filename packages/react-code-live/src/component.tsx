@@ -1,4 +1,5 @@
 import { cx } from '@emotion/css'
+import { debounce } from '@guanghechen/common-util'
 import CodeEditor from '@yozora/react-code-editor'
 import CodeEmbed from '@yozora/react-code-embed'
 import CopyButton from '@yozora/react-common-copy-button'
@@ -7,7 +8,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { classes } from './style'
 import type { ICodeLiveProps } from './types'
-import { debounce } from './util'
 
 /**
  * Render yozora `code` in live mode.
