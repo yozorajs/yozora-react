@@ -3,9 +3,7 @@
 exports[`prop types snapshot custom 1`] = `
 <DocumentFragment>
   <div
-    class="yozora-admonition css-19815tb custom-class"
-    data-admonition-keyword="caution"
-    style="color: orange;"
+    class="yozora-admonition custom-class css-3m4a7c"
   >
     <h5
       class="css-1b06hov"
@@ -50,8 +48,7 @@ exports[`prop types snapshot custom 1`] = `
 exports[`prop types snapshot default 1`] = `
 <DocumentFragment>
   <div
-    class="yozora-admonition css-19815tb"
-    data-admonition-keyword="note"
+    class="yozora-admonition css-1690hqv"
   >
     <h5
       class="css-1b06hov"

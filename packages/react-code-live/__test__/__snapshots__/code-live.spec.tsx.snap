@@ -3,10 +3,10 @@
 exports[`snapshot basic 1`] = `
 <DocumentFragment>
   <div
-    class="yozora-code-live css-11v0q8b"
+    class="yozora-code-live css-15h9bl4"
   >
     <div
-      class="css-6es8dn"
+      class="css-9b1rnv"
     >
       <span
         class="css-9y6172"
@@ -25,17 +25,15 @@ exports[`snapshot basic 1`] = `
         />
       </span>
       <span
-        class="css-1clrfog"
-      >
-         
-      </span>
+        class="css-1wug2ih"
+      />
       <span
-        class="css-hldahc"
+        class="css-1f8l45h"
       >
         <button
           aria-label="Copy to clipboard"
-          class="css-jbwb7c"
-          data-copy-status="waiting"
+          class="css-hpzs7n"
+          data-copy-status="pending"
           type="button"
         >
           copy
@@ -43,15 +41,15 @@ exports[`snapshot basic 1`] = `
       </span>
     </div>
     <div
-      class="css-hqu8l8"
+      class="css-55xo3h"
     >
       <div
-        class="css-1vl5apo"
+        class="css-1wau2uo"
       >
         <div
-          class="yozora-code-editor css-puhuir yozora-code-editor"
+          class="yozora-code-editor css-uz8bu5"
           padding="10"
-          style="line-height: 1.6rem; tab-size: 2;"
+          style="tab-size: 2;"
         >
           <div
             class="css-6gcr58"
@@ -64,7 +62,7 @@ exports[`snapshot basic 1`] = `
               autocapitalize="off"
               autocomplete="off"
               autocorrect="off"
-              class="css-t3zh00"
+              class="css-1nk6ywr"
               spellcheck="false"
               style="tab-size: 2; white-space: pre; padding: 0.5rem 0.6em 0px 12px;"
             >
@@ -87,92 +85,92 @@ exports[`snapshot basic 1`] = `
             style="tab-size: 2; white-space: pre;"
           >
             <div
-              class="css-1k8659m prism-code language-jsx"
-              style="color: rgb(212, 212, 212); line-height: 1.6rem; max-height: 20.8rem; min-height: 100%;"
+              class="css-96awu6 prism-code language-jsx"
+              style="color: rgb(212, 212, 212); max-height: calc(calc(var(--yozora_lineHeightCode, 1.6) * 12.8) + 4px); min-height: 100%;"
             >
               <div
-                class="css-1bwxi5h"
+                class="css-p9ofu1"
                 style="width: 2.2em;"
               >
                 <div
-                  class="css-17fnzo2"
+                  class="css-1nciu3j"
                 >
                   <span>
                     1
                   </span>
                 </div>
                 <div
-                  class="css-17fnzo2"
+                  class="css-1nciu3j"
                 >
                   <span>
                     2
                   </span>
                 </div>
                 <div
-                  class="css-17fnzo2"
+                  class="css-1nciu3j"
                 >
                   <span>
                     3
                   </span>
                 </div>
                 <div
-                  class="css-17fnzo2"
+                  class="css-1nciu3j"
                 >
                   <span>
                     4
                   </span>
                 </div>
                 <div
-                  class="css-17fnzo2"
+                  class="css-1nciu3j"
                 >
                   <span>
                     5
                   </span>
                 </div>
                 <div
-                  class="css-17fnzo2"
+                  class="css-1nciu3j"
                 >
                   <span>
                     6
                   </span>
                 </div>
                 <div
-                  class="css-17fnzo2"
+                  class="css-1nciu3j"
                 >
                   <span>
                     7
                   </span>
                 </div>
                 <div
-                  class="css-17fnzo2"
+                  class="css-1nciu3j"
                 >
                   <span>
                     8
                   </span>
                 </div>
                 <div
-                  class="css-17fnzo2"
+                  class="css-1nciu3j"
                 >
                   <span>
                     9
                   </span>
                 </div>
                 <div
-                  class="css-17fnzo2"
+                  class="css-1nciu3j"
                 >
                   <span>
                     10
                   </span>
                 </div>
                 <div
-                  class="css-17fnzo2"
+                  class="css-1nciu3j"
                 >
                   <span>
                     11
                   </span>
                 </div>
                 <div
-                  class="css-17fnzo2"
+                  class="css-1nciu3j"
                 >
                   <span>
                     12
@@ -180,13 +178,13 @@ exports[`snapshot basic 1`] = `
                 </div>
               </div>
               <div
-                class="css-rv5jjl"
+                class="css-1kgxr2s"
               >
                 <div
                   class="css-1ttfemb"
                 >
                   <div
-                    class="token-line css-7zjwmr"
+                    class="token-line css-pil33h"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -198,7 +196,7 @@ exports[`snapshot basic 1`] = `
                     </span>
                   </div>
                   <div
-                    class="token-line css-7zjwmr"
+                    class="token-line css-pil33h"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -251,7 +249,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-7zjwmr"
+                    class="token-line css-pil33h"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -349,7 +347,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-7zjwmr"
+                    class="token-line css-pil33h"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -379,7 +377,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-7zjwmr"
+                    class="token-line css-pil33h"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -410,7 +408,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-7zjwmr"
+                    class="token-line css-pil33h"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -584,7 +582,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-7zjwmr"
+                    class="token-line css-pil33h"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -686,7 +684,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-7zjwmr"
+                    class="token-line css-pil33h"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -860,7 +858,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-7zjwmr"
+                    class="token-line css-pil33h"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -891,7 +889,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-7zjwmr"
+                    class="token-line css-pil33h"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -910,7 +908,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-7zjwmr"
+                    class="token-line css-pil33h"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -929,7 +927,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-7zjwmr"
+                    class="token-line css-pil33h"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -947,7 +945,7 @@ exports[`snapshot basic 1`] = `
         </div>
       </div>
       <div
-        class="css-135a5xx"
+        class="css-9l5569"
       >
         <div
           class="yozora-code-embed css-1lkb549"

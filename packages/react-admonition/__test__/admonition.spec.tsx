@@ -70,7 +70,7 @@ describe('prop types', () => {
 
     test('custom', () => {
       const view = render(
-        <Admonition keyword="caution" className="custom-class" style={{ color: 'orange' }}>
+        <Admonition keyword="caution" className="custom-class">
           {children}
         </Admonition>,
       )
