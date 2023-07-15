@@ -76,8 +76,8 @@ export const MathJaxProvider: React.FC<IMathJaxProviderProps> = props => {
   const [loaded, setLoaded] = React.useState<boolean>(false)
   const [context, setContext] = React.useState<IMathJaxContext>(initialMathJaxContext)
   const onLoad = useEventCallback((MathJax: IMathJax) => props.onLoad?.(MathJax))
-  const onError = useEventCallback((MathJax: IMathJax, error: unknown) =>
-    props.onError?.(MathJax, error),
+  const onError = useEventCallback(
+    (MathJax: IMathJax, error: unknown) => props.onError?.(MathJax, error),
   )
 
   React.useEffect(() => {

@@ -37,7 +37,7 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@guanghechen/react-hooks": "^2.3.1",
+    "@guanghechen/react-hooks": "^2.3.2",
     "load-script": "^2.0.0"
   },
   "peerDependencies": {
