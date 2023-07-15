@@ -42,45 +42,45 @@ export const classes = {
     borderRadius: '6px',
     margin: '0 0 1.25em 0',
     boxShadow: '0 1px 2px 0 hsla(0deg, 0%, 0%, 0.1)',
-    '&&[data-admonition-keyword="note"]': {
-      borderColor: vars.noteBorderColor,
-      backgroundColor: vars.noteBackground,
-      color: vars.noteTextColor,
-      [`.${heading}`]: {
-        color: vars.noteBorderColor,
-      },
+  }),
+  note: css({
+    borderColor: vars.noteBorderColor,
+    backgroundColor: vars.noteBackground,
+    color: vars.noteTextColor,
+    [`.${heading}`]: {
+      color: vars.noteBorderColor,
     },
-    '&&[data-admonition-keyword="info"]': {
-      borderColor: vars.infoBorderColor,
-      backgroundColor: vars.infoBackground,
-      color: vars.infoTextColor,
-      [`.${heading}`]: {
-        color: vars.infoBorderColor,
-      },
+  }),
+  info: css({
+    borderColor: vars.infoBorderColor,
+    backgroundColor: vars.infoBackground,
+    color: vars.infoTextColor,
+    [`.${heading}`]: {
+      color: vars.infoBorderColor,
     },
-    '&&[data-admonition-keyword="tip"]': {
-      borderColor: vars.tipBorderColor,
-      backgroundColor: vars.tipBackground,
-      color: vars.tipTextColor,
-      [`.${heading}`]: {
-        color: vars.tipBorderColor,
-      },
+  }),
+  tip: css({
+    borderColor: vars.tipBorderColor,
+    backgroundColor: vars.tipBackground,
+    color: vars.tipTextColor,
+    [`.${heading}`]: {
+      color: vars.tipBorderColor,
     },
-    '&&[data-admonition-keyword="caution"]': {
-      borderColor: vars.cautionBorderColor,
-      backgroundColor: vars.cautionBackground,
-      color: vars.cautionTextColor,
-      [`.${heading}`]: {
-        color: vars.cautionBorderColor,
-      },
+  }),
+  caution: css({
+    borderColor: vars.cautionBorderColor,
+    backgroundColor: vars.cautionBackground,
+    color: vars.cautionTextColor,
+    [`.${heading}`]: {
+      color: vars.cautionBorderColor,
     },
-    '&&[data-admonition-keyword="danger"]': {
-      borderColor: vars.dangerBorderColor,
-      backgroundColor: vars.dangerBackground,
-      color: vars.dangerTextColor,
-      [`.${heading}`]: {
-        color: vars.dangerBorderColor,
-      },
+  }),
+  danger: css({
+    borderColor: vars.dangerBorderColor,
+    backgroundColor: vars.dangerBackground,
+    color: vars.dangerTextColor,
+    [`.${heading}`]: {
+      color: vars.dangerBorderColor,
     },
   }),
   heading,

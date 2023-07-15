@@ -1,20 +1,21 @@
 import { cx } from '@emotion/css'
+import { useEventCallback } from '@guanghechen/react-hooks'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { CopyStatus } from './constant'
 import { classes } from './style'
 import { copyToClipboard } from './util'
 
-export type ICopyStatus = 'waiting' | 'copying' | 'failed' | 'succeed'
-export type ICopyStatusNodeMap = Record<ICopyStatus, React.ReactNode>
+export type ICopyStatusTipMap = Record<CopyStatus, React.ReactNode>
 
 /**
  * Map of copy status and displaying text.
  */
-export const defaultStatusNodeMap: ICopyStatusNodeMap = {
-  waiting: 'copy',
-  copying: 'copying..',
-  failed: 'failed!',
-  succeed: 'copied!',
+const defaultStatusTipMap: ICopyStatusTipMap = {
+  [CopyStatus.PENDING]: 'copy',
+  [CopyStatus.COPYING]: 'copying..',
+  [CopyStatus.COMPLETED]: 'copied!',
+  [CopyStatus.FAILED]: 'failed!',
 }
 
 export interface CopyButtonProps {
@@ -23,10 +24,10 @@ export interface CopyButtonProps {
    */
   value: string
   /**
-   * Map of copy status and displaying text.
-   * @default defaultStatusNodeMap
+   * Map of copy status and displaying tip.
+   * @default defaultStatusTipMap
    */
-  statusNodeMap?: ICopyStatusNodeMap
+  statusTipMap?: Partial<ICopyStatusTipMap>
   /**
    * Root css class of the component.
    */
@@ -35,38 +36,77 @@ export interface CopyButtonProps {
    * Root css style.
    */
   style?: React.CSSProperties
+  /**
+   * Callback when an error ocurred while copying.
+   * @param error
+   * @returns
+   */
+  onError?: (error: unknown) => void
+  /**
+   * Callback when the button is clicked.
+   * @param evt
+   * @returns
+   */
+  onClick?: (evt: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export const CopyButton: React.FC<CopyButtonProps> = props => {
-  const { value, statusNodeMap = defaultStatusNodeMap, className, style } = props
+  const { value, statusTipMap = defaultStatusTipMap, className, style, onError } = props
+  const [status, setStatus] = React.useState<CopyStatus>(CopyStatus.PENDING)
 
-  const [status, setStatus] = React.useState<ICopyStatus>('waiting')
+  const onClick = useEventCallback<React.MouseEventHandler<HTMLButtonElement>>(evt => {
+    props.onClick?.(evt)
 
-  const handleCopy = React.useCallback(() => {
-    setStatus('copying')
+    if (status === CopyStatus.COPYING) return
+    setStatus(CopyStatus.COPYING)
+
     copyToClipboard(value)
-      .then((succeed: boolean) => setStatus(succeed ? 'succeed' : 'failed'))
-      .catch(e => {
-        console.error(e)
-        setStatus('failed')
+      .then((succeed: boolean): void => {
+        if (succeed) {
+          setStatus(CopyStatus.COMPLETED)
+        } else {
+          setStatus(CopyStatus.FAILED)
+          onError?.(undefined)
+        }
       })
-      .finally(() => {
-        setTimeout(() => setStatus('waiting'), 1000)
+      .catch(error => {
+        setStatus(CopyStatus.FAILED)
+        onError?.(error)
       })
-  }, [value])
+  })
 
-  const text = statusNodeMap[status] ?? defaultStatusNodeMap[status]
+  React.useEffect(() => {
+    if (status === CopyStatus.FAILED || status === CopyStatus.COMPLETED) {
+      const timer = setTimeout(() => {
+        setStatus(s => {
+          switch (s) {
+            case CopyStatus.PENDING:
+            case CopyStatus.COPYING:
+              return s
+            case CopyStatus.COMPLETED:
+            case CopyStatus.FAILED:
+              return CopyStatus.PENDING
+            default:
+              return s
+          }
+        })
+      }, 1000)
+      return (): void => clearTimeout(timer)
+    }
+  }, [status])
+
+  const tip: React.ReactNode = statusTipMap[status] ?? defaultStatusTipMap[status]
   return (
     <button
       type="button"
       aria-label="Copy to clipboard"
-      disabled={status !== 'waiting'}
+      disabled={status !== CopyStatus.PENDING}
       data-copy-status={status}
       className={cx(classes.container, className)}
       style={style}
-      onClick={handleCopy}
+      onClick={onClick}
     >
-      {text}
+      {tip}
     </button>
   )
 }
@@ -75,6 +115,6 @@ CopyButton.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   value: PropTypes.string.isRequired,
-  statusNodeMap: PropTypes.any,
+  statusTipMap: PropTypes.any,
 }
 CopyButton.displayName = 'YozoraCopyButton'

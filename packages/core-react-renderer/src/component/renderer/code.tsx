@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
+import { css, cx } from '@emotion/css'
 import type { Code } from '@yozora/ast'
-import { useThemeContext } from '@yozora/core-react-theme'
+import { tokens, useThemeContext } from '@yozora/core-react-theme'
 import CodeHighlighter from '@yozora/react-code-highlighter'
 import React from 'react'
 import type { INodeRenderer } from '../../types'
@@ -27,13 +28,15 @@ export const CodeRenderer: INodeRenderer<Code> = props => {
   )
 }
 
-class CodeRendererInner extends React.PureComponent<{
+interface IProps {
   lang: string | null
   meta: string | null
   value: string
   theme: string
   preferLineNo: boolean
-}> {
+}
+
+class CodeRendererInner extends React.PureComponent<IProps> {
   public override render(): React.ReactElement {
     const { lang, meta, theme, preferLineNo } = this.props
 
@@ -43,7 +46,7 @@ class CodeRendererInner extends React.PureComponent<{
     const darken: boolean = theme === 'darken'
 
     return (
-      <code className="yozora-code">
+      <code className={cls}>
         <pre>
           <CodeHighlighter
             lang={lang}
@@ -59,3 +62,10 @@ class CodeRendererInner extends React.PureComponent<{
     )
   }
 }
+
+const cls = cx(
+  'yozora-code',
+  css({
+    margin: tokens.marginBlockNode,
+  }),
+)

@@ -1,3 +1,4 @@
+import { css, cx } from '@emotion/css'
 import type { Strong } from '@yozora/ast'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
@@ -11,9 +12,16 @@ import { NodesRenderer } from '../NodesRenderer'
 export class StrongRenderer extends React.PureComponent<Strong> {
   public override render(): React.ReactElement {
     return (
-      <strong className="yozora-strong">
+      <strong className={cls}>
         <NodesRenderer nodes={this.props.children} />
       </strong>
     )
   }
 }
+
+const cls = cx(
+  'yozora-strong',
+  css({
+    fontWeight: 600,
+  }),
+)

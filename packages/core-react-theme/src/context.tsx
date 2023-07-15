@@ -1,16 +1,13 @@
-import { css, cx } from '@emotion/css'
-import { useDeepCompareMemo } from '@guanghechen/react-hooks'
 import React from 'react'
-import { darkenSchema } from './schema/darken'
-import { lightSchema } from './schema/light'
 import type { IBreakpoints, IThemeContext } from './types'
-import { schema2css } from './util'
+import { YozoraReactTheme } from './YozoraReactTheme'
 
 export interface IThemeProviderProps {
   readonly theme?: 'light' | 'darken' | string
   readonly breakpoints?: Readonly<IBreakpoints>
   readonly showCodeLineNo?: boolean
   readonly children?: React.ReactNode
+  readonly className?: string
 }
 
 const initialThemeContext: IThemeContext = {
@@ -45,22 +42,16 @@ export const ThemeProvider: React.FC<IThemeProviderProps> = props => {
     breakpoints = initialThemeContext.breakpoints,
     showCodeLineNo = initialThemeContext.showCodeLineNo,
   } = props
-  const context: IThemeContext = useDeepCompareMemo<IThemeContext>(
+  const context: IThemeContext = React.useMemo<IThemeContext>(
     () => ({ theme, breakpoints, showCodeLineNo }),
     [theme, breakpoints, showCodeLineNo],
   )
+
   return (
-    <div className={cx('yozora-theme-root', cls)} data-theme={theme}>
-      <ThemeContextType.Provider value={context}>{props.children}</ThemeContextType.Provider>
-    </div>
+    <ThemeContextType.Provider value={context}>
+      <YozoraReactTheme theme={theme} breakpoints={breakpoints} className={props.className}>
+        {props.children}
+      </YozoraReactTheme>
+    </ThemeContextType.Provider>
   )
 }
-
-const cls = css`
-  &[data-theme="light"] {
-    ${schema2css(lightSchema)}
-  }
-  &[data-theme="darken"] {
-    ${schema2css(darkenSchema)}
-  }
-`

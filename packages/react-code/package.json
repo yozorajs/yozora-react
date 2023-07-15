@@ -46,6 +46,7 @@
   "dependencies": {
     "@guanghechen/parse-lineno": "^2.3.1",
     "@yozora/core-react-renderer": "^2.4.0",
+    "@yozora/core-react-theme": "^2.3.3",
     "@yozora/react-code-embed": "^2.3.3",
     "@yozora/react-code-highlighter": "^2.3.3",
     "@yozora/react-code-literal": "^2.3.3",
@@ -60,9 +61,9 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "jest": "^29.5.0",
+    "jest": "^29.6.1",
     "rimraf": "^5.0.1",
-    "rollup": "^3.25.1"
+    "rollup": "^3.26.2"
   },
   "browserslist": [
     "last 2 versions",

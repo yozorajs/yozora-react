@@ -21,7 +21,10 @@ export class HighlightLinenos extends React.Component<IHighlightLinenosProps> {
     for (let lineno = 0; lineno < countOfLines; ++lineno) {
       const isHighlight = highlightLinenos.includes(lineno + 1)
       const line = (
-        <div key={lineno} className={cx(classes.line, { [classes.highlightLine]: isHighlight })}>
+        <div
+          key={lineno}
+          className={cx(classes.line, classes.linenoLine, isHighlight && classes.highlightLine)}
+        >
           <span key={lineno}>{lineno + 1}</span>
         </div>
       )

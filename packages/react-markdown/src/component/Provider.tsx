@@ -44,8 +44,6 @@ export interface IMarkdownProviderProps {
 
 /**
  * A HoC component to provider YozoraMarkdownContext
- * @param props
- * @returns
  */
 export const MarkdownProvider: React.FC<IMarkdownProviderProps> = props => {
   const { definitionMap, footnoteDefinitionMap, children, ImageViewer } = props
@@ -59,16 +57,15 @@ export const MarkdownProvider: React.FC<IMarkdownProviderProps> = props => {
     [props.customRendererMap, props.codeRunners],
   )
 
-  const rootClassName: string = cx(useStyles(), props.rootClassName)
+  const cls: string = cx(useStyles(), props.rootClassName)
   return (
     <NodeRendererProvider
       definitionMap={definitionMap}
       footnoteDefinitionMap={footnoteDefinitionMap}
       customRendererMap={customRendererMap}
-      rootClassName={rootClassName}
       ImageViewer={ImageViewer}
     >
-      {children}
+      <div className={cls}>{children}</div>
     </NodeRendererProvider>
   )
 }

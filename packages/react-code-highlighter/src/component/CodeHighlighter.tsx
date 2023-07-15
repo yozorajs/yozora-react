@@ -5,7 +5,7 @@ import vscLightTheme from '../theme/vsc-light'
 import type { IPrismTheme } from '../types/prism'
 import { HighlightContent } from './HighlightContent'
 
-export interface ICodeHighlighterProps {
+interface IProps {
   /**
    * Source code contents
    */
@@ -28,11 +28,6 @@ export interface ICodeHighlighterProps {
    * @default -1
    */
   maxLines?: number
-  /**
-   * Line height.
-   * @default '1.6rem'
-   */
-  lineHeight?: React.CSSProperties['lineHeight']
   /**
    * Whether should display line numbers.
    * @default true
@@ -58,50 +53,47 @@ export interface ICodeHighlighterProps {
   onLinenoWidthChange?(linenoWidth: React.CSSProperties['width']): void
 }
 
-export const CodeHighlighter: React.FC<ICodeHighlighterProps> = props => {
-  const {
-    lang,
-    value: code,
-    darken = true,
-    highlightLinenos,
-    maxLines = -1,
-    lineHeight = '1.6rem',
-    collapsed = false,
-    showLineNo = true,
-    codesRef,
-    onLinenoWidthChange,
-  } = props
+export class CodeHighlighter extends React.PureComponent<IProps> {
+  public static readonly displayName = 'YozoraCodeHighlighter'
+  public static readonly propTypes = {
+    codesRef: PropTypes.any,
+    collapsed: PropTypes.bool,
+    darken: PropTypes.bool,
+    highlightLinenos: PropTypes.arrayOf(PropTypes.number) as any,
+    lang: PropTypes.string,
+    maxLines: PropTypes.number,
+    onLinenoWidthChange: PropTypes.func,
+    showLineNo: PropTypes.bool,
+    theme: PropTypes.any,
+    value: PropTypes.string.isRequired,
+  }
 
-  const theme: IPrismTheme = props.theme ?? (darken ? vscDarkTheme : vscLightTheme)
-  return (
-    <HighlightContent
-      code={code}
-      codesRef={codesRef}
-      collapsed={collapsed}
-      highlightLinenos={highlightLinenos}
-      lang={lang ?? undefined}
-      lineHeight={lineHeight}
-      maxLines={maxLines}
-      showLineNo={showLineNo}
-      theme={theme}
-      onLinenoWidthChange={onLinenoWidthChange}
-    />
-  )
-}
+  public override render(): React.ReactElement {
+    const {
+      lang,
+      value: code,
+      darken = true,
+      highlightLinenos,
+      maxLines = -1,
+      collapsed = false,
+      showLineNo = true,
+      codesRef,
+      onLinenoWidthChange,
+    } = this.props
 
-CodeHighlighter.propTypes = {
-  codesRef: PropTypes.any,
-  collapsed: PropTypes.bool,
-  darken: PropTypes.bool,
-  highlightLinenos: PropTypes.arrayOf(PropTypes.number) as React.Validator<
-    number[] | null | undefined
-  >,
-  lang: PropTypes.string,
-  lineHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  maxLines: PropTypes.number,
-  onLinenoWidthChange: PropTypes.func,
-  showLineNo: PropTypes.bool,
-  theme: PropTypes.any,
-  value: PropTypes.string.isRequired,
+    const theme: IPrismTheme = this.props.theme ?? (darken ? vscDarkTheme : vscLightTheme)
+    return (
+      <HighlightContent
+        code={code}
+        codesRef={codesRef}
+        collapsed={collapsed}
+        highlightLinenos={highlightLinenos}
+        lang={lang ?? undefined}
+        maxLines={maxLines}
+        showLineNo={showLineNo}
+        theme={theme}
+        onLinenoWidthChange={onLinenoWidthChange}
+      />
+    )
+  }
 }
-CodeHighlighter.displayName = 'YozoraCodeHighlighter'

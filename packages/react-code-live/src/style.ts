@@ -1,14 +1,14 @@
 import { css } from '@emotion/css'
-import { TokenNames } from '@yozora/core-react-theme'
+import { CommonTokenNames, TokenNames } from '@yozora/core-react-theme'
 
 const vars = {
   border: `1px solid var(${TokenNames.colorBorderCode}, #d3d3d3)`,
   background: `var(${TokenNames.colorBgCode}, #f5f5f5)`,
   caretColor: `var(${TokenNames.colorCodeCaret}, #ed6c60)`,
-  codeFontFamily: `var(${TokenNames.fontFamilyCode}, Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif)`,
-  codeFontSize: `var(${TokenNames.fontSizeCode}, 1rem)`,
+  codeFontFamily: `var(${CommonTokenNames.fontFamilyCode}, Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif)`,
+  codeFontSize: `var(${CommonTokenNames.fontSizeCode}, 1rem)`,
   selectionBackground: `var(${TokenNames.colorCodeSelection}, hsla(200deg, 30%, 70%, 0.3))`,
-  titleFontFamily: `var(${TokenNames.fontFamilyHeading}, 'Comic Sans MS', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif)`,
+  titleFontFamily: `var(${CommonTokenNames.fontFamilyHeading}, 'Comic Sans MS', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif)`,
   titleFontColor: `var(${TokenNames.colorCodeTitle}, hsla(0deg, 0%, 30%, 0.8))`,
 }
 
@@ -18,7 +18,7 @@ const copyBtnCls: string = css({
   visibility: 'hidden',
   opacity: 0,
   transition: 'opacity 0.2s ease-in-out',
-  background: vars.background,
+  background: 'none',
   userSelect: 'none',
 })
 
@@ -31,8 +31,8 @@ const editorCls: string = css({
   margin: 0,
   fontFamily: vars.codeFontFamily,
   fontSize: vars.codeFontSize,
-  background: vars.background,
-  '& ::selection': {
+  background: 'none',
+  '&& ::selection': {
     background: vars.selectionBackground,
   },
   '.yozora-code-editor': {
@@ -49,7 +49,7 @@ const previewerCls: string = css({
   padding: 0,
   margin: 0,
   color: '#000',
-  background: vars.background,
+  background: 'none',
 })
 
 export const classes = {
@@ -60,13 +60,13 @@ export const classes = {
     border: vars.border,
     background: vars.background,
     caretColor: vars.caretColor,
-    '&:hover': {
+    '&&:hover': {
       [`.${copyBtnCls}`]: {
         visibility: 'visible',
         opacity: 1,
       },
     },
-    '& ::selection': {
+    '&& ::selection': {
       background: vars.selectionBackground,
     },
     '&& ::-webkit-scrollbar': {

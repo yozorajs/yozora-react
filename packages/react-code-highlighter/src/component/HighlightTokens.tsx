@@ -40,7 +40,7 @@ export class HighlightTokens extends React.Component<IHighlightTokensProps> {
               className={cx(
                 classes.line,
                 classes.codeLine,
-                { [classes.highlightLine]: isHighlight },
+                isHighlight && classes.highlightLine,
                 lineProps.className,
               )}
             >

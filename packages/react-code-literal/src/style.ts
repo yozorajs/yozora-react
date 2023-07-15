@@ -1,14 +1,14 @@
 import { css } from '@emotion/css'
-import { TokenNames } from '@yozora/core-react-theme'
+import { CommonTokenNames, TokenNames } from '@yozora/core-react-theme'
 
 const vars = {
   border: `1px solid var(${TokenNames.colorBorderCode}, #d3d3d3)`,
   background: `var(${TokenNames.colorBgCode}, #f5f5f5)`,
   caretColor: `var(${TokenNames.colorCodeCaret}, #ed6c60)`,
-  codeFontFamily: `var(${TokenNames.fontFamilyCode}, Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif)`,
-  codeFontSize: `var(${TokenNames.fontSizeCode}, 1rem)`,
+  fontFamilyCode: `var(${CommonTokenNames.fontFamilyCode}, Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif)`,
+  fontSizeCode: `var(${CommonTokenNames.fontSizeCode}, 1rem)`,
   selectionBackground: `var(${TokenNames.colorCodeSelection}, hsla(200deg, 30%, 70%, 0.3))`,
-  titleFontFamily: `var(${TokenNames.fontFamilyHeading}, 'Comic Sans MS', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif)`,
+  titleFontFamily: `var(${CommonTokenNames.fontFamilyHeading}, 'Comic Sans MS', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif)`,
   titleFontColor: `var(${TokenNames.colorCodeTitle}, hsla(0deg, 0%, 30%, 0.8))`,
 }
 
@@ -18,7 +18,7 @@ const copyBtnCls: string = css({
   visibility: 'hidden',
   opacity: 0,
   transition: 'opacity 0.2s ease-in-out',
-  background: vars.background,
+  background: 'none',
   userSelect: 'none',
 })
 
@@ -30,7 +30,7 @@ export const classes = {
     border: vars.border,
     background: vars.background,
     caretColor: vars.caretColor,
-    '&:hover': {
+    '&&:hover': {
       [`.${copyBtnCls}`]: {
         visibility: 'visible',
         opacity: 1,
@@ -45,13 +45,13 @@ export const classes = {
     height: '2rem',
     width: '100%',
     borderBottom: vars.border,
-    background: vars.background,
+    background: 'none',
     cursor: 'default',
   }),
   title: css({
     marginLeft: '1rem',
     fontFamily: vars.titleFontFamily,
-    fontSize: '0.9em',
+    fontSize: vars.fontSizeCode,
     color: vars.titleFontColor,
     userSelect: 'none',
   }),
@@ -60,8 +60,8 @@ export const classes = {
     padding: 0,
     border: 'none',
     margin: 0,
-    fontFamily: vars.codeFontFamily,
-    fontSize: vars.codeFontSize,
+    fontFamily: vars.fontFamilyCode,
+    fontSize: vars.fontSizeCode,
     background: 'inherit',
     whiteSpace: 'pre-wrap',
     overflowWrap: 'break-word',
@@ -76,7 +76,7 @@ export const classes = {
       fontFamily: 'inherit',
       fontSize: 'inherit',
       lineHeight: 'inherit',
-      '&::selection': {
+      '&&::selection': {
         background: vars.selectionBackground,
       },
     },
@@ -87,9 +87,9 @@ export const classes = {
       padding: 0,
       margin: 0,
       lineHeight: 'inherit',
-      background: 'transparent',
+      background: 'none',
     },
-    '& ::selection': {
+    '&& ::selection': {
       background: vars.selectionBackground,
     },
   }),

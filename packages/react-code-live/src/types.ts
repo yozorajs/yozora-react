@@ -43,7 +43,7 @@ export interface ICodeLiveProps {
   /**
    * Whether to display the line numbers.
    */
-  showLinenos?: boolean
+  showLineNo?: boolean
   /**
    * If true, use vscDarkTheme as default theme,
    * otherwise use vscLightTheme as default theme.
@@ -70,4 +70,11 @@ export interface ICodeLiveProps {
    * @default true
    */
   centerPreviewer?: boolean
+}
+
+export interface ICodeLiveState {
+  value: string
+  orientation: 'horizontal' | 'vertical'
+  collapsed: boolean
+  countOfLines: number
 }

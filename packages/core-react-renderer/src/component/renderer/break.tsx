@@ -1,3 +1,4 @@
+import { css, cx } from '@emotion/css'
 import type { Break } from '@yozora/ast'
 import React from 'react'
 
@@ -9,6 +10,13 @@ import React from 'react'
  */
 export class BreakRenderer extends React.PureComponent<Break> {
   public override render(): React.ReactElement {
-    return <br className="yozora-break" />
+    return <br className={cls} />
   }
 }
+
+const cls = cx(
+  'yozora-break',
+  css({
+    boxSizing: 'border-box',
+  }),
+)

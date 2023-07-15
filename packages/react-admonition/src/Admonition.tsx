@@ -1,13 +1,7 @@
 import { cx } from '@emotion/css'
 import PropTypes from 'prop-types'
 import React from 'react'
-import {
-  YozoraAdmonitionCautionIcon,
-  YozoraAdmonitionDangerIcon,
-  YozoraAdmonitionInfoIcon,
-  YozoraAdmonitionNoteIcon,
-  YozoraAdmonitionTipIcon,
-} from './icons'
+import { getDescriptor } from './descriptor'
 import { classes } from './style'
 
 export interface IAdmonitionProps {
@@ -28,10 +22,6 @@ export interface IAdmonitionProps {
    */
   className?: string
   /**
-   * Root css style.
-   */
-  style?: React.CSSProperties
-  /**
    * Admonition title icon
    */
   icon?: React.ReactNode
@@ -43,74 +33,47 @@ export interface IAdmonitionProps {
  * @see https://www.npmjs.com/package/@yozora/ast#admonition
  * @see https://www.npmjs.com/package/@yozora/tokenizer-admonition
  */
-export const Admonition: React.FC<IAdmonitionProps> = props => {
-  const { className, style, keyword = 'default', children } = props
-
-  let { icon, title } = props
-  const hasCustomTitle = Boolean(title) && (!Array.isArray(title) || title.length > 0)
-
-  let modifier = keyword.trim().toLowerCase()
-  switch (modifier) {
-    case '':
-    case 'default':
-    case 'note':
-      modifier = 'note'
-      if (icon === undefined) icon = <YozoraAdmonitionNoteIcon />
-      if (!hasCustomTitle) title = 'NOTE'
-      break
-    case 'important':
-    case 'info':
-      modifier = 'info'
-      if (icon === undefined) icon = <YozoraAdmonitionInfoIcon />
-      if (!hasCustomTitle) title = 'INFO'
-      break
-    case 'success':
-    case 'tip':
-      modifier = 'tip'
-      if (icon === undefined) icon = <YozoraAdmonitionTipIcon />
-      if (!hasCustomTitle) title = 'TIP'
-      break
-    case 'warning':
-    case 'caution':
-      modifier = 'caution'
-      if (icon === undefined) icon = <YozoraAdmonitionCautionIcon />
-      if (!hasCustomTitle) title = 'CAUTION'
-      break
-    case 'error':
-    case 'danger':
-      modifier = 'danger'
-      if (icon === undefined) icon = <YozoraAdmonitionDangerIcon />
-      if (!hasCustomTitle) title = 'DANGER'
-      break
+export class Admonition extends React.PureComponent<IAdmonitionProps> {
+  public static readonly displayName = 'YozoraAdmonition'
+  public static readonly propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    keyword: PropTypes.string,
+    icon: PropTypes.node,
+    title: PropTypes.node,
   }
 
-  return (
-    <div
-      className={cx('yozora-admonition', classes.container, className)}
-      data-admonition-keyword={modifier}
-      style={style}
-    >
-      <h5 key="heading" className={classes.heading}>
-        <span key="icon" className={classes.icon}>
-          {icon}
-        </span>
-        <span key="title" className={classes.title}>
-          {title}
-        </span>
-      </h5>
-      <div key="main" className={classes.body}>
-        {children}
-      </div>
-    </div>
-  )
-}
+  public override render(): React.ReactElement {
+    const { className, keyword, children } = this.props
 
-Admonition.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  keyword: PropTypes.string,
-  icon: PropTypes.node,
-  style: PropTypes.object,
-  title: PropTypes.node,
+    const hasCustomTitle = Array.isArray(this.props.title)
+      ? this.props.title.length > 0
+      : Boolean(this.props.title)
+    const descriptor = getDescriptor(keyword)
+    const icon = this.props.icon ?? descriptor.icon
+    const title = hasCustomTitle ? this.props.title : descriptor.title
+
+    const cls = cx(
+      'yozora-admonition',
+      classes.container,
+      classes[descriptor.modifier as keyof typeof classes],
+      className,
+    )
+
+    return (
+      <div className={cls}>
+        <h5 key="heading" className={classes.heading}>
+          <span key="icon" className={classes.icon}>
+            {icon}
+          </span>
+          <span key="title" className={classes.title}>
+            {title}
+          </span>
+        </h5>
+        <div key="main" className={classes.body}>
+          {children}
+        </div>
+      </div>
+    )
+  }
 }
-Admonition.displayName = 'YozoraAdmonition'

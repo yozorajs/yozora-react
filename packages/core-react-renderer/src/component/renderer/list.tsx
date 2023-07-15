@@ -1,3 +1,4 @@
+import { css, cx } from '@emotion/css'
 import type { List } from '@yozora/ast'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
@@ -14,16 +15,28 @@ export class ListRenderer extends React.PureComponent<List> {
 
     if (ordered) {
       return (
-        <ol className="yozora-list" type={orderType} start={start}>
+        <ol className={cls} type={orderType} start={start}>
           <NodesRenderer nodes={children} />
         </ol>
       )
     }
 
     return (
-      <ul className="yozora-list">
+      <ul className={cls}>
         <NodesRenderer nodes={children} />
       </ul>
     )
   }
 }
+
+const cls = cx(
+  'yozora-list',
+  css({
+    padding: 0,
+    margin: '0 0 1em 2em',
+    lineHeight: 2,
+    '> :last-child': {
+      marginBottom: 0,
+    },
+  }),
+)

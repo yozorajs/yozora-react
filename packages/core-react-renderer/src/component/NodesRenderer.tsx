@@ -13,16 +13,14 @@ export interface INodesRendererProps {
 export const NodesRenderer: React.FC<INodesRendererProps> = props => {
   const { nodes } = props
   const { rendererMap } = useNodeRendererContext()
-  if (nodes == null || nodes.length <= 0) return null
+  if (!Array.isArray(nodes) || nodes.length <= 0) return null
   return <NodesRendererInner nodes={nodes} rendererMap={rendererMap} />
 }
 
-interface INodesRendererInnerProps {
+class NodesRendererInner extends React.PureComponent<{
   nodes: Node[]
   rendererMap: Readonly<INodeRendererMap>
-}
-
-class NodesRendererInner extends React.PureComponent<INodesRendererInnerProps> {
+}> {
   public override render(): React.ReactElement {
     const { nodes, rendererMap } = this.props
     return (

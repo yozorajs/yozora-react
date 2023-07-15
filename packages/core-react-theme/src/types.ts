@@ -1,5 +1,3 @@
-import type { TokenNames } from './constant/TokenNames'
-
 export interface IBreakpoints {
   xs: string
   xsMinus: string
@@ -17,8 +15,6 @@ export interface IBreakpoints {
   xlMinus: string
   xlPlus: string
 }
-
-export type IThemeSchema = Record<TokenNames, string>
 
 export interface IThemeContext {
   readonly theme: 'light' | 'darken' | string

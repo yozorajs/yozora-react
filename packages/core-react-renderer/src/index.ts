@@ -25,9 +25,6 @@ export * from './context/reducer'
 export * from './context/state'
 
 export * from './hook/useNodeRendererMap'
-export * from './hook/useStyles'
-export * from './style/basicStyle'
-export * from './style/nodeStyle'
 
 export * from './util/code'
 

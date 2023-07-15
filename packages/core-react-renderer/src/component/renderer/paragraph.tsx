@@ -1,5 +1,7 @@
+import { css, cx } from '@emotion/css'
 import type { Paragraph } from '@yozora/ast'
 import { ImageReferenceType, ImageType } from '@yozora/ast'
+import { tokens } from '@yozora/core-react-theme'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
 
@@ -23,16 +25,44 @@ export class ParagraphRenderer extends React.PureComponent<Paragraph> {
 
     if (notValidParagraph) {
       return (
-        <div className="yozora-paragraph yozora-paragraph--display">
+        <div className={classes.paragraphDisplay}>
           <NodesRenderer nodes={children} />
         </div>
       )
     }
 
     return (
-      <p className="yozora-paragraph">
+      <p className={classes.paragraph}>
         <NodesRenderer nodes={children} />
       </p>
     )
   }
+}
+
+const classes0 = {
+  paragraph: css({
+    overflow: 'auto hidden',
+    padding: 0,
+    margin: tokens.marginBlockNode,
+    marginBottom: '1em',
+    lineHeight: 1.8,
+    hyphens: 'auto',
+    wordBreak: 'normal',
+    letterSpacing: '1px',
+    overflowWrap: 'break-word',
+    '> :last-child': {
+      marginBottom: 0,
+    },
+  }),
+  paragraphDisplay: css({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '1rem 0',
+    margin: 0,
+  }),
+}
+const classes = {
+  paragraph: cx('yozora-paragraph', classes0.paragraph),
+  paragraphDisplay: cx('yozora-paragraph', classes0.paragraph, classes0.paragraphDisplay),
 }

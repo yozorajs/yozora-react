@@ -1,8 +1,12 @@
+import { css, cx } from '@emotion/css'
 import type { Heading } from '@yozora/ast'
+import { tokens } from '@yozora/core-react-theme'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
 
-interface IHeadingRendererProps extends Heading {
+type IHeading = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+
+interface IProps extends Heading {
   linkIcon?: React.ReactNode
 }
 
@@ -12,27 +16,118 @@ interface IHeadingRendererProps extends Heading {
  * @see https://www.npmjs.com/package/@yozora/ast#heading
  * @see https://www.npmjs.com/package/@yozora/tokenizer-heading
  */
-export class HeadingRenderer extends React.PureComponent<IHeadingRendererProps> {
+export class HeadingRenderer extends React.PureComponent<IProps> {
   public override render(): React.ReactElement {
     const { depth, identifier, children, linkIcon = '¶' } = this.props
 
     const id = identifier == null ? undefined : encodeURIComponent(identifier)
-    const H: any = ('h' + depth) as keyof JSX.IntrinsicElements
+    const h: IHeading = ('h' + depth) as IHeading
+    const H: any = h as keyof JSX.IntrinsicElements
 
-    let className = 'yozora-heading'
-    if (identifier) className += ' yozora-heading--toc'
+    const cls = cx(
+      'yozora-heading',
+      !!identifier && 'yozora-heading--toc',
+      classes.yozoraHeading,
+      classes[h],
+    )
 
     return (
-      <H id={id} className={className}>
-        <p className="yozora-heading__content">
+      <H id={id} className={cls}>
+        <p className={classes.yozoraHeadingContent}>
           <NodesRenderer nodes={children} />
         </p>
         {identifier && (
-          <a className="yozora-heading__anchor" href={'#' + id}>
+          <a className={classes.yozoraHeadingAnchor} href={'#' + id}>
             {linkIcon}
           </a>
         )}
       </H>
     )
   }
+}
+
+const classes0 = {
+  yozoraHeadingAnchor: css({
+    flex: '0 0 3rem',
+    paddingLeft: '0.5rem',
+    color: tokens.colorLink,
+    opacity: 0,
+    transition: 'color 0.2s ease-in-out, opacity 0.2s ease-in-out',
+    userSelect: 'none',
+    textDecoration: 'none',
+    '> svg': {
+      overflow: 'hidden',
+      display: 'inline-block',
+      verticalAlign: 'middle',
+      fill: 'currentColor',
+    },
+  }),
+  yozoraHeadingContent: css({
+    flex: '0 1 auto',
+    minWidth: 0,
+    margin: 0,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'pre-wrap',
+    lineHeight: 1.7,
+  }),
+}
+
+const classes = {
+  yozoraHeading: css({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    padding: 0,
+    margin: tokens.marginBlockNode,
+    marginBottom: '1em',
+    lineHeight: 1.25,
+    fontFamily: tokens.fontFamilyHeading,
+    color: tokens.colorHeading,
+    [`&:active .${classes0.yozoraHeadingAnchor}`]: {
+      opacity: 0.8,
+      color: tokens.colorLinkActive,
+    },
+    [`&&:hover .${classes0.yozoraHeadingAnchor}`]: {
+      opacity: 0.8,
+      color: tokens.colorLinkHover,
+    },
+  }),
+  yozoraHeadingAnchor: classes0.yozoraHeadingAnchor,
+  yozoraHeadingContent: classes0.yozoraHeadingContent,
+  h1: css({
+    padding: '0.3rem 0',
+    borderBottom: `1px solid ${tokens.colorBorderHeading}`,
+    fontSize: '2rem',
+    fontStyle: 'normal',
+    fontWeight: 500,
+  }),
+  h2: css({
+    padding: '0.3rem 0',
+    borderBottom: `1px solid ${tokens.colorBorderHeading}`,
+    fontSize: '1.5rem',
+    fontStyle: 'normal',
+    fontWeight: 500,
+    marginBottom: '0.875rem',
+  }),
+  h3: css({
+    fontSize: '1.25rem',
+    fontStyle: 'normal',
+    fontWeight: 500,
+  }),
+  h4: css({
+    fontSize: '1rem',
+    fontStyle: 'normal',
+    fontWeight: 500,
+  }),
+  h5: css({
+    fontSize: '0.875rem',
+    fontStyle: 'normal',
+    fontWeight: 500,
+  }),
+  h6: css({
+    fontSize: '0.85rem',
+    fontStyle: 'normal',
+    fontWeight: 500,
+  }),
 }

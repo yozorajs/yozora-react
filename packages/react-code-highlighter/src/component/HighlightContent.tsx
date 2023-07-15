@@ -2,9 +2,8 @@ import { cx } from '@emotion/css'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useHighlightTokens } from '../hook/useHighlightTokens'
-import { classes } from '../style'
+import { classes, vars } from '../style'
 import type { IPrismTheme } from '../types/prism'
-import { calcHeight } from '../util/height'
 import { HighlightLinenos } from './HighlightLinenos'
 import { HighlightTokens } from './HighlightTokens'
 
@@ -30,10 +29,6 @@ export interface IHighlightContentProps {
    */
   lang: string | undefined
   /**
-   * Line height.
-   */
-  lineHeight: React.CSSProperties['lineHeight']
-  /**
    * Maximum number of rows displayed
    */
   maxLines: number
@@ -58,7 +53,6 @@ export const HighlightContent: React.FC<IHighlightContentProps> = props => {
     collapsed = false,
     highlightLinenos = [],
     lang = '',
-    lineHeight,
     maxLines,
     showLineNo = true,
     theme,
@@ -73,7 +67,8 @@ export const HighlightContent: React.FC<IHighlightContentProps> = props => {
     style: baseStyle,
   } = useHighlightTokens(code, lang, theme)
 
-  const countOfLines: number = maxLines > 0 ? maxLines : tokens.length
+  const countOfLines: number = tokens.length
+  const visibleLines: number = maxLines > 0 ? Math.min(maxLines, countOfLines) : countOfLines
   const linenoWidth: string | undefined = showLineNo
     ? `${Math.max(2, String(tokens.length).length) * 1.1}em`
     : undefined
@@ -90,11 +85,6 @@ export const HighlightContent: React.FC<IHighlightContentProps> = props => {
     }
   }, [])
 
-  const maxHeight = React.useMemo(
-    () => calcHeight(lineHeight, countOfLines + 1),
-    [lineHeight, countOfLines],
-  )
-
   React.useEffect(() => {
     onLinenoWidthChange?.(linenoWidth)
   }, [linenoWidth, onLinenoWidthChange])
@@ -102,13 +92,15 @@ export const HighlightContent: React.FC<IHighlightContentProps> = props => {
   // Sync lineno width.
   const style: React.CSSProperties = {
     ...baseStyle,
-    lineHeight,
-    maxHeight: 0,
     backgroundColor: 'none',
-  }
-  if (!collapsed) {
-    style.maxHeight = maxHeight
-    style.minHeight = '100%'
+    ...(collapsed
+      ? {
+          maxHeight: 0,
+        }
+      : {
+          maxHeight: `calc(calc(${vars.lineHeightCode} * ${visibleLines + 0.8}) + 4px)`,
+          minHeight: '100%',
+        }),
   }
 
   return (
@@ -143,7 +135,6 @@ HighlightContent.propTypes = {
   collapsed: PropTypes.bool.isRequired,
   highlightLinenos: PropTypes.array,
   lang: PropTypes.string,
-  lineHeight: PropTypes.string,
   maxLines: PropTypes.number.isRequired,
   showLineNo: PropTypes.bool.isRequired,
   onLinenoWidthChange: PropTypes.func,

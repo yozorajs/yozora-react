@@ -1,4 +1,5 @@
-import { cx } from '@emotion/css'
+import { css, cx } from '@emotion/css'
+import { tokens } from '@yozora/core-react-theme'
 import CodeEmbed from '@yozora/react-code-embed'
 import CodeLiteral from '@yozora/react-code-literal'
 import CodeLive from '@yozora/react-code-live'
@@ -47,7 +48,7 @@ export const Code: React.FC<ICodeProps> = props => {
     [infoString, preferLineNo],
   )
   const { highlights, maxlines, title, collapsed, showlineno } = meta
-  const className = cx('yozora-code', props.className)
+  const className = cx(cls, props.className)
   const _yozoracodemode = lang ? meta._yozoracodemode ?? 'literal' : 'literal'
 
   if (lang) {
@@ -62,7 +63,7 @@ export const Code: React.FC<ICodeProps> = props => {
             title={title}
             maxLines={maxlines}
             collapsed={collapsed}
-            showLinenos={showlineno}
+            showLineNo={showlineno}
             darken={darken}
             className={className}
             style={style}
@@ -114,3 +115,10 @@ Code.propTypes = {
   style: PropTypes.object,
 }
 Code.displayName = 'YozoraCode'
+
+const cls = cx(
+  'yozora-code',
+  css({
+    margin: tokens.marginBlockNode,
+  }),
+)

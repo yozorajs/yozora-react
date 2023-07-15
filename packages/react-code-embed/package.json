@@ -53,12 +53,12 @@
     "react": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@guanghechen/helper-jest": "^5.0.1",
+    "@guanghechen/helper-jest": "^5.0.2",
     "@yozora/react-code-runners": "^2.3.3",
     "cross-env": "^7.0.3",
-    "jest": "^29.5.0",
+    "jest": "^29.6.1",
     "rimraf": "^5.0.1",
-    "rollup": "^3.25.1"
+    "rollup": "^3.26.2"
   },
   "browserslist": [
     "last 2 versions",

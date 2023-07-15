@@ -23,6 +23,7 @@ import type {
  * @see https://github.com/satya164/react-simple-code-editor
  */
 export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState> {
+  public static readonly displayName = 'SimpleCodeEditor'
   public static readonly defaultProps = {
     tabSize: 2,
     insertSpaces: true,

@@ -15,7 +15,7 @@ import type { ICodeEmbedProps, ICodeEmbedState } from './types'
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
 export class CodeEmbed extends React.Component<ICodeEmbedProps, ICodeEmbedState> {
-  public static displayName = 'YozoraCodeEmbed'
+  public static displayName = 'CodeEmbed'
   public static propTypes = {
     lang: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,

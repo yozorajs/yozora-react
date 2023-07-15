@@ -1,4 +1,6 @@
+import { css, cx } from '@emotion/css'
 import type { Emphasis } from '@yozora/ast'
+import { tokens } from '@yozora/core-react-theme'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
 
@@ -11,9 +13,17 @@ import { NodesRenderer } from '../NodesRenderer'
 export class EmphasisRenderer extends React.PureComponent<Emphasis> {
   public override render(): React.ReactElement {
     return (
-      <em className="yozora-emphasis">
+      <em className={cls}>
         <NodesRenderer nodes={this.props.children} />
       </em>
     )
   }
 }
+
+const cls = cx(
+  'yozora-emphasis',
+  css({
+    fontStyle: 'italic',
+    margin: tokens.marginEmphasis,
+  }),
+)

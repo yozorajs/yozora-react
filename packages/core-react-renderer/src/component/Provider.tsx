@@ -1,4 +1,3 @@
-import { cx } from '@emotion/css'
 import { useDeepCompareMemo } from '@guanghechen/react-hooks'
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
 import PropTypes from 'prop-types'
@@ -8,7 +7,6 @@ import type { INodeRendererContext } from '../context/context'
 import { reducer } from '../context/reducer'
 import { initNodeRendererState } from '../context/state'
 import { useNodeRendererMap } from '../hook/useNodeRendererMap'
-import { useStyles } from '../hook/useStyles'
 import type { INodeRendererMap } from '../types'
 import { ImagePreviewer } from './ImagePreviewer'
 import type { IImagePreviewerProps } from './ImagePreviewer'
@@ -30,10 +28,6 @@ export interface INodeRendererProviderProps {
    * Descendant elements.
    */
   children?: React.ReactNode
-  /**
-   * Root element className.
-   */
-  rootClassName?: string
   /**
    * Custom image viewer.
    */
@@ -61,10 +55,9 @@ export const NodeRendererProvider: React.FC<INodeRendererProviderProps> = props 
     [state, definitionMap, footnoteDefinitionMap, rendererMap, dispatch],
   )
 
-  const className: string = cx(useStyles(), props.rootClassName)
   return (
     <NodeRendererContextType.Provider value={context}>
-      <div className={className}>{props.children}</div>
+      {props.children}
       <ImagePreviewer ImageViewer={ImageViewer} />
     </NodeRendererContextType.Provider>
   )
@@ -74,7 +67,6 @@ NodeRendererProvider.propTypes = {
   definitionMap: PropTypes.object.isRequired as any,
   customRendererMap: PropTypes.object as any,
   children: PropTypes.node.isRequired,
-  rootClassName: PropTypes.string,
   ImageViewer: PropTypes.any,
 }
 NodeRendererProvider.displayName = 'YozoraNodeRendererProvider'

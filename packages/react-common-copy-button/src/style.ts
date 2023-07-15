@@ -1,28 +1,47 @@
 import { css } from '@emotion/css'
+import { CopyStatus } from './constant'
+
+const vars = {
+  colorPending: `var(--yozora-copy-button--${CopyStatus.PENDING}, #73808c)`,
+  colorCopying: `var(--yozora-copy-button--${CopyStatus.COPYING}, #cccccc)`,
+  colorCompleted: `var(--yozora-copy-button--${CopyStatus.COMPLETED}, #14b814)`,
+  colorFailed: `var(--yozora-copy-button--${CopyStatus.FAILED}, #b81414)`,
+  colorActive: 'var(--yozora-copy-button--active, #7099c2)',
+  colorHover: 'var(--yozora-copy-button--hover, #94b3d1)',
+}
 
 export const classes = {
   container: css({
-    display: 'inline-block',
-    padding: '0.4rem',
+    padding: '6px',
     border: 'none',
     outline: 'none',
     cursor: 'pointer',
     background: 'none',
-    color: 'var(--yozora-copy-button--waiting, #73808c)',
-    '&:hover': {
-      color: 'var(--yozora-copy-button--hover, #94b3d1)',
+    userSelect: 'none',
+    color: vars.colorPending,
+    '&&:hover': {
+      color: vars.colorActive,
+      border: 'none',
+      outline: 'none',
     },
     '&:active': {
-      color: 'var(--yozora-copy-button--active, #7099c2)',
+      color: vars.colorActive,
+      border: 'none',
+      outline: 'none',
     },
-    '&[data-copy-status="copying"]': {
-      color: 'var(--yozora-copy-button--copying, #cccccc)',
+    '&:target': {
+      border: 'none',
+      outline: 'none',
+      animation: 'none',
     },
-    '&[data-copy-status="failed"]': {
-      color: 'var(--yozora-copy-button--failed, #b81414)',
+    [`&[data-copy-status="${CopyStatus.COPYING}"]`]: {
+      color: vars.colorCopying,
     },
-    '&[data-copy-status="succeed"]': {
-      color: 'var(--yozora-copy-button--succeed, #14b814)',
+    [`&[data-copy-status="${CopyStatus.COMPLETED}"]`]: {
+      color: vars.colorCompleted,
+    },
+    [`&[data-copy-status="${CopyStatus.FAILED}"]`]: {
+      color: vars.colorFailed,
     },
   }),
 }

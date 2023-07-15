@@ -42,3 +42,8 @@ export interface ICodeLiteralProps {
    */
   style?: React.CSSProperties
 }
+
+export interface ICodeLiteralState {
+  collapsed: boolean
+  countOfLines: number
+}

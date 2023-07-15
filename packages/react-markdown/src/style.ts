@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css'
-import { tokens, useThemeContext } from '@yozora/core-react-theme'
+import { CommonTokenNames, tokens, useThemeContext } from '@yozora/core-react-theme'
 import React from 'react'
 
 export const useStyles = (): string => {
@@ -49,13 +49,13 @@ const basicStyle: string = css({
       '&:active': {
         color: tokens.colorLinkActive,
       },
-      '&:hover': {
+      '&&:hover': {
         color: tokens.colorLinkHover,
         letterSpacing: '2px',
         transform: 'scale(1.2)',
       },
       '&:visited': {
-        color: tokens.colorLinkVisit,
+        color: tokens.colorLinkVisited,
       },
     },
   },
@@ -188,24 +188,17 @@ function useSmallScreenStyle(): string {
     () =>
       css({
         [`@media screen and ${xsMinus}`]: {
+          [CommonTokenNames.fontSizeCode]: '12px',
+          [CommonTokenNames.lineHeightCode]: 'calc(12px * 1.6)',
+          '.yozora-code-highlighter__linenos': {
+            display: 'none',
+            visibility: 'hidden',
+          },
           '.yozora-code-literal': {
             border: 'none',
             borderRadius: '5px',
             boxShadow: 'rgba(30, 30, 30, 73%) 0 2px 10px',
             overflow: 'hidden',
-            '.yozora-code-highlighter': {
-              fontSize: '0.9rem',
-            },
-            '.yozora-code-highlighter__content': {
-              fontSize: '0.9rem',
-            },
-            '.yozora-code-highlighter__linenos': {
-              display: 'none',
-              visibility: 'hidden',
-            },
-            '.yozora-code-editor.yozora-code-editor textarea': {
-              fontSize: '0.9rem',
-            },
             '.yozora-list-item': {
               '> .yozora-paragraph:last-child': {
                 marginBottom: '0.5rem',
@@ -225,18 +218,9 @@ function useSmallScreenStyle(): string {
             borderRadius: '5px',
             boxShadow: 'rgba(30, 30, 30, 73%) 0 2px 10px',
             overflow: 'hidden',
-            '.yozora-code-highlighter': {
-              fontSize: '0.9rem',
-            },
-            '.yozora-code-highlighter__content': {
-              fontSize: '0.9rem',
-            },
             '.yozora-code-highlighter__linenos': {
               display: 'none',
               visibility: 'hidden',
-            },
-            '.yozora-code-editor.yozora-code-editor textarea': {
-              fontSize: '0.9rem',
             },
           },
           '.yozora-inline-math': {
