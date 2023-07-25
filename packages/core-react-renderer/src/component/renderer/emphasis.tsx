@@ -10,11 +10,17 @@ import { NodesRenderer } from '../NodesRenderer'
  * @see https://www.npmjs.com/package/@yozora/ast#emphasis
  * @see https://www.npmjs.com/package/@yozora/tokenizer-emphasis
  */
-export class EmphasisRenderer extends React.PureComponent<Emphasis> {
+export class EmphasisRenderer extends React.Component<Emphasis> {
+  public override shouldComponentUpdate(nextProps: Readonly<Emphasis>): boolean {
+    const props = this.props
+    return props.children !== nextProps.children
+  }
+
   public override render(): React.ReactElement {
+    const childNodes = this.props.children
     return (
       <em className={cls}>
-        <NodesRenderer nodes={this.props.children} />
+        <NodesRenderer nodes={childNodes} />
       </em>
     )
   }

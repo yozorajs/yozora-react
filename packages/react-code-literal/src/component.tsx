@@ -5,7 +5,56 @@ import LightButtons from '@yozora/react-common-light-buttons'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { classes } from './style'
-import type { ICodeLiteralProps, ICodeLiteralState } from './types'
+
+interface IProps {
+  /**
+   * Literal source codes.
+   */
+  value: string
+  /**
+   * Language of the source code.
+   */
+  lang?: string | null
+  /**
+   * Code title
+   */
+  title?: string
+  /**
+   * Line number of Lines that should be highlighted.
+   */
+  highlightLinenos?: number[]
+  /**
+   * Maximum number of rows displayed
+   */
+  maxLines?: number
+  /**
+   * Whether the code block is in a collapsed state.
+   * @default false
+   */
+  collapsed?: boolean
+  /**
+   * Whether to display the line numbers.
+   */
+  showLineNo?: boolean
+  /**
+   * If true, use vscDarkTheme as default theme,
+   * otherwise use vscLightTheme as default theme.
+   */
+  darken?: boolean
+  /**
+   * Root css class of the component.
+   */
+  className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
+}
+
+interface IState {
+  collapsed: boolean
+  countOfLines: number
+}
 
 /**
  * Render yozora `code`
@@ -17,7 +66,7 @@ import type { ICodeLiteralProps, ICodeLiteralState } from './types'
  * @see https://www.npmjs.com/package/@yozora/react-code-embed
  * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
-export class CodeLiteral extends React.Component<ICodeLiteralProps, ICodeLiteralState> {
+export class CodeLiteral extends React.Component<IProps, IState> {
   public static displayName = 'CodeLiteral'
   public static propTypes = {
     className: PropTypes.string,
@@ -32,12 +81,32 @@ export class CodeLiteral extends React.Component<ICodeLiteralProps, ICodeLiteral
     value: PropTypes.string.isRequired,
   }
 
-  constructor(props: ICodeLiteralProps) {
+  constructor(props: IProps) {
     super(props)
     this.state = {
       collapsed: props.collapsed ?? false,
       countOfLines: props.value.split(/\r|\n|\n\r/g).length,
     }
+  }
+
+  public override shouldComponentUpdate(
+    nextProps: Readonly<IProps>,
+    nextState: Readonly<IState>,
+  ): boolean {
+    const { props, state } = this
+    return (
+      state.collapsed !== nextState.collapsed ||
+      state.countOfLines !== nextState.countOfLines ||
+      props.darken !== nextProps.darken ||
+      props.maxLines !== nextProps.maxLines ||
+      props.showLineNo !== nextProps.showLineNo ||
+      props.value !== nextProps.value ||
+      props.lang !== nextProps.lang ||
+      props.title !== nextProps.title ||
+      props.highlightLinenos !== nextProps.highlightLinenos ||
+      props.className !== nextProps.className ||
+      props.style !== nextProps.style
+    )
   }
 
   public override render(): React.ReactElement {
@@ -83,27 +152,7 @@ export class CodeLiteral extends React.Component<ICodeLiteralProps, ICodeLiteral
     )
   }
 
-  public override shouldComponentUpdate(
-    nextProps: Readonly<ICodeLiteralProps>,
-    nextState: Readonly<ICodeLiteralState>,
-  ): boolean {
-    const { props, state } = this
-    return (
-      state.collapsed !== nextState.collapsed ||
-      state.countOfLines !== nextState.countOfLines ||
-      props.darken !== nextProps.darken ||
-      props.maxLines !== nextProps.maxLines ||
-      props.showLineNo !== nextProps.showLineNo ||
-      props.value !== nextProps.value ||
-      props.lang !== nextProps.lang ||
-      props.title !== nextProps.title ||
-      props.highlightLinenos !== nextProps.highlightLinenos ||
-      props.className !== nextProps.className ||
-      props.style !== nextProps.style
-    )
-  }
-
-  public override componentDidUpdate(prevProps: Readonly<ICodeLiteralProps>): void {
+  public override componentDidUpdate(prevProps: Readonly<IProps>): void {
     if (this.props.value !== prevProps.value) {
       const countOfLines: number = prevProps.value.split(/\r|\n|\n\r/g).length
       if (countOfLines !== this.state.countOfLines) {

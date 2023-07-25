@@ -36,8 +36,6 @@ export interface INodeRendererProviderProps {
 
 /**
  * A HoC component to provider NodeRendererContext
- * @param props
- * @returns
  */
 export const NodeRendererProvider: React.FC<INodeRendererProviderProps> = props => {
   const { definitionMap, footnoteDefinitionMap, ImageViewer } = props

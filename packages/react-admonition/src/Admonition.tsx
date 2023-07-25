@@ -33,14 +33,25 @@ export interface IAdmonitionProps {
  * @see https://www.npmjs.com/package/@yozora/ast#admonition
  * @see https://www.npmjs.com/package/@yozora/tokenizer-admonition
  */
-export class Admonition extends React.PureComponent<IAdmonitionProps> {
-  public static readonly displayName = 'YozoraAdmonition'
+export class Admonition extends React.Component<IAdmonitionProps> {
+  public static readonly displayName = 'Admonition'
   public static readonly propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
     keyword: PropTypes.string,
-    icon: PropTypes.node,
     title: PropTypes.node,
+    icon: PropTypes.node,
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
+  public override shouldComponentUpdate(nextProps: Readonly<IAdmonitionProps>): boolean {
+    const props = this.props
+    return (
+      props.keyword !== nextProps.keyword ||
+      props.title !== nextProps.title ||
+      props.icon !== nextProps.icon ||
+      props.className !== nextProps.className ||
+      props.children !== nextProps.children
+    )
   }
 
   public override render(): React.ReactElement {

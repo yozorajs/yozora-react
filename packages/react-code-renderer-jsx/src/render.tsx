@@ -1,3 +1,4 @@
+import isEqual from '@guanghechen/fast-deep-equal'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { generateElement, renderElementAsync } from './element'
@@ -29,62 +30,90 @@ export interface ICodeRendererJsxProps {
   onError(error: string | null): void
 }
 
-export const CodeRendererJsx: React.FC<ICodeRendererJsxProps> = props => {
-  const { code, inline, scope, enabledTypeScript = true, onError } = props
-  const [Element, setElement] = React.useState<React.ElementType | null>(null)
-
-  const transpile = React.useCallback(
-    (code: string): void => {
-      const handleError = (error: unknown): void => {
-        const errInfo = String(error ?? '')
-        onError(errInfo)
-        setElement(null)
-      }
-
-      const handleSuccess = (element: React.ElementType | null): void => {
-        onError(null)
-        setElement(() => element)
-      }
-
-      try {
-        if (inline) {
-          const element = generateElement({
-            code,
-            scope: scope!,
-            enabledTypeScript,
-            onError: handleError,
-          })
-          handleSuccess(element)
-        } else {
-          // Reset output for async (no inline) evaluation
-          setElement(null)
-          renderElementAsync({
-            code,
-            scope: scope!,
-            enabledTypeScript,
-            onError: handleError,
-            onSuccess: handleSuccess,
-          })
-        }
-      } catch (error: any) {
-        handleError(error)
-      }
-    },
-    [inline, scope, enabledTypeScript, onError],
-  )
-
-  React.useEffect((): void => transpile(code), [code, transpile])
-  return Element ? <Element /> : null
+interface IState {
+  Element: React.ElementType | null
 }
 
-CodeRendererJsx.defaultProps = {
-  scope: {},
-}
+export class CodeRendererJsx extends React.Component<ICodeRendererJsxProps, IState> {
+  public static readonly displayName = 'YozoraCodeRendererJsx'
+  public static readonly propTypes = {
+    code: PropTypes.string.isRequired,
+    inline: PropTypes.bool.isRequired,
+    scope: PropTypes.any,
+    onError: PropTypes.func.isRequired,
+  }
 
-CodeRendererJsx.propTypes = {
-  code: PropTypes.string.isRequired,
-  inline: PropTypes.bool.isRequired,
-  scope: PropTypes.any,
-  onError: PropTypes.func.isRequired,
+  constructor(props: ICodeRendererJsxProps) {
+    super(props)
+    this.state = { Element: null }
+  }
+
+  public override shouldComponentUpdate(
+    nextProps: Readonly<ICodeRendererJsxProps>,
+    nextState: IState,
+  ): boolean {
+    const props = this.props
+    const state = this.state
+    return (
+      state.Element !== nextState.Element ||
+      props.code !== nextProps.code ||
+      props.inline !== nextProps.inline ||
+      !isEqual(props.scope, nextProps.scope)
+    )
+  }
+
+  public override render(): React.ReactElement {
+    const { Element } = this.state
+    return Element ? <Element /> : <React.Fragment />
+  }
+
+  public override componentDidMount(): void {
+    void this.transpile()
+  }
+
+  public override componentDidUpdate(prevProps: Readonly<ICodeRendererJsxProps>): void {
+    const props = this.props
+    if (props.code !== prevProps.code || !isEqual(props.scope, prevProps.scope)) {
+      void this.transpile()
+    }
+  }
+
+  protected transpile(): void {
+    const { code, inline, scope = {}, enabledTypeScript = true, onError } = this.props
+
+    const handleError = (error: unknown): void => {
+      const errInfo = String(error ?? '')
+      onError(errInfo)
+      this.setState({ Element: null })
+    }
+
+    const handleSuccess = (element: React.ElementType | null): void => {
+      onError(null)
+      this.setState({ Element: element })
+    }
+
+    try {
+      if (inline) {
+        const element = generateElement({
+          code,
+          scope: scope,
+          enabledTypeScript,
+          onError: handleError,
+        })
+        handleSuccess(element)
+      } else {
+        // Reset output for async (no inline) evaluation
+        this.setState({ Element: null })
+        renderElementAsync({
+          code,
+          scope: scope!,
+          enabledTypeScript,
+          onError: handleError,
+          onSuccess: handleSuccess,
+        })
+      }
+    } catch (error: any) {
+      handleError(error)
+    }
+  }
 }
-CodeRendererJsx.displayName = 'YozoraCodeRendererJsx'

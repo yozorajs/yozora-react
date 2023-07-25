@@ -28,7 +28,7 @@ interface IProps {
 /**
  * Light buttons, imitate the window action icons in MacOS.
  */
-export class LightButtons extends React.PureComponent<IProps> {
+export class LightButtons extends React.Component<IProps> {
   public static readonly displayName = 'LightButtons'
   public static readonly propTypes = {
     className: PropTypes.string,
@@ -38,8 +38,15 @@ export class LightButtons extends React.PureComponent<IProps> {
     style: PropTypes.object,
   }
 
+  public override shouldComponentUpdate(nextProps: Readonly<IProps>): boolean {
+    const props = this.props
+    return props.className !== nextProps.className || props.style !== nextProps.style
+  }
+
   public override render(): React.ReactElement {
-    const { className, style, onClose, onMaximize, onMinimize } = this.props
+    const { onClose, onMaximize, onMinimize } = this
+    const { className, style } = this.props
+
     return (
       <span className={cx(classes.container, className)} style={style}>
         <span
@@ -62,6 +69,18 @@ export class LightButtons extends React.PureComponent<IProps> {
         />
       </span>
     )
+  }
+
+  protected readonly onClose = (): void => {
+    this.props.onClose?.()
+  }
+
+  protected readonly onMinimize = (): void => {
+    this.props.onMinimize?.()
+  }
+
+  protected readonly onMaximize = (): void => {
+    this.props.onMaximize?.()
   }
 }
 

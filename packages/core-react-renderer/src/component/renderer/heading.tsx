@@ -16,7 +16,17 @@ interface IProps extends Heading {
  * @see https://www.npmjs.com/package/@yozora/ast#heading
  * @see https://www.npmjs.com/package/@yozora/tokenizer-heading
  */
-export class HeadingRenderer extends React.PureComponent<IProps> {
+export class HeadingRenderer extends React.Component<IProps> {
+  public override shouldComponentUpdate(nextProps: Readonly<IProps>): boolean {
+    const props = this.props
+    return (
+      props.depth !== nextProps.depth ||
+      props.identifier !== nextProps.identifier ||
+      props.children !== nextProps.children ||
+      props.linkIcon !== nextProps.linkIcon
+    )
+  }
+
   public override render(): React.ReactElement {
     const { depth, identifier, children, linkIcon = '¶' } = this.props
 
@@ -46,7 +56,7 @@ export class HeadingRenderer extends React.PureComponent<IProps> {
   }
 }
 
-const classes0 = {
+const $classes = {
   yozoraHeadingAnchor: css({
     flex: '0 0 3rem',
     paddingLeft: '0.5rem',
@@ -84,17 +94,17 @@ const classes = {
     lineHeight: 1.25,
     fontFamily: tokens.fontFamilyHeading,
     color: tokens.colorHeading,
-    [`&:active .${classes0.yozoraHeadingAnchor}`]: {
+    [`&:active .${$classes.yozoraHeadingAnchor}`]: {
       opacity: 0.8,
       color: tokens.colorLinkActive,
     },
-    [`&&:hover .${classes0.yozoraHeadingAnchor}`]: {
+    [`&&:hover .${$classes.yozoraHeadingAnchor}`]: {
       opacity: 0.8,
       color: tokens.colorLinkHover,
     },
   }),
-  yozoraHeadingAnchor: classes0.yozoraHeadingAnchor,
-  yozoraHeadingContent: classes0.yozoraHeadingContent,
+  yozoraHeadingAnchor: $classes.yozoraHeadingAnchor,
+  yozoraHeadingContent: $classes.yozoraHeadingContent,
   h1: css({
     padding: '0.3rem 0',
     borderBottom: `1px solid ${tokens.colorBorderHeading}`,

@@ -38,6 +38,18 @@ export class Markdown extends React.Component<IMarkdownProps> {
     style: PropTypes.any,
   }
 
+  public override shouldComponentUpdate(nextProps: IMarkdownProps): boolean {
+    const prevProps = this.props
+    return (
+      prevProps.ast !== nextProps.ast ||
+      prevProps.dontNeedFootnoteDefinitions !== nextProps.dontNeedFootnoteDefinitions ||
+      (!nextProps.dontNeedFootnoteDefinitions &&
+        prevProps.footnoteDefinitionsTitle !== nextProps.footnoteDefinitionsTitle) ||
+      prevProps.className !== nextProps.className ||
+      prevProps.style !== nextProps.style
+    )
+  }
+
   public override render(): React.ReactElement {
     const { ast, footnoteDefinitionsTitle, dontNeedFootnoteDefinitions, className, style } =
       this.props
@@ -54,18 +66,6 @@ export class Markdown extends React.Component<IMarkdownProps> {
           />
         </footer>
       </div>
-    )
-  }
-
-  public override shouldComponentUpdate(nextProps: IMarkdownProps): boolean {
-    const prevProps = this.props
-    return (
-      prevProps.ast !== nextProps.ast ||
-      prevProps.dontNeedFootnoteDefinitions !== nextProps.dontNeedFootnoteDefinitions ||
-      (!nextProps.dontNeedFootnoteDefinitions &&
-        prevProps.footnoteDefinitionsTitle !== nextProps.footnoteDefinitionsTitle) ||
-      prevProps.className !== nextProps.className ||
-      prevProps.style !== nextProps.style
     )
   }
 }

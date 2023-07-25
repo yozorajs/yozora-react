@@ -1,10 +1,10 @@
 import React from 'react'
 import {
-  YozoraAdmonitionCautionIcon,
-  YozoraAdmonitionDangerIcon,
-  YozoraAdmonitionInfoIcon,
-  YozoraAdmonitionNoteIcon,
-  YozoraAdmonitionTipIcon,
+  AdmonitionCautionIcon,
+  AdmonitionDangerIcon,
+  AdmonitionInfoIcon,
+  AdmonitionNoteIcon,
+  AdmonitionTipIcon,
 } from './icons'
 
 interface IAdmonitionDescriptor {
@@ -17,27 +17,27 @@ const descriptors = {
   note: {
     modifier: 'note',
     title: 'NOTE',
-    icon: <YozoraAdmonitionNoteIcon />,
+    icon: <AdmonitionNoteIcon />,
   },
   info: {
     modifier: 'info',
     title: 'INFO',
-    icon: <YozoraAdmonitionInfoIcon />,
+    icon: <AdmonitionInfoIcon />,
   },
   tip: {
     modifier: 'tip',
     title: 'TIP',
-    icon: <YozoraAdmonitionTipIcon />,
+    icon: <AdmonitionTipIcon />,
   },
   caution: {
     modifier: 'caution',
     title: 'CAUTION',
-    icon: <YozoraAdmonitionCautionIcon />,
+    icon: <AdmonitionCautionIcon />,
   },
   danger: {
     modifier: 'danger',
     title: 'DANGER',
-    icon: <YozoraAdmonitionDangerIcon />,
+    icon: <AdmonitionDangerIcon />,
   },
 } as const
 

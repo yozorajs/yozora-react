@@ -14,7 +14,12 @@ import { NodesRenderer } from '../NodesRenderer'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-table-row
  * @see https://www.npmjs.com/package/@yozora/tokenizer-table-cell
  */
-export class TableRenderer extends React.PureComponent<Table> {
+export class TableRenderer extends React.Component<Table> {
+  public override shouldComponentUpdate(nextProps: Readonly<Table>): boolean {
+    const props = this.props
+    return props.columns !== nextProps.columns || props.children !== nextProps.children
+  }
+
   public override render(): React.ReactElement {
     const { columns, children: rows } = this.props
     const aligns = columns.map(col => col.align ?? undefined)
@@ -26,9 +31,9 @@ export class TableRenderer extends React.PureComponent<Table> {
         <thead>
           <tr>
             {ths.map((children, idx) => (
-              <TableTh key={idx} align={aligns[idx]}>
+              <Th key={idx} align={aligns[idx]}>
                 {children}
-              </TableTh>
+              </Th>
             ))}
           </tr>
         </thead>
@@ -48,17 +53,22 @@ export class TableRenderer extends React.PureComponent<Table> {
   }
 }
 
-interface ITableThProps {
-  align?: 'left' | 'center' | 'right'
+interface IThProps {
+  align: 'left' | 'center' | 'right' | undefined
   children: React.ReactNode
 }
 
-class TableTh extends React.PureComponent<ITableThProps> {
+class Th extends React.Component<IThProps> {
   protected readonly ref: React.RefObject<HTMLTableCellElement>
 
-  constructor(props: ITableThProps) {
+  constructor(props: IThProps) {
     super(props)
     this.ref = { current: null }
+  }
+
+  public override shouldComponentUpdate(nextProps: Readonly<IThProps>): boolean {
+    const props = this.props
+    return props.align !== nextProps.align || props.children !== nextProps.children
   }
 
   public override render(): React.ReactElement {

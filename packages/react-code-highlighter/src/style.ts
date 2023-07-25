@@ -36,6 +36,7 @@ export const classes = {
     letterSpacing: 'inherit',
     fontSize: vars.fontSizeCode,
     lineHeight: vars.lineHeightCode,
+    height: vars.lineHeightCode,
     overflowWrap: 'inherit',
     tabSize: 'inherit',
     textIndent: 'inherit',

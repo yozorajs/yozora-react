@@ -18,7 +18,7 @@ const defaultStatusTipMap: ICopyStatusTipMap = {
   [CopyStatus.FAILED]: 'failed!',
 }
 
-export interface CopyButtonProps {
+interface IProps {
   /**
    * The literal texture content that waiting to copy.
    */
@@ -50,7 +50,7 @@ export interface CopyButtonProps {
   onClick?: (evt: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-export const CopyButton: React.FC<CopyButtonProps> = props => {
+export const CopyButton: React.FC<IProps> = props => {
   const { value, statusTipMap = defaultStatusTipMap, className, style, onError } = props
   const [status, setStatus] = React.useState<CopyStatus>(CopyStatus.PENDING)
 

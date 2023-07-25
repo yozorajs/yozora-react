@@ -1,3 +1,4 @@
+import isEqual from '@guanghechen/fast-deep-equal'
 import type { Engine, GraphvizOptions } from 'd3-graphviz'
 import { graphviz } from 'd3-graphviz'
 import PropTypes from 'prop-types'
@@ -24,11 +25,54 @@ export interface IGraphvizRendererProps {
   onError?(error: string | null): void
 }
 
-export const GraphvizRenderer: React.FC<IGraphvizRendererProps> = props => {
-  const { code, engine = 'dot', options, onError } = props
-  const graphRef = React.useRef<HTMLDivElement>(null)
+export class GraphvizRenderer extends React.Component<IGraphvizRendererProps> {
+  public static readonly displayName = 'GraphvizRenderer'
+  public static readonly propTypes = {
+    code: PropTypes.string.isRequired,
+    engine: PropTypes.oneOf(['circo', 'dot', 'fdp', 'neato', 'osage', 'patchwork', 'twopi']),
+    options: PropTypes.any,
+    onError: PropTypes.func,
+  }
 
-  React.useEffect(() => {
+  protected readonly graphRef: React.RefObject<HTMLDivElement>
+
+  constructor(props: IGraphvizRendererProps) {
+    super(props)
+    this.graphRef = { current: null }
+  }
+
+  public override shouldComponentUpdate(nextProps: IGraphvizRendererProps): boolean {
+    const props = this.props
+    return (
+      props.code !== nextProps.code ||
+      props.engine !== nextProps.engine ||
+      !isEqual(props.options, nextProps.options)
+    )
+  }
+
+  public override render(): React.ReactElement {
+    const { graphRef } = this
+    return <div ref={graphRef} className="yozora-code-renderer-graphviz" />
+  }
+
+  public override componentDidMount(): void {
+    void this.renderGraphviz()
+  }
+
+  public override componentDidUpdate(prevProps: IGraphvizRendererProps): void {
+    const props = this.props
+    if (
+      props.code !== prevProps.code ||
+      props.options !== prevProps.options ||
+      props.engine !== prevProps.engine
+    ) {
+      void this.renderGraphviz()
+    }
+  }
+
+  protected async renderGraphviz(): Promise<void> {
+    const { graphRef, onError } = this
+    const { code, engine = 'dot', options } = this.props
     if (graphRef.current == null) return
 
     try {
@@ -44,17 +88,11 @@ export const GraphvizRenderer: React.FC<IGraphvizRendererProps> = props => {
     } catch (error: any) {
       onError?.(error?.stack ?? error?.message ?? error ?? 'Unexpected error occurred!')
     }
-  }, [code, options, engine, onError])
+  }
 
-  return <div ref={graphRef} className="yozora-code-renderer-graphviz" />
+  protected readonly onError = (error: string | null): void => {
+    this.props.onError?.(error)
+  }
 }
 
-GraphvizRenderer.propTypes = {
-  code: PropTypes.string.isRequired,
-  engine: PropTypes.oneOf(['circo', 'dot', 'fdp', 'neato', 'osage', 'patchwork', 'twopi']),
-  options: PropTypes.any,
-  onError: PropTypes.func,
-}
-
-GraphvizRenderer.displayName = 'GraphvizRenderer'
 export default GraphvizRenderer

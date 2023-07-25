@@ -9,7 +9,12 @@ import React from 'react'
  * @see https://www.npmjs.com/package/@yozora/ast#listitem
  * @see https://www.npmjs.com/package/@yozora/tokenizer-list-item
  */
-export class ListItemRenderer extends React.PureComponent<ListItem> {
+export class ListItemRenderer extends React.Component<ListItem> {
+  public override shouldComponentUpdate(nextProps: Readonly<ListItem>): boolean {
+    const props = this.props
+    return props.status !== nextProps.status || props.children !== nextProps.children
+  }
+
   public override render(): React.ReactElement {
     const { status, children } = this.props
     return (
@@ -21,7 +26,16 @@ export class ListItemRenderer extends React.PureComponent<ListItem> {
   }
 }
 
-class TaskItemCheckbox extends React.PureComponent<{ status: string | undefined | null }> {
+interface IProps {
+  status: string | undefined | null
+}
+
+class TaskItemCheckbox extends React.Component<IProps> {
+  public override shouldComponentUpdate(nextProps: IProps): boolean {
+    const props = this.props
+    return props.status !== nextProps.status
+  }
+
   public override render(): React.ReactElement {
     const { status } = this.props
     if (status == null) return <React.Fragment />

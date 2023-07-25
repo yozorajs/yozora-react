@@ -10,11 +10,17 @@ import { NodesRenderer } from '../NodesRenderer'
  * @see https://www.npmjs.com/package/@yozora/ast#blockquote
  * @see https://www.npmjs.com/package/@yozora/tokenizer-blockquote
  */
-export class BlockquoteRenderer extends React.PureComponent<Blockquote> {
+export class BlockquoteRenderer extends React.Component<Blockquote> {
+  public override shouldComponentUpdate(nextProps: Readonly<Blockquote>): boolean {
+    const props = this.props
+    return props.children !== nextProps.children
+  }
+
   public override render(): React.ReactElement {
+    const childNodes = this.props.children
     return (
       <blockquote className={cls}>
-        <NodesRenderer nodes={this.props.children} />
+        <NodesRenderer nodes={childNodes} />
       </blockquote>
     )
   }

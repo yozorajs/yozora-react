@@ -4,15 +4,24 @@ import React from 'react'
 import { classes } from '../style'
 import { areSameArray } from '../util/misc'
 
-export interface IHighlightLinenosProps {
+interface IProps {
   countOfLines: number
   highlightLinenos: number[] | undefined
 }
 
-export class HighlightLinenos extends React.Component<IHighlightLinenosProps> {
-  public static propTypes = {
+export class HighlightLinenos extends React.Component<IProps> {
+  public static readonly displayName = 'HighlightLinenos'
+  public static readonly propTypes = {
     countOfLines: PropTypes.number.isRequired,
     highlightLinenos: PropTypes.array,
+  }
+
+  public override shouldComponentUpdate(nextProps: Readonly<IProps>): boolean {
+    const props = this.props
+    return (
+      props.countOfLines !== nextProps.countOfLines ||
+      !areSameArray(props.highlightLinenos, nextProps.highlightLinenos)
+    )
   }
 
   public override render(): React.ReactElement {
@@ -31,13 +40,5 @@ export class HighlightLinenos extends React.Component<IHighlightLinenosProps> {
       lines.push(line)
     }
     return <React.Fragment>{lines}</React.Fragment>
-  }
-
-  public override shouldComponentUpdate(nextProps: Readonly<IHighlightLinenosProps>): boolean {
-    const props = this.props
-    return (
-      props.countOfLines !== nextProps.countOfLines ||
-      !areSameArray(props.highlightLinenos, nextProps.highlightLinenos)
-    )
   }
 }

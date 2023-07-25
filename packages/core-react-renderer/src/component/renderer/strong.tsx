@@ -9,11 +9,17 @@ import { NodesRenderer } from '../NodesRenderer'
  * @see https://www.npmjs.com/package/@yozora/ast#strong
  * @see https://www.npmjs.com/package/@yozora/tokenizer-emphasis
  */
-export class StrongRenderer extends React.PureComponent<Strong> {
+export class StrongRenderer extends React.Component<Strong> {
+  public override shouldComponentUpdate(nextProps: Readonly<Strong>): boolean {
+    const props = this.props
+    return props.children !== nextProps.children
+  }
+
   public override render(): React.ReactElement {
+    const childNodes = this.props.children
     return (
       <strong className={cls}>
-        <NodesRenderer nodes={this.props.children} />
+        <NodesRenderer nodes={childNodes} />
       </strong>
     )
   }

@@ -49,6 +49,32 @@ export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
     }
   }
 
+  public override shouldComponentUpdate(
+    nextProps: Readonly<ICodeLiveProps>,
+    nextState: Readonly<ICodeLiveState>,
+  ): boolean {
+    const { props, state } = this
+    return (
+      state.value !== nextState.value ||
+      state.orientation !== nextState.orientation ||
+      state.collapsed !== nextState.collapsed ||
+      state.countOfLines !== nextState.countOfLines ||
+      props.darken !== nextProps.darken ||
+      props.maxLines !== nextProps.maxLines ||
+      props.showLineNo !== nextProps.showLineNo ||
+      props.runners !== nextProps.runners ||
+      props.lang !== nextProps.lang ||
+      props.meta !== nextProps.meta ||
+      props.scope !== nextProps.scope ||
+      props.title !== nextProps.title ||
+      props.theme !== nextProps.theme ||
+      props.autoFocus !== nextProps.autoFocus ||
+      props.centerPreviewer !== nextProps.centerPreviewer ||
+      props.className !== nextProps.className ||
+      props.style !== nextProps.style
+    )
+  }
+
   public override render(): React.ReactElement {
     const {
       darken,
@@ -113,32 +139,6 @@ export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
           )}
         </div>
       </div>
-    )
-  }
-
-  public override shouldComponentUpdate(
-    nextProps: Readonly<ICodeLiveProps>,
-    nextState: Readonly<ICodeLiveState>,
-  ): boolean {
-    const { props, state } = this
-    return (
-      state.value !== nextState.value ||
-      state.orientation !== nextState.orientation ||
-      state.collapsed !== nextState.collapsed ||
-      state.countOfLines !== nextState.countOfLines ||
-      props.darken !== nextProps.darken ||
-      props.maxLines !== nextProps.maxLines ||
-      props.showLineNo !== nextProps.showLineNo ||
-      props.runners !== nextProps.runners ||
-      props.lang !== nextProps.lang ||
-      props.meta !== nextProps.meta ||
-      props.scope !== nextProps.scope ||
-      props.title !== nextProps.title ||
-      props.theme !== nextProps.theme ||
-      props.autoFocus !== nextProps.autoFocus ||
-      props.centerPreviewer !== nextProps.centerPreviewer ||
-      props.className !== nextProps.className ||
-      props.style !== nextProps.style
     )
   }
 

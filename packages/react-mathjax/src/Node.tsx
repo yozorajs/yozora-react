@@ -108,7 +108,7 @@ export class MathJaxNodeWithContext extends React.PureComponent<IMathJaxNodeWith
     const { MathJax } = this.props
     if (MathJax && this._formulaNode) {
       const jax = MathJax.Hub.getJaxFor(this._formulaNode)
-      jax?.Remove()
+      jax?.Remove?.()
     }
   }
 

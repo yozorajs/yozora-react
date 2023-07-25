@@ -19,7 +19,7 @@
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/types/index.d.ts",
-  "source": "src/index.tsx",
+  "source": "src/index.ts",
   "license": "MIT",
   "engines": {
     "node": ">= 16.0.0"
@@ -38,7 +38,8 @@
     "test": "node --experimental-vm-modules ../../node_modules/.bin/jest --config ../../jest.config.mjs --rootDir ."
   },
   "dependencies": {
-    "sucrase": "^3.33.0"
+    "@guanghechen/fast-deep-equal": "^2.3.2",
+    "sucrase": "^3.34.0"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",

@@ -10,11 +10,17 @@ import { NodesRenderer } from '../NodesRenderer'
  * @see https://www.npmjs.com/package/@yozora/ast#delete
  * @see https://www.npmjs.com/package/@yozora/tokenizer-delete
  */
-export class DeleteRenderer extends React.PureComponent<Delete> {
+export class DeleteRenderer extends React.Component<Delete> {
+  public override shouldComponentUpdate(nextProps: Readonly<Delete>): boolean {
+    const props = this.props
+    return props.children !== nextProps.children
+  }
+
   public override render(): React.ReactElement {
+    const childNodes = this.props.children
     return (
       <del className={cls}>
-        <NodesRenderer nodes={this.props.children} />
+        <NodesRenderer nodes={childNodes} />
       </del>
     )
   }

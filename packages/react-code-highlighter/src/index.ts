@@ -1,10 +1,8 @@
 import './language'
 
 export * from './component/CodeHighlighter'
-export * from './component/HighlightContent'
 export * from './component/HighlightLinenos'
-export * from './component/HighlightTokens'
-export * from './hook/useHighlightTokens'
+export * from './component/HighlightContent'
 export * from './types/prism'
 export * from './theme/vsc-dark'
 export * from './theme/vsc-light'

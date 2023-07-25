@@ -73,7 +73,7 @@ export class CodeHighlighter extends React.PureComponent<IProps> {
       lang,
       value: code,
       darken = true,
-      highlightLinenos,
+      highlightLinenos = [],
       maxLines = -1,
       collapsed = false,
       showLineNo = true,
@@ -88,9 +88,9 @@ export class CodeHighlighter extends React.PureComponent<IProps> {
         codesRef={codesRef}
         collapsed={collapsed}
         highlightLinenos={highlightLinenos}
-        lang={lang ?? undefined}
+        language={lang ?? ''}
         maxLines={maxLines}
-        showLineNo={showLineNo}
+        showLineno={showLineNo}
         theme={theme}
         onLinenoWidthChange={onLinenoWidthChange}
       />

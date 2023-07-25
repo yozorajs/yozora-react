@@ -9,7 +9,12 @@ import React from 'react'
  * @see https://www.npmjs.com/package/@yozora/ast#inlinecode
  * @see https://www.npmjs.com/package/@yozora/tokenizer-inline-code
  */
-export class InlineCodeRenderer extends React.PureComponent<InlineCode> {
+export class InlineCodeRenderer extends React.Component<InlineCode> {
+  public override shouldComponentUpdate(nextProps: Readonly<InlineCode>): boolean {
+    const props = this.props
+    return props.value !== nextProps.value
+  }
+
   public override render(): React.ReactElement {
     return <code className={cls}>{this.props.value}</code>
   }
