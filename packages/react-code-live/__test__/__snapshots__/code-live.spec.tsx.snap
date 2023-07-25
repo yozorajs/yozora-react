@@ -86,91 +86,91 @@ exports[`snapshot basic 1`] = `
           >
             <div
               class="css-96awu6 prism-code language-jsx"
-              style="color: rgb(212, 212, 212); max-height: calc(calc(var(--yozora_lineHeightCode, 1.6) * 12.8) + 4px); min-height: 100%;"
+              style="color: rgb(212, 212, 212); max-height: calc(calc(var(--yozora_lineHeightCode, 1.6) * 12.8) + 6px); min-height: 100%;"
             >
               <div
                 class="css-p9ofu1"
                 style="width: 2.2em;"
               >
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     1
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     2
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     3
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     4
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     5
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     6
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     7
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     8
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     9
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     10
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     11
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     12
@@ -184,7 +184,7 @@ exports[`snapshot basic 1`] = `
                   class="css-1ttfemb"
                 >
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -196,7 +196,7 @@ exports[`snapshot basic 1`] = `
                     </span>
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -249,7 +249,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -347,7 +347,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -377,7 +377,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -408,7 +408,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -582,7 +582,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -684,7 +684,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -858,7 +858,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -889,7 +889,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -908,7 +908,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -927,7 +927,7 @@ exports[`snapshot basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span

@@ -68,42 +68,42 @@ exports[`snapshot literal 1`] = `
             style="width: 2.2em;"
           >
             <div
-              class="css-1e7pgwd"
+              class="css-jmpb5o"
             >
               <span>
                 1
               </span>
             </div>
             <div
-              class="css-1e7pgwd"
+              class="css-jmpb5o"
             >
               <span>
                 2
               </span>
             </div>
             <div
-              class="css-1nciu3j"
+              class="css-12bnrwi"
             >
               <span>
                 3
               </span>
             </div>
             <div
-              class="css-1e7pgwd"
+              class="css-jmpb5o"
             >
               <span>
                 4
               </span>
             </div>
             <div
-              class="css-1nciu3j"
+              class="css-12bnrwi"
             >
               <span>
                 5
               </span>
             </div>
             <div
-              class="css-1nciu3j"
+              class="css-12bnrwi"
             >
               <span>
                 6
@@ -117,7 +117,7 @@ exports[`snapshot literal 1`] = `
               class="css-1ttfemb"
             >
               <div
-                class="token-line css-1k5g1tt"
+                class="token-line css-1enokts"
                 style="color: rgb(212, 212, 212);"
               >
                 <span
@@ -159,7 +159,7 @@ exports[`snapshot literal 1`] = `
                 />
               </div>
               <div
-                class="token-line css-1k5g1tt"
+                class="token-line css-1enokts"
                 style="color: rgb(212, 212, 212);"
               >
                 <span
@@ -206,7 +206,7 @@ exports[`snapshot literal 1`] = `
                 />
               </div>
               <div
-                class="token-line css-pil33h"
+                class="token-line css-1shup6l"
                 style="color: rgb(212, 212, 212);"
               >
                 <span
@@ -253,7 +253,7 @@ exports[`snapshot literal 1`] = `
                 />
               </div>
               <div
-                class="token-line css-1k5g1tt"
+                class="token-line css-1enokts"
                 style="color: rgb(212, 212, 212);"
               >
                 <span
@@ -327,7 +327,7 @@ exports[`snapshot literal 1`] = `
                 />
               </div>
               <div
-                class="token-line css-pil33h"
+                class="token-line css-1shup6l"
                 style="color: rgb(212, 212, 212);"
               >
                 <span
@@ -409,7 +409,7 @@ exports[`snapshot literal 1`] = `
                 />
               </div>
               <div
-                class="token-line css-pil33h"
+                class="token-line css-1shup6l"
                 style="color: rgb(212, 212, 212);"
               >
                 <span
@@ -515,49 +515,49 @@ exports[`snapshot live 1`] = `
           >
             <div
               class="css-96awu6 prism-code language-jsx"
-              style="color: rgb(212, 212, 212); max-height: calc(calc(var(--yozora_lineHeightCode, 1.6) * 4.8) + 4px); min-height: 100%;"
+              style="color: rgb(212, 212, 212); max-height: calc(calc(var(--yozora_lineHeightCode, 1.6) * 4.8) + 6px); min-height: 100%;"
             >
               <div
                 class="css-p9ofu1"
                 style="width: 2.2em;"
               >
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     1
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     2
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     3
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     4
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     5
                   </span>
                 </div>
                 <div
-                  class="css-1nciu3j"
+                  class="css-12bnrwi"
                 >
                   <span>
                     6
@@ -571,7 +571,7 @@ exports[`snapshot live 1`] = `
                   class="css-1ttfemb"
                 >
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -613,7 +613,7 @@ exports[`snapshot live 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -660,7 +660,7 @@ exports[`snapshot live 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -707,7 +707,7 @@ exports[`snapshot live 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -781,7 +781,7 @@ exports[`snapshot live 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -863,7 +863,7 @@ exports[`snapshot live 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-pil33h"
+                    class="token-line css-1shup6l"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
