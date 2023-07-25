@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { css } from '@emotion/css'
-import { tokens } from '@yozora/core-react-theme'
+import { tokens } from '@yozora/core-react-constant'
 import React from 'react'
 import type { INodeRendererAction } from '../../../context/action'
 import { NodeRendererActionsType } from '../../../context/action'

@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@guanghechen/common-util": "^0.2.0",
-    "@yozora/core-react-theme": "^2.3.3",
+    "@yozora/core-react-constant": "^2.0.0",
     "@yozora/react-code-editor": "^2.3.3",
     "@yozora/react-code-embed": "^2.3.3",
     "@yozora/react-common-copy-button": "^2.3.3",

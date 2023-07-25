@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@guanghechen/fast-deep-equal": "^2.3.2",
-    "@yozora/core-react-theme": "^2.3.3",
+    "@yozora/core-react-constant": "^2.0.0",
     "@yozora/react-code-highlighter": "^2.3.3"
   },
   "peerDependencies": {

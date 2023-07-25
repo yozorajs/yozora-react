@@ -44,6 +44,7 @@
   "dependencies": {
     "@guanghechen/react-hooks": "^2.3.2",
     "@yozora/ast": "^2.1.5",
+    "@yozora/core-react-constant": "^2.0.0",
     "@yozora/core-react-renderer": "^2.4.0",
     "@yozora/core-react-theme": "^2.3.3",
     "@yozora/react-admonition": "^2.3.3",

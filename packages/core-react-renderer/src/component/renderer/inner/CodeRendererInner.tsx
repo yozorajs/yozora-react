@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { css, cx } from '@emotion/css'
-import { tokens } from '@yozora/core-react-theme'
+import { tokens } from '@yozora/core-react-constant'
 import CodeHighlighter from '@yozora/react-code-highlighter'
 import React from 'react'
 import { parseCodeMeta } from '../../../util/code'

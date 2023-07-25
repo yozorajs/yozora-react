@@ -9,9 +9,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/yozorajs/yozora-react.git",
-    "directory": "packages/core-react-renderer"
+    "directory": "packages/core-react-theme"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/core-react-renderer#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/core-react-theme#readme",
   "keywords": [],
   "type": "module",
   "exports": {
@@ -40,7 +40,7 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@guanghechen/common-util": "^0.2.0"
+    "@yozora/core-react-constant": "^2.0.0"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",

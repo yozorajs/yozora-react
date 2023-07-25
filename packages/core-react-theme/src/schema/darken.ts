@@ -1,4 +1,4 @@
-import { TokenNames } from '../constant/token'
+import { TokenNames } from '@yozora/core-react-constant'
 
 export const darkenSchema: Record<TokenNames, string> = {
   [TokenNames.colorNote]: 'hsl(0deg, 0%, 99%)',

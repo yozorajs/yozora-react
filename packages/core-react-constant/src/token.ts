@@ -1,5 +1,3 @@
-import { buildObjectFromEntries } from '@guanghechen/common-util'
-
 export enum CommonTokenNames {
   // Font families
   fontFamilyCode = '--yozora_fontFamilyCode',
@@ -151,10 +149,8 @@ export enum TokenNames {
 type IKey = keyof typeof CommonTokenNames | keyof typeof TokenNames
 type ICssVariable = `var(--${string})`
 
-export const tokens: Record<IKey, ICssVariable> = buildObjectFromEntries(
-  [...Object.entries(CommonTokenNames), ...Object.entries(TokenNames)] as Iterable<
-    [IKey, `--${string}`]
-  >,
-  (val): ICssVariable => `var(${val})`,
-  key => Number.isNaN(Number(key)),
-)
+export const tokens: Record<IKey, ICssVariable> = Object.fromEntries(
+  [...Object.entries(CommonTokenNames), ...Object.entries(TokenNames)]
+    .filter(([key]) => Number.isNaN(Number(key)))
+    .map(([key, val]) => [key, `var(${val})`] as [IKey, ICssVariable]),
+) as Record<IKey, ICssVariable>

@@ -43,7 +43,7 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@yozora/core-react-theme": "^2.3.3",
+    "@yozora/core-react-constant": "^2.0.0",
     "@yozora/react-code-highlighter": "^2.3.3",
     "@yozora/react-common-copy-button": "^2.3.3",
     "@yozora/react-common-light-buttons": "^2.3.3"

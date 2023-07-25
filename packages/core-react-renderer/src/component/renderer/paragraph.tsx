@@ -1,7 +1,7 @@
 import { css, cx } from '@emotion/css'
 import type { Paragraph } from '@yozora/ast'
 import { ImageReferenceType, ImageType } from '@yozora/ast'
-import { tokens } from '@yozora/core-react-theme'
+import { tokens } from '@yozora/core-react-constant'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
 

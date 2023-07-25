@@ -46,8 +46,8 @@
   "dependencies": {
     "@guanghechen/fast-deep-equal": "^2.3.2",
     "@guanghechen/parse-lineno": "^2.3.2",
+    "@yozora/core-react-constant": "^2.0.0",
     "@yozora/core-react-renderer": "^2.4.0",
-    "@yozora/core-react-theme": "^2.3.3",
     "@yozora/react-code-embed": "^2.3.3",
     "@yozora/react-code-highlighter": "^2.3.3",
     "@yozora/react-code-literal": "^2.3.3",

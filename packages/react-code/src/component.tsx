@@ -1,6 +1,6 @@
 import { css, cx } from '@emotion/css'
 import isEqual from '@guanghechen/fast-deep-equal'
-import { tokens } from '@yozora/core-react-theme'
+import { tokens } from '@yozora/core-react-constant'
 import CodeEmbed from '@yozora/react-code-embed'
 import CodeLiteral from '@yozora/react-code-literal'
 import CodeLive from '@yozora/react-code-live'

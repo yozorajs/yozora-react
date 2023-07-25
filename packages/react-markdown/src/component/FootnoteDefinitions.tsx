@@ -1,7 +1,7 @@
 import { css, cx } from '@emotion/css'
 import type { FootnoteDefinition } from '@yozora/ast'
+import { tokens } from '@yozora/core-react-constant'
 import { useNodeRendererContext } from '@yozora/core-react-renderer'
-import { tokens } from '@yozora/core-react-theme'
 import React from 'react'
 import { FootnoteDefinitionRenderer } from './renderer/footnoteDefinition'
 
