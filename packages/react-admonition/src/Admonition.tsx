@@ -73,14 +73,14 @@ export class Admonition extends React.Component<IAdmonitionProps> {
 
     return (
       <div className={cls}>
-        <h5 key="heading" className={classes.heading}>
+        <div key="heading" className={classes.heading}>
           <span key="icon" className={classes.icon}>
             {icon}
           </span>
           <span key="title" className={classes.title}>
             {title}
           </span>
-        </h5>
+        </div>
         <div key="main" className={classes.body}>
           {children}
         </div>

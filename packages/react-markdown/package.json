@@ -42,25 +42,21 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@guanghechen/react-hooks": "^2.3.2",
+    "@guanghechen/fast-deep-equal": "^2.3.3",
     "@yozora/ast": "^2.1.5",
     "@yozora/core-react-constant": "^2.0.0",
     "@yozora/core-react-renderer": "^2.4.0",
     "@yozora/core-react-theme": "^2.3.3",
     "@yozora/react-admonition": "^2.3.3",
     "@yozora/react-code": "^2.3.3",
-    "@yozora/react-code-editor": "^2.3.3",
-    "@yozora/react-code-embed": "^2.3.3",
-    "@yozora/react-code-highlighter": "^2.3.3",
-    "@yozora/react-code-live": "^2.3.3",
-    "@yozora/react-code-renderer-jsx": "^2.3.3",
     "@yozora/react-mathjax": "^2.3.3"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",
     "@yozora/ast": "^2.0.0",
     "prop-types": "^15.7.2",
-    "react": "^17.0.0 || ^18.0.0"
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "browserslist": [
     "last 2 versions",

@@ -16,7 +16,6 @@ const basicStyle: string = css({
     wordBreak: 'break-all',
     userSelect: 'unset',
   },
-
   '.yozora-admonition.yozora-admonition': {
     margin: tokens.marginBlockNode,
   },
@@ -59,13 +58,6 @@ const basicStyle: string = css({
         color: tokens.colorLinkVisited,
       },
     },
-  },
-  '.yozora-inline-math': {
-    padding: 0,
-    border: 'none',
-    margin: 0,
-    background: 'transparent',
-    color: tokens.colorMath,
   },
   '.yozora-list-task-item': {
     listStyleType: 'none',
@@ -139,15 +131,37 @@ const basicStyle: string = css({
       },
     },
   },
+  '.yozora-inline-math': {
+    padding: 0,
+    border: 'none',
+    margin: 0,
+    background: 'transparent',
+    color: tokens.colorMath,
+  },
+  '.yozora-inline-math.yozora-inline-math.yozora-inline-math': {
+    'mjx-container [width="full"]': {
+      width: 'auto',
+    },
+  },
   '.yozora-math': {
     display: 'block',
     overflow: 'auto',
+    padding: '4px 0',
     border: 'none',
-    margin: '0 0 1em',
+    height: 'fit-content',
+    margin: tokens.marginBlockNode,
     background: 'transparent',
     color: tokens.colorMath,
-    '> mjx-container': {
-      margin: '0 !important',
+  },
+  '.yozora-math.yozora-math.yozora-math': {
+    'mjx-container': {
+      margin: 0,
+      lineHeight: 'unset',
+    },
+    'mjx-assistive-mml': {
+      display: 'none',
+      right: 0,
+      bottom: 0,
     },
   },
 })

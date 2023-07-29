@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import type { Code } from '@yozora/ast'
-import type { INodeRenderer } from '@yozora/core-react-renderer'
+import { type INodeRenderer, useNodeRendererState } from '@yozora/core-react-renderer'
 import { useThemeContext } from '@yozora/core-react-theme'
 import CodeRenderer0 from '@yozora/react-code'
 import type { ICodeRunnerItem } from '@yozora/react-code-runners'
@@ -21,7 +21,8 @@ export const createCodeRenderer = (
 ): INodeRenderer<Code> => {
   const CodeRenderer: INodeRenderer<Code> = props => {
     const { lang, meta } = props
-    const { theme, showCodeLineNo } = useThemeContext()
+    const { theme } = useThemeContext()
+    const showCodeLineno: boolean = useNodeRendererState(store => store.showCodeLineno$)
     const darken: boolean = theme === 'darken'
 
     // Remove trailing line endings.
@@ -34,7 +35,7 @@ export const createCodeRenderer = (
         meta={meta}
         runners={codeRunners}
         darken={darken}
-        preferLineNo={showCodeLineNo}
+        showCodeLineno={showCodeLineno}
       />
     )
   }

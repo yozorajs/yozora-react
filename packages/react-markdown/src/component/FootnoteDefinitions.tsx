@@ -1,7 +1,7 @@
 import { css, cx } from '@emotion/css'
 import type { FootnoteDefinition } from '@yozora/ast'
 import { tokens } from '@yozora/core-react-constant'
-import { useNodeRendererContext } from '@yozora/core-react-renderer'
+import { useNodeRendererState } from '@yozora/core-react-renderer'
 import React from 'react'
 import { FootnoteDefinitionRenderer } from './renderer/footnoteDefinition'
 
@@ -18,7 +18,9 @@ export interface IFootnoteDefinitionsProps {
 
 export const FootnoteDefinitions: React.FC<IFootnoteDefinitionsProps> = props => {
   const { footnoteDefinitionsTitle, dontNeedFootnoteDefinitions = false } = props
-  const { footnoteDefinitionMap } = useNodeRendererContext()
+  const footnoteDefinitionMap: Readonly<Record<string, FootnoteDefinition>> = useNodeRendererState(
+    store => store.footnoteDefinitionMap$,
+  )
   const children = React.useMemo<React.ReactNode>(() => {
     // Get all of footnote reference definitions.
     const footnoteDefinitions: ReadonlyArray<FootnoteDefinition> =

@@ -1,6 +1,6 @@
 import type { Node } from '@yozora/ast'
 import React from 'react'
-import { useNodeRendererContext } from '../context/context'
+import { useNodeRendererState } from '../context'
 import type { INodeRenderer, INodeRendererMap } from '../types'
 
 export interface INodesRendererProps {
@@ -12,7 +12,7 @@ export interface INodesRendererProps {
 
 export const NodesRenderer: React.FC<INodesRendererProps> = props => {
   const { nodes } = props
-  const { rendererMap } = useNodeRendererContext()
+  const rendererMap: Readonly<INodeRendererMap> = useNodeRendererState(store => store.rendererMap$)
   if (!Array.isArray(nodes) || nodes.length <= 0) return <React.Fragment />
   return <NodesRendererInner nodes={nodes} rendererMap={rendererMap} />
 }

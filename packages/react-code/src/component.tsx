@@ -45,7 +45,7 @@ export class Code extends React.Component<ICodeProps, IState> {
     runners: PropTypes.array,
     value: PropTypes.string.isRequired,
     darken: PropTypes.bool,
-    preferLineNo: PropTypes.bool,
+    showCodeLineno: PropTypes.bool,
     className: PropTypes.string,
     style: PropTypes.object,
   }
@@ -53,7 +53,7 @@ export class Code extends React.Component<ICodeProps, IState> {
   constructor(props: ICodeProps) {
     super(props)
     this.state = {
-      meta: parseCodeMeta(props.meta ?? '', { preferLineNo: props.preferLineNo ?? true }),
+      meta: parseCodeMeta(props.meta ?? '', { showCodeLineno: props.showCodeLineno ?? true }),
     }
   }
 
@@ -70,7 +70,7 @@ export class Code extends React.Component<ICodeProps, IState> {
       props.runners !== nextProps.runners ||
       props.value !== nextProps.value ||
       props.darken !== nextProps.darken ||
-      props.preferLineNo !== nextProps.preferLineNo ||
+      props.showCodeLineno !== nextProps.showCodeLineno ||
       props.className !== nextProps.className ||
       props.style !== nextProps.style
     )
@@ -139,9 +139,9 @@ export class Code extends React.Component<ICodeProps, IState> {
 
   public override componentDidUpdate(prevProps: ICodeProps): void {
     const props: ICodeProps = this.props
-    if (props.meta !== prevProps.meta || props.preferLineNo !== prevProps.preferLineNo) {
+    if (props.meta !== prevProps.meta || props.showCodeLineno !== prevProps.showCodeLineno) {
       this.setState({
-        meta: parseCodeMeta(props.meta ?? '', { preferLineNo: props.preferLineNo ?? true }),
+        meta: parseCodeMeta(props.meta ?? '', { showCodeLineno: props.showCodeLineno ?? true }),
       })
     }
   }

@@ -1,10 +1,10 @@
 import React from 'react'
 import type { IMathJaxContext } from './types'
-import { MathJaxLanguage } from './types'
+import { TexLang } from './types'
 
 export const initialMathJaxContext: IMathJaxContext = {
-  MathJax: null,
-  language: MathJaxLanguage.TEX,
+  MathJax3: null,
+  language: TexLang.TEX,
 }
 
 export const MathJaxContextType: React.Context<IMathJaxContext> =

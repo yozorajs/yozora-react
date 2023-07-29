@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import type { ImageReference } from '@yozora/ast'
+import type { Definition, ImageReference } from '@yozora/ast'
 import React from 'react'
-import { useNodeRendererContext } from '../../context/context'
+import { useNodeRendererDispatch, useNodeRendererState } from '../../context'
 import type { INodeRenderer } from '../../types'
 import { ImageRendererInner } from './inner/ImageRendererInner'
 
@@ -12,7 +12,10 @@ import { ImageRendererInner } from './inner/ImageRendererInner'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-image-reference
  */
 export const ImageReferenceRenderer: INodeRenderer<ImageReference> = props => {
-  const { definitionMap, dispatch } = useNodeRendererContext()
+  const dispatch = useNodeRendererDispatch()
+  const definitionMap: Readonly<Record<string, Definition>> = useNodeRendererState(
+    store => store.definitionMap$,
+  )
   const { alt, srcSet, sizes, loading } = props as ImageReference &
     React.ImgHTMLAttributes<HTMLElement>
 

@@ -44,12 +44,10 @@
     "test": "node --experimental-vm-modules ../../node_modules/.bin/jest --config ../../jest.config.mjs --rootDir ."
   },
   "dependencies": {
-    "@guanghechen/fast-deep-equal": "^2.3.2",
-    "@guanghechen/parse-lineno": "^2.3.2",
+    "@guanghechen/fast-deep-equal": "^2.3.3",
     "@yozora/core-react-constant": "^2.0.0",
     "@yozora/core-react-renderer": "^2.4.0",
     "@yozora/react-code-embed": "^2.3.3",
-    "@yozora/react-code-highlighter": "^2.3.3",
     "@yozora/react-code-literal": "^2.3.3",
     "@yozora/react-code-live": "^2.3.3",
     "@yozora/react-code-renderer-jsx": "^2.3.3"
@@ -58,13 +56,14 @@
     "@emotion/css": "^11.0.0",
     "@yozora/ast": "^2.0.0",
     "prop-types": "^15.7.2",
-    "react": "^17.0.0 || ^18.0.0"
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "jest": "^29.6.1",
+    "jest": "^29.6.2",
     "rimraf": "^5.0.1",
-    "rollup": "^3.26.3"
+    "rollup": "^3.27.0"
   },
   "browserslist": [
     "last 2 versions",

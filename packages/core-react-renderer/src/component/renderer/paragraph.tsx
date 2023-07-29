@@ -46,7 +46,7 @@ export class ParagraphRenderer extends React.Component<Paragraph> {
 
 const $classes = {
   paragraph: css({
-    overflow: 'auto hidden',
+    overflow: 'hidden',
     padding: 0,
     margin: tokens.marginBlockNode,
     marginBottom: '1em',

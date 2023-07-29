@@ -19,5 +19,4 @@ export interface IBreakpoints {
 export interface IThemeContext {
   readonly theme: 'light' | 'darken' | string
   readonly breakpoints: Readonly<IBreakpoints>
-  readonly showCodeLineNo: boolean
 }

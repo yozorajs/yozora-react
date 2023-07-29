@@ -2,8 +2,8 @@
 import { css } from '@emotion/css'
 import { tokens } from '@yozora/core-react-constant'
 import React from 'react'
-import type { INodeRendererAction } from '../../../context/action'
-import { NodeRendererActionsType } from '../../../context/action'
+import type { INodeRendererAction } from '../../../context'
+import { NodeRendererActionsType } from '../../../context'
 
 interface IProps {
   src: string
@@ -53,7 +53,7 @@ export class ImageRendererInner extends React.Component<IProps> {
   public override componentDidMount(): void {
     const { dispatch, src, alt } = this.props
     dispatch({
-      type: NodeRendererActionsType.IMAGE_VIEWER_ADD_ITEM,
+      type: NodeRendererActionsType.ADD_IMAGE,
       payload: { src, alt },
     })
   }
@@ -61,7 +61,7 @@ export class ImageRendererInner extends React.Component<IProps> {
   protected readonly onImageClick = (): void => {
     const { dispatch, src, alt } = this.props
     dispatch({
-      type: NodeRendererActionsType.IMAGE_VIEWER_ACTIVE_ITEM,
+      type: NodeRendererActionsType.ACTIVE_IMAGE,
       payload: { src, alt },
     })
   }

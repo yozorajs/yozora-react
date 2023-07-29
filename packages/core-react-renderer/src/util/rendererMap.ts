@@ -1,4 +1,3 @@
-import { useDeepCompareMemo } from '@guanghechen/react-hooks'
 import {
   BlockquoteType,
   BreakType,
@@ -41,24 +40,21 @@ import { TextRenderer } from '../component/renderer/text'
 import { ThematicBreakRenderer } from '../component/renderer/thematicBreak'
 import type { INodeRendererMap } from '../types'
 
-export function useNodeRendererMap(
+export function buildNodeRendererMap(
   customRendererMap?: Readonly<Partial<INodeRendererMap>>,
 ): Readonly<INodeRendererMap> {
-  const rendererMap: INodeRendererMap = useDeepCompareMemo<INodeRendererMap>(() => {
-    if (customRendererMap == null) return defaultNodeRendererMap
+  if (customRendererMap == null) return defaultNodeRendererMap
 
-    let hasChanged = false
-    const result: INodeRendererMap = {} as unknown as INodeRendererMap
-    for (const [key, val] of Object.entries(customRendererMap)) {
-      if (val && val !== defaultNodeRendererMap[key]) {
-        hasChanged = true
-        result[key] = val
-      }
+  let hasChanged = false
+  const result: INodeRendererMap = {} as unknown as INodeRendererMap
+  for (const [key, val] of Object.entries(customRendererMap)) {
+    if (val && val !== defaultNodeRendererMap[key]) {
+      hasChanged = true
+      result[key] = val
     }
+  }
 
-    return hasChanged ? { ...defaultNodeRendererMap, ...result } : defaultNodeRendererMap
-  }, [customRendererMap])
-  return rendererMap
+  return hasChanged ? { ...defaultNodeRendererMap, ...result } : defaultNodeRendererMap
 }
 
 /**

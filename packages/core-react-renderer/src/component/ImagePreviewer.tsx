@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { NodeRendererActionsType } from '../context/action'
-import { useNodeRendererContext } from '../context/context'
+import { NodeRendererActionsType, useNodeRendererDispatch, useNodeRendererState } from '../context'
 import type { IPreviewImageItem } from '../types'
 
 /**
@@ -56,13 +55,13 @@ export interface IImagePreviewerProps {
  * @returns
  */
 export const ImagePreviewer: React.FC<IImagePreviewerProps> = ({ ImageViewer }) => {
-  const { imageActivatedIndex, imageViewerVisible, images, dispatch } = useNodeRendererContext()
+  const dispatch = useNodeRendererDispatch()
+  const images: IPreviewImageItem[] = useNodeRendererState(store => store.images$)
+  const imageViewerVisible: boolean = useNodeRendererState(store => store.imageViewerVisible$)
+  const imageActivatedIndex: number = useNodeRendererState(store => store.imageActivatedIndex$)
+
   const handleCloseImageViewer = React.useCallback<() => void>(
-    () =>
-      dispatch({
-        type: NodeRendererActionsType.IMAGE_VIEWER_TOGGLE,
-        payload: false,
-      }),
+    () => dispatch({ type: NodeRendererActionsType.TOGGLE_IMAGE_VISIBLE, payload: false }),
     [dispatch],
   )
 

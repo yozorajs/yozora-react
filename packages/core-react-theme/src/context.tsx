@@ -5,7 +5,6 @@ import { YozoraReactTheme } from './YozoraReactTheme'
 export interface IThemeProviderProps {
   readonly theme?: 'light' | 'darken' | string
   readonly breakpoints?: Readonly<IBreakpoints>
-  readonly showCodeLineNo?: boolean
   readonly children?: React.ReactNode
   readonly className?: string
 }
@@ -29,7 +28,6 @@ const initialThemeContext: IThemeContext = {
     xlMinus: '(max-width: 1535px)',
     xlPlus: '(min-width: 1200px)',
   },
-  showCodeLineNo: true,
 }
 
 const ThemeContextType = React.createContext<IThemeContext>(initialThemeContext)
@@ -40,11 +38,10 @@ export const ThemeProvider: React.FC<IThemeProviderProps> = props => {
   const {
     theme = initialThemeContext.theme, //
     breakpoints = initialThemeContext.breakpoints,
-    showCodeLineNo = initialThemeContext.showCodeLineNo,
   } = props
   const context: IThemeContext = React.useMemo<IThemeContext>(
-    () => ({ theme, breakpoints, showCodeLineNo }),
-    [theme, breakpoints, showCodeLineNo],
+    () => ({ theme, breakpoints }),
+    [theme, breakpoints],
   )
 
   return (

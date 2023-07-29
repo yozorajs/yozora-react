@@ -1,4 +1,4 @@
-import { cx } from '@emotion/css'
+import isEqual from '@guanghechen/fast-deep-equal'
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
 import { CodeType } from '@yozora/ast'
 import type { INodeRendererProviderProps } from '@yozora/core-react-renderer'
@@ -6,7 +6,6 @@ import { NodeRendererProvider } from '@yozora/core-react-renderer'
 import type { ICodeRunnerItem } from '@yozora/react-code-runners'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useStyles } from '../style'
 import type { INodeRendererMap } from './nodeRendererMap'
 import { defaultNodeRendererMap } from './nodeRendererMap'
 import { createCodeRenderer } from './renderer/code'
@@ -29,55 +28,110 @@ export interface IMarkdownProviderProps {
    */
   customRendererMap?: Readonly<Partial<INodeRendererMap>>
   /**
+   * Determine if show code line number.
+   */
+  showCodeLineno?: boolean
+  /**
    * Descendant elements.
    */
   children?: React.ReactNode
-  /**
-   * Root element className.
-   */
-  rootClassName?: string
   /**
    * Custom image viewer.
    */
   ImageViewer?: INodeRendererProviderProps['ImageViewer']
 }
 
+interface IState {
+  customRendererMap: Readonly<Partial<INodeRendererMap>>
+}
+
 /**
  * A HoC component to provider YozoraMarkdownContext
  */
-export const MarkdownProvider: React.FC<IMarkdownProviderProps> = props => {
-  const { definitionMap, footnoteDefinitionMap, children, ImageViewer } = props
+export class MarkdownProvider extends React.Component<IMarkdownProviderProps, IState> {
+  public static readonly displayName = 'MarkdownProvider'
+  public static readonly propTypes = {
+    definitionMap: PropTypes.object.isRequired as any,
+    footnoteDefinitionMap: PropTypes.object.isRequired as any,
+    codeRunners: PropTypes.array,
+    customRendererMap: PropTypes.object as any,
+    showCodeLineno: PropTypes.bool,
+    children: PropTypes.node,
+    ImageViewer: PropTypes.any,
+  }
 
-  const customRendererMap = React.useMemo(
-    () => ({
-      ...defaultNodeRendererMap,
-      [CodeType]: createCodeRenderer(props.codeRunners),
-      ...props.customRendererMap,
-    }),
-    [props.customRendererMap, props.codeRunners],
-  )
+  constructor(props: IMarkdownProviderProps) {
+    super(props)
 
-  const cls: string = cx(useStyles(), props.rootClassName)
-  return (
-    <NodeRendererProvider
-      definitionMap={definitionMap}
-      footnoteDefinitionMap={footnoteDefinitionMap}
-      customRendererMap={customRendererMap}
-      ImageViewer={ImageViewer}
-    >
-      <div className={cls}>{children}</div>
-    </NodeRendererProvider>
-  )
+    this.state = {
+      customRendererMap: buildCustomRendererMap(props.codeRunners, props.customRendererMap),
+    }
+  }
+
+  public override shouldComponentUpdate(
+    nextProps: Readonly<IMarkdownProviderProps>,
+    nextState: Readonly<IState>,
+  ): boolean {
+    const props = this.props
+    const state = this.state
+    return (
+      state.customRendererMap !== nextState.customRendererMap ||
+      props.showCodeLineno !== nextProps.showCodeLineno ||
+      props.children !== nextProps.children ||
+      props.ImageViewer !== nextProps.ImageViewer ||
+      !isEqual(props.definitionMap, nextProps.definitionMap) ||
+      !isEqual(props.footnoteDefinitionMap, nextProps.footnoteDefinitionMap) ||
+      !isEqual(props.codeRunners, nextProps.codeRunners) ||
+      !isEqual(props.customRendererMap, nextProps.customRendererMap)
+    )
+  }
+
+  public override render(): React.ReactElement {
+    const {
+      definitionMap, //
+      footnoteDefinitionMap,
+      showCodeLineno,
+      children,
+      ImageViewer,
+    } = this.props
+    const { customRendererMap } = this.state
+
+    return (
+      <NodeRendererProvider
+        definitionMap={definitionMap}
+        footnoteDefinitionMap={footnoteDefinitionMap}
+        customRendererMap={customRendererMap}
+        showCodeLineno={showCodeLineno}
+        ImageViewer={ImageViewer}
+      >
+        {children}
+      </NodeRendererProvider>
+    )
+  }
+
+  public override componentDidUpdate(prevProps: Readonly<IMarkdownProviderProps>): void {
+    const props = this.props
+    if (
+      !isEqual(props.codeRunners, prevProps.codeRunners) ||
+      !isEqual(props.customRendererMap, prevProps.customRendererMap)
+    ) {
+      const nextCustomRendererMap: Readonly<Partial<INodeRendererMap>> = buildCustomRendererMap(
+        props.codeRunners,
+        props.customRendererMap,
+      )
+      this.setState({ customRendererMap: nextCustomRendererMap })
+    }
+  }
 }
 
-MarkdownProvider.propTypes = {
-  definitionMap: PropTypes.object.isRequired as any,
-  footnoteDefinitionMap: PropTypes.object.isRequired as any,
-  codeRunners: PropTypes.array,
-  customRendererMap: PropTypes.object as any,
-  children: PropTypes.node,
-  rootClassName: PropTypes.string,
-  ImageViewer: PropTypes.any,
+function buildCustomRendererMap(
+  codeRunners: ReadonlyArray<ICodeRunnerItem> | undefined,
+  customRendererMap: Readonly<Partial<INodeRendererMap>> | undefined,
+): Readonly<Partial<INodeRendererMap>> {
+  const rendererMap: Readonly<Partial<INodeRendererMap>> = {
+    ...defaultNodeRendererMap,
+    [CodeType]: createCodeRenderer(codeRunners),
+    ...customRendererMap,
+  }
+  return rendererMap
 }
-
-MarkdownProvider.displayName = 'YozoraMarkdownProvider'

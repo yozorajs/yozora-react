@@ -19,13 +19,7 @@ export * from './component/ImagePreviewer'
 export * from './component/NodesRenderer'
 export * from './component/Provider'
 
-export * from './context/action'
-export * from './context/context'
-export * from './context/reducer'
-export * from './context/state'
-
-export * from './hook/useNodeRendererMap'
-
+export * from './context'
 export * from './util/code'
-
+export * from './util/rendererMap'
 export * from './types'

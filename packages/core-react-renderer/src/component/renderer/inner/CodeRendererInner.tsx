@@ -10,7 +10,7 @@ interface IProps {
   meta: string | null
   value: string
   theme: string
-  preferLineNo: boolean
+  showCodeLineno: boolean
 }
 
 export class CodeRendererInner extends React.Component<IProps> {
@@ -21,16 +21,16 @@ export class CodeRendererInner extends React.Component<IProps> {
       props.meta !== nextProps.meta ||
       props.value !== nextProps.value ||
       props.theme !== nextProps.theme ||
-      props.preferLineNo !== nextProps.preferLineNo
+      props.showCodeLineno !== nextProps.showCodeLineno
     )
   }
 
   public override render(): React.ReactElement {
-    const { lang, meta, theme, preferLineNo } = this.props
+    const { lang, meta, theme, showCodeLineno } = this.props
 
     // Remove trailing line endings.
     const value: string = this.props.value.replace(/[\r\n]+$/, '')
-    const metaData = parseCodeMeta(meta ?? '', { preferLineNo })
+    const metaData = parseCodeMeta(meta ?? '', { showCodeLineno })
     const darken: boolean = theme === 'darken'
 
     return (

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import type { LinkReference } from '@yozora/ast'
+import type { Definition, LinkReference } from '@yozora/ast'
 import React from 'react'
-import { useNodeRendererContext } from '../../context/context'
+import { useNodeRendererState } from '../../context'
 import type { INodeRenderer } from '../../types'
 import { LinkRendererInner } from './inner/LinkRendererInner'
 
@@ -12,7 +12,9 @@ import { LinkRendererInner } from './inner/LinkRendererInner'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-link-reference
  */
 export const LinkReferenceRenderer: INodeRenderer<LinkReference> = props => {
-  const { definitionMap } = useNodeRendererContext()
+  const definitionMap: Readonly<Record<string, Definition>> = useNodeRendererState(
+    store => store.definitionMap$,
+  )
   const definition = definitionMap[props.identifier]
   const url: string = definition?.url ?? ''
   const title: string | undefined = definition?.title

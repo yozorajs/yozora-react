@@ -3,6 +3,7 @@ import type { Root as IRoot } from '@yozora/ast'
 import { NodesRenderer } from '@yozora/core-react-renderer'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useStyles } from '../style'
 import { FootnoteDefinitions } from './FootnoteDefinitions'
 
 export interface IMarkdownProps {
@@ -55,7 +56,7 @@ export class Markdown extends React.Component<IMarkdownProps> {
       this.props
 
     return (
-      <div className={cx('yozora-markdown', className)} style={style}>
+      <MarkdownRoot className={className} style={style}>
         <section>
           <NodesRenderer nodes={ast.children} />
         </section>
@@ -65,7 +66,23 @@ export class Markdown extends React.Component<IMarkdownProps> {
             dontNeedFootnoteDefinitions={dontNeedFootnoteDefinitions}
           />
         </footer>
-      </div>
+      </MarkdownRoot>
     )
   }
+}
+
+interface IMarkdownRootProps {
+  className: string | undefined
+  style: React.CSSProperties | undefined
+  children: React.ReactNode
+}
+
+const MarkdownRoot: React.FC<IMarkdownRootProps> = props => {
+  const { className, style, children } = props
+  const cls: string = cx('yozora-markdown', useStyles(), className)
+  return (
+    <div className={cls} style={style}>
+      {children}
+    </div>
+  )
 }

@@ -19,7 +19,7 @@
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/types/index.d.ts",
-  "source": "src/index.tsx",
+  "source": "src/index.ts",
   "license": "MIT",
   "engines": {
     "node": ">= 16.0.0"
@@ -37,12 +37,16 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@guanghechen/react-hooks": "^2.3.2",
-    "load-script": "^2.0.0"
+    "@guanghechen/fast-deep-equal": "^2.3.3",
+    "@yozora/core-react-constant": "^2.0.0"
   },
   "peerDependencies": {
+    "@emotion/css": "^11.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "mathjax-full": "^3.2.2"
   },
   "browserslist": [
     "last 2 versions",

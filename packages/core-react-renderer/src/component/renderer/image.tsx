@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import type { Image } from '@yozora/ast'
 import React from 'react'
-import { useNodeRendererContext } from '../../context/context'
+import { useNodeRendererDispatch } from '../../context'
 import type { INodeRenderer } from '../../types'
 import { ImageRendererInner } from './inner/ImageRendererInner'
 
@@ -12,7 +12,7 @@ import { ImageRendererInner } from './inner/ImageRendererInner'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-image
  */
 export const ImageRenderer: INodeRenderer<Image> = props => {
-  const { dispatch } = useNodeRendererContext()
+  const dispatch = useNodeRendererDispatch()
   const {
     url: src,
     alt,

@@ -1,37 +1,17 @@
-/**
- * Type of the formula string.
- */
-export enum MathJaxLanguage {
-  TEX = 'tex',
-  ASCIIMATH = 'asciimath',
+import type {
+  MathJaxObject as IMathJax3,
+  MathJaxConfig as IMathJaxConfig3,
+} from 'mathjax-full/js/components/startup'
+
+export enum TexLang {
+  MML = 'MathML',
+  TEX = 'TeX',
 }
 
-export type IMathJaxConfig = any
-
-export interface IMathJax {
-  Hub: {
-    Config(options: IMathJaxConfig): void
-    Process(element: any, callback: any): any
-    Queue(callback: any): any
-    Queue(...args: any[]): void
-    Reprocess(element: any, callBack: any): any
-    Register: {
-      StartupHook: any
-      MessageHook: any
-    }
-    UnRegister: {
-      StartupHook: any
-    }
-    processSectionDelay?: number
-    [key: string]: any
-  }
-  InputJax: any
-}
-
-export type IMathJaxRenderCallback = () => void
+export type { IMathJaxConfig3 }
+export type { IMathJax3 }
 
 export interface IMathJaxContext {
-  MathJax: IMathJax | null
-  // Type of the formula string.
-  language: MathJaxLanguage
+  MathJax3: IMathJax3 | null
+  language: TexLang // Type of the formula string.
 }

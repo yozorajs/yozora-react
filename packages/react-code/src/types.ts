@@ -26,7 +26,7 @@ export interface ICodeProps {
    * Display linenos in default.
    * @default true
    */
-  preferLineNo?: boolean
+  showCodeLineno?: boolean
   /**
    * Root css class of the component.
    */

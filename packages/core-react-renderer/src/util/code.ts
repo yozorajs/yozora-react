@@ -7,7 +7,7 @@ export interface IParseCodeMetaOptions {
   /**
    * Display linenos in default.
    */
-  preferLineNo: boolean
+  showCodeLineno: boolean
 }
 
 /**
@@ -43,14 +43,14 @@ export interface ICodeMetaData {
 
 export function parseCodeMeta(
   infoString: string | undefined,
-  { preferLineNo }: IParseCodeMetaOptions,
+  { showCodeLineno }: IParseCodeMetaOptions,
 ): ICodeMetaData {
   const result: ICodeMetaData = {
     highlights: [],
     maxlines: -1,
     title: '',
     collapsed: undefined,
-    showlineno: preferLineNo,
+    showlineno: showCodeLineno,
   }
 
   if (!infoString) return result

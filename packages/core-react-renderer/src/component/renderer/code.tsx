@@ -2,6 +2,7 @@
 import type { Code } from '@yozora/ast'
 import { useThemeContext } from '@yozora/core-react-theme'
 import React from 'react'
+import { useNodeRendererState } from '../../context'
 import type { INodeRenderer } from '../../types'
 import { CodeRendererInner } from './inner/CodeRendererInner'
 
@@ -14,14 +15,16 @@ import { CodeRendererInner } from './inner/CodeRendererInner'
  */
 export const CodeRenderer: INodeRenderer<Code> = props => {
   const { lang, meta, value } = props
-  const { theme, showCodeLineNo } = useThemeContext()
+  const { theme } = useThemeContext()
+  const showCodeLineno: boolean = useNodeRendererState(store => store.showCodeLineno$)
+
   return (
     <CodeRendererInner
       lang={lang}
       meta={meta}
       value={value}
       theme={theme}
-      preferLineNo={showCodeLineNo}
+      showCodeLineno={showCodeLineno}
     />
   )
 }
