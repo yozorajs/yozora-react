@@ -746,27 +746,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@guanghechen/react-hooks@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "@guanghechen/react-hooks@npm:3.0.1"
+"@guanghechen/react-hooks@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "@guanghechen/react-hooks@npm:3.0.2"
   dependencies:
     "@guanghechen/fast-deep-equal": ^2.3.3
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
-  checksum: 57d7cd57cb228d786a867d112c6e0762256e314cbc36e26d0d2627ab297ea519b76699647ecdcfa40c1427e6e04bbfa16f8e4ed0a08f70f1954ea773b24971d7
+  checksum: f27b5eea18eabc6f0d56eb2377c4a299c91a245df233d4c79069444dcaed8e1bd236c1d475febaa8cf78d034863ff37656c2d1d38e28245a5041084d34c7b78e
   languageName: node
   linkType: hard
 
-"@guanghechen/react-viewmodel@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@guanghechen/react-viewmodel@npm:0.1.0"
+"@guanghechen/react-viewmodel@npm:^0.1.3":
+  version: 0.1.3
+  resolution: "@guanghechen/react-viewmodel@npm:0.1.3"
   dependencies:
     "@guanghechen/fast-deep-equal": ^2.3.3
     "@guanghechen/viewmodel": ^0.1.0
-    use-sync-external-store: ^1.2.0
   peerDependencies:
-    react: ">= 18.0.0"
-  checksum: d2246909951b59d626adef09729cf008bfc3cba1a282e11ff00f8094adff071d8c32435f9b43c8bf18281ecf1b1abb96ed0be3e3e944e3cdbb7a42677d11329f
+    react: ^17.0.0 || ^18.0.0
+  checksum: c48e37deb4eda9b5329c705cdcf36f7db03b08963129cc11416aef96691fc3cbcee09da636b0758b767570ef0e24ebf0901e206c1ad01f49b84758e6c5b796b2
   languageName: node
   linkType: hard
 
@@ -2464,7 +2463,7 @@ __metadata:
   dependencies:
     "@guanghechen/fast-deep-equal": ^2.3.3
     "@guanghechen/parse-lineno": ^2.3.3
-    "@guanghechen/react-viewmodel": ^0.1.0
+    "@guanghechen/react-viewmodel": ^0.1.3
     "@guanghechen/viewmodel": ^0.1.0
     "@yozora/core-react-constant": 3.0.0-alpha.0
     "@yozora/core-react-theme": 3.0.0-alpha.0
@@ -2644,7 +2643,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@yozora/react-code-runners@workspace:packages/react-code-runners"
   dependencies:
-    "@guanghechen/react-hooks": ^3.0.1
+    "@guanghechen/react-hooks": ^3.0.2
     "@loadable/component": ^5.15.3
     "@yozora/react-code-renderer-graphviz": 3.0.0-alpha.0
     "@yozora/react-code-renderer-jsx": 3.0.0-alpha.0
@@ -2683,7 +2682,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@yozora/react-common-copy-button@workspace:packages/react-common-copy-button"
   dependencies:
-    "@guanghechen/react-hooks": ^3.0.1
+    "@guanghechen/react-hooks": ^3.0.2
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
@@ -11068,15 +11067,6 @@ __metadata:
     querystringify: ^2.1.1
     requires-port: ^1.0.0
   checksum: fbdba6b1d83336aca2216bbdc38ba658d9cfb8fc7f665eb8b17852de638ff7d1a162c198a8e4ed66001ddbf6c9888d41e4798912c62b4fd777a31657989f7bdf
-  languageName: node
-  linkType: hard
-
-"use-sync-external-store@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "use-sync-external-store@npm:1.2.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 5c639e0f8da3521d605f59ce5be9e094ca772bd44a4ce7322b055a6f58eeed8dda3c94cabd90c7a41fb6fa852210092008afe48f7038792fd47501f33299116a
   languageName: node
   linkType: hard
 
