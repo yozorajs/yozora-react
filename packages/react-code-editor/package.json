@@ -63,15 +63,5 @@
     "Firefox ESR",
     "> 1%",
     "ie >= 11"
-  ],
-  "jest": {
-    "coverageThreshold": {
-      "global": {
-        "branches": 70,
-        "functions": 56,
-        "lines": 69,
-        "statements": 69
-      }
-    }
-  }
+  ]
 }

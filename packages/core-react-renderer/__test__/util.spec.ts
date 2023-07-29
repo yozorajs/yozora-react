@@ -2,7 +2,7 @@ import { convertToBoolean, parseCodeMeta } from '../src'
 
 describe('parseCodeMeta', () => {
   test('basic', () => {
-    expect(parseCodeMeta(`{1-2,2-3} live collapsed`, { preferLineNo: false })).toEqual({
+    expect(parseCodeMeta(`{1-2,2-3} live collapsed`, { showCodeLineno: false })).toEqual({
       live: true,
       highlights: [1, 2, 3],
       maxlines: -1,
@@ -13,7 +13,7 @@ describe('parseCodeMeta', () => {
 
     expect(
       parseCodeMeta(`{1-2,2-3,7,9-10,3-2} embed collapsed=false maxlines=10`, {
-        preferLineNo: true,
+        showCodeLineno: true,
       }),
     ).toEqual({
       embed: true,
@@ -26,7 +26,7 @@ describe('parseCodeMeta', () => {
 
     expect(
       parseCodeMeta(`{1-2,2-3} live collapsed="false" title="waw" linenos`, {
-        preferLineNo: false,
+        showCodeLineno: false,
       }),
     ).toEqual({
       live: true,
@@ -39,7 +39,7 @@ describe('parseCodeMeta', () => {
 
     expect(
       parseCodeMeta(`{1-2,2-3} live collapsed="false" maxlines="10" title linenos=false`, {
-        preferLineNo: true,
+        showCodeLineno: true,
       }),
     ).toEqual({
       live: true,
@@ -52,7 +52,7 @@ describe('parseCodeMeta', () => {
   })
 
   test('edge conditions', () => {
-    expect(parseCodeMeta(`{1-2,2-3} highlights="2,4-5"`, { preferLineNo: true })).toEqual({
+    expect(parseCodeMeta(`{1-2,2-3} highlights="2,4-5"`, { showCodeLineno: true })).toEqual({
       highlights: [1, 2, 3, 4, 5],
       maxlines: -1,
       title: '',
@@ -60,7 +60,7 @@ describe('parseCodeMeta', () => {
       showlineno: true,
     })
 
-    expect(parseCodeMeta(`live _yozoraCodeMode="embed"`, { preferLineNo: true })).toEqual({
+    expect(parseCodeMeta(`live _yozoraCodeMode="embed"`, { showCodeLineno: true })).toEqual({
       live: true,
       _yozoracodemode: 'embed',
       highlights: [],
@@ -72,7 +72,7 @@ describe('parseCodeMeta', () => {
 
     expect(
       parseCodeMeta(`{1-2,2-3} embed highlights _yozoraCodeMode maxlines="a"`, {
-        preferLineNo: true,
+        showCodeLineno: true,
       }),
     ).toEqual({
       _yozoracodemode: true,
@@ -87,7 +87,7 @@ describe('parseCodeMeta', () => {
     expect(
       parseCodeMeta(
         `{1-2,2-3} embed highlights= highlights=20 highlights="" highlights=30 highlights="40" _yozoraCodeMode`,
-        { preferLineNo: true },
+        { showCodeLineno: true },
       ),
     ).toEqual({
       _yozoracodemode: true,
@@ -103,7 +103,7 @@ describe('parseCodeMeta', () => {
   test('additional properties', () => {
     expect(
       parseCodeMeta(`live sourcefile="./waw.ts" hidden maxlines=20`, {
-        preferLineNo: true,
+        showCodeLineno: true,
       }),
     ).toEqual({
       live: true,
