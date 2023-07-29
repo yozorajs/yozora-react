@@ -2447,7 +2447,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yozora/core-react-constant@^2.0.0, @yozora/core-react-constant@workspace:packages/core-react-constant":
+"@yozora/core-react-constant@3.0.0-alpha.0, @yozora/core-react-constant@workspace:packages/core-react-constant":
   version: 0.0.0-use.local
   resolution: "@yozora/core-react-constant@workspace:packages/core-react-constant"
   dependencies:
@@ -2458,7 +2458,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/core-react-renderer@^2.4.0, @yozora/core-react-renderer@workspace:packages/core-react-renderer":
+"@yozora/core-react-renderer@3.0.0-alpha.0, @yozora/core-react-renderer@workspace:packages/core-react-renderer":
   version: 0.0.0-use.local
   resolution: "@yozora/core-react-renderer@workspace:packages/core-react-renderer"
   dependencies:
@@ -2466,9 +2466,9 @@ __metadata:
     "@guanghechen/parse-lineno": ^2.3.3
     "@guanghechen/react-viewmodel": ^0.1.0
     "@guanghechen/viewmodel": ^0.1.0
-    "@yozora/core-react-constant": ^2.0.0
-    "@yozora/core-react-theme": ^2.3.3
-    "@yozora/react-code-highlighter": ^2.3.3
+    "@yozora/core-react-constant": 3.0.0-alpha.0
+    "@yozora/core-react-theme": 3.0.0-alpha.0
+    "@yozora/react-code-highlighter": 3.0.0-alpha.0
   peerDependencies:
     "@emotion/css": ^11.0.0
     "@yozora/ast": ^2.0.0
@@ -2478,11 +2478,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/core-react-theme@^2.3.3, @yozora/core-react-theme@workspace:packages/core-react-theme":
+"@yozora/core-react-theme@3.0.0-alpha.0, @yozora/core-react-theme@workspace:packages/core-react-theme":
   version: 0.0.0-use.local
   resolution: "@yozora/core-react-theme@workspace:packages/core-react-theme"
   dependencies:
-    "@yozora/core-react-constant": ^2.0.0
+    "@yozora/core-react-constant": 3.0.0-alpha.0
     cross-env: ^7.0.3
     jest: ^29.6.2
     rimraf: ^5.0.1
@@ -2494,12 +2494,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/react-admonition@^2.3.3, @yozora/react-admonition@workspace:packages/react-admonition":
+"@yozora/react-admonition@3.0.0-alpha.0, @yozora/react-admonition@workspace:packages/react-admonition":
   version: 0.0.0-use.local
   resolution: "@yozora/react-admonition@workspace:packages/react-admonition"
   dependencies:
     "@emotion/css": ^11.11.2
-    "@yozora/core-react-constant": ^2.0.0
+    "@yozora/core-react-constant": 3.0.0-alpha.0
     cross-env: ^7.0.3
     jest: ^29.6.2
     rimraf: ^5.0.1
@@ -2510,14 +2510,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/react-code-editor@^2.3.3, @yozora/react-code-editor@workspace:packages/react-code-editor":
+"@yozora/react-code-editor@3.0.0-alpha.0, @yozora/react-code-editor@workspace:packages/react-code-editor":
   version: 0.0.0-use.local
   resolution: "@yozora/react-code-editor@workspace:packages/react-code-editor"
   dependencies:
     "@emotion/css": ^11.11.2
     "@guanghechen/fast-deep-equal": ^2.3.3
-    "@yozora/core-react-constant": ^2.0.0
-    "@yozora/react-code-highlighter": ^2.3.3
+    "@yozora/core-react-constant": 3.0.0-alpha.0
+    "@yozora/react-code-highlighter": 3.0.0-alpha.0
     cross-env: ^7.0.3
     jest: ^29.6.2
     rimraf: ^5.0.1
@@ -2528,14 +2528,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/react-code-embed@^2.3.3, @yozora/react-code-embed@workspace:packages/react-code-embed":
+"@yozora/react-code-embed@3.0.0-alpha.0, @yozora/react-code-embed@workspace:packages/react-code-embed":
   version: 0.0.0-use.local
   resolution: "@yozora/react-code-embed@workspace:packages/react-code-embed"
   dependencies:
     "@guanghechen/fast-deep-equal": ^2.3.3
     "@guanghechen/helper-jest": ^5.0.3
-    "@yozora/core-react-constant": ^2.0.0
-    "@yozora/react-code-runners": ^2.3.3
+    "@yozora/core-react-constant": 3.0.0-alpha.0
+    "@yozora/react-code-runners": 3.0.0-alpha.0
     cross-env: ^7.0.3
     jest: ^29.6.2
     rimraf: ^5.0.1
@@ -2548,14 +2548,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/react-code-highlighter@^2.3.3, @yozora/react-code-highlighter@workspace:packages/react-code-highlighter":
+"@yozora/react-code-highlighter@3.0.0-alpha.0, @yozora/react-code-highlighter@workspace:packages/react-code-highlighter":
   version: 0.0.0-use.local
   resolution: "@yozora/react-code-highlighter@workspace:packages/react-code-highlighter"
   dependencies:
     "@emotion/css": ^11.11.2
     "@guanghechen/fast-deep-equal": ^2.3.3
     "@types/prismjs": ^1.26.0
-    "@yozora/core-react-constant": ^2.0.0
+    "@yozora/core-react-constant": 3.0.0-alpha.0
     cross-env: ^7.0.3
     jest: ^29.6.2
     prismjs: ^1.29.0
@@ -2568,14 +2568,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/react-code-literal@^2.3.3, @yozora/react-code-literal@workspace:packages/react-code-literal":
+"@yozora/react-code-literal@3.0.0-alpha.0, @yozora/react-code-literal@workspace:packages/react-code-literal":
   version: 0.0.0-use.local
   resolution: "@yozora/react-code-literal@workspace:packages/react-code-literal"
   dependencies:
-    "@yozora/core-react-constant": ^2.0.0
-    "@yozora/react-code-highlighter": ^2.3.3
-    "@yozora/react-common-copy-button": ^2.3.3
-    "@yozora/react-common-light-buttons": ^2.3.3
+    "@yozora/core-react-constant": 3.0.0-alpha.0
+    "@yozora/react-code-highlighter": 3.0.0-alpha.0
+    "@yozora/react-common-copy-button": 3.0.0-alpha.0
+    "@yozora/react-common-light-buttons": 3.0.0-alpha.0
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
@@ -2583,17 +2583,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/react-code-live@^2.3.3, @yozora/react-code-live@workspace:packages/react-code-live":
+"@yozora/react-code-live@3.0.0-alpha.0, @yozora/react-code-live@workspace:packages/react-code-live":
   version: 0.0.0-use.local
   resolution: "@yozora/react-code-live@workspace:packages/react-code-live"
   dependencies:
     "@guanghechen/common-util": ^0.2.1
-    "@yozora/core-react-constant": ^2.0.0
-    "@yozora/react-code-editor": ^2.3.3
-    "@yozora/react-code-embed": ^2.3.3
-    "@yozora/react-code-runners": ^2.3.3
-    "@yozora/react-common-copy-button": ^2.3.3
-    "@yozora/react-common-light-buttons": ^2.3.3
+    "@yozora/core-react-constant": 3.0.0-alpha.0
+    "@yozora/react-code-editor": 3.0.0-alpha.0
+    "@yozora/react-code-embed": 3.0.0-alpha.0
+    "@yozora/react-code-runners": 3.0.0-alpha.0
+    "@yozora/react-common-copy-button": 3.0.0-alpha.0
+    "@yozora/react-common-light-buttons": 3.0.0-alpha.0
     cross-env: ^7.0.3
     jest: ^29.6.2
     rimraf: ^5.0.1
@@ -2606,7 +2606,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/react-code-renderer-graphviz@^2.3.3, @yozora/react-code-renderer-graphviz@workspace:packages/react-code-renderer-graphviz":
+"@yozora/react-code-renderer-graphviz@3.0.0-alpha.0, @yozora/react-code-renderer-graphviz@workspace:packages/react-code-renderer-graphviz":
   version: 0.0.0-use.local
   resolution: "@yozora/react-code-renderer-graphviz@workspace:packages/react-code-renderer-graphviz"
   dependencies:
@@ -2624,7 +2624,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/react-code-renderer-jsx@^2.3.3, @yozora/react-code-renderer-jsx@workspace:packages/react-code-renderer-jsx":
+"@yozora/react-code-renderer-jsx@3.0.0-alpha.0, @yozora/react-code-renderer-jsx@workspace:packages/react-code-renderer-jsx":
   version: 0.0.0-use.local
   resolution: "@yozora/react-code-renderer-jsx@workspace:packages/react-code-renderer-jsx"
   dependencies:
@@ -2640,14 +2640,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/react-code-runners@^2.3.3, @yozora/react-code-runners@workspace:packages/react-code-runners":
+"@yozora/react-code-runners@3.0.0-alpha.0, @yozora/react-code-runners@workspace:packages/react-code-runners":
   version: 0.0.0-use.local
   resolution: "@yozora/react-code-runners@workspace:packages/react-code-runners"
   dependencies:
     "@guanghechen/react-hooks": ^3.0.1
     "@loadable/component": ^5.15.3
-    "@yozora/react-code-renderer-graphviz": ^2.3.3
-    "@yozora/react-code-renderer-jsx": ^2.3.3
+    "@yozora/react-code-renderer-graphviz": 3.0.0-alpha.0
+    "@yozora/react-code-renderer-jsx": 3.0.0-alpha.0
   peerDependencies:
     "@yozora/ast": ^2.0.0
     prop-types: ^15.7.2
@@ -2655,17 +2655,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/react-code@^2.3.3, @yozora/react-code@workspace:packages/react-code":
+"@yozora/react-code@3.0.0-alpha.0, @yozora/react-code@workspace:packages/react-code":
   version: 0.0.0-use.local
   resolution: "@yozora/react-code@workspace:packages/react-code"
   dependencies:
     "@guanghechen/fast-deep-equal": ^2.3.3
-    "@yozora/core-react-constant": ^2.0.0
-    "@yozora/core-react-renderer": ^2.4.0
-    "@yozora/react-code-embed": ^2.3.3
-    "@yozora/react-code-literal": ^2.3.3
-    "@yozora/react-code-live": ^2.3.3
-    "@yozora/react-code-renderer-jsx": ^2.3.3
+    "@yozora/core-react-constant": 3.0.0-alpha.0
+    "@yozora/core-react-renderer": 3.0.0-alpha.0
+    "@yozora/react-code-embed": 3.0.0-alpha.0
+    "@yozora/react-code-literal": 3.0.0-alpha.0
+    "@yozora/react-code-live": 3.0.0-alpha.0
+    "@yozora/react-code-renderer-jsx": 3.0.0-alpha.0
     cross-env: ^7.0.3
     jest: ^29.6.2
     rimraf: ^5.0.1
@@ -2679,7 +2679,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/react-common-copy-button@^2.3.3, @yozora/react-common-copy-button@workspace:packages/react-common-copy-button":
+"@yozora/react-common-copy-button@3.0.0-alpha.0, @yozora/react-common-copy-button@workspace:packages/react-common-copy-button":
   version: 0.0.0-use.local
   resolution: "@yozora/react-common-copy-button@workspace:packages/react-common-copy-button"
   dependencies:
@@ -2691,7 +2691,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/react-common-light-buttons@^2.3.3, @yozora/react-common-light-buttons@workspace:packages/react-common-light-buttons":
+"@yozora/react-common-light-buttons@3.0.0-alpha.0, @yozora/react-common-light-buttons@workspace:packages/react-common-light-buttons":
   version: 0.0.0-use.local
   resolution: "@yozora/react-common-light-buttons@workspace:packages/react-common-light-buttons"
   peerDependencies:
@@ -2707,12 +2707,12 @@ __metadata:
   dependencies:
     "@guanghechen/fast-deep-equal": ^2.3.3
     "@yozora/ast": ^2.1.5
-    "@yozora/core-react-constant": ^2.0.0
-    "@yozora/core-react-renderer": ^2.4.0
-    "@yozora/core-react-theme": ^2.3.3
-    "@yozora/react-admonition": ^2.3.3
-    "@yozora/react-code": ^2.3.3
-    "@yozora/react-mathjax": ^2.3.3
+    "@yozora/core-react-constant": 3.0.0-alpha.0
+    "@yozora/core-react-renderer": 3.0.0-alpha.0
+    "@yozora/core-react-theme": 3.0.0-alpha.0
+    "@yozora/react-admonition": 3.0.0-alpha.0
+    "@yozora/react-code": 3.0.0-alpha.0
+    "@yozora/react-mathjax": 3.0.0-alpha.0
   peerDependencies:
     "@emotion/css": ^11.0.0
     "@yozora/ast": ^2.0.0
@@ -2722,12 +2722,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/react-mathjax@^2.3.3, @yozora/react-mathjax@workspace:packages/react-mathjax":
+"@yozora/react-mathjax@3.0.0-alpha.0, @yozora/react-mathjax@workspace:packages/react-mathjax":
   version: 0.0.0-use.local
   resolution: "@yozora/react-mathjax@workspace:packages/react-mathjax"
   dependencies:
     "@guanghechen/fast-deep-equal": ^2.3.3
-    "@yozora/core-react-constant": ^2.0.0
+    "@yozora/core-react-constant": 3.0.0-alpha.0
     mathjax-full: ^3.2.2
   peerDependencies:
     "@emotion/css": ^11.0.0

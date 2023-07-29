@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.0](https://github.com/yozorajs/yozora-react/compare/@yozora/react-common-light-buttons@2.3.3...@yozora/react-common-light-buttons@3.0.0-alpha.0) (2023-07-29)
+
+
+### Features
+
+* [BREAKING] refactor components and theme & upgrade d3-graphviz ([d731629](https://github.com/yozorajs/yozora-react/commit/d731629f30d4b29de0c667881e702f04d37b2421))
+
+
+### Performance Improvements
+
+* ✅ fix tests ([2e2c095](https://github.com/yozorajs/yozora-react/commit/2e2c0958c83311f79cd240b40752234f548bb34b))
+* prefer class style components ([a308957](https://github.com/yozorajs/yozora-react/commit/a308957523208557521c825577c6770b0d35a904))
+
+
+
+
+
 ## 2.3.3 (2023-05-13)
 
 

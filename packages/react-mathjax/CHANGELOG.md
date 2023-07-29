@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.0](https://github.com/yozorajs/yozora-react/compare/@yozora/react-mathjax@2.3.3...@yozora/react-mathjax@3.0.0-alpha.0) (2023-07-29)
+
+
+### Performance Improvements
+
+* :boom:  [BREAKING] refactor: refactor with viewmodels & upgrade to mathjax3 ([62ef3aa](https://github.com/yozorajs/yozora-react/commit/62ef3aa0c7b38242457a7fbefaa3457cb83277f9))
+* ✅ fix tests ([2e2c095](https://github.com/yozorajs/yozora-react/commit/2e2c0958c83311f79cd240b40752234f548bb34b))
+* prefer class style components ([a308957](https://github.com/yozorajs/yozora-react/commit/a308957523208557521c825577c6770b0d35a904))
+* ⬆️ upgrade dependencies ([0452b34](https://github.com/yozorajs/yozora-react/commit/0452b3423756958891106723cfc67eae12ea8a78))
+* ⬆️ upgrade dependencies ([6cccedd](https://github.com/yozorajs/yozora-react/commit/6ccceddf21eaa1c115546cc155035e0638b1f570))
+
+
+
+
+
 ## 2.3.3 (2023-05-13)
 
 

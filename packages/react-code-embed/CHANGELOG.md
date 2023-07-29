@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.0](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-embed@2.3.4...@yozora/react-code-embed@3.0.0-alpha.0) (2023-07-29)
+
+
+### Features
+
+* [BREAKING] refactor components and theme & upgrade d3-graphviz ([d731629](https://github.com/yozorajs/yozora-react/commit/d731629f30d4b29de0c667881e702f04d37b2421))
+* ✨ add new sub-package @yozora/core-react-constant ([2503380](https://github.com/yozorajs/yozora-react/commit/2503380038b14b88df27ed1ed6113e1a63ea5bb3))
+
+
+### Performance Improvements
+
+* :boom:  [BREAKING] refactor: refactor with viewmodels & upgrade to mathjax3 ([62ef3aa](https://github.com/yozorajs/yozora-react/commit/62ef3aa0c7b38242457a7fbefaa3457cb83277f9))
+* ✅ fix tests ([2e2c095](https://github.com/yozorajs/yozora-react/commit/2e2c0958c83311f79cd240b40752234f548bb34b))
+* prefer class style components ([a308957](https://github.com/yozorajs/yozora-react/commit/a308957523208557521c825577c6770b0d35a904))
+* 🎨 refactor theme ([5ee7796](https://github.com/yozorajs/yozora-react/commit/5ee7796006854350342e001e8c8d60c60d01e3f8))
+
+
+
+
+
 ## [2.3.4](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-embed@2.3.3...@yozora/react-code-embed@2.3.4) (2023-06-04)
 
 
