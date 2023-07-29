@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.1](https://github.com/yozorajs/yozora-react/compare/@yozora/react-common-copy-button@3.0.0-alpha.0...@yozora/react-common-copy-button@3.0.0-alpha.1) (2023-07-29)
+
+
+### Performance Improvements
+
+* ⬆️ upgrade dependencies ([c4654f1](https://github.com/yozorajs/yozora-react/commit/c4654f16a4c59f68b4736dc23af2ff5de01ec533))
+
+
+
+
+
 # [3.0.0-alpha.0](https://github.com/yozorajs/yozora-react/compare/@yozora/react-common-copy-button@2.3.3...@yozora/react-common-copy-button@3.0.0-alpha.0) (2023-07-29)
 
 

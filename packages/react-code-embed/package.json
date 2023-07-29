@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-embed",
-  "version": "3.0.0-alpha.0",
+  "version": "3.0.0-alpha.1",
   "description": "code embed in react",
   "author": {
     "name": "guanghechen",
@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "@guanghechen/helper-jest": "^5.0.3",
-    "@yozora/react-code-runners": "3.0.0-alpha.0",
+    "@yozora/react-code-runners": "^3.0.0-alpha.1",
     "cross-env": "^7.0.3",
     "jest": "^29.6.2",
     "rimraf": "^5.0.1",
