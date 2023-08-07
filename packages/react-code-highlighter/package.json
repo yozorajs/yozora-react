@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-highlighter",
-  "version": "3.0.0-alpha.0",
+  "version": "3.0.0-alpha.1",
   "description": "highlight markdown code in react",
   "author": {
     "name": "guanghechen",
@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@guanghechen/fast-deep-equal": "^2.3.4",
-    "@yozora/core-react-constant": "3.0.0-alpha.0",
+    "@yozora/core-react-constant": "^3.0.0-alpha.1",
     "prismjs": "^1.29.0"
   },
   "peerDependencies": {

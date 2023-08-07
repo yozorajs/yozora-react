@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.2](https://github.com/yozorajs/yozora-react/compare/@yozora/core-react-renderer@3.0.0-alpha.1...@yozora/core-react-renderer@3.0.0-alpha.2) (2023-08-07)
+
+
+### Performance Improvements
+
+* 🎨 refactor action types ([6450fbc](https://github.com/yozorajs/yozora-react/commit/6450fbca065789dcd450e1ddea8a37c30ae8f4af))
+* ⬆️ upgrade dependencies ([c230086](https://github.com/yozorajs/yozora-react/commit/c2300865c7ddd7af45a07df35db1eab63f8ff9aa))
+
+
+
+
+
 # [3.0.0-alpha.1](https://github.com/yozorajs/yozora-react/compare/@yozora/core-react-renderer@3.0.0-alpha.0...@yozora/core-react-renderer@3.0.0-alpha.1) (2023-07-29)
 
 
