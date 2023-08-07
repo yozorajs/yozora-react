@@ -38,9 +38,9 @@
     "test": "echo 'TODO: fix test'"
   },
   "dependencies": {
-    "@guanghechen/fast-deep-equal": "^2.3.3",
+    "@guanghechen/fast-deep-equal": "^2.3.4",
     "@types/d3-graphviz": "^2.6.7",
-    "d3-graphviz": "^5.0.2",
+    "d3-graphviz": "^5.1.0",
     "d3-selection": "^3.0.0"
   },
   "peerDependencies": {
