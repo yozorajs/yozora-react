@@ -11,7 +11,7 @@ export class NodeRendererController {
     this.viewmodel = props.viewmodel
   }
 
-  public toggleImageVisible = (visible: boolean | undefined): void => {
+  public toggleImageVisible = (visible: boolean | undefined | void): void => {
     const vm = this.viewmodel
     const nextVisible = visible ?? !vm.imageViewerVisible$.getSnapshot()
     vm.imageViewerVisible$.next(nextVisible)

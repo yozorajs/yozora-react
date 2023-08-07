@@ -4,13 +4,7 @@ import { unstable_batchedUpdates } from 'react-dom'
 import type { INodeRendererMap, IPreviewImageItem } from '../types'
 import { NodeRendererActionsType } from './constant'
 import { NodeRendererController } from './controller'
-import type {
-  INodeRendererAction,
-  INodeRendererActionActiveImage,
-  INodeRendererActionAddImage,
-  INodeRendererActionToggleImageVisible,
-  INodeRendererState,
-} from './types'
+import type { INodeRendererAction, INodeRendererState } from './types'
 
 interface IProps extends INodeRendererState {}
 
@@ -51,30 +45,35 @@ export class NodeRendererViewModel extends ViewModel {
     }
   }
 
-  public readonly dispatch = (action: INodeRendererAction): void => {
-    const consume: IConsumer | undefined = consumerMap[action.type]
+  public readonly dispatch = <T extends NodeRendererActionsType = NodeRendererActionsType>(
+    action: INodeRendererAction<T>,
+  ): void => {
+    const consume = consumerMap[action.type]
     if (consume) {
       unstable_batchedUpdates(() => {
         consume(this._controller, action)
       })
     } else {
-      console.error(this.constructor.name, 'Bad action:', action)
+      console.error(this.constructor.name, 'Unhandled action:', action)
     }
   }
 }
 
-type IConsumer = (controller: NodeRendererController, action: INodeRendererAction) => void
-const consumerMap: Record<NodeRendererActionsType, IConsumer> = {
+type IConsumer<T extends NodeRendererActionsType> = (
+  controller: NodeRendererController,
+  action: INodeRendererAction<T>,
+) => void
+const consumerMap: { [T in NodeRendererActionsType]: IConsumer<T> } = {
   [NodeRendererActionsType.TOGGLE_IMAGE_VISIBLE]: (controller, action) => {
-    const visible: boolean | undefined = (action as INodeRendererActionToggleImageVisible).payload
+    const visible: boolean | undefined | void = action.payload
     controller.toggleImageVisible(visible)
   },
   [NodeRendererActionsType.ADD_IMAGE]: (controller, action) => {
-    const { src, alt } = (action as INodeRendererActionAddImage).payload
+    const { src, alt } = action.payload
     controller.addImage(src, alt)
   },
   [NodeRendererActionsType.ACTIVE_IMAGE]: (controller, action) => {
-    const { src, alt } = (action as INodeRendererActionActiveImage).payload
+    const { src, alt } = action.payload
     controller.activeImage(src, alt)
   },
 }

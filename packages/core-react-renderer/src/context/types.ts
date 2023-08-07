@@ -33,22 +33,20 @@ export interface INodeRendererState {
   readonly footnoteDefinitionMap: Readonly<Record<string, FootnoteDefinition>>
 }
 
-export interface INodeRendererActionToggleImageVisible {
-  type: NodeRendererActionsType.TOGGLE_IMAGE_VISIBLE
-  payload?: boolean
-}
+export type INodeRendererAction<T extends NodeRendererActionsType = NodeRendererActionsType> = {
+  [K in NodeRendererActionsType]: INodeRendererActionPayloadMap[K] extends void
+    ? {
+        type: K
+        payload?: INodeRendererActionPayloadMap[K]
+      }
+    : {
+        type: K
+        payload: INodeRendererActionPayloadMap[K]
+      }
+}[T]
 
-export interface INodeRendererActionAddImage {
-  type: NodeRendererActionsType.ADD_IMAGE
-  payload: IPreviewImageItem
+export interface INodeRendererActionPayloadMap {
+  [NodeRendererActionsType.TOGGLE_IMAGE_VISIBLE]: boolean | undefined | void
+  [NodeRendererActionsType.ADD_IMAGE]: IPreviewImageItem
+  [NodeRendererActionsType.ACTIVE_IMAGE]: IPreviewImageItem
 }
-
-export interface INodeRendererActionActiveImage {
-  type: NodeRendererActionsType.ACTIVE_IMAGE
-  payload: IPreviewImageItem
-}
-
-export type INodeRendererAction =
-  | INodeRendererActionToggleImageVisible
-  | INodeRendererActionAddImage
-  | INodeRendererActionActiveImage
