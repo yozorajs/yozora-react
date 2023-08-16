@@ -40,10 +40,10 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@guanghechen/fast-deep-equal": "^2.3.4",
-    "@guanghechen/parse-lineno": "^2.3.4",
-    "@guanghechen/react-viewmodel": "^0.1.4",
-    "@guanghechen/viewmodel": "^0.1.1",
+    "@guanghechen/fast-deep-equal": "^2.3.5",
+    "@guanghechen/parse-lineno": "^2.3.5",
+    "@guanghechen/react-viewmodel": "^0.1.5",
+    "@guanghechen/viewmodel": "^0.1.2",
     "@yozora/core-react-constant": "^3.0.0-alpha.1",
     "@yozora/core-react-theme": "^3.0.0-alpha.1",
     "@yozora/react-code-highlighter": "^3.0.0-alpha.1"

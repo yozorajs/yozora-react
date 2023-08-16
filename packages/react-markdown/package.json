@@ -42,7 +42,7 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@guanghechen/fast-deep-equal": "^2.3.4",
+    "@guanghechen/fast-deep-equal": "^2.3.5",
     "@yozora/ast": "^2.1.5",
     "@yozora/core-react-constant": "^3.0.0-alpha.1",
     "@yozora/core-react-renderer": "^3.0.0-alpha.2",
