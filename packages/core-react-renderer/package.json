@@ -1,6 +1,6 @@
 {
   "name": "@yozora/core-react-renderer",
-  "version": "3.0.0-alpha.2",
+  "version": "3.0.0-alpha.3",
   "description": "Yozora renderer in react.",
   "author": {
     "name": "guanghechen",
@@ -44,9 +44,9 @@
     "@guanghechen/parse-lineno": "^2.3.5",
     "@guanghechen/react-viewmodel": "^0.1.5",
     "@guanghechen/viewmodel": "^0.1.2",
-    "@yozora/core-react-constant": "^3.0.0-alpha.1",
-    "@yozora/core-react-theme": "^3.0.0-alpha.1",
-    "@yozora/react-code-highlighter": "^3.0.0-alpha.1"
+    "@yozora/core-react-constant": "^3.0.0-alpha.2",
+    "@yozora/core-react-theme": "^3.0.0-alpha.2",
+    "@yozora/react-code-highlighter": "^3.0.0-alpha.2"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.3](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-embed@3.0.0-alpha.2...@yozora/react-code-embed@3.0.0-alpha.3) (2023-08-16)
+
+
+### Performance Improvements
+
+* ⬆️ upgrade dependencies ([150932e](https://github.com/yozorajs/yozora-react/commit/150932ef50b17b6512b5d7ff5e89e0edd052c8dd))
+* ⬆️ upgrade devDependencies ([67e15e7](https://github.com/yozorajs/yozora-react/commit/67e15e7db754de206ee6ca42504a43325e57f634))
+
+
+
+
+
 # [3.0.0-alpha.2](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-embed@3.0.0-alpha.1...@yozora/react-code-embed@3.0.0-alpha.2) (2023-08-07)
 
 
