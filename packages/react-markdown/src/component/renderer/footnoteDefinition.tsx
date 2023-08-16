@@ -12,7 +12,16 @@ import React from 'react'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-footnote-reference
  * @see https://www.npmjs.com/package/@yozora/tokenizer-footnote-definition
  */
-export class FootnoteDefinitionRenderer extends React.PureComponent<FootnoteDefinition> {
+export class FootnoteDefinitionRenderer extends React.Component<FootnoteDefinition> {
+  public override shouldComponentUpdate(nextProps: Readonly<FootnoteDefinition>): boolean {
+    const props = this.props
+    return (
+      props.identifier !== nextProps.identifier ||
+      props.label !== nextProps.label ||
+      props.children !== nextProps.children
+    )
+  }
+
   public override render(): React.ReactElement {
     const { identifier, label = identifier, children } = this.props
     return (
