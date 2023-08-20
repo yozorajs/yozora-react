@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-live",
-  "version": "3.0.0-alpha.3",
+  "version": "3.0.0-alpha.4",
   "description": "code live in react",
   "author": {
     "name": "guanghechen",
@@ -47,7 +47,7 @@
     "@guanghechen/common-util": "^0.2.1",
     "@yozora/core-react-constant": "^3.0.0-alpha.2",
     "@yozora/react-code-editor": "^3.0.0-alpha.2",
-    "@yozora/react-code-embed": "^3.0.0-alpha.3",
+    "@yozora/react-code-embed": "^3.0.0-alpha.4",
     "@yozora/react-common-copy-button": "^3.0.0-alpha.3",
     "@yozora/react-common-light-buttons": "3.0.0-alpha.0"
   },
