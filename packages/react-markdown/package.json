@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@guanghechen/fast-deep-equal": "^2.3.5",
-    "@yozora/ast": "^2.1.5",
+    "@yozora/ast": "^2.2.0",
     "@yozora/core-react-constant": "^3.0.0-alpha.2",
     "@yozora/core-react-renderer": "^3.0.0-alpha.4",
     "@yozora/core-react-theme": "^3.0.0-alpha.2",

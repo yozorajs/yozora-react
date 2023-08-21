@@ -2480,27 +2480,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yozora/ast-util@npm:^2.1.5":
-  version: 2.1.5
-  resolution: "@yozora/ast-util@npm:2.1.5"
+"@yozora/ast-util@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@yozora/ast-util@npm:2.2.0"
   dependencies:
-    "@yozora/ast": ^2.1.5
-    "@yozora/character": ^2.1.5
-  checksum: 9f40c46bb81011362a5133d73a9782b612e831558b73d98a15d210cf0e34decda1c2380cb26d0c8c3e68b6af0f3c857f4cb0b2d8d7f207d482837814c08e3233
+    "@yozora/ast": ^2.2.0
+    "@yozora/character": ^2.2.0
+  checksum: 756a4479f9ddce2425bc3251476779ae7a5fcf8ec1b18dac1031b71f55f585fe13ed0ae347857a6b52632c4f1a04cbcd9e0cf7a9f95e37ef85b69069dcc6a49b
   languageName: node
   linkType: hard
 
-"@yozora/ast@npm:^2.1.5":
-  version: 2.1.5
-  resolution: "@yozora/ast@npm:2.1.5"
-  checksum: f9538de3326f997aec729996a4d75e6ac2574b241b1e961893f601b9e75a5c03b24d12ebb117039f0693eca17d4e92d2c95b9b55a4532571a9fdcb1184b7b9e7
+"@yozora/ast@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@yozora/ast@npm:2.2.0"
+  checksum: 7bef674345a22623c58854d2f9e9d29fdc5edbfc7cce078664462c5b242e2a88cf68441720c4cfcd3059f7409e290f619f9dcddc6989d814001c43334d990d43
   languageName: node
   linkType: hard
 
-"@yozora/character@npm:^2.1.5":
-  version: 2.1.5
-  resolution: "@yozora/character@npm:2.1.5"
-  checksum: 40d61a6cbf25d9e0b6380b3a3ccc1ce04759e090c43abd3d821d43856709d16a642cd52af07603c53615f984ec8f00eb43e9fe41fee82c8b5d31547eb062a3a2
+"@yozora/character@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@yozora/character@npm:2.2.0"
+  checksum: 968aa14a970d073f294fb970d21f93a359401a78dab20abdf58e3e093dc790fd7729f8cd4a0e7d26c08b6f15042a47c0c428b75019c9c46c5c310d8fc2cb17d0
   languageName: node
   linkType: hard
 
@@ -2763,7 +2763,7 @@ __metadata:
   resolution: "@yozora/react-markdown@workspace:packages/react-markdown"
   dependencies:
     "@guanghechen/fast-deep-equal": ^2.3.5
-    "@yozora/ast": ^2.1.5
+    "@yozora/ast": ^2.2.0
     "@yozora/core-react-constant": ^3.0.0-alpha.2
     "@yozora/core-react-renderer": ^3.0.0-alpha.4
     "@yozora/core-react-theme": ^3.0.0-alpha.2
@@ -2818,8 +2818,8 @@ __metadata:
     "@types/node": 18.17.6
     "@types/react": ^18.2.20
     "@types/react-dom": ^18.2.7
-    "@yozora/ast": ^2.1.5
-    "@yozora/ast-util": ^2.1.5
+    "@yozora/ast": ^2.2.0
+    "@yozora/ast-util": ^2.2.0
     cross-env: ^7.0.3
     eslint: 8.47.0
     eslint-config-prettier: 9.0.0
