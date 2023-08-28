@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.5](https://github.com/yozorajs/yozora-react/compare/@yozora/core-react-renderer@3.0.0-alpha.4...@yozora/core-react-renderer@3.0.0-alpha.5) (2023-08-28)
+
+
+### Bug Fixes
+
+* text should re-render when value is changed ([a2aa537](https://github.com/yozorajs/yozora-react/commit/a2aa5371c872785cdeba47f3e25d2a4b2ef41c57))
+
+
+
+
+
 # [3.0.0-alpha.4](https://github.com/yozorajs/yozora-react/compare/@yozora/core-react-renderer@3.0.0-alpha.3...@yozora/core-react-renderer@3.0.0-alpha.4) (2023-08-20)
 
 

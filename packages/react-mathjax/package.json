@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-mathjax",
-  "version": "3.0.0-alpha.2",
+  "version": "3.0.0-alpha.3",
   "description": "render formula with mathjax in react",
   "author": {
     "name": "guanghechen",
@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@guanghechen/fast-deep-equal": "^2.3.5",
-    "@yozora/core-react-constant": "^3.0.0-alpha.2"
+    "@yozora/core-react-constant": "^3.0.0-alpha.3"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",

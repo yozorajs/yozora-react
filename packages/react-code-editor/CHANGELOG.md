@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.3](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-editor@3.0.0-alpha.2...@yozora/react-code-editor@3.0.0-alpha.3) (2023-08-28)
+
+
+### Performance Improvements
+
+* ⬆️ upgrade dependencies ([dc3932c](https://github.com/yozorajs/yozora-react/commit/dc3932c5ce6230d6d005d8ec583781cf1dd498ca))
+
+
+
+
+
 # [3.0.0-alpha.2](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-editor@3.0.0-alpha.1...@yozora/react-code-editor@3.0.0-alpha.2) (2023-08-16)
 
 

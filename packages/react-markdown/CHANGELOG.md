@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.5](https://github.com/yozorajs/yozora-react/compare/@yozora/react-markdown@3.0.0-alpha.4...@yozora/react-markdown@3.0.0-alpha.5) (2023-08-28)
+
+
+### Performance Improvements
+
+* ⬆️ upgrade dependencies ([7318012](https://github.com/yozorajs/yozora-react/commit/7318012bb16593c49f20d22e921f72288e5f364f))
+
+
+
+
+
 # [3.0.0-alpha.4](https://github.com/yozorajs/yozora-react/compare/@yozora/react-markdown@3.0.0-alpha.3...@yozora/react-markdown@3.0.0-alpha.4) (2023-08-20)
 
 **Note:** Version bump only for package @yozora/react-markdown

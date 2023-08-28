@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.5](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-live@3.0.0-alpha.4...@yozora/react-code-live@3.0.0-alpha.5) (2023-08-28)
+
+
+### Performance Improvements
+
+* ⬆️ upgrade dependencies ([dc3932c](https://github.com/yozorajs/yozora-react/commit/dc3932c5ce6230d6d005d8ec583781cf1dd498ca))
+
+
+
+
+
 # [3.0.0-alpha.4](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-live@3.0.0-alpha.3...@yozora/react-code-live@3.0.0-alpha.4) (2023-08-20)
 
 **Note:** Version bump only for package @yozora/react-code-live
