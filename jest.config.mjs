@@ -1,8 +1,10 @@
 import { tsMonorepoConfig } from '@guanghechen/jest-config'
+import { createRequire } from 'node:module'
 import path from 'node:path'
 import url from 'node:url'
 
 export default async function () {
+  const require = createRequire(import.meta.url)
   const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
   const baseConfig = await tsMonorepoConfig(__dirname, {
     useESM: true,
@@ -63,6 +65,7 @@ export default async function () {
         .filter(([p]) => !p.startsWith('packages/') || p.startsWith(packageDir))
         .map(([p, val]) => (p.startsWith(packageDir) ? [path.join(__dirname, p), val] : [p, val])),
     ),
+    prettierPath: require.resolve('prettier-2'),
   }
   return config
 }

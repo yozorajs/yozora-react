@@ -40,7 +40,7 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@guanghechen/react-hooks": "^3.0.4",
+    "@guanghechen/react-hooks": "^3.0.5",
     "@loadable/component": "^5.15.3"
   },
   "peerDependencies": {

@@ -38,7 +38,7 @@
     "test": "node --experimental-vm-modules ../../node_modules/.bin/jest --config ../../jest.config.mjs --rootDir ."
   },
   "dependencies": {
-    "@guanghechen/fast-deep-equal": "^2.3.5",
+    "@guanghechen/fast-deep-equal": "^2.3.6",
     "sucrase": "^3.34.0"
   },
   "peerDependencies": {
