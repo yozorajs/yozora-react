@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-mathjax",
-  "version": "3.0.0-alpha.3",
+  "version": "3.0.0-alpha.4",
   "description": "render formula with mathjax in react",
   "author": {
     "name": "guanghechen",

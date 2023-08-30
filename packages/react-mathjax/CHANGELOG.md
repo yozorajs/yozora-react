@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.4](https://github.com/yozorajs/yozora-react/compare/@yozora/react-mathjax@3.0.0-alpha.3...@yozora/react-mathjax@3.0.0-alpha.4) (2023-08-30)
+
+
+### Features
+
+* ✨ support colors ([74639b4](https://github.com/yozorajs/yozora-react/commit/74639b4fa5ef601493edce7f752a727aed6fef49))
+
+
+### Performance Improvements
+
+* ⬆️ upgrade dependencies ([d1f81cc](https://github.com/yozorajs/yozora-react/commit/d1f81cc04ce5a598e713fc030fd819ca2010def3))
+
+
+
+
+
 # [3.0.0-alpha.3](https://github.com/yozorajs/yozora-react/compare/@yozora/react-mathjax@3.0.0-alpha.2...@yozora/react-mathjax@3.0.0-alpha.3) (2023-08-28)
 
 **Note:** Version bump only for package @yozora/react-mathjax
