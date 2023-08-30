@@ -162,7 +162,15 @@ export class MathJaxProvider extends React.Component<IProps, IState> {
 
 const defaultMathjaxConfig: IMathJaxConfig3 = {
   loader: {
-    load: ['[tex]/tagformat', 'input/tex', 'output/chtml'],
+    load: [
+      '[tex]/ams',
+      '[tex]/color',
+      '[tex]/colortbl',
+      '[tex]/tagformat',
+      '[tex]/unicode',
+      'input/tex',
+      'output/chtml',
+    ],
   },
   tex: {
     tags: 'ams',
