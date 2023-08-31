@@ -20,6 +20,5 @@ export * from './component/NodesRenderer'
 export * from './component/Provider'
 
 export * from './context'
-export * from './util/code'
 export * from './util/rendererMap'
 export * from './types'

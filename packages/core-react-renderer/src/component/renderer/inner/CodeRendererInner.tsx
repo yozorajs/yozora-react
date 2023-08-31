@@ -1,9 +1,8 @@
-/* eslint-disable react/prop-types */
 import { css, cx } from '@emotion/css'
 import { tokens } from '@yozora/core-react-constant'
+import { parseCodeMeta } from '@yozora/core-react-util'
 import CodeHighlighter from '@yozora/react-code-highlighter'
 import React from 'react'
-import { parseCodeMeta } from '../../../util/code'
 
 interface IProps {
   lang: string | null

@@ -41,11 +41,12 @@
   },
   "dependencies": {
     "@guanghechen/fast-deep-equal": "^2.3.6",
-    "@guanghechen/parse-lineno": "^2.3.6",
     "@guanghechen/react-viewmodel": "^0.2.2",
     "@guanghechen/viewmodel": "^0.4.0",
     "@yozora/core-react-constant": "^3.0.0-alpha.3",
     "@yozora/core-react-theme": "^3.0.0-alpha.3",
+    "@yozora/core-react-types": "^1.0.0-alpha.0",
+    "@yozora/core-react-util": "^1.0.0-alpha.0",
     "@yozora/react-code-highlighter": "^3.0.0-alpha.4"
   },
   "peerDependencies": {
