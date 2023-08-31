@@ -2563,6 +2563,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@yozora/core-react-util@1.0.0-alpha.0, @yozora/core-react-util@workspace:packages/core-react-util":
+  version: 0.0.0-use.local
+  resolution: "@yozora/core-react-util@workspace:packages/core-react-util"
+  dependencies:
+    "@guanghechen/parse-lineno": ^2.3.6
+    "@yozora/core-react-util": 1.0.0-alpha.0
+    cross-env: ^7.0.3
+    jest: ^29.6.4
+    rimraf: ^5.0.1
+    rollup: ^3.28.1
+  languageName: unknown
+  linkType: soft
+
 "@yozora/react-admonition@^3.0.0-alpha.3, @yozora/react-admonition@workspace:packages/react-admonition":
   version: 0.0.0-use.local
   resolution: "@yozora/react-admonition@workspace:packages/react-admonition"
