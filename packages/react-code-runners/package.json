@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-runners",
-  "version": "3.0.0-alpha.5",
+  "version": "3.0.0-alpha.6",
   "description": "Live code runners",
   "author": {
     "name": "guanghechen",
@@ -42,7 +42,7 @@
   "dependencies": {
     "@guanghechen/react-hooks": "^3.0.5",
     "@loadable/component": "^5.15.3",
-    "@yozora/core-react-types": "^1.0.0-alpha.0"
+    "@yozora/core-react-types": "^1.0.0-alpha.1"
   },
   "peerDependencies": {
     "@yozora/ast": "^2.0.0",

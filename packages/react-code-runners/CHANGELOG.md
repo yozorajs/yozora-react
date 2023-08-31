@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.6](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-runners@3.0.0-alpha.5...@yozora/react-code-runners@3.0.0-alpha.6) (2023-08-31)
+
+
+### Performance Improvements
+
+* reuse types ([93b80c0](https://github.com/yozorajs/yozora-react/commit/93b80c06d1f0311f5e7ddf8561f5a7793b4ad321))
+
+
+
+
+
 # [3.0.0-alpha.5](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-runners@3.0.0-alpha.4...@yozora/react-code-runners@3.0.0-alpha.5) (2023-08-30)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.8](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code@3.0.0-alpha.7...@yozora/react-code@3.0.0-alpha.8) (2023-08-31)
+
+
+### Performance Improvements
+
+* reuse types ([93b80c0](https://github.com/yozorajs/yozora-react/commit/93b80c06d1f0311f5e7ddf8561f5a7793b4ad321))
+* 🎨 reuse codes ([a5a623e](https://github.com/yozorajs/yozora-react/commit/a5a623eb70681f0f916845bc6bdcda4ef7c518de))
+
+
+
+
+
 # [3.0.0-alpha.7](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code@3.0.0-alpha.6...@yozora/react-code@3.0.0-alpha.7) (2023-08-31)
 
 **Note:** Version bump only for package @yozora/react-code

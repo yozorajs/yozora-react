@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.8](https://github.com/yozorajs/yozora-react/compare/@yozora/react-markdown@3.0.0-alpha.7...@yozora/react-markdown@3.0.0-alpha.8) (2023-08-31)
+
+
+### Performance Improvements
+
+* reuse types ([93b80c0](https://github.com/yozorajs/yozora-react/commit/93b80c06d1f0311f5e7ddf8561f5a7793b4ad321))
+
+
+
+
+
 # [3.0.0-alpha.7](https://github.com/yozorajs/yozora-react/compare/@yozora/react-markdown@3.0.0-alpha.6...@yozora/react-markdown@3.0.0-alpha.7) (2023-08-31)
 
 **Note:** Version bump only for package @yozora/react-markdown
