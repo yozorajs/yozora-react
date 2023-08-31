@@ -1,0 +1,48 @@
+{
+  "name": "@yozora/core-react-types",
+  "version": "1.0.0-alpha.0",
+  "description": "Yozora react types.",
+  "author": {
+    "name": "guanghechen",
+    "url": "https://github.com/guanghechen/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yozorajs/yozora-react/tree/@yozora/core-react-types@1.0.0-alpha.0",
+    "directory": "packages/core-react-types"
+  },
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/@yozora/core-react-types@1.0.0-alpha.0/packages/core-react-types#readme",
+  "keywords": [],
+  "type": "module",
+  "exports": {
+    "types": "./lib/types/index.d.ts",
+    "import": "./lib/esm/index.mjs",
+    "require": "./lib/cjs/index.cjs"
+  },
+  "source": "./src/index.ts",
+  "types": "./lib/types/index.d.ts",
+  "main": "./lib/cjs/index.cjs",
+  "module": "./lib/esm/index.mjs",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 16.0.0"
+  },
+  "files": [
+    "lib/",
+    "!lib/**/*.map",
+    "package.json",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rimraf lib/ && cross-env NODE_ENV=production rollup -c ../../rollup.config.mjs",
+    "prepublishOnly": "yarn build"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^29.6.4",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.28.1"
+  }
+}

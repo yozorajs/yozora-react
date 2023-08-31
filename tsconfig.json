@@ -7,6 +7,7 @@
       "@yozora/core-react-constant": ["./packages/core-react-constant/src"],
       "@yozora/core-react-renderer": ["./packages/core-react-renderer/src"],
       "@yozora/core-react-theme": ["./packages/core-react-theme/src"],
+      "@yozora/core-react-types": ["./packages/core-react-types/src"],
       "@yozora/react-admonition": ["./packages/react-admonition/src"],
       "@yozora/react-code": ["./packages/react-code/src"],
       "@yozora/react-code-editor": ["./packages/react-code-editor/src"],

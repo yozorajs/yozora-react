@@ -2552,6 +2552,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@yozora/core-react-types@workspace:packages/core-react-types":
+  version: 0.0.0-use.local
+  resolution: "@yozora/core-react-types@workspace:packages/core-react-types"
+  dependencies:
+    cross-env: ^7.0.3
+    jest: ^29.6.4
+    rimraf: ^5.0.1
+    rollup: ^3.28.1
+  languageName: unknown
+  linkType: soft
+
 "@yozora/react-admonition@^3.0.0-alpha.3, @yozora/react-admonition@workspace:packages/react-admonition":
   version: 0.0.0-use.local
   resolution: "@yozora/react-admonition@workspace:packages/react-admonition"
