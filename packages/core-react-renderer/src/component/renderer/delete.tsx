@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css'
-import type { Delete } from '@yozora/ast'
+import type { Delete, Node } from '@yozora/ast'
 import { tokens } from '@yozora/core-react-constant'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
@@ -17,7 +17,7 @@ export class DeleteRenderer extends React.Component<Delete> {
   }
 
   public override render(): React.ReactElement {
-    const childNodes = this.props.children
+    const childNodes: Node[] = this.props.children
     return (
       <del className={cls}>
         <NodesRenderer nodes={childNodes} />

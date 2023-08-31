@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css'
-import type { ListItem } from '@yozora/ast'
+import type { ListItem, Node } from '@yozora/ast'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
 
@@ -16,7 +16,7 @@ export class ListItemRenderer extends React.Component<ListItem> {
   }
 
   public override render(): React.ReactElement {
-    const childNodes = this.props.children
+    const childNodes: Node[] = this.props.children
     return (
       <li className={cls}>
         <NodesRenderer nodes={childNodes} />

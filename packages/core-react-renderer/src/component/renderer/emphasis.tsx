@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css'
-import type { Emphasis } from '@yozora/ast'
+import type { Emphasis, Node } from '@yozora/ast'
 import { tokens } from '@yozora/core-react-constant'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
@@ -17,7 +17,7 @@ export class EmphasisRenderer extends React.Component<Emphasis> {
   }
 
   public override render(): React.ReactElement {
-    const childNodes = this.props.children
+    const childNodes: Node[] = this.props.children
     return (
       <em className={cls}>
         <NodesRenderer nodes={childNodes} />

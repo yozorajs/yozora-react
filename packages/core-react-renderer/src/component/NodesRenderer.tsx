@@ -1,3 +1,4 @@
+import { isEqual } from '@guanghechen/fast-deep-equal'
 import type { Node } from '@yozora/ast'
 import React from 'react'
 import { useNodeRendererState } from '../context'
@@ -25,7 +26,7 @@ interface IProps {
 class NodesRendererInner extends React.Component<IProps> {
   public override shouldComponentUpdate(nextProps: Readonly<IProps>): boolean {
     const props = this.props
-    return props.nodes !== nextProps.nodes || props.rendererMap !== nextProps.rendererMap
+    return !isEqual(props.nodes, nextProps.nodes) || props.rendererMap !== nextProps.rendererMap
   }
 
   public override render(): React.ReactElement {

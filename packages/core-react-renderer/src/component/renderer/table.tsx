@@ -1,4 +1,5 @@
 import { css, cx } from '@emotion/css'
+import { isEqual } from '@guanghechen/fast-deep-equal'
 import type { Table } from '@yozora/ast'
 import { tokens } from '@yozora/core-react-constant'
 import React from 'react'
@@ -17,7 +18,9 @@ import { NodesRenderer } from '../NodesRenderer'
 export class TableRenderer extends React.Component<Table> {
   public override shouldComponentUpdate(nextProps: Readonly<Table>): boolean {
     const props = this.props
-    return props.columns !== nextProps.columns || props.children !== nextProps.children
+    return (
+      !isEqual(props.columns, nextProps.columns) || !isEqual(props.children, nextProps.children)
+    )
   }
 
   public override render(): React.ReactElement {

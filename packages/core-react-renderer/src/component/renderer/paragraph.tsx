@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css'
-import type { Paragraph } from '@yozora/ast'
+import type { Node, Paragraph } from '@yozora/ast'
 import { ImageReferenceType, ImageType } from '@yozora/ast'
 import { tokens } from '@yozora/core-react-constant'
 import React from 'react'
@@ -18,7 +18,7 @@ export class ParagraphRenderer extends React.Component<Paragraph> {
   }
 
   public override render(): React.ReactElement {
-    const childNodes = this.props.children
+    const childNodes: Node[] = this.props.children
 
     // If there are some image / imageReferences element in the paragraph,
     // then wrapper the content with div to avoid the warnings such as:

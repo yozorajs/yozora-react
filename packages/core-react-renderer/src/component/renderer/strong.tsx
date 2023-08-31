@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css'
-import type { Strong } from '@yozora/ast'
+import type { Node, Strong } from '@yozora/ast'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
 
@@ -16,7 +16,7 @@ export class StrongRenderer extends React.Component<Strong> {
   }
 
   public override render(): React.ReactElement {
-    const childNodes = this.props.children
+    const childNodes: Node[] = this.props.children
     return (
       <strong className={cls}>
         <NodesRenderer nodes={childNodes} />

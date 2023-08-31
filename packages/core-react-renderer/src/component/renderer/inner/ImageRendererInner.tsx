@@ -26,7 +26,8 @@ export class ImageRendererInner extends React.Component<IProps> {
       props.srcSet !== nextProps.srcSet ||
       props.sizes !== nextProps.sizes ||
       props.loading !== nextProps.loading ||
-      props.className !== nextProps.className
+      props.className !== nextProps.className ||
+      props.dispatch !== nextProps.dispatch
     )
   }
 
