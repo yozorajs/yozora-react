@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.7](https://github.com/yozorajs/yozora-react/compare/@yozora/core-react-renderer@3.0.0-alpha.6...@yozora/core-react-renderer@3.0.0-alpha.7) (2023-08-31)
+
+
+### Performance Improvements
+
+* ⚡️ check NodesRenderer changes by deep equal method ([50d2cc3](https://github.com/yozorajs/yozora-react/commit/50d2cc37ae2529210f1dd18d85d3a4816b831348))
+
+
+
+
+
 # [3.0.0-alpha.6](https://github.com/yozorajs/yozora-react/compare/@yozora/core-react-renderer@3.0.0-alpha.5...@yozora/core-react-renderer@3.0.0-alpha.6) (2023-08-30)
 
 

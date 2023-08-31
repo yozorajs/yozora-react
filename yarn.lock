@@ -2516,7 +2516,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/core-react-renderer@^3.0.0-alpha.6, @yozora/core-react-renderer@workspace:packages/core-react-renderer":
+"@yozora/core-react-renderer@^3.0.0-alpha.7, @yozora/core-react-renderer@workspace:packages/core-react-renderer":
   version: 0.0.0-use.local
   resolution: "@yozora/core-react-renderer@workspace:packages/core-react-renderer"
   dependencies:
@@ -2713,13 +2713,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/react-code@^3.0.0-alpha.6, @yozora/react-code@workspace:packages/react-code":
+"@yozora/react-code@^3.0.0-alpha.7, @yozora/react-code@workspace:packages/react-code":
   version: 0.0.0-use.local
   resolution: "@yozora/react-code@workspace:packages/react-code"
   dependencies:
     "@guanghechen/fast-deep-equal": ^2.3.6
     "@yozora/core-react-constant": ^3.0.0-alpha.3
-    "@yozora/core-react-renderer": ^3.0.0-alpha.6
+    "@yozora/core-react-renderer": ^3.0.0-alpha.7
     "@yozora/react-code-embed": ^3.0.0-alpha.6
     "@yozora/react-code-literal": ^3.0.0-alpha.5
     "@yozora/react-code-live": ^3.0.0-alpha.6
@@ -2766,10 +2766,10 @@ __metadata:
     "@guanghechen/fast-deep-equal": ^2.3.6
     "@yozora/ast": ^2.2.0
     "@yozora/core-react-constant": ^3.0.0-alpha.3
-    "@yozora/core-react-renderer": ^3.0.0-alpha.6
+    "@yozora/core-react-renderer": ^3.0.0-alpha.7
     "@yozora/core-react-theme": ^3.0.0-alpha.3
     "@yozora/react-admonition": ^3.0.0-alpha.3
-    "@yozora/react-code": ^3.0.0-alpha.6
+    "@yozora/react-code": ^3.0.0-alpha.7
     "@yozora/react-mathjax": ^3.0.0-alpha.4
   peerDependencies:
     "@emotion/css": ^11.0.0
