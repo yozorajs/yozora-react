@@ -1,5 +1,8 @@
-import type { ICodeMetaData as IBaseCodeMetaData } from '@yozora/core-react-types'
-import type { ICodeRunnerItem, ICodeRunnerMetaData } from '@yozora/react-code-runners'
+import type {
+  ICodeMetaData as IBaseCodeMetaData,
+  ICodeRunnerItem,
+  ICodeRunnerMetaData,
+} from '@yozora/core-react-types'
 
 export interface ICodeProps {
   /**

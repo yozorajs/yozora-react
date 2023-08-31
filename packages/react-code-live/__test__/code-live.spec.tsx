@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals'
 import { fireEvent, render, waitFor } from '@testing-library/react'
+import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/core-react-types'
 import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
-import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/react-code-runners'
 import React from 'react'
 import CodeLive from '../src'
 

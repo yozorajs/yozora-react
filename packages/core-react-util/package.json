@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@guanghechen/parse-lineno": "^2.3.6",
-    "@yozora/core-react-util": "1.0.0-alpha.0"
+    "@yozora/core-react-types": "^1.0.0-alpha.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",

@@ -1,8 +1,8 @@
 import type { IConsoleMock } from '@guanghechen/helper-jest'
 import { createConsoleMock } from '@guanghechen/helper-jest'
 import { render } from '@testing-library/react'
+import type { ICodeRunnerProps } from '@yozora/core-react-types'
 import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
-import type { ICodeRunnerProps } from '@yozora/react-code-runners'
 import React from 'react'
 import CodeEmbed from '../src'
 

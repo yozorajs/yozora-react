@@ -1,7 +1,7 @@
+import type { ICodeRunner } from '@yozora/core-react-types'
 import type { IGraphvizRendererProps } from '@yozora/react-code-renderer-graphviz'
 import type { Engine } from 'd3-graphviz'
 import React from 'react'
-import type { ICodeRunner } from './types'
 import { CodeRunnerPropTypes } from './types'
 
 /**
