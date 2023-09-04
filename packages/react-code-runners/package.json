@@ -40,7 +40,7 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@guanghechen/react-hooks": "^3.0.5",
+    "@guanghechen/react-hooks": "^3.0.6",
     "@loadable/component": "^5.15.3",
     "@yozora/core-react-types": "^1.0.0-alpha.1"
   },

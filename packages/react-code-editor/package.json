@@ -43,7 +43,7 @@
     "test": "node --experimental-vm-modules ../../node_modules/.bin/jest --config ../../jest.config.mjs --rootDir ."
   },
   "dependencies": {
-    "@guanghechen/fast-deep-equal": "^2.3.6",
+    "@guanghechen/fast-deep-equal": "^2.3.7",
     "@yozora/core-react-constant": "^3.0.0-alpha.3",
     "@yozora/react-code-highlighter": "^3.0.0-alpha.4"
   },

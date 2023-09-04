@@ -40,8 +40,8 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@guanghechen/fast-deep-equal": "^2.3.6",
-    "@guanghechen/react-viewmodel": "^0.2.2",
+    "@guanghechen/fast-deep-equal": "^2.3.7",
+    "@guanghechen/react-viewmodel": "^0.2.3",
     "@guanghechen/viewmodel": "^0.4.0",
     "@yozora/core-react-constant": "^3.0.0-alpha.3",
     "@yozora/core-react-theme": "^3.0.0-alpha.3",
