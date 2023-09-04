@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.2](https://github.com/yozorajs/yozora-react/compare/@yozora/core-react-util@1.0.0-alpha.1...@yozora/core-react-util@1.0.0-alpha.2) (2023-09-04)
+
+
+### Performance Improvements
+
+* ⬆️ upgrade dependencies ([589cf89](https://github.com/yozorajs/yozora-react/commit/589cf897bc3dd2f27bc76f1dfb0d73e95117e0f8))
+
+
+
+
+
 # 1.0.0-alpha.1 (2023-08-31)
 
 
