@@ -9,7 +9,7 @@ import type { INodeRendererAction, INodeRendererState } from './types'
 interface IProps extends INodeRendererState {}
 
 export class NodeRendererViewModel extends ViewModel {
-  public readonly images$: State<IPreviewImageItem[]>
+  public readonly images$: State<ReadonlyArray<IPreviewImageItem>>
   public readonly imageViewerVisible$: State<boolean>
   public readonly imageActivatedIndex$: State<number>
   public readonly showCodeLineno$: State<boolean>
@@ -67,10 +67,6 @@ const consumerMap: { [T in NodeRendererActionsType]: IConsumer<T> } = {
   [NodeRendererActionsType.TOGGLE_IMAGE_VISIBLE]: (controller, action) => {
     const visible: boolean | undefined | void = action.payload
     controller.toggleImageVisible(visible)
-  },
-  [NodeRendererActionsType.ADD_IMAGE]: (controller, action) => {
-    const { src, alt } = action.payload
-    controller.addImage(src, alt)
   },
   [NodeRendererActionsType.ACTIVE_IMAGE]: (controller, action) => {
     const { src, alt } = action.payload

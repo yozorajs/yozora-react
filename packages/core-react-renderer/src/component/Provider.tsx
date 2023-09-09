@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { NodeRendererViewModel } from '../context'
 import { NodeRendererContextType } from '../context/context'
-import type { INodeRendererMap } from '../types'
+import type { INodeRendererMap, IPreviewImageItem } from '../types'
 import { buildNodeRendererMap } from '../util/rendererMap'
 import { ImagePreviewer } from './ImagePreviewer'
 import type { IImagePreviewerProps } from './ImagePreviewer'
@@ -18,6 +18,10 @@ export interface INodeRendererProviderProps {
    * Footnote reference definitions.
    */
   footnoteDefinitionMap?: Readonly<Record<string, FootnoteDefinition>>
+  /**
+   * Images to be previewed.
+   */
+  images?: ReadonlyArray<IPreviewImageItem>
   /**
    * Custom token renderer map.
    */
@@ -46,6 +50,7 @@ export class NodeRendererProvider extends React.Component<INodeRendererProviderP
   public static readonly propTypes = {
     definitionMap: PropTypes.object as any,
     footnoteDefinitionMap: PropTypes.object as any,
+    images: PropTypes.array,
     customRendererMap: PropTypes.object as any,
     showCodeLineno: PropTypes.bool,
     children: PropTypes.node,
@@ -58,7 +63,7 @@ export class NodeRendererProvider extends React.Component<INodeRendererProviderP
     const { showCodeLineno = true, definitionMap = {}, footnoteDefinitionMap = {} } = props
     const rendererMap: Readonly<INodeRendererMap> = buildNodeRendererMap(props.customRendererMap)
     const viewmodel = new NodeRendererViewModel({
-      images: [],
+      images: props.images ? props.images.map(item => ({ src: item.src, alt: item.alt })) : [],
       imageViewerVisible: false,
       imageActivatedIndex: -1,
       showCodeLineno,
@@ -82,6 +87,7 @@ export class NodeRendererProvider extends React.Component<INodeRendererProviderP
       props.ImageViewer !== nextProps.ImageViewer ||
       !isEqual(props.definitionMap, nextProps.definitionMap) ||
       !isEqual(props.footnoteDefinitionMap, nextProps.footnoteDefinitionMap) ||
+      !isEqual(props.images, nextProps.images) ||
       !isEqual(props.customRendererMap, nextProps.customRendererMap)
     )
   }
@@ -116,6 +122,11 @@ export class NodeRendererProvider extends React.Component<INodeRendererProviderP
       const nextFootnoteDefinitionMap: Readonly<Record<string, FootnoteDefinition>> =
         props.footnoteDefinitionMap ?? {}
       vm.footnoteDefinitionMap$.next(nextFootnoteDefinitionMap)
+    }
+
+    if (!isEqual(props.images, prevProps.images)) {
+      const nextImages: ReadonlyArray<IPreviewImageItem> = props.images ?? []
+      vm.images$.next(nextImages)
     }
 
     if (!isEqual(props.customRendererMap, prevProps.customRendererMap)) {

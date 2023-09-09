@@ -1,7 +1,7 @@
 import isEqual from '@guanghechen/fast-deep-equal'
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
 import { CodeType } from '@yozora/ast'
-import type { INodeRendererProviderProps } from '@yozora/core-react-renderer'
+import type { INodeRendererProviderProps, IPreviewImageItem } from '@yozora/core-react-renderer'
 import { NodeRendererProvider } from '@yozora/core-react-renderer'
 import type { ICodeRunnerItem } from '@yozora/core-react-types'
 import PropTypes from 'prop-types'
@@ -19,6 +19,10 @@ export interface IMarkdownProviderProps {
    * Footnote reference definitions.
    */
   footnoteDefinitionMap?: Readonly<Record<string, FootnoteDefinition>>
+  /**
+   * Images to be previewed.
+   */
+  images?: ReadonlyArray<IPreviewImageItem>
   /**
    * Code runners.
    */
@@ -53,6 +57,7 @@ export class MarkdownProvider extends React.Component<IMarkdownProviderProps, IS
   public static readonly propTypes = {
     definitionMap: PropTypes.object.isRequired as any,
     footnoteDefinitionMap: PropTypes.object.isRequired as any,
+    images: PropTypes.array,
     codeRunners: PropTypes.array,
     customRendererMap: PropTypes.object as any,
     showCodeLineno: PropTypes.bool,
@@ -81,6 +86,7 @@ export class MarkdownProvider extends React.Component<IMarkdownProviderProps, IS
       props.ImageViewer !== nextProps.ImageViewer ||
       !isEqual(props.definitionMap, nextProps.definitionMap) ||
       !isEqual(props.footnoteDefinitionMap, nextProps.footnoteDefinitionMap) ||
+      !isEqual(props.images, nextProps.images) ||
       !isEqual(props.codeRunners, nextProps.codeRunners) ||
       !isEqual(props.customRendererMap, nextProps.customRendererMap)
     )
@@ -90,6 +96,7 @@ export class MarkdownProvider extends React.Component<IMarkdownProviderProps, IS
     const {
       definitionMap, //
       footnoteDefinitionMap,
+      images,
       showCodeLineno,
       children,
       ImageViewer,
@@ -100,6 +107,7 @@ export class MarkdownProvider extends React.Component<IMarkdownProviderProps, IS
       <NodeRendererProvider
         definitionMap={definitionMap}
         footnoteDefinitionMap={footnoteDefinitionMap}
+        images={images}
         customRendererMap={customRendererMap}
         showCodeLineno={showCodeLineno}
         ImageViewer={ImageViewer}

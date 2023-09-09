@@ -51,14 +51,6 @@ export class ImageRendererInner extends React.Component<IProps> {
     )
   }
 
-  public override componentDidMount(): void {
-    const { dispatch, src, alt } = this.props
-    dispatch({
-      type: NodeRendererActionsType.ADD_IMAGE,
-      payload: { src, alt },
-    })
-  }
-
   protected readonly onImageClick = (): void => {
     const { dispatch, src, alt } = this.props
     dispatch({

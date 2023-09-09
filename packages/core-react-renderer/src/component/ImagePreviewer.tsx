@@ -15,7 +15,7 @@ export interface IImageViewerProps {
   /**
    * Image items.
    */
-  images: IPreviewImageItem[]
+  images: ReadonlyArray<IPreviewImageItem>
   /**
    * Current activated index of image.
    */
@@ -56,7 +56,7 @@ export interface IImagePreviewerProps {
  */
 export const ImagePreviewer: React.FC<IImagePreviewerProps> = ({ ImageViewer }) => {
   const dispatch = useNodeRendererDispatch()
-  const images: IPreviewImageItem[] = useNodeRendererState(store => store.images$)
+  const images: ReadonlyArray<IPreviewImageItem> = useNodeRendererState(store => store.images$)
   const imageViewerVisible: boolean = useNodeRendererState(store => store.imageViewerVisible$)
   const imageActivatedIndex: number = useNodeRendererState(store => store.imageActivatedIndex$)
 

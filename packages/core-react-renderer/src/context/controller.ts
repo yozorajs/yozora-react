@@ -17,13 +17,6 @@ export class NodeRendererController {
     vm.imageViewerVisible$.next(nextVisible)
   }
 
-  public addImage = (src: string, alt: string): void => {
-    const vm = this.viewmodel
-    if (!vm.images$.getSnapshot().some(image => image.src === src && image.alt === alt)) {
-      vm.images$.next([...vm.images$.getSnapshot(), { src, alt }])
-    }
-  }
-
   public activeImage = (src: string, alt: string): void => {
     const vm = this.viewmodel
     const previousIndex = vm.imageActivatedIndex$.getSnapshot()

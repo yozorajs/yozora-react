@@ -6,7 +6,7 @@ export interface INodeRendererState {
   /**
    * Image items.
    */
-  readonly images: IPreviewImageItem[]
+  readonly images: ReadonlyArray<IPreviewImageItem>
   /**
    * Whether if the image viewer is visible.
    */
@@ -47,6 +47,5 @@ export type INodeRendererAction<T extends NodeRendererActionsType = NodeRenderer
 
 export interface INodeRendererActionPayloadMap {
   [NodeRendererActionsType.TOGGLE_IMAGE_VISIBLE]: boolean | undefined | void
-  [NodeRendererActionsType.ADD_IMAGE]: IPreviewImageItem
   [NodeRendererActionsType.ACTIVE_IMAGE]: IPreviewImageItem
 }
