@@ -62,7 +62,7 @@
     "cross-env": "^7.0.3",
     "jest": "^29.6.4",
     "rimraf": "^5.0.1",
-    "rollup": "^3.28.1"
+    "rollup": "^3.29.0"
   },
   "browserslist": [
     "last 2 versions",

@@ -703,6 +703,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@guanghechen/helper-func@npm:^5.0.7":
+  version: 5.0.7
+  resolution: "@guanghechen/helper-func@npm:5.0.7"
+  checksum: cad3671eef729e229bb9a9d489a6e658b926c72aaec7d6cca52cd294a26c66a8bd13f1859e0d963f6e26dbf0c94d1bde0aa3669833e75f1f5c93e8b3dabf149a
+  languageName: node
+  linkType: hard
+
 "@guanghechen/helper-is@npm:^5.0.6":
   version: 5.0.6
   resolution: "@guanghechen/helper-is@npm:5.0.6"
@@ -710,15 +717,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@guanghechen/helper-jest@npm:^5.0.6":
-  version: 5.0.6
-  resolution: "@guanghechen/helper-jest@npm:5.0.6"
+"@guanghechen/helper-is@npm:^5.0.7":
+  version: 5.0.7
+  resolution: "@guanghechen/helper-is@npm:5.0.7"
+  checksum: 533d2b096624d9dcebe30cb73ddd21536c8afd607fe5c4dffcd648bcf3dce69a96a6c951cd2e06102306174757a683801398d61ec446063fe09651fd192800f6
+  languageName: node
+  linkType: hard
+
+"@guanghechen/helper-jest@npm:^5.0.7":
+  version: 5.0.7
+  resolution: "@guanghechen/helper-jest@npm:5.0.7"
   dependencies:
-    "@guanghechen/helper-func": ^5.0.6
-    "@guanghechen/helper-is": ^5.0.6
+    "@guanghechen/helper-func": ^5.0.7
+    "@guanghechen/helper-is": ^5.0.7
     "@jest/globals": ^29.6.4
     jest: ^29.6.4
-  checksum: f497e9934e3aa42b8717a975d8aa13eae2e612f2917c483484394135409b6e151686697c770b78e81352a45e81bb874272e7739d729749f46655bb2eddb66467
+  checksum: 263e6d7df003288564d1e60b9376395645e92d56888ad563c12a83bd971b4905ef39df45fed6efad7be69920cc02bd749e08b2d76f37e8d60acb6bbddff3d849
   languageName: node
   linkType: hard
 
@@ -2512,7 +2526,7 @@ __metadata:
     cross-env: ^7.0.3
     jest: ^29.6.4
     rimraf: ^5.0.1
-    rollup: ^3.28.1
+    rollup: ^3.29.0
   languageName: unknown
   linkType: soft
 
@@ -2545,7 +2559,7 @@ __metadata:
     cross-env: ^7.0.3
     jest: ^29.6.4
     rimraf: ^5.0.1
-    rollup: ^3.28.1
+    rollup: ^3.29.0
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
@@ -2560,7 +2574,7 @@ __metadata:
     cross-env: ^7.0.3
     jest: ^29.6.4
     rimraf: ^5.0.1
-    rollup: ^3.28.1
+    rollup: ^3.29.0
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
   languageName: unknown
@@ -2575,7 +2589,7 @@ __metadata:
     cross-env: ^7.0.3
     jest: ^29.6.4
     rimraf: ^5.0.1
-    rollup: ^3.28.1
+    rollup: ^3.29.0
   languageName: unknown
   linkType: soft
 
@@ -2618,13 +2632,13 @@ __metadata:
   resolution: "@yozora/react-code-embed@workspace:packages/react-code-embed"
   dependencies:
     "@guanghechen/fast-deep-equal": ^2.3.7
-    "@guanghechen/helper-jest": ^5.0.6
+    "@guanghechen/helper-jest": ^5.0.7
     "@yozora/core-react-constant": ^3.0.0-alpha.3
     "@yozora/react-code-runners": ^3.0.0-alpha.7
     cross-env: ^7.0.3
     jest: ^29.6.4
     rimraf: ^5.0.1
-    rollup: ^3.28.1
+    rollup: ^3.29.0
   peerDependencies:
     "@emotion/css": ^11.0.0
     "@yozora/ast": ^2.0.0
@@ -2645,7 +2659,7 @@ __metadata:
     jest: ^29.6.4
     prismjs: ^1.29.0
     rimraf: ^5.0.1
-    rollup: ^3.28.1
+    rollup: ^3.29.0
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
@@ -2682,7 +2696,7 @@ __metadata:
     cross-env: ^7.0.3
     jest: ^29.6.4
     rimraf: ^5.0.1
-    rollup: ^3.28.1
+    rollup: ^3.29.0
   peerDependencies:
     "@emotion/css": ^11.0.0
     "@yozora/ast": ^2.0.0
@@ -2756,7 +2770,7 @@ __metadata:
     cross-env: ^7.0.3
     jest: ^29.6.4
     rimraf: ^5.0.1
-    rollup: ^3.28.1
+    rollup: ^3.29.0
   peerDependencies:
     "@emotion/css": ^11.0.0
     "@yozora/ast": ^2.0.0
@@ -9974,6 +9988,20 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: 1fcab0929c16130218447c76c19b56ccc0e677110552462297e3679188fc70185a6ec418cef8ce138ec9fb78fd5188537a3f5d28762788e8c88b12a7fb8ba0fb
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^3.29.0":
+  version: 3.29.0
+  resolution: "rollup@npm:3.29.0"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 77124a606f44c065dce95b615cd0c9955e1a12f67a30ad28c1128438d5080535b0f028d0edef9dda576ebe8806bdc48aff990198334978738da9716fe9677d72
   languageName: node
   linkType: hard
 
