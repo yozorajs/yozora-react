@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.10](https://github.com/yozorajs/yozora-react/compare/@yozora/react-markdown@3.0.0-alpha.9...@yozora/react-markdown@3.0.0-alpha.10) (2023-09-09)
+
+
+### Performance Improvements
+
+* 🎨 remove NodeRendererActionsType.ADD_IMAGE action ([9a35fbf](https://github.com/yozorajs/yozora-react/commit/9a35fbf1ec28cd4488adfb6b52a8d40664fd55cf))
+
+
+
+
+
 # [3.0.0-alpha.9](https://github.com/yozorajs/yozora-react/compare/@yozora/react-markdown@3.0.0-alpha.8...@yozora/react-markdown@3.0.0-alpha.9) (2023-09-04)
 
 

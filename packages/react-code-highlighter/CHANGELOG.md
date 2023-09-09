@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.6](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-highlighter@3.0.0-alpha.5...@yozora/react-code-highlighter@3.0.0-alpha.6) (2023-09-09)
+
+
+### Performance Improvements
+
+* ⬆️ upgrade dependencies ([baddeff](https://github.com/yozorajs/yozora-react/commit/baddeff521b68874e08fb4f99d04e4f13499ea4e))
+
+
+
+
+
 # [3.0.0-alpha.5](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-highlighter@3.0.0-alpha.4...@yozora/react-code-highlighter@3.0.0-alpha.5) (2023-09-04)
 
 
