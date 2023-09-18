@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.11](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code@3.0.0-alpha.10...@yozora/react-code@3.0.0-alpha.11) (2023-09-18)
+
+
+### Performance Improvements
+
+* ⬆️ upgrade dependencies ([87b644e](https://github.com/yozorajs/yozora-react/commit/87b644e5ff339477b64a3b6e3837b3f1797dddd0))
+
+
+
+
+
 # [3.0.0-alpha.10](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code@3.0.0-alpha.9...@yozora/react-code@3.0.0-alpha.10) (2023-09-09)
 
 

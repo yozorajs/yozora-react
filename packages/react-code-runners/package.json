@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-runners",
-  "version": "3.0.0-alpha.8",
+  "version": "3.0.0-alpha.9",
   "description": "Live code runners",
   "author": {
     "name": "guanghechen",
@@ -42,7 +42,7 @@
   "dependencies": {
     "@guanghechen/react-hooks": "^3.0.6",
     "@loadable/component": "^5.15.3",
-    "@yozora/core-react-types": "^1.0.0-alpha.2"
+    "@yozora/core-react-types": "^1.0.0-alpha.3"
   },
   "peerDependencies": {
     "@yozora/ast": "^2.0.0",
@@ -50,8 +50,8 @@
     "react": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@yozora/react-code-renderer-graphviz": "^3.0.0-alpha.5",
-    "@yozora/react-code-renderer-jsx": "^3.0.0-alpha.5"
+    "@yozora/react-code-renderer-graphviz": "^3.0.0-alpha.6",
+    "@yozora/react-code-renderer-jsx": "^3.0.0-alpha.6"
   },
   "browserslist": [
     "last 2 versions",
