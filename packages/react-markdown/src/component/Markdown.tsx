@@ -72,17 +72,19 @@ export class Markdown extends React.Component<IMarkdownProps> {
 }
 
 interface IMarkdownRootProps {
-  className: string | undefined
-  style: React.CSSProperties | undefined
+  Element?: React.ElementType
+  className?: string
+  itemProp?: string
+  style?: React.CSSProperties
   children: React.ReactNode
 }
 
-const MarkdownRoot: React.FC<IMarkdownRootProps> = props => {
-  const { className, style, children } = props
+export const MarkdownRoot: React.FC<IMarkdownRootProps> = props => {
+  const { Element = 'div', className, itemProp, style, children } = props
   const cls: string = cx('yozora-markdown', useStyles(), className)
   return (
-    <div className={cls} style={style}>
+    <Element className={cls} style={style} itemProp={itemProp}>
       {children}
-    </div>
+    </Element>
   )
 }
