@@ -497,7 +497,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/css@npm:^11.11.2":
+"@emotion/css@npm:*, @emotion/css@npm:^11.11.2":
   version: 11.11.2
   resolution: "@emotion/css@npm:11.11.2"
   dependencies:
@@ -2518,10 +2518,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@yozora/core-react-constant@workspace:packages/core-react-constant"
   dependencies:
-    cross-env: ^7.0.3
-    jest: ^29.7.0
-    rimraf: ^5.0.5
-    rollup: ^3.29.4
+    cross-env: "*"
+    jest: "*"
+    rimraf: "*"
+    rollup: "*"
   languageName: unknown
   linkType: soft
 
@@ -2551,10 +2551,10 @@ __metadata:
   resolution: "@yozora/core-react-theme@workspace:packages/core-react-theme"
   dependencies:
     "@yozora/core-react-constant": ^3.0.0-alpha.5
-    cross-env: ^7.0.3
-    jest: ^29.7.0
-    rimraf: ^5.0.5
-    rollup: ^3.29.4
+    cross-env: "*"
+    jest: "*"
+    rimraf: "*"
+    rollup: "*"
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
@@ -2566,10 +2566,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@yozora/core-react-types@workspace:packages/core-react-types"
   dependencies:
-    cross-env: ^7.0.3
-    jest: ^29.7.0
-    rimraf: ^5.0.5
-    rollup: ^3.29.4
+    cross-env: "*"
+    jest: "*"
+    rimraf: "*"
+    rollup: "*"
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
   languageName: unknown
@@ -2581,10 +2581,10 @@ __metadata:
   dependencies:
     "@guanghechen/parse-lineno": ^2.3.8
     "@yozora/core-react-types": ^1.0.0-alpha.3
-    cross-env: ^7.0.3
-    jest: ^29.7.0
-    rimraf: ^5.0.5
-    rollup: ^3.29.4
+    cross-env: "*"
+    jest: "*"
+    rimraf: "*"
+    rollup: "*"
   languageName: unknown
   linkType: soft
 
@@ -2592,11 +2592,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@yozora/react-admonition@workspace:packages/react-admonition"
   dependencies:
-    "@emotion/css": ^11.11.2
     "@yozora/core-react-constant": ^3.0.0-alpha.5
-    cross-env: ^7.0.3
-    jest: ^29.7.0
-    rimraf: ^5.0.5
+    cross-env: "*"
+    jest: "*"
+    rimraf: "*"
+    rollup: "*"
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
@@ -2608,13 +2608,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@yozora/react-code-editor@workspace:packages/react-code-editor"
   dependencies:
-    "@emotion/css": ^11.11.2
+    "@emotion/css": "*"
     "@guanghechen/equal": ^1.0.0-alpha.1
     "@yozora/core-react-constant": ^3.0.0-alpha.5
     "@yozora/react-code-highlighter": ^3.0.0-alpha.7
-    cross-env: ^7.0.3
-    jest: ^29.7.0
-    rimraf: ^5.0.5
+    cross-env: "*"
+    jest: "*"
+    rimraf: "*"
+    rollup: "*"
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
@@ -2630,10 +2631,10 @@ __metadata:
     "@guanghechen/helper-jest": ^5.0.8
     "@yozora/core-react-constant": ^3.0.0-alpha.5
     "@yozora/react-code-runners": ^3.0.0-alpha.9
-    cross-env: ^7.0.3
-    jest: ^29.7.0
-    rimraf: ^5.0.5
-    rollup: ^3.29.4
+    cross-env: "*"
+    jest: "*"
+    rimraf: "*"
+    rollup: "*"
   peerDependencies:
     "@emotion/css": ^11.0.0
     "@yozora/ast": ^2.0.0
@@ -2646,15 +2647,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@yozora/react-code-highlighter@workspace:packages/react-code-highlighter"
   dependencies:
-    "@emotion/css": ^11.11.2
+    "@emotion/css": "*"
     "@guanghechen/equal": ^1.0.0-alpha.1
     "@types/prismjs": ^1.26.1
     "@yozora/core-react-constant": ^3.0.0-alpha.5
-    cross-env: ^7.0.3
-    jest: ^29.7.0
+    cross-env: "*"
+    jest: "*"
     prismjs: ^1.29.0
-    rimraf: ^5.0.5
-    rollup: ^3.29.4
+    rimraf: "*"
+    rollup: "*"
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
@@ -2688,10 +2689,10 @@ __metadata:
     "@yozora/react-code-embed": ^3.0.0-alpha.10
     "@yozora/react-common-copy-button": ^3.0.0-alpha.5
     "@yozora/react-common-light-buttons": 3.0.0-alpha.0
-    cross-env: ^7.0.3
-    jest: ^29.7.0
-    rimraf: ^5.0.5
-    rollup: ^3.29.4
+    cross-env: "*"
+    jest: "*"
+    rimraf: "*"
+    rollup: "*"
   peerDependencies:
     "@emotion/css": ^11.0.0
     "@yozora/ast": ^2.0.0
@@ -2704,14 +2705,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@yozora/react-code-renderer-graphviz@workspace:packages/react-code-renderer-graphviz"
   dependencies:
-    "@emotion/css": ^11.11.2
+    "@emotion/css": "*"
     "@guanghechen/equal": ^1.0.0-alpha.1
     "@types/d3-graphviz": ^2.6.8
-    cross-env: ^7.0.3
+    cross-env: "*"
     d3-graphviz: ^5.1.0
     d3-selection: ^3.0.0
-    jest: ^29.7.0
-    rimraf: ^5.0.5
+    jest: "*"
+    rimraf: "*"
+    rollup: "*"
   peerDependencies:
     prop-types: ^15.7.2
     react: ^17.0.0 || ^18.0.0
@@ -2722,11 +2724,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@yozora/react-code-renderer-jsx@workspace:packages/react-code-renderer-jsx"
   dependencies:
-    "@emotion/css": ^11.11.2
+    "@emotion/css": "*"
     "@guanghechen/equal": ^1.0.0-alpha.1
-    cross-env: ^7.0.3
-    jest: ^29.7.0
-    rimraf: ^5.0.5
+    cross-env: "*"
+    jest: "*"
+    rimraf: "*"
+    rollup: "*"
     sucrase: ^3.34.0
   peerDependencies:
     prop-types: ^15.7.2
@@ -2762,10 +2765,10 @@ __metadata:
     "@yozora/react-code-literal": ^3.0.0-alpha.8
     "@yozora/react-code-live": ^3.0.0-alpha.10
     "@yozora/react-code-renderer-jsx": ^3.0.0-alpha.6
-    cross-env: ^7.0.3
-    jest: ^29.7.0
-    rimraf: ^5.0.5
-    rollup: ^3.29.4
+    cross-env: "*"
+    jest: "*"
+    rimraf: "*"
+    rollup: "*"
   peerDependencies:
     "@emotion/css": ^11.0.0
     "@yozora/ast": ^2.0.0
@@ -4159,7 +4162,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-env@npm:^7.0.3":
+"cross-env@npm:*, cross-env@npm:^7.0.3":
   version: 7.0.3
   resolution: "cross-env@npm:7.0.3"
   dependencies:
@@ -7383,7 +7386,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^29.7.0":
+"jest@npm:*, jest@npm:^29.7.0":
   version: 29.7.0
   resolution: "jest@npm:29.7.0"
   dependencies:
@@ -9937,6 +9940,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rimraf@npm:*, rimraf@npm:^5.0.5":
+  version: 5.0.5
+  resolution: "rimraf@npm:5.0.5"
+  dependencies:
+    glob: ^10.3.7
+  bin:
+    rimraf: dist/esm/bin.mjs
+  checksum: d66eef829b2e23b16445f34e73d75c7b7cf4cbc8834b04720def1c8f298eb0753c3d76df77325fad79d0a2c60470525d95f89c2475283ad985fd7441c32732d1
+  languageName: node
+  linkType: hard
+
 "rimraf@npm:^3.0.0, rimraf@npm:^3.0.2":
   version: 3.0.2
   resolution: "rimraf@npm:3.0.2"
@@ -9959,17 +9973,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^5.0.5":
-  version: 5.0.5
-  resolution: "rimraf@npm:5.0.5"
-  dependencies:
-    glob: ^10.3.7
-  bin:
-    rimraf: dist/esm/bin.mjs
-  checksum: d66eef829b2e23b16445f34e73d75c7b7cf4cbc8834b04720def1c8f298eb0753c3d76df77325fad79d0a2c60470525d95f89c2475283ad985fd7441c32732d1
-  languageName: node
-  linkType: hard
-
 "rollup-plugin-dts@npm:^6.0.2":
   version: 6.0.2
   resolution: "rollup-plugin-dts@npm:6.0.2"
@@ -9986,7 +9989,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.29.4":
+"rollup@npm:*, rollup@npm:^3.29.4":
   version: 3.29.4
   resolution: "rollup@npm:3.29.4"
   dependencies:

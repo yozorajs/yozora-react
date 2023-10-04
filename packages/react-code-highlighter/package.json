@@ -54,12 +54,12 @@
     "react": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@emotion/css": "^11.11.2",
+    "@emotion/css": "*",
     "@types/prismjs": "^1.26.1",
-    "cross-env": "^7.0.3",
-    "jest": "^29.7.0",
-    "rimraf": "^5.0.5",
-    "rollup": "^3.29.4"
+    "cross-env": "*",
+    "jest": "*",
+    "rimraf": "*",
+    "rollup": "*"
   },
   "browserslist": [
     "last 2 versions",

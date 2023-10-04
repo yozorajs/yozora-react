@@ -56,10 +56,10 @@
   "devDependencies": {
     "@guanghechen/helper-jest": "^5.0.8",
     "@yozora/react-code-runners": "^3.0.0-alpha.9",
-    "cross-env": "^7.0.3",
-    "jest": "^29.7.0",
-    "rimraf": "^5.0.5",
-    "rollup": "^3.29.4"
+    "cross-env": "*",
+    "jest": "*",
+    "rimraf": "*",
+    "rollup": "*"
   },
   "browserslist": [
     "last 2 versions",

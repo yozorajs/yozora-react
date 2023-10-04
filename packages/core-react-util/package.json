@@ -45,9 +45,9 @@
     "@yozora/core-react-types": "^1.0.0-alpha.3"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3",
-    "jest": "^29.7.0",
-    "rimraf": "^5.0.5",
-    "rollup": "^3.29.4"
+    "cross-env": "*",
+    "jest": "*",
+    "rimraf": "*",
+    "rollup": "*"
   }
 }
