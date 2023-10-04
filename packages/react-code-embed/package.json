@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-embed",
-  "version": "3.0.0-alpha.10",
+  "version": "3.0.0-alpha.11",
   "description": "code embed in react",
   "author": {
     "name": "guanghechen",
@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@guanghechen/equal": "^1.0.0-alpha.1",
-    "@yozora/core-react-constant": "^3.0.0-alpha.5"
+    "@yozora/core-react-constant": "^3.0.0-alpha.6"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",
@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "@guanghechen/helper-jest": "^5.0.8",
-    "@yozora/react-code-runners": "^3.0.0-alpha.9",
+    "@yozora/react-code-runners": "^3.0.0-alpha.10",
     "cross-env": "*",
     "jest": "*",
     "rimraf": "*",

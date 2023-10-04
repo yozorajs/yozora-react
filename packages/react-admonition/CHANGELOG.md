@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.6](https://github.com/yozorajs/yozora-react/compare/@yozora/react-admonition@3.0.0-alpha.5...@yozora/react-admonition@3.0.0-alpha.6) (2023-10-04)
+
+
+### Performance Improvements
+
+* 🔧 the version of subpackage devDependencies is not matters ([f897919](https://github.com/yozorajs/yozora-react/commit/f897919bece6b41eb0f9f85af7a2b30d1a190587))
+* ⬆️ upgrade dependencies ([2c6f5f9](https://github.com/yozorajs/yozora-react/commit/2c6f5f9209ef0acb5536d5ed6e52d56f17ba07dc))
+
+
+
+
+
 # [3.0.0-alpha.5](https://github.com/yozorajs/yozora-react/compare/@yozora/react-admonition@3.0.0-alpha.4...@yozora/react-admonition@3.0.0-alpha.5) (2023-09-18)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@yozora/core-react-util",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "Yozora react utils.",
   "author": {
     "name": "guanghechen",
@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@guanghechen/parse-lineno": "^2.3.8",
-    "@yozora/core-react-types": "^1.0.0-alpha.3"
+    "@yozora/core-react-types": "^1.0.0-alpha.4"
   },
   "devDependencies": {
     "cross-env": "*",
