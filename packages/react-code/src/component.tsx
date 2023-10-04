@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css'
-import isEqual from '@guanghechen/fast-deep-equal'
+import { isEqual } from '@guanghechen/equal'
 import { tokens } from '@yozora/core-react-constant'
 import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/core-react-types'
 import CodeEmbed from '@yozora/react-code-embed'

@@ -1,4 +1,4 @@
-import isEqual from '@guanghechen/fast-deep-equal'
+import { isEqual } from '@guanghechen/equal'
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
 import { CodeType } from '@yozora/ast'
 import type { INodeRendererProviderProps, IPreviewImageItem } from '@yozora/core-react-renderer'

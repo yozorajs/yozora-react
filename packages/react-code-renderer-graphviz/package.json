@@ -38,8 +38,8 @@
     "test": "echo 'TODO: fix test'"
   },
   "dependencies": {
-    "@guanghechen/fast-deep-equal": "^2.3.7",
-    "@types/d3-graphviz": "^2.6.7",
+    "@guanghechen/equal": "^1.0.0-alpha.1",
+    "@types/d3-graphviz": "^2.6.8",
     "d3-graphviz": "^5.1.0",
     "d3-selection": "^3.0.0"
   },
@@ -51,7 +51,7 @@
     "@emotion/css": "^11.11.2",
     "cross-env": "^7.0.3",
     "jest": "^29.7.0",
-    "rimraf": "^5.0.1"
+    "rimraf": "^5.0.5"
   },
   "browserslist": [
     "last 2 versions",

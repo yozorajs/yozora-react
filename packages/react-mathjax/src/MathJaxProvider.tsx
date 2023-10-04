@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-import isEqual from '@guanghechen/fast-deep-equal'
+import { isEqual } from '@guanghechen/equal'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { MathJaxContextType, initialMathJaxContext } from './context'

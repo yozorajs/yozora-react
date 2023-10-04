@@ -1,5 +1,5 @@
 import { cx } from '@emotion/css'
-import isEqual from '@guanghechen/fast-deep-equal'
+import { isEqual } from '@guanghechen/equal'
 import type { ICodeRunner } from '@yozora/core-react-types'
 import PropTypes from 'prop-types'
 import React from 'react'

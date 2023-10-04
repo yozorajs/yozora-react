@@ -1,4 +1,4 @@
-import { isEqual } from '@guanghechen/fast-deep-equal'
+import { isEqual } from '@guanghechen/equal'
 import type { Node } from '@yozora/ast'
 import React from 'react'
 import { useNodeRendererState } from '../context'

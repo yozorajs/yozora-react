@@ -1,5 +1,5 @@
 import { cx } from '@emotion/css'
-import isEqual from '@guanghechen/fast-deep-equal'
+import { isEqual } from '@guanghechen/equal'
 import type { TokenStream } from 'prismjs'
 import Prism from 'prismjs'
 import PropTypes from 'prop-types'

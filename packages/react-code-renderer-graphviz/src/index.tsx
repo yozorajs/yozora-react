@@ -1,4 +1,4 @@
-import isEqual from '@guanghechen/fast-deep-equal'
+import { isEqual } from '@guanghechen/equal'
 import type { Engine, GraphvizOptions } from 'd3-graphviz'
 import { graphviz } from 'd3-graphviz'
 import PropTypes from 'prop-types'

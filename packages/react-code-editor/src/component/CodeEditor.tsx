@@ -1,4 +1,4 @@
-import isEqual from '@guanghechen/fast-deep-equal'
+import { isEqual } from '@guanghechen/equal'
 import type { IPrismTheme } from '@yozora/react-code-highlighter'
 import CodeHighlighter from '@yozora/react-code-highlighter'
 import React from 'react'
