@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.10](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-literal@3.0.0-alpha.9...@yozora/react-code-literal@3.0.0-alpha.10) (2024-02-04)
+
+### Performance Improvements
+
+- 🔧 config nx for better dev experiences
+  ([852ef77](https://github.com/yozorajs/yozora-react/commit/852ef7776a6d35c984464fe5dd73cf594302e69e))
+- ⬆️ upgrade devDependencies & fix lint
+  ([3fc42d0](https://github.com/yozorajs/yozora-react/commit/3fc42d0139f59646673fe87541966656a162e79f))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [3.0.0-alpha.9](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-literal@3.0.0-alpha.8...@yozora/react-code-literal@3.0.0-alpha.9) (2023-10-04)
 
 **Note:** Version bump only for package @yozora/react-code-literal
