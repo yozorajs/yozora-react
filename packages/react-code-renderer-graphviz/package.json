@@ -32,11 +32,6 @@
     "LICENSE",
     "README.md"
   ],
-  "scripts": {
-    "build": "rimraf lib/ && cross-env NODE_ENV=production rollup -c ../../rollup.config.mjs",
-    "prepublishOnly": "yarn build",
-    "test": "echo 'TODO: fix test'"
-  },
   "dependencies": {
     "@guanghechen/equal": "^1.0.0-alpha.6",
     "@types/d3-graphviz": "^2.6.10",
@@ -46,13 +41,6 @@
   "peerDependencies": {
     "prop-types": "^15.7.2",
     "react": "^17.0.0 || ^18.0.0"
-  },
-  "devDependencies": {
-    "@emotion/css": "^11.11.2",
-    "cross-env": "^7.0.3",
-    "jest": "*",
-    "rimraf": "^5.0.5",
-    "rollup": "^4.9.6"
   },
   "browserslist": [
     "last 2 versions",

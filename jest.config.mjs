@@ -1,18 +1,19 @@
 import { tsMonorepoConfig } from '@guanghechen/jest-config'
-import { createRequire } from 'node:module'
 import path from 'node:path'
 import url from 'node:url'
 
 export default async function () {
-  const require = createRequire(import.meta.url)
   const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
+  const { default: manifest } = await import(path.resolve('package.json'), {
+    assert: { type: 'json' },
+  })
+
   const baseConfig = await tsMonorepoConfig(__dirname, {
     useESM: true,
     tsconfigFilepath: path.join(__dirname, 'tsconfig.test.esm.json'),
   })
 
-  const packageDir = path.relative(__dirname, path.resolve()) + '/'
-  const config = {
+  return {
     ...baseConfig,
     testEnvironment: 'jsdom',
     setupFilesAfterEnv: ['<rootDir>/../../jest.setup.ts'],
@@ -22,50 +23,17 @@ export default async function () {
       '<rootDir>/src/*.{js,jsx,ts,tsx}',
     ],
     coveragePathIgnorePatterns: ['packages/react-code-editor/src/editor.tsx'],
-    coverageThreshold: Object.fromEntries(
-      [
-        [
-          'global',
-          {
-            branches: 50,
-            functions: 60,
-            lines: 90,
-            statements: 90,
-          },
-        ],
-        [
-          'packages/react-admonition/src/icons.tsx',
-          {
-            functions: 50,
-          },
-        ],
-        [
-          'packages/react-code/src/component.tsx',
-          {
-            lines: 80,
-            statements: 80,
-          },
-        ],
-        [
-          'packages/react-code-editor/src/component/SimpleCodeEditor.tsx',
-          {
-            branches: 60,
-            functions: 50,
-            lines: 42,
-            statements: 40,
-          },
-        ],
-        [
-          'packages/react-code-live/src/component.tsx',
-          {
-            branches: 25,
-          },
-        ],
-      ]
-        .filter(([p]) => !p.startsWith('packages/') || p.startsWith(packageDir))
-        .map(([p, val]) => (p.startsWith(packageDir) ? [path.join(__dirname, p), val] : [p, val])),
-    ),
-    prettierPath: require.resolve('prettier-2'),
+    coverageThreshold: {
+      ...coverageMap[manifest.name],
+      global: {
+        branches: 50,
+        functions: 60,
+        lines: 90,
+        statements: 90,
+        ...coverageMap[manifest.name]?.global,
+      },
+    },
   }
-  return config
 }
+
+const coverageMap = {}

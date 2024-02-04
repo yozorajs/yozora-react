@@ -35,10 +35,6 @@
     "LICENSE",
     "README.md"
   ],
-  "scripts": {
-    "build": "rimraf lib/ && cross-env NODE_ENV=production rollup -c ../../rollup.config.mjs",
-    "prepublishOnly": "yarn build"
-  },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",
     "prop-types": "^15.7.2",

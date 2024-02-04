@@ -37,10 +37,6 @@
     "LICENSE",
     "README.md"
   ],
-  "scripts": {
-    "build": "rimraf lib/ && cross-env NODE_ENV=production rollup -c ../../rollup.config.mjs",
-    "prepublishOnly": "yarn build"
-  },
   "dependencies": {
     "@guanghechen/equal": "^1.0.0-alpha.6",
     "@yozora/ast": "^2.3.1",

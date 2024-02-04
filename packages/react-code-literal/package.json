@@ -38,10 +38,6 @@
     "LICENSE",
     "README.md"
   ],
-  "scripts": {
-    "build": "rimraf lib/ && cross-env NODE_ENV=production rollup -c ../../rollup.config.mjs",
-    "prepublishOnly": "yarn build"
-  },
   "dependencies": {
     "@yozora/core-react-constant": "^3.0.0-alpha.6",
     "@yozora/react-code-highlighter": "^3.0.0-alpha.8",

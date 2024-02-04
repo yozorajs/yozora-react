@@ -35,16 +35,6 @@
     "LICENSE",
     "README.md"
   ],
-  "scripts": {
-    "build": "rimraf lib/ && cross-env NODE_ENV=production rollup -c ../../rollup.config.mjs",
-    "prepublishOnly": "yarn build"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3",
-    "jest": "*",
-    "rimraf": "^5.0.5",
-    "rollup": "^4.9.6"
-  },
   "browserslist": [
     "last 2 versions",
     "Firefox ESR",

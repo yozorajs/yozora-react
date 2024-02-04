@@ -35,10 +35,6 @@
     "LICENSE",
     "README.md"
   ],
-  "scripts": {
-    "build": "rimraf lib/ && cross-env NODE_ENV=production rollup -c ../../rollup.config.mjs",
-    "prepublishOnly": "yarn build"
-  },
   "dependencies": {
     "@yozora/core-react-constant": "^3.0.0-alpha.6"
   },
@@ -46,12 +42,6 @@
     "@emotion/css": "^11.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.0 || ^18.0.0"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3",
-    "jest": "*",
-    "rimraf": "^5.0.5",
-    "rollup": "^4.9.6"
   },
   "browserslist": [
     "last 2 versions",
