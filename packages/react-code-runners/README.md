@@ -55,19 +55,18 @@
 </header>
 <br/>
 
-This package is designed to provide code runners for [@yozora/react-code-embed][]
-or [@yozora/react-code-live][].
-
+This package is designed to provide code runners for [@yozora/react-code-embed][] or
+[@yozora/react-code-live][].
 
 ## Install
 
-* npm
+- npm
 
   ```bash
   npm install --save @yozora/react-code-runners
   ```
 
-* yarn
+- yarn
 
   ```bash
   yarn add @yozora/react-code-runners
@@ -75,7 +74,7 @@ or [@yozora/react-code-live][].
 
 ## Usage
 
-* Create a GraphvizRunner.
+- Create a GraphvizRunner.
 
   ```tsx title="./runner-graphviz.tsx"
   import loadable from '@loadable/component'
@@ -89,7 +88,7 @@ or [@yozora/react-code-live][].
   export const GraphvizRunner: CodeRunner = createGraphvizRunner(GraphvizRenderer)
   ```
 
-* Create a JsxRunner.
+- Create a JsxRunner.
 
   ```tsx title="./runner-jsx.tsx"
   import styled from '@emotion/styled'
@@ -124,7 +123,7 @@ or [@yozora/react-code-live][].
   }
   ```
 
-* Create a MathRunner.
+- Create a MathRunner.
 
   ```tsx title="./runner-math.tsx"
   import type { ICodeRunner } from '@yozora/react-code-runners'
@@ -136,7 +135,7 @@ or [@yozora/react-code-live][].
   )
   ```
 
-* Create runner items.
+- Create runner items.
 
   ```tsx title="./runner.tsx"
   import type { EcmaImport } from '@yozora/ast'
@@ -171,22 +170,18 @@ or [@yozora/react-code-live][].
   }
   ```
 
-
 ### Overview
 
-Name                    | Description
-:----------------------:|:-------------------------------------------:
-`createUseJsxRunner`    | Create a jsx live code runner creator.
-`createGraphvizRunner`  | Create a graphviz live code runner.
-`createMathRunner`      | Create a formula live code runner.
-
-
+|          Name          |              Description               |
+| :--------------------: | :------------------------------------: |
+|  `createUseJsxRunner`  | Create a jsx live code runner creator. |
+| `createGraphvizRunner` |  Create a graphviz live code runner.   |
+|   `createMathRunner`   |   Create a formula live code runner.   |
 
 ## Related
 
-* [@yozora/react-code-renderer-graphviz][]
-* [@yozora/react-code-renderer-jsx][] 
-
+- [@yozora/react-code-renderer-graphviz][]
+- [@yozora/react-code-renderer-jsx][]
 
 [@yozora/react-code-embed]: ../code-live/README.md
 [@yozora/react-code-live]: ../code-live/README.md

@@ -55,18 +55,17 @@
 </header>
 <br/>
 
-This package is designed to render graphviz (dot) in react, inspired by [graphviz-react][]. 
-
+This package is designed to render graphviz (dot) in react, inspired by [graphviz-react][].
 
 ## Install
 
-* npm
+- npm
 
   ```bash
   npm install --save @yozora/react-code-renderer-graphviz
   ```
 
-* yarn
+- yarn
 
   ```bash
   yarn add @yozora/react-code-renderer-graphviz
@@ -74,7 +73,7 @@ This package is designed to render graphviz (dot) in react, inspired by [graphvi
 
 ## Usage
 
-* Basic:
+- Basic:
 
   ```tsx
   import React from 'react'
@@ -105,7 +104,7 @@ This package is designed to render graphviz (dot) in react, inspired by [graphvi
   <GraphvizRender code={code} />
   ```
 
-* Custom error handler:
+- Custom error handler:
 
   ```tsx
   import React from 'react'
@@ -124,23 +123,23 @@ This package is designed to render graphviz (dot) in react, inspired by [graphvi
 
 ### Props
 
-Name        | Type                              | Required  | Default     | Description
-:----------:|:---------------------------------:|:---------:|:-----------:|:-------------
-`className` | `string`                          | `false`   | -         | Root css class
-`code`      | `string`                          | `true`    | -           | Source code
-`engine`    | `string`                          | `false`   | `dot`       | Source code
-`onError`   | `(error: string | null) => void`  | `true`    | -           | Error callback
-`options`   | `GraphvizOptions`                 | `false`   | See below   | Options passed to `ds-graphviz.options()`
+|    Name     |       Type        |    Required    |  Default  | Description                               |
+| :---------: | :---------------: | :------------: | :-------: | :---------------------------------------- | -------------- |
+| `className` |     `string`      |    `false`     |     -     | Root css class                            |
+|   `code`    |     `string`      |     `true`     |     -     | Source code                               |
+|  `engine`   |     `string`      |    `false`     |   `dot`   | Source code                               |
+|  `onError`  |  `(error: string  | null) => void` |  `true`   | -                                         | Error callback |
+|  `options`  | `GraphvizOptions` |    `false`     | See below | Options passed to `ds-graphviz.options()` |
 
-* `className`: The root element of this component will always bind with the
-  CSS class `'yozora-code-renderer-graphviz'`.
+- `className`: The root element of this component will always bind with the CSS class
+  `'yozora-code-renderer-graphviz'`.
 
-* `engine`: Sets the Graphviz layout engine name to the specified engine string.
+- `engine`: Sets the Graphviz layout engine name to the specified engine string.
 
   - type: `'circo' | 'dot' | 'fdp' | 'neato' | 'osage' | 'patchwork' | 'twopi'`
   - default: `dot`
 
-* `options`: The default options is 
+- `options`: The default options is
 
   ```typescript
   {
@@ -149,10 +148,8 @@ Name        | Type                              | Required  | Default     | Desc
   }
   ```
 
-
 ## Related
 
-* [graphviz-react][]
-
+- [graphviz-react][]
 
 [graphviz-react]: https://github.com/DomParfitt/graphviz-react

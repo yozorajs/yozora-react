@@ -57,16 +57,15 @@
 
 This component is designed to render data of [@yozora/ast][].
 
-
 ## Install
 
-* npm
+- npm
 
   ```bash
-  npm install --save @yozora/react-markdown 
+  npm install --save @yozora/react-markdown
   ```
 
-* yarn
+- yarn
 
   ```bash
   yarn add @yozora/react-markdown @yozora/ast @yozora/ast-util
@@ -74,9 +73,8 @@ This component is designed to render data of [@yozora/ast][].
 
 ## Usage
 
-* This component supports to preview all images in markdown documents with 
-  [react-viewer][]. In order to be able to use [react-viewer] in React SSR, 
-  you will need the [@loadable/component].
+- This component supports to preview all images in markdown documents with [react-viewer][]. In
+  order to be able to use [react-viewer] in React SSR, you will need the [@loadable/component].
 
   ```yarn
   yarn add react-viewer @loadable/component
@@ -119,16 +117,16 @@ This component is designed to render data of [@yozora/ast][].
   }
   ```
 
-* In additional, if you want to render a markdown source contents from scratch, 
-  you will need the [@yozora/parser][] to resolve the literal contents into mdast.
+- In additional, if you want to render a markdown source contents from scratch, you will need the
+  [@yozora/parser][] to resolve the literal contents into mdast.
 
-  Then, you will need [@yozora/ast-util][] to collect the
-  [link definition][@yozora/tokenizer-definition] map and the
+  Then, you will need [@yozora/ast-util][] to collect the [link
+  definition][@yozora/tokenizer-definition] map and the
   [footnote-definition][@yozora/tokenizer-footnote-definition] map.
 
   ```yarn
   yarn add @yozora/parser @yozora/ast-util @yozora/ast
-  ``` 
+  ```
 
   to integrated them with the following code snippet:
 
@@ -150,7 +148,7 @@ This component is designed to render data of [@yozora/ast][].
   </MarkdownProvider>
   ```
 
-* Render formula with mathjax.
+- Render formula with mathjax.
 
   ```tsx
   import { Theme, ThemeProvider } from '@yozora/core-react-theme'
@@ -165,7 +163,7 @@ This component is designed to render data of [@yozora/ast][].
   </MathJaxProvider>
   ```
 
-* Custom renderer map.
+- Custom renderer map.
 
   ```tsx
   import React from 'react'
@@ -224,7 +222,7 @@ This component is designed to render data of [@yozora/ast][].
   )
   ```
 
-* Custom code renderer.
+- Custom code renderer.
 
   ```tsx
   import type {
@@ -276,7 +274,7 @@ This component is designed to render data of [@yozora/ast][].
   ]
   ```
 
-* Don't need the footnote definitions:
+- Don't need the footnote definitions:
 
   ```tsx
   import { Markdown, MarkdownProvider } from '@yozora/react-markdown'
@@ -290,34 +288,32 @@ This component is designed to render data of [@yozora/ast][].
   }
   ```
 
-
 ### Props
 
-* YozoraMarkdownProvider
+- YozoraMarkdownProvider
 
+  |          Name           |       Type        | Required | Default | Description                                                                          |
+  | :---------------------: | :---------------: | :------: | :-----: | :----------------------------------------------------------------------------------- |
+  |      `codeRunners`      |     See below     | `false`  |    -    | Code runners, passed to [@yozora/react-code-embed][] and [@yozora/react-code-live][] |
+  |        `darken`         |     `boolean`     | `false`  | `false` | Enable the darken mode                                                               |
+  |     `definitionMap`     |     See below     |  `true`  |    -    | Link / Image reference definitions                                                   |
+  | `footnoteDefinitionMap` |     See below     |  `true`  |    -    | Footnote reference definitions                                                       |
+  |   `customRendererMap`   |     See below     | `false`  |    -    | [@yozora/ast] renderer map                                                           |
+  |       `children`        | `React.ReactNode` |  `true`  |    -    | Descendant elements.                                                                 |
 
-  Name                        | Type                  | Required  | Default | Description
-  :--------------------------:|:---------------------:|:---------:|:-------:|:-------------
-  `codeRunners`               | See below             | `false`   | -       | Code runners, passed to [@yozora/react-code-embed][] and [@yozora/react-code-live][] 
-  `darken`                    | `boolean`             | `false`   | `false` | Enable the darken mode
-  `definitionMap`             | See below             | `true`    | -       | Link / Image reference definitions
-  `footnoteDefinitionMap`     | See below             | `true`    | -       | Footnote reference definitions
-  `customRendererMap`         | See below             | `false`   | -       | [@yozora/ast] renderer map
-  `children`                  | `React.ReactNode`     | `true`    | -       | Descendant elements.
+- YozoraMarkdown
 
-* YozoraMarkdown
-
-  Name                          | Type                  | Required  | Default | Description
-  :----------------------------:|:---------------------:|:---------:|:-------:|:-------------
-  `ast`                         | See below             | `true`    | -       | Root node of [@yozora/ast][]
-  `className`                   | `string`              | `false`   | -       | Root css class
-  `footnoteDefinitionsTitle`    | `React.ReactNode`     | `false`   | -       | Title of the footnote definitions
-  `dontNeedFootnoteDefinitions` | `boolean`             | `false`   | -       | If true, then the footnote definitions wont be render
-  `style`                       | `React.CSSProperties` | `false`   | -       | Root css style
+  |             Name              |         Type          | Required | Default | Description                                           |
+  | :---------------------------: | :-------------------: | :------: | :-----: | :---------------------------------------------------- |
+  |             `ast`             |       See below       |  `true`  |    -    | Root node of [@yozora/ast][]                          |
+  |          `className`          |       `string`        | `false`  |    -    | Root css class                                        |
+  |  `footnoteDefinitionsTitle`   |   `React.ReactNode`   | `false`  |    -    | Title of the footnote definitions                     |
+  | `dontNeedFootnoteDefinitions` |       `boolean`       | `false`  |    -    | If true, then the footnote definitions wont be render |
+  |            `style`            | `React.CSSProperties` | `false`  |    -    | Root css style                                        |
 
 ### Params
 
-* `ast`: 
+- `ast`:
 
   ```typescript
   import type { Root } from '@yozora/ast'
@@ -331,10 +327,10 @@ This component is designed to render data of [@yozora/ast][].
   const ast = parser.parse(`source markdown contents`)
   ```
 
-* `className`: The root element of this component will always bind with the
-  CSS class `'yozora-markdown'`.
+- `className`: The root element of this component will always bind with the CSS class
+  `'yozora-markdown'`.
 
-* `definitionMap`: 
+- `definitionMap`:
 
   ```typescript
   import type { Definition } from '@yozora/ast'
@@ -345,7 +341,7 @@ This component is designed to render data of [@yozora/ast][].
   const definitionMap = calcDefinitionMap(ast)
   ```
 
-* `footnoteDefinitionMap`: 
+- `footnoteDefinitionMap`:
 
   ```typescript
   import type { FootnoteDefinition } from '@yozora/ast'
@@ -356,14 +352,14 @@ This component is designed to render data of [@yozora/ast][].
   const definitionMap = calcFootnoteDefinitionMap(ast)
   ```
 
-* `customRendererMap`: 
+- `customRendererMap`:
 
   ```typescript
   import type { INodeRendererMap } from '@yozora/react-markdown'
   const customRendererMap: Partial<INodeRendererMap>
   ```
 
-* `ImageViewer`
+- `ImageViewer`
 
   ```typescript
   import loadable from '@loadable/component'
@@ -372,51 +368,51 @@ This component is designed to render data of [@yozora/ast][].
 
 ### Overview
 
-This component has some built-in sub-components for rendering data of [@yozora/ast]. 
+This component has some built-in sub-components for rendering data of [@yozora/ast].
 
-* [@yozora/react-admonition][]
-* [@yozora/react-inline-code][]
+- [@yozora/react-admonition][]
+- [@yozora/react-inline-code][]
 
 ## Related
 
-* [mdast][]
-* [@yozora/ast][]
-* [@yozora/tokenizer-admonition][]
-* [@yozora/tokenizer-autolink][]
-* [@yozora/tokenizer-autolink-extension][]
-* [@yozora/tokenizer-blockquote][]
-* [@yozora/tokenizer-break][]
-* [@yozora/tokenizer-definition][]
-* [@yozora/tokenizer-delete][]
-* [@yozora/tokenizer-emphasis][]
-* [@yozora/tokenizer-fenced-block][]
-* [@yozora/tokenizer-footnote][]
-* [@yozora/tokenizer-footnote-definition][]
-* [@yozora/tokenizer-footnote-reference][]
-* [@yozora/tokenizer-heading][]
-* [@yozora/tokenizer-image][]
-* [@yozora/tokenizer-image-reference][]
-* [@yozora/tokenizer-indented-block][]
-* [@yozora/tokenizer-inline-code][]
-* [@yozora/tokenizer-inline-math][]
-* [@yozora/tokenizer-link][]
-* [@yozora/tokenizer-link-reference][]
-* [@yozora/tokenizer-list][]
-* [@yozora/tokenizer-list-item][]
-* [@yozora/tokenizer-math][]
-* [@yozora/tokenizer-paragraph][]
-* [@yozora/tokenizer-setext-heading][]
-* [@yozora/tokenizer-table][]
-* [@yozora/tokenizer-text][]
-* [@yozora/tokenizer-thematic-break][]
-
+- [mdast][]
+- [@yozora/ast][]
+- [@yozora/tokenizer-admonition][]
+- [@yozora/tokenizer-autolink][]
+- [@yozora/tokenizer-autolink-extension][]
+- [@yozora/tokenizer-blockquote][]
+- [@yozora/tokenizer-break][]
+- [@yozora/tokenizer-definition][]
+- [@yozora/tokenizer-delete][]
+- [@yozora/tokenizer-emphasis][]
+- [@yozora/tokenizer-fenced-block][]
+- [@yozora/tokenizer-footnote][]
+- [@yozora/tokenizer-footnote-definition][]
+- [@yozora/tokenizer-footnote-reference][]
+- [@yozora/tokenizer-heading][]
+- [@yozora/tokenizer-image][]
+- [@yozora/tokenizer-image-reference][]
+- [@yozora/tokenizer-indented-block][]
+- [@yozora/tokenizer-inline-code][]
+- [@yozora/tokenizer-inline-math][]
+- [@yozora/tokenizer-link][]
+- [@yozora/tokenizer-link-reference][]
+- [@yozora/tokenizer-list][]
+- [@yozora/tokenizer-list-item][]
+- [@yozora/tokenizer-math][]
+- [@yozora/tokenizer-paragraph][]
+- [@yozora/tokenizer-setext-heading][]
+- [@yozora/tokenizer-table][]
+- [@yozora/tokenizer-text][]
+- [@yozora/tokenizer-thematic-break][]
 
 [mdast]: https://github.com/syntax-tree/mdast
-[MdastPropsRoot]: https://github.com/yozorajs/yozora-react/blob/main/packages/react-markdown/src/ast/types.ts
-[MdastRenderer]: https://github.com/yozorajs/yozora-react/blob/main/packages/react-markdown/src/ast/render.tsx
+[MdastPropsRoot]:
+  https://github.com/yozorajs/yozora-react/blob/main/packages/react-markdown/src/ast/types.ts
+[MdastRenderer]:
+  https://github.com/yozorajs/yozora-react/blob/main/packages/react-markdown/src/ast/render.tsx
 [react-viewer]: https://github.com/infeng/react-viewer
 [@loadable/component]: https://github.com/gregberge/loadable-components
-
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast
 [@yozora/ast-util]: https://www.npmjs.com/package/@yozora/ast-util
 [@yozora/parser]: https://www.npmjs.com/package/@yozora/parser
@@ -427,7 +423,8 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 [@yozora/react-mathjax]: https://www.npmjs.com/package/@yozora/react-mathjax
 [@yozora/tokenizer-admonition]: https://www.npmjs.com/package/@yozora/tokenizer-admonition
 [@yozora/tokenizer-autolink]: https://www.npmjs.com/package/@yozora/tokenizer-autolink
-[@yozora/tokenizer-autolink-extension]: https://www.npmjs.com/package/@yozora/tokenizer-autolink-extension
+[@yozora/tokenizer-autolink-extension]:
+  https://www.npmjs.com/package/@yozora/tokenizer-autolink-extension
 [@yozora/tokenizer-blockquote]: https://www.npmjs.com/package/@yozora/tokenizer-blockquote
 [@yozora/tokenizer-break]: https://www.npmjs.com/package/@yozora/tokenizer-break
 [@yozora/tokenizer-definition]: https://www.npmjs.com/package/@yozora/tokenizer-definition
@@ -435,8 +432,10 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 [@yozora/tokenizer-emphasis]: https://www.npmjs.com/package/@yozora/tokenizer-emphasis
 [@yozora/tokenizer-fenced-block]: https://www.npmjs.com/package/@yozora/tokenizer-fenced-block
 [@yozora/tokenizer-footnote]: https://www.npmjs.com/package/@yozora/tokenizer-footnote
-[@yozora/tokenizer-footnote-definition]: https://www.npmjs.com/package/@yozora/tokenizer-footnote-definition
-[@yozora/tokenizer-footnote-reference]: https://www.npmjs.com/package/@yozora/tokenizer-footnote-reference
+[@yozora/tokenizer-footnote-definition]:
+  https://www.npmjs.com/package/@yozora/tokenizer-footnote-definition
+[@yozora/tokenizer-footnote-reference]:
+  https://www.npmjs.com/package/@yozora/tokenizer-footnote-reference
 [@yozora/tokenizer-heading]: https://www.npmjs.com/package/@yozora/tokenizer-heading
 [@yozora/tokenizer-image]: https://www.npmjs.com/package/@yozora/tokenizer-image
 [@yozora/tokenizer-image-reference]: https://www.npmjs.com/package/@yozora/tokenizer-image-reference

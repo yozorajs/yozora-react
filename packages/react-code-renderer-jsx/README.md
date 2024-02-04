@@ -55,18 +55,17 @@
 </header>
 <br/>
 
-This package is designed to live render jsx, inspired by [react live][]. 
-
+This package is designed to live render jsx, inspired by [react live][].
 
 ## Install
 
-* npm
+- npm
 
   ```bash
   npm install --save @yozora/react-code-renderer-jsx
   ```
 
-* yarn
+- yarn
 
   ```bash
   yarn add @yozora/react-code-renderer-jsx
@@ -74,7 +73,7 @@ This package is designed to live render jsx, inspired by [react live][].
 
 ## Usage
 
-* Basic:
+- Basic:
 
   ```tsx
   import styled from '@emotion/styled'
@@ -99,7 +98,7 @@ This package is designed to live render jsx, inspired by [react live][].
   }
   ```
 
-* Inline code: Render `React.ReactNode` directly
+- Inline code: Render `React.ReactNode` directly
 
   ```tsx
   const code = `
@@ -113,7 +112,7 @@ This package is designed to live render jsx, inspired by [react live][].
   const wrapper = <JsxPreview code={ code } inline={ true } >
   ```
 
-* Block code: Call the `render()` function with `React.ReactNode` explicitly
+- Block code: Call the `render()` function with `React.ReactNode` explicitly
 
   ```tsx
   import styled from '@emotion/styled'
@@ -137,21 +136,19 @@ This package is designed to live render jsx, inspired by [react live][].
   )
   ```
 
-
 ### Props
 
-Name      | Type                              | Required  | Default     | Description
-:--------:|:---------------------------------:|:---------:|:-----------:|:-------------
-`code`    | `string`                          | `true`    | -           | Source code
-`inline`  | `boolean`                         | `true`    | -           | `inline` / `block` mode
-`scope`   | `Record<string, unknown>`         | `false`   | `{}`        | Additional accessible variables
-`onError` | `(error: string | null) => void`  | `true`    | -           | Error callback
-
+|   Name    |           Type            |    Required    | Default | Description                     |
+| :-------: | :-----------------------: | :------------: | :-----: | :------------------------------ | -------------- |
+|  `code`   |         `string`          |     `true`     |    -    | Source code                     |
+| `inline`  |         `boolean`         |     `true`     |    -    | `inline` / `block` mode         |
+|  `scope`  | `Record<string, unknown>` |    `false`     |  `{}`   | Additional accessible variables |
+| `onError` |      `(error: string      | null) => void` | `true`  | -                               | Error callback |
 
 ## Related
 
-  - [mdast code][]
-  - [react live][]
+- [mdast code][]
+- [react live][]
 
 [mdast code]: https://github.com/syntax-tree/mdast#code
 [react live]: https://github.com/FormidableLabs/react-live

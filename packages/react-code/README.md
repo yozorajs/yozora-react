@@ -59,16 +59,15 @@ This component is for rendering the [Code][@yozora/ast] data produced by
 [@yozora/tokenizer-indented-code][] and [@yozora/tokenizer-fenced-code].\
 This component has been built into [@yozora/react-markdown][], you can use it directly.
 
-
 ## Install
 
-* npm
+- npm
 
   ```bash
   npm install --save @yozora/react-code
   ```
 
-* yarn
+- yarn
 
   ```bash
   yarn add @yozora/react-code
@@ -76,7 +75,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
 ## Usage
 
-* Basic:
+- Basic:
 
   ```tsx
   import React from 'react'
@@ -92,16 +91,16 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
 ### Props
 
-Name                | Type                  | Required  | Default   | Description
-:------------------:|:---------------------:|:---------:|:---------:|:-------------
-`className`         | `string`              | `false`   | -         | Root css class
-`darken`            | `boolean`             | `false`   | -         | Enable the darken mode
-`lang`              | `string`              | `false`   | -         | Language of the source codes
-`meta`              | `string`              | `false`   | -         | Meta data of the code block
-`showCodeLineno`    | `boolean`             | `false`   | `true`    | Display linenos in default
-`runners`           | `CodeRunnerItem[]`    | `false`   | See below | Code runners.
-`style`             | `React.CSSProperties` | `false`   | -         | Root css style
-`value`             | `string`              | `true`    | -         | Literal source codes
+|       Name       |         Type          | Required |  Default  | Description                  |
+| :--------------: | :-------------------: | :------: | :-------: | :--------------------------- |
+|   `className`    |       `string`        | `false`  |     -     | Root css class               |
+|     `darken`     |       `boolean`       | `false`  |     -     | Enable the darken mode       |
+|      `lang`      |       `string`        | `false`  |     -     | Language of the source codes |
+|      `meta`      |       `string`        | `false`  |     -     | Meta data of the code block  |
+| `showCodeLineno` |       `boolean`       | `false`  |  `true`   | Display linenos in default   |
+|    `runners`     |  `CodeRunnerItem[]`   | `false`  | See below | Code runners.                |
+|     `style`      | `React.CSSProperties` | `false`  |     -     | Root css style               |
+|     `value`      |       `string`        |  `true`  |     -     | Literal source codes         |
 
 - `runners`:
 
@@ -144,19 +143,17 @@ Name                | Type                  | Required  | Default   | Descriptio
   }
   ```
 
-
 ## Related
 
-* [@yozora/ast][]
-* [@yozora/react-code-embed][]
-* [@yozora/react-code-highlighter][]
-* [@yozora/react-code-literal][]
-* [@yozora/react-code-live][]
-* [@yozora/react-markdown][]
-* [@yozora/tokenizer-indented-code][]
-* [@yozora/tokenizer-fenced-code][]
-* [Code | Mdast][mdast]
-
+- [@yozora/ast][]
+- [@yozora/react-code-embed][]
+- [@yozora/react-code-highlighter][]
+- [@yozora/react-code-literal][]
+- [@yozora/react-code-live][]
+- [@yozora/react-markdown][]
+- [@yozora/tokenizer-indented-code][]
+- [@yozora/tokenizer-fenced-code][]
+- [Code | Mdast][mdast]
 
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#code
 [@yozora/react-code-embed]: https://www.npmjs.com/package/@yozora/react-code-embed

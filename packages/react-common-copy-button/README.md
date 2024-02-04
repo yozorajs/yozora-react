@@ -59,22 +59,21 @@ Render a simple copy button.
 
 ## Install
 
-* npm
+- npm
 
   ```bash
   npm install --save @yozora/react-common-copy-button
   ```
 
-* yarn
+- yarn
 
   ```bash
   yarn add @yozora/react-common-copy-button
   ```
 
-
 ## Usage
 
-* Basic:
+- Basic:
 
   ```tsx
   import React from 'react'
@@ -85,17 +84,17 @@ Render a simple copy button.
 
 ### Props
 
-Name            | Type                              | Required  | Default   | Description
-:--------------:|:---------------------------------:|:---------:|:---------:|:-------------
-`className`     | `string`                          | `false`   | -         | Root css class
-`statusNodeMap` | `Record<string, React.ReactNode>` | `false`   | See below | Map of copy status and displaying text.
-`style`         | `React.CSSProperties`             | `false`   | -         | Root css style
-`value`         | `string`                          | `true`    | -         | The literal texture content that waiting to copy
+|      Name       |               Type                | Required |  Default  | Description                                      |
+| :-------------: | :-------------------------------: | :------: | :-------: | :----------------------------------------------- |
+|   `className`   |             `string`              | `false`  |     -     | Root css class                                   |
+| `statusNodeMap` | `Record<string, React.ReactNode>` | `false`  | See below | Map of copy status and displaying text.          |
+|     `style`     |       `React.CSSProperties`       | `false`  |     -     | Root css style                                   |
+|     `value`     |             `string`              |  `true`  |     -     | The literal texture content that waiting to copy |
 
-* `className`: The root element of this component will always bind with the
-  CSS class `'yozora-common-copy-button'`.
+- `className`: The root element of this component will always bind with the CSS class
+  `'yozora-common-copy-button'`.
 
-* `statusNodeMap`: 
+- `statusNodeMap`:
 
   ```typescript
   export const defaultStatusNodeMap: Record<CopyStatus, React.ReactNode> = {

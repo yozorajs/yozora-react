@@ -55,20 +55,20 @@
 </header>
 <br/>
 
-Rendering formula with [mathjax][] in react. Inspired by [react-mathjax][]
-and [react-mathjax2][]. 
+Rendering formula with [mathjax][] in react. Inspired by [react-mathjax][] and [react-mathjax2][].
 
-The default version is [mathjax@2.7.4](https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_SVG).
+The default version is
+[mathjax@2.7.4](https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_SVG).
 
 ## Install
 
-* npm
+- npm
 
   ```bash
   npm install --save @yozora/react-mathjax
   ```
 
-* yarn
+- yarn
 
   ```bash
   yarn add @yozora/react-mathjax
@@ -76,7 +76,7 @@ The default version is [mathjax@2.7.4](https://cdnjs.cloudflare.com/ajax/libs/ma
 
 ## Usage
 
-* Basic:
+- Basic:
 
   ```tsx
   import React from 'react'
@@ -102,7 +102,7 @@ The default version is [mathjax@2.7.4](https://cdnjs.cloudflare.com/ajax/libs/ma
 
 ### Props
 
-* `IMathJaxProviderProps`
+- `IMathJaxProviderProps`
 
   ```typescript
   export interface IMathJaxProviderProps {
@@ -154,7 +154,7 @@ The default version is [mathjax@2.7.4](https://cdnjs.cloudflare.com/ajax/libs/ma
   }
   ```
 
-* `IMathJaxNodeProps` 
+- `IMathJaxNodeProps`
 
   ```typescript
   export interface IMathJaxNodeProps {
@@ -184,8 +184,8 @@ The default version is [mathjax@2.7.4](https://cdnjs.cloudflare.com/ajax/libs/ma
 
 ## Related
 
-* [react-mathjax][]
-* [mathjax][]
+- [react-mathjax][]
+- [mathjax][]
 
 [react-mathjax]: https://github.com/SamyPesse/react-mathjax
 [react-mathjax2]: https://github.com/wko27/react-mathjax

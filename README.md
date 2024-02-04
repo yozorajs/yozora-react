@@ -48,7 +48,8 @@
   </div>
 </header>
 
-A monorepo contains react components render [Yozora AST Nodes][yozora/admonition]. See https://yozora.guanghechen.com for details.
+A monorepo contains react components render [Yozora AST Nodes][yozora/admonition]. See
+https://yozora.guanghechen.com for details.
 
 Use [@yozora/react-markdown][] to render the [@yozora/ast][yozora/ast].
 
@@ -58,13 +59,13 @@ https://user-images.githubusercontent.com/42513619/129205123-6a1983c4-6a86-4c80-
 
 See [@yozora/react-markdown][]
 
-* npm
+- npm
 
   ```bash
   npm install --save @yozora/react-markdown
   ```
 
-* yarn
+- yarn
 
   ```bash
   yarn add @yozora/react-markdown
@@ -101,51 +102,62 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
 ## Core
 
-Package Name                            | Description
-:--------------------------------------:|:--------------------------------------
-[@yozora/core-react-renderer][]         | Provider `NodesRenderer` and simple markdown renderers.
-[@yozora/core-react-theme][]            | Provider markdown theme context.
+|          Package Name           | Description                                             |
+| :-----------------------------: | :------------------------------------------------------ |
+| [@yozora/core-react-renderer][] | Provider `NodesRenderer` and simple markdown renderers. |
+|  [@yozora/core-react-theme][]   | Provider markdown theme context.                        |
 
 ### Markdown components
 
-Package Name                            | Token Name
-:--------------------------------------:|:--------------------------------------
-[@yozora/react-admonition][]            | [admonition][yozora/admonition]
-[@yozora/react-code][]                  | [code][yozora/code]
-
+|         Package Name         | Token Name                      |
+| :--------------------------: | :------------------------------ |
+| [@yozora/react-admonition][] | [admonition][yozora/admonition] |
+|    [@yozora/react-code][]    | [code][yozora/code]             |
 
 ### Other components
 
-Package Name                              | Description
-:----------------------------------------:|:----------------------------------
-[@yozora/react-code-editor][]             | A simple code editor.
-[@yozora/react-code-embed][]              | A simple code editor online.
-[@yozora/react-code-highlighter][]        | Highlight codes.
-[@yozora/react-code-literal][]            | Render literal code block.
-[@yozora/react-code-live][]               | A live code editor, be similar to [react-live][].
-[@yozora/react-code-renderer-jsx][]       | React component for rendering jsx directly in browser.
-[@yozora/react-code-renderer-graphviz][]  | React component for rendering graphviz (dot) directly in browser.
-[@yozora/react-markdown][]                | React component for rendering markdown content with above Markdown Components.
-[@yozora/react-mathjax][]                 | Render formula with mathjax in react.
-
+|               Package Name               | Description                                                                    |
+| :--------------------------------------: | :----------------------------------------------------------------------------- |
+|      [@yozora/react-code-editor][]       | A simple code editor.                                                          |
+|       [@yozora/react-code-embed][]       | A simple code editor online.                                                   |
+|    [@yozora/react-code-highlighter][]    | Highlight codes.                                                               |
+|      [@yozora/react-code-literal][]      | Render literal code block.                                                     |
+|       [@yozora/react-code-live][]        | A live code editor, be similar to [react-live][].                              |
+|   [@yozora/react-code-renderer-jsx][]    | React component for rendering jsx directly in browser.                         |
+| [@yozora/react-code-renderer-graphviz][] | React component for rendering graphviz (dot) directly in browser.              |
+|        [@yozora/react-markdown][]        | React component for rendering markdown content with above Markdown Components. |
+|        [@yozora/react-mathjax][]         | Render formula with mathjax in react.                                          |
 
 [react-live]: https://github.com/FormidableLabs/react-live
 
 <!-- yozora component links -->
-[@yozora/core-react-renderer]: https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/core-react-renderer#readme
-[@yozora/core-react-theme]: https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/core-react-theme#readme
-[@yozora/react-admonition]: https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-admonition#readme
-[@yozora/react-code]: https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code#readme
-[@yozora/react-code-editor]: https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-editor#readme
-[@yozora/react-code-embed]: https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-embed#readme
-[@yozora/react-code-highlighter]: https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-highlighter#readme
-[@yozora/react-code-literal]: https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-literal#readme
-[@yozora/react-code-live]: https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-live#readme
-[@yozora/react-code-renderer-jsx]: https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-renderer-jsx#readme
-[@yozora/react-code-renderer-graphviz]: https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-renderer-graphviz#readme
-[@yozora/react-markdown]: https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-markdown#readme
-[@yozora/react-mathjax]: https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-mathjax#readme
 
+[@yozora/core-react-renderer]:
+  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/core-react-renderer#readme
+[@yozora/core-react-theme]:
+  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/core-react-theme#readme
+[@yozora/react-admonition]:
+  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-admonition#readme
+[@yozora/react-code]:
+  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code#readme
+[@yozora/react-code-editor]:
+  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-editor#readme
+[@yozora/react-code-embed]:
+  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-embed#readme
+[@yozora/react-code-highlighter]:
+  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-highlighter#readme
+[@yozora/react-code-literal]:
+  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-literal#readme
+[@yozora/react-code-live]:
+  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-live#readme
+[@yozora/react-code-renderer-jsx]:
+  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-renderer-jsx#readme
+[@yozora/react-code-renderer-graphviz]:
+  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-renderer-graphviz#readme
+[@yozora/react-markdown]:
+  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-markdown#readme
+[@yozora/react-mathjax]:
+  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-mathjax#readme
 [yozora/ast]: https://www.npmjs.com/package/@yozora/ast
 [yozora/admonition]: https://www.npmjs.com/package/@yozora/ast#admonition
 [yozora/blockquote]: https://www.npmjs.com/package/@yozora/ast#blockquote

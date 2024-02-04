@@ -59,22 +59,21 @@ Light buttons, imitate the window action icons in MacOS.
 
 ## Install
 
-* npm
+- npm
 
   ```bash
   npm install --save @yozora/react-common-light-buttons
   ```
 
-* yarn
+- yarn
 
   ```bash
   yarn add @yozora/react-common-light-buttons
   ```
 
-
 ## Usage
 
-* Basic:
+- Basic:
 
   ```tsx
   import React from 'react'
@@ -82,7 +81,7 @@ Light buttons, imitate the window action icons in MacOS.
 
   const wrapper = (
     <LightButtons
-      onClose={...} 
+      onClose={...}
       onMinimize={...}
       onMaximize={...}
     />
@@ -91,16 +90,15 @@ Light buttons, imitate the window action icons in MacOS.
 
 ### Props
 
-Name        | Type                  | Required  | Default | Description
-:----------:|:---------------------:|:---------:|:-------:|:-------------
-`className` | `string`              | `false`   | -       | Root css class
-`onClose`   | `function`            | `false`   | -       | Called when the close button clicked.
-`onMaximize`| `function`            | `false`   | -       | Called when the maximize button clicked.
-`onMinimize`| `function`            | `false`   | -       | Called when the minimize button clicked.
-`style`     | `React.CSSProperties` | `false`   | -       | Root css style
+|     Name     |         Type          | Required | Default | Description                              |
+| :----------: | :-------------------: | :------: | :-----: | :--------------------------------------- |
+| `className`  |       `string`        | `false`  |    -    | Root css class                           |
+|  `onClose`   |      `function`       | `false`  |    -    | Called when the close button clicked.    |
+| `onMaximize` |      `function`       | `false`  |    -    | Called when the maximize button clicked. |
+| `onMinimize` |      `function`       | `false`  |    -    | Called when the minimize button clicked. |
+|   `style`    | `React.CSSProperties` | `false`  |    -    | Root css style                           |
 
-* `className`: The root element of this component will always bind with the
-  CSS class `'yozora-common-light-buttons'`.
-
+- `className`: The root element of this component will always bind with the CSS class
+  `'yozora-common-light-buttons'`.
 
 ## Related

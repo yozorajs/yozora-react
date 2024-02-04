@@ -59,16 +59,15 @@ This component is for rendering the [Code][@yozora/ast] data produced by
 [@yozora/tokenizer-indented-code][] and [@yozora/tokenizer-fenced-code].\
 This component has been built into [@yozora/react-markdown][], you can use it directly.
 
-
 ## Install
 
-* npm
+- npm
 
   ```bash
   npm install --save @yozora/react-code-live
   ```
 
-* yarn
+- yarn
 
   ```bash
   yarn add @yozora/react-code-live
@@ -76,7 +75,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
 ## Usage
 
-* Basic:
+- Basic:
 
   ```tsx
   import React from 'react'
@@ -104,51 +103,48 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   )
   ```
 
-
 ### Props
 
-Name                | Type                  | Required  | Default | Description
-:------------------:|:---------------------:|:---------:|:-------:|:-------------
-`className`         | `string`              | `false`   | -       | Root css class
-`collapsed`         | `boolean`             | `false`   | `false` | Collapse the code block
-`darken`            | `boolean`             | `false`   | -       | Enable the darken mode
-`highlightLinenos`  | `number[]`            | `false`   | -       | Line number of Lines that should be highlighted
-`lang`              | `string`              | `false`   | -       | Language of the source codes
-`maxLines`          | `number`              | `number`  | -       | Maximum number of rows displayed
-`showLineNo`        | `boolean`             | `false`   | -       | Whether to display the line numbers
-`style`             | `React.CSSProperties` | `false`   | -       | Root css style
-`title`             | `string`              | `false`   | -       | Code title
-`value`             | `string`              | `true`    | -       | Literal source codes
+|        Name        |         Type          | Required | Default | Description                                     |
+| :----------------: | :-------------------: | :------: | :-----: | :---------------------------------------------- |
+|    `className`     |       `string`        | `false`  |    -    | Root css class                                  |
+|    `collapsed`     |       `boolean`       | `false`  | `false` | Collapse the code block                         |
+|      `darken`      |       `boolean`       | `false`  |    -    | Enable the darken mode                          |
+| `highlightLinenos` |      `number[]`       | `false`  |    -    | Line number of Lines that should be highlighted |
+|       `lang`       |       `string`        | `false`  |    -    | Language of the source codes                    |
+|     `maxLines`     |       `number`        | `number` |    -    | Maximum number of rows displayed                |
+|    `showLineNo`    |       `boolean`       | `false`  |    -    | Whether to display the line numbers             |
+|      `style`       | `React.CSSProperties` | `false`  |    -    | Root css style                                  |
+|      `title`       |       `string`        | `false`  |    -    | Code title                                      |
+|      `value`       |       `string`        |  `true`  |    -    | Literal source codes                            |
 
-* `className`: The root element of this component will always bind with the
-  CSS class `'yozora-code-literal'`.
+- `className`: The root element of this component will always bind with the CSS class
+  `'yozora-code-literal'`.
 
 ### CSS variables
 
-Name                              | Default value
-:--------------------------------:|:----------------:
-`--yozora-colors-background-code` | `#f5f5f5`
-`--yozora-colors-border-code`     | `#d3d3d3`
-`--yozora-colors-caret-code`      | `#ed6c60`
-`--yozora-colors-selection-code`  | `hsla(200deg, 30%, 70%, 0.3)`
-`--yozora-colors-text-codeTitle`  | `hsla(0deg, 0%, 30%, 0.8)`
-`--yozora-fonts-family-code`      | `Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif`
-`--yozora-fonts-family-heading`   | `'Comic Sans MS', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif`
-`--yozora-fonts-size-code`        | `1rem`
-
+|               Name                |                              Default value                              |
+| :-------------------------------: | :---------------------------------------------------------------------: |
+| `--yozora-colors-background-code` |                                `#f5f5f5`                                |
+|   `--yozora-colors-border-code`   |                                `#d3d3d3`                                |
+|   `--yozora-colors-caret-code`    |                                `#ed6c60`                                |
+| `--yozora-colors-selection-code`  |                      `hsla(200deg, 30%, 70%, 0.3)`                      |
+| `--yozora-colors-text-codeTitle`  |                       `hsla(0deg, 0%, 30%, 0.8)`                        |
+|   `--yozora-fonts-family-code`    |   `Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif`   |
+|  `--yozora-fonts-family-heading`  | `'Comic Sans MS', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif` |
+|    `--yozora-fonts-size-code`     |                                 `1rem`                                  |
 
 ## Related
 
-* [@yozora/ast][]
-* [@yozora/react-code][]
-* [@yozora/react-code-embed][]
-* [@yozora/react-code-highlighter][]
-* [@yozora/react-code-literal][]
-* [@yozora/react-markdown][]
-* [@yozora/tokenizer-indented-code][]
-* [@yozora/tokenizer-fenced-code][]
-* [Code | Mdast][mdast]
-
+- [@yozora/ast][]
+- [@yozora/react-code][]
+- [@yozora/react-code-embed][]
+- [@yozora/react-code-highlighter][]
+- [@yozora/react-code-literal][]
+- [@yozora/react-markdown][]
+- [@yozora/tokenizer-indented-code][]
+- [@yozora/tokenizer-fenced-code][]
+- [Code | Mdast][mdast]
 
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#code
 [@yozora/react-code]: https://www.npmjs.com/package/@yozora/react-code

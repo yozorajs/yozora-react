@@ -55,19 +55,18 @@
 </header>
 <br/>
 
-Simple no-frills code editor with syntax highlighting, forked from [react-simple-code-editor][]
-as it's seems not been updated for several months.
-
+Simple no-frills code editor with syntax highlighting, forked from [react-simple-code-editor][] as
+it's seems not been updated for several months.
 
 ## Install
 
-* npm
+- npm
 
   ```bash
   npm install --save @yozora/react-code-editor
   ```
 
-* yarn
+- yarn
 
   ```bash
   yarn add @yozora/react-code-editor
@@ -75,7 +74,7 @@ as it's seems not been updated for several months.
 
 ## Usage
 
-* Basic:
+- Basic:
 
   ```tsx
   import React, { useState } from 'react'
@@ -98,43 +97,41 @@ as it's seems not been updated for several months.
 
 ### Props
 
-Name                | Type                            | Required  | Default   | Description
-:------------------:|:-------------------------------:|:---------:|:---------:|:-------------
-`autoFocus`         | `boolean`                       | `false`   | -         | Set the editor focus in default
-`className`         | `string`                        | `false`   | -         | CSS class name for the container
-`code`              | `string`                        | `true`    | -         | Code content
-`darken`            | `boolean`                       | `false`   | `true`    | Dark mode (vcsDarkTheme / vscLightTheme)
-`lang`              | `string`                        | `true`    | -         | Code language
-`lineHeight`        | `React.CSSProperties['height']` | `false`   | `'1.8em'` | line height
-`onChange`          | `(content: string) => void`     | `true`    | -         | Triggered when code changed.
-`preClassName`      | `string`                        | `false`   | -         | CSS class name for the underlying pre
-`preStyle`          | `React.CSSProperties`           | `false`   | -         | CSS style object for the underlying textarea
-`showLinenos`       | `boolean`                       | `false`   | `true`    | Display line numbers
-`style`             | `React.CSSProperties`           | `false`   | -         | CSS style object for the container
-`textareaClassName` | `string`                        | `false`   | -         | CSS class name for the underlying textarea
-`textareaStyle`     | `React.CSSProperties`           | `false`   | -         | CSS style object for the underlying textarea
-`theme`             | `IPrismTheme`                   | `false`   | See below | Highlight prism theme.
+|        Name         |              Type               | Required |  Default  | Description                                  |
+| :-----------------: | :-----------------------------: | :------: | :-------: | :------------------------------------------- |
+|     `autoFocus`     |            `boolean`            | `false`  |     -     | Set the editor focus in default              |
+|     `className`     |            `string`             | `false`  |     -     | CSS class name for the container             |
+|       `code`        |            `string`             |  `true`  |     -     | Code content                                 |
+|      `darken`       |            `boolean`            | `false`  |  `true`   | Dark mode (vcsDarkTheme / vscLightTheme)     |
+|       `lang`        |            `string`             |  `true`  |     -     | Code language                                |
+|    `lineHeight`     | `React.CSSProperties['height']` | `false`  | `'1.8em'` | line height                                  |
+|     `onChange`      |   `(content: string) => void`   |  `true`  |     -     | Triggered when code changed.                 |
+|   `preClassName`    |            `string`             | `false`  |     -     | CSS class name for the underlying pre        |
+|     `preStyle`      |      `React.CSSProperties`      | `false`  |     -     | CSS style object for the underlying textarea |
+|    `showLinenos`    |            `boolean`            | `false`  |  `true`   | Display line numbers                         |
+|       `style`       |      `React.CSSProperties`      | `false`  |     -     | CSS style object for the container           |
+| `textareaClassName` |            `string`             | `false`  |     -     | CSS class name for the underlying textarea   |
+|   `textareaStyle`   |      `React.CSSProperties`      | `false`  |     -     | CSS style object for the underlying textarea |
+|       `theme`       |          `IPrismTheme`          | `false`  | See below | Highlight prism theme.                       |
 
-* `className`: The root element of this component will always bind with the
-  CSS class `'yozora-code-editor'`
+- `className`: The root element of this component will always bind with the CSS class
+  `'yozora-code-editor'`
 
-* `theme`: Default theme depends on the value of `darken`.
+- `theme`: Default theme depends on the value of `darken`.
 
 ### CSS variables
 
-Name                          | Default value
-:----------------------------:|:----------------:
-`--yozora-colors-border-code` | `#d3d3d3`
-`--yozora-colors-caret-code`  | `#ed6c60`
-`--yozora-fonts-family-code`  | `Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif`
-`--yozora-fonts-size-code`    | `1rem`
-
+|             Name              |                            Default value                            |
+| :---------------------------: | :-----------------------------------------------------------------: |
+| `--yozora-colors-border-code` |                              `#d3d3d3`                              |
+| `--yozora-colors-caret-code`  |                              `#ed6c60`                              |
+| `--yozora-fonts-family-code`  | `Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif` |
+|  `--yozora-fonts-size-code`   |                               `1rem`                                |
 
 ## Related
 
-* [@yozora/react-code-highlighter][]
-* [react-simple-code-editor][]
-
+- [@yozora/react-code-highlighter][]
+- [react-simple-code-editor][]
 
 [@yozora/react-code-highlighter]: https://www.npmjs.com/package/@yozora/react-code-highlighter
 [react-simple-code-editor]: https://github.com/satya164/react-simple-code-editor

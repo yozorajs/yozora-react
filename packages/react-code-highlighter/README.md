@@ -57,16 +57,15 @@
 
 This package is designed to highlight [mdast code][] type data
 
-
 ## Install
 
-* npm
+- npm
 
   ```bash
   npm install --save @yozora/react-code-highlighter
   ```
 
-* yarn
+- yarn
 
   ```bash
   yarn add @yozora/react-code-highlighter
@@ -74,7 +73,7 @@ This package is designed to highlight [mdast code][] type data
 
 ## Usage
 
-* Basic:
+- Basic:
 
   ```tsx
   import React from 'react'
@@ -109,29 +108,28 @@ This package is designed to highlight [mdast code][] type data
   const wrapper = (<Wrapper />)
   ```
 
-* Props
+- Props
 
-  Name                | Type                            | Required  | Default             | Description
-  :------------------:|:-------------------------------:|:---------:|:-------------------:|:-------------
-  `value`             | `string`                        | `true`    | -                   | Code content
-  `lang`              | `string`                        | `false`   | -                   | Code language
-  `darken`            | `boolean`                       | `false`   | -                   | Specify the default theme (vcsDarkTheme / vscLightTheme)
-  `theme`             | `IPrismTheme`                   | `false`   | Depends on `darken` | Code highlight theme
-  `linenoWidth`       | `React.CSSProperties['width']`  | `false`   | `0`                 | Code line number width
-  `linenoColor`       | `React.CSSProperties['color']`  | `false`   | `#858585`           | Code line number color
-  `onLineCountChange` | `(lineCount: number) => void`   | `false`   | -                   | Callback of Code line count changing
+  |        Name         |              Type              | Required |       Default       | Description                                              |
+  | :-----------------: | :----------------------------: | :------: | :-----------------: | :------------------------------------------------------- |
+  |       `value`       |            `string`            |  `true`  |          -          | Code content                                             |
+  |       `lang`        |            `string`            | `false`  |          -          | Code language                                            |
+  |      `darken`       |           `boolean`            | `false`  |          -          | Specify the default theme (vcsDarkTheme / vscLightTheme) |
+  |       `theme`       |         `IPrismTheme`          | `false`  | Depends on `darken` | Code highlight theme                                     |
+  |    `linenoWidth`    | `React.CSSProperties['width']` | `false`  |         `0`         | Code line number width                                   |
+  |    `linenoColor`    | `React.CSSProperties['color']` | `false`  |      `#858585`      | Code line number color                                   |
+  | `onLineCountChange` | `(lineCount: number) => void`  | `false`  |          -          | Callback of Code line count changing                     |
 
 ### CSS variables
 
-Name                                        | Default value
-:------------------------------------------:|:----------------:
-`--yozora-colors-background-codeHighlight`  | `hsla(30deg, 90%, 50%, 0.3)`
-`--yozora-colors-border-codeLineno`         | `hsla(0deg, 0%, 80%, 0.8)`
-
+|                    Name                    |        Default value         |
+| :----------------------------------------: | :--------------------------: |
+| `--yozora-colors-background-codeHighlight` | `hsla(30deg, 90%, 50%, 0.3)` |
+|    `--yozora-colors-border-codeLineno`     |  `hsla(0deg, 0%, 80%, 0.8)`  |
 
 ## FAQ
 
-* How do I add more language highlighting support?
+- How do I add more language highlighting support?
 
   See https://github.com/FormidableLabs/prism-react-renderer#faq:
 
@@ -144,17 +142,15 @@ Name                                        | Default value
   require("prismjs/components/prism-csharp");
   ```
 
-  The above method will cause errors in [vite][] + React project at this time
-  (2021-07-27). The reason is that the `import` statement will be lifted to
-  the top when using [vite][] to bundling, resulting in that the assignment
-  statement of `window.Prism=Prism` has not been executed before loading 
-  additional prismjs language components.
+  The above method will cause errors in [vite][] + React project at this time (2021-07-27). The
+  reason is that the `import` statement will be lifted to the top when using [vite][] to bundling,
+  resulting in that the assignment statement of `window.Prism=Prism` has not been executed before
+  loading additional prismjs language components.
 
 ## Related
 
-* [mdast code][]
-* [prism-react-renderer][]
-
+- [mdast code][]
+- [prism-react-renderer][]
 
 [mdast code]: https://github.com/syntax-tree/mdast#code
 [prism-react-renderer]: https://github.com/FormidableLabs/prism-react-renderer

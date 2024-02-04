@@ -61,13 +61,13 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
 ## Install
 
-* npm
+- npm
 
   ```bash
   npm install --save @yozora/react-code-embed
   ```
 
-* yarn
+- yarn
 
   ```bash
   yarn add @yozora/react-code-embed
@@ -75,7 +75,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
 ## Usage
 
-* Basic:
+- Basic:
 
   ```tsx
   import React from 'react'
@@ -105,39 +105,36 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
 ### Props
 
-Name          | Type                      | Required  | Default | Description
-:------------:|:-------------------------:|:---------:|:-------:|:-------------
-`className`   | `string`                  | `false`   | -       | Root css class
-`meta`        | `Record<string, unknown`  | `true`    | -       | Interpreter for the codes
-`lang`        | `string`                  | `true`    | -       | Language of the source codes
-`runner`      | `CodeRunner`              | `true`    | -       | Interpreter for the codes
-`style`       | `React.CSSProperties`     | `false`   | -       | Root css style
-`value`       | `string`                  | `true`    | -       | source codes
+|    Name     |           Type           | Required | Default | Description                  |
+| :---------: | :----------------------: | :------: | :-----: | :--------------------------- |
+| `className` |         `string`         | `false`  |    -    | Root css class               |
+|   `meta`    | `Record<string, unknown` |  `true`  |    -    | Interpreter for the codes    |
+|   `lang`    |         `string`         |  `true`  |    -    | Language of the source codes |
+|  `runner`   |       `CodeRunner`       |  `true`  |    -    | Interpreter for the codes    |
+|   `style`   |  `React.CSSProperties`   | `false`  |    -    | Root css style               |
+|   `value`   |         `string`         |  `true`  |    -    | source codes                 |
 
-
-* `className`: The root element of this component will always bind with the
-  CSS class `'yozora-code-embed'`.
+- `className`: The root element of this component will always bind with the CSS class
+  `'yozora-code-embed'`.
 
 ### CSS variables
 
-Name                            | Default value
-:------------------------------:|:----------------:
-`--yozora-colors-border-error`  | `red`
-
+|              Name              | Default value |
+| :----------------------------: | :-----------: |
+| `--yozora-colors-border-error` |     `red`     |
 
 ## Related
 
-* [@yozora/ast][]
-* [@yozora/react-code][]
-* [@yozora/react-code-embed][]
-* [@yozora/react-code-highlighter][]
-* [@yozora/react-code-live][]
-* [@yozora/react-code-runners][]
-* [@yozora/react-markdown][]
-* [@yozora/tokenizer-indented-code][]
-* [@yozora/tokenizer-fenced-code][]
-* [Code | Mdast][mdast]
-
+- [@yozora/ast][]
+- [@yozora/react-code][]
+- [@yozora/react-code-embed][]
+- [@yozora/react-code-highlighter][]
+- [@yozora/react-code-live][]
+- [@yozora/react-code-runners][]
+- [@yozora/react-markdown][]
+- [@yozora/tokenizer-indented-code][]
+- [@yozora/tokenizer-fenced-code][]
+- [Code | Mdast][mdast]
 
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#code
 [@yozora/react-code]: https://www.npmjs.com/package/@yozora/react-code
