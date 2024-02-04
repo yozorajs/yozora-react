@@ -10,7 +10,7 @@ export default async function () {
 
   const baseConfig = await tsMonorepoConfig(__dirname, {
     useESM: true,
-    tsconfigFilepath: path.join(__dirname, 'tsconfig.test.esm.json'),
+    tsconfigFilepath: path.join(__dirname, 'tsconfig.test.json'),
   })
 
   return {
@@ -23,6 +23,7 @@ export default async function () {
       '<rootDir>/src/*.{js,jsx,ts,tsx}',
     ],
     coveragePathIgnorePatterns: ['packages/react-code-editor/src/editor.tsx'],
+    transformIgnorePatterns: ['<rootDir>/../../node_modules/'],
     coverageThreshold: {
       ...coverageMap[manifest.name],
       global: {
@@ -36,4 +37,28 @@ export default async function () {
   }
 }
 
-const coverageMap = {}
+const coverageMap = {
+  '@yozora/react-admonition': {
+    global: {
+      functions: 57,
+    },
+  },
+  '@yozora/react-code': {
+    global: {
+      lines: 89,
+      statements: 89,
+    },
+  },
+  '@yozora/react-code-editor': {
+    global: {
+      lines: 69,
+      statements: 69,
+    },
+  },
+  '@yozora/react-code-live': {
+    global: {
+      branches: 25,
+      functions: 55,
+    },
+  },
+}

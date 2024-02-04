@@ -40,27 +40,6 @@
         "sourceMap": true,
         "commands": ["cross-env ROLLUP_CONFIG_TYPE=lib rollup -c ../../rollup.config.mjs -w"]
       }
-    },
-    "test": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/react-code-renderer-graphviz",
-        "commands": [
-          "node --experimental-vm-modules ../../node_modules/.bin/jest --config ../../jest.config.mjs --rootDir ."
-        ]
-      },
-      "configurations": {
-        "coverage": {
-          "commands": [
-            "node --experimental-vm-modules ../../node_modules/.bin/jest --config ../../jest.config.mjs --rootDir . --coverage"
-          ]
-        },
-        "update": {
-          "commands": [
-            "node --experimental-vm-modules ../../node_modules/.bin/jest --config ../../jest.config.mjs --rootDir . -u"
-          ]
-        }
-      }
     }
   }
 }

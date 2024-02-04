@@ -40,7 +40,7 @@ describe('basic rendering case', () => {
     `
     const view = render(<CodeRendererGraphviz code={code} />)
 
-    expect(view.getByText('finite_state_machine')).toBeInTheDocument()
     expect(view.asFragment()).toMatchSnapshot()
+    expect(view.getByText('finite_state_machine')).toBeInTheDocument()
   })
 })

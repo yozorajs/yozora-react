@@ -12,7 +12,7 @@ describe('basic rendering case', () => {
         const nextCode =
           'let a = 1, b = 2\n' +
           Array.from(new Array(100))
-            .map((x, i) => '// ' + i)
+            .map((_x, i) => '// ' + i)
             .join('\n') +
           "\nlet c = 3\nconsole.log('c:', c)"
         setCode(nextCode)

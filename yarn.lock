@@ -729,6 +729,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@guanghechen/helper-jest@npm:^6.0.0-alpha.2":
+  version: 6.0.0-alpha.2
+  resolution: "@guanghechen/helper-jest@npm:6.0.0-alpha.2"
+  dependencies:
+    "@guanghechen/helper-func": ^6.0.0-alpha.1
+    "@guanghechen/helper-is": ^6.0.0-alpha.1
+    "@jest/globals": ^29.7.0
+    jest: ^29.7.0
+  checksum: 2a969f84b07d3ca9bcb2c9d6db0e797b0f45706fe70585e09d8334755febff1155724f404e18229a336e597801c3a1386a2cba3d7fb4ac672d77b2b105520519
+  languageName: node
+  linkType: hard
+
 "@guanghechen/helper-npm@npm:^6.0.0-alpha.1":
   version: 6.0.0-alpha.1
   resolution: "@guanghechen/helper-npm@npm:6.0.0-alpha.1"
@@ -3022,6 +3034,7 @@ __metadata:
     "@guanghechen/eslint-config": ^6.0.0-alpha.1
     "@guanghechen/eslint-config-jsx": ^6.0.0-alpha.2
     "@guanghechen/eslint-config-ts": ^6.0.0-alpha.6
+    "@guanghechen/helper-jest": ^6.0.0-alpha.2
     "@guanghechen/jest-config": ^6.0.0-alpha.2
     "@guanghechen/reporter": ^1.0.0-alpha.27
     "@guanghechen/rollup-config": ^6.0.0-alpha.3

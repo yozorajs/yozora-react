@@ -13,9 +13,7 @@
   },
   "homepage": "https://github.com/yozorajs/yozora-react/#readme",
   "license": "MIT",
-  "engines": {
-    "node": ">= 16.0.0"
-  },
+  "type": "module",
   "scripts": {
     ":publish": "yarn build:production && yarn test:coverage && lerna publish",
     ":publish:recover": "git stash && lerna publish from-package",
@@ -48,6 +46,7 @@
     "@guanghechen/eslint-config": "^6.0.0-alpha.1",
     "@guanghechen/eslint-config-jsx": "^6.0.0-alpha.2",
     "@guanghechen/eslint-config-ts": "^6.0.0-alpha.6",
+    "@guanghechen/helper-jest": "^6.0.0-alpha.2",
     "@guanghechen/jest-config": "^6.0.0-alpha.2",
     "@guanghechen/reporter": "^1.0.0-alpha.27",
     "@guanghechen/rollup-config": "^6.0.0-alpha.3",
