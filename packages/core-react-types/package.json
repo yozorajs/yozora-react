@@ -43,9 +43,9 @@
     "react": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "cross-env": "*",
+    "cross-env": "^7.0.3",
     "jest": "*",
-    "rimraf": "*",
-    "rollup": "*"
+    "rimraf": "^5.0.5",
+    "rollup": "^4.9.6"
   }
 }

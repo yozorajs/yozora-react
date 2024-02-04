@@ -40,10 +40,10 @@
     "prepublishOnly": "yarn build"
   },
   "devDependencies": {
-    "cross-env": "*",
+    "cross-env": "^7.0.3",
     "jest": "*",
-    "rimraf": "*",
-    "rollup": "*"
+    "rimraf": "^5.0.5",
+    "rollup": "^4.9.6"
   },
   "browserslist": [
     "last 2 versions",

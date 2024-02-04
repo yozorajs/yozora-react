@@ -43,7 +43,7 @@
     "test": "node --experimental-vm-modules ../../node_modules/.bin/jest --config ../../jest.config.mjs --rootDir ."
   },
   "dependencies": {
-    "@guanghechen/equal": "^1.0.0-alpha.1",
+    "@guanghechen/equal": "^1.0.0-alpha.6",
     "@yozora/core-react-constant": "^3.0.0-alpha.6",
     "@yozora/react-code-highlighter": "^3.0.0-alpha.8"
   },
@@ -53,11 +53,11 @@
     "react": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@emotion/css": "*",
-    "cross-env": "*",
+    "@emotion/css": "^11.11.2",
+    "cross-env": "^7.0.3",
     "jest": "*",
-    "rimraf": "*",
-    "rollup": "*"
+    "rimraf": "^5.0.5",
+    "rollup": "^4.9.6"
   },
   "browserslist": [
     "last 2 versions",

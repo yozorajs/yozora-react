@@ -42,8 +42,8 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@guanghechen/equal": "^1.0.0-alpha.1",
-    "@yozora/ast": "^2.3.0",
+    "@guanghechen/equal": "^1.0.0-alpha.6",
+    "@yozora/ast": "^2.3.1",
     "@yozora/core-react-constant": "^3.0.0-alpha.6",
     "@yozora/core-react-renderer": "^3.0.0-alpha.12",
     "@yozora/core-react-theme": "^3.0.0-alpha.6",
