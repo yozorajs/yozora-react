@@ -1,4 +1,4 @@
-import { State, ViewModel } from '@guanghechen/viewmodel'
+import { State, ViewModel } from '@guanghechen/react-viewmodel'
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
 import { unstable_batchedUpdates } from 'react-dom'
 import type { INodeRendererMap, IPreviewImageItem } from '../types'
