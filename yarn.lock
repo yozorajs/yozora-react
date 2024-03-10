@@ -766,13 +766,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@guanghechen/observable@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "@guanghechen/observable@npm:6.1.0"
+"@guanghechen/observable@npm:^6.1.1":
+  version: 6.1.1
+  resolution: "@guanghechen/observable@npm:6.1.1"
   dependencies:
     "@guanghechen/disposable": ^1.0.0-alpha.4
     "@guanghechen/subscriber": ^1.0.0-alpha.1
-  checksum: 7e132d2421c1f82839df7d215b89803ee11fd6261d573d3b73b4b2baa4e1795af50e7531270cf64e34d2c6b244b1829d58f9cf4bf27b61acaa5f885aaffb989d
+  checksum: a65db0cbc9deb7b0e177cdc5558fad253256f463693c484a0ec6122768b53fe9d911d862367f400bcb756edc8e40dce28c7a6d3a2364328d3e1dcbc4c47485e4
   languageName: node
   linkType: hard
 
@@ -794,15 +794,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@guanghechen/react-viewmodel@npm:^0.2.11":
-  version: 0.2.11
-  resolution: "@guanghechen/react-viewmodel@npm:0.2.11"
+"@guanghechen/react-viewmodel@npm:^0.2.12":
+  version: 0.2.12
+  resolution: "@guanghechen/react-viewmodel@npm:0.2.12"
   dependencies:
     "@guanghechen/equal": ^1.0.0-alpha.6
-    "@guanghechen/viewmodel": ^1.0.0-alpha.18
+    "@guanghechen/viewmodel": ^1.0.0-alpha.19
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
-  checksum: ccaf9dd62aaa03f9108cd05808e3dfc17ced2c5cf3ab34a0bb5f532ee65aec4e9c4f4a5bb617441420549489ffa38394054b52388c00ff4fee5dce02310cc175
+  checksum: 6a1d1576c57b3ce74576e4c2a409fd16fdcd11ea9a9efc3b0e31f8138ac50113a90f3c31962e70fc94a82f650678db5288f0109a7f0d5fd11294e5a126a3d46c
   languageName: node
   linkType: hard
 
@@ -877,14 +877,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@guanghechen/viewmodel@npm:^1.0.0-alpha.18":
-  version: 1.0.0-alpha.18
-  resolution: "@guanghechen/viewmodel@npm:1.0.0-alpha.18"
+"@guanghechen/viewmodel@npm:^1.0.0-alpha.19":
+  version: 1.0.0-alpha.19
+  resolution: "@guanghechen/viewmodel@npm:1.0.0-alpha.19"
   dependencies:
     "@guanghechen/disposable": ^1.0.0-alpha.4
-    "@guanghechen/observable": ^6.1.0
+    "@guanghechen/observable": ^6.1.1
     "@guanghechen/subscriber": ^1.0.0-alpha.1
-  checksum: ae50132e34d0368d43e7a8f6c235dd5376ac31c83c00ff68ef3438f5ed1f93937d723dd993176a0f328eadd7668030844b7007df1915f1a7ee5cfa86becf49b3
+  checksum: 3d03e7cc1be52394c42876ef3b342a3ff6005d9a65b298100efb23af967a8efec587bd794b2610d41e30c053fba96d83c99e4fbeb60b214648d92574b7a58cf0
   languageName: node
   linkType: hard
 
@@ -2779,7 +2779,7 @@ __metadata:
   resolution: "@yozora/core-react-renderer@workspace:packages/core-react-renderer"
   dependencies:
     "@guanghechen/equal": ^1.0.0-alpha.6
-    "@guanghechen/react-viewmodel": ^0.2.11
+    "@guanghechen/react-viewmodel": ^0.2.12
     "@yozora/core-react-constant": ^3.0.0-alpha.7
     "@yozora/core-react-theme": ^3.0.0-alpha.7
     "@yozora/core-react-types": ^1.0.0-alpha.5
