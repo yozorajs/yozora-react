@@ -2774,7 +2774,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@yozora/core-react-renderer@^3.0.0-alpha.13, @yozora/core-react-renderer@workspace:packages/core-react-renderer":
+"@yozora/core-react-renderer@^3.0.0-alpha.14, @yozora/core-react-renderer@workspace:packages/core-react-renderer":
   version: 0.0.0-use.local
   resolution: "@yozora/core-react-renderer@workspace:packages/core-react-renderer"
   dependencies:
@@ -3001,7 +3001,7 @@ __metadata:
     "@guanghechen/equal": ^1.0.0-alpha.6
     "@yozora/ast": ^2.3.1
     "@yozora/core-react-constant": ^3.0.0-alpha.7
-    "@yozora/core-react-renderer": ^3.0.0-alpha.13
+    "@yozora/core-react-renderer": ^3.0.0-alpha.14
     "@yozora/core-react-theme": ^3.0.0-alpha.7
     "@yozora/core-react-types": ^1.0.0-alpha.5
     "@yozora/react-admonition": ^3.0.0-alpha.7

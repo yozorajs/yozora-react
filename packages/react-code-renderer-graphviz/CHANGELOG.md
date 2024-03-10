@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.9](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-renderer-graphviz@3.0.0-alpha.8...@yozora/react-code-renderer-graphviz@3.0.0-alpha.9) (2024-03-10)
+
+### Performance Improvements
+
+- ⬆️ upgrade dependencies
+  ([01f7aa2](https://github.com/yozorajs/yozora-react/commit/01f7aa24c686fd147da28a605f7c454203ddd3ba))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [3.0.0-alpha.8](https://github.com/yozorajs/yozora-react/compare/@yozora/react-code-renderer-graphviz@3.0.0-alpha.7...@yozora/react-code-renderer-graphviz@3.0.0-alpha.8) (2024-02-04)
 
 ### Performance Improvements
