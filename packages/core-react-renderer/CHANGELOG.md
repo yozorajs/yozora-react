@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-alpha.15](https://github.com/yozorajs/yozora-react/compare/@yozora/core-react-renderer@3.0.0-alpha.14...@yozora/core-react-renderer@3.0.0-alpha.15) (2024-03-10)
+
+### Performance Improvements
+
+- ⬆️ ugprade viewmodel
+  ([6835591](https://github.com/yozorajs/yozora-react/commit/683559147d2113919fad49037c4f8769804c99d9))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [3.0.0-alpha.14](https://github.com/yozorajs/yozora-react/compare/@yozora/core-react-renderer@3.0.0-alpha.13...@yozora/core-react-renderer@3.0.0-alpha.14) (2024-03-10)
 
 ### Performance Improvements
