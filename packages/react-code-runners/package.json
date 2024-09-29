@@ -35,15 +35,18 @@
     "LICENSE",
     "README.md"
   ],
+  "peerDependencies": {
+    "@yozora/ast": "^2.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.0 || ^18.0.0"
+  },
   "dependencies": {
     "@guanghechen/react-hooks": "^3.0.13",
     "@loadable/component": "^5.16.4",
     "@yozora/core-react-types": "^1.0.0-alpha.5"
   },
-  "peerDependencies": {
-    "@yozora/ast": "^2.0.0",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.0 || ^18.0.0"
+  "devDependencies": {
+    "@yozora/react-code-renderer-graphviz": "^3.0.0-alpha.9"
   },
   "browserslist": [
     "last 2 versions",

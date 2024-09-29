@@ -1,5 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`prop types render with custom className 1`] = `
+<DocumentFragment>
+  <div
+    class="yozora-code-literal yozora-code custom-code css-2nezmn"
+  >
+    <div
+      class="css-z50n43"
+    >
+      <span
+        class="css-9y6172"
+      >
+        <span
+          class="css-t4q37b"
+          title="close"
+        />
+        <span
+          class="css-p28dfd"
+          title="minimize"
+        />
+        <span
+          class="css-6luv6p"
+          title="maximize"
+        />
+      </span>
+      <span
+        class="css-n0hy0v"
+        title=""
+      />
+      <span
+        class="css-1f8l45h"
+      >
+        <button
+          aria-label="Copy to clipboard"
+          class="css-hpzs7n"
+          data-copy-status="pending"
+          type="button"
+        >
+          copy
+        </button>
+      </span>
+    </div>
+    <code
+      class="css-wlig89"
+    >
+      <pre>
+        <div
+          class="css-96awu6 prism-code"
+          style="color: rgb(212, 212, 212); max-height: calc(calc(var(--yozora_lineHeightCode, 1.6) * 1.8) + 6px); min-height: 100%;"
+        >
+          <div
+            class="css-p9ofu1"
+            style="width: 2.2em;"
+          >
+            <div
+              class="css-12bnrwi"
+            >
+              <span>
+                1
+              </span>
+            </div>
+          </div>
+          <div
+            class="css-1kgxr2s"
+          >
+            <div
+              class="css-1ttfemb"
+            >
+              <div
+                class="token-line css-1shup6l"
+                style="color: rgb(212, 212, 212);"
+              >
+                <span
+                  class="token plain"
+                >
+                  let a = 1
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </pre>
+    </code>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`snapshot embed 1`] = `
 <DocumentFragment>
   <div

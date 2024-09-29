@@ -7,7 +7,7 @@ describe('prop types', () => {
     const code = 'let a = 1'
     const className = 'custom-code'
     const view = render(<Code className={className} value={code} />)
-    expect(view.container.firstChild).toHaveClass(className)
+    expect(view.asFragment()).toMatchSnapshot()
   })
 })
 

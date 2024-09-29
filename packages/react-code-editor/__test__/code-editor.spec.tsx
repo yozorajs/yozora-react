@@ -15,7 +15,6 @@ describe('basic rendering case', () => {
 
     const view = render(<Wrapper />)
     const textarea = view.getByRole('textbox')
-    expect(textarea).toBeInTheDocument()
     expect(textarea.textContent).toEqual(code1)
 
     // change code
