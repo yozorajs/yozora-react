@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-live",
-  "version": "3.0.0-alpha.12",
+  "version": "3.0.0-alpha.13",
   "description": "code live in react",
   "author": {
     "name": "guanghechen",
@@ -40,12 +40,12 @@
   ],
   "dependencies": {
     "@guanghechen/common-util": "^0.2.4",
-    "@yozora/core-react-constant": "^3.0.0-alpha.7",
-    "@yozora/core-react-types": "^1.0.0-alpha.5",
-    "@yozora/react-code-editor": "^3.0.0-alpha.9",
-    "@yozora/react-code-embed": "^3.0.0-alpha.12",
-    "@yozora/react-common-copy-button": "^3.0.0-alpha.7",
-    "@yozora/react-common-light-buttons": "^3.0.0-alpha.1"
+    "@yozora/core-react-constant": "^3.0.0-alpha.8",
+    "@yozora/core-react-types": "^1.0.0-alpha.6",
+    "@yozora/react-code-editor": "^3.0.0-alpha.10",
+    "@yozora/react-code-embed": "^3.0.0-alpha.13",
+    "@yozora/react-common-copy-button": "^3.0.0-alpha.8",
+    "@yozora/react-common-light-buttons": "^3.0.0-alpha.2"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.0-alpha.6 (2024-09-29)
+
+- :wrench: chore: fix build issues
+  ([8942650](https://github.com/yozorajs/yozora-react/commit/8942650))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.0.0-alpha.5](https://github.com/yozorajs/yozora-react/compare/@yozora/core-react-types@1.0.0-alpha.4...@yozora/core-react-types@1.0.0-alpha.5) (2024-02-04)
 
 ### Performance Improvements

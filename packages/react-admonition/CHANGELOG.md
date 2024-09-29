@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0-alpha.8 (2024-09-29)
+
+- :arrow_up: chore: upgrade dependencies
+  ([a70eb2b](https://github.com/yozorajs/yozora-react/commit/a70eb2b))
+- :wrench: chore: fix build issues
+  ([8942650](https://github.com/yozorajs/yozora-react/commit/8942650))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [3.0.0-alpha.7](https://github.com/yozorajs/yozora-react/compare/@yozora/react-admonition@3.0.0-alpha.6...@yozora/react-admonition@3.0.0-alpha.7) (2024-02-04)
 
 ### Performance Improvements

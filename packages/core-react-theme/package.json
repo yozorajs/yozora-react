@@ -1,6 +1,6 @@
 {
   "name": "@yozora/core-react-theme",
-  "version": "3.0.0-alpha.7",
+  "version": "3.0.0-alpha.8",
   "description": "Yozora renderer theme.",
   "author": {
     "name": "guanghechen",
@@ -36,7 +36,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@yozora/core-react-constant": "^3.0.0-alpha.7"
+    "@yozora/core-react-constant": "^3.0.0-alpha.8"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",

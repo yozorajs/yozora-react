@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0-alpha.2 (2024-09-29)
+
+- :wrench: chore: fix build issues
+  ([8942650](https://github.com/yozorajs/yozora-react/commit/8942650))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [3.0.0-alpha.1](https://github.com/yozorajs/yozora-react/compare/@yozora/react-common-light-buttons@3.0.0-alpha.0...@yozora/react-common-light-buttons@3.0.0-alpha.1) (2024-02-04)
 
 ### Performance Improvements
