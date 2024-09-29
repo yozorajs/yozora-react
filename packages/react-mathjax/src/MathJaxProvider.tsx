@@ -1,4 +1,3 @@
-/* eslint-disable new-cap */
 import { isEqual } from '@guanghechen/equal'
 import PropTypes from 'prop-types'
 import React from 'react'

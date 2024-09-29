@@ -112,7 +112,7 @@ export class MathJaxNodeWithoutContext extends React.Component<IProps, IState> {
     const { MathJax3 } = this.props
     if (!MathJax3) {
       throw new Error(
-        `Could not find MathJax3 while attempting typeset! Probably MathJax3 script hasn't been loaded or MathJaxContextType.Provider is not in the hierarchy`,
+        "Could not find MathJax3 while attempting typeset! Probably MathJax3 script hasn't been loaded or MathJaxContextType.Provider is not in the hierarchy",
       )
     }
 

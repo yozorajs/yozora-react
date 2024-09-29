@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import type { Code } from '@yozora/ast'
 import { useThemeContext } from '@yozora/core-react-theme'
 import React from 'react'

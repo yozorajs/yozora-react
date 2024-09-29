@@ -28,7 +28,9 @@ Prism.languages.git = {
   string: /("|')(?:\\.|(?!\1)[^\\\r\n])*\1/,
 
   /*
-   * a git command. It starts with a random prompt finishing by a $, then "git" then some other parameters
+   * A git command.
+   * It starts with a random prompt finishing by a $, then "git" then some other parameters
+   *
    * For instance:
    * $ git add file.txt
    */
@@ -36,7 +38,9 @@ Prism.languages.git = {
     pattern: /^.*\$ git .*$/m,
     inside: {
       /*
-       * A git command can contain a parameter starting by a single or a double dash followed by a string
+       * A git command can contain a parameter starting by a single or a double dash followed
+       * by a string.
+       *
        * For instance:
        * $ git diff --cached
        * $ git log -p

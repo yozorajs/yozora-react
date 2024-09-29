@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import type { Link } from '@yozora/ast'
 import React from 'react'
 import type { INodeRenderer } from '../../types'

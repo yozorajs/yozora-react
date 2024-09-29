@@ -39,7 +39,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@guanghechen/common-util": "^0.2.3",
+    "@guanghechen/common-util": "^0.2.4",
     "@yozora/core-react-constant": "^3.0.0-alpha.7",
     "@yozora/core-react-types": "^1.0.0-alpha.5",
     "@yozora/react-code-editor": "^3.0.0-alpha.9",

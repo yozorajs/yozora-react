@@ -76,14 +76,14 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
       onFocus,
       onBlur,
       onKeyUp,
-      /* eslint-disable no-unused-vars */
+
       onKeyDown,
       onScroll,
       onValueChange,
       tabSize,
       insertSpaces,
       ignoreTabKey,
-      /* eslint-enable no-unused-vars */
+
       preClassName,
       preStyle,
       ...htmlProps
@@ -258,7 +258,6 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   protected _handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>): void => {
     const { tabSize, insertSpaces, ignoreTabKey, onKeyDown } = this.props
     const target = e.target as HTMLTextAreaElement
@@ -461,10 +460,10 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
         ? // Trigger redo with ⌘+Shift+Z on Mac
           e.metaKey && e.code === KeyboardCodes.Z && e.shiftKey
         : isWindows
-          ? // Trigger redo with Ctrl+Y on Windows
-            e.ctrlKey && e.code === KeyboardCodes.Y
-          : // Trigger redo with Ctrl+Shift+Z on other platforms
-            e.ctrlKey && e.code === KeyboardCodes.Z && e.shiftKey) &&
+        ? // Trigger redo with Ctrl+Y on Windows
+          e.ctrlKey && e.code === KeyboardCodes.Y
+        : // Trigger redo with Ctrl+Shift+Z on other platforms
+          e.ctrlKey && e.code === KeyboardCodes.Z && e.shiftKey) &&
       !e.altKey
     ) {
       e.preventDefault()

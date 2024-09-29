@@ -118,7 +118,7 @@ export class HighlightContent extends React.Component<IProps, IState> {
       <div
         className={cx(
           classes.container,
-          language ? `prism-code language-${language}` : `prism-code`,
+          language ? `prism-code language-${language}` : 'prism-code',
         )}
         style={style}
       >

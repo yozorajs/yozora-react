@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import type { Definition, ImageReference } from '@yozora/ast'
 import React from 'react'
 import { useNodeRendererDispatch, useNodeRendererState } from '../../context'

@@ -28,7 +28,7 @@ describe('basic', () => {
       `
       const view = render(<Wrapper code={code} inline={true} />)
 
-      expect(view.getByText(`Hello, world`)).toBeInTheDocument()
+      expect(view.getByText('Hello, world')).toBeInTheDocument()
     })
 
     test('Function component should be rendered correctly.', async () => {
@@ -50,16 +50,16 @@ describe('basic', () => {
       const view = render(<Wrapper code={code} inline={true} />)
 
       const counter = view.getByTestId('counter')
-      expect(counter.textContent).toEqual(`0`)
+      expect(counter.textContent).toEqual('0')
 
       await userEvent.click(view.getByText('+'))
       await userEvent.click(view.getByText('+'))
       await userEvent.click(view.getByText('+'))
-      expect(counter.textContent).toEqual(`3`)
+      expect(counter.textContent).toEqual('3')
 
       await userEvent.click(view.getByText('-'))
       await userEvent.click(view.getByText('-'))
-      expect(counter.textContent).toEqual(`1`)
+      expect(counter.textContent).toEqual('1')
     })
   })
 
@@ -89,7 +89,7 @@ describe('basic', () => {
     })
 
     test('`render` must be called with valid JSX.', () => {
-      const code = `render(undefined)`
+      const code = 'render(undefined)'
       const view = render(<Wrapper code={code} inline={false} />)
 
       expect(
@@ -98,7 +98,7 @@ describe('basic', () => {
     })
 
     test('Call `render` is required for No-Inline evaluations.', () => {
-      const code = `(<div>hello</div>)`
+      const code = '(<div>hello</div>)'
       const view = render(<Wrapper code={code} inline={false} />)
 
       expect(
@@ -109,7 +109,7 @@ describe('basic', () => {
 
   describe('exceptions', () => {
     test('inline', () => {
-      const code = `function Demo() { return <div>waw</span> })`
+      const code = 'function Demo() { return <div>waw</span> })'
       const view = render(<Wrapper code={code} inline={true} />)
 
       expect(view.queryByText('waw')).toBeNull()

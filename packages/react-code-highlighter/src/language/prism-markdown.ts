@@ -11,7 +11,8 @@ const inner = /(?:\\.|[^\\\n\r]|(?:\n|\r\n?)(?![\r\n]))/.source
 /**
  * This function is intended for the creation of the bold or italic pattern.
  *
- * This also adds a lookbehind group to the given pattern to ensure that the pattern is not backslash-escaped.
+ * This also adds a lookbehind group to the given pattern to ensure that the pattern is not
+ * backslash-escaped.
  *
  * _Note:_ Keep in mind that this adds a capturing group.
  */
@@ -291,8 +292,9 @@ Prism.hooks.add('after-tokenize', function (env) {
       }
 
       /*
-       * Add the correct `language-xxxx` class to this code block. Keep in mind that the `code-language` token
-       * is optional. But the grammar is defined so that there is only one case we have to handle:
+       * Add the correct `language-xxxx` class to this code block. Keep in mind that the
+       * `code-language` token is optional. But the grammar is defined so that there is only one
+       * case we have to handle:
        *
        * token.content = [
        *     <span class="punctuation">```</span>,
@@ -381,7 +383,8 @@ const tagPattern = RegExp(
 /**
  * A list of known entity names.
  *
- * This will always be incomplete to save space. The current list is the one used by lowdash's unescape function.
+ * This will always be incomplete to save space. The current list is the one used by lowdash's
+ * unescape function.
  *
  * @see {@link https://github.com/lodash/lodash/blob/2da024c3b4f9947a48517639de7560457cd4ec6c/unescape.js#L2}
  */

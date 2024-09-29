@@ -35,7 +35,7 @@ describe('snapshot', () => {
   test('literal', () => {
     const view = render(
       <Code
-        meta={`literal {1-2,2-1,4} title="/home/demo/a.tsx" collapsed`}
+        meta={'literal {1-2,2-1,4} title="/home/demo/a.tsx" collapsed'}
         lang={lang}
         value={code}
       />,

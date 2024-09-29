@@ -1,9 +1,12 @@
 import { CommonTokenNames } from '@yozora/core-react-constant'
 
 export const commonSchema: Record<CommonTokenNames, string> = {
-  [CommonTokenNames.fontFamilyCode]: `Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif`,
-  [CommonTokenNames.fontFamilyHeading]: `'Comic Sans MS', 'lucida grande', 'lucida sans unicode', lucida, 'Hiragino Sans GB', 'Helvetica Neue', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif`,
-  [CommonTokenNames.fontFamilyBody]: `'PingFang SC', system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, sans-serif`,
+  [CommonTokenNames.fontFamilyCode]:
+    "Consolas, 'Source Code Pro', 'Roboto Mono', monospace, sans-serif",
+  [CommonTokenNames.fontFamilyHeading]:
+    "'Comic Sans MS', 'lucida grande', 'lucida sans unicode', lucida, 'Hiragino Sans GB', 'Helvetica Neue', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif",
+  [CommonTokenNames.fontFamilyBody]:
+    "'PingFang SC', system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, sans-serif",
   [CommonTokenNames.fontSizeCode]: '14px',
   [CommonTokenNames.fontSizeBody]: '16px',
   [CommonTokenNames.lineHeightCode]: 'calc(16px * 1.6)',

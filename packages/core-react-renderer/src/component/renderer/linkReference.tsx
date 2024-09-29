@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import type { Definition, LinkReference } from '@yozora/ast'
 import React from 'react'
 import { useNodeRendererState } from '../../context'

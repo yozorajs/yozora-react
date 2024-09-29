@@ -32,7 +32,8 @@ const heading: string = css({
   textSizeAdjust: '100%',
   textTransform: 'none',
   overflowWrap: 'break-word',
-  fontFamily: `system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif`,
+  fontFamily:
+    "system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif",
 })
 
 export const classes = {

@@ -33,7 +33,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@guanghechen/equal": "^1.0.0-alpha.6",
+    "@guanghechen/equal": "^1.0.2",
     "sucrase": "^3.35.0"
   },
   "peerDependencies": {
