@@ -1,4 +1,4 @@
-import type { CSSInterpolation } from '@emotion/css'
+import type { CSSInterpolation } from '@emotion/css/dist/declarations/src/create-instance'
 import type {
   Blockquote,
   BlockquoteType,

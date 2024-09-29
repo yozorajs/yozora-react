@@ -212,6 +212,8 @@ Prism.languages.insertBefore('markdown', 'prolog', {
   strike: {
     // ~~strike through~~
     // ~strike~
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     pattern: createInline(/(~~?)(?:(?!~)<inner>)+\2/.source),
     lookbehind: true,
     greedy: true,

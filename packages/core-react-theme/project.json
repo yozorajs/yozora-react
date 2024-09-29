@@ -10,7 +10,6 @@
       "options": {
         "cwd": "packages/core-react-theme",
         "parallel": false,
-        "sourceMap": true,
         "commands": ["rimraf lib"]
       }
     },
@@ -20,7 +19,7 @@
       "options": {
         "cwd": "packages/core-react-theme",
         "parallel": false,
-        "sourceMap": true,
+        "sourcemap": true,
         "commands": ["cross-env ROLLUP_CONFIG_TYPE=lib rollup -c ../../rollup.config.mjs"]
       },
       "configurations": {
@@ -37,7 +36,7 @@
       "options": {
         "cwd": "packages/core-react-theme",
         "parallel": false,
-        "sourceMap": true,
+        "sourcemap": true,
         "commands": ["cross-env ROLLUP_CONFIG_TYPE=lib rollup -c ../../rollup.config.mjs -w"]
       }
     }
