@@ -1,12 +1,31 @@
-const VALID_ROLLUP_CONFIG_TYPES = ['lib']
-const RAW_ROLLUP_CONFIG_TYPE = process.env.ROLLUP_CONFIG_TYPE ?? ''
-const ROLLUP_CONFIG_TYPE = VALID_ROLLUP_CONFIG_TYPES.includes(RAW_ROLLUP_CONFIG_TYPE)
-  ? RAW_ROLLUP_CONFIG_TYPE
-  : 'lib'
+import {
+  createRollupConfig,
+  dtsPresetConfigBuilder,
+  modify,
+  tsPresetConfigBuilder,
+} from '@guanghechen/rollup-config'
+import path from 'node:path'
 
-export default async function () {
-  const createRollupConfig = await import(`./rollup.config.${ROLLUP_CONFIG_TYPE}.mjs`).then(
-    md => md.default,
-  )
-  return createRollupConfig()
+export default async function rollupConfig() {
+  const { default: manifest } = await import(path.resolve('package.json'), {
+    assert: { type: 'json' },
+  })
+  const config = await createRollupConfig({
+    manifest,
+    presetConfigBuilders: [
+      tsPresetConfigBuilder({
+        typescriptOptions: {
+          tsconfig: 'tsconfig.lib.json',
+        },
+        additionalPlugins: [modify()],
+      }),
+      dtsPresetConfigBuilder({
+        dtsOptions: {
+          respectExternal: true,
+          tsconfig: 'tsconfig.lib.json',
+        },
+      }),
+    ],
+  })
+  return config
 }
