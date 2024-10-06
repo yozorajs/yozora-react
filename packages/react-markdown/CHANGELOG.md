@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0-alpha.17 (2024-10-06)
+
+- :arrow_up: chore: upgrade dependencies
+  ([1227ab9](https://github.com/yozorajs/yozora-react/commit/1227ab9))
+- :wrench: chore: fix nx config ([59915bf](https://github.com/yozorajs/yozora-react/commit/59915bf))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 3.0.0-alpha.16 (2024-09-29)
 
 - :arrow_up: chore: upgrade dependencies
