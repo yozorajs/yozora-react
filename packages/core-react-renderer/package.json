@@ -36,7 +36,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@guanghechen/equal": "^1.0.2",
+    "@guanghechen/equal": "^1.0.3",
     "@guanghechen/react-viewmodel": "^0.2.14",
     "@yozora/core-react-constant": "^3.0.0-alpha.8",
     "@yozora/core-react-theme": "^3.0.0-alpha.8",

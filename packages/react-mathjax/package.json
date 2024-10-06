@@ -33,7 +33,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@guanghechen/equal": "^1.0.2",
+    "@guanghechen/equal": "^1.0.3",
     "@yozora/core-react-constant": "^3.0.0-alpha.8"
   },
   "peerDependencies": {

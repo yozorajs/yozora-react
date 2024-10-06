@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@guanghechen/react-hooks": "^3.0.13",
-    "@loadable/component": "^5.16.4",
+    "@loadable/component": "5.16.4",
     "@yozora/core-react-types": "^1.0.0-alpha.6"
   },
   "devDependencies": {
