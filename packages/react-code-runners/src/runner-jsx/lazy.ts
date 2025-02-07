@@ -60,23 +60,22 @@ export function dynamicImport(
 
   if (/\.[jt]s$/.test(moduleName)) {
     return new Promise(resolve => {
-      Placeholders.push(
-        loadable(importFunc, {
-          cacheKey: () => moduleName,
-          resolveComponent: module => {
-            if (defaultImport != null) {
-              // eslint-disable-next-line no-param-reassign
-              nextCustomScopes[defaultImport] = module
-            }
-            for (const { src: srcName, alias } of namedImports) {
-              // eslint-disable-next-line no-param-reassign
-              nextCustomScopes[alias ?? srcName] = module[srcName]
-            }
-            resolve()
-            return 'div' as any
-          },
-        }),
-      )
+      const Placeholder = loadable(importFunc, {
+        cacheKey: () => moduleName,
+        resolveComponent: module => {
+          if (defaultImport != null) {
+            // eslint-disable-next-line no-param-reassign
+            nextCustomScopes[defaultImport] = module
+          }
+          for (const { src: srcName, alias } of namedImports) {
+            // eslint-disable-next-line no-param-reassign
+            nextCustomScopes[alias ?? srcName] = module[srcName]
+          }
+          resolve()
+          return 'div' as any
+        },
+      })
+      Placeholders.push(Placeholder as React.ComponentType)
     })
   }
 
