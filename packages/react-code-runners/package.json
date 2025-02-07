@@ -41,7 +41,7 @@
     "react": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@guanghechen/react-hooks": "^3.0.13",
+    "@guanghechen/react-hooks": "^3.0.14",
     "@loadable/component": "5.16.4",
     "@yozora/core-react-types": "^1.0.0-alpha.7"
   },
