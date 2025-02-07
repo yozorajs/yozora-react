@@ -1,5 +1,6 @@
-import type { IConsoleMock } from '@guanghechen/helper-jest'
 import { createConsoleMock } from '@guanghechen/helper-jest'
+import { jest } from '@jest/globals'
+import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
 import type { ICodeRunnerProps } from '@yozora/core-react-types'
 import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
@@ -23,40 +24,43 @@ const JsxRunner: React.FC<ICodeRunnerProps> = ({ value, onError }) => {
   return <CodeRendererJsx code={value} inline={true} onError={onError} />
 }
 
+// Fake timers using Jest
+beforeEach(() => {
+  jest.useFakeTimers()
+})
+
+// Running all pending timers and switching to real timers using Jest
+afterEach(() => {
+  jest.runOnlyPendingTimers()
+  jest.useRealTimers()
+})
+
 describe('prop types', () => {
-  describe('value is required', () => {
-    let logger: IConsoleMock
-    beforeEach(() => {
-      logger = createConsoleMock(['warn', 'error'])
-    })
-    afterEach(() => {
-      logger.restore()
-    })
-
-    test('undefined', () => {
-      const view = render(<CodeEmbed lang="jsx" value={undefined as any} runner={JsxRunner} />)
-      expect(view.getByText(/TypeError: Cannot read properties of undefined/)).toBeInTheDocument()
-    })
-
-    test('null', () => {
-      const view = render(<CodeEmbed lang="jsx" value={null as any} runner={JsxRunner} />)
-      expect(view.getByText(/TypeError: Cannot read properties of null/)).toBeInTheDocument()
-    })
+  test('value is required (undefined)', () => {
+    const logger = createConsoleMock(['warn', 'error'])
+    const view = render(<CodeEmbed lang="jsx" value={undefined as any} runner={JsxRunner} />)
+    expect(view.getByText(/TypeError: Cannot read properties of undefined/)).toBeInTheDocument()
+    logger.restore()
   })
 
-  describe('className is optional', () => {
-    test('default', () => {
-      const view = render(<CodeEmbed lang="jsx" value={code} runner={JsxRunner} />)
-      expect(view.container.firstChild).toHaveClass('yozora-code-embed')
-    })
+  test('value is required (null)', () => {
+    const logger = createConsoleMock(['warn', 'error'])
+    const view = render(<CodeEmbed lang="jsx" value={null as any} runner={JsxRunner} />)
+    expect(view.getByText(/TypeError: Cannot read properties of null/)).toBeInTheDocument()
+    logger.restore()
+  })
 
-    test('custom', () => {
-      const view = render(
-        <CodeEmbed lang="jsx" value={code} runner={JsxRunner} className="my-code-embed" />,
-      )
-      expect(view.container.firstChild).toHaveClass('yozora-code-embed')
-      expect(view.container.firstChild).toHaveClass('my-code-embed')
-    })
+  test('className is optional (default)', () => {
+    const view = render(<CodeEmbed lang="jsx" value={code} runner={JsxRunner} />)
+    expect(view.container.firstChild).toHaveClass('yozora-code-embed')
+  })
+
+  test('className is optional (custom)', () => {
+    const view = render(
+      <CodeEmbed lang="jsx" value={code} runner={JsxRunner} className="my-code-embed" />,
+    )
+    expect(view.container.firstChild).toHaveClass('yozora-code-embed')
+    expect(view.container.firstChild).toHaveClass('my-code-embed')
   })
 
   test('style is optional', () => {
