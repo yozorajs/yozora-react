@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.0-alpha.8 (2025-02-07)
+
+- chore: support react19 ([2947f08](https://github.com/yozorajs/yozora-react/commit/2947f08))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 1.0.0-alpha.7 (2024-10-06)
 
 - :wrench: chore: fix nx config ([59915bf](https://github.com/yozorajs/yozora-react/commit/59915bf))

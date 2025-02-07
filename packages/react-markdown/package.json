@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-markdown",
-  "version": "3.0.0-alpha.17",
+  "version": "3.0.0-alpha.18",
   "description": "render markdown content in react",
   "author": {
     "name": "guanghechen",
@@ -41,12 +41,12 @@
     "@guanghechen/equal": "^1.0.3",
     "@yozora/ast": "^2.3.11",
     "@yozora/core-react-constant": "^3.0.0-alpha.9",
-    "@yozora/core-react-renderer": "^3.0.0-alpha.17",
-    "@yozora/core-react-theme": "^3.0.0-alpha.9",
-    "@yozora/core-react-types": "^1.0.0-alpha.7",
-    "@yozora/react-admonition": "^3.0.0-alpha.9",
-    "@yozora/react-code": "^3.0.0-alpha.15",
-    "@yozora/react-mathjax": "^3.0.0-alpha.11"
+    "@yozora/core-react-renderer": "^3.0.0-alpha.18",
+    "@yozora/core-react-theme": "^3.0.0-alpha.10",
+    "@yozora/core-react-types": "^1.0.0-alpha.8",
+    "@yozora/react-admonition": "^3.0.0-alpha.10",
+    "@yozora/react-code": "^3.0.0-alpha.16",
+    "@yozora/react-mathjax": "^3.0.0-alpha.12"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",

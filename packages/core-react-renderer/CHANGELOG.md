@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0-alpha.18 (2025-02-07)
+
+- chore: support react19 ([2947f08](https://github.com/yozorajs/yozora-react/commit/2947f08))
+- chore: upgrade dependencies ([10c525c](https://github.com/yozorajs/yozora-react/commit/10c525c))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 3.0.0-alpha.17 (2024-10-06)
 
 - :arrow_up: chore: upgrade dependencies
