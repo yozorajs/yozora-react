@@ -52,8 +52,8 @@
     "@emotion/css": "^11.0.0",
     "@yozora/ast": "^2.0.0",
     "prop-types": "^15.7.2",
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "browserslist": [
     "last 2 versions",

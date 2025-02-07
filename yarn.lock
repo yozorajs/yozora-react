@@ -2825,8 +2825,8 @@ __metadata:
     "@emotion/css": ^11.0.0
     "@yozora/ast": ^2.0.0
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
-    react-dom: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -2838,7 +2838,7 @@ __metadata:
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -2846,7 +2846,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@yozora/core-react-types@workspace:packages/core-react-types"
   peerDependencies:
-    react: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -2867,7 +2867,7 @@ __metadata:
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -2881,7 +2881,7 @@ __metadata:
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -2895,7 +2895,7 @@ __metadata:
     "@emotion/css": ^11.0.0
     "@yozora/ast": ^2.0.0
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -2909,7 +2909,7 @@ __metadata:
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -2924,7 +2924,7 @@ __metadata:
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -2943,7 +2943,7 @@ __metadata:
     "@emotion/css": ^11.0.0
     "@yozora/ast": ^2.0.0
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -2957,7 +2957,7 @@ __metadata:
     d3-selection: 3.0.0
   peerDependencies:
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -2969,7 +2969,7 @@ __metadata:
     sucrase: 3.35.0
   peerDependencies:
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -2984,7 +2984,7 @@ __metadata:
   peerDependencies:
     "@yozora/ast": ^2.0.0
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -3004,8 +3004,8 @@ __metadata:
     "@emotion/css": ^11.0.0
     "@yozora/ast": ^2.0.0
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
-    react-dom: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -3017,7 +3017,7 @@ __metadata:
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -3027,7 +3027,7 @@ __metadata:
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -3048,8 +3048,8 @@ __metadata:
     "@emotion/css": ^11.0.0
     "@yozora/ast": ^2.0.0
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
-    react-dom: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -3063,7 +3063,7 @@ __metadata:
   peerDependencies:
     "@emotion/css": ^11.0.0
     prop-types: ^15.7.2
-    react: ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
   languageName: unknown
   linkType: soft
 
