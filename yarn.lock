@@ -616,19 +616,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@guanghechen/chalk.types@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "@guanghechen/chalk.types@npm:1.0.3"
-  checksum: 4d3554b3d013f220ab0c8d94385e14950de4886dfba873ad0524175c7bd7c758c841f78689e439f375f55949089715037ff934008e927ab33d7cc6c946050b35
+"@guanghechen/chalk.types@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "@guanghechen/chalk.types@npm:1.0.4"
+  checksum: 5e2b4fb309b307ccda94f861382cc132cc6fe5c4334db26daaf76a7eed721779c760fd4e45642e091c1686a237131015ca4a36603dba72f747693223ec699bf1
   languageName: node
   linkType: hard
 
-"@guanghechen/chalk@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "@guanghechen/chalk@npm:1.0.3"
+"@guanghechen/chalk@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "@guanghechen/chalk@npm:1.0.4"
   dependencies:
-    "@guanghechen/chalk.types": ^1.0.3
-  checksum: b446a03b39c83972114d114088d5d6711f0c9fc5cdcf54089b78951aa4c4662e3970d791e43e5e0fe6f8c315e5042342788add2272891a32da4cdf889c054ec3
+    "@guanghechen/chalk.types": ^1.0.4
+  checksum: d9657a7f6fe0bbc28f705b0b401e782ee30f080d0bca6e3ff692f0b7f6aa0a303a4202613739b497a045ff3765a57d86eeb46bac459255757fdde10d3f136b90
   languageName: node
   linkType: hard
 
@@ -671,12 +671,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@guanghechen/eslint-config@npm:^7.0.14":
-  version: 7.0.14
-  resolution: "@guanghechen/eslint-config@npm:7.0.14"
+"@guanghechen/eslint-config@npm:^7.0.15":
+  version: 7.0.15
+  resolution: "@guanghechen/eslint-config@npm:7.0.15"
   dependencies:
     "@eslint/js": 9.21.0
-    "@stylistic/eslint-plugin-ts": 4.0.1
+    "@stylistic/eslint-plugin-ts": 4.1.0
     eslint-config-prettier: 10.0.1
     eslint-plugin-import: 2.31.0
     eslint-plugin-jest: 28.11.0
@@ -687,27 +687,27 @@ __metadata:
   peerDependencies:
     eslint: ^9.0.0
     prettier: ">=2"
-  checksum: 42c4bb8915e7395149b725e659549f6a816762ce85c83206afd903bbfc9ab8459beb8b420f6458eca668f7f661d7dd83b9c5ae73567f108f05adec9dfbaa3f02
+  checksum: 5c9430b876bc2b892c682f8e4dd5a3afaae51a39fc164cd73e91963fe4843e269f3b437460f0f387bb70474c9b5a00fb7c0ab27aba84ab2eb0541d636432b648
   languageName: node
   linkType: hard
 
-"@guanghechen/fs@npm:^1.0.8":
-  version: 1.0.8
-  resolution: "@guanghechen/fs@npm:1.0.8"
+"@guanghechen/fs@npm:^1.0.9":
+  version: 1.0.9
+  resolution: "@guanghechen/fs@npm:1.0.9"
   dependencies:
-    "@guanghechen/invariant": ^6.0.4
+    "@guanghechen/invariant": ^6.0.5
     "@guanghechen/reporter.types": ^1.0.5
-  checksum: d79ccc323b98a7998cc43d45bb2102f274dbb8127f009f32cf85a3b09274792f81f4e7384adcbb181a7ee5b4879f78da8f21ec32baacb543061ae94689e235fc
+  checksum: 85781cb7221d3c54c25240772a2711cf71054daac52b562764087a84652e164c4e67dc97b751a8ebec3e73bc007c54bf9ddb91ca2e55bb1e5c819ca11679c59f
   languageName: node
   linkType: hard
 
-"@guanghechen/globby@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "@guanghechen/globby@npm:1.0.3"
+"@guanghechen/globby@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "@guanghechen/globby@npm:1.0.4"
   dependencies:
     fast-glob: ^3.3.3
     ignore: ^7.0.3
-  checksum: 0832858fa044ff1394ee58ebbf45b80daacbde5b8fd90703635d7cbff4619d828fb9ad077517f1e26f4f6bd6a0bb9fbc692456c78057aef1dcec95f85212da50
+  checksum: 810f9ea02e8fb92343cde432f062f569bfc939ca7e95f7f99748ceb22b7982f1cae3c61a2738567fc0652b800ca29f12c92e0320d4355a92a1f019378aa0095d
   languageName: node
   linkType: hard
 
@@ -724,19 +724,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@guanghechen/helper-npm@npm:^6.0.2":
-  version: 6.0.2
-  resolution: "@guanghechen/helper-npm@npm:6.0.2"
+"@guanghechen/helper-npm@npm:^6.0.4":
+  version: 6.0.4
+  resolution: "@guanghechen/helper-npm@npm:6.0.4"
   dependencies:
     import-meta-resolve: 4.1.0
-  checksum: f4157b851f5872266197c7439ec71313f57dcc2ad962fd73f86076a96b897c4cdac2d470aca6cd92fbf12ac55297cc25b8904e736a95c1db7cc0e19bc7ee6590
+  checksum: 739eeaff6753e4d6e87f8db33f38053b10b8d23f45b1c854167c3b2836bdb73b3a328e2e6d1efcbf0b483c6d160b161e9b82df4084cd6603fcac4483a5cb3375
   languageName: node
   linkType: hard
 
-"@guanghechen/invariant@npm:^6.0.4":
-  version: 6.0.4
-  resolution: "@guanghechen/invariant@npm:6.0.4"
-  checksum: 2ffb7b169fbd432351b258666716b27c91ae00c9a11f70d3d6fbd1b3c5eebdc8e992854c229513984b2e39b37933f0674cf027693ea2e3435aaa3904b3da4e6a
+"@guanghechen/invariant@npm:^6.0.5":
+  version: 6.0.5
+  resolution: "@guanghechen/invariant@npm:6.0.5"
+  checksum: bca244f6a43df94944abed6e8e2b91fe38e400295cc5f294e9f80d2cb6b69665b025d49a371e7d69f8ce5b7bad5f1404e9119dce24c12f2e7945db6f56989813
   languageName: node
   linkType: hard
 
@@ -750,10 +750,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@guanghechen/monorepo@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@guanghechen/monorepo@npm:1.0.1"
-  checksum: afa0840f845fbf1dd3f87aa621588e7b349eaa29df05154b7d839a79cb0ae9af153f34a3d83c94899edb5a3a4c02b29b25cc36fd07c2d6dabce9b12d406022b8
+"@guanghechen/monorepo@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@guanghechen/monorepo@npm:1.0.3"
+  checksum: e08537e83f068a7dc82bb338e675ce98fd2ba92f7be2f5455cd3f101133a1cb45d939bbe1b36ff6c890a95f19b5da284b883a70df8f1517a1e27a4409153e36c
   languageName: node
   linkType: hard
 
@@ -804,23 +804,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@guanghechen/reporter@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "@guanghechen/reporter@npm:1.0.5"
+"@guanghechen/reporter@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "@guanghechen/reporter@npm:1.0.6"
   dependencies:
-    "@guanghechen/chalk.types": ^1.0.3
+    "@guanghechen/chalk.types": ^1.0.4
     "@guanghechen/reporter.types": ^1.0.5
     dayjs: 1.11.13
     json5: 2.2.3
-  checksum: 87423302226acc16c3c6d1fe88371326d9905aa46d424f5eda4aa12732a15982fef442d1d294d52317e03421781b5e5b2a92b90e1251cf71e9f3e67e4145acaa
+  checksum: 88b2d12e36dc1d3e8316a0c73d05773095b18ae079c4476a29dff9dd4fef18579ebecef302ee0c02a06fa09cc481345ce7ca005145762e1cf005f39b35444d02
   languageName: node
   linkType: hard
 
-"@guanghechen/rollup-config@npm:^6.0.6":
-  version: 6.0.6
-  resolution: "@guanghechen/rollup-config@npm:6.0.6"
+"@guanghechen/rollup-config@npm:^6.0.8":
+  version: 6.0.8
+  resolution: "@guanghechen/rollup-config@npm:6.0.8"
   dependencies:
-    "@guanghechen/helper-npm": ^6.0.2
+    "@guanghechen/helper-npm": ^6.0.4
     "@rollup/plugin-commonjs": 28.0.2
     "@rollup/plugin-json": 6.1.0
     "@rollup/plugin-node-resolve": 16.0.0
@@ -829,24 +829,24 @@ __metadata:
   peerDependencies:
     rollup: ^3.0.0 || ^4.0.0
     typescript: ">=5.0.0"
-  checksum: a060b127fea5422770c591d9e13cf6b0b12d079c355224f67fccdeb69fd02d56fd1f500ea59b23284f9ae5335a430bce42eba1194ec76ec74c610fca31d61703
+  checksum: 3314f9250ef97f14ae14bba4dadfd59b8298ea25968897bdbe087d052de236f1400f6a214408fe063ac4ad129ee316f9ff06b94fb72cffb4c8e8de3eab9d6481
   languageName: node
   linkType: hard
 
-"@guanghechen/script-doc-link@npm:^6.0.5":
-  version: 6.0.5
-  resolution: "@guanghechen/script-doc-link@npm:6.0.5"
+"@guanghechen/script-doc-link@npm:^6.0.6":
+  version: 6.0.6
+  resolution: "@guanghechen/script-doc-link@npm:6.0.6"
   dependencies:
-    "@guanghechen/chalk": ^1.0.3
-    "@guanghechen/fs": ^1.0.8
-    "@guanghechen/globby": ^1.0.3
-    "@guanghechen/invariant": ^6.0.4
-    "@guanghechen/reporter": ^1.0.5
+    "@guanghechen/chalk": ^1.0.4
+    "@guanghechen/fs": ^1.0.9
+    "@guanghechen/globby": ^1.0.4
+    "@guanghechen/invariant": ^6.0.5
+    "@guanghechen/reporter": ^1.0.6
     "@guanghechen/std": ^1.0.4
     minimist: 1.2.8
   bin:
     ghc-doc-link-rewrite: ./lib/esm/cli.mjs
-  checksum: 3a000fbfa5026bfbfbb78af5ef84d159b68547025eac3a0833b8cd13045b9154d70ba422cf8efdb99e12d1ab4abd7c5d9fa48b8c7963cf63efa8f1614d225ced
+  checksum: 00f75411cb24dc8be37d0184b568ffe5b110408c28985bb2558c429236988369753d3ec863d54dce7cfcc746d2485264c9cd667b01df8ff776fb61b5b58a8b16
   languageName: node
   linkType: hard
 
@@ -2196,16 +2196,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stylistic/eslint-plugin-ts@npm:4.0.1":
-  version: 4.0.1
-  resolution: "@stylistic/eslint-plugin-ts@npm:4.0.1"
+"@stylistic/eslint-plugin-ts@npm:4.1.0":
+  version: 4.1.0
+  resolution: "@stylistic/eslint-plugin-ts@npm:4.1.0"
   dependencies:
     "@typescript-eslint/utils": ^8.23.0
     eslint-visitor-keys: ^4.2.0
     espree: ^10.3.0
   peerDependencies:
     eslint: ">=9.0.0"
-  checksum: b9fdd13961bebca6581aefbe3dcd2bdceec33829baf576a757c003ce7779324845ce09afef7f3e7490abbbb0ac49209288c03a0b6342ab829af3af9504e442fe
+  checksum: 8d20fdaff8a5bd53ef450235ff0afe1a32a0f959ae273eca6321cfc1400bc8d5444cd5d7be0988cb316b0856cebc58939bc1888eac7887d4ca41e2021a8a0619
   languageName: node
   linkType: hard
 
@@ -2779,27 +2779,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yozora/ast-util@npm:^2.3.11":
-  version: 2.3.11
-  resolution: "@yozora/ast-util@npm:2.3.11"
+"@yozora/ast-util@npm:^2.3.12":
+  version: 2.3.12
+  resolution: "@yozora/ast-util@npm:2.3.12"
   dependencies:
-    "@yozora/ast": ^2.3.11
-    "@yozora/character": ^2.3.11
-  checksum: c62d80b209fe6e4540d2821779b3cba6056a83128350fe9e753c904db39604e72425b8735c81d830820ed1da05dad43859ad54e5e1ac13af81162598aaecedc3
+    "@yozora/ast": ^2.3.12
+    "@yozora/character": ^2.3.12
+  checksum: f81980aacb8e0175b895ed279df3a9dafe2a064b6f4f73b8806721e6b289671b5a9e6624bd50b89b945313e647fb25d496a712b29669879ad705edb274e67b05
   languageName: node
   linkType: hard
 
-"@yozora/ast@npm:^2.3.11":
-  version: 2.3.11
-  resolution: "@yozora/ast@npm:2.3.11"
-  checksum: 67c23f3090cd48587d89a26c939269738d5c0cad06dba1ce1548c5f938d1b3207efc5cd992d887ddd440852fd1c5aa2ee44bd8ac9fa4151de1e446fae02a692b
+"@yozora/ast@npm:^2.3.12":
+  version: 2.3.12
+  resolution: "@yozora/ast@npm:2.3.12"
+  checksum: a83eb9cd3319f205ffaf175ad5a74cca4580922371f8e6a5e831ab5e3450c920b310f2dcd7f2472a973d2273dff33940e3499ad571e7b36c78c1ec09561d0b40
   languageName: node
   linkType: hard
 
-"@yozora/character@npm:^2.3.11":
-  version: 2.3.11
-  resolution: "@yozora/character@npm:2.3.11"
-  checksum: 74d535dc57b0a50a687f5063d486eea527c4d9389a528bc5cd1b2c7d4735b9e3765f9c3ae084decee7671234406ad19a1afe05fbdb676d176a68a3d85b870dea
+"@yozora/character@npm:^2.3.12":
+  version: 2.3.12
+  resolution: "@yozora/character@npm:2.3.12"
+  checksum: 0619ad81c5ed485cf93ce1f01f11b4a42dcf21771c7ce42f8ed3dc745518f03a0c5b73b9d8486085e3d8593c122461945f9e258ab4b622b682549f3ab6cc65f6
   languageName: node
   linkType: hard
 
@@ -3035,7 +3035,7 @@ __metadata:
   resolution: "@yozora/react-markdown@workspace:packages/react-markdown"
   dependencies:
     "@guanghechen/equal": ^1.0.3
-    "@yozora/ast": ^2.3.11
+    "@yozora/ast": ^2.3.12
     "@yozora/core-react-constant": ^3.0.0-alpha.9
     "@yozora/core-react-renderer": ^3.0.0-alpha.18
     "@yozora/core-react-theme": ^3.0.0-alpha.10
@@ -3510,13 +3510,13 @@ __metadata:
   linkType: hard
 
 "axios@npm:^1.7.4":
-  version: 1.7.9
-  resolution: "axios@npm:1.7.9"
+  version: 1.8.1
+  resolution: "axios@npm:1.8.1"
   dependencies:
     follow-redirects: ^1.15.6
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
-  checksum: cb8ce291818effda09240cb60f114d5625909b345e10f389a945320e06acf0bc949d0f8422d25720f5dd421362abee302c99f5e97edec4c156c8939814b23d19
+  checksum: 3c434b86bb690046b5861134e9cee9b273467f0d82b64b9074f7da5004855826833736a1c6a9c05bf9af225ddd52b3da857a99d59e6736490b18e2cbc1ccb67e
   languageName: node
   linkType: hard
 
@@ -3850,9 +3850,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001688":
-  version: 1.0.30001700
-  resolution: "caniuse-lite@npm:1.0.30001700"
-  checksum: 0e5e1c8648efeae1a2bcf371c872a4e41d9508d58b47133558f78b99c3d58c4b6ce7688068ea872deffbfc7c3c2a117e756fc48e1de7ae6c5540f3c3a4441c7a
+  version: 1.0.30001701
+  resolution: "caniuse-lite@npm:1.0.30001701"
+  checksum: 1abcb27ea3296dacdaa669cfe8e094432165f0541bf49ef7a88c2758d0cec5f9a839ea948f7f48c0c63c633d98f6f6c55ccf97ffebea2caaf465389500df5422
   languageName: node
   linkType: hard
 
@@ -5635,11 +5635,11 @@ __metadata:
   linkType: hard
 
 "fastq@npm:^1.6.0":
-  version: 1.19.0
-  resolution: "fastq@npm:1.19.0"
+  version: 1.19.1
+  resolution: "fastq@npm:1.19.1"
   dependencies:
     reusify: ^1.0.4
-  checksum: c9203c9e485f5d1c5243e8807b15054533338242af632817f8d65bed6e46488e5b27cea75dfc110cc4c029137381e4d650449428bc42cc8712180f27a6bace9f
+  checksum: 7691d1794fb84ad0ec2a185f10e00f0e1713b894e2c9c4d42f0bc0ba5f8c00e6e655a202074ca0b91b9c3d977aab7c30c41a8dc069fb5368576ac0054870a0e6
   languageName: node
   linkType: hard
 
@@ -10440,15 +10440,15 @@ __metadata:
   resolution: "root@workspace:."
   dependencies:
     "@emotion/css": 11.13.5
-    "@guanghechen/chalk": ^1.0.3
+    "@guanghechen/chalk": ^1.0.4
     "@guanghechen/conventional-changelog": ^6.0.1
-    "@guanghechen/eslint-config": ^7.0.14
+    "@guanghechen/eslint-config": ^7.0.15
     "@guanghechen/helper-jest": ^6.0.2
     "@guanghechen/jest-config": ^6.0.2
-    "@guanghechen/monorepo": ^1.0.1
-    "@guanghechen/reporter": ^1.0.5
-    "@guanghechen/rollup-config": ^6.0.6
-    "@guanghechen/script-doc-link": ^6.0.5
+    "@guanghechen/monorepo": ^1.0.3
+    "@guanghechen/reporter": ^1.0.6
+    "@guanghechen/rollup-config": ^6.0.8
+    "@guanghechen/script-doc-link": ^6.0.6
     "@rollup/plugin-alias": 5.1.1
     "@rollup/plugin-node-resolve": 16.0.0
     "@testing-library/dom": 10.4.0
@@ -10462,8 +10462,8 @@ __metadata:
     "@types/prismjs": 1.26.5
     "@types/react": 18.3.18
     "@types/react-dom": 18.3.5
-    "@yozora/ast": ^2.3.11
-    "@yozora/ast-util": ^2.3.11
+    "@yozora/ast": ^2.3.12
+    "@yozora/ast-util": ^2.3.12
     cross-env: 7.0.3
     eslint: 9.21.0
     husky: 9.1.7
