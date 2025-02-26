@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-literal",
-  "version": "3.0.0-alpha.13",
+  "version": "3.0.0-alpha.14",
   "description": "render markdown `code` node in react",
   "author": {
     "name": "guanghechen",
@@ -36,10 +36,10 @@
     "README.md"
   ],
   "dependencies": {
-    "@yozora/core-react-constant": "^3.0.0-alpha.9",
-    "@yozora/react-code-highlighter": "^3.0.0-alpha.12",
-    "@yozora/react-common-copy-button": "^3.0.0-alpha.10",
-    "@yozora/react-common-light-buttons": "^3.0.0-alpha.4"
+    "@yozora/core-react-constant": "^3.0.0-alpha.10",
+    "@yozora/react-code-highlighter": "^3.0.0-alpha.13",
+    "@yozora/react-common-copy-button": "^3.0.0-alpha.11",
+    "@yozora/react-common-light-buttons": "^3.0.0-alpha.5"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",
