@@ -28,6 +28,7 @@ interface IProps {
   theme: IPrismTheme
   highlightLinenos: number[]
   className?: string
+  codesClassName?: string
   onLinenoWidthChange?(linenoWidth: React.CSSProperties['width']): void // Callback when linenoWidth changed.
 }
 
@@ -49,6 +50,7 @@ export class HighlightContent extends React.Component<IProps, IState> {
     theme: PropTypes.object.isRequired,
     highlightLinenos: PropTypes.array.isRequired,
     className: PropTypes.string,
+    codesClassName: PropTypes.string,
     onLinenoWidthChange: PropTypes.func,
   }
 
@@ -83,6 +85,7 @@ export class HighlightContent extends React.Component<IProps, IState> {
       props.maxLines !== nextProps.maxLines ||
       props.showLineno !== nextProps.showLineno ||
       props.className !== nextProps.className ||
+      props.codesClassName !== nextProps.codesClassName ||
       !isEqual(props.theme, nextProps.theme) ||
       !isEqual(props.highlightLinenos, nextProps.highlightLinenos)
     )
@@ -98,6 +101,7 @@ export class HighlightContent extends React.Component<IProps, IState> {
       maxLines,
       showLineno = true,
       className,
+      codesClassName,
     } = this.props
     const { linenoWidth, tokens } = this.state
 
@@ -137,7 +141,12 @@ export class HighlightContent extends React.Component<IProps, IState> {
             <HighlightLinenos countOfLines={countOfLines} highlightLinenos={highlightLinenos} />
           </div>
         )}
-        <div key="codes" ref={codesRef} className={classes.codes} onScroll={onScroll}>
+        <div
+          key="codes"
+          ref={codesRef}
+          className={cx(classes.codes, codesClassName)}
+          onScroll={onScroll}
+        >
           <div className={classes.codeWrapper}>
             {tokens.map((line, lineNo) => {
               const isHighlight = highlightLinenos.includes(lineNo + 1)
