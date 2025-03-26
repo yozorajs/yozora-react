@@ -34,7 +34,7 @@
   ],
   "dependencies": {
     "@guanghechen/equal": "^1.0.3",
-    "@guanghechen/react-viewmodel": "^0.2.15",
+    "@guanghechen/react-viewmodel": "^0.2.16",
     "@yozora/core-react-constant": "^3.0.0-alpha.10",
     "@yozora/core-react-theme": "^3.0.0-alpha.11",
     "@yozora/core-react-types": "^1.0.0-alpha.9",

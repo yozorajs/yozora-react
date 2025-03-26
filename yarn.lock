@@ -785,15 +785,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@guanghechen/react-viewmodel@npm:^0.2.15":
-  version: 0.2.15
-  resolution: "@guanghechen/react-viewmodel@npm:0.2.15"
+"@guanghechen/react-viewmodel@npm:^0.2.16":
+  version: 0.2.16
+  resolution: "@guanghechen/react-viewmodel@npm:0.2.16"
   dependencies:
     "@guanghechen/equal": ^1.0.3
     "@guanghechen/viewmodel": ^1.0.5
   peerDependencies:
     react: ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 28e763cebcfa67f7381881ed00d5f269475fce05a355130291dfa96e29557b017f2dc0132286d8e2518c48fe701579a1318a1547312817d11a8ecbf76764abb6
+  checksum: 427cc6a4cf1fe5f9b3263a2918029211593de3110c500568affc648f37994dc581b3be38716fc5776dc93f9fcc1c320ccd9eee5f1fac283d1b406d5d07739dec
   languageName: node
   linkType: hard
 
@@ -2814,7 +2814,7 @@ __metadata:
   resolution: "@yozora/core-react-renderer@workspace:packages/core-react-renderer"
   dependencies:
     "@guanghechen/equal": ^1.0.3
-    "@guanghechen/react-viewmodel": ^0.2.15
+    "@guanghechen/react-viewmodel": ^0.2.16
     "@yozora/core-react-constant": ^3.0.0-alpha.10
     "@yozora/core-react-theme": ^3.0.0-alpha.11
     "@yozora/core-react-types": ^1.0.0-alpha.9
