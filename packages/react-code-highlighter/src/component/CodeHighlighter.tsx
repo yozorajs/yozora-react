@@ -48,6 +48,10 @@ interface IProps {
    */
   codesRef?: React.RefCallback<HTMLDivElement> | React.RefObject<HTMLDivElement>
   /**
+   * Custom css class.
+   */
+  className?: string
+  /**
    * Callback when linenoWidth changed.
    */
   onLinenoWidthChange?(linenoWidth: React.CSSProperties['width']): void
@@ -66,6 +70,7 @@ export class CodeHighlighter extends React.PureComponent<IProps> {
     showLineNo: PropTypes.bool,
     theme: PropTypes.any,
     value: PropTypes.string.isRequired,
+    className: PropTypes.string,
   }
 
   public override render(): React.ReactElement {
@@ -79,6 +84,7 @@ export class CodeHighlighter extends React.PureComponent<IProps> {
       showLineNo = true,
       codesRef,
       onLinenoWidthChange,
+      className,
     } = this.props
 
     const theme: IPrismTheme = this.props.theme ?? (darken ? vscDarkTheme : vscLightTheme)
@@ -93,6 +99,7 @@ export class CodeHighlighter extends React.PureComponent<IProps> {
         showLineno={showLineNo}
         theme={theme}
         onLinenoWidthChange={onLinenoWidthChange}
+        className={className}
       />
     )
   }

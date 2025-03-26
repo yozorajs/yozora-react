@@ -27,6 +27,7 @@ interface IProps {
   showLineno: boolean
   theme: IPrismTheme
   highlightLinenos: number[]
+  className?: string
   onLinenoWidthChange?(linenoWidth: React.CSSProperties['width']): void // Callback when linenoWidth changed.
 }
 
@@ -47,6 +48,7 @@ export class HighlightContent extends React.Component<IProps, IState> {
     showLineno: PropTypes.bool.isRequired,
     theme: PropTypes.object.isRequired,
     highlightLinenos: PropTypes.array.isRequired,
+    className: PropTypes.string,
     onLinenoWidthChange: PropTypes.func,
   }
 
@@ -80,6 +82,7 @@ export class HighlightContent extends React.Component<IProps, IState> {
       props.language !== nextProps.language ||
       props.maxLines !== nextProps.maxLines ||
       props.showLineno !== nextProps.showLineno ||
+      props.className !== nextProps.className ||
       !isEqual(props.theme, nextProps.theme) ||
       !isEqual(props.highlightLinenos, nextProps.highlightLinenos)
     )
@@ -94,6 +97,7 @@ export class HighlightContent extends React.Component<IProps, IState> {
       language,
       maxLines,
       showLineno = true,
+      className,
     } = this.props
     const { linenoWidth, tokens } = this.state
 
@@ -119,6 +123,7 @@ export class HighlightContent extends React.Component<IProps, IState> {
         className={cx(
           classes.container,
           language ? `prism-code language-${language}` : 'prism-code',
+          className,
         )}
         style={style}
       >
