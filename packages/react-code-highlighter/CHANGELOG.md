@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0-alpha.15 (2025-03-26)
+
+- chore: upgrade dependencies ([a7e0b48](https://github.com/yozorajs/yozora-react/commit/a7e0b48))
+- feat(react-code-highlighter): support pass codes className
+  ([ed7f605](https://github.com/yozorajs/yozora-react/commit/ed7f605))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 3.0.0-alpha.14 (2025-03-26)
 
 - feat(react-code-highlighter): support pass container css class

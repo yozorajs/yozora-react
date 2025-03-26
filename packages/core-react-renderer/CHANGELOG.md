@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0-alpha.21 (2025-03-26)
+
+**Note:** Version bump only for package @yozora/core-react-renderer
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 3.0.0-alpha.20 (2025-03-26)
 
 - chore: remove node engines requirements
