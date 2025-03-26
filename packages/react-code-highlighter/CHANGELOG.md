@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0-alpha.14 (2025-03-26)
+
+- feat(react-code-highlighter): support pass container css class
+  ([557b919](https://github.com/yozorajs/yozora-react/commit/557b919))
+- :bookmark: release ([76b70dc](https://github.com/yozorajs/yozora-react/commit/76b70dc))
+- chore: remove node engines requirements
+  ([c3af79d](https://github.com/yozorajs/yozora-react/commit/c3af79d))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 3.0.0-alpha.13 (2025-02-26)
 
 - chore: remove node engines requirements

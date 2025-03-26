@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-embed",
-  "version": "3.0.0-alpha.16",
+  "version": "3.0.0-alpha.17",
   "description": "code embed in react",
   "author": {
     "name": "guanghechen",
@@ -37,7 +37,7 @@
   ],
   "dependencies": {
     "@guanghechen/equal": "^1.0.3",
-    "@yozora/core-react-constant": "^3.0.0-alpha.10"
+    "@yozora/core-react-constant": "^3.0.0-alpha.11"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",

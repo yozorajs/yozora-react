@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0-alpha.20 (2025-03-26)
+
+- :bookmark: release ([76b70dc](https://github.com/yozorajs/yozora-react/commit/76b70dc))
+- chore: remove node engines requirements
+  ([c3af79d](https://github.com/yozorajs/yozora-react/commit/c3af79d))
+- chore: upgrade devDependencies
+  ([79ba0d3](https://github.com/yozorajs/yozora-react/commit/79ba0d3))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 3.0.0-alpha.19 (2025-02-26)
 
 - chore: remove node engines requirements

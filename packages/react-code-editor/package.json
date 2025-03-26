@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-code-editor",
-  "version": "3.0.0-alpha.13",
+  "version": "3.0.0-alpha.14",
   "description": "simple code editor",
   "author": {
     "name": "guanghechen",
@@ -36,8 +36,8 @@
   ],
   "dependencies": {
     "@guanghechen/equal": "^1.0.3",
-    "@yozora/core-react-constant": "^3.0.0-alpha.10",
-    "@yozora/react-code-highlighter": "^3.0.0-alpha.13"
+    "@yozora/core-react-constant": "^3.0.0-alpha.11",
+    "@yozora/react-code-highlighter": "^3.0.0-alpha.14"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",

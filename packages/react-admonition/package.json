@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-admonition",
-  "version": "3.0.0-alpha.11",
+  "version": "3.0.0-alpha.12",
   "description": "render markdown admonition in react",
   "author": {
     "name": "guanghechen",
@@ -36,7 +36,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@yozora/core-react-constant": "^3.0.0-alpha.10"
+    "@yozora/core-react-constant": "^3.0.0-alpha.11"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",
