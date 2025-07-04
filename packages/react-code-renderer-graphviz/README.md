@@ -135,7 +135,6 @@ This package is designed to render graphviz (dot) in react, inspired by [graphvi
   `'yozora-code-renderer-graphviz'`.
 
 - `engine`: Sets the Graphviz layout engine name to the specified engine string.
-
   - type: `'circo' | 'dot' | 'fdp' | 'neato' | 'osage' | 'patchwork' | 'twopi'`
   - default: `dot`
 

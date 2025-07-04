@@ -82,7 +82,7 @@ export class Code extends React.Component<ICodeProps, IState> {
 
     const { highlights, maxlines, title, collapsed, showlineno } = meta
     const className = cx(cls, this.props.className)
-    const mode = lang ? meta._yozoracodemode ?? 'literal' : 'literal'
+    const mode = lang ? (meta._yozoracodemode ?? 'literal') : 'literal'
 
     if (lang) {
       switch (mode) {
