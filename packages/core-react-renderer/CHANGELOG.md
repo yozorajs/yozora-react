@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0-alpha.22 (2025-07-04)
+
+- :white_check_mark: test: fix tests
+  ([42d9045](https://github.com/yozorajs/yozora-react/commit/42d9045))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 3.0.0-alpha.21 (2025-03-26)
 
 **Note:** Version bump only for package @yozora/core-react-renderer
