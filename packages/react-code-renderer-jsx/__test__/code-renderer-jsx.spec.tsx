@@ -1,6 +1,7 @@
 import { css } from '@emotion/css'
-import { render } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { jest } from '@jest/globals'
+import '@testing-library/jest-dom'
+import { fireEvent, render, waitFor } from '@testing-library/react'
 import React from 'react'
 import CodeRendererJsx from '../src'
 
@@ -16,9 +17,20 @@ function Wrapper(props: { code: string; inline: boolean }): React.ReactElement {
   )
 }
 
+// Fake timers using Jest
+beforeEach(() => {
+  jest.useFakeTimers()
+})
+
+// Running all pending timers and switching to real timers using Jest
+afterEach(() => {
+  jest.runOnlyPendingTimers()
+  jest.useRealTimers()
+})
+
 describe('basic', () => {
   describe('inline', () => {
-    test('Pure component should be rendered correctly.', () => {
+    test('greet', () => {
       const code = `
         (
           <div>
@@ -31,7 +43,22 @@ describe('basic', () => {
       expect(view.getByText('Hello, world')).toBeInTheDocument()
     })
 
-    test('Function component should be rendered correctly.', async () => {
+    test('greet -- function component', () => {
+      const code = `
+        function Greet() {
+          return (
+            <div>
+              <span>Hello, world</span>
+            </div>
+          )
+        }
+      `
+
+      const view = render(<Wrapper code={code} inline={true} />)
+      expect(view.getByText('Hello, world')).toBeInTheDocument()
+    })
+
+    test('counter -- function component', async () => {
       const code = `
         function Counter() {
           const [count, setCount] = React.useState(0)
@@ -49,17 +76,20 @@ describe('basic', () => {
       `
       const view = render(<Wrapper code={code} inline={true} />)
 
-      const counter = view.getByTestId('counter')
+      const counter = await view.findByTestId('counter')
       expect(counter.textContent).toEqual('0')
 
-      await userEvent.click(view.getByText('+'))
-      await userEvent.click(view.getByText('+'))
-      await userEvent.click(view.getByText('+'))
+      fireEvent.click(await view.findByText('+'))
+      fireEvent.click(await view.findByText('+'))
+      fireEvent.click(await view.findByText('+'))
       expect(counter.textContent).toEqual('3')
 
-      await userEvent.click(view.getByText('-'))
-      await userEvent.click(view.getByText('-'))
-      expect(counter.textContent).toEqual('1')
+      fireEvent.click(await view.findByText('-'))
+      fireEvent.click(await view.findByText('-'))
+
+      await waitFor(() => {
+        expect(counter.textContent).toEqual('1')
+      })
     })
   })
 
@@ -85,7 +115,7 @@ describe('basic', () => {
 
       const textElement = view.getByText('Hello, world')
       expect(textElement).toBeInTheDocument()
-      expect(textElement).toHaveStyle({ color: 'orange' })
+      expect(textElement).toHaveStyle({ color: 'rgb(255, 165, 0)' })
     })
 
     test('`render` must be called with valid JSX.', () => {

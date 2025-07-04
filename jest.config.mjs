@@ -17,13 +17,7 @@ export default async function () {
     ...baseConfig,
     testEnvironment: 'jsdom',
     setupFilesAfterEnv: ['<rootDir>/../../jest.setup.ts'],
-    collectCoverageFrom: [
-      '<rootDir>/index.js',
-      '<rootDir>/src/**/*.{js,jsx,ts,tsx}',
-      '<rootDir>/src/*.{js,jsx,ts,tsx}',
-    ],
     coveragePathIgnorePatterns: ['packages/react-code-editor/src/editor.tsx'],
-    transformIgnorePatterns: ['<rootDir>/../../node_modules/'],
     coverageThreshold: {
       ...coverageMap[manifest.name],
       global: {

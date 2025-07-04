@@ -65,9 +65,14 @@ describe('prop types', () => {
 
   test('style is optional', () => {
     const view = render(
-      <CodeEmbed lang="jsx" value={code} runner={JsxRunner} style={{ color: 'orange' }} />,
+      <CodeEmbed
+        lang="jsx"
+        value={code}
+        runner={JsxRunner}
+        style={{ color: 'rgb(255, 165, 0)' }}
+      />,
     )
-    expect(view.container.firstChild).toHaveStyle({ color: 'orange' })
+    expect(view.container.firstChild).toHaveStyle({ color: 'rgb(255, 165, 0)' })
   })
 })
 
