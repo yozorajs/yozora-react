@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0-alpha.16 (2025-08-27)
+
+- :arrow_up: chore: upgrade devDependencies
+  ([4922433](https://github.com/yozorajs/yozora-react/commit/4922433))
+- :bookmark: release ([11b58e9](https://github.com/yozorajs/yozora-react/commit/11b58e9))
+- :bookmark: release ([08f4b36](https://github.com/yozorajs/yozora-react/commit/08f4b36))
+- chore: upgrade dependencies ([a7e0b48](https://github.com/yozorajs/yozora-react/commit/a7e0b48))
+- feat(react-code-highlighter): support pass codes className
+  ([ed7f605](https://github.com/yozorajs/yozora-react/commit/ed7f605))
+- feat(react-code-highlighter): support pass container css class
+  ([557b919](https://github.com/yozorajs/yozora-react/commit/557b919))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 3.0.0-alpha.15 (2025-03-26)
 
 - chore: upgrade dependencies ([a7e0b48](https://github.com/yozorajs/yozora-react/commit/a7e0b48))

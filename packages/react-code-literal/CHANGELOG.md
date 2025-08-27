@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0-alpha.17 (2025-08-27)
+
+- :bookmark: release ([11b58e9](https://github.com/yozorajs/yozora-react/commit/11b58e9))
+- :bookmark: release ([08f4b36](https://github.com/yozorajs/yozora-react/commit/08f4b36))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 3.0.0-alpha.16 (2025-03-26)
 
 **Note:** Version bump only for package @yozora/react-code-literal

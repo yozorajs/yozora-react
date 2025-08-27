@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0-alpha.15 (2025-08-27)
+
+- chore: upgrade devDependencies
+  ([d3266f6](https://github.com/yozorajs/yozora-react/commit/d3266f6))
+- :bookmark: release ([08f4b36](https://github.com/yozorajs/yozora-react/commit/08f4b36))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 3.0.0-alpha.14 (2025-03-26)
 
 - :bookmark: release ([76b70dc](https://github.com/yozorajs/yozora-react/commit/76b70dc))

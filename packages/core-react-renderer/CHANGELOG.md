@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0-alpha.23 (2025-08-27)
+
+- :bookmark: release ([8cc387b](https://github.com/yozorajs/yozora-react/commit/8cc387b))
+- :bookmark: release ([11b58e9](https://github.com/yozorajs/yozora-react/commit/11b58e9))
+- :bookmark: release ([08f4b36](https://github.com/yozorajs/yozora-react/commit/08f4b36))
+- :white_check_mark: test: fix tests
+  ([42d9045](https://github.com/yozorajs/yozora-react/commit/42d9045))
+- chore: upgrade @guanghechen/react-viewmodel
+  ([d32e160](https://github.com/yozorajs/yozora-react/commit/d32e160))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 3.0.0-alpha.22 (2025-07-04)
 
 - :white_check_mark: test: fix tests
