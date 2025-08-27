@@ -4,6 +4,13 @@ import React from 'react'
 import { MathError } from './MathError'
 import type { IMathJax3, TexLang } from './types'
 
+interface IMathErrorProps {
+  lang: TexLang
+  formula: string
+  inline: boolean
+  error: string
+}
+
 interface IProps {
   MathJax3: IMathJax3
   language: TexLang
@@ -11,6 +18,7 @@ interface IProps {
   inline: boolean
   className?: string
   style?: React.CSSProperties
+  MathErrorRenderer?: React.ComponentType<IMathErrorProps>
 }
 
 interface IState {
@@ -26,6 +34,7 @@ export class MathJaxNodeWithoutContext extends React.Component<IProps, IState> {
     inline: PropTypes.bool.isRequired,
     className: PropTypes.string,
     style: PropTypes.object,
+    MathErrorRenderer: PropTypes.elementType,
   }
 
   protected readonly _nodeRef: React.RefObject<HTMLDivElement>
@@ -54,17 +63,18 @@ export class MathJaxNodeWithoutContext extends React.Component<IProps, IState> {
       props.formula !== nextProps.formula ||
       props.inline !== nextProps.inline ||
       props.className !== nextProps.className ||
+      props.MathErrorRenderer !== nextProps.MathErrorRenderer ||
       !isEqual(props.style, nextProps.style)
     )
   }
 
   public override render(): React.ReactElement {
-    const { formula, inline, className, style } = this.props
+    const { formula, inline, className, style, MathErrorRenderer = MathError } = this.props
     const { error } = this.state
 
     if (typeof error === 'string') {
       return (
-        <MathError
+        <MathErrorRenderer
           lang={this.props.language}
           formula={this.props.formula}
           inline={inline}
