@@ -9,7 +9,6 @@ export function evalCode(code: string, scope: Record<string, unknown>): React.Re
   const scopeKeys = Object.keys(scope)
   const scopeValues = scopeKeys.map(key => scope[key])
 
-  // eslint-disable-next-line no-new-func
   const f = new Function(...scopeKeys, code)
   return f(...scopeValues)
 }

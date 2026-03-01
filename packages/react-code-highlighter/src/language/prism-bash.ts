@@ -236,8 +236,8 @@ const toBeCopied = [
   'number',
 ]
 const inside = (insideString as any).variable[1].inside
-for (let i = 0; i < toBeCopied.length; i++) {
-  inside[toBeCopied[i]] = Prism.languages.bash[toBeCopied[i]]
+for (const tokenName of toBeCopied) {
+  inside[tokenName] = Prism.languages.bash[tokenName]
 }
 
 Prism.languages.sh = Prism.languages.bash
