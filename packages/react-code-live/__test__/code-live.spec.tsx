@@ -1,8 +1,8 @@
-import { jest } from '@jest/globals'
 import { fireEvent, render, waitFor } from '@testing-library/react'
 import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/core-react-types'
 import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
 import React from 'react'
+import { vi } from 'vitest'
 import CodeLive from '../src'
 
 const code = `
@@ -32,13 +32,13 @@ const runners: ICodeRunnerItem[] = [
 
 // Fake timers using Jest
 beforeEach(() => {
-  jest.useFakeTimers()
+  vi.useFakeTimers()
 })
 
 // Running all pending timers and switching to real timers using Jest
 afterEach(() => {
-  jest.runOnlyPendingTimers()
-  jest.useRealTimers()
+  vi.runOnlyPendingTimers()
+  vi.useRealTimers()
 })
 
 describe('prop types', () => {

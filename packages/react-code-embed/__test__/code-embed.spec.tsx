@@ -1,11 +1,22 @@
-import { createConsoleMock } from '@guanghechen/helper-jest'
-import { jest } from '@jest/globals'
-import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
 import type { ICodeRunnerProps } from '@yozora/core-react-types'
 import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
 import React from 'react'
+import { vi } from 'vitest'
 import CodeEmbed from '../src'
+
+function createConsoleMock(methods: Array<'warn' | 'error'>): { restore: () => void } {
+  const spies = methods.map(method =>
+    vi.spyOn(console, method).mockImplementation(() => {
+      return undefined
+    }),
+  )
+  return {
+    restore: () => {
+      for (const spy of spies) spy.mockRestore()
+    },
+  }
+}
 
 const code = `
   function Counter() {
@@ -26,13 +37,13 @@ const JsxRunner: React.FC<ICodeRunnerProps> = ({ value, onError }) => {
 
 // Fake timers using Jest
 beforeEach(() => {
-  jest.useFakeTimers()
+  vi.useFakeTimers()
 })
 
 // Running all pending timers and switching to real timers using Jest
 afterEach(() => {
-  jest.runOnlyPendingTimers()
-  jest.useRealTimers()
+  vi.runOnlyPendingTimers()
+  vi.useRealTimers()
 })
 
 describe('prop types', () => {

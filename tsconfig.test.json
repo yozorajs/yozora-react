@@ -2,8 +2,11 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "declaration": true,
+    "declarationMap": true,
     "noUnusedLocals": false,
-    "noUnusedParameters": false
+    "noUnusedParameters": false,
+    "sourceMap": true,
+    "types": ["vitest/globals", "node"]
   },
-  "include": ["src", "__test__", "jest.helper.mts"]
+  "include": ["packages/*/src", "packages/*/__test__", "vitest.config.ts", "vitest.setup.ts"]
 }

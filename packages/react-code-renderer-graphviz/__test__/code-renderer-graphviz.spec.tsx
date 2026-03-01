@@ -1,6 +1,6 @@
-import { jest } from '@jest/globals'
 import { render } from '@testing-library/react'
 import React from 'react'
+import { vi } from 'vitest'
 import CodeRendererGraphviz from '../src'
 
 describe('basic rendering case', () => {
@@ -12,7 +12,7 @@ describe('basic rendering case', () => {
      * @see https://github.com/jsdom/jsdom/issues/1330
      * @see https://github.com/jsdom/jsdom/issues/1423
      */
-    ;(SVGElement.prototype as any).getTotalLength = jest.fn()
+    ;(SVGElement.prototype as any).getTotalLength = vi.fn()
   })
 
   it('snapshot', () => {

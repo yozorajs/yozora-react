@@ -30,9 +30,9 @@
     "postpublish": "pinst --enable",
     "rebuild": "pnpm clean && pnpm build",
     "start": "pnpm -r --parallel --if-present run start",
-    "test": "pnpm -r --if-present run test",
-    "test:coverage": "pnpm -r --if-present run test:coverage",
-    "test:update": "pnpm -r --if-present run test:update",
+    "test": "vitest run --passWithNoTests",
+    "test:coverage": "vitest run --coverage --passWithNoTests",
+    "test:update": "vitest -u --passWithNoTests",
     "version": "pnpm install && ghc-doc-link-rewrite --username=yozorajs --repository=yozora && git stage -u pnpm-lock.yaml **/package.json **/*.md"
   },
   "devDependencies": {
@@ -40,8 +40,6 @@
     "@guanghechen/chalk": "^1.0.4",
     "@guanghechen/conventional-changelog": "^6.0.3",
     "@guanghechen/eslint-config": "^7.0.19",
-    "@guanghechen/helper-jest": "^6.0.3",
-    "@guanghechen/jest-config": "^6.0.3",
     "@guanghechen/reporter": "^1.0.6",
     "@guanghechen/rollup-config": "^6.0.10",
     "@guanghechen/script-doc-link": "^6.0.7",
@@ -52,7 +50,6 @@
     "@testing-library/react": "16.3.0",
     "@testing-library/user-event": "14.6.1",
     "@types/buble": "0.20.5",
-    "@types/jest": "30.0.0",
     "@types/loadable__component": "5.13.10",
     "@types/node": "20.19.11",
     "@types/prismjs": "1.26.5",
@@ -64,8 +61,6 @@
     "eslint": "9.34.0",
     "husky": "9.1.7",
     "is-ci": "4.1.0",
-    "jest": "30.1.1",
-    "jest-environment-jsdom": "30.1.1",
     "lint-staged": "16.1.5",
     "pinst": "3.0.0",
     "prettier": "3.6.2",
@@ -74,9 +69,10 @@
     "react-dom": "18.3.1",
     "rimraf": "6.0.1",
     "rollup": "4.49.0",
-    "ts-jest": "29.4.1",
+    "@vitest/coverage-v8": "4.0.18",
     "ts-node": "10.9.2",
-    "typescript": "5.9.2"
+    "typescript": "5.9.2",
+    "vitest": "4.0.18"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}": [

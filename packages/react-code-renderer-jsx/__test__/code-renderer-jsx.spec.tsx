@@ -1,8 +1,7 @@
 import { css } from '@emotion/css'
-import { jest } from '@jest/globals'
-import '@testing-library/jest-dom'
 import { fireEvent, render, waitFor } from '@testing-library/react'
 import React from 'react'
+import { vi } from 'vitest'
 import CodeRendererJsx from '../src'
 
 const scope = { css }
@@ -19,13 +18,13 @@ function Wrapper(props: { code: string; inline: boolean }): React.ReactElement {
 
 // Fake timers using Jest
 beforeEach(() => {
-  jest.useFakeTimers()
+  vi.useFakeTimers()
 })
 
 // Running all pending timers and switching to real timers using Jest
 afterEach(() => {
-  jest.runOnlyPendingTimers()
-  jest.useRealTimers()
+  vi.runOnlyPendingTimers()
+  vi.useRealTimers()
 })
 
 describe('basic', () => {

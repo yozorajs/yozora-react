@@ -59,9 +59,6 @@
   "scripts": {
     "clean": "rimraf lib",
     "build": "rollup -c ../../rollup.config.mjs",
-    "watch": "cross-env NODE_ENV=development ROLLUP_SHOULD_SOURCEMAP=true rollup -c ../../rollup.config.mjs -w",
-    "test": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js --config ../../jest.config.mjs --rootDir .",
-    "test:coverage": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js --config ../../jest.config.mjs --rootDir . --coverage",
-    "test:update": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js --config ../../jest.config.mjs --rootDir . -u"
+    "watch": "cross-env NODE_ENV=development ROLLUP_SHOULD_SOURCEMAP=true rollup -c ../../rollup.config.mjs -w"
   }
 }
