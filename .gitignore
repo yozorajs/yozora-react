@@ -21,14 +21,14 @@ yarn-debug.log*
 lerna-debug.log*
 npm-error.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # Editor directories and files
 .idea/
 
+.pnpm-store/
+.yarn/
+
 .vscode/*
 !.vscode/settings.json
 !.vscode/launch.json
-
-.yarn/*
-!.yarn/plugins
-!.yarn/releases

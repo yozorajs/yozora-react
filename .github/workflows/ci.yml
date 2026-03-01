@@ -29,9 +29,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Enable Corepack
+        run: corepack enable
       - name: Installation
-        run: yarn || yarn || yarn # 3 attempts to avoid timeout errors...
+        run: pnpm install --frozen-lockfile || pnpm install --frozen-lockfile || pnpm install --frozen-lockfile # 3 attempts to avoid timeout errors...
       - name: Build
-        run: yarn build
+        run: pnpm run build
       - name: Test
-        run: yarn test
+        run: pnpm run test

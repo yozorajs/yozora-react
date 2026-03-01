@@ -15,12 +15,12 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    ":publish": "yarn build:production && yarn test:coverage && lerna publish",
+    ":publish": "pnpm run build:production && pnpm run test:coverage && lerna publish",
     ":publish:recover": "git stash && lerna publish from-package",
-    ":upgrade": "yarn upgrade-interactive && run-s clean format build test",
+    ":upgrade": "pnpm update --interactive && run-s clean format build test",
     "build": "nx run-many --target=build --all=true --parallel=false",
     "build:production": "nx run-many --target=build --configuration=production --all=true --parallel=false",
-    "clean": "nx reset --clear-cache-and-daemon && nx run-many --target=clean --all=true && yarn install",
+    "clean": "nx reset --clear-cache-and-daemon && nx run-many --target=clean --all=true && pnpm install",
     "format": "run-s format:lintfix format:prettier",
     "format:lintfix": "eslint . --fix",
     "format:prettier": "prettier --write .",
@@ -33,7 +33,7 @@
     "test": "nx run-many --target=test --all=true --parallel=false",
     "test:coverage": "nx run-many --target=test --configuration=coverage --all=true --parallel=false",
     "test:update": "nx run-many --target=test --configuration=update --all=true --parallel=false",
-    "version": "yarn && ghc-doc-link-rewrite --username=yozorajs --repository=yozora && git stage -u yarn.lock **/package.json **/*.md"
+    "version": "pnpm install && ghc-doc-link-rewrite --username=yozorajs --repository=yozora && git stage -u pnpm-lock.yaml **/package.json **/*.md"
   },
   "workspaces": [
     "packages/*"
@@ -94,5 +94,5 @@
       "prettier --write"
     ]
   },
-  "packageManager": "yarn@3.3.1"
+  "packageManager": "pnpm@10.30.2"
 }
