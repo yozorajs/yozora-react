@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`prop types snapshot custom 1`] = `
+exports[`prop types > snapshot > custom 1`] = `
 <DocumentFragment>
   <div
     class="yozora-admonition custom-class css-3m4a7c"
@@ -45,7 +45,7 @@ exports[`prop types snapshot custom 1`] = `
 </DocumentFragment>
 `;
 
-exports[`prop types snapshot default 1`] = `
+exports[`prop types > snapshot > default 1`] = `
 <DocumentFragment>
   <div
     class="yozora-admonition css-1690hqv"

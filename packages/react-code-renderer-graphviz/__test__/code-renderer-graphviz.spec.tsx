@@ -15,7 +15,7 @@ describe('basic rendering case', () => {
     ;(SVGElement.prototype as any).getTotalLength = vi.fn()
   })
 
-  it('snapshot', () => {
+  it('snapshot', async () => {
     const code = `
       digraph finite_state_machine {
         rankdir=LR;
@@ -40,7 +40,7 @@ describe('basic rendering case', () => {
     `
     const view = render(<CodeRendererGraphviz code={code} />)
 
+    expect(await view.findByText('finite_state_machine')).toBeInTheDocument()
     expect(view.asFragment()).toMatchSnapshot()
-    expect(view.getByText('finite_state_machine')).toBeInTheDocument()
   })
 })

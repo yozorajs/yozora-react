@@ -1,13 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`basic rendering case snapshot 1`] = `
+exports[`basic rendering case > snapshot 1`] = `
 <DocumentFragment>
   <div
     class="yozora-code-renderer-graphviz"
   >
     <svg
-      height="254pt"
-      viewBox="0.00 0.00 576.00 254.09"
+      height="255pt"
+      viewBox="0.00 0.00 576.00 255.00"
       width="576pt"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -17,7 +17,7 @@ exports[`basic rendering case snapshot 1`] = `
       <g
         class="graph"
         id="graph0"
-        transform="scale(.9964 .9964) rotate(0) translate(4 251)"
+        transform="scale(0.996361 0.996361) rotate(0) translate(4 252)"
       >
         
 
@@ -27,9 +27,9 @@ exports[`basic rendering case snapshot 1`] = `
         
 
         <polygon
-          fill="#ffffff"
-          points="-4,4 -4,-251 574.0674,-251 574.0674,4 -4,4"
-          stroke="transparent"
+          fill="white"
+          points="-4,4 -4,-252 574.1,-252 574.1,4 -4,4"
+          stroke="none"
         />
         
 
@@ -53,7 +53,7 @@ exports[`basic rendering case snapshot 1`] = `
             fill="none"
             rx="18"
             ry="18"
-            stroke="#000000"
+            stroke="black"
           />
           
 
@@ -63,14 +63,14 @@ exports[`basic rendering case snapshot 1`] = `
             fill="none"
             rx="22"
             ry="22"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
             x="22"
             y="-72.8"
@@ -97,21 +97,21 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <ellipse
-            cx="132.223"
+            cx="132.23"
             cy="-106"
             fill="none"
             rx="18"
             ry="18"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="132.223"
+            x="132.23"
             y="-101.8"
           >
             2
@@ -136,26 +136,26 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <path
-            d="M43.5138,-82.6603C61.0637,-87.2778 85.9639,-93.8291 104.9182,-98.816"
+            d="M43.61,-82.52C60.6,-87.07 84.84,-93.57 103.53,-98.58"
             fill="none"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <polygon
-            fill="#000000"
-            points="104.1907,-102.2437 114.7521,-101.4034 105.9718,-95.474 104.1907,-102.2437"
-            stroke="#000000"
+            fill="black"
+            points="102.57,-101.94 113.13,-101.15 104.38,-95.18 102.57,-101.94"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="79.1115"
-            y="-99.2"
+            x="79.12"
+            y="-100.82"
           >
             SS(B)
           </text>
@@ -179,21 +179,21 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <ellipse
-            cx="132.223"
+            cx="132.23"
             cy="-50"
             fill="none"
             rx="18"
             ry="18"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="132.223"
+            x="132.23"
             y="-45.8"
           >
             1
@@ -218,26 +218,26 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <path
-            d="M42.4688,-67.9233C48.6505,-65.4536 55.5185,-62.9741 62,-61.2 75.5821,-57.4823 91.0017,-54.8541 103.9251,-53.0825"
+            d="M42.54,-68.08C48.67,-65.56 55.53,-63.01 62,-61.2 75.15,-57.52 90.07,-54.92 102.68,-53.15"
             fill="none"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <polygon
-            fill="#000000"
-            points="104.619,-56.5226 114.0985,-51.7908 103.7372,-49.5784 104.619,-56.5226"
-            stroke="#000000"
+            fill="black"
+            points="102.96,-56.64 112.43,-51.9 102.07,-49.7 102.96,-56.64"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="79.1115"
-            y="-66.2"
+            x="79.12"
+            y="-65.4"
           >
             SS(S)
           </text>
@@ -261,31 +261,31 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <ellipse
-            cx="252.5414"
+            cx="252.56"
             cy="-22"
             fill="none"
             rx="18"
             ry="18"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <ellipse
-            cx="252.5414"
+            cx="252.56"
             cy="-22"
             fill="none"
             rx="22"
             ry="22"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="252.5414"
+            x="252.56"
             y="-17.8"
           >
             3
@@ -310,32 +310,32 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <ellipse
-            cx="252.5414"
-            cy="-225"
+            cx="252.56"
+            cy="-226"
             fill="none"
             rx="18"
             ry="18"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <ellipse
-            cx="252.5414"
-            cy="-225"
+            cx="252.56"
+            cy="-226"
             fill="none"
             rx="22"
             ry="22"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="252.5414"
-            y="-220.8"
+            x="252.56"
+            y="-221.8"
           >
             4
           </text>
@@ -359,31 +359,31 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <ellipse
-            cx="548.0674"
+            cx="548.1"
             cy="-114"
             fill="none"
             rx="18"
             ry="18"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <ellipse
-            cx="548.0674"
+            cx="548.1"
             cy="-114"
             fill="none"
             rx="22"
             ry="22"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="548.0674"
+            x="548.1"
             y="-109.8"
           >
             8
@@ -408,21 +408,21 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <ellipse
-            cx="252.5414"
+            cx="252.56"
             cy="-133"
             fill="none"
             rx="18"
             ry="18"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="252.5414"
+            x="252.56"
             y="-128.8"
           >
             6
@@ -447,26 +447,26 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <path
-            d="M526.584,-119.8851C520.62,-121.3781 514.1199,-122.8756 508.0674,-124 431.5827,-138.2092 411.5597,-144.8128 333.8598,-141 316.131,-140.13 296.3062,-138.1993 280.6696,-136.4526"
+            d="M526.56,-119.76C520.64,-121.29 514.14,-122.84 508.1,-124 431.66,-138.72 411.61,-146.34 333.88,-142 316.64,-141.04 297.4,-138.92 282.08,-136.98"
             fill="none"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <polygon
-            fill="#000000"
-            points="280.9263,-132.9591 270.5907,-135.2881 280.1228,-139.9128 280.9263,-132.9591"
-            stroke="#000000"
+            fill="black"
+            points="282.62,-133.52 272.25,-135.69 281.71,-140.46 282.62,-133.52"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="399.9117"
-            y="-145.2"
+            x="399.94"
+            y="-147.11"
           >
             S(b)
           </text>
@@ -490,21 +490,21 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <ellipse
-            cx="351.8598"
+            cx="351.88"
             cy="-80"
             fill="none"
             rx="18"
             ry="18"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="351.8598"
+            x="351.88"
             y="-75.8"
           >
             5
@@ -529,26 +529,26 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <path
-            d="M526.025,-112.6239C494.8802,-110.3391 436.3792,-104.7932 387.8598,-93 384.7947,-92.255 381.6286,-91.3393 378.5042,-90.3419"
+            d="M525.7,-112.71C494.87,-110.5 436.32,-105.03 387.88,-93 385.23,-92.34 382.5,-91.55 379.79,-90.68"
             fill="none"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <polygon
-            fill="#000000"
-            points="379.4356,-86.9603 368.8408,-86.9857 377.139,-93.5728 379.4356,-86.9603"
-            stroke="#000000"
+            fill="black"
+            points="381.05,-87.41 370.45,-87.36 378.71,-94.01 381.05,-87.41"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="447.9636"
-            y="-110.2"
+            x="447.99"
+            y="-110.9"
           >
             S(a)
           </text>
@@ -572,26 +572,26 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <path
-            d="M144.7331,-119.5128C151.5881,-126.8388 160.2826,-136.0042 168.223,-144 188.3172,-164.2343 211.7494,-186.6535 228.8048,-202.7662"
+            d="M145.07,-119.16C151.77,-126.55 160.38,-135.88 168.23,-144 187.94,-164.37 210.95,-186.92 227.78,-203.21"
             fill="none"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <polygon
-            fill="#000000"
-            points="226.4793,-205.384 236.1574,-209.695 231.2801,-200.2896 226.4793,-205.384"
-            stroke="#000000"
+            fill="black"
+            points="225.26,-205.64 234.89,-210.06 230.12,-200.6 225.26,-205.64"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="190.3822"
-            y="-190.2"
+            x="190.4"
+            y="-191.09"
           >
             S(A)
           </text>
@@ -615,26 +615,26 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <path
-            d="M149.9764,-109.9839C169.7033,-114.4108 201.8078,-121.6151 224.8454,-126.7849"
+            d="M150.19,-109.87C169.34,-114.24 200.81,-121.42 223.61,-126.62"
             fill="none"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <polygon
-            fill="#000000"
-            points="224.1914,-130.2251 234.7152,-128.9997 225.7242,-123.395 224.1914,-130.2251"
-            stroke="#000000"
+            fill="black"
+            points="222.63,-129.99 233.16,-128.8 224.19,-123.16 222.63,-129.99"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="190.3822"
-            y="-127.2"
+            x="190.4"
+            y="-127.7"
           >
             SS(b)
           </text>
@@ -658,26 +658,26 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <path
-            d="M149.9108,-102.4638C169.5369,-98.6605 202.1831,-92.6903 230.5414,-89.2 262.3174,-85.289 298.994,-82.7842 323.6293,-81.3913"
+            d="M150.39,-102.53C169.78,-98.73 202.31,-92.71 230.56,-89.2 261.86,-85.31 297.96,-82.81 322.39,-81.42"
             fill="none"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <polygon
-            fill="#000000"
-            points="323.9238,-84.8806 333.72,-80.8451 323.5454,-77.8909 323.9238,-84.8806"
-            stroke="#000000"
+            fill="black"
+            points="322.39,-84.92 332.18,-80.88 322.01,-77.93 322.39,-84.92"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="252.5414"
-            y="-93.2"
+            x="252.56"
+            y="-93.4"
           >
             SS(a)
           </text>
@@ -701,26 +701,26 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <path
-            d="M149.9764,-45.8685C168.683,-41.5152 198.5198,-34.5717 221.2008,-29.2935"
+            d="M150.19,-45.99C168.25,-41.71 197.28,-34.85 219.65,-29.55"
             fill="none"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <polygon
-            fill="#000000"
-            points="222.1062,-32.6764 231.0526,-27.0008 220.5195,-25.8586 222.1062,-32.6764"
-            stroke="#000000"
+            fill="black"
+            points="220.25,-33.01 229.17,-27.3 218.64,-26.19 220.25,-33.01"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="190.3822"
-            y="-45.2"
+            x="190.4"
+            y="-45.14"
           >
             S($end)
           </text>
@@ -744,25 +744,25 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <path
-            d="M243.908,-148.916C241.6558,-159.1504 244.5336,-169 252.5414,-169 257.7965,-169 260.8423,-164.7581 261.6789,-158.9494"
+            d="M243.64,-148.92C241.31,-159.15 244.28,-169 252.56,-169 257.6,-169 260.67,-165.34 261.78,-160.17"
             fill="none"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <polygon
-            fill="#000000"
-            points="265.1722,-158.7278 261.1748,-148.916 258.181,-159.0791 265.1722,-158.7278"
-            stroke="#000000"
+            fill="black"
+            points="265.29,-160.33 261.52,-150.43 258.29,-160.52 265.29,-160.33"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="252.5414"
+            x="252.56"
             y="-173.2"
           >
             S(b)
@@ -787,26 +787,26 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <path
-            d="M268.4986,-124.4846C284.2814,-116.0624 308.6637,-103.0511 326.989,-93.272"
+            d="M268.77,-124.72C283.89,-116.48 307.37,-103.7 325.35,-93.9"
             fill="none"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <polygon
-            fill="#000000"
-            points="328.7676,-96.2901 335.9422,-88.4942 325.4719,-90.1144 328.7676,-96.2901"
-            stroke="#000000"
+            fill="black"
+            points="327.02,-96.98 334.13,-89.12 323.68,-90.83 327.02,-96.98"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="304.2006"
-            y="-115.2"
+            x="304.22"
+            y="-115.45"
           >
             S(a)
           </text>
@@ -830,25 +830,25 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <path
-            d="M343.8434,-96.2903C341.9103,-106.3892 344.5825,-116 351.8598,-116 356.5218,-116 359.2939,-112.0557 360.176,-106.5656"
+            d="M343.58,-96.29C341.57,-106.39 344.34,-116 351.88,-116 356.36,-116 359.15,-112.61 360.27,-107.74"
             fill="none"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <polygon
-            fill="#000000"
-            points="363.6665,-106.1839 359.8762,-96.2903 356.6695,-106.3881 363.6665,-106.1839"
-            stroke="#000000"
+            fill="black"
+            points="363.77,-107.78 360.2,-97.8 356.77,-107.83 363.77,-107.78"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="351.8598"
+            x="351.88"
             y="-120.2"
           >
             S(a)
@@ -873,21 +873,21 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <ellipse
-            cx="447.9636"
+            cx="447.99"
             cy="-60"
             fill="none"
             rx="18"
             ry="18"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="447.9636"
+            x="447.99"
             y="-55.8"
           >
             7
@@ -912,26 +912,26 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <path
-            d="M369.4867,-76.3317C383.6222,-73.39 403.725,-69.2064 420.0452,-65.81"
+            d="M369.71,-76.42C383.41,-73.51 403.03,-69.34 419.08,-65.93"
             fill="none"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <polygon
-            fill="#000000"
-            points="421.0459,-69.1769 430.123,-63.7128 419.6196,-62.3237 421.0459,-69.1769"
-            stroke="#000000"
+            fill="black"
+            points="419.46,-69.43 428.52,-63.93 418.01,-62.58 419.46,-69.43"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="399.9117"
-            y="-76.2"
+            x="399.94"
+            y="-76.58"
           >
             S(b)
           </text>
@@ -955,26 +955,26 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <path
-            d="M465.3945,-65.2457C477.7227,-69.3056 494.4185,-75.5245 508.0674,-83.2 513.1286,-86.0462 518.249,-89.4819 523.0592,-93.0116"
+            d="M465.64,-65.07C477.83,-69.12 494.53,-75.4 508.1,-83.2 512.9,-85.95 517.74,-89.26 522.3,-92.67"
             fill="none"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <polygon
-            fill="#000000"
-            points="521.2439,-96.0311 531.3025,-99.3591 525.5146,-90.4849 521.2439,-96.0311"
-            stroke="#000000"
+            fill="black"
+            points="519.97,-95.29 529.98,-98.73 524.3,-89.79 519.97,-95.29"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="496.0155"
-            y="-87.2"
+            x="496.05"
+            y="-87.4"
           >
             S(b)
           </text>
@@ -998,26 +998,26 @@ exports[`basic rendering case snapshot 1`] = `
           
 
           <path
-            d="M432.0044,-51.2437C419.6591,-45.6721 402.2939,-40.4859 387.8598,-46.2 381.2188,-48.829 375.0876,-53.3266 369.8376,-58.1982"
+            d="M431.53,-51.82C419.36,-46.52 402.14,-41.56 387.88,-47.2 381.88,-49.57 376.31,-53.51 371.45,-57.86"
             fill="none"
-            stroke="#000000"
+            stroke="black"
           />
           
 
           <polygon
-            fill="#000000"
-            points="367.2727,-55.8155 362.8196,-65.429 372.2958,-60.6907 367.2727,-55.8155"
-            stroke="#000000"
+            fill="black"
+            points="369.15,-55.21 364.61,-64.78 374.13,-60.13 369.15,-55.21"
+            stroke="black"
           />
           
 
           <text
-            fill="#000000"
             font-family="Times,serif"
             font-size="14.00"
+            space="preserve"
             text-anchor="middle"
-            x="399.9117"
-            y="-51.2"
+            x="399.94"
+            y="-51.4"
           >
             S(a)
           </text>

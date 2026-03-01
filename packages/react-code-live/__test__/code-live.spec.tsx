@@ -2,7 +2,6 @@ import { fireEvent, render, waitFor } from '@testing-library/react'
 import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/core-react-types'
 import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
 import React from 'react'
-import { vi } from 'vitest'
 import CodeLive from '../src'
 
 const code = `
@@ -29,17 +28,6 @@ const runners: ICodeRunnerItem[] = [
     runner: JsxRunner,
   },
 ]
-
-// Fake timers using Jest
-beforeEach(() => {
-  vi.useFakeTimers()
-})
-
-// Running all pending timers and switching to real timers using Jest
-afterEach(() => {
-  vi.runOnlyPendingTimers()
-  vi.useRealTimers()
-})
 
 describe('prop types', () => {
   test('change and debounce', async () => {

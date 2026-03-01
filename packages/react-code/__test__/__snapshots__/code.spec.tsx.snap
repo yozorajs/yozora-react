@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`prop types render with custom className 1`] = `
+exports[`prop types > render with custom className 1`] = `
 <DocumentFragment>
   <div
     class="yozora-code-literal yozora-code custom-code css-2nezmn"
@@ -86,7 +86,7 @@ exports[`prop types render with custom className 1`] = `
 </DocumentFragment>
 `;
 
-exports[`snapshot embed 1`] = `
+exports[`snapshot > embed 1`] = `
 <DocumentFragment>
   <div
     class="yozora-code-embed yozora-code css-1dr7anf"
@@ -98,7 +98,7 @@ exports[`snapshot embed 1`] = `
 </DocumentFragment>
 `;
 
-exports[`snapshot literal 1`] = `
+exports[`snapshot > literal 1`] = `
 <DocumentFragment>
   <div
     class="yozora-code-literal yozora-code css-2nezmn"
@@ -519,7 +519,7 @@ exports[`snapshot literal 1`] = `
 </DocumentFragment>
 `;
 
-exports[`snapshot live 1`] = `
+exports[`snapshot > live 1`] = `
 <DocumentFragment>
   <div
     class="yozora-code-live yozora-code css-qhier0"
