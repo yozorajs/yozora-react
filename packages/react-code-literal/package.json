@@ -51,5 +51,10 @@
     "Firefox ESR",
     "> 1%",
     "ie >= 11"
-  ]
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "rollup -c ../../rollup.config.mjs",
+    "watch": "cross-env NODE_ENV=development ROLLUP_SHOULD_SOURCEMAP=true rollup -c ../../rollup.config.mjs -w"
+  }
 }
