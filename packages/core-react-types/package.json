@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yozorajs/yozora-react/tree/@yozora/core-react-types@1.0.0-alpha.0",
+    "url": "https://github.com/yozorajs/yozora-react/tree/@yozora/core-react-types@1.0.0-alpha.11",
     "directory": "packages/core-react-types"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/@yozora/core-react-types@1.0.0-alpha.0/packages/core-react-types#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/@yozora/core-react-types@1.0.0-alpha.11/packages/core-react-types#readme",
   "keywords": [],
   "type": "module",
   "exports": {

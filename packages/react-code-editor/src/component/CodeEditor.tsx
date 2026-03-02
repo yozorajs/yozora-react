@@ -1,6 +1,6 @@
 import { isEqual } from '@guanghechen/equal'
 import type { IPrismTheme } from '@yozora/react-code-highlighter'
-import CodeHighlighter from '@yozora/react-code-highlighter'
+import CodeHighlighterComponent from '@yozora/react-code-highlighter'
 import React from 'react'
 import { SimpleCodeEditor } from './SimpleCodeEditor'
 
@@ -159,7 +159,7 @@ export class CodeEditor extends React.Component<IProps, IState> {
     const { codesRef, onLinenoWidthChange } = this
 
     return (
-      <CodeHighlighter
+      <CodeHighlighterComponent
         codesRef={codesRef}
         lang={lang}
         value={code}

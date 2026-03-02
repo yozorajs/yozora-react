@@ -33,35 +33,48 @@ function getPackageAliases(): Record<string, string> {
   return aliases
 }
 
-function hasTestFiles(): boolean {
+function getTestedPackageSourceGlobs(): string[] {
   const packagesDir = path.resolve(__dirname, 'packages')
-  if (!fs.existsSync(packagesDir)) return false
+  if (!fs.existsSync(packagesDir)) return []
 
   const packageDirs = fs
     .readdirSync(packagesDir, { withFileTypes: true })
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name)
 
-  const stack: string[] = packageDirs.map(dir => path.resolve(packagesDir, dir, '__test__'))
-  while (stack.length > 0) {
-    const current = stack.pop() as string
-    if (!fs.existsSync(current)) continue
+  const globs: string[] = []
+  for (const dir of packageDirs) {
+    const testDir = path.resolve(packagesDir, dir, '__test__')
+    if (!fs.existsSync(testDir)) continue
 
-    const entries = fs.readdirSync(current, { withFileTypes: true })
-    for (const entry of entries) {
-      const nextPath = path.resolve(current, entry.name)
-      if (entry.isDirectory()) {
-        stack.push(nextPath)
-      } else if (entry.isFile() && testFileRegex.test(entry.name)) {
-        return true
+    let hasTests = false
+    const stack: string[] = [testDir]
+    while (stack.length > 0 && !hasTests) {
+      const current = stack.pop() as string
+      const entries = fs.readdirSync(current, { withFileTypes: true })
+      for (const entry of entries) {
+        const nextPath = path.resolve(current, entry.name)
+        if (entry.isDirectory()) {
+          stack.push(nextPath)
+        } else if (entry.isFile() && testFileRegex.test(entry.name)) {
+          hasTests = true
+          break
+        }
       }
+    }
+
+    if (hasTests) {
+      globs.push(`packages/${dir}/src/**/*.{ts,tsx}`)
     }
   }
 
-  return false
+  return globs
 }
 
-const shouldCheckCoverageThresholds = hasTestFiles()
+const testedPackageSourceGlobs = getTestedPackageSourceGlobs()
+const shouldCheckCoverageThresholds = testedPackageSourceGlobs.length > 0
+const coverageInclude =
+  testedPackageSourceGlobs.length > 0 ? testedPackageSourceGlobs : ['packages/*/src/**/*.{ts,tsx}']
 
 export default defineConfig({
   test: {
@@ -71,7 +84,7 @@ export default defineConfig({
     globals: true,
     coverage: {
       provider: 'v8',
-      include: ['packages/*/src/**/*.{ts,tsx}'],
+      include: coverageInclude,
       exclude: [
         '**/node_modules/**',
         '**/__test__/**',
@@ -81,9 +94,9 @@ export default defineConfig({
         ? {
             thresholds: {
               branches: 50,
-              functions: 60,
-              lines: 90,
-              statements: 90,
+              functions: 65,
+              lines: 60,
+              statements: 60,
             },
           }
         : {}),

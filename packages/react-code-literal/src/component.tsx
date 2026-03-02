@@ -1,7 +1,7 @@
 import { cx } from '@emotion/css'
-import CodeHighlighter from '@yozora/react-code-highlighter'
-import CopyButton from '@yozora/react-common-copy-button'
-import LightButtons from '@yozora/react-common-light-buttons'
+import CodeHighlighterComponent from '@yozora/react-code-highlighter'
+import CopyButtonComponent from '@yozora/react-common-copy-button'
+import LightButtonsComponent from '@yozora/react-common-light-buttons'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { classes } from './style'
@@ -126,18 +126,18 @@ export class CodeLiteral extends React.Component<IProps, IState> {
     return (
       <div className={cx('yozora-code-literal', classes.container, className)} style={style}>
         <div className={classes.toolbar} onDoubleClick={this._onToolbarDbClicked}>
-          <LightButtons onMinimize={this._onMinimize} onMaximize={this._onMaximize} />
+          <LightButtonsComponent onMinimize={this._onMinimize} onMaximize={this._onMaximize} />
           <span className={classes.title} title={title}>
             {title && <React.Fragment>{title}&nbsp;</React.Fragment>}
             {title && collapsed ? ' | ' + countOfLines + ' lines.' : null}
           </span>
           <span className={classes.copyBtn} onClick={this._onCopyBtnClicked}>
-            <CopyButton value={value} />
+            <CopyButtonComponent value={value} />
           </span>
         </div>
         <code className={classes.content}>
           <pre>
-            <CodeHighlighter
+            <CodeHighlighterComponent
               lang={lang}
               value={value}
               highlightLinenos={highlightLinenos}

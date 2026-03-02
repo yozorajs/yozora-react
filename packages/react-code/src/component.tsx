@@ -2,10 +2,10 @@ import { css, cx } from '@emotion/css'
 import { isEqual } from '@guanghechen/equal'
 import { tokens } from '@yozora/core-react-constant'
 import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/core-react-types'
-import CodeEmbed from '@yozora/react-code-embed'
-import CodeLiteral from '@yozora/react-code-literal'
-import CodeLive from '@yozora/react-code-live'
-import JsxRenderer from '@yozora/react-code-renderer-jsx'
+import CodeEmbedComponent from '@yozora/react-code-embed'
+import CodeLiteralComponent from '@yozora/react-code-literal'
+import CodeLiveComponent from '@yozora/react-code-live'
+import JsxRendererComponent from '@yozora/react-code-renderer-jsx'
 import PropTypes from 'prop-types'
 import React from 'react'
 import type { ICodeMetaData, ICodeProps } from './types'
@@ -18,7 +18,7 @@ export const defaultRunners: ICodeRunnerItem[] = [
     runner: function JsxRunner(props: ICodeRunnerProps): React.ReactElement {
       const { value, scope, onError, meta = {} } = props
       const inline = meta.jsxmode == null || meta.jsxmode === 'inline'
-      return <JsxRenderer code={value} inline={inline} scope={scope} onError={onError} />
+      return <JsxRendererComponent code={value} inline={inline} scope={scope} onError={onError} />
     },
   },
 ]
@@ -88,7 +88,7 @@ export class Code extends React.Component<ICodeProps, IState> {
       switch (mode) {
         case 'live': {
           return (
-            <CodeLive
+            <CodeLiveComponent
               lang={lang as string}
               value={value}
               meta={meta}
@@ -107,7 +107,7 @@ export class Code extends React.Component<ICodeProps, IState> {
           const runner = runners.find(item => item.pattern.test(lang as string))
           if (runner != null) {
             return (
-              <CodeEmbed
+              <CodeEmbedComponent
                 lang={lang as string}
                 value={value}
                 meta={meta}
@@ -122,7 +122,7 @@ export class Code extends React.Component<ICodeProps, IState> {
     }
 
     return (
-      <CodeLiteral
+      <CodeLiteralComponent
         lang={lang}
         value={value}
         title={title}

@@ -1,9 +1,9 @@
 import { cx } from '@emotion/css'
 import { debounce } from '@guanghechen/common-util'
-import CodeEditor from '@yozora/react-code-editor'
-import CodeEmbed from '@yozora/react-code-embed'
-import CopyButton from '@yozora/react-common-copy-button'
-import LightButtons from '@yozora/react-common-light-buttons'
+import CodeEditorComponent from '@yozora/react-code-editor'
+import CodeEmbedComponent from '@yozora/react-code-embed'
+import CopyButtonComponent from '@yozora/react-common-copy-button'
+import LightButtonsComponent from '@yozora/react-common-light-buttons'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { classes } from './style'
@@ -97,13 +97,13 @@ export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
     return (
       <div className={cx('yozora-code-live', classes.container, className)} style={style}>
         <div key="toolbar" className={classes.toolbar} onDoubleClick={this._onToolbarDbClicked}>
-          <LightButtons onMinimize={this._onMinimize} onMaximize={this._onMaximize} />
+          <LightButtonsComponent onMinimize={this._onMinimize} onMaximize={this._onMaximize} />
           <span className={classes.title} title={title}>
             {title && <React.Fragment>{title}&nbsp;</React.Fragment>}
             {title && collapsed ? ' | ' + countOfLines + ' lines.' : null}
           </span>
           <span className={classes.copyBtn} onClick={this._onCopyBtnClicked}>
-            <CopyButton value={value} />
+            <CopyButtonComponent value={value} />
           </span>
         </div>
         <div
@@ -111,7 +111,7 @@ export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
           className={cx(classes.main, orientation === 'vertical' && classes.mainVertical)}
         >
           <div key="editor" className={classes.editor}>
-            <CodeEditor
+            <CodeEditorComponent
               lang={lang}
               code={value}
               onChange={this._onChanged}
@@ -128,7 +128,7 @@ export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
               key="previewer"
               className={cx(classes.previewer, centerPreviewer && classes.previewerCenter)}
             >
-              <CodeEmbed
+              <CodeEmbedComponent
                 lang={lang}
                 value={value}
                 meta={meta}

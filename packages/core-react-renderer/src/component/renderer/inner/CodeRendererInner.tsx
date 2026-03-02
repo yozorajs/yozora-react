@@ -1,7 +1,7 @@
 import { css, cx } from '@emotion/css'
 import { tokens } from '@yozora/core-react-constant'
 import { parseCodeMeta } from '@yozora/core-react-util'
-import CodeHighlighter from '@yozora/react-code-highlighter'
+import CodeHighlighterComponent from '@yozora/react-code-highlighter'
 import React from 'react'
 
 interface IProps {
@@ -35,7 +35,7 @@ export class CodeRendererInner extends React.Component<IProps> {
     return (
       <code className={cls}>
         <pre>
-          <CodeHighlighter
+          <CodeHighlighterComponent
             lang={lang}
             value={value}
             highlightLinenos={metaData.highlights}

@@ -34,7 +34,8 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
       - name: Installation
-        run: pnpm install --frozen-lockfile || pnpm install --frozen-lockfile || pnpm install --frozen-lockfile # 3 attempts to avoid timeout errors...
+        run: pnpm install --frozen-lockfile || pnpm install --frozen-lockfile || pnpm install
+          --frozen-lockfile # 3 attempts to avoid timeout errors...
       - name: Build
         run: pnpm run build
       - name: Test

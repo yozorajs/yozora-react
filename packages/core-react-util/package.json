@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yozorajs/yozora-react/tree/@yozora/core-react-util@1.0.0-alpha.0",
+    "url": "https://github.com/yozorajs/yozora-react/tree/@yozora/core-react-util@1.0.0-alpha.12",
     "directory": "packages/core-react-util"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/@yozora/core-react-util@1.0.0-alpha.0/packages/core-react-util#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/@yozora/core-react-util@1.0.0-alpha.12/packages/core-react-util#readme",
   "keywords": [],
   "type": "module",
   "exports": {
