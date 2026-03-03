@@ -1,5 +1,21 @@
 # Change Log
 
+## 3.0.0-alpha.21
+
+### Patch Changes
+
+- Patch release for unreleased package changes since the latest published tags.
+  - Includes test fixes and workspace/tooling alignment updates across the monorepo.
+  - Bump level is forced to `patch` according to the release scope hint.
+
+- Updated dependencies:
+  - @yozora/core-react-constant@3.0.0-alpha.13
+  - @yozora/core-react-types@1.0.0-alpha.12
+  - @yozora/react-code-editor@3.0.0-alpha.18
+  - @yozora/react-code-embed@3.0.0-alpha.19
+  - @yozora/react-common-copy-button@3.0.0-alpha.14
+  - @yozora/react-common-light-buttons@3.0.0-alpha.8
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

@@ -1,6 +1,6 @@
 {
   "name": "@yozora/core-react-util",
-  "version": "1.0.0-alpha.12",
+  "version": "1.0.0-alpha.13",
   "description": "Yozora react utils.",
   "author": {
     "name": "guanghechen",
@@ -34,7 +34,7 @@
   ],
   "dependencies": {
     "@guanghechen/parse-lineno": "^2.3.10",
-    "@yozora/core-react-types": "^1.0.0-alpha.11"
+    "@yozora/core-react-types": "^1.0.0-alpha.12"
   },
   "scripts": {
     "clean": "rimraf lib",

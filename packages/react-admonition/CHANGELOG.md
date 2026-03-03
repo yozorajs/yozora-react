@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.0.0-alpha.14
+
+### Patch Changes
+
+- Patch release for unreleased package changes since the latest published tags.
+  - Includes test fixes and workspace/tooling alignment updates across the monorepo.
+  - Bump level is forced to `patch` according to the release scope hint.
+
+- Updated dependencies:
+  - @yozora/core-react-constant@3.0.0-alpha.13
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

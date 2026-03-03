@@ -1,0 +1,26 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "@yozora/core-react-constant": "3.0.0-alpha.12",
+    "@yozora/core-react-renderer": "3.0.0-alpha.23",
+    "@yozora/core-react-theme": "3.0.0-alpha.13",
+    "@yozora/core-react-types": "1.0.0-alpha.11",
+    "@yozora/core-react-util": "1.0.0-alpha.12",
+    "@yozora/react-admonition": "3.0.0-alpha.13",
+    "@yozora/react-code": "3.0.0-alpha.21",
+    "@yozora/react-code-editor": "3.0.0-alpha.17",
+    "@yozora/react-code-embed": "3.0.0-alpha.18",
+    "@yozora/react-code-highlighter": "3.0.0-alpha.16",
+    "@yozora/react-code-literal": "3.0.0-alpha.17",
+    "@yozora/react-code-live": "3.0.0-alpha.20",
+    "@yozora/react-code-renderer-graphviz": "3.0.0-alpha.15",
+    "@yozora/react-code-renderer-jsx": "3.0.0-alpha.14",
+    "@yozora/react-code-runners": "3.0.0-alpha.18",
+    "@yozora/react-common-copy-button": "3.0.0-alpha.13",
+    "@yozora/react-common-light-buttons": "3.0.0-alpha.7",
+    "@yozora/react-markdown": "3.0.0-alpha.23",
+    "@yozora/react-mathjax": "3.0.0-alpha.15"
+  },
+  "changesets": ["codex-mmako3on"]
+}
