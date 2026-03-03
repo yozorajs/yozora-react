@@ -20,50 +20,95 @@ const deps = new Set([
   ...Object.keys(manifest.peerDependencies ?? {}),
   ...Object.keys(manifest.optionalDependencies ?? {}),
 ])
-
 const external = id => {
   if (id.startsWith('.') || path.isAbsolute(id)) return false
   const match = /^(@[^/]+\/[^/]+|[^/]+)/.exec(id)
   return match ? deps.has(match[1]) : false
 }
 
-const entry = manifest.exports?.['.'] ?? manifest.exports ?? {}
-const input = entry.source ?? manifest.source ?? './src/index.ts'
-const esm = entry.import ?? manifest.module
-const cjs = entry.require ?? manifest.main
-const types = entry.types ?? manifest.types
+function resolveBuildEntries() {
+  const exportsField = manifest.exports
+  if (
+    exportsField &&
+    typeof exportsField === 'object' &&
+    !('source' in exportsField) &&
+    !('import' in exportsField) &&
+    !('require' in exportsField) &&
+    !('types' in exportsField)
+  ) {
+    const entries = []
+    for (const [subpath, entry] of Object.entries(exportsField)) {
+      if (entry === null || typeof entry !== 'object') {
+        continue
+      }
+      entries.push({
+        subpath,
+        input: entry.source,
+        esm: entry.import,
+        cjs: entry.require,
+        types: entry.types,
+      })
+    }
+    return entries
+  }
 
-const tsPlugins = [
-  nodeResolve({ preferBuiltins: true, extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'] }),
-  json(),
-  typescript({
-    tsconfig: 'tsconfig.lib.json',
-    compilerOptions: {
-      declaration: false,
-      declarationMap: false,
-      sourceMap: shouldSourcemap,
-      removeComments,
+  const entry = exportsField?.['.'] ?? exportsField ?? {}
+  return [
+    {
+      subpath: '.',
+      input: entry.source ?? manifest.source ?? './src/index.ts',
+      esm: entry.import ?? manifest.module,
+      cjs: entry.require ?? manifest.main,
+      types: entry.types ?? manifest.types,
     },
-  }),
-  commonjs(),
-]
+  ]
+}
+
+function createTsPlugins() {
+  return [
+    nodeResolve({ preferBuiltins: true, extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'] }),
+    json(),
+    typescript({
+      tsconfig: 'tsconfig.lib.json',
+      compilerOptions: {
+        declaration: false,
+        declarationMap: false,
+        sourceMap: shouldSourcemap,
+        removeComments,
+      },
+    }),
+    commonjs(),
+  ]
+}
 
 const configs = []
 
-if (esm || cjs) {
-  const output = []
-  if (esm) output.push({ file: esm, format: 'esm', exports: 'named', sourcemap: shouldSourcemap })
-  if (cjs) output.push({ file: cjs, format: 'cjs', exports: 'named', sourcemap: shouldSourcemap })
-  configs.push({ input, output, external, plugins: tsPlugins })
-}
+for (const entry of resolveBuildEntries()) {
+  const input =
+    entry.input ?? (entry.subpath === '.' ? (manifest.source ?? './src/index.ts') : undefined)
+  if (!input) {
+    continue
+  }
 
-if (types) {
-  configs.push({
-    input,
-    output: { file: types, format: 'esm' },
-    external,
-    plugins: [dts({ tsconfig: 'tsconfig.lib.json', respectExternal: true })],
-  })
+  if (entry.esm || entry.cjs) {
+    const output = []
+    if (entry.esm) {
+      output.push({ file: entry.esm, format: 'esm', exports: 'named', sourcemap: shouldSourcemap })
+    }
+    if (entry.cjs) {
+      output.push({ file: entry.cjs, format: 'cjs', exports: 'named', sourcemap: shouldSourcemap })
+    }
+    configs.push({ input, output, external, plugins: createTsPlugins() })
+  }
+
+  if (entry.types) {
+    configs.push({
+      input,
+      output: { file: entry.types, format: 'esm' },
+      external,
+      plugins: [dts({ tsconfig: 'tsconfig.lib.json', respectExternal: true })],
+    })
+  }
 }
 
 export default configs

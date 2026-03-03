@@ -52,6 +52,9 @@
   "scripts": {
     "clean": "rimraf lib",
     "build": "rollup -c ../../rollup.config.mjs",
-    "watch": "cross-env NODE_ENV=development ROLLUP_SHOULD_SOURCEMAP=true rollup -c ../../rollup.config.mjs -w"
+    "watch": "cross-env NODE_ENV=development ROLLUP_SHOULD_SOURCEMAP=true rollup -c ../../rollup.config.mjs -w",
+    "test": "vitest run --config ../../vitest.config.ts",
+    "test:coverage": "vitest run --config ../../vitest.config.ts --coverage",
+    "test:update": "vitest run --config ../../vitest.config.ts -u"
   }
 }

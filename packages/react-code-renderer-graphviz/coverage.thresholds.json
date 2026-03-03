@@ -1,0 +1,8 @@
+{
+  "global": {
+    "branches": 10,
+    "functions": 50,
+    "lines": 40,
+    "statements": 40
+  }
+}

@@ -4,7 +4,24 @@ import url from 'node:url'
 import { defineConfig } from 'vitest/config'
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
-const testFileRegex = /\.spec\.(ts|tsx)$/
+
+interface ICoverageThresholdValue {
+  branches?: number
+  functions?: number
+  lines?: number
+  statements?: number
+}
+
+interface ICoverageThresholdFile {
+  global?: ICoverageThresholdValue
+  files?: Record<string, ICoverageThresholdValue>
+}
+
+function getPackageDirName(): string {
+  const cwd = process.cwd()
+  const match = cwd.match(/packages[/\\]([^/\\]+)$/)
+  return match ? match[1] : ''
+}
 
 function getPackageAliases(): Record<string, string> {
   const aliases: Record<string, string> = {}
@@ -33,73 +50,62 @@ function getPackageAliases(): Record<string, string> {
   return aliases
 }
 
-function getTestedPackageSourceGlobs(): string[] {
-  const packagesDir = path.resolve(__dirname, 'packages')
-  if (!fs.existsSync(packagesDir)) return []
-
-  const packageDirs = fs
-    .readdirSync(packagesDir, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name)
-
-  const globs: string[] = []
-  for (const dir of packageDirs) {
-    const testDir = path.resolve(packagesDir, dir, '__test__')
-    if (!fs.existsSync(testDir)) continue
-
-    let hasTests = false
-    const stack: string[] = [testDir]
-    while (stack.length > 0 && !hasTests) {
-      const current = stack.pop() as string
-      const entries = fs.readdirSync(current, { withFileTypes: true })
-      for (const entry of entries) {
-        const nextPath = path.resolve(current, entry.name)
-        if (entry.isDirectory()) {
-          stack.push(nextPath)
-        } else if (entry.isFile() && testFileRegex.test(entry.name)) {
-          hasTests = true
-          break
-        }
-      }
-    }
-
-    if (hasTests) {
-      globs.push(`packages/${dir}/src/**/*.{ts,tsx}`)
-    }
+function loadCoverageThresholds(): Record<string, ICoverageThresholdValue | number> | undefined {
+  const packageDir = getPackageDirName()
+  if (!packageDir) {
+    return undefined
   }
 
-  return globs
+  const thresholdPath = path.resolve(__dirname, 'packages', packageDir, 'coverage.thresholds.json')
+  if (!fs.existsSync(thresholdPath)) {
+    return undefined
+  }
+
+  const thresholdFile: ICoverageThresholdFile = JSON.parse(fs.readFileSync(thresholdPath, 'utf-8'))
+  const globalThresholds = thresholdFile.global ?? {}
+  const fileThresholds = thresholdFile.files ?? {}
+
+  return {
+    ...globalThresholds,
+    ...Object.fromEntries(
+      Object.entries(fileThresholds).map(([filePath, thresholds]) => [filePath, thresholds]),
+    ),
+  }
 }
 
-const testedPackageSourceGlobs = getTestedPackageSourceGlobs()
-const shouldCheckCoverageThresholds = testedPackageSourceGlobs.length > 0
-const coverageInclude =
-  testedPackageSourceGlobs.length > 0 ? testedPackageSourceGlobs : ['packages/*/src/**/*.{ts,tsx}']
+function getOtherPackageExcludes(): string[] {
+  const packagesDir = path.resolve(__dirname, 'packages')
+  const currentPackage = getPackageDirName()
+  if (!currentPackage || !fs.existsSync(packagesDir)) return []
+
+  return fs
+    .readdirSync(packagesDir, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory() && dirent.name !== currentPackage)
+    .map(dirent => `${path.resolve(packagesDir, dirent.name, 'src')}/**`)
+}
+
+const packageDir = getPackageDirName()
+const coverageThresholds = loadCoverageThresholds()
 
 export default defineConfig({
   test: {
     environment: 'jsdom',
-    include: ['packages/*/__test__/**/*.spec.{ts,tsx}'],
-    setupFiles: ['./vitest.setup.ts'],
+    include: packageDir
+      ? ['__test__/**/*.spec.{ts,tsx}']
+      : ['packages/*/__test__/**/*.spec.{ts,tsx}'],
+    setupFiles: [path.resolve(__dirname, 'vitest.setup.ts')],
     globals: true,
     coverage: {
       provider: 'v8',
-      include: coverageInclude,
+      include: packageDir ? ['src/**/*.{ts,tsx}'] : ['packages/*/src/**/*.{ts,tsx}'],
       exclude: [
         '**/node_modules/**',
         '**/__test__/**',
+        'src/editor.tsx',
         'packages/react-code-editor/src/editor.tsx',
+        ...getOtherPackageExcludes(),
       ],
-      ...(shouldCheckCoverageThresholds
-        ? {
-            thresholds: {
-              branches: 50,
-              functions: 65,
-              lines: 60,
-              statements: 60,
-            },
-          }
-        : {}),
+      ...(coverageThresholds ? { thresholds: coverageThresholds } : {}),
     },
   },
   resolve: {
