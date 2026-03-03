@@ -147,7 +147,7 @@ exports[`snapshot > literal 1`] = `
       <pre>
         <div
           class="css-96awu6 prism-code language-jsx"
-          style="color: rgb(212, 212, 212); max-height: 0;"
+          style="color: rgb(212, 212, 212); max-height: 0px;"
         >
           <div
             class="css-p9ofu1"
