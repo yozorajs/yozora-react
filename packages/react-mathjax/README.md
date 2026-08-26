@@ -120,36 +120,19 @@ The default version is MathJax 4.1.3, loaded from jsDelivr.
     */
     mathjaxSrc?: string
     /**
-    * MathJax config
+    * MathJax config.
     */
     mathjaxConfig?: IMathJaxConfig
     /**
-    * MathJax options.
+    * Triggered when MathJax has loaded.
+    * @param mathJax
     */
-    mathjaxOptions?: {
-      /**
-      * Delay between updates.
-      * @default 0
-      */
-      processSectionDelay?: number
-      /**
-      * Type of the formula string.
-      * @default 'tex'
-      */
-      language?: MathJaxLanguage
-    }
+    onLoad?(mathJax: IMathJax): void
     /**
-    * Triggered on mathjax loaded.
-    * @param MathJax
-    */
-    onLoad?(MathJax: IMathJax): void
-    /**
-    * Triggered on mathjax thrown an error.
-    *
-    * @param MathJax
+    * Triggered when MathJax loading fails.
     * @param error
     */
-    onError?(MathJax: IMathJax, error: any): void
+    onError?(error: unknown): void
   }
   ```
 
@@ -174,12 +157,15 @@ The default version is MathJax 4.1.3, loaded from jsDelivr.
     * CSS style properties
     */
     style?: React.CSSProperties
-    /**
-    * On mathjax rendering.
-    */
-    onRender?(): void
   }
   ```
+
+### Migration from the v3 contract
+
+- `IMathJaxContext.MathJax3` is now `IMathJaxContext.MathJax`.
+- `MathJaxNodeWithoutContext` accepts a `MathJax` prop instead of `MathJax3`.
+- `onError` receives only the loading error because a MathJax instance may not exist yet.
+- `IMathJax3`, `IMathJaxConfig3`, and `loadMathJax3` remain as deprecated aliases.
 
 ## Related
 
@@ -188,4 +174,4 @@ The default version is MathJax 4.1.3, loaded from jsDelivr.
 
 [react-mathjax]: https://github.com/SamyPesse/react-mathjax
 [react-mathjax2]: https://github.com/wko27/react-mathjax
-[mathjax]: https://www.mathjaxjax.org/
+[mathjax]: https://www.mathjax.org/

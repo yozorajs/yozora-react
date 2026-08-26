@@ -2,7 +2,7 @@ import React from 'react'
 import { MathJaxContextType } from './context'
 import { MathJaxNodeWithoutContext } from './MathJaxNodeWithoutContext'
 
-interface IMathJaxNodeProps {
+export interface IMathJaxNodeProps {
   /**
    * The literal formula string.
    */

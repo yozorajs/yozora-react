@@ -22,8 +22,12 @@ export function loadMathJax(
       script.async = false
 
       script.addEventListener('load', () => {
-        const mathjax = w.MathJax
-        resolve(mathjax)
+        const mathJax = w.MathJax as IMathJax | undefined
+        if (!mathJax?.startup?.promise) {
+          reject(new Error('MathJax loaded without exposing a startup promise.'))
+          return
+        }
+        void mathJax.startup.promise.then(() => resolve(mathJax), reject)
       })
 
       script.addEventListener('error', err => {

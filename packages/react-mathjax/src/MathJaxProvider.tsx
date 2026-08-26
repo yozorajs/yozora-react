@@ -4,7 +4,7 @@ import { MathJaxContextType, initialMathJaxContext } from './context'
 import type { IMathJax, IMathJaxConfig, IMathJaxContext } from './types'
 import { loadMathJax } from './util/load'
 
-interface IProps {
+export interface IMathJaxProviderProps {
   /**
    * http / https url for loading mathjax.
    * @default 'https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-mml-chtml.js'
@@ -24,17 +24,15 @@ interface IProps {
    */
   children?: React.ReactNode
   /**
-   * Triggered on mathjax loaded.
+   * Triggered when MathJax has loaded.
    * @param mathJax
    */
   onLoad?(mathJax: IMathJax): void
   /**
-   * Triggered on mathjax thrown an error.
-   *
-   * @param mathJax
+   * Triggered when MathJax loading fails.
    * @param error
    */
-  onError?(mathJax: IMathJax, error: unknown): void
+  onError?(error: unknown): void
 }
 
 interface IState {
@@ -42,12 +40,12 @@ interface IState {
   context: IMathJaxContext
 }
 
-export class MathJaxProvider extends React.Component<IProps, IState> {
+export class MathJaxProvider extends React.Component<IMathJaxProviderProps, IState> {
   public static readonly displayName = 'MathJaxProvider'
 
   protected _cancelLoad: (() => Promise<void>) | undefined
 
-  constructor(props: IProps) {
+  constructor(props: IMathJaxProviderProps) {
     super(props)
 
     this._cancelLoad = undefined
@@ -58,7 +56,7 @@ export class MathJaxProvider extends React.Component<IProps, IState> {
   }
 
   public override shouldComponentUpdate(
-    nextProps: Readonly<IProps>,
+    nextProps: Readonly<IMathJaxProviderProps>,
     nextState: Readonly<IState>,
   ): boolean {
     const props = this.props
@@ -87,7 +85,7 @@ export class MathJaxProvider extends React.Component<IProps, IState> {
     void this.load()
   }
 
-  public override componentDidUpdate(prevProps: Readonly<IProps>): void {
+  public override componentDidUpdate(prevProps: Readonly<IMathJaxProviderProps>): void {
     const props = this.props
     if (
       props.mathjaxSrc !== prevProps.mathjaxSrc ||
@@ -114,23 +112,34 @@ export class MathJaxProvider extends React.Component<IProps, IState> {
 
     let cancelled = false
 
-    type IResult = () => void
-    const loadResult: Promise<IResult> = loadMathJax(mathjaxSrc, mathjaxConfig).then<IResult>(
-      (mathJax): IResult => {
-        if (cancelled) return (): void => {}
+    const loadResult = loadMathJax(mathjaxSrc, mathjaxConfig).then(
+      mathJax => {
+        if (cancelled) return
 
-        this.setState(prevState => ({
-          loaded: true,
-          context: { ...prevState.context, MathJax: mathJax },
-        }))
-        return (): void => {}
+        if (mathJax === null) {
+          this.setState({ loaded: true, context: initialMathJaxContext })
+          return
+        }
+
+        this.setState(
+          prevState => ({
+            loaded: true,
+            context: { ...prevState.context, MathJax: mathJax },
+          }),
+          () => this.props.onLoad?.(mathJax),
+        )
+      },
+      error => {
+        if (cancelled) return
+        this.setState({ loaded: true, context: initialMathJaxContext }, () => {
+          this.props.onError?.(error)
+        })
       },
     )
 
     this._cancelLoad = async () => {
       cancelled = true
-      const unregister = await loadResult
-      unregister()
+      await loadResult
     }
   }
 
@@ -139,14 +148,6 @@ export class MathJaxProvider extends React.Component<IProps, IState> {
       await this._cancelLoad()
       this._cancelLoad = undefined
     }
-  }
-
-  protected readonly onLoad = (mathJax: IMathJax): void => {
-    this.props.onLoad?.(mathJax)
-  }
-
-  protected readonly onError = (mathJax: IMathJax, error: unknown): void => {
-    this.props.onError?.(mathJax, error)
   }
 }
 

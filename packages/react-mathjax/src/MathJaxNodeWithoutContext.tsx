@@ -10,7 +10,7 @@ interface IMathErrorProps {
   error: string
 }
 
-interface IProps {
+export interface IMathJaxNodeWithoutContextProps {
   MathJax: IMathJax
   language: TexLang
   formula: string
@@ -24,13 +24,16 @@ interface IState {
   error: string | undefined
 }
 
-export class MathJaxNodeWithoutContext extends React.Component<IProps, IState> {
+export class MathJaxNodeWithoutContext extends React.Component<
+  IMathJaxNodeWithoutContextProps,
+  IState
+> {
   public static readonly displayName = 'MathJaxNodeWithoutContext'
 
   protected readonly _nodeRef: React.RefObject<HTMLDivElement | null>
   protected readonly _typesettingRef: React.MutableRefObject<boolean>
 
-  constructor(props: IProps) {
+  constructor(props: IMathJaxNodeWithoutContextProps) {
     super(props)
 
     this._nodeRef = { current: null }
@@ -41,7 +44,7 @@ export class MathJaxNodeWithoutContext extends React.Component<IProps, IState> {
   }
 
   public override shouldComponentUpdate(
-    nextProps: Readonly<IProps>,
+    nextProps: Readonly<IMathJaxNodeWithoutContextProps>,
     nextState: Readonly<IState>,
   ): boolean {
     const props = this.props
@@ -89,7 +92,20 @@ export class MathJaxNodeWithoutContext extends React.Component<IProps, IState> {
     this._typeset()
   }
 
-  public override componentDidUpdate(prevProps: Readonly<IProps>): void {
+  public override getSnapshotBeforeUpdate(
+    prevProps: Readonly<IMathJaxNodeWithoutContextProps>,
+  ): null {
+    if (
+      this.props.formula !== prevProps.formula ||
+      this.props.inline !== prevProps.inline ||
+      this.props.MathJax !== prevProps.MathJax
+    ) {
+      this._clear(prevProps.MathJax)
+    }
+    return null
+  }
+
+  public override componentDidUpdate(prevProps: Readonly<IMathJaxNodeWithoutContextProps>): void {
     const props = this.props
     if (
       props.formula !== prevProps.formula ||
@@ -101,12 +117,12 @@ export class MathJaxNodeWithoutContext extends React.Component<IProps, IState> {
   }
 
   public override componentWillUnmount(): void {
+    this._clear(this.props.MathJax)
     this._onTypesetDone()
   }
 
   /**
    * Update math in the node
-   * @param isForceUpdate
    */
   protected _typeset(): void | never {
     const { MathJax } = this.props
@@ -117,26 +133,25 @@ export class MathJaxNodeWithoutContext extends React.Component<IProps, IState> {
     }
 
     const node = this._nodeRef.current
-    if (node) {
-      if (!this._typesettingRef.current) {
-        this._typesettingRef.current = true
-        void MathJax.startup.promise
-          .then(() => {
-            MathJax.typesetClear([node])
-            return MathJax.typesetPromise([[node]])
-          })
-          .then(() => {
-            this.setState({ error: undefined })
-            this._onTypesetDone()
-          })
-          .catch((error: unknown) => {
-            console.log('err:', error)
-            const message = error instanceof Error ? error.message : String(error)
-            this.setState({ error: `Typesetting failed: ${message}` })
-            this._onTypesetDone()
-          })
-      }
+    if (node && !this._typesettingRef.current) {
+      this._typesettingRef.current = true
+      void MathJax.typesetPromise([node])
+        .then(() => {
+          this.setState({ error: undefined })
+          this._onTypesetDone()
+        })
+        .catch((error: unknown) => {
+          MathJax.typesetClear([node])
+          const message = error instanceof Error ? error.message : String(error)
+          this.setState({ error: `Typesetting failed: ${message}` })
+          this._onTypesetDone()
+        })
     }
+  }
+
+  protected _clear(mathJax: IMathJax): void {
+    const node = this._nodeRef.current
+    if (node) mathJax.typesetClear([node])
   }
 
   protected _onTypesetDone(): void {
