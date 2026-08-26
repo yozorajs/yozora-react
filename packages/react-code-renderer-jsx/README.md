@@ -138,12 +138,12 @@ This package is designed to live render jsx, inspired by [react live][].
 
 ### Props
 
-|   Name    |           Type            |    Required    | Default | Description                     |
-| :-------: | :-----------------------: | :------------: | :-----: | :------------------------------ | -------------- |
-|  `code`   |         `string`          |     `true`     |    -    | Source code                     |
-| `inline`  |         `boolean`         |     `true`     |    -    | `inline` / `block` mode         |
-|  `scope`  | `Record<string, unknown>` |    `false`     |  `{}`   | Additional accessible variables |
-| `onError` |      `(error: string      | null) => void` | `true`  | -                               | Error callback |
+|   Name    |               Type                | Required | Default | Description                     |
+| :-------: | :-------------------------------: | :------: | :-----: | :------------------------------ |
+|  `code`   |             `string`              |  `true`  |    -    | Source code                     |
+| `inline`  |             `boolean`             |  `true`  |    -    | `inline` / `block` mode         |
+|  `scope`  |     `Record<string, unknown>`     | `false`  |  `{}`   | Additional accessible variables |
+| `onError` | `(error: string \| null) => void` |  `true`  |    -    | Error callback                  |
 
 ## Related
 
