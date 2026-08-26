@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import vscDarkTheme from '../theme/vsc-dark'
 import vscLightTheme from '../theme/vsc-light'
@@ -63,20 +62,6 @@ interface IProps {
 
 export class CodeHighlighter extends React.PureComponent<IProps> {
   public static readonly displayName = 'YozoraCodeHighlighter'
-  public static readonly propTypes = {
-    codesRef: PropTypes.any,
-    collapsed: PropTypes.bool,
-    darken: PropTypes.bool,
-    highlightLinenos: PropTypes.arrayOf(PropTypes.number) as any,
-    lang: PropTypes.string,
-    maxLines: PropTypes.number,
-    onLinenoWidthChange: PropTypes.func,
-    showLineNo: PropTypes.bool,
-    theme: PropTypes.any,
-    value: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    codesClassName: PropTypes.string,
-  }
 
   public override render(): React.ReactElement {
     const {

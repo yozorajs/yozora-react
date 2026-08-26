@@ -3,7 +3,6 @@ import type { EcmaImport as IEcmaImport } from '@yozora/ast'
 import type { IAsyncRunnerScopes, ICodeRunner, ICodeRunnerScope } from '@yozora/core-react-types'
 import type { ICodeRendererJsxProps } from '@yozora/react-code-renderer-jsx'
 import React from 'react'
-import { CodeRunnerPropTypes } from '../types'
 import type { IDynamicImportRule } from './lazy'
 import { dynamicImport } from './lazy'
 
@@ -78,7 +77,6 @@ export function createUseJsxRunner(
       }
 
       JsxRunner.displayName = 'YozoraJsxRunner'
-      JsxRunner.propTypes = CodeRunnerPropTypes
       return JsxRunner
     }, [scope, prepared, Placeholders])
   }

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import { NodeRendererActionsType, useNodeRendererDispatch, useNodeRendererState } from '../context'
 import type { IPreviewImageItem } from '../types'
@@ -77,8 +76,4 @@ export const ImagePreviewer: React.FC<IImagePreviewerProps> = ({ ImageViewer }) 
       onMaskClick={handleCloseImageViewer}
     />
   )
-}
-
-ImagePreviewer.propTypes = {
-  ImageViewer: PropTypes.any,
 }

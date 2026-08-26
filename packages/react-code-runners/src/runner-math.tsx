@@ -2,7 +2,6 @@ import type { Math } from '@yozora/ast'
 import { MathType } from '@yozora/ast'
 import type { ICodeRunner } from '@yozora/core-react-types'
 import React from 'react'
-import { CodeRunnerPropTypes } from './types'
 
 /**
  * Create a formula live code runner.
@@ -16,6 +15,5 @@ export function createMathRunner(MathRenderer: React.ComponentType<Math>): ICode
   }
 
   MathRunner.displayName = 'YozoraMathRunner'
-  MathRunner.propTypes = CodeRunnerPropTypes
   return MathRunner
 }

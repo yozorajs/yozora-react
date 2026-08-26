@@ -1,5 +1,4 @@
 import { isEqual } from '@guanghechen/equal'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { MathJaxContextType, initialMathJaxContext } from './context'
 import type { IMathJax3, IMathJaxConfig3, IMathJaxContext } from './types'
@@ -45,14 +44,6 @@ interface IState {
 
 export class MathJaxProvider extends React.Component<IProps, IState> {
   public static readonly displayName = 'MathJaxProvider'
-  public static readonly propTypes = {
-    mathjaxSrc: PropTypes.string,
-    mathjaxConfig: PropTypes.object,
-    loading: PropTypes.node,
-    children: PropTypes.node,
-    onLoad: PropTypes.func,
-    onError: PropTypes.func,
-  }
 
   protected _cancelLoad: (() => Promise<void>) | undefined
 

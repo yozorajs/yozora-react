@@ -1,5 +1,4 @@
 import { isEqual } from '@guanghechen/equal'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { MathError } from './MathError'
 import type { IMathJax3, TexLang } from './types'
@@ -27,15 +26,6 @@ interface IState {
 
 export class MathJaxNodeWithoutContext extends React.Component<IProps, IState> {
   public static readonly displayName = 'MathJaxNodeWithoutContext'
-  public static readonly propTypes = {
-    MathJax3: PropTypes.object.isRequired,
-    language: PropTypes.string.isRequired,
-    formula: PropTypes.node.isRequired,
-    inline: PropTypes.bool.isRequired,
-    className: PropTypes.string,
-    style: PropTypes.object,
-    MathErrorRenderer: PropTypes.elementType,
-  }
 
   protected readonly _nodeRef: React.RefObject<HTMLDivElement>
   protected readonly _typesettingRef: React.MutableRefObject<boolean>

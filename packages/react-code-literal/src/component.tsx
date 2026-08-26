@@ -2,7 +2,6 @@ import { cx } from '@emotion/css'
 import CodeHighlighterComponent from '@yozora/react-code-highlighter'
 import CopyButtonComponent from '@yozora/react-common-copy-button'
 import LightButtonsComponent from '@yozora/react-common-light-buttons'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { classes } from './style'
 
@@ -68,18 +67,6 @@ interface IState {
  */
 export class CodeLiteral extends React.Component<IProps, IState> {
   public static displayName = 'CodeLiteral'
-  public static propTypes = {
-    className: PropTypes.string,
-    collapsed: PropTypes.bool,
-    darken: PropTypes.bool,
-    highlightLinenos: PropTypes.array,
-    lang: PropTypes.string,
-    maxLines: PropTypes.number,
-    showLineNo: PropTypes.bool,
-    style: PropTypes.object,
-    title: PropTypes.string,
-    value: PropTypes.string.isRequired,
-  }
 
   constructor(props: IProps) {
     super(props)

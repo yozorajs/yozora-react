@@ -4,7 +4,6 @@ import { CodeType } from '@yozora/ast'
 import type { INodeRendererProviderProps, IPreviewImageItem } from '@yozora/core-react-renderer'
 import { NodeRendererProvider } from '@yozora/core-react-renderer'
 import type { ICodeRunnerItem } from '@yozora/core-react-types'
-import PropTypes from 'prop-types'
 import React from 'react'
 import type { INodeRendererMap } from './nodeRendererMap'
 import { defaultNodeRendererMap } from './nodeRendererMap'
@@ -54,16 +53,6 @@ interface IState {
  */
 export class MarkdownProvider extends React.Component<IMarkdownProviderProps, IState> {
   public static readonly displayName = 'MarkdownProvider'
-  public static readonly propTypes = {
-    definitionMap: PropTypes.object.isRequired as any,
-    footnoteDefinitionMap: PropTypes.object.isRequired as any,
-    images: PropTypes.array,
-    codeRunners: PropTypes.array,
-    customRendererMap: PropTypes.object as any,
-    showCodeLineno: PropTypes.bool,
-    children: PropTypes.node,
-    ImageViewer: PropTypes.any,
-  }
 
   constructor(props: IMarkdownProviderProps) {
     super(props)

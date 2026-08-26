@@ -1,7 +1,6 @@
 import { isEqual } from '@guanghechen/equal'
 import type { Engine, GraphvizOptions } from 'd3-graphviz'
 import { graphviz } from 'd3-graphviz'
-import PropTypes from 'prop-types'
 import React from 'react'
 
 export interface IGraphvizRendererProps {
@@ -27,12 +26,6 @@ export interface IGraphvizRendererProps {
 
 export class GraphvizRenderer extends React.Component<IGraphvizRendererProps> {
   public static readonly displayName = 'GraphvizRenderer'
-  public static readonly propTypes = {
-    code: PropTypes.string.isRequired,
-    engine: PropTypes.oneOf(['circo', 'dot', 'fdp', 'neato', 'osage', 'patchwork', 'twopi']),
-    options: PropTypes.any,
-    onError: PropTypes.func,
-  }
 
   protected readonly graphRef: React.RefObject<HTMLDivElement>
 

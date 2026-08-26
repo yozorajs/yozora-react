@@ -2,7 +2,6 @@ import { cx } from '@emotion/css'
 import { isEqual } from '@guanghechen/equal'
 import type { TokenStream } from 'prismjs'
 import Prism from 'prismjs'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { classes, vars } from '../style'
 import type {
@@ -40,19 +39,6 @@ interface IState {
 
 export class HighlightContent extends React.Component<IProps, IState> {
   public static readonly displayName = 'HighlightContent'
-  public static readonly propTypes = {
-    code: PropTypes.string.isRequired,
-    codesRef: PropTypes.any,
-    collapsed: PropTypes.bool.isRequired,
-    language: PropTypes.string.isRequired,
-    maxLines: PropTypes.number.isRequired,
-    showLineno: PropTypes.bool.isRequired,
-    theme: PropTypes.object.isRequired,
-    highlightLinenos: PropTypes.array.isRequired,
-    className: PropTypes.string,
-    codesClassName: PropTypes.string,
-    onLinenoWidthChange: PropTypes.func,
-  }
 
   protected readonly linenoRef: React.RefObject<HTMLDivElement>
 

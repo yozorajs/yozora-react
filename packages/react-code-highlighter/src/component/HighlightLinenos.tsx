@@ -1,5 +1,4 @@
 import { cx } from '@emotion/css'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { classes } from '../style'
 import { areSameArray } from '../util/misc'
@@ -11,10 +10,6 @@ interface IProps {
 
 export class HighlightLinenos extends React.Component<IProps> {
   public static readonly displayName = 'HighlightLinenos'
-  public static readonly propTypes = {
-    countOfLines: PropTypes.number.isRequired,
-    highlightLinenos: PropTypes.array,
-  }
 
   public override shouldComponentUpdate(nextProps: Readonly<IProps>): boolean {
     const props = this.props

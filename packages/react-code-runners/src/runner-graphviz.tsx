@@ -2,7 +2,6 @@ import type { ICodeRunner } from '@yozora/core-react-types'
 import type { IGraphvizRendererProps } from '@yozora/react-code-renderer-graphviz'
 import type { Engine } from 'd3-graphviz'
 import React from 'react'
-import { CodeRunnerPropTypes } from './types'
 
 /**
  * Create a graphviz live code runner.
@@ -18,6 +17,5 @@ export function createGraphvizRunner(
   }
 
   GraphvizRunner.displayName = 'YozoraGraphvizRunner'
-  GraphvizRunner.propTypes = CodeRunnerPropTypes
   return GraphvizRunner
 }

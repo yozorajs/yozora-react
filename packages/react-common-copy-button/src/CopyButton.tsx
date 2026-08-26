@@ -1,6 +1,5 @@
 import { cx } from '@emotion/css'
 import { useEventCallback } from '@guanghechen/react-hooks'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { CopyStatus } from './constant'
 import { classes } from './style'
@@ -111,10 +110,4 @@ export const CopyButton: React.FC<IProps> = props => {
   )
 }
 
-CopyButton.propTypes = {
-  className: PropTypes.string,
-  style: PropTypes.object,
-  value: PropTypes.string.isRequired,
-  statusTipMap: PropTypes.any,
-}
 CopyButton.displayName = 'YozoraCopyButton'

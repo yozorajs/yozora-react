@@ -1,6 +1,5 @@
 import { isEqual } from '@guanghechen/equal'
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { NodeRendererViewModel } from '../context'
 import { NodeRendererContextType } from '../context/context'
@@ -47,15 +46,6 @@ interface IState {
 
 export class NodeRendererProvider extends React.Component<INodeRendererProviderProps, IState> {
   public static readonly displayName = 'NodeRendererProvider'
-  public static readonly propTypes = {
-    definitionMap: PropTypes.object as any,
-    footnoteDefinitionMap: PropTypes.object as any,
-    images: PropTypes.array,
-    customRendererMap: PropTypes.object as any,
-    showCodeLineno: PropTypes.bool,
-    children: PropTypes.node,
-    ImageViewer: PropTypes.any,
-  }
 
   constructor(props: INodeRendererProviderProps) {
     super(props)

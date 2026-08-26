@@ -4,7 +4,6 @@ import CodeEditorComponent from '@yozora/react-code-editor'
 import CodeEmbedComponent from '@yozora/react-code-embed'
 import CopyButtonComponent from '@yozora/react-common-copy-button'
 import LightButtonsComponent from '@yozora/react-common-light-buttons'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { classes } from './style'
 import type { ICodeLiveProps, ICodeLiveState } from './types'
@@ -21,23 +20,6 @@ import type { ICodeLiveProps, ICodeLiveState } from './types'
  */
 export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
   public static displayName = 'CodeLive'
-  public static propTypes = {
-    autoFocus: PropTypes.bool,
-    centerPreviewer: PropTypes.bool,
-    className: PropTypes.string,
-    collapsed: PropTypes.bool,
-    darken: PropTypes.bool,
-    lang: PropTypes.string.isRequired,
-    maxLines: PropTypes.number,
-    meta: PropTypes.any,
-    runners: PropTypes.array.isRequired,
-    scope: PropTypes.any,
-    showLineNo: PropTypes.bool,
-    style: PropTypes.object,
-    theme: PropTypes.any,
-    title: PropTypes.string,
-    value: PropTypes.string.isRequired,
-  }
 
   constructor(props: ICodeLiveProps) {
     super(props)

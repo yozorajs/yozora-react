@@ -1,7 +1,6 @@
 import { cx } from '@emotion/css'
 import { isEqual } from '@guanghechen/equal'
 import type { ICodeRunner } from '@yozora/core-react-types'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { classes } from './style'
 
@@ -57,14 +56,6 @@ interface IState {
  */
 export class CodeEmbed extends React.Component<IProps, IState> {
   public static displayName = 'CodeEmbed'
-  public static propTypes = {
-    lang: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    meta: PropTypes.object,
-    runner: PropTypes.oneOfType<any>([PropTypes.elementType, PropTypes.func]).isRequired,
-    className: PropTypes.string,
-    style: PropTypes.object,
-  }
 
   constructor(props: IProps) {
     super(props)

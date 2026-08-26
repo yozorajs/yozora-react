@@ -6,7 +6,6 @@ import CodeEmbedComponent from '@yozora/react-code-embed'
 import CodeLiteralComponent from '@yozora/react-code-literal'
 import CodeLiveComponent from '@yozora/react-code-live'
 import JsxRendererComponent from '@yozora/react-code-renderer-jsx'
-import PropTypes from 'prop-types'
 import React from 'react'
 import type { ICodeMetaData, ICodeProps } from './types'
 import { parseCodeMeta } from './util'
@@ -39,16 +38,6 @@ interface IState {
  */
 export class Code extends React.Component<ICodeProps, IState> {
   public static readonly displayName = 'YozoraCode'
-  public static readonly propTypes = {
-    lang: PropTypes.string,
-    meta: PropTypes.string,
-    runners: PropTypes.array,
-    value: PropTypes.string.isRequired,
-    darken: PropTypes.bool,
-    showCodeLineno: PropTypes.bool,
-    className: PropTypes.string,
-    style: PropTypes.object,
-  }
 
   constructor(props: ICodeProps) {
     super(props)

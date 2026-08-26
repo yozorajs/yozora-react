@@ -1,5 +1,4 @@
 import { css, cx } from '@emotion/css'
-import PropTypes from 'prop-types'
 import React from 'react'
 
 interface IProps {
@@ -30,13 +29,6 @@ interface IProps {
  */
 export class LightButtons extends React.Component<IProps> {
   public static readonly displayName = 'LightButtons'
-  public static readonly propTypes = {
-    className: PropTypes.string,
-    onClose: PropTypes.func,
-    onMaximize: PropTypes.func,
-    onMinimize: PropTypes.func,
-    style: PropTypes.object,
-  }
 
   public override shouldComponentUpdate(nextProps: Readonly<IProps>): boolean {
     const props = this.props

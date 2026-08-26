@@ -1,5 +1,4 @@
 import { cx } from '@emotion/css'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { getDescriptor } from './descriptor'
 import { classes } from './style'
@@ -35,13 +34,6 @@ export interface IAdmonitionProps {
  */
 export class Admonition extends React.Component<IAdmonitionProps> {
   public static readonly displayName = 'Admonition'
-  public static readonly propTypes = {
-    keyword: PropTypes.string,
-    title: PropTypes.node,
-    icon: PropTypes.node,
-    className: PropTypes.string,
-    children: PropTypes.node,
-  }
 
   public override shouldComponentUpdate(nextProps: Readonly<IAdmonitionProps>): boolean {
     const props = this.props

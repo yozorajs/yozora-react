@@ -1,7 +1,6 @@
 import { cx } from '@emotion/css'
 import type { Root as IRoot } from '@yozora/ast'
 import { NodesRenderer } from '@yozora/core-react-renderer'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { useStyles } from '../style'
 import { FootnoteDefinitions } from './FootnoteDefinitions'
@@ -31,13 +30,6 @@ export interface IMarkdownProps {
 
 export class Markdown extends React.Component<IMarkdownProps> {
   public static displayName = 'YozoraMarkdown'
-  public static propTypes = {
-    ast: PropTypes.any.isRequired,
-    footnoteDefinitionsTitle: PropTypes.node,
-    dontNeedFootnoteDefinitions: PropTypes.bool,
-    className: PropTypes.string,
-    style: PropTypes.any,
-  }
 
   public override shouldComponentUpdate(nextProps: IMarkdownProps): boolean {
     const prevProps = this.props

@@ -1,7 +1,6 @@
 import { CommonTokenNames, TokenNames } from '@yozora/core-react-constant'
-import PropTypes from 'prop-types'
 import React from 'react'
-import { TexLang } from './types'
+import type { TexLang } from './types'
 
 interface IStyles {
   readonly error: React.CSSProperties
@@ -75,12 +74,6 @@ const styles: IStyles = {
 
 export class MathError extends React.PureComponent<IProps> {
   public static readonly displayName = 'MathError'
-  public static readonly propTypes = {
-    lang: PropTypes.oneOf([TexLang.MML, TexLang.TEX]).isRequired,
-    formula: PropTypes.string.isRequired,
-    inline: PropTypes.bool.isRequired,
-    error: PropTypes.any.isRequired,
-  }
 
   public override render(): React.ReactElement {
     const { lang, formula, inline, error } = this.props

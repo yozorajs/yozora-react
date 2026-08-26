@@ -1,5 +1,4 @@
 import { isEqual } from '@guanghechen/equal'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { generateElement, renderElementAsync } from './element'
 
@@ -36,12 +35,6 @@ interface IState {
 
 export class CodeRendererJsx extends React.Component<ICodeRendererJsxProps, IState> {
   public static readonly displayName = 'YozoraCodeRendererJsx'
-  public static readonly propTypes = {
-    code: PropTypes.string.isRequired,
-    inline: PropTypes.bool.isRequired,
-    scope: PropTypes.any,
-    onError: PropTypes.func.isRequired,
-  }
 
   constructor(props: ICodeRendererJsxProps) {
     super(props)
