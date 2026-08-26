@@ -29,7 +29,7 @@ const runners: ICodeRunnerItem[] = [
   },
 ]
 
-describe('prop types', () => {
+describe('editing behavior', () => {
   test('change and debounce', async () => {
     const code1 = 'function Demo() { return <span data-testid="value">3</span> }'
     const code2 = 'function Demo() { return <span data-testid="value">4</span> }'

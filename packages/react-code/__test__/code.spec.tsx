@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import Code from '../src'
 
-describe('prop types', () => {
+describe('customization', () => {
   test('render with custom className', () => {
     const code = 'let a = 1'
     const className = 'custom-code'

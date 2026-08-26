@@ -46,7 +46,7 @@ afterEach(() => {
   vi.useRealTimers()
 })
 
-describe('prop types', () => {
+describe('rendering behavior', () => {
   test('value is required (undefined)', () => {
     const logger = createConsoleMock(['warn', 'error'])
     const view = render(<CodeEmbed lang="jsx" value={undefined as any} runner={JsxRunner} />)

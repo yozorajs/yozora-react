@@ -12,7 +12,7 @@ const children = (
   </React.Fragment>
 )
 
-describe('prop types', () => {
+describe('rendering', () => {
   const keywords = [
     undefined,
     '',

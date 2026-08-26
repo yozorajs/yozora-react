@@ -95,9 +95,6 @@ importers:
       prettier:
         specifier: 3.8.1
         version: 3.8.1
-      prop-types:
-        specifier: 15.8.1
-        version: 15.8.1
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -146,23 +143,20 @@ importers:
         specifier: ^2.0.0
         version: 2.3.16
       '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.12
-        version: 3.0.0-alpha.12
-      '@yozora/core-react-theme':
         specifier: ^3.0.0-alpha.13
-        version: 3.0.0-alpha.13(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+        version: 3.0.0-alpha.13
+      '@yozora/core-react-theme':
+        specifier: ^3.0.0-alpha.14
+        version: 3.0.0-alpha.14(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
       '@yozora/core-react-types':
-        specifier: ^1.0.0-alpha.11
-        version: 1.0.0-alpha.11(react@18.3.1)
-      '@yozora/core-react-util':
         specifier: ^1.0.0-alpha.12
         version: 1.0.0-alpha.12(react@18.3.1)
+      '@yozora/core-react-util':
+        specifier: ^1.0.0-alpha.13
+        version: 1.0.0-alpha.13(react@18.3.1)
       '@yozora/react-code-highlighter':
-        specifier: ^3.0.0-alpha.16
-        version: 3.0.0-alpha.16(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
+        specifier: ^3.0.0-alpha.17
+        version: 3.0.0-alpha.17(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -176,11 +170,8 @@ importers:
         specifier: ^11.0.0
         version: 11.13.5
       '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.12
-        version: 3.0.0-alpha.12
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
+        specifier: ^3.0.0-alpha.13
+        version: 3.0.0-alpha.13
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -197,8 +188,8 @@ importers:
         specifier: ^2.3.10
         version: 2.3.10
       '@yozora/core-react-types':
-        specifier: ^1.0.0-alpha.11
-        version: 1.0.0-alpha.11(react@18.3.1)
+        specifier: ^1.0.0-alpha.12
+        version: 1.0.0-alpha.12(react@18.3.1)
 
   packages/react-admonition:
     dependencies:
@@ -206,11 +197,8 @@ importers:
         specifier: ^11.0.0
         version: 11.13.5
       '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.12
-        version: 3.0.0-alpha.12
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
+        specifier: ^3.0.0-alpha.13
+        version: 3.0.0-alpha.13
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -227,29 +215,26 @@ importers:
         specifier: ^2.0.0
         version: 2.3.16
       '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.12
-        version: 3.0.0-alpha.12
+        specifier: ^3.0.0-alpha.13
+        version: 3.0.0-alpha.13
       '@yozora/core-react-types':
-        specifier: ^1.0.0-alpha.11
-        version: 1.0.0-alpha.11(react@18.3.1)
-      '@yozora/core-react-util':
         specifier: ^1.0.0-alpha.12
         version: 1.0.0-alpha.12(react@18.3.1)
+      '@yozora/core-react-util':
+        specifier: ^1.0.0-alpha.13
+        version: 1.0.0-alpha.13(react@18.3.1)
       '@yozora/react-code-embed':
-        specifier: ^3.0.0-alpha.18
-        version: 3.0.0-alpha.18(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)
+        specifier: ^3.0.0-alpha.19
+        version: 3.0.0-alpha.19(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)
       '@yozora/react-code-literal':
-        specifier: ^3.0.0-alpha.17
-        version: 3.0.0-alpha.17(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+        specifier: ^3.0.0-alpha.18
+        version: 3.0.0-alpha.18(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
       '@yozora/react-code-live':
-        specifier: ^3.0.0-alpha.20
-        version: 3.0.0-alpha.20(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)
+        specifier: ^3.0.0-alpha.21
+        version: 3.0.0-alpha.21(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)
       '@yozora/react-code-renderer-jsx':
-        specifier: ^3.0.0-alpha.14
-        version: 3.0.0-alpha.14(prop-types@15.8.1)(react@18.3.1)
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
+        specifier: ^3.0.0-alpha.15
+        version: 3.0.0-alpha.15(prop-types@15.8.1)(react@18.3.1)
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -266,14 +251,11 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3
       '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.12
-        version: 3.0.0-alpha.12
+        specifier: ^3.0.0-alpha.13
+        version: 3.0.0-alpha.13
       '@yozora/react-code-highlighter':
-        specifier: ^3.0.0-alpha.16
-        version: 3.0.0-alpha.16(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
+        specifier: ^3.0.0-alpha.17
+        version: 3.0.0-alpha.17(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -290,11 +272,8 @@ importers:
         specifier: ^2.0.0
         version: 2.3.16
       '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.12
-        version: 3.0.0-alpha.12
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
+        specifier: ^3.0.0-alpha.13
+        version: 3.0.0-alpha.13
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -308,14 +287,11 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3
       '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.12
-        version: 3.0.0-alpha.12
+        specifier: ^3.0.0-alpha.13
+        version: 3.0.0-alpha.13
       prismjs:
         specifier: 1.30.0
         version: 1.30.0
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -326,20 +302,17 @@ importers:
         specifier: ^11.0.0
         version: 11.13.5
       '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.12
-        version: 3.0.0-alpha.12
-      '@yozora/react-code-highlighter':
-        specifier: ^3.0.0-alpha.16
-        version: 3.0.0-alpha.16(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
-      '@yozora/react-common-copy-button':
         specifier: ^3.0.0-alpha.13
-        version: 3.0.0-alpha.13(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+        version: 3.0.0-alpha.13
+      '@yozora/react-code-highlighter':
+        specifier: ^3.0.0-alpha.17
+        version: 3.0.0-alpha.17(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/react-common-copy-button':
+        specifier: ^3.0.0-alpha.14
+        version: 3.0.0-alpha.14(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
       '@yozora/react-common-light-buttons':
-        specifier: ^3.0.0-alpha.7
-        version: 3.0.0-alpha.7(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
+        specifier: ^3.0.0-alpha.8
+        version: 3.0.0-alpha.8(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -356,26 +329,23 @@ importers:
         specifier: ^2.0.0
         version: 2.3.16
       '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.12
-        version: 3.0.0-alpha.12
-      '@yozora/core-react-types':
-        specifier: ^1.0.0-alpha.11
-        version: 1.0.0-alpha.11(react@18.3.1)
-      '@yozora/react-code-editor':
-        specifier: ^3.0.0-alpha.17
-        version: 3.0.0-alpha.17(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
-      '@yozora/react-code-embed':
-        specifier: ^3.0.0-alpha.18
-        version: 3.0.0-alpha.18(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)
-      '@yozora/react-common-copy-button':
         specifier: ^3.0.0-alpha.13
-        version: 3.0.0-alpha.13(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+        version: 3.0.0-alpha.13
+      '@yozora/core-react-types':
+        specifier: ^1.0.0-alpha.12
+        version: 1.0.0-alpha.12(react@18.3.1)
+      '@yozora/react-code-editor':
+        specifier: ^3.0.0-alpha.18
+        version: 3.0.0-alpha.18(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/react-code-embed':
+        specifier: ^3.0.0-alpha.19
+        version: 3.0.0-alpha.19(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/react-common-copy-button':
+        specifier: ^3.0.0-alpha.14
+        version: 3.0.0-alpha.14(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
       '@yozora/react-common-light-buttons':
-        specifier: ^3.0.0-alpha.7
-        version: 3.0.0-alpha.7(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
+        specifier: ^3.0.0-alpha.8
+        version: 3.0.0-alpha.8(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -394,9 +364,6 @@ importers:
       d3-selection:
         specifier: 3.0.0
         version: 3.0.0
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -406,9 +373,6 @@ importers:
       '@guanghechen/equal':
         specifier: ^1.0.3
         version: 1.0.3
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -428,18 +392,15 @@ importers:
         specifier: ^2.0.0
         version: 2.3.16
       '@yozora/core-react-types':
-        specifier: ^1.0.0-alpha.11
-        version: 1.0.0-alpha.11(react@18.3.1)
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
+        specifier: ^1.0.0-alpha.12
+        version: 1.0.0-alpha.12(react@18.3.1)
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
     devDependencies:
       '@yozora/react-code-renderer-graphviz':
-        specifier: ^3.0.0-alpha.15
-        version: 3.0.0-alpha.15(prop-types@15.8.1)(react@18.3.1)
+        specifier: ^3.0.0-alpha.16
+        version: 3.0.0-alpha.16(prop-types@15.8.1)(react@18.3.1)
 
   packages/react-common-copy-button:
     dependencies:
@@ -449,9 +410,6 @@ importers:
       '@guanghechen/react-hooks':
         specifier: ^3.0.14
         version: 3.0.15(react@18.3.1)
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -461,9 +419,6 @@ importers:
       '@emotion/css':
         specifier: ^11.0.0
         version: 11.13.5
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -480,29 +435,26 @@ importers:
         specifier: ^2.3.12
         version: 2.3.16
       '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.12
-        version: 3.0.0-alpha.12
+        specifier: ^3.0.0-alpha.13
+        version: 3.0.0-alpha.13
       '@yozora/core-react-renderer':
-        specifier: ^3.0.0-alpha.23
-        version: 3.0.0-alpha.23(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^3.0.0-alpha.24
+        version: 3.0.0-alpha.24(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@yozora/core-react-theme':
-        specifier: ^3.0.0-alpha.13
-        version: 3.0.0-alpha.13(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+        specifier: ^3.0.0-alpha.14
+        version: 3.0.0-alpha.14(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
       '@yozora/core-react-types':
-        specifier: ^1.0.0-alpha.11
-        version: 1.0.0-alpha.11(react@18.3.1)
+        specifier: ^1.0.0-alpha.12
+        version: 1.0.0-alpha.12(react@18.3.1)
       '@yozora/react-admonition':
-        specifier: ^3.0.0-alpha.13
-        version: 3.0.0-alpha.13(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+        specifier: ^3.0.0-alpha.14
+        version: 3.0.0-alpha.14(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
       '@yozora/react-code':
-        specifier: ^3.0.0-alpha.21
-        version: 3.0.0-alpha.21(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^3.0.0-alpha.22
+        version: 3.0.0-alpha.22(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@yozora/react-mathjax':
-        specifier: ^3.0.0-alpha.15
-        version: 3.0.0-alpha.15(prop-types@15.8.1)(react@18.3.1)
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
+        specifier: ^3.0.0-alpha.16
+        version: 3.0.0-alpha.16(prop-types@15.8.1)(react@18.3.1)
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -516,11 +468,8 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3
       '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.12
-        version: 3.0.0-alpha.12
-      prop-types:
-        specifier: ^15.7.2
-        version: 15.8.1
+        specifier: ^3.0.0-alpha.13
+        version: 3.0.0-alpha.13
       react:
         specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -1561,11 +1510,11 @@ packages:
   '@yozora/character@2.3.16':
     resolution: {integrity: sha512-nSYwKMHiwHAyozAoKpIkIuSamhUIy/LNALjfVPIzLeHSwX3c7/B5f7wV32Egx7RFfk3mK/SIuWGp9a3v4P3kdw==}
 
-  '@yozora/core-react-constant@3.0.0-alpha.12':
-    resolution: {integrity: sha512-FfHCVVv9FKFpmzZdOnBwyp9430S9FkXkLgSHsqyzAP4WII8AyHgSMPd2KHFfYcKmaRLz/tXfDw60xNZ/8yq28g==}
+  '@yozora/core-react-constant@3.0.0-alpha.13':
+    resolution: {integrity: sha512-Cr4T+ZXD5Wj4awmrpghmy8tph54B/EurnZDlsLnCo9ptL1Ko36rdAq8OQUvHK8c4fNgGsscUE+y3b+UEolIVrA==}
 
-  '@yozora/core-react-renderer@3.0.0-alpha.23':
-    resolution: {integrity: sha512-D8g+jJ5qEeUMS0ds7c5Fz6fLjPihOCo7RVCQ81oFh1KT8I12Ls1V2k8rBl2vv/B3APlSCtwZHRmTey3GSatiGQ==}
+  '@yozora/core-react-renderer@3.0.0-alpha.24':
+    resolution: {integrity: sha512-xTFlI5xbdmKS9UCWlxFrULJWEbc38uvHTQFpeDKr/BJsYOgtfCI2GjYuyYvga5sePk+1gYv3hSna1wL4654Kuw==}
     peerDependencies:
       '@emotion/css': ^11.0.0
       '@yozora/ast': ^2.0.0
@@ -1573,79 +1522,79 @@ packages:
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@yozora/core-react-theme@3.0.0-alpha.13':
-    resolution: {integrity: sha512-uz6LUpPDGw4XYXUcOYaOTNKga8aWpKnGQbwXIxjdDYImP5Rr6Ua1tiJYPP1Mcngy6iYv4Ab4icCC2G9d9KFZVw==}
+  '@yozora/core-react-theme@3.0.0-alpha.14':
+    resolution: {integrity: sha512-Yu1qMtg6bYr8UYNeoj4XypmWYtBqXxAAoswpdAuSwlvbxi3+lhKf+iGztXc12/80TCEKlRK8VJpCfTS9OdlhxQ==}
     peerDependencies:
       '@emotion/css': ^11.0.0
       prop-types: ^15.7.2
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@yozora/core-react-types@1.0.0-alpha.11':
-    resolution: {integrity: sha512-DxFkrjAkqBu5GlAk4ki0RBZ/Qc1UxR9+lxCDXUS7KHv9t7hZur71G7qGgR8F+YWO1ydTImNaCab5B3bErcYmmA==}
+  '@yozora/core-react-types@1.0.0-alpha.12':
+    resolution: {integrity: sha512-qcNG+nf+zM/omVw0dQqnV1q2p0Mk2Fe5eOJgt6dTP8wriQxm8zbrCmDAXpsgmaWNKALMPItgJFQCfUWzGEpXyg==}
     peerDependencies:
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@yozora/core-react-util@1.0.0-alpha.12':
-    resolution: {integrity: sha512-s6wV6Uz93Rwl3aqyiKdzBz1jWSg+eYF26eTuP3Wy7ryBwvqzesW/RLfrLSvalyk6p8QWlYEpOgvqlHYSaTVwIw==}
+  '@yozora/core-react-util@1.0.0-alpha.13':
+    resolution: {integrity: sha512-ccY1prux7gZNHcj5dfg/8r1iaAJ6wcSAo9vTSd5DWEzWBsACqdETSxyVycP8lMoSSIkKY8xc5jV775p3cgAoCA==}
 
-  '@yozora/react-admonition@3.0.0-alpha.13':
-    resolution: {integrity: sha512-vQFXuY4G/b37Z4A/eHH4Htai3nEFg7vjOQ8Y0gshYIZHPX8bHo3eS85RiQa4ujatzgZIZk+4qvmDbICnSu5BfA==}
-    peerDependencies:
-      '@emotion/css': ^11.0.0
-      prop-types: ^15.7.2
-      react: ^17.0.0 || ^18.0.0 || ^19.0.0
-
-  '@yozora/react-code-editor@3.0.0-alpha.17':
-    resolution: {integrity: sha512-5FFwzhIcE+/M96XfDhRiRXdK+DFVfawDz0iU9rwk9l5FBrxAi382x9AUs7XGS5tbdQD2tcG6dGsYs337Hn6AGQ==}
+  '@yozora/react-admonition@3.0.0-alpha.14':
+    resolution: {integrity: sha512-t5CiRIhAAEfyM2rdwQbBKeSaEmIud7nwSr/O303zmJjafxyMWKqv+2GWBpuHK9GwJuFVU3SKZdh1+98Cykomow==}
     peerDependencies:
       '@emotion/css': ^11.0.0
       prop-types: ^15.7.2
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@yozora/react-code-embed@3.0.0-alpha.18':
-    resolution: {integrity: sha512-EKXvnNrEtAIbWilNR6fx+5MzzC5uUQ6AdeV/ryKcuNk9qkaTJOP/cdx83Ng7KHHjbnaRDaJzLsgz1sQ0IJRHhg==}
-    peerDependencies:
-      '@emotion/css': ^11.0.0
-      '@yozora/ast': ^2.0.0
-      prop-types: ^15.7.2
-      react: ^17.0.0 || ^18.0.0 || ^19.0.0
-
-  '@yozora/react-code-highlighter@3.0.0-alpha.16':
-    resolution: {integrity: sha512-A69NHSwDVKNhpexkb1TEeWX6tuBJqIdovPd6yHNtgb+9IaOgwjm8L1A+ywjkhcvTpytPXE7gARqkU1fkbKwTJg==}
+  '@yozora/react-code-editor@3.0.0-alpha.18':
+    resolution: {integrity: sha512-1sodMBLpoFSUoAo1/7W4FIMUHYSGWOHsnKMZxBBKpnEv8eWAv00VNQ5vGBaEwrBKs7BUu2OxWrDRFSgHQcyhag==}
     peerDependencies:
       '@emotion/css': ^11.0.0
       prop-types: ^15.7.2
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@yozora/react-code-literal@3.0.0-alpha.17':
-    resolution: {integrity: sha512-hJXNu1COTFEnVeAO2OR3A/49OtteSXTT6Ul6j5BKWunvb1fYZURCBgxAW1hS3fAqcBYrb5lyRWq3DqnjIAE9mA==}
-    peerDependencies:
-      '@emotion/css': ^11.0.0
-      prop-types: ^15.7.2
-      react: ^17.0.0 || ^18.0.0 || ^19.0.0
-
-  '@yozora/react-code-live@3.0.0-alpha.20':
-    resolution: {integrity: sha512-7YFNScWh3X3ki0MDddpS19s3DayqXPJhhpYDPGbkEe6s/Xk164r/RplF7+vPKLWqh9AYK+PVw1/y+4fh7eJCGg==}
+  '@yozora/react-code-embed@3.0.0-alpha.19':
+    resolution: {integrity: sha512-o6tv88T2mIRewV1JiWWL59fSubVecQIHWkA/X5WK5EzIWLz0eYS4Ld+nzOCuJ4eD2fe/aN8ZqDnF2tz/v3yJGQ==}
     peerDependencies:
       '@emotion/css': ^11.0.0
       '@yozora/ast': ^2.0.0
       prop-types: ^15.7.2
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@yozora/react-code-renderer-graphviz@3.0.0-alpha.15':
-    resolution: {integrity: sha512-b5mppqwVuosZuefc+0aU7fjGojfYIuSa1UpLX0h4Dw6QOJGqh4i6lzVxvLd7LV1nAfK0OnLq5/pBOFGUt12UEQ==}
+  '@yozora/react-code-highlighter@3.0.0-alpha.17':
+    resolution: {integrity: sha512-fH6flO90O+b/vI7j85IYY8Q+ETqsDW1nMdLYLdJOOjMMVHZq7YCtTI9Dezxw3UV/n0K+RPby7OZyISKpNVXxow==}
+    peerDependencies:
+      '@emotion/css': ^11.0.0
+      prop-types: ^15.7.2
+      react: ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  '@yozora/react-code-literal@3.0.0-alpha.18':
+    resolution: {integrity: sha512-l7P1zouFHfGs6A+ORS3sM74WYDBljh4EvPsqZSLlxxTdTR95WRouR5b2Nz2+CtX1pDKXCtF8J7eR2giiaxY4Iw==}
+    peerDependencies:
+      '@emotion/css': ^11.0.0
+      prop-types: ^15.7.2
+      react: ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  '@yozora/react-code-live@3.0.0-alpha.21':
+    resolution: {integrity: sha512-TqDQm9xbPDUvT+jacWLguxPSA3oU7Vd4St/4uLO+Vd4W5OXp5vjCYJpCVrugXhmnzVRau4EzeXz5RA1bz2yf0A==}
+    peerDependencies:
+      '@emotion/css': ^11.0.0
+      '@yozora/ast': ^2.0.0
+      prop-types: ^15.7.2
+      react: ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  '@yozora/react-code-renderer-graphviz@3.0.0-alpha.16':
+    resolution: {integrity: sha512-WZkcIfV7jSckBi6cus8+HyQ1HHXZPA/ebj2kWHe2b5vnCTUICcOaLameIp9+0Ch+1d88FHMUS2hmX741bsU7CQ==}
     peerDependencies:
       prop-types: ^15.7.2
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@yozora/react-code-renderer-jsx@3.0.0-alpha.14':
-    resolution: {integrity: sha512-D+HEpHBm6/26c2MvhHpmM+N5JVmGJLlkoKCECh8F+nlmAIHlN6kIEjHpF3u1Kzrj1DqQKiTgAsvh46x/agzIbw==}
+  '@yozora/react-code-renderer-jsx@3.0.0-alpha.15':
+    resolution: {integrity: sha512-LyUtqZ1v2/pPkcCIgoCgGV3K6r5Xo6LlXShLzx8Gc7mtmFJbzXLykvzFerfGBzCS0fXngMLnidWAOuQdAp48qA==}
     peerDependencies:
       prop-types: ^15.7.2
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@yozora/react-code@3.0.0-alpha.21':
-    resolution: {integrity: sha512-iAYse7Q691AeyxPQGW+42+nPe5QiCoL0+4vVrer5DgI7Lsy4ijjxaY2CxbClYkrU3NvwV9MNV7cAAMVVrXl37A==}
+  '@yozora/react-code@3.0.0-alpha.22':
+    resolution: {integrity: sha512-7OtJvO6hryAhht0bW7lzjKQY0m+NSzkNhn7LZUvMYNAXwUOPabH1aP+ueCshyCei8LmzGCVqX/7rfqHlsme6fw==}
     peerDependencies:
       '@emotion/css': ^11.0.0
       '@yozora/ast': ^2.0.0
@@ -1653,22 +1602,22 @@ packages:
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@yozora/react-common-copy-button@3.0.0-alpha.13':
-    resolution: {integrity: sha512-HdpaSg+AhDA6JNjKkyzaDinVuwzL9F1gZlHaQGZfZ+drYsLNq17GpO3AdvyTtY50dVQZLNLgRGMaSIRGsq9ahw==}
+  '@yozora/react-common-copy-button@3.0.0-alpha.14':
+    resolution: {integrity: sha512-XJSNSTftUK8wuyoFAxV93UMQqW/Mwca+jWXp+A26TN2XOxtp/8E3LvIPxWdd/UZIE0IZH3/69AGdDdkYXfsoEA==}
     peerDependencies:
       '@emotion/css': ^11.0.0
       prop-types: ^15.7.2
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@yozora/react-common-light-buttons@3.0.0-alpha.7':
-    resolution: {integrity: sha512-WpzdnZ6mRLtQjbP3CTAbgR38do5oCG5hWLfkLClwU4e0qOUGl7JEGJ4YCNlQLs1T8ia5ayyCoP9XsKbz3ctT+w==}
+  '@yozora/react-common-light-buttons@3.0.0-alpha.8':
+    resolution: {integrity: sha512-U/Z5IOMS2Fko7mATPD8QGcRPjkmBd4w6V2dp0blHvtHywtG6lbUdXTQsSEwkTBfOLozu8B6JpvIlRqJeBcz+nA==}
     peerDependencies:
       '@emotion/css': ^11.0.0
       prop-types: ^15.7.2
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@yozora/react-mathjax@3.0.0-alpha.15':
-    resolution: {integrity: sha512-9+oU6jetrT1NThVJIPJayDxYk6SrciO5cud18iE0dtrifb62pf+7NPjBsCkiXp8qXJRr5VP/XntqP682AGz12g==}
+  '@yozora/react-mathjax@3.0.0-alpha.16':
+    resolution: {integrity: sha512-IVbhNqiLxKpWJnz9PdIMckGPTjllPsFQ4E3tYGLfVA2c8KCjuTkl6EtGgp/1f704xCa1pOFTH5W98mPvB242Mw==}
     peerDependencies:
       prop-types: ^15.7.2
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -2078,6 +2027,7 @@ packages:
   eslint@9.39.3:
     resolution: {integrity: sha512-VmQ+sifHUbI/IcSopBCF/HO3YiHQx/AVd3UVyYL6weuwW+HvON9VYn5l6Zl1WZzPWXPNZrSQpxwkkZ/VuvJZzg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -4230,100 +4180,100 @@ snapshots:
 
   '@yozora/character@2.3.16': {}
 
-  '@yozora/core-react-constant@3.0.0-alpha.12': {}
+  '@yozora/core-react-constant@3.0.0-alpha.13': {}
 
-  '@yozora/core-react-renderer@3.0.0-alpha.23(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@yozora/core-react-renderer@3.0.0-alpha.24(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@emotion/css': 11.13.5
       '@guanghechen/equal': 1.0.3
       '@guanghechen/react-viewmodel': 0.2.19(react@18.3.1)
       '@yozora/ast': 2.3.16
-      '@yozora/core-react-constant': 3.0.0-alpha.12
-      '@yozora/core-react-theme': 3.0.0-alpha.13(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
-      '@yozora/core-react-types': 1.0.0-alpha.11(react@18.3.1)
-      '@yozora/core-react-util': 1.0.0-alpha.12(react@18.3.1)
-      '@yozora/react-code-highlighter': 3.0.0-alpha.16(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/core-react-constant': 3.0.0-alpha.13
+      '@yozora/core-react-theme': 3.0.0-alpha.14(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/core-react-types': 1.0.0-alpha.12(react@18.3.1)
+      '@yozora/core-react-util': 1.0.0-alpha.13(react@18.3.1)
+      '@yozora/react-code-highlighter': 3.0.0-alpha.17(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
       prop-types: 15.8.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@yozora/core-react-theme@3.0.0-alpha.13(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)':
+  '@yozora/core-react-theme@3.0.0-alpha.14(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)':
     dependencies:
       '@emotion/css': 11.13.5
-      '@yozora/core-react-constant': 3.0.0-alpha.12
+      '@yozora/core-react-constant': 3.0.0-alpha.13
       prop-types: 15.8.1
       react: 18.3.1
 
-  '@yozora/core-react-types@1.0.0-alpha.11(react@18.3.1)':
+  '@yozora/core-react-types@1.0.0-alpha.12(react@18.3.1)':
     dependencies:
       react: 18.3.1
 
-  '@yozora/core-react-util@1.0.0-alpha.12(react@18.3.1)':
+  '@yozora/core-react-util@1.0.0-alpha.13(react@18.3.1)':
     dependencies:
       '@guanghechen/parse-lineno': 2.3.10
-      '@yozora/core-react-types': 1.0.0-alpha.11(react@18.3.1)
+      '@yozora/core-react-types': 1.0.0-alpha.12(react@18.3.1)
     transitivePeerDependencies:
       - react
 
-  '@yozora/react-admonition@3.0.0-alpha.13(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)':
+  '@yozora/react-admonition@3.0.0-alpha.14(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)':
     dependencies:
       '@emotion/css': 11.13.5
-      '@yozora/core-react-constant': 3.0.0-alpha.12
+      '@yozora/core-react-constant': 3.0.0-alpha.13
       prop-types: 15.8.1
       react: 18.3.1
 
-  '@yozora/react-code-editor@3.0.0-alpha.17(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)':
+  '@yozora/react-code-editor@3.0.0-alpha.18(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)':
     dependencies:
       '@emotion/css': 11.13.5
       '@guanghechen/equal': 1.0.3
-      '@yozora/core-react-constant': 3.0.0-alpha.12
-      '@yozora/react-code-highlighter': 3.0.0-alpha.16(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/core-react-constant': 3.0.0-alpha.13
+      '@yozora/react-code-highlighter': 3.0.0-alpha.17(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
       prop-types: 15.8.1
       react: 18.3.1
 
-  '@yozora/react-code-embed@3.0.0-alpha.18(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)':
+  '@yozora/react-code-embed@3.0.0-alpha.19(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)':
     dependencies:
       '@emotion/css': 11.13.5
       '@guanghechen/equal': 1.0.3
       '@yozora/ast': 2.3.16
-      '@yozora/core-react-constant': 3.0.0-alpha.12
+      '@yozora/core-react-constant': 3.0.0-alpha.13
       prop-types: 15.8.1
       react: 18.3.1
 
-  '@yozora/react-code-highlighter@3.0.0-alpha.16(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)':
+  '@yozora/react-code-highlighter@3.0.0-alpha.17(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)':
     dependencies:
       '@emotion/css': 11.13.5
       '@guanghechen/equal': 1.0.3
-      '@yozora/core-react-constant': 3.0.0-alpha.12
+      '@yozora/core-react-constant': 3.0.0-alpha.13
       prismjs: 1.30.0
       prop-types: 15.8.1
       react: 18.3.1
 
-  '@yozora/react-code-literal@3.0.0-alpha.17(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)':
+  '@yozora/react-code-literal@3.0.0-alpha.18(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)':
     dependencies:
       '@emotion/css': 11.13.5
-      '@yozora/core-react-constant': 3.0.0-alpha.12
-      '@yozora/react-code-highlighter': 3.0.0-alpha.16(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
-      '@yozora/react-common-copy-button': 3.0.0-alpha.13(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
-      '@yozora/react-common-light-buttons': 3.0.0-alpha.7(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/core-react-constant': 3.0.0-alpha.13
+      '@yozora/react-code-highlighter': 3.0.0-alpha.17(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/react-common-copy-button': 3.0.0-alpha.14(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/react-common-light-buttons': 3.0.0-alpha.8(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
       prop-types: 15.8.1
       react: 18.3.1
 
-  '@yozora/react-code-live@3.0.0-alpha.20(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)':
+  '@yozora/react-code-live@3.0.0-alpha.21(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)':
     dependencies:
       '@emotion/css': 11.13.5
       '@guanghechen/common-util': 0.2.6
       '@yozora/ast': 2.3.16
-      '@yozora/core-react-constant': 3.0.0-alpha.12
-      '@yozora/core-react-types': 1.0.0-alpha.11(react@18.3.1)
-      '@yozora/react-code-editor': 3.0.0-alpha.17(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
-      '@yozora/react-code-embed': 3.0.0-alpha.18(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)
-      '@yozora/react-common-copy-button': 3.0.0-alpha.13(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
-      '@yozora/react-common-light-buttons': 3.0.0-alpha.7(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/core-react-constant': 3.0.0-alpha.13
+      '@yozora/core-react-types': 1.0.0-alpha.12(react@18.3.1)
+      '@yozora/react-code-editor': 3.0.0-alpha.18(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/react-code-embed': 3.0.0-alpha.19(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/react-common-copy-button': 3.0.0-alpha.14(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/react-common-light-buttons': 3.0.0-alpha.8(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
       prop-types: 15.8.1
       react: 18.3.1
 
-  '@yozora/react-code-renderer-graphviz@3.0.0-alpha.15(prop-types@15.8.1)(react@18.3.1)':
+  '@yozora/react-code-renderer-graphviz@3.0.0-alpha.16(prop-types@15.8.1)(react@18.3.1)':
     dependencies:
       '@guanghechen/equal': 1.0.3
       '@types/d3-graphviz': 2.6.10
@@ -4332,46 +4282,46 @@ snapshots:
       prop-types: 15.8.1
       react: 18.3.1
 
-  '@yozora/react-code-renderer-jsx@3.0.0-alpha.14(prop-types@15.8.1)(react@18.3.1)':
+  '@yozora/react-code-renderer-jsx@3.0.0-alpha.15(prop-types@15.8.1)(react@18.3.1)':
     dependencies:
       '@guanghechen/equal': 1.0.3
       prop-types: 15.8.1
       react: 18.3.1
       sucrase: 3.35.0
 
-  '@yozora/react-code@3.0.0-alpha.21(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@yozora/react-code@3.0.0-alpha.22(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@emotion/css': 11.13.5
       '@guanghechen/equal': 1.0.3
       '@yozora/ast': 2.3.16
-      '@yozora/core-react-constant': 3.0.0-alpha.12
-      '@yozora/core-react-types': 1.0.0-alpha.11(react@18.3.1)
-      '@yozora/core-react-util': 1.0.0-alpha.12(react@18.3.1)
-      '@yozora/react-code-embed': 3.0.0-alpha.18(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)
-      '@yozora/react-code-literal': 3.0.0-alpha.17(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
-      '@yozora/react-code-live': 3.0.0-alpha.20(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)
-      '@yozora/react-code-renderer-jsx': 3.0.0-alpha.14(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/core-react-constant': 3.0.0-alpha.13
+      '@yozora/core-react-types': 1.0.0-alpha.12(react@18.3.1)
+      '@yozora/core-react-util': 1.0.0-alpha.13(react@18.3.1)
+      '@yozora/react-code-embed': 3.0.0-alpha.19(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/react-code-literal': 3.0.0-alpha.18(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/react-code-live': 3.0.0-alpha.21(@emotion/css@11.13.5)(@yozora/ast@2.3.16)(prop-types@15.8.1)(react@18.3.1)
+      '@yozora/react-code-renderer-jsx': 3.0.0-alpha.15(prop-types@15.8.1)(react@18.3.1)
       prop-types: 15.8.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@yozora/react-common-copy-button@3.0.0-alpha.13(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)':
+  '@yozora/react-common-copy-button@3.0.0-alpha.14(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)':
     dependencies:
       '@emotion/css': 11.13.5
       '@guanghechen/react-hooks': 3.0.15(react@18.3.1)
       prop-types: 15.8.1
       react: 18.3.1
 
-  '@yozora/react-common-light-buttons@3.0.0-alpha.7(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)':
+  '@yozora/react-common-light-buttons@3.0.0-alpha.8(@emotion/css@11.13.5)(prop-types@15.8.1)(react@18.3.1)':
     dependencies:
       '@emotion/css': 11.13.5
       prop-types: 15.8.1
       react: 18.3.1
 
-  '@yozora/react-mathjax@3.0.0-alpha.15(prop-types@15.8.1)(react@18.3.1)':
+  '@yozora/react-mathjax@3.0.0-alpha.16(prop-types@15.8.1)(react@18.3.1)':
     dependencies:
       '@guanghechen/equal': 1.0.3
-      '@yozora/core-react-constant': 3.0.0-alpha.12
+      '@yozora/core-react-constant': 3.0.0-alpha.13
       prop-types: 15.8.1
       react: 18.3.1
 
