@@ -1,21 +1,21 @@
 import { isEqual } from '@guanghechen/equal'
 import React from 'react'
 import { MathJaxContextType, initialMathJaxContext } from './context'
-import type { IMathJax3, IMathJaxConfig3, IMathJaxContext } from './types'
-import { loadMathJax3 } from './util/load'
+import type { IMathJax, IMathJaxConfig, IMathJaxContext } from './types'
+import { loadMathJax } from './util/load'
 
 interface IProps {
   /**
    * http / https url for loading mathjax.
-   * @default 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax3.js?config=TeX-MML-AM_CHTML'
+   * @default 'https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-mml-chtml.js'
    */
   mathjaxSrc?: string
   /**
-   * MathJax3 config
+   * MathJax config.
    */
-  mathjaxConfig?: IMathJaxConfig3
+  mathjaxConfig?: IMathJaxConfig
   /**
-   * Contents / Animation displayed at waiting MathJax3 loading.
+   * Contents / Animation displayed while MathJax is loading.
    * @default null
    */
   loading?: React.ReactNode
@@ -25,16 +25,16 @@ interface IProps {
   children?: React.ReactNode
   /**
    * Triggered on mathjax loaded.
-   * @param MathJax3
+   * @param mathJax
    */
-  onLoad?(MathJax3: IMathJax3): void
+  onLoad?(mathJax: IMathJax): void
   /**
    * Triggered on mathjax thrown an error.
    *
-   * @param MathJax3
+   * @param mathJax
    * @param error
    */
-  onError?(MathJax3: IMathJax3, error: any): void
+  onError?(mathJax: IMathJax, error: unknown): void
 }
 
 interface IState {
@@ -77,7 +77,7 @@ export class MathJaxProvider extends React.Component<IProps, IState> {
     const { loading = null, children } = this.props
     const { loaded, context } = this.state
 
-    // Try to render loading animation / contents when the MathJax3 is not loaded.
+    // Try to render loading animation / contents while MathJax is not loaded.
     if (!loaded && loading) return <React.Fragment>{loading}</React.Fragment>
 
     return <MathJaxContextType.Provider value={context}>{children}</MathJaxContextType.Provider>
@@ -98,9 +98,9 @@ export class MathJaxProvider extends React.Component<IProps, IState> {
   }
 
   public override componentWillUnmount(): void {
-    const { MathJax3 } = this.state.context
+    const { MathJax: mathJax } = this.state.context
     void this.clear().then(() => {
-      MathJax3?.texReset()
+      mathJax?.texReset()
     })
   }
 
@@ -108,20 +108,20 @@ export class MathJaxProvider extends React.Component<IProps, IState> {
     await this.clear()
 
     const {
-      mathjaxSrc = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js',
+      mathjaxSrc = 'https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-mml-chtml.js',
       mathjaxConfig = defaultMathjaxConfig,
     } = this.props
 
     let cancelled = false
 
     type IResult = () => void
-    const loadResult: Promise<IResult> = loadMathJax3(mathjaxSrc, mathjaxConfig).then<IResult>(
-      (MathJax3): IResult => {
+    const loadResult: Promise<IResult> = loadMathJax(mathjaxSrc, mathjaxConfig).then<IResult>(
+      (mathJax): IResult => {
         if (cancelled) return (): void => {}
 
         this.setState(prevState => ({
           loaded: true,
-          context: { ...prevState.context, MathJax3: MathJax3 },
+          context: { ...prevState.context, MathJax: mathJax },
         }))
         return (): void => {}
       },
@@ -141,16 +141,16 @@ export class MathJaxProvider extends React.Component<IProps, IState> {
     }
   }
 
-  protected readonly onLoad = (MathJax3: IMathJax3): void => {
-    this.props.onLoad?.(MathJax3)
+  protected readonly onLoad = (mathJax: IMathJax): void => {
+    this.props.onLoad?.(mathJax)
   }
 
-  protected readonly onError = (MathJax3: IMathJax3, error: unknown): void => {
-    this.props.onError?.(MathJax3, error)
+  protected readonly onError = (mathJax: IMathJax, error: unknown): void => {
+    this.props.onError?.(mathJax, error)
   }
 }
 
-const defaultMathjaxConfig: IMathJaxConfig3 = {
+const defaultMathjaxConfig: IMathJaxConfig = {
   loader: {
     load: [
       '[tex]/ams',

@@ -1,7 +1,7 @@
 import { isEqual } from '@guanghechen/equal'
 import React from 'react'
 import { MathError } from './MathError'
-import type { IMathJax3, TexLang } from './types'
+import type { IMathJax, TexLang } from './types'
 
 interface IMathErrorProps {
   lang: TexLang
@@ -11,7 +11,7 @@ interface IMathErrorProps {
 }
 
 interface IProps {
-  MathJax3: IMathJax3
+  MathJax: IMathJax
   language: TexLang
   formula: string
   inline: boolean
@@ -48,7 +48,7 @@ export class MathJaxNodeWithoutContext extends React.Component<IProps, IState> {
     const state = this.state
     return (
       state.error !== nextState.error ||
-      props.MathJax3 !== nextProps.MathJax3 ||
+      props.MathJax !== nextProps.MathJax ||
       props.language !== nextProps.language ||
       props.formula !== nextProps.formula ||
       props.inline !== nextProps.inline ||
@@ -94,7 +94,7 @@ export class MathJaxNodeWithoutContext extends React.Component<IProps, IState> {
     if (
       props.formula !== prevProps.formula ||
       props.inline !== prevProps.inline ||
-      props.MathJax3 !== prevProps.MathJax3
+      props.MathJax !== prevProps.MathJax
     ) {
       this._typeset()
     }
@@ -109,10 +109,10 @@ export class MathJaxNodeWithoutContext extends React.Component<IProps, IState> {
    * @param isForceUpdate
    */
   protected _typeset(): void | never {
-    const { MathJax3 } = this.props
-    if (!MathJax3) {
+    const { MathJax } = this.props
+    if (!MathJax) {
       throw new Error(
-        "Could not find MathJax3 while attempting typeset! Probably MathJax3 script hasn't been loaded or MathJaxContextType.Provider is not in the hierarchy",
+        "Could not find MathJax while attempting typeset! Probably the MathJax script hasn't been loaded or MathJaxContextType.Provider is not in the hierarchy",
       )
     }
 
@@ -120,10 +120,10 @@ export class MathJaxNodeWithoutContext extends React.Component<IProps, IState> {
     if (node) {
       if (!this._typesettingRef.current) {
         this._typesettingRef.current = true
-        void MathJax3.startup.promise
+        void MathJax.startup.promise
           .then(() => {
-            MathJax3.typesetClear([node])
-            return MathJax3.typesetPromise([[node]])
+            MathJax.typesetClear([node])
+            return MathJax.typesetPromise([[node]])
           })
           .then(() => {
             this.setState({ error: undefined })

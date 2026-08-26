@@ -1,17 +1,20 @@
-import type {
-  MathJaxObject as IMathJax3,
-  MathJaxConfig as IMathJaxConfig3,
-} from 'mathjax-full/js/components/startup'
+import type { MathJaxConfig, MathJaxObject } from '@mathjax/src/js/components/startup.js'
 
 export enum TexLang {
   MML = 'MathML',
   TEX = 'TeX',
 }
 
-export type { IMathJaxConfig3 }
-export type { IMathJax3 }
+export type IMathJax = MathJaxObject
+export type IMathJaxConfig = MathJaxConfig
+
+/** @deprecated Use `IMathJax` instead. */
+export type IMathJax3 = IMathJax
+
+/** @deprecated Use `IMathJaxConfig` instead. */
+export type IMathJaxConfig3 = IMathJaxConfig
 
 export interface IMathJaxContext {
-  MathJax3: IMathJax3 | null
+  MathJax: IMathJax | null
   language: TexLang // Type of the formula string.
 }

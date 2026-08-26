@@ -57,8 +57,7 @@
 
 Rendering formula with [mathjax][] in react. Inspired by [react-mathjax][] and [react-mathjax2][].
 
-The default version is
-[mathjax@2.7.4](https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_SVG).
+The default version is MathJax 4.1.3, loaded from jsDelivr.
 
 ## Install
 
@@ -117,7 +116,7 @@ The default version is
     loading?: React.ReactNode
     /**
     * http / https url for loading mathjax.
-    * @default 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML'
+    * @default 'https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-mml-chtml.js'
     */
     mathjaxSrc?: string
     /**

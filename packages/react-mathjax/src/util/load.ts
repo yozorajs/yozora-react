@@ -1,23 +1,24 @@
-import type { IMathJax3, IMathJaxConfig3 } from '../types'
+import type { IMathJax, IMathJaxConfig } from '../types'
 
-let MathJax3Promise: Promise<IMathJax3 | null> | null = null
-export function loadMathJax3(
-  mathjax3Src: string,
-  mathjax3Config: IMathJaxConfig3 | undefined,
-): Promise<IMathJax3 | null> {
-  if (MathJax3Promise === null) {
-    MathJax3Promise = new Promise<IMathJax3 | null>((resolve, reject) => {
+let mathJaxPromise: Promise<IMathJax | null> | null = null
+
+export function loadMathJax(
+  mathJaxSrc: string,
+  mathJaxConfig: IMathJaxConfig | undefined,
+): Promise<IMathJax | null> {
+  if (mathJaxPromise === null) {
+    mathJaxPromise = new Promise<IMathJax | null>((resolve, reject) => {
       if (typeof window === 'undefined') {
         resolve(null)
         return
       }
 
       const w = window as any
-      if (mathjax3Config && !w.MathJax) w.MathJax = mathjax3Config
+      if (mathJaxConfig && !w.MathJax) w.MathJax = mathJaxConfig
 
       const script = document.createElement('script')
       script.type = 'text/javascript'
-      script.src = mathjax3Src
+      script.src = mathJaxSrc
       script.async = false
 
       script.addEventListener('load', () => {
@@ -33,5 +34,8 @@ export function loadMathJax3(
       head?.[0]?.appendChild?.(script)
     })
   }
-  return MathJax3Promise
+  return mathJaxPromise
 }
+
+/** @deprecated Use `loadMathJax` instead. */
+export const loadMathJax3 = loadMathJax

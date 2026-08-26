@@ -24,13 +24,13 @@ interface IMathJaxNodeProps {
 
 export const MathJaxNode: React.FC<IMathJaxNodeProps> = props => {
   const { inline = false, className, style } = props
-  const { MathJax3, language } = React.useContext(MathJaxContextType)
+  const { MathJax, language } = React.useContext(MathJaxContextType)
   const formula = props.formula.trim()
 
-  if (MathJax3) {
+  if (MathJax) {
     return (
       <MathJaxNodeWithoutContext
-        MathJax3={MathJax3}
+        MathJax={MathJax}
         language={language}
         formula={formula}
         inline={inline}

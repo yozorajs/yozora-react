@@ -3,7 +3,7 @@ import type { IMathJaxContext } from './types'
 import { TexLang } from './types'
 
 export const initialMathJaxContext: IMathJaxContext = {
-  MathJax3: null,
+  MathJax: null,
   language: TexLang.TEX,
 }
 

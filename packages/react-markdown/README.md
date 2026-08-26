@@ -209,7 +209,7 @@ This component is designed to render data of [@yozora/ast][].
   }
 
   const wrapper = (
-    <MathJaxProvider mathjaxSrc="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+    <MathJaxProvider mathjaxSrc="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-mml-chtml.js">
       <ThemeProvider theme={Theme.LIGHT}>
         <MarkdownProvider
           definitionMap={definitionMap}
