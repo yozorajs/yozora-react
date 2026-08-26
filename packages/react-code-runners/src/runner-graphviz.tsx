@@ -1,6 +1,13 @@
 import type { ICodeRunner } from '@yozora/core-react-types'
-import type { IGraphvizRendererProps } from '@yozora/react-code-renderer-graphviz'
 import React from 'react'
+
+type GraphvizEngine = 'circo' | 'dot' | 'fdp' | 'neato' | 'osage' | 'patchwork' | 'twopi'
+
+interface IGraphvizRunnerRendererProps {
+  code: string
+  engine?: GraphvizEngine
+  onError?(error: string | null): void
+}
 
 /**
  * Create a graphviz live code runner.
@@ -8,16 +15,12 @@ import React from 'react'
  * @returns
  */
 export function createGraphvizRunner(
-  GraphvizRenderer: React.ComponentType<IGraphvizRendererProps>,
+  GraphvizRenderer: React.ComponentType<IGraphvizRunnerRendererProps>,
 ): ICodeRunner {
   const GraphvizRunner: ICodeRunner = props => {
     const { value, meta = {}, onError } = props
     return (
-      <GraphvizRenderer
-        code={value}
-        engine={meta.engine as IGraphvizRendererProps['engine']}
-        onError={onError}
-      />
+      <GraphvizRenderer code={value} engine={meta.engine as GraphvizEngine} onError={onError} />
     )
   }
 

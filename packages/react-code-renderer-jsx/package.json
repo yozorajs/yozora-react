@@ -36,8 +36,8 @@
     "README.md"
   ],
   "dependencies": {
-    "@guanghechen/equal": "^1.0.3",
-    "sucrase": "3.35.0"
+    "@guanghechen/equal": "^2.0.4",
+    "sucrase": "3.35.1"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0"

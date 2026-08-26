@@ -1,15 +1,21 @@
 import { useDeepCompareMemo } from '@guanghechen/react-hooks'
 import type { EcmaImport as IEcmaImport } from '@yozora/ast'
 import type { IAsyncRunnerScopes, ICodeRunner, ICodeRunnerScope } from '@yozora/core-react-types'
-import type { ICodeRendererJsxProps } from '@yozora/react-code-renderer-jsx'
 import React from 'react'
 import type { IDynamicImportRule } from './lazy'
 import { dynamicImport } from './lazy'
 
+interface IJsxRunnerRendererProps {
+  code: string
+  inline: boolean
+  scope?: Readonly<Record<string, unknown>>
+  onError(error: string | null): void
+}
+
 export interface ICreateUseJsxRunnerParams {
   presetJsxScope: Readonly<ICodeRunnerScope> // preset jsx scopes
   rules: ReadonlyArray<IDynamicImportRule> // dynamic import rules (webpack required)
-  JsxRenderer: React.ComponentType<ICodeRendererJsxProps> // jsx renderer
+  JsxRenderer: React.ComponentType<IJsxRunnerRendererProps> // jsx renderer
   defaultRenderMode: 'inline' | 'block' // default jsx render mode: block / inline.
 }
 

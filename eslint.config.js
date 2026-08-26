@@ -151,6 +151,7 @@ export default [
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       'import-x/no-extraneous-dependencies': 'off',
+      'import-x/named': 'off',
       'import-x/no-named-as-default': 'off',
       'no-plusplus': 'off',
       'no-prototype-builtins': 'off',

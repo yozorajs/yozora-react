@@ -36,11 +36,12 @@
     "README.md"
   ],
   "dependencies": {
-    "@guanghechen/common-util": "^0.2.5",
+    "@guanghechen/common-util": "^0.2.6",
     "@yozora/core-react-constant": "^3.0.0-alpha.13",
     "@yozora/core-react-types": "^1.0.0-alpha.12",
     "@yozora/react-code-editor": "^3.0.0-alpha.18",
     "@yozora/react-code-embed": "^3.0.0-alpha.19",
+    "@yozora/react-code-highlighter": "^3.0.0-alpha.17",
     "@yozora/react-common-copy-button": "^3.0.0-alpha.14",
     "@yozora/react-common-light-buttons": "^3.0.0-alpha.8"
   },
