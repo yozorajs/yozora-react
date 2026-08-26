@@ -81,8 +81,8 @@ export const defaultNodeRendererMap: Readonly<INodeRendererMap> = {
   [TableType]: TableRenderer,
   [TextType]: TextRenderer,
   [ThematicBreakType]: ThematicBreakRenderer,
-  _fallback: function YozoraReactFallback(node, key) {
-    console.warn(`Cannot find render for \`${node.type}\` type node with key \`${key}\`:`, node)
+  _fallback: function YozoraReactFallback(node) {
+    console.warn(`Cannot find renderer for \`${node.type}\` type node:`, node)
     return null
   },
 }

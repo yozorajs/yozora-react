@@ -45,7 +45,7 @@ interface IProps {
   /**
    * Ref of the codes area.
    */
-  codesRef?: React.RefCallback<HTMLDivElement> | React.RefObject<HTMLDivElement>
+  codesRef?: React.RefCallback<HTMLDivElement> | React.RefObject<HTMLDivElement | null>
   /**
    * Custom css class for the container.
    */

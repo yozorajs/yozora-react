@@ -79,7 +79,7 @@ interface IState {
 export class CodeEditor extends React.Component<IProps, IState> {
   public static readonly displayName = 'CodeEditor'
 
-  protected readonly codesRef: React.RefObject<HTMLDivElement>
+  protected readonly codesRef: React.RefObject<HTMLDivElement | null>
 
   constructor(props: IProps) {
     super(props)

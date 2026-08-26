@@ -31,14 +31,13 @@ export class HeadingRenderer extends React.Component<IProps> {
     const { depth, identifier, children, linkIcon = '¶' } = this.props
 
     const id = identifier == null ? undefined : encodeURIComponent(identifier)
-    const h: IHeading = ('h' + depth) as IHeading
-    const H: any = h as keyof JSX.IntrinsicElements
+    const H: IHeading = ('h' + depth) as IHeading
 
     const cls = cx(
       'yozora-heading',
       !!identifier && 'yozora-heading--toc',
       classes.yozoraHeading,
-      classes[h],
+      classes[H],
     )
 
     return (

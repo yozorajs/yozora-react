@@ -27,7 +27,7 @@ interface IState {
 export class MathJaxNodeWithoutContext extends React.Component<IProps, IState> {
   public static readonly displayName = 'MathJaxNodeWithoutContext'
 
-  protected readonly _nodeRef: React.RefObject<HTMLDivElement>
+  protected readonly _nodeRef: React.RefObject<HTMLDivElement | null>
   protected readonly _typesettingRef: React.MutableRefObject<boolean>
 
   constructor(props: IProps) {
@@ -129,9 +129,10 @@ export class MathJaxNodeWithoutContext extends React.Component<IProps, IState> {
             this.setState({ error: undefined })
             this._onTypesetDone()
           })
-          .catch(err => {
-            console.log('err:', err)
-            this.setState({ error: `Typesetting failed: ${err.message ?? err.toString()}` })
+          .catch((error: unknown) => {
+            console.log('err:', error)
+            const message = error instanceof Error ? error.message : String(error)
+            this.setState({ error: `Typesetting failed: ${message}` })
             this._onTypesetDone()
           })
       }

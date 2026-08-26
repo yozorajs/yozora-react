@@ -1,6 +1,9 @@
-/* istanbul ignore next */
 const gThis =
-  typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : global
+  typeof globalThis !== 'undefined'
+    ? globalThis
+    : typeof window !== 'undefined'
+      ? window
+      : undefined
 
 /* istanbul ignore next */
 export const isWindows = gThis?.navigator && /Win/i.test(navigator.platform)

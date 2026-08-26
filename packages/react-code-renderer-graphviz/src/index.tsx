@@ -27,7 +27,7 @@ export interface IGraphvizRendererProps {
 export class GraphvizRenderer extends React.Component<IGraphvizRendererProps> {
   public static readonly displayName = 'GraphvizRenderer'
 
-  protected readonly graphRef: React.RefObject<HTMLDivElement>
+  protected readonly graphRef: React.RefObject<HTMLDivElement | null>
 
   constructor(props: IGraphvizRendererProps) {
     super(props)

@@ -19,7 +19,7 @@ import { HighlightLinenos } from './HighlightLinenos'
 
 interface IProps {
   code: string
-  codesRef: React.RefCallback<HTMLDivElement> | React.RefObject<HTMLDivElement> | undefined
+  codesRef: React.RefCallback<HTMLDivElement> | React.RefObject<HTMLDivElement | null> | undefined
   collapsed: boolean
   language: string
   maxLines: number
@@ -40,7 +40,7 @@ interface IState {
 export class HighlightContent extends React.Component<IProps, IState> {
   public static readonly displayName = 'HighlightContent'
 
-  protected readonly linenoRef: React.RefObject<HTMLDivElement>
+  protected readonly linenoRef: React.RefObject<HTMLDivElement | null>
 
   constructor(props: IProps) {
     super(props)

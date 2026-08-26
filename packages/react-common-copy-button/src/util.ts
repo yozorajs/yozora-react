@@ -39,7 +39,7 @@ function copyThroughExecCommand(text: string): boolean | never {
   textarea.select()
 
   // Copy text to the clipboard
-  let success = false
+  let success: boolean
   try {
     success = document.execCommand('copy')
   } finally {
