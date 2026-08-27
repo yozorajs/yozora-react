@@ -149,7 +149,7 @@ importers:
         specifier: ^3.0.0-alpha.13
         version: link:../core-react-constant
       '@yozora/core-react-theme':
-        specifier: ^3.0.0-alpha.14
+        specifier: ^3.0.0-alpha.15
         version: link:../core-react-theme
       '@yozora/core-react-types':
         specifier: ^1.0.0-alpha.12
@@ -158,7 +158,7 @@ importers:
         specifier: ^1.0.0-alpha.13
         version: link:../core-react-util
       '@yozora/react-code-highlighter':
-        specifier: ^3.0.0-alpha.17
+        specifier: ^3.0.0-alpha.18
         version: link:../react-code-highlighter
       react:
         specifier: 19.2.8
@@ -227,16 +227,16 @@ importers:
         specifier: ^1.0.0-alpha.13
         version: link:../core-react-util
       '@yozora/react-code-embed':
-        specifier: ^3.0.0-alpha.19
+        specifier: ^3.0.0-alpha.20
         version: link:../react-code-embed
       '@yozora/react-code-literal':
-        specifier: ^3.0.0-alpha.18
+        specifier: ^3.0.0-alpha.19
         version: link:../react-code-literal
       '@yozora/react-code-live':
-        specifier: ^3.0.0-alpha.21
+        specifier: ^3.0.0-alpha.22
         version: link:../react-code-live
       '@yozora/react-code-renderer-jsx':
-        specifier: ^3.0.0-alpha.15
+        specifier: ^3.0.0-alpha.16
         version: link:../react-code-renderer-jsx
       react:
         specifier: 19.2.8
@@ -257,7 +257,7 @@ importers:
         specifier: ^3.0.0-alpha.13
         version: link:../core-react-constant
       '@yozora/react-code-highlighter':
-        specifier: ^3.0.0-alpha.17
+        specifier: ^3.0.0-alpha.18
         version: link:../react-code-highlighter
       react:
         specifier: 19.2.8
@@ -311,13 +311,13 @@ importers:
         specifier: ^3.0.0-alpha.13
         version: link:../core-react-constant
       '@yozora/react-code-highlighter':
-        specifier: ^3.0.0-alpha.17
+        specifier: ^3.0.0-alpha.18
         version: link:../react-code-highlighter
       '@yozora/react-common-copy-button':
-        specifier: ^3.0.0-alpha.14
+        specifier: ^3.0.0-alpha.15
         version: link:../react-common-copy-button
       '@yozora/react-common-light-buttons':
-        specifier: ^3.0.0-alpha.8
+        specifier: ^3.0.0-alpha.9
         version: link:../react-common-light-buttons
       react:
         specifier: 19.2.8
@@ -341,19 +341,19 @@ importers:
         specifier: ^1.0.0-alpha.12
         version: link:../core-react-types
       '@yozora/react-code-editor':
-        specifier: ^3.0.0-alpha.18
+        specifier: ^3.0.0-alpha.19
         version: link:../react-code-editor
       '@yozora/react-code-embed':
-        specifier: ^3.0.0-alpha.19
+        specifier: ^3.0.0-alpha.20
         version: link:../react-code-embed
       '@yozora/react-code-highlighter':
-        specifier: ^3.0.0-alpha.17
+        specifier: ^3.0.0-alpha.18
         version: link:../react-code-highlighter
       '@yozora/react-common-copy-button':
-        specifier: ^3.0.0-alpha.14
+        specifier: ^3.0.0-alpha.15
         version: link:../react-common-copy-button
       '@yozora/react-common-light-buttons':
-        specifier: ^3.0.0-alpha.8
+        specifier: ^3.0.0-alpha.9
         version: link:../react-common-light-buttons
       react:
         specifier: 19.2.8
@@ -443,22 +443,22 @@ importers:
         specifier: ^3.0.0-alpha.13
         version: link:../core-react-constant
       '@yozora/core-react-renderer':
-        specifier: ^3.0.0-alpha.24
+        specifier: ^3.0.0-alpha.25
         version: link:../core-react-renderer
       '@yozora/core-react-theme':
-        specifier: ^3.0.0-alpha.14
+        specifier: ^3.0.0-alpha.15
         version: link:../core-react-theme
       '@yozora/core-react-types':
         specifier: ^1.0.0-alpha.12
         version: link:../core-react-types
       '@yozora/react-admonition':
-        specifier: ^3.0.0-alpha.14
+        specifier: ^3.0.0-alpha.15
         version: link:../react-admonition
       '@yozora/react-code':
-        specifier: ^3.0.0-alpha.22
+        specifier: ^3.0.0-alpha.23
         version: link:../react-code
       '@yozora/react-mathjax':
-        specifier: ^3.0.0-alpha.16
+        specifier: ^3.0.0-alpha.17
         version: link:../react-mathjax
       react:
         specifier: 19.2.8

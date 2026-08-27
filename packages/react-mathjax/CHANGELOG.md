@@ -1,5 +1,20 @@
 # Change Log
 
+## 3.0.0-alpha.17
+
+### Patch Changes
+
+- Upgrade the React 19 and TypeScript 6 toolchain and remove the deprecated `prop-types` runtime
+  dependency.
+
+  Within the 3.0 prerelease, `@yozora/react-code-runners` no longer exports `CodeRunnerPropTypes`,
+  and `@yozora/react-mathjax` now loads MathJax 4 by default.
+
+  For `@yozora/react-mathjax`, `IMathJaxContext.MathJax3` and the `MathJaxNodeWithoutContext`
+  `MathJax3` prop are renamed to `MathJax`. The provider `onError` callback now receives only the
+  loading error. The `IMathJax3`, `IMathJaxConfig3`, and `loadMathJax3` aliases remain deprecated
+  for migration.
+
 ## 3.0.0-alpha.16
 
 ### Patch Changes
