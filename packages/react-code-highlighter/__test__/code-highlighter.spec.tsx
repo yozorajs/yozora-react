@@ -1,32 +1,26 @@
 import { render } from '@testing-library/react'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import CodeHighlighter from '../src'
 
 describe('basic rendering case', () => {
   test('lineno change', () => {
-    function Wrapper(): React.ReactElement {
-      const [code, setCode] = useState<string>('let a: number = 1 + 2;')
-      const countOfLine: number = code.split(/\r\n|\n|\r/g).length
+    const view = render(<CodeHighlighter lang="typescript" value="// first" />)
+    expect(view.getByText('1')).toBeInTheDocument()
+    expect(view.container.querySelectorAll('.token-line')).toHaveLength(1)
 
-      useEffect(() => {
-        const nextCode =
-          'let a = 1, b = 2\n' +
-          Array.from(new Array(100))
-            .map((_x, i) => '// ' + i)
-            .join('\n') +
-          "\nlet c = 3\nconsole.log('c:', c)"
-        setCode(nextCode)
-      }, [])
+    const code = Array.from({ length: 103 }, (_, i) => `// line ${i + 1}`).join('\n')
+    view.rerender(<CodeHighlighter lang="typescript" value={code} />)
+    expect(view.container.querySelectorAll('.token-line')).toHaveLength(103)
+    expect(view.getByText('103')).toBeInTheDocument()
+    expect(view.getByText('// line 103')).toBeInTheDocument()
+    expect(view.queryByText('104')).not.toBeInTheDocument()
 
-      return (
-        <pre data-testid="pre" data-line-count={countOfLine}>
-          <CodeHighlighter lang="typescript" value={code} />
-        </pre>
-      )
-    }
-
-    const view = render(<Wrapper />)
-    expect(view.getByTestId('pre')).toHaveAttribute('data-line-count', String(103))
+    view.rerender(<CodeHighlighter lang="typescript" value="// last" />)
+    expect(view.container.querySelectorAll('.token-line')).toHaveLength(1)
+    expect(view.getByText('1')).toBeInTheDocument()
+    expect(view.getByText('// last')).toBeInTheDocument()
+    expect(view.queryByText('2')).not.toBeInTheDocument()
+    expect(view.queryByText('103')).not.toBeInTheDocument()
   })
 
   test('snapshot', () => {

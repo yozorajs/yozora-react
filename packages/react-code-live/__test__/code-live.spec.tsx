@@ -1,7 +1,8 @@
-import { fireEvent, render, waitFor } from '@testing-library/react'
+import { act, fireEvent, render } from '@testing-library/react'
 import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/core-react-types'
 import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
 import React from 'react'
+import { vi } from 'vitest'
 import CodeLive from '../src'
 
 const code = `
@@ -30,25 +31,74 @@ const runners: ICodeRunnerItem[] = [
 ]
 
 describe('editing behavior', () => {
-  test('change and debounce', async () => {
+  beforeEach(() => {
+    vi.useFakeTimers()
+  })
+
+  afterEach(() => {
+    vi.clearAllTimers()
+    vi.useRealTimers()
+  })
+
+  test('debounces consecutive edits before updating the preview', () => {
     const code1 = 'function Demo() { return <span data-testid="value">3</span> }'
     const code2 = 'function Demo() { return <span data-testid="value">4</span> }'
+    const code3 = 'function Demo() {\n return <span data-testid="value">5</span> }'
 
-    const view = render(<CodeLive lang="jsx" value={code1} runners={runners} />)
-    await waitFor(() => {
-      const textarea = view.getByRole('textbox')
-      expect(textarea.textContent).toEqual(code1)
-      expect(view.getByTestId('value').textContent).toEqual('3')
-    })
+    const view = render(
+      <CodeLive lang="jsx" value={code1} runners={runners} title="Demo" collapsed={true} />,
+    )
+    expect(view.getByRole('textbox')).toHaveValue(code1)
+    expect(view.getByTestId('value')).toHaveTextContent('3')
 
-    // change code
     fireEvent.change(view.getByRole('textbox'), { target: { value: code2 } })
+    expect(view.getByRole('textbox')).toHaveValue(code2)
+    expect(view.getByTestId('value')).toHaveTextContent('3')
 
-    // Fast-forward time (await debounce)
-    await waitFor(() => {
-      expect(view.getByRole('textbox').textContent).toEqual(code2)
-      expect(view.getByTestId('value').textContent).toEqual('4')
+    fireEvent.change(view.getByRole('textbox'), { target: { value: code3 } })
+    expect(view.getByRole('textbox')).toHaveValue(code3)
+    expect(view.getByTestId('value')).toHaveTextContent('3')
+
+    act(() => {
+      vi.runOnlyPendingTimers()
     })
+    expect(view.getByRole('textbox')).toHaveValue(code3)
+    expect(view.getByTestId('value')).toHaveTextContent('5')
+    expect(view.getByTitle('Demo')).toHaveTextContent('2 lines.')
+  })
+
+  test('updates the editor, preview and line count when value changes', () => {
+    const code1 = 'function Demo() {\r\n return <span data-testid="value">3</span> }'
+    const code2 = 'function Demo() {\r\n return (\r\n <span data-testid="value">4</span>) }'
+    const view = render(
+      <CodeLive lang="jsx" value={code1} runners={runners} title="Demo" collapsed={true} />,
+    )
+    expect(view.getByTitle('Demo')).toHaveTextContent('2 lines.')
+
+    view.rerender(
+      <CodeLive lang="jsx" value={code2} runners={runners} title="Demo" collapsed={true} />,
+    )
+    expect(view.getByRole('textbox')).toHaveValue(code2.replace(/\r\n/g, '\n'))
+    expect(view.getByTestId('value')).toHaveTextContent('4')
+    expect(view.getByTitle('Demo')).toHaveTextContent('3 lines.')
+  })
+
+  test('value changes supersede pending edits', () => {
+    const code1 = 'function Demo() { return <span data-testid="value">3</span> }'
+    const code2 = 'function Demo() { return <span data-testid="value">4</span> }'
+    const code3 = 'function Demo() { return <span data-testid="value">5</span> }'
+    const view = render(<CodeLive lang="jsx" value={code1} runners={runners} />)
+
+    fireEvent.change(view.getByRole('textbox'), { target: { value: code2 } })
+    view.rerender(<CodeLive lang="jsx" value={code3} runners={runners} />)
+    expect(view.getByRole('textbox')).toHaveValue(code3)
+    expect(view.getByTestId('value')).toHaveTextContent('5')
+
+    act(() => {
+      vi.runOnlyPendingTimers()
+    })
+    expect(view.getByRole('textbox')).toHaveValue(code3)
+    expect(view.getByTestId('value')).toHaveTextContent('5')
   })
 })
 

@@ -27,7 +27,7 @@ export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
       value: props.value,
       orientation: 'vertical',
       collapsed: props.collapsed ?? false,
-      countOfLines: props.value.split(/\r|\n|\n\r/g).length,
+      countOfLines: props.value.split(/\r\n|\r|\n/g).length,
     }
   }
 
@@ -41,6 +41,7 @@ export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
       state.orientation !== nextState.orientation ||
       state.collapsed !== nextState.collapsed ||
       state.countOfLines !== nextState.countOfLines ||
+      props.value !== nextProps.value ||
       props.darken !== nextProps.darken ||
       props.maxLines !== nextProps.maxLines ||
       props.showLineNo !== nextProps.showLineNo ||
@@ -126,10 +127,10 @@ export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
 
   public override componentDidUpdate(prevProps: Readonly<ICodeLiveProps>): void {
     if (this.props.value !== prevProps.value) {
-      const countOfLines: number = prevProps.value.split(/\r|\n|\n\r/g).length
-      if (countOfLines !== this.state.countOfLines) {
-        this.setState({ countOfLines })
-      }
+      // External value changes replace the draft and supersede pending edits.
+      this._onChanged.cancel()
+      const value = this.props.value
+      this.setState({ value, countOfLines: value.split(/\r\n|\r|\n/g).length })
     }
   }
 
@@ -152,6 +153,6 @@ export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
   }
 
   protected _onChanged = debounce((nextValue: string): void => {
-    this.setState({ value: nextValue })
+    this.setState({ value: nextValue, countOfLines: nextValue.split(/\r\n|\r|\n/g).length })
   })
 }

@@ -74,6 +74,7 @@ export class CodeEmbed extends React.Component<IProps, IState> {
       props.value !== nextProps.value ||
       props.className !== nextProps.className ||
       props.runner !== nextProps.runner ||
+      !isEqual(props.scope, nextProps.scope) ||
       !isEqual(props.meta, nextProps.meta) ||
       !isEqual(props.style, nextProps.style)
     )

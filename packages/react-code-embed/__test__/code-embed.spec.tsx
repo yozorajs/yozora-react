@@ -85,6 +85,20 @@ describe('rendering behavior', () => {
     )
     expect(view.container.firstChild).toHaveStyle({ color: 'rgb(255, 165, 0)' })
   })
+
+  test('updates the runner when only scope changes', () => {
+    const Runner: React.FC<ICodeRunnerProps> = ({ scope }) => <span>{String(scope?.label)}</span>
+    const view = render(
+      <CodeEmbed lang="text" value="same" runner={Runner} scope={{ label: 'first' }} />,
+    )
+    expect(view.getByText('first')).toBeInTheDocument()
+
+    view.rerender(
+      <CodeEmbed lang="text" value="same" runner={Runner} scope={{ label: 'second' }} />,
+    )
+    expect(view.getByText('second')).toBeInTheDocument()
+    expect(view.queryByText('first')).not.toBeInTheDocument()
+  })
 })
 
 describe('snapshot', () => {
