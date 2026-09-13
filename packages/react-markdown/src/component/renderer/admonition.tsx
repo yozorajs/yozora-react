@@ -1,6 +1,6 @@
 import type { Admonition } from '@yozora/ast'
 import { NodesRenderer } from '@yozora/core-react-renderer'
-import AdmonitionRenderer0 from '@yozora/react-admonition'
+import { Admonition as AdmonitionRenderer0 } from '@yozora/react-admonition'
 import React from 'react'
 
 /**

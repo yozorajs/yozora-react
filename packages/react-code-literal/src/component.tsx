@@ -1,7 +1,7 @@
 import { cx } from '@emotion/css'
-import CodeHighlighterComponent from '@yozora/react-code-highlighter'
-import CopyButtonComponent from '@yozora/react-common-copy-button'
-import LightButtonsComponent from '@yozora/react-common-light-buttons'
+import { CodeHighlighter as CodeHighlighterComponent } from '@yozora/react-code-highlighter'
+import { CopyButton as CopyButtonComponent } from '@yozora/react-common-copy-button'
+import { LightButtons as LightButtonsComponent } from '@yozora/react-common-light-buttons'
 import React from 'react'
 import { classes } from './style'
 

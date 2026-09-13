@@ -50,3 +50,5 @@ jobs:
         run: pnpm typecheck
       - name: Test
         run: pnpm test:coverage
+      - name: Test build output
+        run: pnpm test:dist

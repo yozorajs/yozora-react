@@ -3,7 +3,7 @@ import type { INodeRenderer } from '@yozora/core-react-renderer'
 import { useNodeRendererState } from '@yozora/core-react-renderer'
 import { useThemeContext } from '@yozora/core-react-theme'
 import type { ICodeRunnerItem } from '@yozora/core-react-types'
-import CodeRenderer0 from '@yozora/react-code'
+import { Code as CodeRenderer0 } from '@yozora/react-code'
 import React from 'react'
 
 /**

@@ -1,6 +1,6 @@
 import { isEqual } from '@guanghechen/equal'
 import type { IPrismTheme } from '@yozora/react-code-highlighter'
-import CodeHighlighterComponent from '@yozora/react-code-highlighter'
+import { CodeHighlighter as CodeHighlighterComponent } from '@yozora/react-code-highlighter'
 import React from 'react'
 import { SimpleCodeEditor } from './SimpleCodeEditor'
 
