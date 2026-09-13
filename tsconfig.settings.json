@@ -17,7 +17,6 @@
     "noImplicitOverride": true,
     "noImplicitReturns": false,
     "noImplicitThis": true,
-    "noImplicitUseStrict": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "pretty": false,
