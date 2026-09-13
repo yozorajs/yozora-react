@@ -26,9 +26,7 @@
     "build:production": "cross-env NODE_ENV=production BUILD_SOURCEMAP=false pnpm -r run build",
     "clean": "pnpm -r run clean && pnpm install",
     "format": "biome check --write .",
-    "prepublishOnly": "pinst --disable",
-    "postinstall": "is-ci || husky",
-    "postpublish": "pinst --enable",
+    "postinstall": "githooks install",
     "rebuild": "pnpm clean && pnpm build",
     "start": "pnpm -r --parallel --if-present run start",
     "test": "pnpm -r run --if-present test",
@@ -44,6 +42,7 @@
     "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.2",
     "@emotion/css": "11.13.5",
+    "@guanghechen/githooks": "1.0.0",
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",
     "@types/loadable__component": "5.13.10",
@@ -55,17 +54,19 @@
     "@yozora/ast": "^2.4.0",
     "@yozora/ast-util": "^2.4.0",
     "cross-env": "10.1.0",
-    "husky": "9.1.7",
-    "is-ci": "4.1.0",
     "jsdom": "^30.0.1",
     "lint-staged": "17.5.0",
-    "pinst": "3.0.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "rimraf": "6.1.3",
     "tsdown": "0.23.0",
     "typescript": "7.0.2",
     "vitest": "5.0.0"
+  },
+  "githooks": {
+    "hooks": {
+      "pre-commit": "pnpm exec lint-staged --allow-empty"
+    }
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,mts,cjs,cts,json,jsonc}": "biome check --write --no-errors-on-unmatched"

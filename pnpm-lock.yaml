@@ -24,6 +24,9 @@ importers:
       '@emotion/css':
         specifier: 11.13.5
         version: 11.13.5
+      '@guanghechen/githooks':
+        specifier: 1.0.0
+        version: 1.0.0
       '@testing-library/jest-dom':
         specifier: 7.0.1
         version: 7.0.1(@testing-library/dom@10.4.1)(vitest@5.0.0)
@@ -57,21 +60,12 @@ importers:
       cross-env:
         specifier: 10.1.0
         version: 10.1.0
-      husky:
-        specifier: 9.1.7
-        version: 9.1.7
-      is-ci:
-        specifier: 4.1.0
-        version: 4.1.0
       jsdom:
         specifier: ^30.0.1
         version: 30.0.1
       lint-staged:
         specifier: 17.5.0
         version: 17.5.0
-      pinst:
-        specifier: 3.0.0
-        version: 3.0.0
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -732,6 +726,11 @@ packages:
   '@guanghechen/equal@2.0.5':
     resolution: {integrity: sha512-doM6Czk747V0N/Uw/QvUf+tblRsINtK/EnGCwsZUnp80396d124xZh1sLR3MbjhFfV4fQNIoz3YxPevx7L8ZYA==}
 
+  '@guanghechen/githooks@1.0.0':
+    resolution: {integrity: sha512-r1EKAEtNNw8dNVXQXvkoLtj6KOjnDlejk4GCJSeZI5xN84he6SPiV+SLu3+gKPJu2pIzC4F44omvMYskCsMHog==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
+
   '@guanghechen/observable@7.1.4':
     resolution: {integrity: sha512-v8Bt6emveF1sk/gVpOq+ksSwXivC1md5jYECdm/iDVfUEJeVfEjBJ9dcHEf4dSfmlTjv7mvgmW2nZECwzceNvQ==}
 
@@ -1345,10 +1344,6 @@ packages:
     resolution: {integrity: sha512-NUPRluOfOiTKBKvWPtSD4PhFvWCqOi0BGStNWs57X9js7XGTprSmFoz5F0tWhR4WPjNeR9jXqdC7/UpSJTnlRg==}
     engines: {node: '>=18'}
 
-  ci-info@4.4.0:
-    resolution: {integrity: sha512-77PSwercCZU2Fc4sX94eF8k8Pxte6JAwL4/ICZLFjJLqegs7kCuAsqqj/70NQF6TvDpgFjkubQB2FW2ZZddvQg==}
-    engines: {node: '>=8'}
-
   cliui@9.0.1:
     resolution: {integrity: sha512-k7ndgKhwoQveBL+/1tqGJYNz097I7WOvwbmmU2AR5+magtbjPWQTS1C5vzGkBC8Ym8UWRzfKUzUUqFLypY4Q+w==}
     engines: {node: '>=20'}
@@ -1583,11 +1578,6 @@ packages:
     resolution: {integrity: sha512-zPGsiS+dWoTZtZ4AtpA9Y+BdSFSNWvnouNlWNoUFyAM6xHOHmdCvqO3k8AIbdamCOv4gUFUVNPf6rJFfc4UiJw==}
     hasBin: true
 
-  husky@9.1.7:
-    resolution: {integrity: sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA==}
-    engines: {node: '>=18'}
-    hasBin: true
-
   import-fresh@3.3.1:
     resolution: {integrity: sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ==}
     engines: {node: '>=6'}
@@ -1605,10 +1595,6 @@ packages:
 
   is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
-
-  is-ci@4.1.0:
-    resolution: {integrity: sha512-Ab9bQDQ11lWootZUI5qxgN2ZXwxNI5hTwnsvOc1wyxQ7zQ8OkEDw79mI0+9jI3x432NfwbVRru+3noJfXF6lSQ==}
-    hasBin: true
 
   is-core-module@2.16.2:
     resolution: {integrity: sha512-evOr8xfXKxE6qSR0hSXL2r3sd7ALj8+7jQEUvPYcm5sgZFdJ+AYzT6yNmJenvIYQBgIGwfwz08sL8zoL7yq2BA==}
@@ -1826,11 +1812,6 @@ packages:
   picomatch@4.0.7:
     resolution: {integrity: sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA==}
     engines: {node: '>=12'}
-
-  pinst@3.0.0:
-    resolution: {integrity: sha512-cengSmBxtCyaJqtRSvJorIIZXMXg+lJ3sIljGmtBGUVonMnMsVJbnzl6jGN1HkOWwxNuJynCJ2hXxxqCQrFDdw==}
-    engines: {node: '>=12.0.0'}
-    hasBin: true
 
   pirates@4.0.7:
     resolution: {integrity: sha512-TfySrs/5nm8fQJDcBDuUng3VOUKsd7S+zqvbOTiGXHfxX4wK31ard+hoNuvkicM/2YFzlpDgABOevKSsB4G/FA==}
@@ -2593,6 +2574,8 @@ snapshots:
 
   '@guanghechen/equal@2.0.5': {}
 
+  '@guanghechen/githooks@1.0.0': {}
+
   '@guanghechen/observable@7.1.4':
     dependencies:
       '@guanghechen/disposable': 2.1.3
@@ -3038,8 +3021,6 @@ snapshots:
 
   chai@6.2.2: {}
 
-  ci-info@4.4.0: {}
-
   cliui@9.0.1:
     dependencies:
       string-width: 7.2.0
@@ -3236,8 +3217,6 @@ snapshots:
 
   human-id@4.2.1: {}
 
-  husky@9.1.7: {}
-
   import-fresh@3.3.1:
     dependencies:
       parent-module: 1.0.1
@@ -3250,10 +3229,6 @@ snapshots:
   indent-string@4.0.0: {}
 
   is-arrayish@0.2.1: {}
-
-  is-ci@4.1.0:
-    dependencies:
-      ci-info: 4.4.0
 
   is-core-module@2.16.2:
     dependencies:
@@ -3442,8 +3417,6 @@ snapshots:
   picocolors@1.1.1: {}
 
   picomatch@4.0.7: {}
-
-  pinst@3.0.0: {}
 
   pirates@4.0.7: {}
 
