@@ -41,7 +41,7 @@ export function dynamicImport(
      * @see https://loadable-components.com/docs/api-loadable-component/#optionsresolvecomponent
      */
     if (defaultImport != null) {
-      // eslint-disable-next-line no-param-reassign
+      // biome-ignore lint/style/noParameterAssign: Dynamic imports populate the caller-owned evaluation scope.
       nextCustomScopes[defaultImport] = loadable(importFunc, {
         cacheKey: () => moduleName + '__default',
       })
@@ -49,7 +49,7 @@ export function dynamicImport(
 
     for (const { src: srcName, alias: aliasName } of namedImports) {
       const key = aliasName ?? srcName
-      // eslint-disable-next-line no-param-reassign
+      // biome-ignore lint/style/noParameterAssign: Dynamic imports populate the caller-owned evaluation scope.
       nextCustomScopes[key] = loadable(importFunc, {
         cacheKey: () => moduleName + '__' + srcName,
         resolveComponent: components => components[srcName],
@@ -64,11 +64,11 @@ export function dynamicImport(
         cacheKey: () => moduleName,
         resolveComponent: module => {
           if (defaultImport != null) {
-            // eslint-disable-next-line no-param-reassign
+            // biome-ignore lint/style/noParameterAssign: Dynamic imports populate the caller-owned evaluation scope.
             nextCustomScopes[defaultImport] = module
           }
           for (const { src: srcName, alias } of namedImports) {
-            // eslint-disable-next-line no-param-reassign
+            // biome-ignore lint/style/noParameterAssign: Dynamic imports populate the caller-owned evaluation scope.
             nextCustomScopes[alias ?? srcName] = module[srcName]
           }
           resolve()

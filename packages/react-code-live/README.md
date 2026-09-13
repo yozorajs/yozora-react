@@ -45,10 +45,10 @@
         src="https://img.shields.io/badge/tested_with-vitest-6E9F18.svg"
       />
     </a>
-    <a href="https://github.com/prettier/prettier">
+    <a href="https://biomejs.dev/">
       <img
-        alt="Code Style: prettier"
-        src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"
+        alt="Code Style: Biome"
+        src="https://img.shields.io/badge/code_style-Biome-60a5fa.svg?style=flat-square"
       />
     </a>
   </div>
@@ -83,7 +83,6 @@ This component has been built into [@yozora/react-markdown][], you can use it di
   import type { ICodeRunnerProps } from '@yozora/react-code-runners'
 
   const JsxRenderer = ({ value }: ICodeRunnerProps): React.ReactElement => {
-    // eslint-disable-next-line no-new-func
     const f = new Function(code)
     const v = f()
     return <span data-type="jsx">{ v }</span>

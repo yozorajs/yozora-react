@@ -4,9 +4,9 @@ import type {
   Footnote,
   FootnoteDefinition,
   FootnoteReference,
+  Math as IMath,
   InlineMath,
   ListItem,
-  Math,
 } from '@yozora/ast'
 import {
   AdmonitionType,
@@ -36,7 +36,7 @@ export interface INodeRendererMap extends INodeRendererMap0 {
   [FootnoteDefinitionType]: INodeRenderer<FootnoteDefinition>
   [InlineMathType]: INodeRenderer<InlineMath>
   [ListItemType]: INodeRenderer<ListItem>
-  [MathType]: INodeRenderer<Math>
+  [MathType]: INodeRenderer<IMath>
 }
 
 /**

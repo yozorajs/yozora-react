@@ -54,7 +54,7 @@ interface IState {
 export class MarkdownProvider extends React.Component<IMarkdownProviderProps, IState> {
   public static readonly displayName = 'MarkdownProvider'
 
-  constructor(props: IMarkdownProviderProps) {
+  public constructor(props: IMarkdownProviderProps) {
     super(props)
 
     this.state = {

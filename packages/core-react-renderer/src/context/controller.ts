@@ -7,7 +7,7 @@ interface IProps {
 export class NodeRendererController {
   protected readonly viewmodel: NodeRendererViewModel
 
-  constructor(props: IProps) {
+  public constructor(props: IProps) {
     this.viewmodel = props.viewmodel
   }
 

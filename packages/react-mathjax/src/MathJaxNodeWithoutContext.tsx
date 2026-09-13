@@ -33,7 +33,7 @@ export class MathJaxNodeWithoutContext extends React.Component<
   protected readonly _nodeRef: React.RefObject<HTMLDivElement | null>
   protected readonly _typesettingRef: React.MutableRefObject<boolean>
 
-  constructor(props: IMathJaxNodeWithoutContextProps) {
+  public constructor(props: IMathJaxNodeWithoutContextProps) {
     super(props)
 
     this._nodeRef = { current: null }

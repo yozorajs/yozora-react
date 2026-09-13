@@ -151,7 +151,7 @@ const walkTokens = function (tokens: Array<Token | string>): void {
           i -= 1
         }
 
-        // eslint-disable-next-line no-param-reassign
+        // biome-ignore lint/style/noParameterAssign: Prism token traversal replaces plain text tokens in place.
         tokens[i] = new Prism.Token('plain-text', plainText, undefined, plainText)
       }
     }

@@ -34,7 +34,7 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
   protected readonly inputRef = React.createRef<HTMLTextAreaElement>()
   protected _history: IEditorHistory = { stack: [], offset: -1 }
 
-  constructor(props: IEditorProps) {
+  public constructor(props: IEditorProps) {
     super(props)
     this.state = { capture: true }
   }
@@ -187,7 +187,7 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
         // Get the current line
         const current = getLines(record.value, record.selectionStart).pop()!.match(regex)
 
-        if (previous && current && current[1].startsWith(previous[1])) {
+        if (previous && current?.[1].startsWith(previous[1])) {
           // The last word of the previous line and current line match
           // Overwrite previous entry so that undo will remove whole word
           this._history.stack[this._history.offset] = { ...record, timestamp }
@@ -376,7 +376,7 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
         const line = getLines(value, selectionStart).pop()!
         const matches = line.match(/^\s+/)
 
-        if (matches && matches[0]) {
+        if (matches?.[0]) {
           e.preventDefault()
 
           // Preserve indentation on inserting a new line

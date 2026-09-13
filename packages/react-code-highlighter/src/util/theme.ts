@@ -7,7 +7,7 @@ const languageMap = {
 }
 
 export const themeToDict = (language: string, theme: IPrismTheme): IThemeDict => {
-  // eslint-disable-next-line no-param-reassign
+  // biome-ignore lint/style/noParameterAssign: Normalize the language alias before selecting matching theme entries.
   language = languageMap[language as keyof typeof languageMap] ?? language
 
   const { plain } = theme
@@ -18,7 +18,7 @@ export const themeToDict = (language: string, theme: IPrismTheme): IThemeDict =>
 
     for (const type of types) {
       const accStyle: React.CSSProperties = { ...acc[type], ...style }
-      // eslint-disable-next-line no-param-reassign
+      // biome-ignore lint/style/noParameterAssign: The reducer accumulates styles into its theme dictionary.
       acc[type] = accStyle
     }
 

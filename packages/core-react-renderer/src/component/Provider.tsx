@@ -5,8 +5,8 @@ import { NodeRendererViewModel } from '../context'
 import { NodeRendererContextType } from '../context/context'
 import type { INodeRendererMap, IPreviewImageItem } from '../types'
 import { buildNodeRendererMap } from '../util/rendererMap'
-import { ImagePreviewer } from './ImagePreviewer'
 import type { IImagePreviewerProps } from './ImagePreviewer'
+import { ImagePreviewer } from './ImagePreviewer'
 
 export interface INodeRendererProviderProps {
   /**
@@ -47,7 +47,7 @@ interface IState {
 export class NodeRendererProvider extends React.Component<INodeRendererProviderProps, IState> {
   public static readonly displayName = 'NodeRendererProvider'
 
-  constructor(props: INodeRendererProviderProps) {
+  public constructor(props: INodeRendererProviderProps) {
     super(props)
 
     const { showCodeLineno = true, definitionMap = {}, footnoteDefinitionMap = {} } = props

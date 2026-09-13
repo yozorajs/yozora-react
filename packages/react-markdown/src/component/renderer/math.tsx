@@ -1,4 +1,4 @@
-import type { Math } from '@yozora/ast'
+import type { Math as IMath } from '@yozora/ast'
 import { MathJaxNode } from '@yozora/react-mathjax'
 import React from 'react'
 
@@ -8,8 +8,8 @@ import React from 'react'
  * @see https://www.npmjs.com/package/@yozora/ast#math
  * @see https://www.npmjs.com/package/@yozora/tokenizer-math
  */
-export class MathRenderer extends React.Component<Math> {
-  public override shouldComponentUpdate(nextProps: Readonly<Math>): boolean {
+export class MathRenderer extends React.Component<IMath> {
+  public override shouldComponentUpdate(nextProps: Readonly<IMath>): boolean {
     const props = this.props
     return props.value !== nextProps.value
   }

@@ -29,7 +29,7 @@ export class GraphvizRenderer extends React.Component<IGraphvizRendererProps> {
 
   protected readonly graphRef: React.RefObject<HTMLDivElement | null>
 
-  constructor(props: IGraphvizRendererProps) {
+  public constructor(props: IGraphvizRendererProps) {
     super(props)
     this.graphRef = { current: null }
   }

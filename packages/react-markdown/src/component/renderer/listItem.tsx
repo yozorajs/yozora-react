@@ -48,8 +48,6 @@ class TaskItemCheckbox extends React.Component<IProps> {
             <span data-status={status} />
           </span>
         )
-      case 'doing':
-      case 'todo':
       default:
         return (
           <span className="yozora-list-task-item__checkbox">

@@ -1,4 +1,5 @@
-import { type IComputed, useComputed } from '@guanghechen/react-viewmodel'
+import type { IComputed } from '@guanghechen/react-viewmodel'
+import { useComputed } from '@guanghechen/react-viewmodel'
 import React from 'react'
 import type { INodeRendererAction } from './types'
 import type { NodeRendererViewModel } from './viewmodel'

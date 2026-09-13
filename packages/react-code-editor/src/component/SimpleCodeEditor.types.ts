@@ -45,7 +45,9 @@ export interface IEditorPreProps {
  * Editor props
  */
 export interface IEditorProps
-  extends React.HTMLAttributes<HTMLElement>, IEditorTextareaProps, IEditorPreProps {
+  extends React.HTMLAttributes<HTMLElement>,
+    IEditorTextareaProps,
+    IEditorPreProps {
   /**
    * Contents of this simple editor.
    */

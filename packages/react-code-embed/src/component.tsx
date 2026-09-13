@@ -57,7 +57,7 @@ interface IState {
 export class CodeEmbed extends React.Component<IProps, IState> {
   public static displayName = 'CodeEmbed'
 
-  constructor(props: IProps) {
+  public constructor(props: IProps) {
     super(props)
     this.state = { error: null }
   }

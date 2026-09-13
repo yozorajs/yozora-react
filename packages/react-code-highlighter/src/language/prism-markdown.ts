@@ -212,8 +212,7 @@ Prism.languages.insertBefore('markdown', 'prolog', {
   strike: {
     // ~~strike through~~
     // ~strike~
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+    // @ts-expect-error createInline prepends the capturing group required by this backreference.
     pattern: createInline(/(~~?)(?:(?!~)<inner>)+\2/.source),
     lookbehind: true,
     greedy: true,
@@ -360,8 +359,8 @@ Prism.hooks.add('wrap', function (env) {
 
   if (!grammar) {
     if (codeLang && codeLang !== 'none' && Prism.plugins.autoloader) {
-      const id = 'md-' + new Date().valueOf() + '-' + Math.floor(Math.random() * 1e16)
-      // eslint-disable-next-line no-param-reassign
+      const id = 'md-' + Date.now() + '-' + Math.floor(Math.random() * 1e16)
+      // biome-ignore lint/style/noParameterAssign: Prism wrap hooks update the output attributes in place.
       env.attributes['id'] = id
 
       Prism.plugins.autoloader.loadLanguages(codeLang, function () {
@@ -372,7 +371,7 @@ Prism.hooks.add('wrap', function (env) {
       })
     }
   } else {
-    // eslint-disable-next-line no-param-reassign
+    // biome-ignore lint/style/noParameterAssign: Prism wrap hooks replace the rendered token content.
     env.content = Prism.highlight(textContent(env.content), grammar, codeLang)
   }
 })
@@ -412,11 +411,11 @@ function textContent(html: string): string {
 
   // decode known entities
   text = text.replace(/&(\w{1,8}|#x?[\da-f]{1,8});/gi, function (m, code) {
-    // eslint-disable-next-line no-param-reassign
+    // biome-ignore lint/style/noParameterAssign: Entity names are normalized before decoding.
     code = code.toLowerCase()
 
     if (code[0] === '#') {
-      let value
+      let value: number
       if (code[1] === 'x') {
         value = parseInt(code.slice(2), 16)
       } else {

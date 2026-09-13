@@ -18,7 +18,7 @@ export class NodeRendererViewModel extends ViewModel {
   public readonly footnoteDefinitionMap$: State<Readonly<Record<string, FootnoteDefinition>>>
   protected readonly _controller: NodeRendererController
 
-  constructor(props: IProps) {
+  public constructor(props: IProps) {
     super()
 
     this.images$ = new State(props.images)

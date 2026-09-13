@@ -15,9 +15,7 @@ const normalizeEmptyLines = (line: IToken[]): void => {
       empty: true,
     })
   } else if (line.length === 1 && line[0].content === '') {
-    // eslint-disable-next-line no-param-reassign
     line[0].content = '\n'
-    // eslint-disable-next-line no-param-reassign
     line[0].empty = true
   }
 }
@@ -47,8 +45,8 @@ export const normalizeTokens = (tokens: TokenStream): IToken[][] => {
   const acc = [currentLine]
 
   for (let stackIndex = 0; stackIndex > -1; --stackIndex) {
-    // eslint-disable-next-line no-plusplus
-    for (let i: number; (i = tokenArrIndexStack[stackIndex]++) < tokenArrSizeStack[stackIndex];) {
+    // biome-ignore lint/suspicious/noAssignInExpressions: The traversal advances the current stack frame index.
+    for (let i: number; (i = tokenArrIndexStack[stackIndex]++) < tokenArrSizeStack[stackIndex]; ) {
       let content: TokenStream
       let types = typeArrStack[stackIndex]
 
@@ -86,7 +84,8 @@ export const normalizeTokens = (tokens: TokenStream): IToken[][] => {
       // Create a new line for each string on a new line
       for (let i = 1; i < newlineCount; i++) {
         normalizeEmptyLines(currentLine)
-        acc.push((currentLine = []))
+        currentLine = []
+        acc.push(currentLine)
         currentLine.push({ types, content: splitByNewlines[i] })
       }
     }

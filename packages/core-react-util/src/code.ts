@@ -36,7 +36,7 @@ export function parseCodeMeta(
   const highlightsSet = new Set<number>(collectNumbers(_highlightText))
 
   const regex = new RegExp(attributeRegex, 'g')
-  for (let m: RegExpExecArray | null; ;) {
+  for (let m: RegExpExecArray | null; ; ) {
     m = regex.exec(remainText)
     if (m === null) break
 

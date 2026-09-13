@@ -42,7 +42,7 @@ export class HighlightContent extends React.Component<IProps, IState> {
 
   protected readonly linenoRef: React.RefObject<HTMLDivElement | null>
 
-  constructor(props: IProps) {
+  public constructor(props: IProps) {
     super(props)
 
     const themeDict: IThemeDict = themeToDict(props.language, props.theme)

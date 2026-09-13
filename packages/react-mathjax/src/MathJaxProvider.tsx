@@ -45,7 +45,7 @@ export class MathJaxProvider extends React.Component<IMathJaxProviderProps, ISta
 
   protected _cancelLoad: (() => Promise<void>) | undefined
 
-  constructor(props: IMathJaxProviderProps) {
+  public constructor(props: IMathJaxProviderProps) {
     super(props)
 
     this._cancelLoad = undefined

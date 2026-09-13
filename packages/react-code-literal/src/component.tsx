@@ -68,7 +68,7 @@ interface IState {
 export class CodeLiteral extends React.Component<IProps, IState> {
   public static displayName = 'CodeLiteral'
 
-  constructor(props: IProps) {
+  public constructor(props: IProps) {
     super(props)
     this.state = {
       collapsed: props.collapsed ?? false,

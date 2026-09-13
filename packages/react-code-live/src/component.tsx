@@ -21,7 +21,7 @@ import type { ICodeLiveProps, ICodeLiveState } from './types'
 export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
   public static displayName = 'CodeLive'
 
-  constructor(props: ICodeLiveProps) {
+  public constructor(props: ICodeLiveProps) {
     super(props)
     this.state = {
       value: props.value,

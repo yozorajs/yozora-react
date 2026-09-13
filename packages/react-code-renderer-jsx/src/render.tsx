@@ -36,7 +36,7 @@ interface IState {
 export class CodeRendererJsx extends React.Component<ICodeRendererJsxProps, IState> {
   public static readonly displayName = 'YozoraCodeRendererJsx'
 
-  constructor(props: ICodeRendererJsxProps) {
+  public constructor(props: ICodeRendererJsxProps) {
     super(props)
     this.state = { Element: null }
   }

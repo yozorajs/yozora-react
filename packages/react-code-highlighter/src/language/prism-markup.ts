@@ -92,7 +92,7 @@ Prism.languages.markup = {
 // Plugin to make entity title show the real entity, idea by Roman Komarov
 Prism.hooks.add('wrap', function (env: Environment): void {
   if (env.type === 'entity' && env.attributes) {
-    // eslint-disable-next-line no-param-reassign
+    // biome-ignore lint/style/noParameterAssign: Prism wrap hooks update the output attributes in place.
     env.attributes['title'] = env.content!.replace(/&amp;/, '&')
   }
 })

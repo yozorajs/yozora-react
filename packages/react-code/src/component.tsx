@@ -39,7 +39,7 @@ interface IState {
 export class Code extends React.Component<ICodeProps, IState> {
   public static readonly displayName = 'YozoraCode'
 
-  constructor(props: ICodeProps) {
+  public constructor(props: ICodeProps) {
     super(props)
     this.state = {
       meta: parseCodeMeta(props.meta ?? '', { showCodeLineno: props.showCodeLineno ?? true }),

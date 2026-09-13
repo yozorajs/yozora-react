@@ -64,7 +64,7 @@ interface IThProps {
 class Th extends React.Component<IThProps> {
   protected readonly ref: React.RefObject<HTMLTableCellElement | null>
 
-  constructor(props: IThProps) {
+  public constructor(props: IThProps) {
     super(props)
     this.ref = { current: null }
   }
