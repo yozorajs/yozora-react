@@ -36,7 +36,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@guanghechen/equal": "^2.0.4",
+    "@guanghechen/equal": "^2.0.5",
     "@types/d3-graphviz": "3.1.0",
     "d3-graphviz": "5.6.0",
     "d3-selection": "3.0.0"

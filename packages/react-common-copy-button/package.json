@@ -33,7 +33,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@guanghechen/react-hooks": "^3.0.15"
+    "@guanghechen/react-hooks": "^3.0.17"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",

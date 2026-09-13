@@ -11,3 +11,5 @@ overrides:
 allowBuilds:
   esbuild: false
   unrs-resolver: false
+minimumReleaseAgeExclude:
+  - '@yozora/ast@2.4.1'

@@ -49,8 +49,8 @@ importers:
         specifier: 5.0.0
         version: 5.0.0(vitest@5.0.0)
       '@yozora/ast':
-        specifier: ^2.4.0
-        version: 2.4.0
+        specifier: ^2.4.1
+        version: 2.4.1
       cross-env:
         specifier: 10.1.0
         version: 10.1.0
@@ -58,8 +58,8 @@ importers:
         specifier: ^30.0.1
         version: 30.0.1
       lint-staged:
-        specifier: 17.5.0
-        version: 17.5.0
+        specifier: 17.5.1
+        version: 17.5.1
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -87,14 +87,14 @@ importers:
         specifier: ^11.0.0
         version: 11.13.5
       '@guanghechen/equal':
-        specifier: ^2.0.4
+        specifier: ^2.0.5
         version: 2.0.5
       '@guanghechen/react-viewmodel':
-        specifier: ^0.2.19
+        specifier: ^0.2.21
         version: 0.2.21(react@19.3.0)
       '@yozora/ast':
         specifier: ^2.0.0
-        version: 2.4.0
+        version: 2.4.1
       '@yozora/core-react-constant':
         specifier: ^3.0.0-alpha.13
         version: link:../core-react-constant
@@ -159,11 +159,11 @@ importers:
         specifier: ^11.0.0
         version: 11.13.5
       '@guanghechen/equal':
-        specifier: ^2.0.4
+        specifier: ^2.0.5
         version: 2.0.5
       '@yozora/ast':
         specifier: ^2.0.0
-        version: 2.4.0
+        version: 2.4.1
       '@yozora/core-react-constant':
         specifier: ^3.0.0-alpha.13
         version: link:../core-react-constant
@@ -198,7 +198,7 @@ importers:
         specifier: ^11.0.0
         version: 11.13.5
       '@guanghechen/equal':
-        specifier: ^2.0.4
+        specifier: ^2.0.5
         version: 2.0.5
       '@yozora/core-react-constant':
         specifier: ^3.0.0-alpha.13
@@ -216,11 +216,11 @@ importers:
         specifier: ^11.0.0
         version: 11.13.5
       '@guanghechen/equal':
-        specifier: ^2.0.4
+        specifier: ^2.0.5
         version: 2.0.5
       '@yozora/ast':
         specifier: ^2.0.0
-        version: 2.4.0
+        version: 2.4.1
       '@yozora/core-react-constant':
         specifier: ^3.0.0-alpha.13
         version: link:../core-react-constant
@@ -237,7 +237,7 @@ importers:
         specifier: ^11.0.0
         version: 11.13.5
       '@guanghechen/equal':
-        specifier: ^2.0.4
+        specifier: ^2.0.5
         version: 2.0.5
       '@yozora/core-react-constant':
         specifier: ^3.0.0-alpha.13
@@ -276,11 +276,11 @@ importers:
         specifier: ^11.0.0
         version: 11.13.5
       '@guanghechen/common-util':
-        specifier: ^0.2.6
+        specifier: ^0.2.8
         version: 0.2.8
       '@yozora/ast':
         specifier: ^2.0.0
-        version: 2.4.0
+        version: 2.4.1
       '@yozora/core-react-constant':
         specifier: ^3.0.0-alpha.13
         version: link:../core-react-constant
@@ -309,7 +309,7 @@ importers:
   packages/react-code-renderer-graphviz:
     dependencies:
       '@guanghechen/equal':
-        specifier: ^2.0.4
+        specifier: ^2.0.5
         version: 2.0.5
       '@types/d3-graphviz':
         specifier: 3.1.0
@@ -327,7 +327,7 @@ importers:
   packages/react-code-renderer-jsx:
     dependencies:
       '@guanghechen/equal':
-        specifier: ^2.0.4
+        specifier: ^2.0.5
         version: 2.0.5
       react:
         specifier: 19.3.0
@@ -339,14 +339,14 @@ importers:
   packages/react-code-runners:
     dependencies:
       '@guanghechen/react-hooks':
-        specifier: ^3.0.15
+        specifier: ^3.0.17
         version: 3.0.17(react@19.3.0)
       '@loadable/component':
         specifier: 5.16.7
         version: 5.16.7(react@19.3.0)
       '@yozora/ast':
         specifier: ^2.0.0
-        version: 2.4.0
+        version: 2.4.1
       '@yozora/core-react-types':
         specifier: ^1.0.0-alpha.12
         version: link:../core-react-types
@@ -360,7 +360,7 @@ importers:
         specifier: ^11.0.0
         version: 11.13.5
       '@guanghechen/react-hooks':
-        specifier: ^3.0.15
+        specifier: ^3.0.17
         version: 3.0.17(react@19.3.0)
       react:
         specifier: 19.3.0
@@ -381,11 +381,11 @@ importers:
         specifier: ^11.0.0
         version: 11.13.5
       '@guanghechen/equal':
-        specifier: ^2.0.4
+        specifier: ^2.0.5
         version: 2.0.5
       '@yozora/ast':
-        specifier: ^2.4.0
-        version: 2.4.0
+        specifier: ^2.4.1
+        version: 2.4.1
       '@yozora/core-react-constant':
         specifier: ^3.0.0-alpha.13
         version: link:../core-react-constant
@@ -417,7 +417,7 @@ importers:
   packages/react-mathjax:
     dependencies:
       '@guanghechen/equal':
-        specifier: ^2.0.4
+        specifier: ^2.0.5
         version: 2.0.5
       '@yozora/core-react-constant':
         specifier: ^3.0.0-alpha.13
@@ -1123,8 +1123,8 @@ packages:
     resolution: {integrity: sha512-5AXjrcMClTryPe9LgZrygpB1lj7s0S9E0+W+AHaVKAVyHanafK86iPSvG5xHVSp/jC+VH1UXu0TAEmY279xH7A==}
     engines: {node: '>=14.6'}
 
-  '@yozora/ast@2.4.0':
-    resolution: {integrity: sha512-xkLMOB/5NKCp3SlGFnMCkXbtR+ttEz9nR+du26qyITXx8piDF0CLPmg/7oH5LiVDHIEHyweC3LTzTSKRxVHYeg==}
+  '@yozora/ast@2.4.1':
+    resolution: {integrity: sha512-MCyWiT+RRez2lNcvfDsonTDRQDZEav21eC7cEfRtIoH7fTFiFOddMPROrqD42TeMiEBzgARWVAGg0jlggtIFqQ==}
 
   '@yuku-codegen/binding-android-arm64@0.9.5':
     resolution: {integrity: sha512-jrOY5WM+AaAqkv51fHP1x28ifto4WgcZVzodLUyMU1jMWn5Sq+VciRdk/n8E0Ey5w4p4cWWE+m5GfXWOYh7Kzw==}
@@ -1689,8 +1689,8 @@ packages:
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  lint-staged@17.5.0:
-    resolution: {integrity: sha512-ah2qsNtvKP1+Ak4rAvEEIvcXDLjjbr/xmxCvlequxqEOFYk0qINcZcRxD3Ic8wRn7/oQ8+wC9s0DfDrdMVCRFg==}
+  lint-staged@17.5.1:
+    resolution: {integrity: sha512-7EDuco1xnBMeVpvAbeMq1U5KXwJGLmY8q6l+Ye78r36C4mPc+Vg1Z2SK8gHyRTyvPro90A0q5/FAZ+Au23d6QQ==}
     engines: {node: '>=22.22.1'}
     hasBin: true
 
@@ -2857,7 +2857,7 @@ snapshots:
 
   '@xmldom/xmldom@0.9.12': {}
 
-  '@yozora/ast@2.4.0': {}
+  '@yozora/ast@2.4.1': {}
 
   '@yuku-codegen/binding-android-arm64@0.9.5':
     optional: true
@@ -3288,7 +3288,7 @@ snapshots:
 
   lines-and-columns@1.2.4: {}
 
-  lint-staged@17.5.0:
+  lint-staged@17.5.1:
     dependencies:
       picomatch: 4.0.7
       string-argv: 0.3.2
