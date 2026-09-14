@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css'
-import { tokens } from '@yozora/core-react-constant'
+import { tokens } from '@yozora/react-core'
 import React from 'react'
 import { commonSchema } from './schema/common'
 import { darkenSchema } from './schema/darken'

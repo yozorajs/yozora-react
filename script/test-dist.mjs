@@ -39,7 +39,7 @@ for (const name of fs.readdirSync(packagesDir)) {
     exportedNames,
     `${manifest.name}: ESM and CJS exports must agree`,
   )
-  assert.equal(exportedNames.length === 0, name === 'core-react-types')
+  assert.ok(exportedNames.length > 0, `${manifest.name}: missing runtime exports`)
 
   const consumerDir = fs.mkdtempSync(path.join(packageDir, '.tsdown-consumer-'))
   try {
@@ -47,8 +47,8 @@ for (const name of fs.readdirSync(packagesDir)) {
     const exports = exportedNames.map(key => (key === 'default' ? 'DefaultExport' : key))
     let consumer = `import { ${imports.join(', ')} } from '${manifest.name}'\n`
     consumer += `export { ${exports.join(', ')} }\n`
-    if (name === 'core-react-types') {
-      consumer += `export type { ICodeRunner, ICodeRunnerProps, ICodeRunnerScope } from '${manifest.name}'\n`
+    if (name === 'react-core') {
+      consumer += `export type { ClassValue, IClassDictionary, IParseCodeMetaOptions, ICodeMetaData, ICodeRunnerMetaData, ICodeRunner, ICodeRunnerProps, ICodeRunnerScope, ICodeRunnerItem, IAsyncRunnerScopes } from '${manifest.name}'\n`
     }
     if (name === 'react-code-editor' || name === 'react-code-highlighter') {
       consumer += '// @ts-expect-error Implementation props must remain private.\n'
@@ -84,7 +84,20 @@ for (const name of fs.readdirSync(packagesDir)) {
   }
 
   for (const module of [esm, cjs]) {
-    if (name === 'core-react-util') {
+    if (name === 'react-core') {
+      assert.deepEqual(
+        Object.keys(module)
+          .filter(key => key !== '__esModule')
+          .sort(),
+        ['CommonTokenNames', 'TokenNames', 'clsx', 'convertToBoolean', 'parseCodeMeta', 'tokens'],
+      )
+      assert.equal(module.CommonTokenNames.fontFamilyCode, '--yozora_fontFamilyCode')
+      assert.equal(module.TokenNames.colorLink, '--yozora_colorLink')
+      assert.equal(module.tokens.colorLink, 'var(--yozora_colorLink)')
+      assert.equal(
+        module.clsx('button', [null, 'rounded'], { active: true, disabled: false }),
+        'button rounded active',
+      )
       assert.deepEqual(
         module.parseCodeMeta('{1-2,2-3} live collapsed', { showCodeLineno: false }),
         {

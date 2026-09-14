@@ -1,6 +1,6 @@
 import { cx } from '@emotion/css'
 import { isEqual } from '@guanghechen/equal'
-import type { ICodeRunner } from '@yozora/core-react-types'
+import type { ICodeRunner } from '@yozora/react-core'
 import React from 'react'
 import { classes } from './style'
 

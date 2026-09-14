@@ -1,6 +1,6 @@
 import { css, cx } from '@emotion/css'
-import { CommonTokenNames, tokens } from '@yozora/core-react-constant'
 import { useThemeContext } from '@yozora/core-react-theme'
+import { CommonTokenNames, tokens } from '@yozora/react-core'
 import React from 'react'
 
 export const useStyles = (): string => {

@@ -1,7 +1,6 @@
 import { css, cx } from '@emotion/css'
-import { tokens } from '@yozora/core-react-constant'
-import { parseCodeMeta } from '@yozora/core-react-util'
 import { CodeHighlighter as CodeHighlighterComponent } from '@yozora/react-code-highlighter'
+import { parseCodeMeta, tokens } from '@yozora/react-core'
 import React from 'react'
 
 interface IProps {

@@ -36,8 +36,8 @@
   ],
   "dependencies": {
     "@guanghechen/equal": "^2.0.5",
-    "@yozora/core-react-constant": "^3.0.0-alpha.13",
-    "@yozora/react-code-highlighter": "^3.0.0-alpha.18"
+    "@yozora/react-code-highlighter": "^3.0.0-alpha.18",
+    "@yozora/react-core": "workspace:^"
   },
   "peerDependencies": {
     "@emotion/css": "^11.0.0",

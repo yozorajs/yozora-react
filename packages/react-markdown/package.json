@@ -37,12 +37,11 @@
   "dependencies": {
     "@guanghechen/equal": "^2.0.5",
     "@yozora/ast": "^2.4.1",
-    "@yozora/core-react-constant": "^3.0.0-alpha.13",
     "@yozora/core-react-renderer": "^3.0.0-alpha.25",
     "@yozora/core-react-theme": "^3.0.0-alpha.15",
-    "@yozora/core-react-types": "^1.0.0-alpha.12",
     "@yozora/react-admonition": "^3.0.0-alpha.15",
     "@yozora/react-code": "^3.0.0-alpha.23",
+    "@yozora/react-core": "workspace:^",
     "@yozora/react-mathjax": "^3.0.0-alpha.17"
   },
   "peerDependencies": {

@@ -39,7 +39,7 @@
   "dependencies": {
     "@guanghechen/react-hooks": "^3.0.17",
     "@loadable/component": "5.16.7",
-    "@yozora/core-react-types": "^1.0.0-alpha.12"
+    "@yozora/react-core": "workspace:^"
   },
   "browserslist": [
     "last 2 versions",

@@ -1,5 +1,5 @@
 import { css } from '@emotion/css'
-import { CommonTokenNames, TokenNames } from '@yozora/core-react-constant'
+import { CommonTokenNames, TokenNames } from '@yozora/react-core'
 
 export const vars = {
   border: `1px solid var(${TokenNames.colorBorderCodeLineno}, hsla(0deg, 0%, 80%, 0.8))`,

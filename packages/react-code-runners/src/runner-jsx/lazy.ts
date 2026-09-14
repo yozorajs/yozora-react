@@ -1,6 +1,6 @@
 import loadable from '@loadable/component'
 import type { EcmaImport as IEcmaImport } from '@yozora/ast'
-import type { ICodeRunnerScope } from '@yozora/core-react-types'
+import type { ICodeRunnerScope } from '@yozora/react-core'
 
 // Dynamic import func.
 export type IDynamicImportFunc = (props: unknown) => Promise<any>

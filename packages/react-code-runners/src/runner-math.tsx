@@ -1,6 +1,6 @@
 import type { Math as IMath } from '@yozora/ast'
 import { MathType } from '@yozora/ast'
-import type { ICodeRunner } from '@yozora/core-react-types'
+import type { ICodeRunner } from '@yozora/react-core'
 import React from 'react'
 
 /**

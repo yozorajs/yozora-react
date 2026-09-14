@@ -1,4 +1,4 @@
-import { TokenNames } from '@yozora/core-react-constant'
+import { TokenNames } from '@yozora/react-core'
 
 export const lightSchema: Record<TokenNames, string> = {
   [TokenNames.colorNote]: 'hsl(0deg, 0%, 28%)',

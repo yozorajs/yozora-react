@@ -1,5 +1,5 @@
 import { css } from '@emotion/css'
-import { TokenNames } from '@yozora/core-react-constant'
+import { TokenNames } from '@yozora/react-core'
 
 const vars = {
   border: '5px solid transparent',

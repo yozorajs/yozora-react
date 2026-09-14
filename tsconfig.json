@@ -2,11 +2,8 @@
   "extends": "./tsconfig.settings.json",
   "compilerOptions": {
     "paths": {
-      "@yozora/core-react-constant": ["./packages/core-react-constant/src"],
       "@yozora/core-react-renderer": ["./packages/core-react-renderer/src"],
       "@yozora/core-react-theme": ["./packages/core-react-theme/src"],
-      "@yozora/core-react-types": ["./packages/core-react-types/src"],
-      "@yozora/core-react-util": ["./packages/core-react-util/src"],
       "@yozora/react-admonition": ["./packages/react-admonition/src"],
       "@yozora/react-code": ["./packages/react-code/src"],
       "@yozora/react-code-editor": ["./packages/react-code-editor/src"],
@@ -14,11 +11,12 @@
       "@yozora/react-code-highlighter": ["./packages/react-code-highlighter/src"],
       "@yozora/react-code-literal": ["./packages/react-code-literal/src"],
       "@yozora/react-code-live": ["./packages/react-code-live/src"],
-      "@yozora/react-code-renderer-jsx": ["./packages/react-code-renderer-jsx/src"],
       "@yozora/react-code-renderer-graphviz": ["./packages/react-code-renderer-graphviz/src"],
+      "@yozora/react-code-renderer-jsx": ["./packages/react-code-renderer-jsx/src"],
       "@yozora/react-code-runners": ["./packages/react-code-runners/src"],
       "@yozora/react-common-copy-button": ["./packages/react-common-copy-button/src"],
       "@yozora/react-common-light-buttons": ["./packages/react-common-light-buttons/src"],
+      "@yozora/react-core": ["./packages/react-core/src"],
       "@yozora/react-markdown": ["./packages/react-markdown/src"],
       "@yozora/react-mathjax": ["./packages/react-mathjax/src"]
     }

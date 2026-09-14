@@ -1,7 +1,7 @@
 import { css, cx } from '@emotion/css'
 import { isEqual } from '@guanghechen/equal'
 import type { Table } from '@yozora/ast'
-import { tokens } from '@yozora/core-react-constant'
+import { tokens } from '@yozora/react-core'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
 

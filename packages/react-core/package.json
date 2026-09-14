@@ -1,7 +1,7 @@
 {
-  "name": "@yozora/core-react-constant",
-  "version": "3.0.0-alpha.13",
-  "description": "Yozora renderer theme.",
+  "name": "@yozora/react-core",
+  "version": "3.0.0-alpha.0",
+  "description": "Shared constants, types, and utilities for Yozora React.",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -9,9 +9,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/yozorajs/yozora-react.git",
-    "directory": "packages/core-react-constant"
+    "directory": "packages/react-core"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/core-react-constant#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/react-core#readme",
   "keywords": [],
   "type": "module",
   "exports": {
@@ -32,15 +32,18 @@
     "LICENSE",
     "README.md"
   ],
-  "browserslist": [
-    "last 2 versions",
-    "Firefox ESR",
-    "> 1%",
-    "ie >= 11"
-  ],
+  "dependencies": {
+    "@guanghechen/parse-lineno": "^2.3.10"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
+  },
   "scripts": {
     "clean": "rimraf lib",
     "build": "tsdown --config ../../tsdown.config.mjs",
-    "watch": "cross-env NODE_ENV=development BUILD_SOURCEMAP=true tsdown --config ../../tsdown.config.mjs -w"
+    "watch": "cross-env NODE_ENV=development BUILD_SOURCEMAP=true tsdown --config ../../tsdown.config.mjs -w",
+    "test": "vitest run --config ../../vitest.config.ts",
+    "test:coverage": "vitest run --config ../../vitest.config.ts --coverage",
+    "test:update": "vitest run --config ../../vitest.config.ts -u"
   }
 }

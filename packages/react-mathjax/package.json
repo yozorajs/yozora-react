@@ -37,7 +37,7 @@
   ],
   "dependencies": {
     "@guanghechen/equal": "^2.0.5",
-    "@yozora/core-react-constant": "^3.0.0-alpha.13"
+    "@yozora/react-core": "workspace:^"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0"

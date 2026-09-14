@@ -104,6 +104,7 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
 |          Package Name           | Description                                             |
 | :-----------------------------: | :------------------------------------------------------ |
+|     [@yozora/react-core][]      | Shared theme tokens, code-runner types, and utilities.   |
 | [@yozora/core-react-renderer][] | Provider `NodesRenderer` and simple markdown renderers. |
 |  [@yozora/core-react-theme][]   | Provider markdown theme context.                        |
 
@@ -132,6 +133,7 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
 <!-- yozora component links -->
 
+[@yozora/react-core]: ./packages/react-core
 [@yozora/core-react-renderer]:
   https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/core-react-renderer#readme
 [@yozora/core-react-theme]:

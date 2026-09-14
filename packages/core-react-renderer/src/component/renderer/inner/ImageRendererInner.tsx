@@ -1,5 +1,5 @@
 import { css } from '@emotion/css'
-import { tokens } from '@yozora/core-react-constant'
+import { tokens } from '@yozora/react-core'
 import React from 'react'
 import type { INodeRendererAction } from '../../../context'
 import { NodeRendererActionsType } from '../../../context'

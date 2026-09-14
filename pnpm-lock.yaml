@@ -79,8 +79,6 @@ importers:
         specifier: 5.0.0
         version: 5.0.0(@types/node@24.13.4)(@vitest/coverage-v8@5.0.0)(jsdom@30.0.1)(vite@8.3.0(@types/node@24.13.4)(yaml@2.9.1))
 
-  packages/core-react-constant: {}
-
   packages/core-react-renderer:
     dependencies:
       '@emotion/css':
@@ -95,18 +93,15 @@ importers:
       '@yozora/ast':
         specifier: ^2.0.0
         version: 2.4.1
-      '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.13
-        version: link:../core-react-constant
       '@yozora/core-react-theme':
         specifier: ^3.0.0-alpha.15
         version: link:../core-react-theme
-      '@yozora/core-react-util':
-        specifier: ^1.0.0-alpha.13
-        version: link:../core-react-util
       '@yozora/react-code-highlighter':
         specifier: ^3.0.0-alpha.18
         version: link:../react-code-highlighter
+      '@yozora/react-core':
+        specifier: workspace:^
+        version: link:../react-core
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -119,36 +114,21 @@ importers:
       '@emotion/css':
         specifier: ^11.0.0
         version: 11.13.5
-      '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.13
-        version: link:../core-react-constant
+      '@yozora/react-core':
+        specifier: workspace:^
+        version: link:../react-core
       react:
         specifier: 19.3.0
         version: 19.3.0
-
-  packages/core-react-types:
-    dependencies:
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
-
-  packages/core-react-util:
-    dependencies:
-      '@guanghechen/parse-lineno':
-        specifier: ^2.3.10
-        version: 2.3.10
-      '@yozora/core-react-types':
-        specifier: ^1.0.0-alpha.12
-        version: link:../core-react-types
 
   packages/react-admonition:
     dependencies:
       '@emotion/css':
         specifier: ^11.0.0
         version: 11.13.5
-      '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.13
-        version: link:../core-react-constant
+      '@yozora/react-core':
+        specifier: workspace:^
+        version: link:../react-core
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -164,15 +144,6 @@ importers:
       '@yozora/ast':
         specifier: ^2.0.0
         version: 2.4.1
-      '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.13
-        version: link:../core-react-constant
-      '@yozora/core-react-types':
-        specifier: ^1.0.0-alpha.12
-        version: link:../core-react-types
-      '@yozora/core-react-util':
-        specifier: ^1.0.0-alpha.13
-        version: link:../core-react-util
       '@yozora/react-code-embed':
         specifier: ^3.0.0-alpha.20
         version: link:../react-code-embed
@@ -185,6 +156,9 @@ importers:
       '@yozora/react-code-renderer-jsx':
         specifier: ^3.0.0-alpha.16
         version: link:../react-code-renderer-jsx
+      '@yozora/react-core':
+        specifier: workspace:^
+        version: link:../react-core
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -200,12 +174,12 @@ importers:
       '@guanghechen/equal':
         specifier: ^2.0.5
         version: 2.0.5
-      '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.13
-        version: link:../core-react-constant
       '@yozora/react-code-highlighter':
         specifier: ^3.0.0-alpha.18
         version: link:../react-code-highlighter
+      '@yozora/react-core':
+        specifier: workspace:^
+        version: link:../react-core
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -221,12 +195,9 @@ importers:
       '@yozora/ast':
         specifier: ^2.0.0
         version: 2.4.1
-      '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.13
-        version: link:../core-react-constant
-      '@yozora/core-react-types':
-        specifier: ^1.0.0-alpha.12
-        version: link:../core-react-types
+      '@yozora/react-core':
+        specifier: workspace:^
+        version: link:../react-core
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -239,9 +210,9 @@ importers:
       '@guanghechen/equal':
         specifier: ^2.0.5
         version: 2.0.5
-      '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.13
-        version: link:../core-react-constant
+      '@yozora/react-core':
+        specifier: workspace:^
+        version: link:../react-core
       prismjs:
         specifier: 1.30.0
         version: 1.30.0
@@ -254,9 +225,6 @@ importers:
       '@emotion/css':
         specifier: ^11.0.0
         version: 11.13.5
-      '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.13
-        version: link:../core-react-constant
       '@yozora/react-code-highlighter':
         specifier: ^3.0.0-alpha.18
         version: link:../react-code-highlighter
@@ -266,6 +234,9 @@ importers:
       '@yozora/react-common-light-buttons':
         specifier: ^3.0.0-alpha.9
         version: link:../react-common-light-buttons
+      '@yozora/react-core':
+        specifier: workspace:^
+        version: link:../react-core
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -281,12 +252,6 @@ importers:
       '@yozora/ast':
         specifier: ^2.0.0
         version: 2.4.1
-      '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.13
-        version: link:../core-react-constant
-      '@yozora/core-react-types':
-        specifier: ^1.0.0-alpha.12
-        version: link:../core-react-types
       '@yozora/react-code-editor':
         specifier: ^3.0.0-alpha.19
         version: link:../react-code-editor
@@ -302,6 +267,9 @@ importers:
       '@yozora/react-common-light-buttons':
         specifier: ^3.0.0-alpha.9
         version: link:../react-common-light-buttons
+      '@yozora/react-core':
+        specifier: workspace:^
+        version: link:../react-core
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -347,9 +315,9 @@ importers:
       '@yozora/ast':
         specifier: ^2.0.0
         version: 2.4.1
-      '@yozora/core-react-types':
-        specifier: ^1.0.0-alpha.12
-        version: link:../core-react-types
+      '@yozora/react-core':
+        specifier: workspace:^
+        version: link:../react-core
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -375,6 +343,15 @@ importers:
         specifier: 19.3.0
         version: 19.3.0
 
+  packages/react-core:
+    dependencies:
+      '@guanghechen/parse-lineno':
+        specifier: ^2.3.10
+        version: 2.3.10
+      react:
+        specifier: 19.3.0
+        version: 19.3.0
+
   packages/react-markdown:
     dependencies:
       '@emotion/css':
@@ -386,24 +363,21 @@ importers:
       '@yozora/ast':
         specifier: ^2.4.1
         version: 2.4.1
-      '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.13
-        version: link:../core-react-constant
       '@yozora/core-react-renderer':
         specifier: ^3.0.0-alpha.25
         version: link:../core-react-renderer
       '@yozora/core-react-theme':
         specifier: ^3.0.0-alpha.15
         version: link:../core-react-theme
-      '@yozora/core-react-types':
-        specifier: ^1.0.0-alpha.12
-        version: link:../core-react-types
       '@yozora/react-admonition':
         specifier: ^3.0.0-alpha.15
         version: link:../react-admonition
       '@yozora/react-code':
         specifier: ^3.0.0-alpha.23
         version: link:../react-code
+      '@yozora/react-core':
+        specifier: workspace:^
+        version: link:../react-core
       '@yozora/react-mathjax':
         specifier: ^3.0.0-alpha.17
         version: link:../react-mathjax
@@ -419,9 +393,9 @@ importers:
       '@guanghechen/equal':
         specifier: ^2.0.5
         version: 2.0.5
-      '@yozora/core-react-constant':
-        specifier: ^3.0.0-alpha.13
-        version: link:../core-react-constant
+      '@yozora/react-core':
+        specifier: workspace:^
+        version: link:../react-core
       react:
         specifier: 19.3.0
         version: 19.3.0
