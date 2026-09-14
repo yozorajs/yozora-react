@@ -36,9 +36,9 @@
     "README.md"
   ],
   "dependencies": {
-    "@yozora/react-code-highlighter": "^3.0.0-alpha.18",
-    "@yozora/react-common-copy-button": "^3.0.0-alpha.15",
-    "@yozora/react-common-light-buttons": "^3.0.0-alpha.9",
+    "@yozora/react-code-highlighter": "workspace:^",
+    "@yozora/react-common-copy-button": "workspace:^",
+    "@yozora/react-common-light-buttons": "workspace:^",
     "@yozora/react-core": "workspace:^"
   },
   "peerDependencies": {

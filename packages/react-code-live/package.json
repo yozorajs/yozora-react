@@ -37,11 +37,11 @@
   ],
   "dependencies": {
     "@guanghechen/common-util": "^0.2.8",
-    "@yozora/react-code-editor": "^3.0.0-alpha.19",
-    "@yozora/react-code-embed": "^3.0.0-alpha.20",
-    "@yozora/react-code-highlighter": "^3.0.0-alpha.18",
-    "@yozora/react-common-copy-button": "^3.0.0-alpha.15",
-    "@yozora/react-common-light-buttons": "^3.0.0-alpha.9",
+    "@yozora/react-code-editor": "workspace:^",
+    "@yozora/react-code-embed": "workspace:^",
+    "@yozora/react-code-highlighter": "workspace:^",
+    "@yozora/react-common-copy-button": "workspace:^",
+    "@yozora/react-common-light-buttons": "workspace:^",
     "@yozora/react-core": "workspace:^"
   },
   "peerDependencies": {

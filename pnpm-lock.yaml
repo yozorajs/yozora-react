@@ -94,10 +94,10 @@ importers:
         specifier: ^2.0.0
         version: 2.4.1
       '@yozora/core-react-theme':
-        specifier: ^3.0.0-alpha.15
+        specifier: workspace:^
         version: link:../core-react-theme
       '@yozora/react-code-highlighter':
-        specifier: ^3.0.0-alpha.18
+        specifier: workspace:^
         version: link:../react-code-highlighter
       '@yozora/react-core':
         specifier: workspace:^
@@ -145,16 +145,16 @@ importers:
         specifier: ^2.0.0
         version: 2.4.1
       '@yozora/react-code-embed':
-        specifier: ^3.0.0-alpha.20
+        specifier: workspace:^
         version: link:../react-code-embed
       '@yozora/react-code-literal':
-        specifier: ^3.0.0-alpha.19
+        specifier: workspace:^
         version: link:../react-code-literal
       '@yozora/react-code-live':
-        specifier: ^3.0.0-alpha.22
+        specifier: workspace:^
         version: link:../react-code-live
       '@yozora/react-code-renderer-jsx':
-        specifier: ^3.0.0-alpha.16
+        specifier: workspace:^
         version: link:../react-code-renderer-jsx
       '@yozora/react-core':
         specifier: workspace:^
@@ -175,7 +175,7 @@ importers:
         specifier: ^2.0.5
         version: 2.0.5
       '@yozora/react-code-highlighter':
-        specifier: ^3.0.0-alpha.18
+        specifier: workspace:^
         version: link:../react-code-highlighter
       '@yozora/react-core':
         specifier: workspace:^
@@ -226,13 +226,13 @@ importers:
         specifier: ^11.0.0
         version: 11.13.5
       '@yozora/react-code-highlighter':
-        specifier: ^3.0.0-alpha.18
+        specifier: workspace:^
         version: link:../react-code-highlighter
       '@yozora/react-common-copy-button':
-        specifier: ^3.0.0-alpha.15
+        specifier: workspace:^
         version: link:../react-common-copy-button
       '@yozora/react-common-light-buttons':
-        specifier: ^3.0.0-alpha.9
+        specifier: workspace:^
         version: link:../react-common-light-buttons
       '@yozora/react-core':
         specifier: workspace:^
@@ -253,19 +253,19 @@ importers:
         specifier: ^2.0.0
         version: 2.4.1
       '@yozora/react-code-editor':
-        specifier: ^3.0.0-alpha.19
+        specifier: workspace:^
         version: link:../react-code-editor
       '@yozora/react-code-embed':
-        specifier: ^3.0.0-alpha.20
+        specifier: workspace:^
         version: link:../react-code-embed
       '@yozora/react-code-highlighter':
-        specifier: ^3.0.0-alpha.18
+        specifier: workspace:^
         version: link:../react-code-highlighter
       '@yozora/react-common-copy-button':
-        specifier: ^3.0.0-alpha.15
+        specifier: workspace:^
         version: link:../react-common-copy-button
       '@yozora/react-common-light-buttons':
-        specifier: ^3.0.0-alpha.9
+        specifier: workspace:^
         version: link:../react-common-light-buttons
       '@yozora/react-core':
         specifier: workspace:^
@@ -364,22 +364,22 @@ importers:
         specifier: ^2.4.1
         version: 2.4.1
       '@yozora/core-react-renderer':
-        specifier: ^3.0.0-alpha.25
+        specifier: workspace:^
         version: link:../core-react-renderer
       '@yozora/core-react-theme':
-        specifier: ^3.0.0-alpha.15
+        specifier: workspace:^
         version: link:../core-react-theme
       '@yozora/react-admonition':
-        specifier: ^3.0.0-alpha.15
+        specifier: workspace:^
         version: link:../react-admonition
       '@yozora/react-code':
-        specifier: ^3.0.0-alpha.23
+        specifier: workspace:^
         version: link:../react-code
       '@yozora/react-core':
         specifier: workspace:^
         version: link:../react-core
       '@yozora/react-mathjax':
-        specifier: ^3.0.0-alpha.17
+        specifier: workspace:^
         version: link:../react-mathjax
       react:
         specifier: 19.3.0

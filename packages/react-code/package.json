@@ -37,10 +37,10 @@
   ],
   "dependencies": {
     "@guanghechen/equal": "^2.0.5",
-    "@yozora/react-code-embed": "^3.0.0-alpha.20",
-    "@yozora/react-code-literal": "^3.0.0-alpha.19",
-    "@yozora/react-code-live": "^3.0.0-alpha.22",
-    "@yozora/react-code-renderer-jsx": "^3.0.0-alpha.16",
+    "@yozora/react-code-embed": "workspace:^",
+    "@yozora/react-code-literal": "workspace:^",
+    "@yozora/react-code-live": "workspace:^",
+    "@yozora/react-code-renderer-jsx": "workspace:^",
     "@yozora/react-core": "workspace:^"
   },
   "peerDependencies": {
