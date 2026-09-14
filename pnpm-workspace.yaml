@@ -8,8 +8,5 @@ resolvePeersFromWorkspaceRoot: true
 overrides:
   react: 19.3.0
   react-dom: 19.3.0
-allowBuilds:
-  esbuild: false
-  unrs-resolver: false
 minimumReleaseAgeExclude:
   - '@yozora/ast@2.4.1'
