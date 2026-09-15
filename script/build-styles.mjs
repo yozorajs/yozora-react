@@ -6,6 +6,8 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { Rolldown } from 'tsdown'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
+const coreDir = path.join(root, 'packages/react-core')
+const themeNotices = path.join(coreDir, 'THIRD_PARTY_NOTICES.md')
 const require = createRequire(import.meta.url)
 const cliManifestPath = require.resolve('@tailwindcss/cli/package.json')
 const cliManifest = JSON.parse(fs.readFileSync(cliManifestPath, 'utf8'))
@@ -40,6 +42,7 @@ export function getStyleWatchFiles(packageDir) {
       const files = fs.readdirSync(sourceDir, { recursive: true, withFileTypes: true })
       return [
         sourceDir,
+        ...(dir === coreDir ? [themeNotices] : []),
         ...files
           .filter(file => file.isDirectory() || /\.(?:css|tsx?)$/.test(file.name))
           .map(file => path.join(file.parentPath, file.name)),
@@ -65,39 +68,39 @@ export async function buildStyles(packageDir) {
       lines.push(`@source ${JSON.stringify(relative(path.join(dir, 'src')))};`)
     }
 
-    const coreDir = path.join(root, 'packages/react-core')
     const themeDir = path.join(coreDir, 'src/theme')
     if (packages.includes(coreDir)) {
+      lines.push('/*! Theme palettes: licenses and attribution in THIRD_PARTY_NOTICES.md. */')
       /** Bundle source schemas so clean builds and watch rebuilds never depend on existing lib files. */
       const schemaEntry = path.join(entryDir, 'schemas.ts')
       fs.writeFileSync(
         schemaEntry,
-        ['common', 'light', 'darken']
-          .map(
-            name =>
-              `export { ${name}Schema } from ${JSON.stringify(relative(path.join(themeDir, `schema/${name}.ts`)))};`,
-          )
-          .join('\n'),
+        `export { commonSchema } from ${JSON.stringify(relative(path.join(themeDir, 'common.ts')))};\n` +
+          `export { themeSchemas } from ${JSON.stringify(relative(path.join(themeDir, 'registry.ts')))};`,
       )
       const bundle = await Rolldown.rolldown({ input: schemaEntry, platform: 'node' })
       let schemas
+      let commonSchema
       try {
         const { output } = await bundle.generate({ format: 'esm' })
         const module = await import(
           'data:text/javascript;base64,' + Buffer.from(output[0].code).toString('base64')
         )
-        schemas = [module.commonSchema, module.lightSchema, module.darkenSchema]
+        schemas = module.themeSchemas
+        commonSchema = module.commonSchema
       } finally {
         await bundle.close()
       }
-      const selectors = [
-        '.yozora-theme-root',
-        '.yozora-theme-root[data-yozora-theme="light"]',
-        '.yozora-theme-root[data-yozora-theme="darken"]',
-      ]
-      for (const [index, schema] of schemas.entries()) {
-        lines.push(`${selectors[index]} {`)
-        for (const [token, value] of Object.entries(schema)) lines.push(`${token}: ${value};`)
+      lines.push('.yozora-theme-root {')
+      for (const [token, value] of Object.entries(commonSchema)) lines.push(`${token}: ${value};`)
+      lines.push('}')
+      for (const schema of schemas) {
+        const variant = `[data-yozora-variant="${schema.variant}"]`
+        lines.push(`.yozora-theme-root[data-yozora-theme="${schema.theme}"]${variant} {`)
+        for (const [token, value] of Object.entries(schema.colors))
+          lines.push(`${token}: ${value};`)
+        lines.push(`color-scheme: ${schema.darken ? 'dark' : 'light'};`)
+        lines.push('background: var(--yozora_colorBgBody); color: var(--yozora_colorBody);')
         lines.push('}')
       }
     }
@@ -138,6 +141,9 @@ export async function buildStyles(packageDir) {
     })
     /** Declare the CSS side-effect entry without adding ambient declarations for unrelated CSS. */
     fs.writeFileSync(path.join(outputDir, 'style.d.ts'), 'export {};\n')
+    if (packages.includes(coreDir)) {
+      fs.copyFileSync(themeNotices, path.join(outputDir, 'THIRD_PARTY_NOTICES.md'))
+    }
   } finally {
     fs.rmSync(entryDir, { recursive: true, force: true })
   }

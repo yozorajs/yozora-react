@@ -1,4 +1,4 @@
-import { CommonTokenNames } from '../../constant/token'
+import { CommonTokenNames } from '../constant/token'
 
 export const commonSchema: Record<CommonTokenNames, string> = {
   [CommonTokenNames.fontFamilyCode]:

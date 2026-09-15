@@ -14,7 +14,7 @@ import { CodeRendererInner } from './inner/CodeRendererInner'
  */
 export const CodeRenderer: INodeRenderer<Code> = props => {
   const { lang, meta, value } = props
-  const { theme } = useThemeContext()
+  const { schema } = useThemeContext()
   const showCodeLineno: boolean = useNodeRendererState(store => store.showCodeLineno$)
 
   return (
@@ -22,7 +22,7 @@ export const CodeRenderer: INodeRenderer<Code> = props => {
       lang={lang}
       meta={meta}
       value={value}
-      theme={theme}
+      darken={schema ? undefined : false}
       showCodeLineno={showCodeLineno}
     />
   )

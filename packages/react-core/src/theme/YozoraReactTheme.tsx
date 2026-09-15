@@ -4,7 +4,8 @@ import { getBreakpointId } from './breakpoint'
 import { getSmallScreenStyles } from './small-screen'
 
 interface IProps {
-  theme: 'light' | 'darken' | string
+  theme: string
+  variant?: string
   query: string
   nonce?: string
   className?: string
@@ -13,12 +14,17 @@ interface IProps {
 
 export class YozoraReactTheme extends React.PureComponent<IProps> {
   public override render(): React.ReactElement {
-    const { theme, query, nonce, className, children } = this.props
+    const { theme, variant, query, nonce, className, children } = this.props
     const cls = clsx('yozora-theme-root', className)
     const breakpoint = getBreakpointId(query)
 
     return (
-      <div className={cls} data-yozora-theme={theme} data-yozora-breakpoint={breakpoint}>
+      <div
+        className={cls}
+        data-yozora-theme={theme}
+        data-yozora-variant={variant}
+        data-yozora-breakpoint={breakpoint}
+      >
         {children}
         {breakpoint !== undefined && (
           <style

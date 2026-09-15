@@ -5,10 +5,12 @@ import { defineConfig } from 'tsdown'
 
 const root = import.meta.dirname
 const require = createRequire(import.meta.url)
+const markdownStyles = require.resolve('@yozora/react-markdown/style.css')
 const assets = new Map([
   [path.join(root, 'index.html'), 'index.html'],
   [path.join(root, 'src/demo.css'), 'demo.css'],
-  [require.resolve('@yozora/react-markdown/style.css'), 'yozora.css'],
+  [markdownStyles, 'yozora.css'],
+  [path.join(path.dirname(markdownStyles), 'THIRD_PARTY_NOTICES.md'), 'THIRD_PARTY_NOTICES.md'],
 ])
 
 export default defineConfig({

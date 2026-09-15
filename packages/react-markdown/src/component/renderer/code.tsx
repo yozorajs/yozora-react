@@ -21,9 +21,9 @@ export const createCodeRenderer = (
 ): INodeRenderer<Code> => {
   const CodeRenderer: INodeRenderer<Code> = props => {
     const { lang, meta } = props
-    const { theme } = useThemeContext()
+    const { schema } = useThemeContext()
     const showCodeLineno: boolean = useNodeRendererState(store => store.showCodeLineno$)
-    const darken: boolean = theme === 'darken'
+    const darken = schema ? undefined : false
 
     // Remove trailing line endings.
     const value: string = props.value.replace(/[\r\n]+$/, '')

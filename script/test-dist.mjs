@@ -34,6 +34,14 @@ for (const name of fs.readdirSync(packagesDir)) {
     const stylesheetPath = createRequire(manifestPath).resolve(`${manifest.name}/style.css`)
     assert.equal(stylesheetPath, path.join(packageDir, 'lib/style.css'))
     const css = fs.readFileSync(stylesheetPath, 'utf8')
+    if (stylePackages.includes(path.join(packagesDir, 'react-core'))) {
+      assert.match(css, /THIRD_PARTY_NOTICES\.md/)
+      assert.equal(
+        fs.readFileSync(path.join(packageDir, 'lib/THIRD_PARTY_NOTICES.md'), 'utf8'),
+        fs.readFileSync(path.join(packagesDir, 'react-core/THIRD_PARTY_NOTICES.md'), 'utf8'),
+        `${manifest.name}: theme palette notices must accompany the stylesheet`,
+      )
+    }
     assert.ok(css.length > 100, `${manifest.name}: empty stylesheet`)
     assert.doesNotMatch(css, /@(?:apply|source|variant|custom-variant|import)\b/)
     assert.doesNotMatch(css, /@layer\s+(?:components|theme|utilities)\b/)
@@ -127,6 +135,10 @@ for (const name of fs.readdirSync(packagesDir)) {
         'export const customTheme: IThemeProviderProps = { breakpoints: {} as IBreakpoints, nonce: "request-nonce" }\n'
       consumer += 'export type ContextBreakpoints = IThemeContext["breakpoints"]\n'
       consumer += 'export type ContextNonce = IThemeContext["nonce"]\n'
+      consumer += 'export type ContextVariant = IThemeContext["variant"]\n'
+      consumer += `export type { IThemeSchema, IThemePalette } from '${manifest.name}'\n`
+      consumer +=
+        'export const modernTheme: IThemeProviderProps = { theme: "vsc", variant: "dark-modern" }\n'
     }
     if (name === 'core-react-renderer') {
       consumer += `import type { INodeStyleMap } from '${manifest.name}'\n`
@@ -306,16 +318,88 @@ export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] 
           'CommonTokenNames',
           'ThemeProvider',
           'TokenNames',
+          'catppuccinFrappeSchema',
+          'catppuccinLatteSchema',
+          'catppuccinMacchiatoSchema',
+          'catppuccinMochaSchema',
           'clsx',
           'convertToBoolean',
-          'darkenSchema',
           'getBreakpointId',
-          'lightSchema',
+          'getThemeSchema',
+          'gruvboxDarkSchema',
+          'gruvboxLightSchema',
+          'kanagawaDragonSchema',
+          'kanagawaLotusSchema',
+          'kanagawaWaveSchema',
           'parseCodeMeta',
+          'rosepineDawnSchema',
+          'rosepineMainSchema',
+          'rosepineMoonSchema',
+          'themeSchemas',
           'tokens',
+          'tokyonightDaySchema',
+          'tokyonightMoonSchema',
+          'tokyonightNightSchema',
+          'tokyonightStormSchema',
           'useThemeContext',
+          'vscDarkModernSchema',
+          'vscLightModernSchema',
         ],
       )
+      const css = fs.readFileSync(path.join(packageDir, 'lib/style.css'), 'utf8')
+      const html = module.themeSchemas
+        .map(schema =>
+          renderToStaticMarkup(
+            React.createElement(
+              module.ThemeProvider,
+              { theme: schema.theme, variant: schema.variant },
+              'Theme',
+            ),
+          ),
+        )
+        .join('')
+      const dom = new JSDOM(`<style>${css}</style>${html}`)
+      try {
+        const roots = [...dom.window.document.querySelectorAll('.yozora-theme-root')]
+        const rules = [...dom.window.document.styleSheets[0].cssRules]
+        assert.equal(roots.length, module.themeSchemas.length)
+        for (const [index, root] of roots.entries()) {
+          const schema = module.themeSchemas[index]
+          const matches = rules.filter(
+            rule =>
+              rule.selectorText &&
+              root.matches(rule.selectorText) &&
+              rule.style.getPropertyValue('--yozora_colorBody'),
+          )
+          assert.equal(
+            matches.length,
+            1,
+            `${schema.theme}/${schema.variant}: exactly one built-in palette must match`,
+          )
+          const swatch = dom.window.document.createElement('span')
+          swatch.style.color = schema.colors[module.TokenNames.colorBody]
+          const expected = swatch.style.color
+          swatch.style.color = matches[0].style.getPropertyValue('--yozora_colorBody')
+          assert.equal(swatch.style.color, expected)
+        }
+        for (const theme of ['catppuccin', 'vsc']) {
+          const custom = dom.window.document.createElement('div')
+          custom.className = 'yozora-theme-root'
+          custom.dataset.yozoraTheme = theme
+          custom.dataset.yozoraVariant = 'bespoke'
+          assert.ok(
+            !rules.some(
+              rule =>
+                rule.selectorText &&
+                custom.matches(rule.selectorText) &&
+                rule.style.getPropertyValue('--yozora_colorBody'),
+            ),
+            'Unknown variants must leave palette selection to custom CSS',
+          )
+        }
+      } finally {
+        dom.window.close()
+      }
       assert.equal(module.CommonTokenNames.fontFamilyCode, '--yozora_fontFamilyCode')
       assert.equal(module.TokenNames.colorLink, '--yozora_colorLink')
       assert.equal(module.tokens.colorLink, 'var(--yozora_colorLink)')

@@ -1,4 +1,6 @@
+import { useThemeContext } from '@yozora/react-core'
 import React from 'react'
+import { schemaToPrismTheme } from '../theme/palette'
 import vscDarkTheme from '../theme/vsc-dark'
 import vscLightTheme from '../theme/vsc-light'
 import type { IPrismTheme } from '../types/prism'
@@ -33,9 +35,8 @@ interface IProps {
    */
   showLineNo?: boolean
   /**
-   * If true, use vscDarkTheme as default theme,
-   * otherwise use vscLightTheme as default theme.
-   * @default true
+   * Override the provider palette with vscDarkTheme or vscLightTheme.
+   * When omitted, follow the provider; standalone highlighters default to dark.
    */
   darken?: boolean
   /**
@@ -64,35 +65,44 @@ export class CodeHighlighter extends React.PureComponent<IProps> {
   public static readonly displayName = 'YozoraCodeHighlighter'
 
   public override render(): React.ReactElement {
-    const {
-      lang,
-      value: code,
-      darken = true,
-      highlightLinenos = [],
-      maxLines = -1,
-      collapsed = false,
-      showLineNo = true,
-      codesRef,
-      onLinenoWidthChange,
-      className,
-      codesClassName,
-    } = this.props
-
-    const theme: IPrismTheme = this.props.theme ?? (darken ? vscDarkTheme : vscLightTheme)
-    return (
-      <HighlightContent
-        code={code}
-        codesRef={codesRef}
-        collapsed={collapsed}
-        highlightLinenos={highlightLinenos}
-        language={lang ?? ''}
-        maxLines={maxLines}
-        showLineno={showLineNo}
-        theme={theme}
-        onLinenoWidthChange={onLinenoWidthChange}
-        className={className}
-        codesClassName={codesClassName}
-      />
-    )
+    return <ThemedCodeHighlighter {...this.props} />
   }
+}
+
+function ThemedCodeHighlighter(props: IProps): React.ReactElement {
+  const { schema } = useThemeContext()
+  const {
+    lang,
+    value: code,
+    darken,
+    highlightLinenos = [],
+    maxLines = -1,
+    collapsed = false,
+    showLineNo = true,
+    codesRef,
+    onLinenoWidthChange,
+    className,
+    codesClassName,
+  } = props
+
+  const theme = React.useMemo<IPrismTheme>(() => {
+    if (props.theme != null) return props.theme
+    if (darken !== undefined) return darken ? vscDarkTheme : vscLightTheme
+    return schema ? schemaToPrismTheme(schema) : vscDarkTheme
+  }, [props.theme, darken, schema])
+  return (
+    <HighlightContent
+      code={code}
+      codesRef={codesRef}
+      collapsed={collapsed}
+      highlightLinenos={highlightLinenos}
+      language={lang ?? ''}
+      maxLines={maxLines}
+      showLineno={showLineNo}
+      theme={theme}
+      onLinenoWidthChange={onLinenoWidthChange}
+      className={className}
+      codesClassName={codesClassName}
+    />
+  )
 }

@@ -36,6 +36,7 @@
     "package.json",
     "CHANGELOG.md",
     "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
     "README.md"
   ],
   "dependencies": {

@@ -14,25 +14,27 @@ test('nested themes stay independent and update both CSS selection and context',
     return (
       <ThemeProvider theme={theme} className="custom-theme">
         <ThemeValue label="outer" />
-        <ThemeProvider theme="light">
+        <ThemeProvider theme="vsc" variant="light-modern">
           <ThemeValue label="inner" />
         </ThemeProvider>
       </ThemeProvider>
     )
   }
 
-  const view = render(<Example theme="darken" />)
+  const view = render(<Example theme="catppuccin-mocha" />)
   const outer = screen.getByTestId('outer')
   const inner = screen.getByTestId('inner')
-  expect(outer).toHaveTextContent('darken')
-  expect(outer.parentElement).toHaveAttribute('data-yozora-theme', 'darken')
+  expect(outer).toHaveTextContent('catppuccin')
+  expect(outer.parentElement).toHaveAttribute('data-yozora-theme', 'catppuccin')
+  expect(outer.parentElement).toHaveAttribute('data-yozora-variant', 'mocha')
   expect(outer.parentElement).toHaveClass('yozora-theme-root', 'custom-theme')
-  expect(inner.parentElement).toHaveAttribute('data-yozora-theme', 'light')
+  expect(inner.parentElement).toHaveAttribute('data-yozora-theme', 'vsc')
+  expect(inner.parentElement).toHaveAttribute('data-yozora-variant', 'light-modern')
 
   view.rerender(<Example theme="custom" />)
   expect(outer).toHaveTextContent('custom')
   expect(outer.parentElement).toHaveAttribute('data-yozora-theme', 'custom')
-  expect(inner).toHaveTextContent('light')
+  expect(inner).toHaveTextContent('vsc')
   expect(view.container.querySelector('style')).toBeNull()
 })
 

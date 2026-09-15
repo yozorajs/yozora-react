@@ -112,7 +112,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 |     `autoFocus`     |            `boolean`            | `false`  |     -     | Set the editor focus in default              |
 |     `className`     |            `string`             | `false`  |     -     | CSS class name for the container             |
 |       `code`        |            `string`             |  `true`  |     -     | Code content                                 |
-|      `darken`       |            `boolean`            | `false`  |  `true`   | Dark mode (vcsDarkTheme / vscLightTheme)     |
+|      `darken`       |            `boolean`            | `false`  | See below | Override the provider with VS Code dark/light colors     |
 |       `lang`        |            `string`             |  `true`  |     -     | Code language                                |
 |    `lineHeight`     | `React.CSSProperties['height']` | `false`  | `'1.8em'` | line height                                  |
 |     `onChange`      |   `(content: string) => void`   |  `true`  |     -     | Triggered when code changed.                 |
@@ -127,7 +127,9 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 - `className`: The root element of this component will always bind with the CSS class
   `'yozora-code-editor'`
 
-- `theme`: Default theme depends on the value of `darken`.
+- `theme`: An explicit theme takes precedence, followed by an explicit `darken` prop.
+  Otherwise syntax colors follow `ThemeProvider` from `@yozora/react-core`; standalone
+  editors retain their dark default.
 
 ### CSS variables
 

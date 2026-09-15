@@ -102,7 +102,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 
   function App() {
     return (
-      <ThemeProvider theme="light">
+      <ThemeProvider theme="vsc" variant="light-modern">
         <MarkdownProvider ImageViewer={ImageViewer} showCodeLineno={true}>
           <Markdown ast={ast} />
         </MarkdownProvider>
@@ -149,7 +149,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
   import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-markdown'
 
   <MathJaxProvider>
-    <ThemeProvider theme="light">
+    <ThemeProvider theme="vsc" variant="light-modern">
       <MarkdownProvider>
         <Markdown ast={ast} />
       </MarkdownProvider>
@@ -204,7 +204,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 
   const wrapper = (
     <MathJaxProvider mathjaxSrc="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-mml-chtml.js">
-      <ThemeProvider theme="light">
+      <ThemeProvider theme="vsc" variant="light-modern">
         <MarkdownProvider
           definitionMap={definitionMap}
           footnoteDefinitionMap={footnoteDefinitionMap}

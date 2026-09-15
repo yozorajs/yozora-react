@@ -6,28 +6,18 @@ body {
   margin: 0;
 }
 .demo {
-  --demo-bg: #f5f5f2;
-  --demo-panel: #fff;
-  --demo-ink: #232b2b;
-  --demo-muted: #6c7676;
-  --demo-border: #dfe4df;
-  --demo-accent: #14664e;
+  --demo-bg: var(--yozora_colorBgBody);
+  --demo-panel: var(--yozora_colorBgCode);
+  --demo-ink: var(--yozora_colorBody);
+  --demo-muted: var(--yozora_colorCodeTitle);
+  --demo-border: var(--yozora_colorBorderCode);
+  --demo-accent: var(--yozora_colorLink);
   min-height: 100vh;
   background: var(--demo-bg);
   color: var(--demo-ink);
-  color-scheme: light;
   font:
     15px / 1.6 system-ui,
     sans-serif;
-}
-.demo[data-theme="darken"] {
-  --demo-bg: #111717;
-  --demo-panel: #1a2222;
-  --demo-ink: #e0e9e4;
-  --demo-muted: #9caeaa;
-  --demo-border: #34413e;
-  --demo-accent: #8ddac0;
-  color-scheme: dark;
 }
 .demo-header {
   position: sticky;

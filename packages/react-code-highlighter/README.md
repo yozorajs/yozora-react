@@ -124,11 +124,15 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
   | :-----------------: | :----------------------------: | :------: | :-----------------: | :------------------------------------------------------- |
   |       `value`       |            `string`            |  `true`  |          -          | Code content                                             |
   |       `lang`        |            `string`            | `false`  |          -          | Code language                                            |
-  |      `darken`       |           `boolean`            | `false`  |          -          | Specify the default theme (vcsDarkTheme / vscLightTheme) |
-  |       `theme`       |         `IPrismTheme`          | `false`  | Depends on `darken` | Code highlight theme                                     |
+  |      `darken`       |           `boolean`            | `false`  |          -          | Override the provider with VS Code dark/light colors |
+  |       `theme`       |         `IPrismTheme`          | `false`  | See below | Code highlight theme                                     |
   |    `linenoWidth`    | `React.CSSProperties['width']` | `false`  |         `0`         | Code line number width                                   |
   |    `linenoColor`    | `React.CSSProperties['color']` | `false`  |      `#858585`      | Code line number color                                   |
   | `onLineCountChange` | `(lineCount: number) => void`  | `false`  |          -          | Callback of Code line count changing                     |
+
+When `theme` is supplied, it takes precedence. Otherwise an explicit `darken` selects
+the legacy VS Code palette; with neither prop, highlighting follows `ThemeProvider`
+from `@yozora/react-core`, falling back to dark colors outside a provider.
 
 ### CSS variables
 

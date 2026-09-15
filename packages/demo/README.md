@@ -16,7 +16,9 @@ starting the server. Set `PORT` to use another port. The server binds to loopbac
 The page covers Markdown typography, links, task lists, tables, footnotes, admonitions,
 syntax highlighting, copy buttons, an editable TypeScript editor, and live JSX with
 error rendering. Use the theme and line-number controls and resize the browser to
-check the 479px breakpoint. Live JSX has a reset button for recovering from edits.
+check the 479px breakpoint. The theme selector includes all 18 named variants and defaults to
+`vsc / light-modern`; Markdown, the editor, and live JSX share the selected palette.
+Live JSX has a reset button for recovering from edits.
 
 ## Development
 

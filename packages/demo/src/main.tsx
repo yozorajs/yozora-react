@@ -1,12 +1,15 @@
 import { CodeEditor } from '@yozora/react-code-editor'
-import { ThemeProvider } from '@yozora/react-core'
+import { ThemeProvider, themeSchemas } from '@yozora/react-core'
 import { Markdown, MarkdownProvider } from '@yozora/react-markdown'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { admonitions, editorCode, footnotes, live, liveError, markdown } from './fixtures'
 
 function App(): React.ReactElement {
-  const [theme, setTheme] = React.useState<'light' | 'darken'>('light')
+  const [themeIndex, setThemeIndex] = React.useState(() =>
+    themeSchemas.findIndex(schema => schema.theme === 'vsc' && schema.variant === 'light-modern'),
+  )
+  const selectedTheme = themeSchemas[themeIndex]
   const [showLineNo, setShowLineNo] = React.useState(true)
   const [code, setCode] = React.useState(editorCode)
   const [revision, setRevision] = React.useState(0)
@@ -20,50 +23,53 @@ function App(): React.ReactElement {
   }, [])
 
   return (
-    <div className="demo" data-theme={theme}>
-      <header className="demo-header">
-        <a className="demo-brand" href="#top">
-          yozora<span>component lab</span>
-        </a>
-        <div className="demo-controls">
-          <label>
-            主题
-            <select
-              value={theme}
-              onChange={event => setTheme(event.target.value as 'light' | 'darken')}
-            >
-              <option value="light">Light</option>
-              <option value="darken">Dark</option>
-            </select>
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              checked={showLineNo}
-              onChange={event => setShowLineNo(event.target.checked)}
-            />
-            显示行号
-          </label>
-          <span className="demo-viewport">
-            {width}px · {width <= 479 ? '小屏' : '常规'}
-          </span>
-        </div>
-      </header>
+    <ThemeProvider theme={selectedTheme.theme} variant={selectedTheme.variant}>
+      <div className="demo">
+        <header className="demo-header">
+          <a className="demo-brand" href="#top">
+            yozora<span>component lab</span>
+          </a>
+          <div className="demo-controls">
+            <label>
+              主题
+              <select
+                value={themeIndex}
+                onChange={event => setThemeIndex(Number(event.target.value))}
+              >
+                {themeSchemas.map((schema, index) => (
+                  <option key={`${schema.theme}/${schema.variant}`} value={index}>
+                    {schema.theme} / {schema.variant}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={showLineNo}
+                onChange={event => setShowLineNo(event.target.checked)}
+              />
+              显示行号
+            </label>
+            <span className="demo-viewport">
+              {width}px · {width <= 479 ? '小屏' : '常规'}
+            </span>
+          </div>
+        </header>
 
-      <main id="top" className="demo-main">
-        <div className="demo-intro">
-          <p className="demo-eyebrow">COMPONENT PLAYGROUND</p>
-          <h1>在真实页面中测试组件。</h1>
-          <p>切换主题、修改代码，或缩窄浏览器窗口查看小屏效果。</p>
-          <nav aria-label="测试区域">
-            <a href="#markdown">Markdown</a>
-            <a href="#admonitions">Admonition</a>
-            <a href="#editor">Code editor</a>
-            <a href="#live">Live JSX</a>
-          </nav>
-        </div>
+        <main id="top" className="demo-main">
+          <div className="demo-intro">
+            <p className="demo-eyebrow">COMPONENT PLAYGROUND</p>
+            <h1>在真实页面中测试组件。</h1>
+            <p>切换主题、修改代码，或缩窄浏览器窗口查看小屏效果。</p>
+            <nav aria-label="测试区域">
+              <a href="#markdown">Markdown</a>
+              <a href="#admonitions">Admonition</a>
+              <a href="#editor">Code editor</a>
+              <a href="#live">Live JSX</a>
+            </nav>
+          </div>
 
-        <ThemeProvider theme={theme}>
           <MarkdownProvider showCodeLineno={showLineNo}>
             <section id="markdown" className="demo-section">
               <div className="demo-section-heading">
@@ -100,7 +106,6 @@ function App(): React.ReactElement {
                   code={code}
                   lang="typescript"
                   onChange={setCode}
-                  darken={theme === 'darken'}
                   showLineNo={showLineNo}
                 />
                 <p className="demo-hint" aria-live="polite">
@@ -142,10 +147,10 @@ function App(): React.ReactElement {
               </div>
             </section>
           </MarkdownProvider>
-        </ThemeProvider>
-      </main>
-      <footer className="demo-footer">Yozora React / Local component testing</footer>
-    </div>
+        </main>
+        <footer className="demo-footer">Yozora React / Local component testing</footer>
+      </div>
+    </ThemeProvider>
   )
 }
 
