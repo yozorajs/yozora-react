@@ -1,4 +1,4 @@
-import { cx } from '@emotion/css'
+import { clsx } from '@yozora/react-core'
 import React from 'react'
 import { classes } from '../style'
 import { areSameArray } from '../util/misc'
@@ -27,7 +27,7 @@ export class HighlightLinenos extends React.Component<IProps> {
       const line = (
         <div
           key={lineno}
-          className={cx(classes.line, classes.linenoLine, isHighlight && classes.highlightLine)}
+          className={clsx(classes.line, classes.linenoLine, isHighlight && classes.highlightLine)}
         >
           <span key={lineno}>{lineno + 1}</span>
         </div>

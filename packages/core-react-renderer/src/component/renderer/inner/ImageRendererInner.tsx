@@ -1,5 +1,4 @@
-import { css } from '@emotion/css'
-import { tokens } from '@yozora/react-core'
+import { clsx } from '@yozora/react-core'
 import React from 'react'
 import type { INodeRendererAction } from '../../../context'
 import { NodeRendererActionsType } from '../../../context'
@@ -35,7 +34,7 @@ export class ImageRendererInner extends React.Component<IProps> {
     const { onImageClick } = this
 
     return (
-      <figure className={`${className} ${cls}`}>
+      <figure className={clsx(className, cls)}>
         <img
           alt={alt}
           src={src}
@@ -59,24 +58,4 @@ export class ImageRendererInner extends React.Component<IProps> {
   }
 }
 
-const cls = css({
-  boxSizing: 'border-box',
-  maxWidth: '100%', // Prevent images from overflowing the container.
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  margin: 0,
-  '> img': {
-    flex: '1 0 auto',
-    boxSizing: 'border-box',
-    maxWidth: '100%',
-    border: `1px solid ${tokens.colorBorderImage}`,
-    boxShadow: '0 0 20px 1px rgba(126, 125, 150, 0.6)',
-  },
-  '> figcaption': {
-    textAlign: 'center',
-    fontStyle: 'italic',
-    fontSize: '1em',
-    color: tokens.colorImageTitle,
-  },
-})
+const cls = 'yozora-image__root'

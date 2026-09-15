@@ -1,6 +1,4 @@
-import { css, cx } from '@emotion/css'
 import type { Blockquote } from '@yozora/ast'
-import { tokens } from '@yozora/react-core'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
 
@@ -26,17 +24,4 @@ export class BlockquoteRenderer extends React.Component<Blockquote> {
   }
 }
 
-const cls = cx(
-  'yozora-blockquote',
-  css({
-    boxSizing: 'border-box',
-    padding: '0.625em 1em',
-    borderLeft: `0.25em solid ${tokens.colorBorderBlockquote}`,
-    margin: tokens.marginBlockNode,
-    background: tokens.colorBgBlockquote,
-    boxShadow: '0 1px 2px 0 hsla(0deg, 0%, 0%, 0.1)',
-    '> :last-child': {
-      marginBottom: 0,
-    },
-  }),
-)
+const cls = 'yozora-blockquote yozora-blockquote__root'

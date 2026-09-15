@@ -74,6 +74,16 @@ it's seems not been updated for several months.
 
 ## Usage
 
+Import the compiled stylesheet once at your application entry:
+
+```tsx
+import '@yozora/react-code-editor/style.css'
+```
+
+It includes styles for dependency components. Tailwind is not required in the consuming
+application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
+
+
 - Basic:
 
   ```tsx

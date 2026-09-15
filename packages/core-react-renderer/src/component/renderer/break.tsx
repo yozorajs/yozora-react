@@ -1,4 +1,3 @@
-import { css, cx } from '@emotion/css'
 import type { Break } from '@yozora/ast'
 import React from 'react'
 
@@ -18,9 +17,4 @@ export class BreakRenderer extends React.Component<Break> {
   }
 }
 
-const cls = cx(
-  'yozora-break',
-  css({
-    boxSizing: 'border-box',
-  }),
-)
+const cls = 'yozora-break yozora-break__root'

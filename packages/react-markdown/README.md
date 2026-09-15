@@ -73,6 +73,16 @@ This component is designed to render data of [@yozora/ast][].
 
 ## Usage
 
+Import the compiled stylesheet once at your application entry:
+
+```tsx
+import '@yozora/react-markdown/style.css'
+```
+
+It includes styles for dependency components. Tailwind is not required in the consuming
+application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
+
+
 - This component supports to preview all images in markdown documents with [react-viewer][]. In
   order to be able to use [react-viewer] in React SSR, you will need the [@loadable/component].
 

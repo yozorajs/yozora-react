@@ -1,4 +1,3 @@
-import type { CSSInterpolation } from '@emotion/css/create-instance'
 import type {
   Blockquote,
   BlockquoteType,
@@ -72,9 +71,25 @@ export interface INodeRendererMap {
   [key: string]: INodeRenderer<Node & any>
 }
 
+/** Preserve legacy component selectors, including those nested in CSS objects. */
+interface INodeStyleComponentSelector {
+  readonly __emotion_styles: unknown
+}
+
+type INodeStyleValue =
+  | string
+  | number
+  | boolean
+  | null
+  | undefined
+  | INodeStyleComponentSelector
+  | { readonly [key: string]: INodeStyleValue }
+  | readonly INodeStyleValue[]
+
+/** Legacy style-map contract, independent of the styling engine. */
 export type INodeStyleMap = Record<
   Exclude<keyof INodeRendererMap, '_fallback'>,
-  Record<string, CSSInterpolation>
+  Record<string, INodeStyleValue>
 >
 
 /**

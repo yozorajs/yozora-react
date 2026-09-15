@@ -1,8 +1,9 @@
-import { cx } from '@emotion/css'
 import type { Root as IRoot } from '@yozora/ast'
 import { NodesRenderer } from '@yozora/core-react-renderer'
+import { getBreakpointId, useThemeContext } from '@yozora/core-react-theme'
+import { clsx } from '@yozora/react-core'
 import React from 'react'
-import { useStyles } from '../style'
+import { getSmallScreenStyles } from '../small-screen'
 import { FootnoteDefinitions } from './FootnoteDefinitions'
 
 export interface IMarkdownProps {
@@ -73,10 +74,31 @@ interface IMarkdownRootProps {
 
 export const MarkdownRoot: React.FC<IMarkdownRootProps> = props => {
   const { Element = 'div', className, itemProp, style, children } = props
-  const cls: string = cx('yozora-markdown', useStyles(), className)
+  const { breakpoints, nonce } = useThemeContext()
+  const query = breakpoints.xsMinus
+  const breakpoint = getBreakpointId(query)
+  /** Custom elements only need to forward the original className prop for responsive styles. */
+  const cls: string = clsx(
+    'yozora-markdown',
+    breakpoint && 'yozora-markdown--custom-breakpoint',
+    breakpoint,
+    className,
+  )
   return (
     <Element className={cls} style={style} itemProp={itemProp}>
       {children}
+      {breakpoint !== undefined && (
+        <style
+          // Reinsertion lets the browser check CSP again when the nonce changes.
+          key={nonce}
+          media={`screen and ${query}`}
+          nonce={nonce}
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: Fixed CSS and a hex-encoded id need raw output for React 17/18 SSR.
+          dangerouslySetInnerHTML={{
+            __html: getSmallScreenStyles(`.${breakpoint}`),
+          }}
+        />
+      )}
     </Element>
   )
 }

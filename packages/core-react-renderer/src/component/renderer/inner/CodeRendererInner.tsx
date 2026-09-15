@@ -1,6 +1,5 @@
-import { css, cx } from '@emotion/css'
 import { CodeHighlighter as CodeHighlighterComponent } from '@yozora/react-code-highlighter'
-import { parseCodeMeta, tokens } from '@yozora/react-core'
+import { parseCodeMeta } from '@yozora/react-core'
 import React from 'react'
 
 interface IProps {
@@ -49,9 +48,4 @@ export class CodeRendererInner extends React.Component<IProps> {
   }
 }
 
-const cls = cx(
-  'yozora-code',
-  css({
-    margin: tokens.marginBlockNode,
-  }),
-)
+const cls = 'yozora-code yozora-code-renderer__root'

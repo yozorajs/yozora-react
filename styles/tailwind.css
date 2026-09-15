@@ -1,0 +1,2 @@
+/* Publish unlayered rules so ordinary host resets do not outrank component selectors. */
+@import "tailwindcss/theme.css" prefix(yz);

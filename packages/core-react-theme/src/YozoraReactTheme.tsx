@@ -1,77 +1,38 @@
-import { css, cx } from '@emotion/css'
-import { tokens } from '@yozora/react-core'
+import { clsx } from '@yozora/react-core'
 import React from 'react'
-import { commonSchema } from './schema/common'
-import { darkenSchema } from './schema/darken'
-import { lightSchema } from './schema/light'
-import type { IBreakpoints } from './types'
+import { getBreakpointId } from './breakpoint'
+import { getSmallScreenStyles } from './small-screen'
 
 interface IProps {
   theme: 'light' | 'darken' | string
-  breakpoints: IBreakpoints
+  query: string
+  nonce?: string
   className?: string
   children: React.ReactNode
 }
 
 export class YozoraReactTheme extends React.PureComponent<IProps> {
   public override render(): React.ReactElement {
-    const { theme, breakpoints, className, children } = this.props
+    const { theme, query, nonce, className, children } = this.props
+    const cls = clsx('yozora-theme-root', className)
+    const breakpoint = getBreakpointId(query)
 
-    const cls = cx(
-      'yozora-theme-root',
-      classes.common,
-      theme === 'light' && classes.light,
-      theme === 'darken' && classes.darken,
-      className,
-      css({
-        [`@media screen and ${breakpoints.xsMinus}`]: {
-          '.yozora-paragraph': {
-            letterSpacing: 0,
-            lineHeight: 1.6,
-          },
-        },
-      }),
+    return (
+      <div className={cls} data-yozora-theme={theme} data-yozora-breakpoint={breakpoint}>
+        {children}
+        {breakpoint !== undefined && (
+          <style
+            // Reinsertion lets the browser check CSP again when the nonce changes.
+            key={nonce}
+            media={`screen and ${query}`}
+            nonce={nonce}
+            // biome-ignore lint/security/noDangerouslySetInnerHtml: Fixed CSS and a hex-encoded id need raw output for React 17/18 SSR.
+            dangerouslySetInnerHTML={{
+              __html: getSmallScreenStyles(`[data-yozora-breakpoint="${breakpoint}"]`),
+            }}
+          />
+        )}
+      </div>
     )
-
-    return <div className={cls}>{children}</div>
   }
-}
-
-const classes = {
-  common: css({
-    ...commonSchema,
-    MozOsxFontSmoothing: 'grayscale',
-    WebkitFontSmoothing: 'antialiased',
-    '& ::-webkit-scrollbar': {
-      width: 4,
-      height: 4,
-    },
-    '& ::-webkit-scrollbar-corner': {
-      display: 'none',
-    },
-    '& ::-webkit-scrollbar-track': {
-      backgroundColor: 'transparent',
-    },
-    '& ::-webkit-scrollbar-thumb': {
-      border: '3px solid hsl(0, 0%, 50%)',
-      background: 'hsl(0, 0%, 60%)',
-      borderRadius: '4px',
-
-      '&&:hover': {
-        borderColor: 'hsl(0, 0%, 70%)',
-      },
-    },
-    a: {
-      color: tokens.colorLink,
-      textDecoration: 'none',
-      '&:visited': {
-        color: tokens.colorLinkVisited,
-      },
-      '&&:hover': {
-        color: tokens.colorLinkHover,
-      },
-    },
-  }),
-  light: css(lightSchema),
-  darken: css(darkenSchema),
 }

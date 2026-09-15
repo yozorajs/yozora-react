@@ -1,0 +1,174 @@
+.yozora-markdown-footnote-definitions__container {
+  margin-top: 2rem;
+  font-size: 0.8125rem;
+  color: var(--yozora_colorImageTitle);
+}
+
+.yozora-markdown-footnote-definitions__title {
+  @apply yz:p-0;
+  border-bottom: 1px solid var(--yozora_colorBorderHeading);
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.5rem;
+  @apply yz:font-semibold;
+}
+
+.yozora-markdown-footnote-definitions__main {
+  @apply yz:p-0 yz:m-0;
+  list-style: none;
+}
+
+.yozora-markdown {
+  --yozora_paragraphLineHeight: 1.75;
+  font-family: var(--yozora_fontFamilyBody);
+  background: var(--yozora_colorBgBody);
+  color: var(--yozora_colorBody);
+  font-size: var(--yozora_fontSizeBody, 16px);
+  line-height: 1.75;
+  word-break: normal;
+  overflow-wrap: anywhere;
+  user-select: unset;
+  .yozora-admonition.yozora-admonition {
+    margin: var(--yozora_marginBlockNode);
+  }
+  .yozora-footnote-definition {
+    @apply yz:flex yz:items-start yz:justify-start yz:w-full yz:p-0 yz:m-0;
+    .yozora-footnote-definition__title {
+      @apply yz:flex-none yz:inline-block yz:select-none;
+      margin: 0 0.5rem 0 0;
+    }
+    .yozora-footnote-definition__content {
+      @apply yz:flex-auto yz:overflow-x-auto yz:inline-block yz:m-0 yz:p-0;
+    }
+  }
+  .yozora-footnote-reference {
+    > a {
+      @apply yz:inline-block;
+      font-size: 0.75em;
+      @apply yz:no-underline;
+      &:active {
+        color: var(--yozora_colorLinkActive);
+      }
+      &&:hover {
+        color: var(--yozora_colorLinkHover);
+      }
+      &:visited {
+        color: var(--yozora_colorLinkVisited);
+      }
+    }
+  }
+  .yozora-list-task-item {
+    @apply yz:relative;
+    list-style-type: none;
+    > .yozora-list-task-item__checkbox {
+      font-variant: tabular-nums;
+      font-feature-settings: "tnum";
+      @apply yz:whitespace-nowrap yz:cursor-default;
+      touch-action: manipulation;
+      @apply yz:select-none yz:absolute;
+      top: 0.425em;
+      left: -1.4em;
+      @apply yz:box-border yz:inline-block;
+      width: 0.9rem;
+      height: 0.9rem;
+      line-height: 0.8rem;
+      > input {
+        @apply yz:absolute yz:top-0 yz:right-0 yz:bottom-0 yz:left-0 yz:box-border yz:h-full yz:w-full yz:p-0 yz:m-0;
+        border: 0;
+        @apply yz:cursor-pointer yz:opacity-0 yz:invisible;
+      }
+      > span {
+        @apply yz:inline-flex yz:items-center yz:justify-center yz:box-border;
+        border: 1px solid var(--yozora_colorBorderBlockquote);
+        border-radius: 3px;
+        background: var(--yozora_colorBgCode);
+        @apply yz:w-full yz:h-full;
+        &::after {
+          content: ".";
+          @apply yz:inline-block;
+          border: 0;
+          color: transparent;
+        }
+        &[data-status="doing"]::after {
+          background-color: var(--yozora_colorLink);
+          width: 0.4rem;
+          height: 0.4rem;
+        }
+        &[data-status="done"] {
+          background-color: var(--yozora_colorLink);
+          border-color: var(--yozora_colorLink);
+          &::after {
+            transform: rotate(45deg) scale(1) translate(-4%, -5%);
+            height: 0.5012rem;
+            width: 0.2468rem;
+            border: 2px solid #fff;
+            border-top: 0;
+            border-left: 0;
+          }
+        }
+      }
+    }
+  }
+  .yozora-inline-math {
+    @apply yz:p-0;
+    border: none;
+    @apply yz:m-0;
+    background: transparent;
+    color: var(--yozora_colorMath);
+  }
+  .yozora-math {
+    @apply yz:block yz:overflow-auto;
+    padding: 4px 0;
+    border: none;
+    @apply yz:h-fit;
+    margin: var(--yozora_marginBlockNode);
+    background: transparent;
+    color: var(--yozora_colorMath);
+  }
+}
+
+.yozora-markdown {
+  .yozora-admonition {
+    .yozora-math {
+      color: inherit;
+    }
+    .yozora-inline-math {
+      color: inherit;
+    }
+  }
+  .yozora-list-item {
+    > .yozora-list {
+      margin-left: 1.2em;
+    }
+  }
+  .yozora-code-renderer-graphviz {
+    @apply yz:flex yz:justify-center;
+    padding: 2rem 0;
+    margin-bottom: 1rem;
+    background: hsla(0deg, 0%, 90%, 0.2);
+  }
+  .yozora-heading {
+    .yozora-inline-math {
+      color: inherit;
+    }
+    .yozora-math {
+      color: inherit;
+    }
+  }
+}
+
+/* MathJax injects unlayered styles, so its compatibility overrides must also be unlayered. */
+.yozora-markdown .yozora-inline-math.yozora-inline-math.yozora-inline-math {
+  mjx-container [width="full"] {
+    width: auto;
+  }
+}
+
+.yozora-markdown .yozora-math.yozora-math.yozora-math {
+  mjx-container {
+    @apply yz:m-0;
+    line-height: unset;
+  }
+  mjx-assistive-mml {
+    @apply yz:hidden yz:right-0 yz:bottom-0;
+  }
+}

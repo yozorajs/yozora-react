@@ -1,5 +1,5 @@
-import { cx } from '@emotion/css'
 import { isEqual } from '@guanghechen/equal'
+import { clsx } from '@yozora/react-core'
 import type { TokenStream } from 'prismjs'
 import Prism from 'prismjs'
 import React from 'react'
@@ -110,9 +110,10 @@ export class HighlightContent extends React.Component<IProps, IState> {
 
     return (
       <div
-        className={cx(
+        className={clsx(
           classes.container,
-          language ? `prism-code language-${language}` : 'prism-code',
+          'prism-code',
+          language && `language-${language}`,
           className,
         )}
         style={style}
@@ -130,7 +131,7 @@ export class HighlightContent extends React.Component<IProps, IState> {
         <div
           key="codes"
           ref={codesRef}
-          className={cx(classes.codes, codesClassName)}
+          className={clsx(classes.codes, codesClassName)}
           onScroll={onScroll}
         >
           <div className={classes.codeWrapper}>
@@ -141,7 +142,7 @@ export class HighlightContent extends React.Component<IProps, IState> {
                 <div
                   {...lineProps}
                   key={lineNo}
-                  className={cx(
+                  className={clsx(
                     classes.line,
                     classes.codeLine,
                     isHighlight && classes.highlightLine,
@@ -220,7 +221,7 @@ export class HighlightContent extends React.Component<IProps, IState> {
     const { key, className, style, line, ...rest } = lineInputProps
     const output: ILineOutputProps = {
       ...rest,
-      className: 'token-line',
+      className: clsx('token-line', className),
       style: undefined,
       key: undefined,
     }
@@ -234,7 +235,6 @@ export class HighlightContent extends React.Component<IProps, IState> {
     }
 
     if (key !== undefined) output.key = key
-    if (className) output.className += ` ${className}`
 
     return output
   }
@@ -262,7 +262,7 @@ export class HighlightContent extends React.Component<IProps, IState> {
     const { key, className, style, token, ...rest } = tokenInputProps
     const output: ITokenOutputProps = {
       ...rest,
-      className: `token ${token.types.join(' ')}`,
+      className: clsx('token', token.types, className),
       children: token.content,
       style: this.getStyleForToken(token),
       key: undefined,
@@ -272,7 +272,6 @@ export class HighlightContent extends React.Component<IProps, IState> {
       output.style = output.style !== undefined ? { ...output.style, ...style } : style
     }
     if (key !== undefined) output.key = key
-    if (className) output.className += ` ${className}`
     return output
   }
 }

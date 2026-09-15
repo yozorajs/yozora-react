@@ -73,6 +73,16 @@ Render a simple copy button.
 
 ## Usage
 
+Import the compiled stylesheet once at your application entry:
+
+```tsx
+import '@yozora/react-common-copy-button/style.css'
+```
+
+It includes styles for dependency components. Tailwind is not required in the consuming
+application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
+
+
 - Basic:
 
   ```tsx

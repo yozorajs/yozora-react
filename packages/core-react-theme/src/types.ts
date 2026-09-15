@@ -19,4 +19,6 @@ export interface IBreakpoints {
 export interface IThemeContext {
   readonly theme: 'light' | 'darken' | string
   readonly breakpoints: Readonly<IBreakpoints>
+  /** CSP nonce for custom breakpoint styles. */
+  readonly nonce?: string
 }

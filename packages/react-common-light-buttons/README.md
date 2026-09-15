@@ -73,6 +73,16 @@ Light buttons, imitate the window action icons in MacOS.
 
 ## Usage
 
+Import the compiled stylesheet once at your application entry:
+
+```tsx
+import '@yozora/react-common-light-buttons/style.css'
+```
+
+It includes styles for dependency components. Tailwind is not required in the consuming
+application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
+
+
 - Basic:
 
   ```tsx

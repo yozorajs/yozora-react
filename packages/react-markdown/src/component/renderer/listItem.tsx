@@ -1,6 +1,6 @@
-import { cx } from '@emotion/css'
 import type { ListItem } from '@yozora/ast'
 import { NodesRenderer } from '@yozora/core-react-renderer'
+import { clsx } from '@yozora/react-core'
 import React from 'react'
 
 /**
@@ -18,7 +18,7 @@ export class ListItemRenderer extends React.Component<ListItem> {
   public override render(): React.ReactElement {
     const { status, children } = this.props
     return (
-      <li className={cx('yozora-list-item', { 'yozora-list-task-item': !!status })}>
+      <li className={clsx('yozora-list-item', status && 'yozora-list-task-item')}>
         <TaskItemCheckbox status={status} />
         <NodesRenderer nodes={children} />
       </li>

@@ -1,4 +1,4 @@
-import { css, cx } from '@emotion/css'
+import { clsx } from '@yozora/react-core'
 import React from 'react'
 
 interface IProps {
@@ -40,22 +40,22 @@ export class LightButtons extends React.Component<IProps> {
     const { className, style } = this.props
 
     return (
-      <span className={cx(classes.container, className)} style={style}>
+      <span className={clsx(classes.container, className)} style={style}>
         <span
           key="close"
-          className={cx(classes.lightBtn, classes.lightBtnClose)}
+          className={clsx(classes.lightBtn, classes.lightBtnClose)}
           title="close"
           onClick={onClose}
         />
         <span
           key="minimize"
-          className={cx(classes.lightBtn, classes.lightBtnMinimize)}
+          className={clsx(classes.lightBtn, classes.lightBtnMinimize)}
           title="minimize"
           onClick={onMinimize}
         />
         <span
           key="maximize"
-          className={cx(classes.lightBtn, classes.lightBtnMaximize)}
+          className={clsx(classes.lightBtn, classes.lightBtnMaximize)}
           title="maximize"
           onClick={onMaximize}
         />
@@ -77,24 +77,9 @@ export class LightButtons extends React.Component<IProps> {
 }
 
 const classes = {
-  container: css({
-    userSelect: 'none',
-  }),
-  lightBtn: css({
-    display: 'inline-block',
-    boxSizing: 'border-box',
-    height: '12px',
-    width: '12px',
-    borderRadius: '50%',
-    marginLeft: '8px',
-  }),
-  lightBtnClose: css({
-    backgroundColor: '#ed6c60',
-  }),
-  lightBtnMinimize: css({
-    backgroundColor: '#f7c151',
-  }),
-  lightBtnMaximize: css({
-    backgroundColor: '#64c856',
-  }),
+  container: 'yz:select-none',
+  lightBtn: 'yz:inline-block yz:box-border yz:size-[12px] yz:rounded-full yz:ml-[8px]',
+  lightBtnClose: 'yz:bg-[#ed6c60]',
+  lightBtnMinimize: 'yz:bg-[#f7c151]',
+  lightBtnMaximize: 'yz:bg-[#64c856]',
 }

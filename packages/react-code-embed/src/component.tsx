@@ -1,6 +1,6 @@
-import { cx } from '@emotion/css'
 import { isEqual } from '@guanghechen/equal'
 import type { ICodeRunner } from '@yozora/react-core'
+import { clsx } from '@yozora/react-core'
 import React from 'react'
 import { classes } from './style'
 
@@ -97,7 +97,7 @@ export class CodeEmbed extends React.Component<IProps, IState> {
     const { error } = this.state
 
     return (
-      <div className={cx('yozora-code-embed', classes.container, className)} style={style}>
+      <div className={clsx('yozora-code-embed', classes.container, className)} style={style}>
         {error == null ? (
           <Runner lang={lang} value={value} meta={meta} scope={scope} onError={this._onError} />
         ) : (

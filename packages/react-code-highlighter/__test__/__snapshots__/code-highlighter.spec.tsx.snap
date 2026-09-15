@@ -4,15 +4,15 @@ exports[`basic rendering case > snapshot 1`] = `
 <DocumentFragment>
   <pre>
     <div
-      class="css-96awu6 prism-code language-typescript"
+      class="yozora-code-highlighter__container prism-code language-typescript"
       style="color: rgb(212, 212, 212); max-height: calc(calc(var(--yozora_lineHeightCode, 1.6) * 1.8) + 6px); min-height: 100%;"
     >
       <div
-        class="css-p9ofu1"
+        class="yozora-code-highlighter__linenos"
         style="width: 2.2em;"
       >
         <div
-          class="css-12bnrwi"
+          class="yozora-code-highlighter__line yozora-code-highlighter__lineno-line"
         >
           <span>
             1
@@ -20,13 +20,13 @@ exports[`basic rendering case > snapshot 1`] = `
         </div>
       </div>
       <div
-        class="css-1kgxr2s"
+        class="yozora-code-highlighter__codes"
       >
         <div
-          class="css-1ttfemb"
+          class="yozora-code-highlighter__code-wrapper"
         >
           <div
-            class="token-line css-1shup6l"
+            class="yozora-code-highlighter__line yozora-code-highlighter__code-line token-line"
             style="color: rgb(212, 212, 212);"
           >
             <span

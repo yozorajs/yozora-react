@@ -1,6 +1,7 @@
 import { builtinModules } from 'node:module'
 import path from 'node:path'
 import { defineConfig } from 'tsdown'
+import { buildStyles, getStyleWatchFiles } from './script/build-styles.mjs'
 
 const { default: manifest } = await import(path.resolve('package.json'), {
   with: { type: 'json' },
@@ -42,6 +43,19 @@ export default defineConfig([
     sourcemap: process.env.BUILD_SOURCEMAP === 'true',
     cjsDefault: false,
     dts: false,
+    ...(format === 'esm'
+      ? {
+          hooks: { 'build:done': () => buildStyles(process.cwd()) },
+          plugins: [
+            {
+              name: 'yozora-styles',
+              buildStart() {
+                for (const file of getStyleWatchFiles(process.cwd())) this.addWatchFile(file)
+              },
+            },
+          ],
+        }
+      : {}),
     outputOptions: {
       exports: 'named',
       comments: process.env.NODE_ENV !== 'production',

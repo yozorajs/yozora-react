@@ -91,7 +91,6 @@ This package is designed to provide code runners for [@yozora/react-code-embed][
 - Create a JsxRunner.
 
   ```tsx title="./runner-jsx.tsx"
-  import styled from '@emotion/styled'
   import loadable from '@loadable/component'
   import type { EcmaImport } from '@yozora/ast'
   import type { ICodeRendererJsxProps } from '@yozora/react-code-renderer-jsx'
@@ -106,7 +105,6 @@ This package is designed to provide code runners for [@yozora/react-code-embed][
   export const useJsxRunner: (ecmaImports: EcmaImport[]) => ICodeRunner =
     createUseJsxRunner(
       {
-        styled,
         useCallback,
         useEffect,
         useMemo,

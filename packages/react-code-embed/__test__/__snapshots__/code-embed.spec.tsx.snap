@@ -3,7 +3,7 @@
 exports[`snapshot > basic 1`] = `
 <DocumentFragment>
   <div
-    class="yozora-code-embed css-1lkb549"
+    class="yozora-code-embed yozora-code-embed__container"
   >
     <div>
       <button>

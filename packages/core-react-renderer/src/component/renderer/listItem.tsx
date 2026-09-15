@@ -1,4 +1,3 @@
-import { css, cx } from '@emotion/css'
 import type { ListItem, Node } from '@yozora/ast'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
@@ -25,14 +24,4 @@ export class ListItemRenderer extends React.Component<ListItem> {
   }
 }
 
-const cls = cx(
-  'yozora-list-item',
-  css({
-    position: 'relative',
-    padding: 0,
-    margin: 0,
-    '> :last-child': {
-      marginBottom: 0,
-    },
-  }),
-)
+const cls = 'yozora-list-item yozora-list-item__root'

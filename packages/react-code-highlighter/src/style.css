@@ -1,0 +1,70 @@
+.yozora-code-highlighter__container {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  @apply yz:flex yz:items-stretch yz:overflow-hidden yz:w-full;
+  font-size: var(--yozora_fontSizeCode, 14px);
+  line-height: var(--yozora_lineHeightCode, 1.6);
+  @apply yz:p-0;
+  transition: max-height 0.5s ease-in-out;
+  tab-size: 2;
+  @apply yz:whitespace-pre yz:break-keep;
+  word-spacing: normal;
+  word-wrap: normal;
+}
+
+.yozora-code-highlighter__line {
+  @apply yz:box-border yz:flex yz:min-w-fit yz:w-full;
+  padding: 0 6px;
+  letter-spacing: inherit;
+  font-size: var(--yozora_fontSizeCode, 14px);
+  line-height: var(--yozora_lineHeightCode, 1.6);
+  height: var(--yozora_lineHeightCode, 1.6);
+  overflow-wrap: inherit;
+  tab-size: inherit;
+  text-indent: inherit;
+  text-rendering: inherit;
+  text-transform: inherit;
+  white-space: inherit;
+  word-break: inherit;
+  word-spacing: inherit;
+  word-wrap: inherit;
+}
+
+.yozora-code-highlighter__lineno-line {
+  @apply yz:justify-end;
+  padding: 0 4px;
+}
+
+.yozora-code-highlighter__highlight-line {
+  background: var(--yozora_colorBgCodeHighlight, rgba(59, 130, 246, 0.09));
+  border-color: transparent;
+}
+
+.yozora-code-highlighter__linenos {
+  @apply yz:flex-none yz:overflow-hidden yz:box-border;
+  padding: 0.5rem 0;
+  @apply yz:cursor-default;
+  font-size: var(--yozora_fontSizeCode, 14px);
+  line-height: var(--yozora_lineHeightCode, 1.6);
+  @apply yz:select-none yz:text-right;
+  color: var(--yozora_colorCodeTitle, #64748b);
+  border-right: 1px solid var(--yozora_colorBorderCodeLineno, hsla(0deg, 0%, 80%, 0.8));
+}
+
+.yozora-code-highlighter__codes {
+  @apply yz:flex-auto;
+  overflow: overlay;
+  @apply yz:box-border;
+  padding: 0.5rem 0;
+  font-size: var(--yozora_fontSizeCode, 14px);
+  line-height: var(--yozora_lineHeightCode, 1.6);
+}
+
+.yozora-code-highlighter__code-wrapper {
+  @apply yz:min-w-full yz:w-fit;
+}
+
+.yozora-code-highlighter__code-line {
+  @apply yz:box-border;
+  padding: 0 12px;
+}

@@ -1,11 +1,10 @@
-import { css, cx } from '@emotion/css'
 import { isEqual } from '@guanghechen/equal'
 import { CodeEmbed as CodeEmbedComponent } from '@yozora/react-code-embed'
 import { CodeLiteral as CodeLiteralComponent } from '@yozora/react-code-literal'
 import { CodeLive as CodeLiveComponent } from '@yozora/react-code-live'
 import { CodeRendererJsx as JsxRendererComponent } from '@yozora/react-code-renderer-jsx'
 import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/react-core'
-import { tokens } from '@yozora/react-core'
+import { clsx } from '@yozora/react-core'
 import React from 'react'
 import type { ICodeMetaData, ICodeProps } from './types'
 import { parseCodeMeta } from './util'
@@ -70,7 +69,7 @@ export class Code extends React.Component<ICodeProps, IState> {
     const { meta } = this.state
 
     const { highlights, maxlines, title, collapsed, showlineno } = meta
-    const className = cx(cls, this.props.className)
+    const className = clsx(cls, this.props.className)
     const mode = lang ? (meta._yozoracodemode ?? 'literal') : 'literal'
 
     if (lang) {
@@ -136,9 +135,4 @@ export class Code extends React.Component<ICodeProps, IState> {
   }
 }
 
-const cls = cx(
-  'yozora-code',
-  css({
-    margin: tokens.marginBlockNode,
-  }),
-)
+const cls = 'yozora-code yozora-code__root'

@@ -15,9 +15,15 @@
   "keywords": [],
   "type": "module",
   "exports": {
-    "types": "./lib/types/index.d.ts",
-    "import": "./lib/esm/index.mjs",
-    "require": "./lib/cjs/index.cjs"
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "import": "./lib/esm/index.mjs",
+      "require": "./lib/cjs/index.cjs"
+    },
+    "./style.css": {
+      "types": "./lib/style.d.ts",
+      "default": "./lib/style.css"
+    }
   },
   "source": "./src/index.ts",
   "types": "./lib/types/index.d.ts",
@@ -33,21 +39,24 @@
     "README.md"
   ],
   "dependencies": {
-    "@guanghechen/react-hooks": "^3.0.17"
+    "@guanghechen/react-hooks": "^3.0.17",
+    "@yozora/react-core": "workspace:^"
   },
   "peerDependencies": {
-    "@emotion/css": "^11.0.0",
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "browserslist": [
-    "last 2 versions",
-    "Firefox ESR",
-    "> 1%",
-    "ie >= 11"
+    "Chrome >= 111",
+    "Safari >= 16.4",
+    "Firefox >= 128",
+    "Edge >= 111"
   ],
   "scripts": {
     "clean": "rimraf lib",
     "build": "tsdown --config ../../tsdown.config.mjs",
     "watch": "cross-env NODE_ENV=development BUILD_SOURCEMAP=true tsdown --config ../../tsdown.config.mjs -w"
-  }
+  },
+  "sideEffects": [
+    "**/*.css"
+  ]
 }

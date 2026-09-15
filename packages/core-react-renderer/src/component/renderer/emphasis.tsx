@@ -1,6 +1,4 @@
-import { css, cx } from '@emotion/css'
 import type { Emphasis, Node } from '@yozora/ast'
-import { tokens } from '@yozora/react-core'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
 
@@ -26,10 +24,4 @@ export class EmphasisRenderer extends React.Component<Emphasis> {
   }
 }
 
-const cls = cx(
-  'yozora-emphasis',
-  css({
-    fontStyle: 'italic',
-    margin: tokens.marginEmphasis,
-  }),
-)
+const cls = 'yozora-emphasis yozora-emphasis__root'

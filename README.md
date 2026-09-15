@@ -55,6 +55,54 @@ Use [@yozora/react-markdown][] to render the [@yozora/ast][yozora/ast].
 
 https://user-images.githubusercontent.com/42513619/129205123-6a1983c4-6a86-4c80-83d6-02bdbf70edbf.mp4
 
+## Component demo
+
+Run `pnpm demo` and open http://127.0.0.1:7302 to test themes, Markdown, the code editor,
+and live JSX. See [packages/demo](./packages/demo/README.md) for development commands.
+
+## Styles
+
+Import the stylesheet for the highest-level Yozora component you use:
+
+```tsx
+import '@yozora/react-markdown/style.css'
+import { ThemeProvider } from '@yozora/core-react-theme'
+```
+
+Each styled package exports `./style.css`, including its dependency components.
+For example, standalone editor users import `@yozora/react-code-editor/style.css`.
+CSS is loaded explicitly so ESM, CommonJS, and server rendering remain usable without
+an automatic CSS loader. Keep these imports in your application's CSS entry point.
+
+Styles are compiled with Tailwind CSS v4. The consumer does not need Tailwind, content
+scanning, or Emotion. Utilities use the `yz` prefix, and Preflight is excluded. Custom
+CSS can target existing `yozora-*` classes and override the `--yozora_*` tokens. Library
+rules are unlayered so ordinary host resets do not outrank component selectors.
+Utilities follow component rules; use matching specificity or explicit important
+utilities when overriding more specific component selectors.
+The public `lightSchema` and `darkenSchema` exports still define the theme tokens.
+
+### Migrating from Emotion
+
+- Add the stylesheet import; remove `@emotion/css` if your application no longer uses it.
+- Keep `ThemeProvider`, `theme="light"` / `theme="darken"`, `className`, and `style`.
+- `ThemeProvider.breakpoints`, `IThemeContext.breakpoints`, and `IBreakpoints` remain
+  available. The default small-screen threshold is `479px` in compiled CSS; custom
+  `xsMinus` queries render scoped `<style media="...">` elements and work before
+  hydration and without JavaScript. Both paths use the same responsive rules.
+- For nonce-based CSP, pass the response nonce to `ThemeProvider` through its `nonce`
+  prop. Custom breakpoint styles in both the theme and Markdown receive it. Nested
+  providers inherit the nonce unless they supply their own.
+- `INodeStyleMap` remains available without an Emotion dependency. Custom renderers
+  continue to use `INodeRendererMap`, `className`, and React `style` props.
+- Tables now render inside `.yozora-table-scroll` for horizontal scrolling. Direct-child
+  selectors such as `.yozora-markdown > section > table` need to account for this wrapper;
+  descendant selectors such as `.yozora-markdown table` continue to work.
+- Minimum supported browsers are Chrome/Edge 111, Safari 16.4, and Firefox 128.
+- Runtime JSX previews can use application CSS classes that were included at build
+  time; class names created only inside runtime code strings are not compiled on demand.
+
+
 ## Usage
 
 See [@yozora/react-markdown][]

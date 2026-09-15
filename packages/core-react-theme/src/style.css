@@ -1,0 +1,33 @@
+.yozora-theme-root {
+  --yozora_paragraphLineHeight: 1.75;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  a {
+    color: var(--yozora_colorLink);
+    @apply yz:no-underline;
+    &:visited {
+      color: var(--yozora_colorLinkVisited);
+    }
+    &&:hover {
+      color: var(--yozora_colorLinkHover);
+    }
+  }
+  & ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  & ::-webkit-scrollbar-corner {
+    @apply yz:hidden;
+  }
+  & ::-webkit-scrollbar-track {
+    @apply yz:bg-transparent;
+  }
+  & ::-webkit-scrollbar-thumb {
+    border: 3px solid hsl(0, 0%, 50%);
+    background: hsl(0, 0%, 60%);
+    border-radius: 4px;
+    &:hover {
+      border-color: hsl(0, 0%, 70%);
+    }
+  }
+}

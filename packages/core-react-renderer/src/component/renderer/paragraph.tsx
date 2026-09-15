@@ -1,7 +1,5 @@
-import { css, cx } from '@emotion/css'
 import type { Node, Paragraph } from '@yozora/ast'
 import { ImageReferenceType, ImageType } from '@yozora/ast'
-import { tokens } from '@yozora/react-core'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
 
@@ -44,30 +42,7 @@ export class ParagraphRenderer extends React.Component<Paragraph> {
   }
 }
 
-const $classes = {
-  paragraph: css({
-    overflow: 'hidden',
-    padding: 0,
-    margin: tokens.marginBlockNode,
-    marginBottom: '1em',
-    lineHeight: 1.8,
-    hyphens: 'auto',
-    wordBreak: 'normal',
-    letterSpacing: '1px',
-    overflowWrap: 'break-word',
-    '> :last-child': {
-      marginBottom: 0,
-    },
-  }),
-  paragraphDisplay: css({
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '1rem 0',
-    margin: 0,
-  }),
-}
 const classes = {
-  paragraph: cx('yozora-paragraph', $classes.paragraph),
-  paragraphDisplay: cx('yozora-paragraph', $classes.paragraph, $classes.paragraphDisplay),
+  paragraph: 'yozora-paragraph yozora-paragraph__root',
+  paragraphDisplay: 'yozora-paragraph yozora-paragraph__root yozora-paragraph__display',
 }

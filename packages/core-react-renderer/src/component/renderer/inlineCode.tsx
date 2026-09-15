@@ -1,6 +1,4 @@
-import { css, cx } from '@emotion/css'
 import type { InlineCode } from '@yozora/ast'
-import { tokens } from '@yozora/react-core'
 import React from 'react'
 
 /**
@@ -20,17 +18,4 @@ export class InlineCodeRenderer extends React.Component<InlineCode> {
   }
 }
 
-const cls = cx(
-  'yozora-inline-code',
-  css({
-    padding: '1px 4px',
-    borderRadius: '4px',
-    margin: 0,
-    background: tokens.colorBgInlineCode,
-    lineHeight: 1.375,
-    color: tokens.colorInlineCode,
-    fontFamily: tokens.fontFamilyCode,
-    fontSize: 'min(1rem, 18px)',
-    fontWeight: 500,
-  }),
-)
+const cls = 'yozora-inline-code yozora-inline-code__root'

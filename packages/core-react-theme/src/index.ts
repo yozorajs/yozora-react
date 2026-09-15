@@ -1,3 +1,4 @@
+export { getBreakpointId } from './breakpoint'
 export * from './context'
 export * from './schema/darken'
 export * from './schema/light'

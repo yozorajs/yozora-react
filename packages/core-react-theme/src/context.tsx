@@ -1,10 +1,13 @@
 import React from 'react'
+import { defaultSmallScreenQuery } from './breakpoint'
 import type { IBreakpoints, IThemeContext } from './types'
 import { YozoraReactTheme } from './YozoraReactTheme'
 
 export interface IThemeProviderProps {
   readonly theme?: 'light' | 'darken' | string
   readonly breakpoints?: Readonly<IBreakpoints>
+  /** CSP nonce for custom breakpoint styles; inherited from the parent provider by default. */
+  readonly nonce?: string
   readonly children?: React.ReactNode
   readonly className?: string
 }
@@ -12,8 +15,8 @@ export interface IThemeProviderProps {
 const initialThemeContext: IThemeContext = {
   theme: 'light',
   breakpoints: {
-    xs: '(max-width: 479px)',
-    xsMinus: '(max-width: 479px)',
+    xs: defaultSmallScreenQuery,
+    xsMinus: defaultSmallScreenQuery,
     xsPlus: '(min-width: 0px)',
     sm: '(min-width: 480px) and (max-width: 767px)',
     smMinus: '(max-width: 767px)',
@@ -35,18 +38,25 @@ const ThemeContextType = React.createContext<IThemeContext>(initialThemeContext)
 export const useThemeContext = (): IThemeContext => React.useContext(ThemeContextType)
 
 export const ThemeProvider: React.FC<IThemeProviderProps> = props => {
+  const inheritedNonce = useThemeContext().nonce
   const {
     theme = initialThemeContext.theme, //
     breakpoints = initialThemeContext.breakpoints,
+    nonce = inheritedNonce,
   } = props
   const context: IThemeContext = React.useMemo<IThemeContext>(
-    () => ({ theme, breakpoints }),
-    [theme, breakpoints],
+    () => ({ theme, breakpoints, nonce }),
+    [theme, breakpoints, nonce],
   )
 
   return (
     <ThemeContextType.Provider value={context}>
-      <YozoraReactTheme theme={theme} breakpoints={breakpoints} className={props.className}>
+      <YozoraReactTheme
+        theme={theme}
+        query={breakpoints.xsMinus}
+        nonce={nonce}
+        className={props.className}
+      >
         {props.children}
       </YozoraReactTheme>
     </ThemeContextType.Provider>

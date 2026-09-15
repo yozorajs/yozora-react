@@ -3,36 +3,36 @@
 exports[`snapshot > basic 1`] = `
 <DocumentFragment>
   <div
-    class="yozora-code-live css-15h9bl4"
+    class="yozora-code-live yozora-code-live__container"
   >
     <div
-      class="css-9b1rnv"
+      class="yozora-code-live__toolbar"
     >
       <span
-        class="css-9y6172"
+        class="yz:select-none"
       >
         <span
-          class="css-t4q37b"
+          class="yz:inline-block yz:box-border yz:size-[12px] yz:rounded-full yz:ml-[8px] yz:bg-[#ed6c60]"
           title="close"
         />
         <span
-          class="css-p28dfd"
+          class="yz:inline-block yz:box-border yz:size-[12px] yz:rounded-full yz:ml-[8px] yz:bg-[#f7c151]"
           title="minimize"
         />
         <span
-          class="css-6luv6p"
+          class="yz:inline-block yz:box-border yz:size-[12px] yz:rounded-full yz:ml-[8px] yz:bg-[#64c856]"
           title="maximize"
         />
       </span>
       <span
-        class="css-1wug2ih"
+        class="yozora-code-live__title"
       />
       <span
-        class="css-1f8l45h"
+        class="yozora-code-live__copy-btn"
       >
         <button
           aria-label="Copy to clipboard"
-          class="css-hpzs7n"
+          class="yozora-common-copy-button__container"
           data-copy-status="pending"
           type="button"
         >
@@ -41,28 +41,28 @@ exports[`snapshot > basic 1`] = `
       </span>
     </div>
     <div
-      class="css-55xo3h"
+      class="yozora-code-live__main yozora-code-live__main-vertical"
     >
       <div
-        class="css-1wau2uo"
+        class="yozora-code-live__editor"
       >
         <div
-          class="yozora-code-editor css-uz8bu5"
+          class="yozora-code-editor yozora-code-editor__container"
           padding="10"
           style="tab-size: 2;"
         >
           <div
-            class="css-6gcr58"
+            class="yozora-code-editor__textarea"
           >
             <div
-              class="css-1tu59u4"
+              class="yozora-code-editor__textarea-linenos"
               style="width: 2.2em;"
             />
             <textarea
               autocapitalize="off"
               autocomplete="off"
               autocorrect="off"
-              class="css-1nk6ywr"
+              class="yozora-code-editor__textarea-contents"
               spellcheck="false"
               style="tab-size: 2; white-space: pre; padding: 0.5rem 0.6em 0px 12px;"
             >
@@ -81,96 +81,96 @@ exports[`snapshot > basic 1`] = `
           </div>
           <pre
             aria-hidden="true"
-            class="css-14t25us"
+            class="yozora-code-editor__previewer"
             style="tab-size: 2; white-space: pre;"
           >
             <div
-              class="css-96awu6 prism-code language-jsx"
+              class="yozora-code-highlighter__container prism-code language-jsx"
               style="color: rgb(212, 212, 212); max-height: calc(calc(var(--yozora_lineHeightCode, 1.6) * 12.8) + 6px); min-height: 100%;"
             >
               <div
-                class="css-p9ofu1"
+                class="yozora-code-highlighter__linenos"
                 style="width: 2.2em;"
               >
                 <div
-                  class="css-12bnrwi"
+                  class="yozora-code-highlighter__line yozora-code-highlighter__lineno-line"
                 >
                   <span>
                     1
                   </span>
                 </div>
                 <div
-                  class="css-12bnrwi"
+                  class="yozora-code-highlighter__line yozora-code-highlighter__lineno-line"
                 >
                   <span>
                     2
                   </span>
                 </div>
                 <div
-                  class="css-12bnrwi"
+                  class="yozora-code-highlighter__line yozora-code-highlighter__lineno-line"
                 >
                   <span>
                     3
                   </span>
                 </div>
                 <div
-                  class="css-12bnrwi"
+                  class="yozora-code-highlighter__line yozora-code-highlighter__lineno-line"
                 >
                   <span>
                     4
                   </span>
                 </div>
                 <div
-                  class="css-12bnrwi"
+                  class="yozora-code-highlighter__line yozora-code-highlighter__lineno-line"
                 >
                   <span>
                     5
                   </span>
                 </div>
                 <div
-                  class="css-12bnrwi"
+                  class="yozora-code-highlighter__line yozora-code-highlighter__lineno-line"
                 >
                   <span>
                     6
                   </span>
                 </div>
                 <div
-                  class="css-12bnrwi"
+                  class="yozora-code-highlighter__line yozora-code-highlighter__lineno-line"
                 >
                   <span>
                     7
                   </span>
                 </div>
                 <div
-                  class="css-12bnrwi"
+                  class="yozora-code-highlighter__line yozora-code-highlighter__lineno-line"
                 >
                   <span>
                     8
                   </span>
                 </div>
                 <div
-                  class="css-12bnrwi"
+                  class="yozora-code-highlighter__line yozora-code-highlighter__lineno-line"
                 >
                   <span>
                     9
                   </span>
                 </div>
                 <div
-                  class="css-12bnrwi"
+                  class="yozora-code-highlighter__line yozora-code-highlighter__lineno-line"
                 >
                   <span>
                     10
                   </span>
                 </div>
                 <div
-                  class="css-12bnrwi"
+                  class="yozora-code-highlighter__line yozora-code-highlighter__lineno-line"
                 >
                   <span>
                     11
                   </span>
                 </div>
                 <div
-                  class="css-12bnrwi"
+                  class="yozora-code-highlighter__line yozora-code-highlighter__lineno-line"
                 >
                   <span>
                     12
@@ -178,13 +178,13 @@ exports[`snapshot > basic 1`] = `
                 </div>
               </div>
               <div
-                class="css-1kgxr2s"
+                class="yozora-code-highlighter__codes"
               >
                 <div
-                  class="css-1ttfemb"
+                  class="yozora-code-highlighter__code-wrapper"
                 >
                   <div
-                    class="token-line css-1shup6l"
+                    class="yozora-code-highlighter__line yozora-code-highlighter__code-line token-line"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -196,7 +196,7 @@ exports[`snapshot > basic 1`] = `
                     </span>
                   </div>
                   <div
-                    class="token-line css-1shup6l"
+                    class="yozora-code-highlighter__line yozora-code-highlighter__code-line token-line"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -249,7 +249,7 @@ exports[`snapshot > basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-1shup6l"
+                    class="yozora-code-highlighter__line yozora-code-highlighter__code-line token-line"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -347,7 +347,7 @@ exports[`snapshot > basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-1shup6l"
+                    class="yozora-code-highlighter__line yozora-code-highlighter__code-line token-line"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -377,7 +377,7 @@ exports[`snapshot > basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-1shup6l"
+                    class="yozora-code-highlighter__line yozora-code-highlighter__code-line token-line"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -408,7 +408,7 @@ exports[`snapshot > basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-1shup6l"
+                    class="yozora-code-highlighter__line yozora-code-highlighter__code-line token-line"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -582,7 +582,7 @@ exports[`snapshot > basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-1shup6l"
+                    class="yozora-code-highlighter__line yozora-code-highlighter__code-line token-line"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -684,7 +684,7 @@ exports[`snapshot > basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-1shup6l"
+                    class="yozora-code-highlighter__line yozora-code-highlighter__code-line token-line"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -858,7 +858,7 @@ exports[`snapshot > basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-1shup6l"
+                    class="yozora-code-highlighter__line yozora-code-highlighter__code-line token-line"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -889,7 +889,7 @@ exports[`snapshot > basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-1shup6l"
+                    class="yozora-code-highlighter__line yozora-code-highlighter__code-line token-line"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -908,7 +908,7 @@ exports[`snapshot > basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-1shup6l"
+                    class="yozora-code-highlighter__line yozora-code-highlighter__code-line token-line"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -927,7 +927,7 @@ exports[`snapshot > basic 1`] = `
                     />
                   </div>
                   <div
-                    class="token-line css-1shup6l"
+                    class="yozora-code-highlighter__line yozora-code-highlighter__code-line token-line"
                     style="color: rgb(212, 212, 212);"
                   >
                     <span
@@ -945,10 +945,10 @@ exports[`snapshot > basic 1`] = `
         </div>
       </div>
       <div
-        class="css-9l5569"
+        class="yozora-code-live__previewer yozora-code-live__previewer-center"
       >
         <div
-          class="yozora-code-embed css-1lkb549"
+          class="yozora-code-embed yozora-code-embed__container"
         >
           <div>
             <button>

@@ -4,8 +4,10 @@ import fs from 'node:fs'
 import { createRequire } from 'node:module'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { JSDOM } from 'jsdom'
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
+import { getStylePackages } from './build-styles.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const packagesDir = path.join(root, 'packages')
@@ -14,13 +16,78 @@ for (const name of fs.readdirSync(packagesDir)) {
   const packageDir = path.join(packagesDir, name)
   const manifestPath = path.join(packageDir, 'package.json')
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
-  const esmPath = path.resolve(packageDir, manifest.exports.import)
-  const cjsPath = path.resolve(packageDir, manifest.exports.require)
-  const typesPath = path.resolve(packageDir, manifest.exports.types)
+  if (manifest.private) continue
+  const rootExports = manifest.exports['.'] ?? manifest.exports
+  const esmPath = path.resolve(packageDir, rootExports.import)
+  const cjsPath = path.resolve(packageDir, rootExports.require)
+  const typesPath = path.resolve(packageDir, rootExports.types)
   assert.equal(esmPath, path.resolve(packageDir, manifest.module))
   assert.equal(cjsPath, path.resolve(packageDir, manifest.main))
   assert.equal(typesPath, path.resolve(packageDir, manifest.types))
   assert.ok(fs.existsSync(typesPath), `${manifest.name}: missing declarations`)
+  for (const file of [esmPath, cjsPath, typesPath]) {
+    assert.doesNotMatch(fs.readFileSync(file, 'utf8'), /@emotion\//)
+  }
+  const stylePackages = getStylePackages(packageDir)
+  if (stylePackages.length > 0) {
+    const stylesheetPath = createRequire(manifestPath).resolve(`${manifest.name}/style.css`)
+    assert.equal(stylesheetPath, path.join(packageDir, 'lib/style.css'))
+    const css = fs.readFileSync(stylesheetPath, 'utf8')
+    assert.ok(css.length > 100, `${manifest.name}: empty stylesheet`)
+    assert.doesNotMatch(css, /@(?:apply|source|variant|custom-variant|import)\b/)
+    assert.doesNotMatch(css, /@layer\s+(?:components|theme|utilities)\b/)
+    assert.ok(!css.includes(':is()'), `${manifest.name}: invalid nested pseudo-element selector`)
+    assert.ok(manifest.sideEffects === true || manifest.sideEffects.includes('**/*.css'))
+    for (const dir of stylePackages) {
+      const source = fs.readFileSync(path.join(dir, 'src/style.css'), 'utf8')
+      for (const [, className] of source.matchAll(/\.(yozora-[\w-]+)/g)) {
+        assert.ok(css.includes(className), `${manifest.name}: missing .${className}`)
+      }
+    }
+    if (name === 'react-markdown') {
+      /** Verify published declarations and consumer overrides; media/cascade behavior needs a browser. */
+      const reset = '* { border-width: 0; border-style: solid; } p { margin: 0; }'
+      const host = new JSDOM(`<style>${reset}\n${css}</style>
+          <div class="yozora-admonition__container">Note</div>
+          <p class="yozora-paragraph__root">Paragraph</p>
+          <div class="yozora-admonition__container yz:ml-[8px]" id="utility">Utility</div>
+          <div class="yozora-admonition__container custom">Override</div>
+          <style>.custom { border-left-width: 9px; }</style>`)
+      try {
+        const style = selector =>
+          host.window.getComputedStyle(host.window.document.querySelector(selector))
+        assert.equal(style('.yozora-admonition__container').borderLeftWidth, '5px')
+        assert.equal(style('.yozora-paragraph__root').marginBottom, '16px')
+        assert.equal(style('#utility').marginLeft, '8px')
+        assert.equal(style('.custom').borderLeftWidth, '9px')
+      } finally {
+        host.window.close()
+      }
+      // MathJax 4 injects these unlayered rules after the application stylesheet.
+      const dom = new JSDOM(`
+        <style>${css}</style>
+        <style>
+          mjx-container[display] { display: block; margin: .7em 0; }
+          mjx-container [width="full"] { width: 100%; }
+        </style>
+        <div class="yozora-markdown">
+          <div class="yozora-math"><mjx-container display="true">x</mjx-container></div>
+          <span class="yozora-inline-math">
+            <mjx-container><mjx-itable width="full">x</mjx-itable></mjx-container>
+          </span>
+        </div>
+      `)
+      try {
+        const block = dom.window.document.querySelector('mjx-container[display]')
+        const inline = dom.window.document.querySelector('mjx-itable')
+        assert.equal(dom.window.getComputedStyle(block).marginTop, '0px')
+        assert.equal(dom.window.getComputedStyle(block).marginBottom, '0px')
+        assert.equal(dom.window.getComputedStyle(inline).width, 'auto')
+      } finally {
+        dom.window.close()
+      }
+    }
+  }
   if (name === 'react-mathjax') {
     assert.doesNotMatch(
       fs.readFileSync(typesPath, 'utf8'),
@@ -47,8 +114,66 @@ for (const name of fs.readdirSync(packagesDir)) {
     const exports = exportedNames.map(key => (key === 'default' ? 'DefaultExport' : key))
     let consumer = `import { ${imports.join(', ')} } from '${manifest.name}'\n`
     consumer += `export { ${exports.join(', ')} }\n`
+    if (stylePackages.length > 0) {
+      consumer += `import '${manifest.name}/style.css'\n`
+      consumer += '// @ts-expect-error Unknown CSS subpaths must remain unresolved.\n'
+      consumer += `import '${manifest.name}/missing.css'\n`
+    }
     if (name === 'react-core') {
       consumer += `export type { ClassValue, IClassDictionary, IParseCodeMetaOptions, ICodeMetaData, ICodeRunnerMetaData, ICodeRunner, ICodeRunnerProps, ICodeRunnerScope, ICodeRunnerItem, IAsyncRunnerScopes } from '${manifest.name}'\n`
+    }
+    if (name === 'core-react-theme') {
+      consumer += `import type { IBreakpoints, IThemeContext, IThemeProviderProps } from '${manifest.name}'\n`
+      consumer +=
+        'export const customTheme: IThemeProviderProps = { breakpoints: {} as IBreakpoints, nonce: "request-nonce" }\n'
+      consumer += 'export type ContextBreakpoints = IThemeContext["breakpoints"]\n'
+      consumer += 'export type ContextNonce = IThemeContext["nonce"]\n'
+    }
+    if (name === 'core-react-renderer') {
+      consumer += `import type { INodeStyleMap } from '${manifest.name}'\n`
+      consumer +=
+        'export const nodeStyles: INodeStyleMap = { paragraph: { color: "red", nested: { "&:hover": { color: "blue" } }, fallbacks: [null, false, { display: "flex" }] } }\n'
+      /** Keep representative legacy input types without restoring a styling-engine dependency. */
+      consumer += `
+interface ILegacyComponentSelector { __emotion_styles: unknown }
+type LegacySerializedStyles = {
+  name: string
+  styles: string
+  next?: LegacySerializedStyles
+}
+type LegacyKeyframes = { name: string; styles: string; anim: number; toString: () => string } & string
+type LegacyInterpolation =
+  | string | number | boolean | null | undefined
+  | ILegacyComponentSelector | LegacySerializedStyles | LegacyKeyframes
+  | ILegacyCSSObject | readonly LegacyInterpolation[]
+interface ILegacyCSSObject {
+  color?: string | readonly string[]
+  display?: string | readonly string[]
+  [property: string]: LegacyInterpolation
+}
+declare const selector: ILegacyComponentSelector
+declare const serialized: LegacySerializedStyles
+declare const keyframes: LegacyKeyframes
+declare const interpolation: LegacyInterpolation
+const cssObject: ILegacyCSSObject = {
+  color: "red",
+  display: ["-webkit-box", "flex"],
+  "&:hover": { color: "blue" },
+  nested: [selector, serialized, keyframes],
+}
+export const legacyStyles: INodeStyleMap = {
+  paragraph: { cssObject, selector, serialized, keyframes, interpolation, fallbacks: [null, false, cssObject] },
+}
+export const legacyReadback: LegacyInterpolation = legacyStyles.paragraph.cssObject
+declare function serializeLegacy(...styles: readonly LegacyInterpolation[]): string
+export const legacyClassName = serializeLegacy(legacyStyles.paragraph.cssObject, legacyStyles.paragraph.fallbacks)
+// @ts-expect-error Ordinary functions are not legacy CSS interpolations.
+export const invalidFunction: INodeStyleMap = { paragraph: { body: () => "red" } }
+// @ts-expect-error Nested functions are not legacy CSS interpolations either.
+export const invalidNestedFunction: INodeStyleMap = { paragraph: { body: { color: () => "red" } } }
+// @ts-expect-error Arrays must contain supported interpolation values.
+export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] } }
+`
     }
     if (name === 'react-code-editor' || name === 'react-code-highlighter') {
       consumer += '// @ts-expect-error Implementation props must remain private.\n'
@@ -57,33 +182,107 @@ for (const name of fs.readdirSync(packagesDir)) {
     fs.writeFileSync(path.join(consumerDir, 'index.mts'), consumer)
     fs.writeFileSync(path.join(consumerDir, 'index.cts'), consumer)
     const configPath = path.join(consumerDir, 'tsconfig.json')
-    fs.writeFileSync(
-      configPath,
-      JSON.stringify({
-        compilerOptions: {
-          noEmit: true,
-          strict: true,
-          target: 'esnext',
-          module: 'nodenext',
-          // Bundled MathJax types already have TS2344 errors in the Rollup output.
-          skipLibCheck: name === 'react-mathjax' || name === 'react-markdown',
-          types: [],
-        },
-        include: ['index.mts', 'index.cts'],
-      }),
-    )
-    const result = spawnSync('tsc', ['--project', configPath], {
-      cwd: root,
-      encoding: 'utf8',
-      shell: process.platform === 'win32',
-    })
-    assert.ifError(result.error)
-    assert.equal(result.status, 0, `${manifest.name}: ${result.stdout}${result.stderr}`)
+    for (const moduleResolution of ['nodenext', 'bundler']) {
+      fs.writeFileSync(
+        configPath,
+        JSON.stringify({
+          compilerOptions: {
+            noEmit: true,
+            strict: true,
+            target: 'esnext',
+            module: moduleResolution === 'nodenext' ? 'nodenext' : 'preserve',
+            moduleResolution,
+            noUncheckedSideEffectImports: true,
+            // Bundled MathJax types already have TS2344 errors in the Rollup output.
+            skipLibCheck: name === 'react-mathjax' || name === 'react-markdown',
+            types: [],
+          },
+          include: ['index.mts', 'index.cts'],
+        }),
+      )
+      const result = spawnSync('tsc', ['--project', configPath], {
+        cwd: root,
+        encoding: 'utf8',
+        shell: process.platform === 'win32',
+      })
+      assert.ifError(result.error)
+      assert.equal(
+        result.status,
+        0,
+        `${manifest.name} (${moduleResolution}): ${result.stdout}${result.stderr}`,
+      )
+    }
   } finally {
     fs.rmSync(consumerDir, { recursive: true, force: true })
   }
 
   for (const module of [esm, cjs]) {
+    if (name === 'react-markdown') {
+      const themeDir = path.join(packagesDir, 'core-react-theme')
+      const theme =
+        module === esm
+          ? await import(pathToFileURL(path.join(themeDir, 'lib/esm/index.mjs')).href)
+          : createRequire(path.join(themeDir, 'package.json'))('@yozora/core-react-theme')
+      function CustomRoot({ className, style, itemProp, children }) {
+        return React.createElement('section', { className, style, itemProp }, children)
+      }
+      function NonceFixture({ Element, query }) {
+        const { breakpoints } = theme.useThemeContext()
+        return React.createElement(
+          theme.ThemeProvider,
+          { nonce: 'request-nonce' },
+          React.createElement(
+            theme.ThemeProvider,
+            {
+              breakpoints: { ...breakpoints, xsMinus: query },
+            },
+            React.createElement(module.MarkdownRoot, { Element }, 'Content'),
+          ),
+        )
+      }
+      const css = fs.readFileSync(path.join(packageDir, 'lib/style.css'), 'utf8')
+      for (const Element of ['section', CustomRoot]) {
+        for (const query of ['(max-width: 800px)', '(max-width: 200px)', '(max-width: 479px)']) {
+          const html = renderToStaticMarkup(React.createElement(NonceFixture, { Element, query }))
+          const dom = new JSDOM(`<style>${css}</style>${html}`)
+          try {
+            const isDefault = query === '(max-width: 479px)'
+            const root = dom.window.document.querySelector('.yozora-markdown')
+            const styles = [...dom.window.document.querySelectorAll('style[media]')]
+            assert.equal(styles.length, isDefault ? 0 : 2)
+            for (const style of styles) {
+              assert.equal(style.nonce, 'request-nonce')
+              assert.doesNotMatch(style.textContent, /&(?:quot|lt|gt);/)
+              assert.ok(
+                style.sheet.cssRules.length > 0,
+                'SSR CSS must parse without entity escaping',
+              )
+            }
+            if (!isDefault) {
+              const rule = root.querySelector('style[media]').sheet.cssRules[0]
+              assert.ok(
+                root.matches(rule.selectorText),
+                'Custom media CSS must match custom elements',
+              )
+              assert.equal(rule.style.getPropertyValue('--yozora_fontSizeCode'), '12px')
+            }
+            const defaultRules = [...dom.window.document.styleSheets[0].cssRules]
+              .flatMap(rule => [...(rule.cssRules ?? [])])
+              .filter(rule => rule.style?.getPropertyValue('--yozora_fontSizeCode') === '12px')
+            assert.ok(defaultRules.length > 0, 'The stylesheet must include the default breakpoint')
+            for (const rule of defaultRules) {
+              assert.equal(
+                root.matches(rule.selectorText),
+                isDefault,
+                'Default media CSS must exclude custom breakpoints even when attributes are not forwarded',
+              )
+            }
+          } finally {
+            dom.window.close()
+          }
+        }
+      }
+    }
     if (name === 'react-core') {
       assert.deepEqual(
         Object.keys(module)

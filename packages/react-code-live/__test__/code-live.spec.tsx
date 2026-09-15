@@ -100,6 +100,19 @@ describe('editing behavior', () => {
     expect(view.getByRole('textbox')).toHaveValue(code3)
     expect(view.getByTestId('value')).toHaveTextContent('5')
   })
+
+  test('updates the layout collapse state with the toolbar controls', () => {
+    const view = render(<CodeLive lang="jsx" value={code} runners={runners} />)
+    const main = view.container.querySelector('.yozora-code-live__main')
+    expect(main).not.toHaveAttribute('data-collapsed')
+
+    fireEvent.click(view.getByTitle('minimize'))
+    expect(main).toHaveAttribute('data-collapsed', 'true')
+    expect(view.getByTestId('value')).toHaveTextContent('0')
+
+    fireEvent.click(view.getByTitle('maximize'))
+    expect(main).not.toHaveAttribute('data-collapsed')
+  })
 })
 
 describe('snapshot', () => {

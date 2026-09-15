@@ -1,7 +1,6 @@
-import { css, cx } from '@emotion/css'
 import type { FootnoteDefinition } from '@yozora/ast'
 import { useNodeRendererState } from '@yozora/core-react-renderer'
-import { tokens } from '@yozora/react-core'
+import { clsx } from '@yozora/react-core'
 import React from 'react'
 import { FootnoteDefinitionRenderer } from './renderer/footnoteDefinition'
 
@@ -37,7 +36,7 @@ export const FootnoteDefinitions: React.FC<IFootnoteDefinitionsProps> = props =>
   if (dontNeedFootnoteDefinitions || children === null) return null
 
   return (
-    <div className={cx('yozora-footnote-definitions', classes.container)}>
+    <div className={clsx('yozora-footnote-definitions', classes.container)}>
       <div className={classes.title}>{footnoteDefinitionsTitle}</div>
       <ul className={classes.main}>{children}</ul>
     </div>
@@ -45,19 +44,7 @@ export const FootnoteDefinitions: React.FC<IFootnoteDefinitionsProps> = props =>
 }
 
 const classes = {
-  container: css({
-    marginTop: '2rem',
-    fontSize: '0.8rem',
-  }),
-  title: css({
-    padding: 0,
-    borderBottom: `1px solid ${tokens.colorBorderHeading}`,
-    margin: '0 0 1rem',
-    fontStyle: 'italic',
-  }),
-  main: css({
-    padding: 0,
-    margin: 0,
-    listStyle: 'none',
-  }),
+  container: 'yozora-markdown-footnote-definitions__container',
+  title: 'yozora-markdown-footnote-definitions__title',
+  main: 'yozora-markdown-footnote-definitions__main',
 }

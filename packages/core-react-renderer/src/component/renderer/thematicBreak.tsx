@@ -1,6 +1,4 @@
-import { css, cx } from '@emotion/css'
 import type { ThematicBreak } from '@yozora/ast'
-import { tokens } from '@yozora/react-core'
 import React from 'react'
 
 /**
@@ -19,17 +17,4 @@ export class ThematicBreakRenderer extends React.Component<ThematicBreak> {
   }
 }
 
-const cls = cx(
-  'yozora-thematic-break',
-  css({
-    boxSizing: 'content-box',
-    display: 'block',
-    height: 0,
-    width: '100%',
-    padding: 0,
-    border: 0,
-    borderBottom: `1px solid ${tokens.colorBorderThematicBreak}`,
-    outline: 0,
-    margin: tokens.marginThematicBreak,
-  }),
-)
+const cls = 'yozora-thematic-break yozora-thematic-break__root'

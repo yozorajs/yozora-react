@@ -1,5 +1,5 @@
-import { cx } from '@emotion/css'
 import { useEventCallback } from '@guanghechen/react-hooks'
+import { clsx } from '@yozora/react-core'
 import React from 'react'
 import { CopyStatus } from './constant'
 import { classes } from './style'
@@ -101,7 +101,7 @@ export const CopyButton: React.FC<IProps> = props => {
       aria-label="Copy to clipboard"
       disabled={status !== CopyStatus.PENDING}
       data-copy-status={status}
-      className={cx(classes.container, className)}
+      className={clsx(classes.container, className)}
       style={style}
       onClick={onClick}
     >

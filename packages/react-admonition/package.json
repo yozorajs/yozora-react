@@ -18,9 +18,15 @@
   ],
   "type": "module",
   "exports": {
-    "types": "./lib/types/index.d.ts",
-    "import": "./lib/esm/index.mjs",
-    "require": "./lib/cjs/index.cjs"
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "import": "./lib/esm/index.mjs",
+      "require": "./lib/cjs/index.cjs"
+    },
+    "./style.css": {
+      "types": "./lib/style.d.ts",
+      "default": "./lib/style.css"
+    }
   },
   "source": "./src/index.ts",
   "types": "./lib/types/index.d.ts",
@@ -39,14 +45,13 @@
     "@yozora/react-core": "workspace:^"
   },
   "peerDependencies": {
-    "@emotion/css": "^11.0.0",
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "browserslist": [
-    "last 2 versions",
-    "Firefox ESR",
-    "> 1%",
-    "ie >= 11"
+    "Chrome >= 111",
+    "Safari >= 16.4",
+    "Firefox >= 128",
+    "Edge >= 111"
   ],
   "scripts": {
     "clean": "rimraf lib",
@@ -55,5 +60,8 @@
     "test": "vitest run --config ../../vitest.config.ts",
     "test:coverage": "vitest run --config ../../vitest.config.ts --coverage",
     "test:update": "vitest run --config ../../vitest.config.ts -u"
-  }
+  },
+  "sideEffects": [
+    "**/*.css"
+  ]
 }

@@ -1,9 +1,8 @@
-import { css } from '@emotion/css'
 import { fireEvent, render, waitFor } from '@testing-library/react'
 import React from 'react'
 import CodeRendererJsx from '../src'
 
-const scope = { css }
+const scope = { accent: 'orange' }
 
 function Wrapper(props: { code: string; inline: boolean }): React.ReactElement {
   const [error, setError] = React.useState<string | null>(null)
@@ -83,18 +82,9 @@ describe('basic', () => {
   describe('block', () => {
     test('Render No-Inline evaluations.', () => {
       const code = `
-        const classes = {
-          container: css\`
-            background: hsl(0deg, 10%, 90%);
-          \`,
-          text: css\`
-            color: orange;
-          \`,
-        }
-
         render(
-          <div className={classes.container}>
-            <span className={classes.text}>Hello, world</span>
+          <div>
+            <span style={{ color: accent }}>Hello, world</span>
           </div>
         )
       `

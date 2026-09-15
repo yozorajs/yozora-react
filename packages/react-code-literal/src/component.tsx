@@ -1,7 +1,7 @@
-import { cx } from '@emotion/css'
 import { CodeHighlighter as CodeHighlighterComponent } from '@yozora/react-code-highlighter'
 import { CopyButton as CopyButtonComponent } from '@yozora/react-common-copy-button'
 import { LightButtons as LightButtonsComponent } from '@yozora/react-common-light-buttons'
+import { clsx } from '@yozora/react-core'
 import React from 'react'
 import { classes } from './style'
 
@@ -111,7 +111,7 @@ export class CodeLiteral extends React.Component<IProps, IState> {
     const { collapsed, countOfLines } = this.state
 
     return (
-      <div className={cx('yozora-code-literal', classes.container, className)} style={style}>
+      <div className={clsx('yozora-code-literal', classes.container, className)} style={style}>
         <div className={classes.toolbar} onDoubleClick={this._onToolbarDbClicked}>
           <LightButtonsComponent onMinimize={this._onMinimize} onMaximize={this._onMaximize} />
           <span className={classes.title} title={title}>

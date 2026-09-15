@@ -1,0 +1,33 @@
+.yozora-common-copy-button__container {
+  padding: 6px;
+  border: none;
+  outline: none;
+  @apply yz:cursor-pointer;
+  background: none;
+  @apply yz:select-none;
+  color: var(--yozora-copy-button--pending, #73808c);
+  &&:hover {
+    color: var(--yozora-copy-button--active, #7099c2);
+    border: none;
+    outline: none;
+  }
+  &:active {
+    color: var(--yozora-copy-button--active, #7099c2);
+    border: none;
+    outline: none;
+  }
+  &:target {
+    border: none;
+    outline: none;
+    animation: none;
+  }
+  &[data-copy-status="copying"] {
+    color: var(--yozora-copy-button--copying, #cccccc);
+  }
+  &[data-copy-status="completed"] {
+    color: var(--yozora-copy-button--completed, #14b814);
+  }
+  &[data-copy-status="failed"] {
+    color: var(--yozora-copy-button--failed, #b81414);
+  }
+}

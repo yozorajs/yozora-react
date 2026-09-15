@@ -75,6 +75,16 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
 ## Usage
 
+Import the compiled stylesheet once at your application entry:
+
+```tsx
+import '@yozora/react-code/style.css'
+```
+
+It includes styles for dependency components. Tailwind is not required in the consuming
+application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
+
+
 - Basic:
 
   ```tsx

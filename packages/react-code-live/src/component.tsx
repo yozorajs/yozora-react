@@ -1,9 +1,9 @@
-import { cx } from '@emotion/css'
 import { debounce } from '@guanghechen/common-util'
 import { CodeEditor as CodeEditorComponent } from '@yozora/react-code-editor'
 import { CodeEmbed as CodeEmbedComponent } from '@yozora/react-code-embed'
 import { CopyButton as CopyButtonComponent } from '@yozora/react-common-copy-button'
 import { LightButtons as LightButtonsComponent } from '@yozora/react-common-light-buttons'
+import { clsx } from '@yozora/react-core'
 import React from 'react'
 import { classes } from './style'
 import type { ICodeLiveProps, ICodeLiveState } from './types'
@@ -78,7 +78,7 @@ export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
     const runner = runners.find(item => item.pattern.test(lang))
 
     return (
-      <div className={cx('yozora-code-live', classes.container, className)} style={style}>
+      <div className={clsx('yozora-code-live', classes.container, className)} style={style}>
         <div key="toolbar" className={classes.toolbar} onDoubleClick={this._onToolbarDbClicked}>
           <LightButtonsComponent onMinimize={this._onMinimize} onMaximize={this._onMaximize} />
           <span className={classes.title} title={title}>
@@ -91,7 +91,8 @@ export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
         </div>
         <div
           key="main"
-          className={cx(classes.main, orientation === 'vertical' && classes.mainVertical)}
+          data-collapsed={collapsed || undefined}
+          className={clsx(classes.main, orientation === 'vertical' && classes.mainVertical)}
         >
           <div key="editor" className={classes.editor}>
             <CodeEditorComponent
@@ -109,7 +110,7 @@ export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
           {runner != null && (
             <div
               key="previewer"
-              className={cx(classes.previewer, centerPreviewer && classes.previewerCenter)}
+              className={clsx(classes.previewer, centerPreviewer && classes.previewerCenter)}
             >
               <CodeEmbedComponent
                 lang={lang}

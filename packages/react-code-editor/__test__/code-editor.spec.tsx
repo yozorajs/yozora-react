@@ -1,9 +1,21 @@
 import { fireEvent, render } from '@testing-library/react'
 import React, { useState } from 'react'
 import { vi } from 'vitest'
-import CodeEditor from '../src'
+import CodeEditor, { classes } from '../src'
 
 describe('basic rendering case', () => {
+  test('exported classes select individual editor elements', () => {
+    const view = render(<CodeEditor lang="typescript" code="const value = 1" onChange={vi.fn()} />)
+
+    for (const className of Object.values(classes)) {
+      expect(view.container.querySelectorAll('.' + className)).toHaveLength(1)
+    }
+    expect(view.container.querySelector('.' + classes.textareaContents)).toBe(
+      view.getByRole('textbox'),
+    )
+    expect(view.container.querySelector('.' + classes.previewer)?.tagName).toBe('PRE')
+  })
+
   test('input change', () => {
     const code1 = 'let a: number = 1 + 2;'
     const code2 = 'let a: boolean = true;'

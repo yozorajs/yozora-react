@@ -76,11 +76,10 @@ This package is designed to live render jsx, inspired by [react live][].
 - Basic:
 
   ```tsx
-  import styled from '@emotion/styled'
   import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
   import React from 'react'
 
-  const scope = { styled }
+  const scope = { accent: 'orange' }
 
   function JsxPreview(props: { code: string, inline: boolean }) {
     const [error, setError] = React.useState<any>(null)
@@ -115,21 +114,16 @@ This package is designed to live render jsx, inspired by [react live][].
 - Block code: Call the `render()` function with `React.ReactNode` explicitly
 
   ```tsx
-  import styled from '@emotion/styled'
 
   const code = `
-    const Container = styled.div\`
-      background: hsl(0deg, 10%, 90%);
-    \`
-
     render(
-      <Container>
-        <span style={{ color: 'orange' }}>Hello, world</span>
-      </Container>
+      <div style={{ background: 'hsl(0deg, 10%, 90%)' }}>
+        <span style={{ color: accent }}>Hello, world</span>
+      </div>
     )
   `
 
-  const scope = { styled }
+  const scope = { accent: 'orange' }
 
   const wrapper = (
     <JsxPreview scope={scope} code={ code } inline={ false } />

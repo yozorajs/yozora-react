@@ -1,4 +1,4 @@
-import { cx } from '@emotion/css'
+import { clsx } from '@yozora/react-core'
 import React from 'react'
 import { classes } from '../style'
 import {
@@ -93,7 +93,7 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
     return (
       <div
         {...htmlProps}
-        className={cx('yozora-code-editor', classes.container, className)}
+        className={clsx('yozora-code-editor', classes.container, className)}
         style={{ ...style, tabSize }}
       >
         <div className={classes.textarea}>
@@ -102,7 +102,7 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
             ref={this.inputRef}
             id={textareaId}
             style={textareaStyle}
-            className={cx(classes.textareaContents, textareaClassName)}
+            className={clsx(classes.textareaContents, textareaClassName)}
             value={value}
             onChange={this._handleChange}
             onKeyDown={this._handleKeyDown}
@@ -127,7 +127,7 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
           />
         </div>
         <pre
-          className={cx(classes.previewer, preClassName)}
+          className={clsx(classes.previewer, preClassName)}
           style={preStyle}
           aria-hidden="true"
           {...(typeof highlighted === 'string'

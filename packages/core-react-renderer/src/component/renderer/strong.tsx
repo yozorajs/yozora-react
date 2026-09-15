@@ -1,4 +1,3 @@
-import { css, cx } from '@emotion/css'
 import type { Node, Strong } from '@yozora/ast'
 import React from 'react'
 import { NodesRenderer } from '../NodesRenderer'
@@ -25,9 +24,4 @@ export class StrongRenderer extends React.Component<Strong> {
   }
 }
 
-const cls = cx(
-  'yozora-strong',
-  css({
-    fontWeight: 600,
-  }),
-)
+const cls = 'yozora-strong yz:font-semibold'

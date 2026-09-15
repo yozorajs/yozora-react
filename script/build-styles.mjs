@@ -1,0 +1,124 @@
+import { spawn } from 'node:child_process'
+import fs from 'node:fs'
+import { createRequire } from 'node:module'
+import path from 'node:path'
+import { fileURLToPath, pathToFileURL } from 'node:url'
+
+const root = fileURLToPath(new URL('../', import.meta.url))
+const require = createRequire(import.meta.url)
+const cliManifestPath = require.resolve('@tailwindcss/cli/package.json')
+const cliManifest = JSON.parse(fs.readFileSync(cliManifestPath, 'utf8'))
+const cli = path.resolve(path.dirname(cliManifestPath), cliManifest.bin.tailwindcss)
+
+/** Collect dependency styles before their consumers so component overrides win. */
+export function getStylePackages(packageDir) {
+  const result = []
+  const visited = new Set()
+  function visit(dir) {
+    if (visited.has(dir)) return
+    visited.add(dir)
+    const manifest = JSON.parse(fs.readFileSync(path.join(dir, 'package.json'), 'utf8'))
+    for (const name of Object.keys(manifest.dependencies ?? {})) {
+      if (!name.startsWith('@yozora/')) continue
+      const dependencyDir = path.join(root, 'packages', name.slice('@yozora/'.length))
+      if (fs.existsSync(path.join(dependencyDir, 'package.json'))) visit(dependencyDir)
+    }
+    if (fs.existsSync(path.join(dir, 'src/style.css'))) result.push(dir)
+  }
+  visit(packageDir)
+  return result
+}
+
+export function getStyleWatchFiles(packageDir) {
+  return [
+    path.join(root, 'styles/tailwind.css'),
+    ...getStylePackages(packageDir).flatMap(dir => {
+      const sourceDir = path.join(dir, 'src')
+      const files = fs.readdirSync(sourceDir, { recursive: true, withFileTypes: true })
+      return [
+        sourceDir,
+        ...files
+          .filter(file => file.isDirectory() || /\.(?:css|tsx?)$/.test(file.name))
+          .map(file => path.join(file.parentPath, file.name)),
+      ]
+    }),
+  ]
+}
+
+export async function buildStyles(packageDir) {
+  const packages = getStylePackages(packageDir)
+  if (packages.length === 0) return
+
+  const outputDir = path.join(packageDir, 'lib')
+  fs.mkdirSync(outputDir, { recursive: true })
+  const entryDir = fs.mkdtempSync(path.join(outputDir, '.tailwind-'))
+  const relative = file => './' + path.relative(entryDir, file).split(path.sep).join('/')
+  try {
+    const lines = [`@import ${JSON.stringify(relative(path.join(root, 'styles/tailwind.css')))};`]
+    for (const dir of packages) {
+      lines.push(`@import ${JSON.stringify(relative(path.join(dir, 'src/style.css')))};`)
+    }
+    for (const dir of packages) {
+      lines.push(`@source ${JSON.stringify(relative(path.join(dir, 'src')))};`)
+    }
+
+    const themeDir = path.join(root, 'packages/core-react-theme')
+    if (packages.includes(themeDir)) {
+      /** The exported schemas remain the single source of truth for theme tokens. */
+      const schemas = await Promise.all(
+        ['common', 'light', 'darken'].map(name => {
+          const file = path.join(themeDir, `src/schema/${name}.ts`)
+          const url = pathToFileURL(file)
+          url.searchParams.set('mtime', String(fs.statSync(file).mtimeMs))
+          return import(url.href).then(module => module[`${name}Schema`])
+        }),
+      )
+      const selectors = [
+        '.yozora-theme-root',
+        '.yozora-theme-root[data-yozora-theme="light"]',
+        '.yozora-theme-root[data-yozora-theme="darken"]',
+      ]
+      for (const [index, schema] of schemas.entries()) {
+        lines.push(`${selectors[index]} {`)
+        for (const [token, value] of Object.entries(schema)) lines.push(`${token}: ${value};`)
+        lines.push('}')
+      }
+    }
+
+    const breakpointFile = path.join(themeDir, 'src/breakpoint.ts')
+    const breakpointUrl = pathToFileURL(breakpointFile)
+    breakpointUrl.searchParams.set('mtime', String(fs.statSync(breakpointFile).mtimeMs))
+    const { defaultSmallScreenQuery } = await import(breakpointUrl.href)
+    for (const dir of packages) {
+      const file = path.join(dir, 'src/small-screen.ts')
+      if (!fs.existsSync(file)) continue
+      const url = pathToFileURL(file)
+      url.searchParams.set('mtime', String(fs.statSync(file).mtimeMs))
+      const { getSmallScreenStyles } = await import(url.href)
+      lines.push(`@media screen and ${defaultSmallScreenQuery} {`)
+      lines.push(getSmallScreenStyles())
+      lines.push('}')
+    }
+    /** Utilities follow component rules so equally specific class overrides still work. */
+    lines.push('@tailwind utilities source(none);')
+
+    const entry = path.join(entryDir, 'input.css')
+    fs.writeFileSync(entry, lines.join('\n'))
+    await new Promise((resolve, reject) => {
+      const child = spawn(
+        process.execPath,
+        [cli, '--input', entry, '--output', path.join(outputDir, 'style.css'), '--minify'],
+        { cwd: root, stdio: 'inherit' },
+      )
+      child.once('error', reject)
+      child.once('exit', (code, signal) => {
+        if (code === 0) resolve()
+        else reject(new Error(`Tailwind failed for ${packageDir}: ${signal ?? code}`))
+      })
+    })
+    /** Declare the CSS side-effect entry without adding ambient declarations for unrelated CSS. */
+    fs.writeFileSync(path.join(outputDir, 'style.d.ts'), 'export {};\n')
+  } finally {
+    fs.rmSync(entryDir, { recursive: true, force: true })
+  }
+}

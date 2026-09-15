@@ -1,6 +1,5 @@
-import { css } from '@emotion/css'
 import type { Node } from '@yozora/ast'
-import { tokens } from '@yozora/react-core'
+import { clsx } from '@yozora/react-core'
 import React from 'react'
 import { NodesRenderer } from '../../NodesRenderer'
 
@@ -26,7 +25,7 @@ export class LinkRendererInner extends React.Component<IProps> {
     const { url, title, childNodes, className } = this.props
     return (
       <a
-        className={`${className} ${cls}`}
+        className={clsx(className, cls)}
         href={url}
         title={title}
         rel="noopener, noreferrer"
@@ -38,25 +37,4 @@ export class LinkRendererInner extends React.Component<IProps> {
   }
 }
 
-const cls = css({
-  padding: '0.2rem 0',
-  color: tokens.colorLink,
-  textDecoration: 'none',
-  background:
-    'linear-gradient(90deg, hsla(358deg, 100%, 62%, 0.8), hsla(048deg, 100%, 50%, 0.8), hsla(196deg, 100%, 53%, 0.8))',
-  backgroundSize: '0 3px',
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: '50% 100%',
-  transition: 'all 0.3s ease-in-out',
-  '&:active': {
-    color: tokens.colorLinkActive,
-  },
-  '&&:hover': {
-    color: tokens.colorLinkHover,
-    backgroundSize: '100% 3px',
-    backgroundPositionX: 0,
-  },
-  '&:visited': {
-    color: tokens.colorLinkVisited,
-  },
-})
+const cls = 'yozora-link__root'

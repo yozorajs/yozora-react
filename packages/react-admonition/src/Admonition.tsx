@@ -1,4 +1,4 @@
-import { cx } from '@emotion/css'
+import { clsx } from '@yozora/react-core'
 import React from 'react'
 import { getDescriptor } from './descriptor'
 import { classes } from './style'
@@ -56,7 +56,7 @@ export class Admonition extends React.Component<IAdmonitionProps> {
     const icon = this.props.icon ?? descriptor.icon
     const title = hasCustomTitle ? this.props.title : descriptor.title
 
-    const cls = cx(
+    const cls = clsx(
       'yozora-admonition',
       classes.container,
       classes[descriptor.modifier as keyof typeof classes],
