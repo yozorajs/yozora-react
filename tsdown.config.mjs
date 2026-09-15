@@ -43,6 +43,8 @@ export default defineConfig([
     sourcemap: process.env.BUILD_SOURCEMAP === 'true',
     cjsDefault: false,
     dts: false,
+    // Keep theme initialization removable when consumers only import core utilities.
+    unbundle: manifest.name === '@yozora/react-core',
     ...(format === 'esm'
       ? {
           hooks: { 'build:done': () => buildStyles(process.cwd()) },

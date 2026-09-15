@@ -1,5 +1,5 @@
-import { clsx } from '@yozora/react-core'
 import React from 'react'
+import { clsx } from '../util/clsx'
 import { getBreakpointId } from './breakpoint'
 import { getSmallScreenStyles } from './small-screen'
 

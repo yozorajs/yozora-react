@@ -1,4 +1,4 @@
-import { CommonTokenNames } from '@yozora/react-core'
+import { CommonTokenNames } from '../../constant/token'
 
 export const commonSchema: Record<CommonTokenNames, string> = {
   [CommonTokenNames.fontFamilyCode]:

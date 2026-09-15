@@ -90,9 +90,6 @@ importers:
       '@yozora/ast':
         specifier: ^2.0.0
         version: 2.4.1
-      '@yozora/core-react-theme':
-        specifier: workspace:^
-        version: link:../core-react-theme
       '@yozora/react-code-highlighter':
         specifier: workspace:^
         version: link:../react-code-highlighter
@@ -106,23 +103,14 @@ importers:
         specifier: 19.3.0
         version: 19.3.0(react@19.3.0)
 
-  packages/core-react-theme:
-    dependencies:
-      '@yozora/react-core':
-        specifier: workspace:^
-        version: link:../react-core
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
-
   packages/demo:
     dependencies:
-      '@yozora/core-react-theme':
-        specifier: workspace:^
-        version: link:../core-react-theme
       '@yozora/react-code-editor':
         specifier: workspace:^
         version: link:../react-code-editor
+      '@yozora/react-core':
+        specifier: workspace:^
+        version: link:../react-core
       '@yozora/react-markdown':
         specifier: workspace:^
         version: link:../react-markdown
@@ -367,9 +355,6 @@ importers:
       '@yozora/core-react-renderer':
         specifier: workspace:^
         version: link:../core-react-renderer
-      '@yozora/core-react-theme':
-        specifier: workspace:^
-        version: link:../core-react-theme
       '@yozora/react-admonition':
         specifier: workspace:^
         version: link:../react-admonition

@@ -66,7 +66,7 @@ Import the stylesheet for the highest-level Yozora component you use:
 
 ```tsx
 import '@yozora/react-markdown/style.css'
-import { ThemeProvider } from '@yozora/core-react-theme'
+import { ThemeProvider } from '@yozora/react-core'
 ```
 
 Each styled package exports `./style.css`, including its dependency components.
@@ -122,7 +122,7 @@ See [@yozora/react-markdown][]
 ```tsx
 import loadable from '@loadable/component'
 import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
-import { Theme, ThemeProvider } from '@yozora/core-react-theme'
+import { ThemeProvider } from '@yozora/react-core'
 import YozoraParser from '@yozora/parser'
 import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-markdown'
 
@@ -134,7 +134,7 @@ const definitionMap = calcDefinitionMap(ast)
 const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
 <MathJaxProvider>
-  <ThemeProvider theme={Theme.LIGHT}>
+  <ThemeProvider theme="light">
     <MarkdownProvider
       definitionMap={definitionMap}
       footnoteDefinitionMap={footnoteDefinitionMap}
@@ -150,11 +150,10 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
 ## Core
 
-|          Package Name           | Description                                             |
-| :-----------------------------: | :------------------------------------------------------ |
-|     [@yozora/react-core][]      | Shared theme tokens, code-runner types, and utilities.   |
-| [@yozora/core-react-renderer][] | Provider `NodesRenderer` and simple markdown renderers. |
-|  [@yozora/core-react-theme][]   | Provider markdown theme context.                        |
+| Package Name                  | Description                                              |
+| :---------------------------: | :------------------------------------------------------- |
+| [@yozora/react-core][]         | Theme providers, tokens, code-runner types, and utilities. |
+| [@yozora/core-react-renderer][] | Provider `NodesRenderer` and simple markdown renderers.    |
 
 ### Markdown components
 
@@ -184,8 +183,6 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 [@yozora/react-core]: ./packages/react-core
 [@yozora/core-react-renderer]:
   https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/core-react-renderer#readme
-[@yozora/core-react-theme]:
-  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/core-react-theme#readme
 [@yozora/react-admonition]:
   https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-admonition#readme
 [@yozora/react-code]:

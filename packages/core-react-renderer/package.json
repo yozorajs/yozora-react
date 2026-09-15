@@ -41,7 +41,6 @@
   "dependencies": {
     "@guanghechen/equal": "^2.0.5",
     "@guanghechen/react-viewmodel": "^0.2.21",
-    "@yozora/core-react-theme": "workspace:^",
     "@yozora/react-code-highlighter": "workspace:^",
     "@yozora/react-core": "workspace:^"
   },

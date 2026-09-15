@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import { createRequire } from 'node:module'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { Rolldown } from 'tsdown'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const require = createRequire(import.meta.url)
@@ -12,6 +13,8 @@ const cli = path.resolve(path.dirname(cliManifestPath), cliManifest.bin.tailwind
 
 /** Collect dependency styles before their consumers so component overrides win. */
 export function getStylePackages(packageDir) {
+  /** Utility packages can depend on react-core without publishing a stylesheet. */
+  if (!fs.existsSync(path.join(packageDir, 'src/style.css'))) return []
   const result = []
   const visited = new Set()
   function visit(dir) {
@@ -62,17 +65,31 @@ export async function buildStyles(packageDir) {
       lines.push(`@source ${JSON.stringify(relative(path.join(dir, 'src')))};`)
     }
 
-    const themeDir = path.join(root, 'packages/core-react-theme')
-    if (packages.includes(themeDir)) {
-      /** The exported schemas remain the single source of truth for theme tokens. */
-      const schemas = await Promise.all(
-        ['common', 'light', 'darken'].map(name => {
-          const file = path.join(themeDir, `src/schema/${name}.ts`)
-          const url = pathToFileURL(file)
-          url.searchParams.set('mtime', String(fs.statSync(file).mtimeMs))
-          return import(url.href).then(module => module[`${name}Schema`])
-        }),
+    const coreDir = path.join(root, 'packages/react-core')
+    const themeDir = path.join(coreDir, 'src/theme')
+    if (packages.includes(coreDir)) {
+      /** Bundle source schemas so clean builds and watch rebuilds never depend on existing lib files. */
+      const schemaEntry = path.join(entryDir, 'schemas.ts')
+      fs.writeFileSync(
+        schemaEntry,
+        ['common', 'light', 'darken']
+          .map(
+            name =>
+              `export { ${name}Schema } from ${JSON.stringify(relative(path.join(themeDir, `schema/${name}.ts`)))};`,
+          )
+          .join('\n'),
       )
+      const bundle = await Rolldown.rolldown({ input: schemaEntry, platform: 'node' })
+      let schemas
+      try {
+        const { output } = await bundle.generate({ format: 'esm' })
+        const module = await import(
+          'data:text/javascript;base64,' + Buffer.from(output[0].code).toString('base64')
+        )
+        schemas = [module.commonSchema, module.lightSchema, module.darkenSchema]
+      } finally {
+        await bundle.close()
+      }
       const selectors = [
         '.yozora-theme-root',
         '.yozora-theme-root[data-yozora-theme="light"]',
@@ -85,12 +102,15 @@ export async function buildStyles(packageDir) {
       }
     }
 
-    const breakpointFile = path.join(themeDir, 'src/breakpoint.ts')
+    const breakpointFile = path.join(themeDir, 'breakpoint.ts')
     const breakpointUrl = pathToFileURL(breakpointFile)
     breakpointUrl.searchParams.set('mtime', String(fs.statSync(breakpointFile).mtimeMs))
     const { defaultSmallScreenQuery } = await import(breakpointUrl.href)
     for (const dir of packages) {
-      const file = path.join(dir, 'src/small-screen.ts')
+      const file = path.join(
+        dir,
+        dir === coreDir ? 'src/theme/small-screen.ts' : 'src/small-screen.ts',
+      )
       if (!fs.existsSync(file)) continue
       const url = pathToFileURL(file)
       url.searchParams.set('mtime', String(fs.statSync(file).mtimeMs))

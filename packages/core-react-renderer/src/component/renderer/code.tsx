@@ -1,5 +1,5 @@
 import type { Code } from '@yozora/ast'
-import { useThemeContext } from '@yozora/core-react-theme'
+import { useThemeContext } from '@yozora/react-core'
 import React from 'react'
 import { useNodeRendererState } from '../../context'
 import type { INodeRenderer } from '../../types'

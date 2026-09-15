@@ -1,7 +1,7 @@
 {
   "name": "@yozora/react-core",
   "version": "3.0.0-alpha.0",
-  "description": "Shared constants, types, and utilities for Yozora React.",
+  "description": "Shared theme, constants, types, and utilities for Yozora React.",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -15,9 +15,15 @@
   "keywords": [],
   "type": "module",
   "exports": {
-    "types": "./lib/types/index.d.ts",
-    "import": "./lib/esm/index.mjs",
-    "require": "./lib/cjs/index.cjs"
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "import": "./lib/esm/index.mjs",
+      "require": "./lib/cjs/index.cjs"
+    },
+    "./style.css": {
+      "types": "./lib/style.d.ts",
+      "default": "./lib/style.css"
+    }
   },
   "source": "./src/index.ts",
   "types": "./lib/types/index.d.ts",
@@ -45,5 +51,14 @@
     "test": "vitest run --config ../../vitest.config.ts",
     "test:coverage": "vitest run --config ../../vitest.config.ts --coverage",
     "test:update": "vitest run --config ../../vitest.config.ts -u"
-  }
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "browserslist": [
+    "Chrome >= 111",
+    "Safari >= 16.4",
+    "Firefox >= 128",
+    "Edge >= 111"
+  ]
 }

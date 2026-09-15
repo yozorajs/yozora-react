@@ -10,8 +10,8 @@
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
-    "@yozora/core-react-theme": "workspace:^",
     "@yozora/react-code-editor": "workspace:^",
+    "@yozora/react-core": "workspace:^",
     "@yozora/react-markdown": "workspace:^",
     "react": "19.3.0",
     "react-dom": "19.3.0"

@@ -7,6 +7,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { JSDOM } from 'jsdom'
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
+import { Rolldown } from 'tsdown'
 import { getStylePackages } from './build-styles.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
@@ -121,8 +122,6 @@ for (const name of fs.readdirSync(packagesDir)) {
     }
     if (name === 'react-core') {
       consumer += `export type { ClassValue, IClassDictionary, IParseCodeMetaOptions, ICodeMetaData, ICodeRunnerMetaData, ICodeRunner, ICodeRunnerProps, ICodeRunnerScope, ICodeRunnerItem, IAsyncRunnerScopes } from '${manifest.name}'\n`
-    }
-    if (name === 'core-react-theme') {
       consumer += `import type { IBreakpoints, IThemeContext, IThemeProviderProps } from '${manifest.name}'\n`
       consumer +=
         'export const customTheme: IThemeProviderProps = { breakpoints: {} as IBreakpoints, nonce: "request-nonce" }\n'
@@ -181,6 +180,21 @@ export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] 
     }
     fs.writeFileSync(path.join(consumerDir, 'index.mts'), consumer)
     fs.writeFileSync(path.join(consumerDir, 'index.cts'), consumer)
+    if (name === 'react-core') {
+      const utilityEntry = path.join(consumerDir, 'utility.mjs')
+      fs.writeFileSync(utilityEntry, `export { clsx } from '${manifest.name}'\n`)
+      const bundle = await Rolldown.rolldown({ input: utilityEntry, external: ['react'] })
+      try {
+        const { output } = await bundle.generate({ format: 'esm' })
+        assert.deepEqual(output[0].imports, [], 'Utility consumers must not load React')
+        const utilities = await import(
+          'data:text/javascript;base64,' + Buffer.from(output[0].code).toString('base64')
+        )
+        assert.equal(utilities.clsx('button', [null, 'rounded']), 'button rounded')
+      } finally {
+        await bundle.close()
+      }
+    }
     const configPath = path.join(consumerDir, 'tsconfig.json')
     for (const moduleResolution of ['nodenext', 'bundler']) {
       fs.writeFileSync(
@@ -218,11 +232,11 @@ export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] 
 
   for (const module of [esm, cjs]) {
     if (name === 'react-markdown') {
-      const themeDir = path.join(packagesDir, 'core-react-theme')
+      const themeDir = path.join(packagesDir, 'react-core')
       const theme =
         module === esm
           ? await import(pathToFileURL(path.join(themeDir, 'lib/esm/index.mjs')).href)
-          : createRequire(path.join(themeDir, 'package.json'))('@yozora/core-react-theme')
+          : createRequire(path.join(themeDir, 'package.json'))('@yozora/react-core')
       function CustomRoot({ className, style, itemProp, children }) {
         return React.createElement('section', { className, style, itemProp }, children)
       }
@@ -288,7 +302,19 @@ export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] 
         Object.keys(module)
           .filter(key => key !== '__esModule')
           .sort(),
-        ['CommonTokenNames', 'TokenNames', 'clsx', 'convertToBoolean', 'parseCodeMeta', 'tokens'],
+        [
+          'CommonTokenNames',
+          'ThemeProvider',
+          'TokenNames',
+          'clsx',
+          'convertToBoolean',
+          'darkenSchema',
+          'getBreakpointId',
+          'lightSchema',
+          'parseCodeMeta',
+          'tokens',
+          'useThemeContext',
+        ],
       )
       assert.equal(module.CommonTokenNames.fontFamilyCode, '--yozora_fontFamilyCode')
       assert.equal(module.TokenNames.colorLink, '--yozora_colorLink')

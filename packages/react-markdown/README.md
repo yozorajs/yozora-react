@@ -94,32 +94,16 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 
   ```tsx
   import loadable from '@loadable/component'
-  import {
-    ThemeSchema,
-    ThemeProvider,
-    createLightThemeStyle,
-    createDarkenThemeStyle
-  } from '@yozora/core-react-theme'
+  import { ThemeProvider } from '@yozora/react-core'
   import { Markdown, MarkdownProvider } from '@yozora/react-markdown'
   import React from 'react'
 
   const ImageViewer = loadable(() => import('react-viewer'))
 
-  const ThemeStylesMap = {
-    [ThemeSchema.LIGHT]: createLightThemeStyle(),
-    [ThemeSchema.DARKEN]: createDarkenThemeStyle(),
-  }
-
   function App() {
-    const context = React.useMemo(() => ({
-      themeSchema: ThemeSchema.LIGHT,
-      themeStyles: ThemeStylesMap[ThemeSchema.LIGHT],
-      preference: { showCodeLineNo: true }
-    }), [])
-
     return (
-      <ThemeProvider value={context}>
-        <MarkdownProvider ImageViewer={ImageViewer}>
+      <ThemeProvider theme="light">
+        <MarkdownProvider ImageViewer={ImageViewer} showCodeLineno={true}>
           <Markdown ast={ast} />
         </MarkdownProvider>
       </ThemeProvider>
@@ -161,11 +145,11 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 - Render formula with mathjax.
 
   ```tsx
-  import { Theme, ThemeProvider } from '@yozora/core-react-theme'
+  import { ThemeProvider } from '@yozora/react-core'
   import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-markdown'
 
-  <MathJaxProvider
-    <ThemeProvider theme={Theme.LIGHT}>
+  <MathJaxProvider>
+    <ThemeProvider theme="light">
       <MarkdownProvider>
         <Markdown ast={ast} />
       </MarkdownProvider>
@@ -181,7 +165,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
   import { LinkReferenceType, LinkType } from '@yozora/ast'
   import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
   import { NodeRendererContextType, NodesRenderer  } from '@yozora/core-react-renderer'
-  import { Theme, ThemeProvider } from '@yozora/core-react-theme'
+  import { ThemeProvider } from '@yozora/react-core'
   import YozoraParser from '@yozora/parser'
   import type { INodeRendererMap } from '@yozora/react-markdown'
   import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-markdown'
@@ -220,7 +204,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 
   const wrapper = (
     <MathJaxProvider mathjaxSrc="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-mml-chtml.js">
-      <ThemeProvider theme={Theme.LIGHT}>
+      <ThemeProvider theme="light">
         <MarkdownProvider
           definitionMap={definitionMap}
           footnoteDefinitionMap={footnoteDefinitionMap}

@@ -1,6 +1,6 @@
 # @yozora/react-core
 
-Shared theme tokens, code-runner contracts, and utilities for Yozora React.
+Shared theme providers, tokens, code-runner contracts, and utilities for Yozora React.
 
 ```ts
 import { CommonTokenNames, TokenNames, clsx, parseCodeMeta, tokens } from '@yozora/react-core'
@@ -9,13 +9,26 @@ import type { ICodeMetaData, ICodeRunner, ICodeRunnerProps } from '@yozora/react
 
 ## Migration
 
-This package replaces `@yozora/core-react-constant`, `@yozora/core-react-types`, and
-`@yozora/core-react-util`. Update dependencies and import specifiers to
+This package replaces `@yozora/core-react-constant`, `@yozora/core-react-types`,
+`@yozora/core-react-util`, and `@yozora/core-react-theme`. Update dependencies and import specifiers to
 `@yozora/react-core`; existing exported names and behavior are preserved. ESM,
 CommonJS, and TypeScript declarations are available through the package root.
 
-Source modules are grouped under `constant`, `types`, and `util` inside the package.
+Source modules are grouped under `constant`, `types`, `util`, and `theme` inside the package.
 The public import entry is `@yozora/react-core`.
+
+## Theme
+
+```tsx
+import '@yozora/react-core/style.css'
+import { ThemeProvider, useThemeContext } from '@yozora/react-core'
+```
+
+`ThemeProvider`, `useThemeContext`, `lightSchema`, `darkenSchema`, `IBreakpoints`,
+`IThemeContext`, and `IThemeProviderProps` are available from the package root.
+Existing component stylesheets include the theme styles through their dependency on
+`react-core`; standalone theme users import `@yozora/react-core/style.css`.
+Custom breakpoints and inherited CSP nonces retain their existing behavior.
 
 ## Class names
 
