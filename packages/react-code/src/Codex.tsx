@@ -1,13 +1,15 @@
 import { isEqual } from '@guanghechen/equal'
 import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/react-core'
 import { clsx } from '@yozora/react-core'
-import { CodeRendererJsx as JsxRendererComponent } from '@yozora/react-embed-jsx'
 import React from 'react'
 import { CodeEmbed as CodeEmbedComponent } from './component/CodeEmbed'
 import { CodeLiteral as CodeLiteralComponent } from './component/CodeLiteral'
+import { createLazyRenderer } from './component/LazyRenderer'
 import { CodeLive as CodeLiveComponent } from './live'
 import type { ICodeMetaData, ICodeProps } from './types/code'
 import { parseCodeMeta } from './util/meta'
+
+const JsxRendererComponent = createLazyRenderer(() => import('@yozora/react-embed-jsx'))
 
 export const defaultRunners: ICodeRunnerItem[] = [
   {

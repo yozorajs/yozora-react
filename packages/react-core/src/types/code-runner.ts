@@ -83,8 +83,4 @@ export interface IAsyncRunnerScopes {
    * A promise indicate that whether if the scope prepared.
    */
   pending: Promise<void | void[]> | true
-  /**
-   * Components wrapped by @loadable/components.
-   */
-  Placeholders: any[]
 }

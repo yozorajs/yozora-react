@@ -22,13 +22,15 @@ describe('snapshot', () => {
   `.trim()
   const lang = 'jsx'
 
-  test('live', () => {
+  test('live', async () => {
     const view = render(<Code meta="live maxlines=4" lang={lang} value={code} />)
+    await view.findByText('Answer: 5')
     expect(view.asFragment()).toMatchSnapshot()
   })
 
-  test('embed', () => {
+  test('embed', async () => {
     const view = render(<Code meta="embed" lang={lang} value={code} />)
+    await view.findByText('Answer: 5')
     expect(view.asFragment()).toMatchSnapshot()
   })
 

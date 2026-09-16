@@ -42,7 +42,6 @@
     "@tailwindcss/cli": "^4.3.3",
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",
-    "@types/loadable__component": "5.13.10",
     "@types/node": "24.13.4",
     "@types/prismjs": "1.26.6",
     "@types/react": "19.3.0",

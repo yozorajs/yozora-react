@@ -62,9 +62,10 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 ## Migration
 
 `@yozora/react-code-editor`, `@yozora/react-code-embed`, `@yozora/react-code-literal`,
-`@yozora/react-code-live`, `@yozora/react-common-copy-button`, and
-`@yozora/react-common-light-buttons` are now part of this package. Replace their dependencies
-with `@yozora/react-code` and use the corresponding named exports:
+`@yozora/react-code-live`, `@yozora/react-common-copy-button`,
+`@yozora/react-common-light-buttons`, and `@yozora/react-code-runners` are now part of
+this package. Replace their dependencies with `@yozora/react-code` and use the
+corresponding named exports:
 
 ```tsx
 import Code, { CodeEditor, CodeEmbed, CodeLiteral, CodeLive } from '@yozora/react-code'
@@ -86,6 +87,19 @@ constants, and history types, are also available from `@yozora/react-code`.
 
 `getLines` is no longer exported. Inline `text.substring(0, endPos).split('\n')`
 where needed.
+
+Lazy previews use native dynamic imports. The default JSX renderer loads on first
+client render. `createLazyRenderer(() => import(...))` supplies a stable renderer
+with its own `Suspense` boundary and an empty SSR/initial-hydration fallback;
+create it outside component render functions. Literal blocks and editors remain
+synchronously renderable on the server.
+
+`dynamicImport` now takes `(ecmaImport, scope, rules)` and module loaders take no
+arguments. Bind module selection in `rule.importFunc(match)`. Ordinary `.js`/`.ts`
+modules load directly and return a Promise that rejects on failure; there is no
+placeholder to mount. Component `.jsx`/`.tsx` bindings remain lazy and share a module request
+between default and named exports. The existing ordinary-module `defaultImport`
+namespace binding is retained. `IAsyncRunnerScopes.Placeholders` was removed.
 
 ## Install
 
@@ -168,7 +182,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 
   ```typescript
   import type { ICodeMetaData as IBaseCodeMetaData } from '@yozora/react-core'
-  import type { ICodeRunnerItem, ICodeRunnerMetaData } from '@yozora/react-code-runners'
+  import type { ICodeRunnerItem, ICodeRunnerMetaData } from '@yozora/react-core'
 
   /**
   * Meta data of the fenced-code.
@@ -288,6 +302,68 @@ function Controls() {
 ```
 
 `LightButtons` also accepts `onClose`, `className`, and `style`.
+
+## Runners
+
+Runner factories and dynamic-import helpers formerly provided by
+`@yozora/react-code-runners` are exported from `@yozora/react-code`:
+
+- `createGraphvizRunner(GraphvizRenderer)` adapts a renderer accepting `code`, `engine`,
+  and `onError` to a code runner.
+- `createMathRunner(MathRenderer)` adapts a renderer accepting a Yozora math token;
+  surrounding dollar delimiters are removed from the formula.
+- `createUseJsxRunner(params)` creates a hook that supplies JSX runners with preset
+  scopes and dynamic imports.
+- `dynamicImport` prepares lazy component bindings or loads ordinary module bindings
+  directly into the runner scope.
+
+```tsx
+import { CodeLive, createLazyRenderer, createUseJsxRunner } from '@yozora/react-code'
+import React from 'react'
+
+const useJsxRunner = createUseJsxRunner({
+  presetJsxScope: { React },
+  rules: [],
+  JsxRenderer: createLazyRenderer(() => import('@yozora/react-embed-jsx')),
+  defaultRenderMode: 'inline',
+})
+
+function Demo() {
+  const JsxRunner = useJsxRunner([])
+  const runners = React.useMemo(
+    () => [{ title: 'jsx', pattern: /^jsx$/, runner: JsxRunner }],
+    [JsxRunner],
+  )
+  return (
+    <CodeLive
+      lang="jsx"
+      value="function Example() { return <strong>Hello</strong> }"
+      runners={runners}
+    />
+  )
+}
+```
+
+Optional embed renderers can be loaded in the same way without making them
+mandatory dependencies of this package:
+
+```tsx
+import { createGraphvizRunner, createLazyRenderer } from '@yozora/react-code'
+
+const GraphvizRunner = createGraphvizRunner(
+  createLazyRenderer(() => import('@yozora/react-embed-graphviz')),
+)
+```
+
+For ordinary modules, the runner starts loading when it mounts, reports failures
+through `onError`, and discards results from replaced import configurations.
+Equivalent imports preserve runner/component identity. Remounting after a failed
+ordinary-module request retries it. A rejected native lazy component remains
+cached by React; recreate that lazy renderer or reload to retry its module.
+
+`ICreateUseJsxRunnerParams`, `IDynamicImportRule`, and `IDynamicImportFunc` are also
+exported here. Shared contracts such as `ICodeRunner`, `ICodeRunnerItem`, and
+`ICodeRunnerProps` are available from `@yozora/react-core`.
 
 ## Related
 

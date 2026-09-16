@@ -83,22 +83,32 @@ It includes styles for dependency components. Tailwind is not required in the co
 application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 
 
-- This component supports to preview all images in markdown documents with [react-viewer][]. In
-  order to be able to use [react-viewer] in React SSR, you will need the [@loadable/component].
+- This component supports to preview all images in markdown documents with [react-viewer][]. For
+  SSR, defer importing and rendering the browser-only viewer until the client mounts.
 
   ```yarn
-  yarn add react-viewer @loadable/component
+  yarn add react-viewer
   ```
 
   To use it with the following code snippet:
 
   ```tsx
-  import loadable from '@loadable/component'
+  import type { IImageViewerProps } from '@yozora/react-core'
   import { ThemeProvider } from '@yozora/react-core'
   import { Markdown, MarkdownProvider } from '@yozora/react-markdown'
   import React from 'react'
 
-  const ImageViewer = loadable(() => import('react-viewer'))
+  const LazyImageViewer = React.lazy(() => import('react-viewer'))
+
+  function ImageViewer(props: IImageViewerProps): React.ReactElement | null {
+    const [mounted, setMounted] = React.useState(false)
+    React.useEffect(() => setMounted(true), [])
+    return mounted ? (
+      <React.Suspense fallback={null}>
+        <LazyImageViewer {...props} images={[...props.images]} />
+      </React.Suspense>
+    ) : null
+  }
 
   function App() {
     return (
@@ -355,10 +365,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 
 - `ImageViewer`
 
-  ```typescript
-  import loadable from '@loadable/component'
-  const ImageViewer = loadable(() => import('react-viewer')
-  ```
+  Use the client-only `ImageViewer` wrapper shown in the usage example above.
 
 ### Overview
 
@@ -406,7 +413,6 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 [MdastRenderer]:
   https://github.com/yozorajs/yozora-react/blob/main/packages/react-markdown/src/ast/render.tsx
 [react-viewer]: https://github.com/infeng/react-viewer
-[@loadable/component]: https://github.com/gregberge/loadable-components
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast
 [@yozora/ast-util]: https://www.npmjs.com/package/@yozora/ast-util
 [@yozora/parser]: https://www.npmjs.com/package/@yozora/parser

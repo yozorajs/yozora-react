@@ -4,7 +4,6 @@
     "paths": {
       "@yozora/react-admonition": ["./packages/react-admonition/src"],
       "@yozora/react-code": ["./packages/react-code/src"],
-      "@yozora/react-code-runners": ["./packages/react-code-runners/src"],
       "@yozora/react-core": ["./packages/react-core/src"],
       "@yozora/react-embed-graphviz": ["./packages/react-embed-graphviz/src"],
       "@yozora/react-embed-jsx": ["./packages/react-embed-jsx/src"],

@@ -33,17 +33,11 @@ export interface IImagePreviewerProps {
   /**
    * Image viewer
    *
-   *  Browser only:
-   *
-   *      import Viewer from 'react-viewer'
-   *
-   *  SSR:
-   *
-   *      import loadable from '@loadable/component'
-   *      const Viewer = loadable(() => import('react-viewer'))
+   * Defer importing and rendering browser-only viewers until client mount, and
+   * wrap lazy components in a local Suspense boundary.
    *
    * @see https://github.com/infeng/react-viewer
-   * @see https://github.com/gregberge/loadable-components
+   * @see https://react.dev/reference/react/lazy
    */
   ImageViewer?: React.FC<IImageViewerProps> | React.ComponentClass<IImageViewerProps>
 }

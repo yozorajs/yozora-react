@@ -201,6 +201,7 @@ export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] 
     }
     if (name === 'react-code') {
       consumer += `export type { IEditorTextareaProps, IEditorPreProps, IEditorProps, IEditorState, IEditorOperationRecord, IEditorHistory, ICodeLiveProps, ICodeLiveState } from '${manifest.name}'\n`
+      consumer += `export type { ICreateUseJsxRunnerParams, IDynamicImportRule, IDynamicImportFunc } from '${manifest.name}'\n`
       consumer += `export const componentClasses: string[] = [classes.editor.container, classes.embed.error, classes.literal.content, classes.live.main]\n`
       consumer += `import type { ComponentProps } from 'react'\n`
       consumer += `export const editorProps: ComponentProps<typeof CodeEditor> = { lang: 'typescript', code: 'const value = 1', onChange: () => {}, showLineNo: true }\n`
@@ -237,6 +238,47 @@ export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] 
       } finally {
         await bundle.close()
       }
+      const codeEntry = path.join(consumerDir, 'code.mjs')
+      fs.writeFileSync(codeEntry, `export { Code } from '${manifest.name}'\n`)
+      const codeBundle = await Rolldown.rolldown({
+        input: codeEntry,
+        external: [
+          ...Object.keys(manifest.dependencies),
+          ...Object.keys(manifest.peerDependencies),
+        ],
+      })
+      try {
+        const { output } = await codeBundle.generate({ format: 'esm' })
+        assert.ok(!output[0].imports.includes('@yozora/react-embed-jsx'))
+        assert.ok(output[0].dynamicImports.includes('@yozora/react-embed-jsx'))
+      } finally {
+        await codeBundle.close()
+      }
+      const coldProbe = path.join(consumerDir, 'cold-code.mjs')
+      fs.writeFileSync(
+        coldProbe,
+        `
+import assert from 'node:assert/strict'
+import { createRequire, registerHooks } from 'node:module'
+import React from 'react'
+import { renderToString } from 'react-dom/server'
+registerHooks({ resolve(specifier, context, next) {
+  assert.notEqual(specifier, '@yozora/react-embed-jsx', 'SSR must not load the JSX renderer')
+  return next(specifier, context)
+} })
+const esm = await import(${JSON.stringify(pathToFileURL(esmPath).href)})
+const cjs = createRequire(import.meta.url)(${JSON.stringify(manifest.name)})
+for (const module of [esm, cjs]) {
+  const literal = renderToString(React.createElement(module.Code, { lang: 'typescript', value: 'const value = 1' }))
+  assert.match(literal, /token keyword/)
+  const live = renderToString(React.createElement(module.Code, { lang: 'jsx', value: 'function Demo() { return null }', meta: 'live' }))
+  assert.match(live, /<textarea/)
+  assert.match(live, /yozora-code-live__previewer/)
+}
+`,
+      )
+      const coldResult = spawnSync(process.execPath, [coldProbe], { encoding: 'utf8' })
+      assert.equal(coldResult.status, 0, coldResult.stderr || coldResult.stdout)
     }
     if (name === 'react-core') {
       const utilityEntry = path.join(consumerDir, 'utility.mjs')

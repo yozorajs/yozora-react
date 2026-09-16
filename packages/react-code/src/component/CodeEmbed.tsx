@@ -38,10 +38,7 @@ interface IProps {
 }
 
 interface IState {
-  /**
-   *
-   */
-  error?: unknown
+  error: string | null
 }
 
 /**
@@ -54,6 +51,10 @@ interface IState {
  */
 export class CodeEmbed extends React.Component<IProps, IState> {
   public static displayName = 'CodeEmbed'
+
+  public static getDerivedStateFromError(error: unknown): IState {
+    return { error: error instanceof Error ? error.message : String(error) }
+  }
 
   public constructor(props: IProps) {
     super(props)
@@ -78,14 +79,20 @@ export class CodeEmbed extends React.Component<IProps, IState> {
     )
   }
 
-  public override componentDidCatch(error: unknown, info: unknown): void {
-    this._onError(error)
+  public override componentDidCatch(_error: unknown, info: unknown): void {
     console.error(info)
   }
 
   public override componentDidUpdate(prevProps: IProps): void {
-    // Clear error when the input value changed.
-    if (prevProps.value !== this.props.value) {
+    const props = this.props
+    if (
+      this.state.error !== null &&
+      (prevProps.value !== props.value ||
+        prevProps.runner !== props.runner ||
+        prevProps.lang !== props.lang ||
+        !isEqual(prevProps.meta, props.meta) ||
+        !isEqual(prevProps.scope, props.scope))
+    ) {
       this.setState({ error: null })
     }
   }
@@ -100,7 +107,7 @@ export class CodeEmbed extends React.Component<IProps, IState> {
           <Runner lang={lang} value={value} meta={meta} scope={scope} onError={this._onError} />
         ) : (
           <div className={classes.embed.error}>
-            <div className={classes.embed.errorDetails}>{error as any}</div>
+            <div className={classes.embed.errorDetails}>{error}</div>
           </div>
         )}
       </div>
@@ -108,6 +115,8 @@ export class CodeEmbed extends React.Component<IProps, IState> {
   }
 
   protected _onError = (error: unknown): void => {
-    this.setState({ error })
+    this.setState({
+      error: error == null ? null : error instanceof Error ? error.message : String(error),
+    })
   }
 }
