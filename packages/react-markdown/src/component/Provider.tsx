@@ -1,9 +1,12 @@
 import { isEqual } from '@guanghechen/equal'
 import type { Definition, FootnoteDefinition } from '@yozora/ast'
 import { CodeType } from '@yozora/ast'
-import type { INodeRendererProviderProps, IPreviewImageItem } from '@yozora/core-react-renderer'
-import { NodeRendererProvider } from '@yozora/core-react-renderer'
-import type { ICodeRunnerItem } from '@yozora/react-core'
+import type {
+  ICodeRunnerItem,
+  INodeRendererProviderProps,
+  IPreviewImageItem,
+} from '@yozora/react-core'
+import { NodeRendererProvider } from '@yozora/react-core'
 import React from 'react'
 import type { INodeRendererMap } from './nodeRendererMap'
 import { defaultNodeRendererMap } from './nodeRendererMap'

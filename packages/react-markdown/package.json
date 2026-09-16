@@ -43,7 +43,6 @@
   "dependencies": {
     "@guanghechen/equal": "^2.0.5",
     "@yozora/ast": "^2.4.1",
-    "@yozora/core-react-renderer": "workspace:^",
     "@yozora/react-admonition": "workspace:^",
     "@yozora/react-code": "workspace:^",
     "@yozora/react-core": "workspace:^",

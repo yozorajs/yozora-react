@@ -147,8 +147,10 @@ for (const name of fs.readdirSync(packagesDir)) {
       consumer +=
         'export const modernTheme: IThemeProviderProps = { theme: "vsc", variant: "dark-modern" }\n'
     }
-    if (name === 'core-react-renderer') {
-      consumer += `import type { INodeStyleMap } from '${manifest.name}'\n`
+    if (name === 'react-core') {
+      consumer += `import type { INodeStyleMap, INodeRendererMap, INodeRendererProviderProps, INodeRendererState, IImageViewerProps } from '${manifest.name}'\n`
+      consumer +=
+        'export type RendererContracts = [INodeRendererMap, INodeRendererProviderProps, INodeRendererState, IImageViewerProps]\n'
       consumer +=
         'export const nodeStyles: INodeStyleMap = { paragraph: { color: "red", nested: { "&:hover": { color: "blue" } }, fallbacks: [null, false, { display: "flex" }] } }\n'
       /** Keep representative legacy input types without restoring a styling-engine dependency. */
@@ -204,14 +206,21 @@ export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] 
       fs.writeFileSync(utilityEntry, `export { clsx } from '${manifest.name}'\n`)
       const bundle = await Rolldown.rolldown({
         input: utilityEntry,
-        external: ['react', 'prismjs', '@guanghechen/equal'],
+        external: [
+          'react',
+          'react-dom',
+          'prismjs',
+          '@guanghechen/equal',
+          '@guanghechen/react-viewmodel',
+          '@yozora/ast',
+        ],
       })
       try {
         const { output } = await bundle.generate({ format: 'esm' })
         assert.deepEqual(
           output[0].imports,
           [],
-          'Utility consumers must not load React or highlighter dependencies',
+          'Utility consumers must not load React, renderer, or highlighter dependencies',
         )
         const utilities = await import(
           'data:text/javascript;base64,' + Buffer.from(output[0].code).toString('base64')
@@ -224,11 +233,24 @@ export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] 
       fs.writeFileSync(highlighterEntry, `export { CodeHighlighter } from '${manifest.name}'\n`)
       const highlighterBundle = await Rolldown.rolldown({
         input: highlighterEntry,
-        external: ['react', 'prismjs', '@guanghechen/equal'],
+        external: [
+          'react',
+          'react-dom',
+          'prismjs',
+          '@guanghechen/equal',
+          '@guanghechen/react-viewmodel',
+          '@yozora/ast',
+        ],
       })
       try {
         const file = path.join(consumerDir, 'highlighter-bundle.mjs')
-        await highlighterBundle.write({ file, format: 'esm' })
+        const { output } = await highlighterBundle.write({ file, format: 'esm' })
+        for (const dependency of ['react-dom', '@guanghechen/react-viewmodel', '@yozora/ast']) {
+          assert.ok(
+            !output[0].imports.includes(dependency),
+            `Highlighters must not load ${dependency}`,
+          )
+        }
         const probe = path.join(consumerDir, 'highlighter-probe.mjs')
         fs.writeFileSync(
           probe,
@@ -253,6 +275,51 @@ for (const [lang, value] of [
         assert.equal(result.status, 0, `${result.stdout}${result.stderr}`)
       } finally {
         await highlighterBundle.close()
+      }
+      const rendererEntry = path.join(consumerDir, 'renderer.mjs')
+      fs.writeFileSync(
+        rendererEntry,
+        `export { NodeRendererProvider, NodesRenderer, ThemeProvider } from '${manifest.name}'\n`,
+      )
+      const rendererBundle = await Rolldown.rolldown({
+        input: rendererEntry,
+        external: [
+          'react',
+          'react-dom',
+          'prismjs',
+          '@guanghechen/equal',
+          '@guanghechen/react-viewmodel',
+          '@yozora/ast',
+        ],
+      })
+      try {
+        await rendererBundle.write({
+          file: path.join(consumerDir, 'renderer-bundle.mjs'),
+          format: 'esm',
+        })
+        const probe = path.join(consumerDir, 'renderer-probe.mjs')
+        fs.writeFileSync(
+          probe,
+          `
+import assert from 'node:assert/strict'
+import React from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
+import { NodeRendererProvider, NodesRenderer, ThemeProvider } from './renderer-bundle.mjs'
+const nodes = [
+  { type: 'paragraph', children: [{ type: 'strong', children: [{ type: 'text', value: 'Nested renderer' }] }] },
+  { type: 'code', lang: 'typescript', meta: '', value: 'const value = 1' },
+]
+const html = renderToStaticMarkup(React.createElement(ThemeProvider, { theme: 'catppuccin', variant: 'mocha' },
+  React.createElement(NodeRendererProvider, null, React.createElement(NodesRenderer, { nodes }))))
+assert.match(html, /<strong[^>]*>Nested renderer/)
+assert.match(html, /token keyword[^>]*color:#cba6f7/i)
+`,
+        )
+        const result = spawnSync(process.execPath, [probe], { cwd: root, encoding: 'utf8' })
+        assert.ifError(result.error)
+        assert.equal(result.status, 0, `${result.stdout}${result.stderr}`)
+      } finally {
+        await rendererBundle.close()
       }
     }
     const configPath = path.join(consumerDir, 'tsconfig.json')
@@ -363,13 +430,38 @@ for (const [lang, value] of [
           .filter(key => key !== '__esModule')
           .sort(),
         [
+          'BlockquoteRenderer',
           'CodeHighlighter',
+          'CodeRenderer',
           'CommonTokenNames',
+          'DeleteRenderer',
+          'EmphasisRenderer',
+          'HeadingRenderer',
           'HighlightContent',
           'HighlightLinenos',
+          'ImagePreviewer',
+          'ImageReferenceRenderer',
+          'ImageRenderer',
+          'InlineCodeRenderer',
+          'LinkReferenceRenderer',
+          'LinkRenderer',
+          'ListItemRenderer',
+          'ListRenderer',
+          'NodeRendererActionsType',
+          'NodeRendererContextType',
+          'NodeRendererController',
+          'NodeRendererProvider',
+          'NodeRendererViewModel',
+          'NodesRenderer',
+          'ParagraphRenderer',
+          'StrongRenderer',
+          'TableRenderer',
+          'TextRenderer',
+          'ThematicBreakRenderer',
           'ThemeProvider',
           'TokenNames',
           'areSameArray',
+          'buildNodeRendererMap',
           'catppuccinFrappeSchema',
           'catppuccinLatteSchema',
           'catppuccinMacchiatoSchema',
@@ -377,6 +469,7 @@ for (const [lang, value] of [
           'classes',
           'clsx',
           'convertToBoolean',
+          'defaultNodeRendererMap',
           'getBreakpointId',
           'getThemeSchema',
           'githubTheme',
@@ -397,6 +490,9 @@ for (const [lang, value] of [
           'tokyonightMoonSchema',
           'tokyonightNightSchema',
           'tokyonightStormSchema',
+          'useNodeRendererContext',
+          'useNodeRendererDispatch',
+          'useNodeRendererState',
           'useThemeContext',
           'vars',
           'vscDarkModernSchema',

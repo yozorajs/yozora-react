@@ -1,5 +1,5 @@
-import { clsx } from '@yozora/react-core'
 import React from 'react'
+import { clsx } from '../../../../util/clsx'
 import type { INodeRendererAction } from '../../../context'
 import { NodeRendererActionsType } from '../../../context'
 

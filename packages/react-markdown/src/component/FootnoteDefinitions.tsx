@@ -1,6 +1,5 @@
 import type { FootnoteDefinition } from '@yozora/ast'
-import { useNodeRendererState } from '@yozora/core-react-renderer'
-import { clsx } from '@yozora/react-core'
+import { clsx, useNodeRendererState } from '@yozora/react-core'
 import React from 'react'
 import { FootnoteDefinitionRenderer } from './renderer/footnoteDefinition'
 

@@ -1,6 +1,6 @@
 # @yozora/react-core
 
-Shared theme providers, syntax highlighting, tokens, code-runner contracts, and utilities for Yozora React.
+Shared AST renderers, theme providers, syntax highlighting, tokens, code-runner contracts, and utilities for Yozora React.
 
 ```ts
 import { CommonTokenNames, TokenNames, clsx, parseCodeMeta, tokens } from '@yozora/react-core'
@@ -19,7 +19,7 @@ removed. Use `theme="vsc" variant="light-modern"` / `variant="dark-modern"` inst
 For direct color-map access, use `vscLightModernSchema.colors` /
 `vscDarkModernSchema.colors`; these use the new palette rather than the old colors.
 
-Source modules are grouped under `constant`, `types`, `util`, `theme`, and `highlighter` inside the package.
+Source modules are grouped under `constant`, `types`, `util`, `theme`, `highlighter`, and `renderer` inside the package.
 The public import entry is `@yozora/react-core`.
 
 ## Theme
@@ -90,6 +90,34 @@ Unknown names or variants select no built-in palette, so custom CSS themes remai
 Code highlighting follows the provider's palette automatically. An explicit highlighter
 `theme` prop takes precedence, followed by an explicit `darken` prop. Standalone
 highlighters without a provider retain their dark default.
+
+## AST rendering
+
+`@yozora/core-react-renderer` is now included under `src/renderer/`. Import its
+components, hooks, renderer maps, and types from `@yozora/react-core`, and replace
+its stylesheet import with `@yozora/react-core/style.css`.
+
+```tsx
+import { NodeRendererProvider, NodesRenderer, ThemeProvider } from '@yozora/react-core'
+import '@yozora/react-core/style.css'
+
+<ThemeProvider theme="vsc" variant="light-modern">
+  <NodeRendererProvider>
+    <NodesRenderer nodes={nodes} />
+  </NodeRendererProvider>
+</ThemeProvider>
+```
+
+`NodeRendererProvider` retains its `customRendererMap`, `definitionMap`,
+`footnoteDefinitionMap`, `images`, `ImageViewer`, and `showCodeLineno` props.
+Individual renderers, `buildNodeRendererMap`, `defaultNodeRendererMap`, and the
+`useNodeRendererContext` / `useNodeRendererState` / `useNodeRendererDispatch` hooks
+remain available. Renderer context and viewmodel exports retain their names and
+behavior.
+
+The renderer's existing `@guanghechen/react-viewmodel` dependency and `@yozora/ast`
+/ `react-dom` peer requirements now belong to this package. Their versions are
+unchanged. Bundled utility-only consumers can omit renderer dependencies.
 
 ## Code highlighting
 

@@ -1,6 +1,5 @@
 import type { ListItem } from '@yozora/ast'
-import { NodesRenderer } from '@yozora/core-react-renderer'
-import { clsx } from '@yozora/react-core'
+import { NodesRenderer, clsx } from '@yozora/react-core'
 import React from 'react'
 
 /**

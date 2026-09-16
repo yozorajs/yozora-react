@@ -2,7 +2,6 @@
   "extends": "./tsconfig.settings.json",
   "compilerOptions": {
     "paths": {
-      "@yozora/core-react-renderer": ["./packages/core-react-renderer/src"],
       "@yozora/react-admonition": ["./packages/react-admonition/src"],
       "@yozora/react-code": ["./packages/react-code/src"],
       "@yozora/react-code-editor": ["./packages/react-code-editor/src"],

@@ -139,7 +139,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 * `meta`:
 
   ```typescript
-  import type { ICodeMetaData as IBaseCodeMetaData } from '@yozora/core-react-renderer'
+  import type { ICodeMetaData as IBaseCodeMetaData } from '@yozora/react-core'
   import type { ICodeRunnerItem, ICodeRunnerMetaData } from '@yozora/react-code-runners'
 
   /**

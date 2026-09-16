@@ -164,7 +164,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
   import { Route } from 'react-route-dom'
   import { LinkReferenceType, LinkType } from '@yozora/ast'
   import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
-  import { NodeRendererContextType, NodesRenderer  } from '@yozora/core-react-renderer'
+  import { NodeRendererContextType, NodesRenderer  } from '@yozora/react-core'
   import { ThemeProvider } from '@yozora/react-core'
   import YozoraParser from '@yozora/parser'
   import type { INodeRendererMap } from '@yozora/react-markdown'

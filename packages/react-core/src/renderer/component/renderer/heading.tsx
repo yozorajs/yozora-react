@@ -1,6 +1,6 @@
 import type { Heading } from '@yozora/ast'
-import { clsx } from '@yozora/react-core'
 import React from 'react'
+import { clsx } from '../../../util/clsx'
 import { NodesRenderer } from '../NodesRenderer'
 
 type IHeading = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'

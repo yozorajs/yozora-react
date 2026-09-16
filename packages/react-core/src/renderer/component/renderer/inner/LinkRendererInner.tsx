@@ -1,6 +1,6 @@
 import type { Node } from '@yozora/ast'
-import { clsx } from '@yozora/react-core'
 import React from 'react'
+import { clsx } from '../../../../util/clsx'
 import { NodesRenderer } from '../../NodesRenderer'
 
 interface IProps {
