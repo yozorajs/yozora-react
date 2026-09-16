@@ -1,11 +1,11 @@
 import { debounce } from '@guanghechen/common-util'
 import { clsx } from '@yozora/react-core'
 import React from 'react'
+import { CodeEditor as CodeEditorComponent } from '../component/CodeEditor'
+import { CodeEmbed as CodeEmbedComponent } from '../component/CodeEmbed'
 import { CopyButton as CopyButtonComponent } from '../component/CopyButton'
 import { LightButtons as LightButtonsComponent } from '../component/LightButtons'
-import { CodeEditor as CodeEditorComponent } from '../editor'
-import { CodeEmbed as CodeEmbedComponent } from '../embed'
-import { classes } from './style'
+import { liveClasses as classes } from '../style'
 import type { ICodeLiveProps, ICodeLiveState } from './types'
 
 /**

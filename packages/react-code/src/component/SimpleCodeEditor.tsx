@@ -1,6 +1,12 @@
 import { clsx } from '@yozora/react-core'
 import React from 'react'
-import { classes } from '../style'
+import { editorClasses as classes } from '../style'
+import type {
+  IEditorHistory,
+  IEditorOperationRecord,
+  IEditorProps,
+  IEditorState,
+} from './SimpleCodeEditor.types'
 import {
   HISTORY_LIMIT,
   HISTORY_TIME_GAP,
@@ -10,13 +16,7 @@ import {
   isMacLike,
   isWindows,
   regexps,
-} from '../util'
-import type {
-  IEditorHistory,
-  IEditorOperationRecord,
-  IEditorProps,
-  IEditorState,
-} from './SimpleCodeEditor.types'
+} from './SimpleCodeEditor.util'
 
 /**
  * Based on react-simple-code-editor, developed by satya164

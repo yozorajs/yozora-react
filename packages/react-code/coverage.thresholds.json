@@ -6,19 +6,19 @@
     "statements": 40
   },
   "files": {
-    "src/{Codex.tsx,util.ts}": {
+    "src/{Codex.tsx,util/meta.ts}": {
       "branches": 20,
       "functions": 50,
       "lines": 40,
       "statements": 40
     },
-    "src/editor/**": {
+    "src/component/{CodeEditor,SimpleCodeEditor*}.{ts,tsx}": {
       "branches": 20,
       "functions": 50,
       "lines": 40,
       "statements": 40
     },
-    "src/embed/**": {
+    "src/component/CodeEmbed.tsx": {
       "branches": 20,
       "functions": 50,
       "lines": 40,

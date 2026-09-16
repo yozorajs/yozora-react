@@ -2,7 +2,7 @@ import { isEqual } from '@guanghechen/equal'
 import type { ICodeRunner } from '@yozora/react-core'
 import { clsx } from '@yozora/react-core'
 import React from 'react'
-import { classes } from './style'
+import { embedClasses as classes } from '../style'
 
 interface IProps {
   /**

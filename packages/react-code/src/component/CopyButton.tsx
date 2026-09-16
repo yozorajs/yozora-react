@@ -1,7 +1,7 @@
 import { useEventCallback } from '@guanghechen/react-hooks'
 import { clsx } from '@yozora/react-core'
 import React from 'react'
-import { copyToClipboard } from './CopyButton.util'
+import { copyToClipboard } from '../util/copy'
 
 const enum CopyStatus {
   PENDING = 'pending',

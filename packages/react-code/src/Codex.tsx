@@ -3,11 +3,11 @@ import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/react-core'
 import { clsx } from '@yozora/react-core'
 import { CodeRendererJsx as JsxRendererComponent } from '@yozora/react-embed-jsx'
 import React from 'react'
-import { CodeEmbed as CodeEmbedComponent } from './embed'
-import { CodeLiteral as CodeLiteralComponent } from './literal'
+import { CodeEmbed as CodeEmbedComponent } from './component/CodeEmbed'
+import { CodeLiteral as CodeLiteralComponent } from './component/CodeLiteral'
 import { CodeLive as CodeLiveComponent } from './live'
 import type { ICodeMetaData, ICodeProps } from './types'
-import { parseCodeMeta } from './util'
+import { parseCodeMeta } from './util/meta'
 
 export const defaultRunners: ICodeRunnerItem[] = [
   {

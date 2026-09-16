@@ -1,8 +1,330 @@
-@import "./component/CopyButton.css";
-@import "./embed/style.css";
-@import "./literal/style.css";
-@import "./editor/style.css";
-@import "./live/style.css";
+.yozora-common-copy-button__container {
+  padding: 6px;
+  border: none;
+  outline: none;
+  @apply yz:cursor-pointer;
+  background: none;
+  @apply yz:select-none;
+  color: var(--yozora-copy-button--pending, #73808c);
+  &&:hover {
+    color: var(--yozora-copy-button--active, #7099c2);
+    border: none;
+    outline: none;
+  }
+  &:active {
+    color: var(--yozora-copy-button--active, #7099c2);
+    border: none;
+    outline: none;
+  }
+  &:target {
+    border: none;
+    outline: none;
+    animation: none;
+  }
+  &[data-copy-status="copying"] {
+    color: var(--yozora-copy-button--copying, #cccccc);
+  }
+  &[data-copy-status="completed"] {
+    color: var(--yozora-copy-button--completed, #14b814);
+  }
+  &[data-copy-status="failed"] {
+    color: var(--yozora-copy-button--failed, #b81414);
+  }
+}
+.yozora-code-embed__container {
+  @apply yz:relative;
+  border: none;
+  @apply yz:p-0;
+  background: transparent;
+}
+
+.yozora-code-embed__error {
+  @apply yz:block yz:w-full yz:h-full;
+  color: var(--yozora_colorBorderError, red);
+  border: 1px solid var(--yozora_colorBorderError, red);
+}
+
+.yozora-code-embed__error-details {
+  @apply yz:block yz:w-full yz:min-h-full;
+  padding: 0.5rem;
+  background: transparent;
+  @apply yz:whitespace-pre-wrap yz:text-left;
+}
+.yozora-code-literal__copy-btn {
+  @apply yz:absolute;
+  right: 1rem;
+  @apply yz:invisible yz:opacity-0;
+  transition: opacity 0.2s ease-in-out;
+  background: none;
+  @apply yz:select-none;
+}
+
+.yozora-code-literal__container {
+  @apply yz:flex yz:flex-col yz:justify-start yz:overflow-hidden;
+  border-radius: 10px;
+  border: 1px solid var(--yozora_colorBorderCode, #d3d3d3);
+  background: var(--yozora_colorBgCode, #f5f5f5);
+  caret-color: var(--yozora_colorCodeCaret, #ed6c60);
+  &&:hover {
+    .yozora-code-literal__copy-btn {
+      @apply yz:visible yz:opacity-100;
+    }
+  }
+}
+
+.yozora-code-literal__toolbar {
+  @apply yz:flex-none yz:relative yz:flex yz:items-center yz:box-border;
+  height: 2.5rem;
+  padding: 0 4px;
+  @apply yz:w-full;
+  border-bottom: 1px solid var(--yozora_colorBorderCode, #d3d3d3);
+  background: none;
+  @apply yz:cursor-default;
+}
+
+.yozora-code-literal__title {
+  margin-left: 0.75rem;
+  font-family: var(--yozora_fontFamilyCode, ui-monospace, monospace);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--yozora_colorCodeTitle, hsla(0deg, 0%, 30%, 0.8));
+  @apply yz:select-none;
+}
+
+.yozora-code-literal__content {
+  @apply yz:overflow-auto yz:p-0;
+  border: none;
+  @apply yz:m-0;
+  font-family: var(
+    --yozora_fontFamilyCode,
+    Consolas,
+    "Source Code Pro",
+    "Roboto Mono",
+    monospace,
+    sans-serif
+  );
+  font-size: var(--yozora_fontSizeCode, 1rem);
+  background: inherit;
+  @apply yz:whitespace-pre-wrap;
+  overflow-wrap: break-word;
+  word-spacing: normal;
+  @apply yz:break-all;
+  word-wrap: break-word;
+  letter-spacing: normal;
+  line-height: inherit;
+  tab-size: 2;
+  > pre {
+    @apply yz:m-0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    &&::selection {
+      background: var(--yozora_colorCodeSelection, hsla(200deg, 30%, 70%, 0.3));
+    }
+  }
+  span {
+    line-height: inherit;
+  }
+  code {
+    @apply yz:p-0 yz:m-0;
+    line-height: inherit;
+    background: none;
+  }
+  && ::selection {
+    background: var(--yozora_colorCodeSelection, hsla(200deg, 30%, 70%, 0.3));
+  }
+}
+.yozora-code-editor__textarea,
+.yozora-code-editor__textarea-contents,
+.yozora-code-editor__previewer {
+  @apply yz:h-full yz:w-full yz:p-0;
+  border: 0;
+  @apply yz:m-0;
+  outline: none;
+  background: none;
+  box-sizing: inherit;
+  display: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-variant-ligatures: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  overflow-wrap: inherit;
+  tab-size: inherit;
+  text-indent: inherit;
+  text-rendering: inherit;
+  text-transform: inherit;
+  white-space: inherit;
+  word-break: inherit;
+  word-spacing: inherit;
+  word-wrap: inherit;
+}
+
+.yozora-code-editor__textarea {
+  @apply yz:absolute yz:left-0 yz:top-0 yz:flex yz:justify-start yz:items-stretch;
+}
+
+.yozora-code-editor__textarea-contents {
+  @apply yz:flex-auto yz:resize-none yz:p-0;
+  color: transparent;
+  caret-color: var(--yozora_colorCodeCaret, #ed6c60);
+  -webkit-text-fill-color: transparent;
+  &:empty {
+    color: inherit;
+    -webkit-text-fill-color: inherit;
+  }
+}
+
+.yozora-code-editor__container {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  @apply yz:relative yz:overflow-hidden yz:box-border yz:p-0 yz:text-left;
+  tab-size: 2;
+  @apply yz:whitespace-pre yz:break-keep;
+  word-spacing: normal;
+  word-wrap: normal;
+  line-height: var(--yozora_lineHeightCode, 1.6);
+  font-family: var(
+    --yozora_fontFamilyCode,
+    Consolas,
+    "Source Code Pro",
+    "Roboto Mono",
+    monospace,
+    sans-serif
+  );
+  /* Match the highlighter when no ThemeProvider supplies font tokens. */
+  font-size: var(--yozora_fontSizeCode, 14px);
+  border: 1px solid var(--yozora_colorBorderCode, #d3d3d3);
+  border-radius: 4px;
+  & > pre {
+    code {
+      @apply yz:p-0 yz:m-0;
+      line-height: inherit;
+      background: transparent;
+    }
+    span {
+      line-height: inherit;
+    }
+  }
+  .yozora-code-editor__textarea-contents {
+    @apply yz:overflow-x-hidden;
+  }
+}
+
+.yozora-code-editor__textarea-linenos {
+  @apply yz:flex-none;
+}
+
+.yozora-code-editor__previewer {
+  @apply yz:relative yz:pointer-events-none;
+}
+.yozora-code-live__copy-btn {
+  @apply yz:absolute;
+  right: 1rem;
+  @apply yz:invisible yz:opacity-0;
+  transition: opacity 0.2s ease-in-out;
+  background: none;
+  @apply yz:select-none;
+}
+
+.yozora-code-live__editor {
+  flex: 1 1 0%;
+  @apply yz:relative yz:box-border yz:min-h-0 yz:overflow-auto yz:p-0 yz:m-0;
+  font-family: var(
+    --yozora_fontFamilyCode,
+    Consolas,
+    "Source Code Pro",
+    "Roboto Mono",
+    monospace,
+    sans-serif
+  );
+  font-size: var(--yozora_fontSizeCode, 1rem);
+  background: none;
+  && ::selection {
+    background: var(--yozora_colorCodeSelection, hsla(200deg, 30%, 70%, 0.3));
+  }
+  .yozora-code-editor {
+    border: none;
+    border-radius: 0;
+  }
+}
+
+.yozora-code-live__previewer {
+  flex: 1 1 0%;
+  @apply yz:box-border yz:min-h-0 yz:overflow-auto yz:block yz:p-0 yz:m-0;
+  color: #000;
+  background: none;
+}
+
+.yozora-code-live__container {
+  @apply yz:flex yz:flex-col yz:justify-start yz:overflow-hidden;
+  border-radius: 10px;
+  border: 1px solid var(--yozora_colorBorderCode, #d3d3d3);
+  background: var(--yozora_colorBgCode, #f5f5f5);
+  caret-color: var(--yozora_colorCodeCaret, #ed6c60);
+  &&:hover {
+    .yozora-code-live__copy-btn {
+      @apply yz:visible yz:opacity-100;
+    }
+  }
+  && ::selection {
+    background: var(--yozora_colorCodeSelection, hsla(200deg, 30%, 70%, 0.3));
+  }
+  && ::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+  }
+  && ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+.yozora-code-live__toolbar {
+  @apply yz:flex-none yz:relative yz:flex yz:items-center yz:box-border;
+  height: 2.5rem;
+  padding: 0 4px;
+  @apply yz:w-full;
+  border-bottom: 1px solid var(--yozora_colorBorderCode, #d3d3d3);
+  background: var(--yozora_colorBgCode, #f5f5f5);
+  @apply yz:cursor-default;
+}
+
+.yozora-code-live__title {
+  margin-left: 0.75rem;
+  font-family: var(--yozora_fontFamilyCode, ui-monospace, monospace);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--yozora_colorCodeTitle, hsla(0deg, 0%, 30%, 0.8));
+  @apply yz:select-none;
+}
+
+.yozora-code-live__main {
+  @apply yz:flex-auto yz:min-h-0 yz:flex yz:flex-row yz:items-stretch;
+  .yozora-code-live__editor {
+    border-right: 1px solid var(--yozora_colorBorderCode, #d3d3d3);
+  }
+}
+
+.yozora-code-live__main-vertical {
+  @apply yz:grid yz:grid-cols-1;
+  /* Keep intrinsic heights when unconstrained and share limited space between scroll areas. */
+  grid-auto-rows: minmax(0, auto);
+  &[data-collapsed] {
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  > .yozora-code-live__editor {
+    border-bottom: 1px solid var(--yozora_colorBorderCode, #d3d3d3);
+    border-right: none;
+  }
+}
+
+.yozora-code-live__previewer-center {
+  > .yozora-code-embed {
+    @apply yz:min-h-full yz:flex yz:items-center yz:justify-center;
+  }
+}
 
 .yozora-code__root {
   margin: var(--yozora_marginBlockNode);
