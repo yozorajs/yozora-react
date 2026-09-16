@@ -45,7 +45,6 @@
     "@guanghechen/common-util": "^0.2.8",
     "@yozora/react-code-editor": "workspace:^",
     "@yozora/react-code-embed": "workspace:^",
-    "@yozora/react-code-highlighter": "workspace:^",
     "@yozora/react-common-copy-button": "workspace:^",
     "@yozora/react-common-light-buttons": "workspace:^",
     "@yozora/react-core": "workspace:^"

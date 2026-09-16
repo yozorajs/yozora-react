@@ -142,8 +142,8 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 
 ## Related
 
-- [@yozora/react-code-highlighter][]
+- [@yozora/react-core][]
 - [react-simple-code-editor][]
 
-[@yozora/react-code-highlighter]: https://www.npmjs.com/package/@yozora/react-code-highlighter
+[@yozora/react-core]: https://www.npmjs.com/package/@yozora/react-core
 [react-simple-code-editor]: https://github.com/satya164/react-simple-code-editor

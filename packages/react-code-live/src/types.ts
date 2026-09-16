@@ -1,5 +1,4 @@
-import type { IPrismTheme } from '@yozora/react-code-highlighter'
-import type { ICodeRunnerItem, ICodeRunnerScope } from '@yozora/react-core'
+import type { ICodeRunnerItem, ICodeRunnerScope, IPrismTheme } from '@yozora/react-core'
 
 /**
  * Live mode block code

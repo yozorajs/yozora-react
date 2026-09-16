@@ -152,7 +152,7 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
 | Package Name                  | Description                                              |
 | :---------------------------: | :------------------------------------------------------- |
-| [@yozora/react-core][]         | Theme providers, tokens, code-runner types, and utilities. |
+| [@yozora/react-core][]         | Theme providers, syntax highlighting, tokens, code-runner types, and utilities. |
 | [@yozora/core-react-renderer][] | Provider `NodesRenderer` and simple markdown renderers.    |
 
 ### Markdown components
@@ -168,7 +168,6 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 | :--------------------------------------: | :----------------------------------------------------------------------------- |
 |      [@yozora/react-code-editor][]       | A simple code editor.                                                          |
 |       [@yozora/react-code-embed][]       | A simple code editor online.                                                   |
-|    [@yozora/react-code-highlighter][]    | Highlight codes.                                                               |
 |      [@yozora/react-code-literal][]      | Render literal code block.                                                     |
 |       [@yozora/react-code-live][]        | A live code editor, be similar to [react-live][].                              |
 |   [@yozora/react-code-renderer-jsx][]    | React component for rendering jsx directly in browser.                         |
@@ -191,8 +190,6 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
   https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-editor#readme
 [@yozora/react-code-embed]:
   https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-embed#readme
-[@yozora/react-code-highlighter]:
-  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-highlighter#readme
 [@yozora/react-code-literal]:
   https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-literal#readme
 [@yozora/react-code-live]:

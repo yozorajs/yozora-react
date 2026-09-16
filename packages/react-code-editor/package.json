@@ -42,7 +42,6 @@
   ],
   "dependencies": {
     "@guanghechen/equal": "^2.0.5",
-    "@yozora/react-code-highlighter": "workspace:^",
     "@yozora/react-core": "workspace:^"
   },
   "peerDependencies": {

@@ -1,5 +1,4 @@
-import { CodeHighlighter as CodeHighlighterComponent } from '@yozora/react-code-highlighter'
-import { parseCodeMeta } from '@yozora/react-core'
+import { CodeHighlighter as CodeHighlighterComponent, parseCodeMeta } from '@yozora/react-core'
 import React from 'react'
 
 interface IProps {

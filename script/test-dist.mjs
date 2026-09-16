@@ -97,6 +97,13 @@ for (const name of fs.readdirSync(packagesDir)) {
       }
     }
   }
+  if (name === 'react-core') {
+    assert.doesNotMatch(
+      fs.readFileSync(typesPath, 'utf8'),
+      /(?:from\s*|import\s*\(\s*)['"]prismjs/,
+      'Core declarations must not require consumers to install Prism types',
+    )
+  }
   if (name === 'react-mathjax') {
     assert.doesNotMatch(
       fs.readFileSync(typesPath, 'utf8'),
@@ -136,7 +143,7 @@ for (const name of fs.readdirSync(packagesDir)) {
       consumer += 'export type ContextBreakpoints = IThemeContext["breakpoints"]\n'
       consumer += 'export type ContextNonce = IThemeContext["nonce"]\n'
       consumer += 'export type ContextVariant = IThemeContext["variant"]\n'
-      consumer += `export type { IThemeSchema, IThemePalette } from '${manifest.name}'\n`
+      consumer += `export type { IThemeSchema, IThemePalette, IThemeSyntax, IPrismTheme, IToken, IThemeDict } from '${manifest.name}'\n`
       consumer +=
         'export const modernTheme: IThemeProviderProps = { theme: "vsc", variant: "dark-modern" }\n'
     }
@@ -186,7 +193,7 @@ export const invalidNestedFunction: INodeStyleMap = { paragraph: { body: { color
 export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] } }
 `
     }
-    if (name === 'react-code-editor' || name === 'react-code-highlighter') {
+    if (name === 'react-code-editor' || name === 'react-core') {
       consumer += '// @ts-expect-error Implementation props must remain private.\n'
       consumer += `import type { IProps } from '${manifest.name}'\n`
     }
@@ -195,16 +202,57 @@ export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] 
     if (name === 'react-core') {
       const utilityEntry = path.join(consumerDir, 'utility.mjs')
       fs.writeFileSync(utilityEntry, `export { clsx } from '${manifest.name}'\n`)
-      const bundle = await Rolldown.rolldown({ input: utilityEntry, external: ['react'] })
+      const bundle = await Rolldown.rolldown({
+        input: utilityEntry,
+        external: ['react', 'prismjs', '@guanghechen/equal'],
+      })
       try {
         const { output } = await bundle.generate({ format: 'esm' })
-        assert.deepEqual(output[0].imports, [], 'Utility consumers must not load React')
+        assert.deepEqual(
+          output[0].imports,
+          [],
+          'Utility consumers must not load React or highlighter dependencies',
+        )
         const utilities = await import(
           'data:text/javascript;base64,' + Buffer.from(output[0].code).toString('base64')
         )
         assert.equal(utilities.clsx('button', [null, 'rounded']), 'button rounded')
       } finally {
         await bundle.close()
+      }
+      const highlighterEntry = path.join(consumerDir, 'highlighter.mjs')
+      fs.writeFileSync(highlighterEntry, `export { CodeHighlighter } from '${manifest.name}'\n`)
+      const highlighterBundle = await Rolldown.rolldown({
+        input: highlighterEntry,
+        external: ['react', 'prismjs', '@guanghechen/equal'],
+      })
+      try {
+        const file = path.join(consumerDir, 'highlighter-bundle.mjs')
+        await highlighterBundle.write({ file, format: 'esm' })
+        const probe = path.join(consumerDir, 'highlighter-probe.mjs')
+        fs.writeFileSync(
+          probe,
+          `
+import assert from 'node:assert/strict'
+import React from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
+import { CodeHighlighter } from './highlighter-bundle.mjs'
+for (const [lang, value] of [
+  ['typescript', 'const count: number = 1'],
+  ['python', 'def greet(): return "hello"'],
+  ['sql', 'SELECT name FROM users'],
+]) {
+  const markup = renderToStaticMarkup(React.createElement(CodeHighlighter, { lang, value }))
+  assert.match(markup, /token keyword/, lang + ': bundled highlighters must retain grammars')
+}
+`,
+        )
+        // A fresh process cannot reuse grammars registered by the earlier package imports.
+        const result = spawnSync(process.execPath, [probe], { cwd: root, encoding: 'utf8' })
+        assert.ifError(result.error)
+        assert.equal(result.status, 0, `${result.stdout}${result.stderr}`)
+      } finally {
+        await highlighterBundle.close()
       }
     }
     const configPath = path.join(consumerDir, 'tsconfig.json')
@@ -315,35 +363,46 @@ export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] 
           .filter(key => key !== '__esModule')
           .sort(),
         [
+          'CodeHighlighter',
           'CommonTokenNames',
+          'HighlightContent',
+          'HighlightLinenos',
           'ThemeProvider',
           'TokenNames',
+          'areSameArray',
           'catppuccinFrappeSchema',
           'catppuccinLatteSchema',
           'catppuccinMacchiatoSchema',
           'catppuccinMochaSchema',
+          'classes',
           'clsx',
           'convertToBoolean',
           'getBreakpointId',
           'getThemeSchema',
+          'githubTheme',
           'gruvboxDarkSchema',
           'gruvboxLightSchema',
           'kanagawaDragonSchema',
           'kanagawaLotusSchema',
           'kanagawaWaveSchema',
+          'normalizeTokens',
           'parseCodeMeta',
           'rosepineDawnSchema',
           'rosepineMainSchema',
           'rosepineMoonSchema',
           'themeSchemas',
+          'themeToDict',
           'tokens',
           'tokyonightDaySchema',
           'tokyonightMoonSchema',
           'tokyonightNightSchema',
           'tokyonightStormSchema',
           'useThemeContext',
+          'vars',
           'vscDarkModernSchema',
+          'vscDarkTheme',
           'vscLightModernSchema',
+          'vscLightTheme',
         ],
       )
       const css = fs.readFileSync(path.join(packageDir, 'lib/style.css'), 'utf8')
@@ -419,10 +478,9 @@ export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] 
         },
       )
     }
-    if (name === 'react-code-highlighter') {
-      assert.equal(module.default, module.CodeHighlighter)
+    if (name === 'react-core') {
       const markup = renderToStaticMarkup(
-        React.createElement(module.default, {
+        React.createElement(module.CodeHighlighter, {
           lang: 'typescript',
           value: 'const value: number = 1',
         }),

@@ -1,5 +1,3 @@
-import './language'
-
 export * from './component/CodeHighlighter'
 export { CodeHighlighter as default } from './component/CodeHighlighter'
 export * from './component/HighlightContent'

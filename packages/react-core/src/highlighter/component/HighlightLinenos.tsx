@@ -1,5 +1,5 @@
-import { clsx } from '@yozora/react-core'
 import React from 'react'
+import { clsx } from '../../util/clsx'
 import { classes } from '../style'
 import { areSameArray } from '../util/misc'
 

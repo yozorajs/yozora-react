@@ -7,7 +7,6 @@
       "@yozora/react-code": ["./packages/react-code/src"],
       "@yozora/react-code-editor": ["./packages/react-code-editor/src"],
       "@yozora/react-code-embed": ["./packages/react-code-embed/src"],
-      "@yozora/react-code-highlighter": ["./packages/react-code-highlighter/src"],
       "@yozora/react-code-literal": ["./packages/react-code-literal/src"],
       "@yozora/react-code-live": ["./packages/react-code-live/src"],
       "@yozora/react-code-renderer-graphviz": ["./packages/react-code-renderer-graphviz/src"],

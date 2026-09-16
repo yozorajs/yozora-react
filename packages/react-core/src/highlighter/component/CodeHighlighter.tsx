@@ -1,5 +1,5 @@
-import { useThemeContext } from '@yozora/react-core'
 import React from 'react'
+import { useThemeContext } from '../../theme/context'
 import { schemaToPrismTheme } from '../theme/palette'
 import vscDarkTheme from '../theme/vsc-dark'
 import vscLightTheme from '../theme/vsc-light'

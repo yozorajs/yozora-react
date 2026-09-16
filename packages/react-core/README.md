@@ -1,6 +1,6 @@
 # @yozora/react-core
 
-Shared theme providers, tokens, code-runner contracts, and utilities for Yozora React.
+Shared theme providers, syntax highlighting, tokens, code-runner contracts, and utilities for Yozora React.
 
 ```ts
 import { CommonTokenNames, TokenNames, clsx, parseCodeMeta, tokens } from '@yozora/react-core'
@@ -19,7 +19,7 @@ removed. Use `theme="vsc" variant="light-modern"` / `variant="dark-modern"` inst
 For direct color-map access, use `vscLightModernSchema.colors` /
 `vscDarkModernSchema.colors`; these use the new palette rather than the old colors.
 
-Source modules are grouped under `constant`, `types`, `util`, and `theme` inside the package.
+Source modules are grouped under `constant`, `types`, `util`, `theme`, and `highlighter` inside the package.
 The public import entry is `@yozora/react-core`.
 
 ## Theme
@@ -90,6 +90,31 @@ Unknown names or variants select no built-in palette, so custom CSS themes remai
 Code highlighting follows the provider's palette automatically. An explicit highlighter
 `theme` prop takes precedence, followed by an explicit `darken` prop. Standalone
 highlighters without a provider retain their dark default.
+
+## Code highlighting
+
+`@yozora/react-code-highlighter` is now included in this package. Replace its default
+import with the named `CodeHighlighter` export, import types such as `IPrismTheme`
+from `@yozora/react-core`, and use `@yozora/react-core/style.css`.
+
+```tsx
+import { CodeHighlighter, ThemeProvider } from '@yozora/react-core'
+import '@yozora/react-core/style.css'
+
+<ThemeProvider theme="catppuccin" variant="mocha">
+  <CodeHighlighter lang="typescript" value="const answer: number = 42" />
+</ThemeProvider>
+```
+
+Existing highlighter props, callbacks, CSS class names, and CSS variables are
+preserved. An explicit Prism `theme` overrides `darken`, which overrides the
+provider's theme; standalone highlighters still default to VS Code dark colors.
+Language registration is included when using the highlighter. Bundled consumers
+that only import core utilities can omit Prism and the registered languages.
+
+The former named exports remain available, including `HighlightContent`,
+`HighlightLinenos`, `classes`, `vars`, `githubTheme`, `vscDarkTheme`, `vscLightTheme`,
+`normalizeTokens`, `themeToDict`, `areSameArray`, and the Prism-related types.
 
 ## Class names
 

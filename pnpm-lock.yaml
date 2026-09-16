@@ -90,9 +90,6 @@ importers:
       '@yozora/ast':
         specifier: ^2.0.0
         version: 2.4.1
-      '@yozora/react-code-highlighter':
-        specifier: workspace:^
-        version: link:../react-code-highlighter
       '@yozora/react-core':
         specifier: workspace:^
         version: link:../react-core
@@ -178,9 +175,6 @@ importers:
       '@guanghechen/equal':
         specifier: ^2.0.5
         version: 2.0.5
-      '@yozora/react-code-highlighter':
-        specifier: workspace:^
-        version: link:../react-code-highlighter
       '@yozora/react-core':
         specifier: workspace:^
         version: link:../react-core
@@ -203,26 +197,8 @@ importers:
         specifier: 19.3.0
         version: 19.3.0
 
-  packages/react-code-highlighter:
-    dependencies:
-      '@guanghechen/equal':
-        specifier: ^2.0.5
-        version: 2.0.5
-      '@yozora/react-core':
-        specifier: workspace:^
-        version: link:../react-core
-      prismjs:
-        specifier: 1.30.0
-        version: 1.30.0
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
-
   packages/react-code-literal:
     dependencies:
-      '@yozora/react-code-highlighter':
-        specifier: workspace:^
-        version: link:../react-code-highlighter
       '@yozora/react-common-copy-button':
         specifier: workspace:^
         version: link:../react-common-copy-button
@@ -250,9 +226,6 @@ importers:
       '@yozora/react-code-embed':
         specifier: workspace:^
         version: link:../react-code-embed
-      '@yozora/react-code-highlighter':
-        specifier: workspace:^
-        version: link:../react-code-highlighter
       '@yozora/react-common-copy-button':
         specifier: workspace:^
         version: link:../react-common-copy-button
@@ -337,9 +310,15 @@ importers:
 
   packages/react-core:
     dependencies:
+      '@guanghechen/equal':
+        specifier: ^2.0.5
+        version: 2.0.5
       '@guanghechen/parse-lineno':
         specifier: ^2.3.10
         version: 2.3.10
+      prismjs:
+        specifier: 1.30.0
+        version: 1.30.0
       react:
         specifier: 19.3.0
         version: 19.3.0

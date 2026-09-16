@@ -136,7 +136,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 - [@yozora/ast][]
 - [@yozora/react-code][]
 - [@yozora/react-code-embed][]
-- [@yozora/react-code-highlighter][]
+- [@yozora/react-core][]
 - [@yozora/react-code-live][]
 - [@yozora/react-markdown][]
 - [@yozora/tokenizer-indented-code][]
@@ -146,7 +146,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#code
 [@yozora/react-code]: https://www.npmjs.com/package/@yozora/react-code
 [@yozora/react-code-embed]: https://www.npmjs.com/package/@yozora/react-code-embed
-[@yozora/react-code-highlighter]: https://www.npmjs.com/package/@yozora/react-code-highlighter
+[@yozora/react-core]: https://www.npmjs.com/package/@yozora/react-core
 [@yozora/react-code-literal]: https://www.npmjs.com/package/@yozora/react-code-literal
 [@yozora/react-code-live]: https://www.npmjs.com/package/@yozora/react-code-live
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown

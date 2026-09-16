@@ -1,5 +1,5 @@
-import type { IThemeSchema } from '@yozora/react-core'
-import { TokenNames } from '@yozora/react-core'
+import { TokenNames } from '../../constant/token'
+import type { IThemeSchema } from '../../theme/types'
 import type { IPrismTheme } from '../types/prism'
 
 /** Adapt schema syntax roles at the highlighter boundary. */

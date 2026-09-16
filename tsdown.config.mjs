@@ -1,4 +1,4 @@
-import { builtinModules } from 'node:module'
+import { builtinModules, createRequire } from 'node:module'
 import path from 'node:path'
 import { defineConfig } from 'tsdown'
 import { buildStyles, getStyleWatchFiles } from './script/build-styles.mjs'
@@ -19,6 +19,9 @@ const neverBundle = id => {
   const name = /^(@[^/]+\/[^/]+|[^/]+)/.exec(id)?.[1]
   return dependencies.has(name)
 }
+
+const isReactCore = manifest.name === '@yozora/react-core'
+const require = createRequire(import.meta.url)
 
 const common = {
   cwd: process.cwd(),
@@ -43,8 +46,8 @@ export default defineConfig([
     sourcemap: process.env.BUILD_SOURCEMAP === 'true',
     cjsDefault: false,
     dts: false,
-    // Keep theme initialization removable when consumers only import core utilities.
-    unbundle: manifest.name === '@yozora/react-core',
+    // Keep theme and highlighter modules removable for consumers of core utilities.
+    unbundle: isReactCore,
     ...(format === 'esm'
       ? {
           hooks: { 'build:done': () => buildStyles(process.cwd()) },
@@ -66,8 +69,18 @@ export default defineConfig([
   {
     ...common,
     format: 'esm',
+    // Prism's runtime package has no declarations; inline the existing @types package.
+    ...(isReactCore ? { alias: { prismjs: require.resolve('@types/prismjs/index.d.ts') } } : {}),
     // Bundle development-only types so consumers do not need devDependencies.
-    deps: { neverBundle, onlyBundle: Object.keys(manifest.devDependencies ?? {}) },
+    deps: {
+      neverBundle: id => !(isReactCore && id === 'prismjs') && neverBundle(id),
+      alwaysBundle: isReactCore ? ['prismjs'] : [],
+      onlyBundle: [
+        ...Object.keys(manifest.devDependencies ?? {}),
+        // Prism does not ship declarations; retain the existing public token types inline.
+        ...(isReactCore ? ['@types/prismjs'] : []),
+      ],
+    },
     outDir: path.dirname(manifest.types),
     outExtensions: () => ({ dts: '.d.ts' }),
     sourcemap: false,

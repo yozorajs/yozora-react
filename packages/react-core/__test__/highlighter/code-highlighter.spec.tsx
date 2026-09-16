@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-import CodeHighlighter from '../src'
+import { CodeHighlighter } from '../../src'
 
 describe('basic rendering case', () => {
   test('lineno change', () => {

@@ -1,7 +1,7 @@
 {
   "name": "@yozora/react-core",
   "version": "3.0.0-alpha.0",
-  "description": "Shared theme, constants, types, and utilities for Yozora React.",
+  "description": "Shared theme, syntax highlighter, constants, types, and utilities for Yozora React.",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -40,7 +40,9 @@
     "README.md"
   ],
   "dependencies": {
-    "@guanghechen/parse-lineno": "^2.3.10"
+    "@guanghechen/equal": "^2.0.5",
+    "@guanghechen/parse-lineno": "^2.3.10",
+    "prismjs": "1.30.0"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
@@ -54,7 +56,8 @@
     "test:update": "vitest run --config ../../vitest.config.ts -u"
   },
   "sideEffects": [
-    "**/*.css"
+    "**/*.css",
+    "**/highlighter/language/**"
   ],
   "browserslist": [
     "Chrome >= 111",

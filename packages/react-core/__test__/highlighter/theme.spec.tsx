@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react'
-import { ThemeProvider } from '@yozora/react-core'
 import React from 'react'
-import { CodeHighlighter } from '../src'
+import { CodeHighlighter, ThemeProvider } from '../../src'
 
 test('highlighting follows named variants through a PureComponent boundary', () => {
   const code = <CodeHighlighter lang="typescript" value={'const value = "hello"'} />

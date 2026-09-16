@@ -42,7 +42,6 @@
     "README.md"
   ],
   "dependencies": {
-    "@yozora/react-code-highlighter": "workspace:^",
     "@yozora/react-common-copy-button": "workspace:^",
     "@yozora/react-common-light-buttons": "workspace:^",
     "@yozora/react-core": "workspace:^"

@@ -1,4 +1,4 @@
-import { CommonTokenNames, TokenNames } from '@yozora/react-core'
+import { CommonTokenNames, TokenNames } from '../constant/token'
 
 export const vars = {
   border: `1px solid var(${TokenNames.colorBorderCodeLineno}, hsla(0deg, 0%, 80%, 0.8))`,

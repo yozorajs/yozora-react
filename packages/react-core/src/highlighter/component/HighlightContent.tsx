@@ -1,8 +1,9 @@
 import { isEqual } from '@guanghechen/equal'
-import { clsx } from '@yozora/react-core'
 import type { TokenStream } from 'prismjs'
 import Prism from 'prismjs'
 import React from 'react'
+import { clsx } from '../../util/clsx'
+import '../language'
 import { classes, vars } from '../style'
 import type {
   ILineInputProps,
