@@ -2,7 +2,7 @@
   "extends": "./tsconfig.settings.json",
   "compilerOptions": {
     "paths": {
-      "@yozora/react-core": ["./packages/react-core/src"],
+      "@yozora/react": ["./packages/react/src"],
       "@yozora/react-embed-graphviz": ["./packages/react-embed-graphviz/src"],
       "@yozora/react-embed-jsx": ["./packages/react-embed-jsx/src"],
       "@yozora/react-markdown": ["./packages/react-markdown/src"],

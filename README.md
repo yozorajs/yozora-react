@@ -66,7 +66,7 @@ Import the stylesheet for the highest-level Yozora component you use:
 
 ```tsx
 import '@yozora/react-markdown/style.css'
-import { ThemeProvider } from '@yozora/react-core'
+import { ThemeProvider } from '@yozora/react'
 ```
 
 Each styled package exports `./style.css`, including its dependency components.
@@ -122,7 +122,7 @@ See [@yozora/react-markdown][]
 ```tsx
 import loadable from '@loadable/component'
 import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
-import { ThemeProvider } from '@yozora/react-core'
+import { ThemeProvider } from '@yozora/react'
 import YozoraParser from '@yozora/parser'
 import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-markdown'
 
@@ -152,7 +152,7 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
 | Package Name                  | Description                                              |
 | :---------------------------: | :------------------------------------------------------- |
-| [@yozora/react-core][]         | AST renderers, theme providers, syntax highlighting, tokens, code-runner types, and utilities. |
+| [@yozora/react][]         | AST renderers, theme providers, syntax highlighting, tokens, code-runner types, and utilities. |
 
 ### Markdown components
 
@@ -177,7 +177,7 @@ It also provides [runner factories](./packages/react-renderer-code/README.md#run
 
 <!-- yozora component links -->
 
-[@yozora/react-core]: ./packages/react-core
+[@yozora/react]: ./packages/react
 [@yozora/react-renderer-admonition]:
   https://github.com/yozorajs/yozora-react/tree/main/packages/react-renderer-admonition#readme
 [@yozora/react-renderer-code]:

@@ -1,6 +1,6 @@
 import { useDeepCompareMemo, useEventCallback } from '@guanghechen/react-hooks'
 import type { EcmaImport as IEcmaImport } from '@yozora/ast'
-import type { ICodeRunner, ICodeRunnerScope } from '@yozora/react-core'
+import type { ICodeRunner, ICodeRunnerScope } from '@yozora/react'
 import React from 'react'
 import type { IDynamicImportRule } from './lazy'
 import { dynamicImport } from './lazy'

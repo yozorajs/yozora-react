@@ -1,4 +1,4 @@
-import { CodeHighlighter as CodeHighlighterComponent, clsx } from '@yozora/react-core'
+import { CodeHighlighter as CodeHighlighterComponent, clsx } from '@yozora/react'
 import React from 'react'
 import { classes } from '../style'
 import { CopyButton as CopyButtonComponent } from './CopyButton'

@@ -1,4 +1,4 @@
-import { clsx } from '@yozora/react-core'
+import { clsx } from '@yozora/react'
 import React from 'react'
 import { classes } from '../style'
 import type {

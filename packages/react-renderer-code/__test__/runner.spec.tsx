@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react'
 import { EcmaImportType, MathType } from '@yozora/ast'
-import type { ICodeRunnerScope } from '@yozora/react-core'
+import type { ICodeRunnerScope } from '@yozora/react'
 import { CodeRendererJsx } from '@yozora/react-embed-jsx'
 import React from 'react'
 import { vi } from 'vitest'

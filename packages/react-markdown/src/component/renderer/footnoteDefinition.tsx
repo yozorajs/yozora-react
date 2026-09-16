@@ -1,5 +1,5 @@
 import type { FootnoteDefinition } from '@yozora/ast'
-import { NodesRenderer } from '@yozora/react-core'
+import { NodesRenderer } from '@yozora/react'
 import React from 'react'
 
 /**

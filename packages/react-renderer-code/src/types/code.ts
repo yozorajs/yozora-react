@@ -2,7 +2,7 @@ import type {
   ICodeMetaData as IBaseCodeMetaData,
   ICodeRunnerItem,
   ICodeRunnerMetaData,
-} from '@yozora/react-core'
+} from '@yozora/react'
 
 export interface ICodeProps {
   /**

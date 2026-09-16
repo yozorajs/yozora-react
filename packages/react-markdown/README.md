@@ -93,8 +93,8 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
   To use it with the following code snippet:
 
   ```tsx
-  import type { IImageViewerProps } from '@yozora/react-core'
-  import { ThemeProvider } from '@yozora/react-core'
+  import type { IImageViewerProps } from '@yozora/react'
+  import { ThemeProvider } from '@yozora/react'
   import { Markdown, MarkdownProvider } from '@yozora/react-markdown'
   import React from 'react'
 
@@ -155,7 +155,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 - Render formula with mathjax.
 
   ```tsx
-  import { ThemeProvider } from '@yozora/react-core'
+  import { ThemeProvider } from '@yozora/react'
   import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-markdown'
 
   <MathJaxProvider>
@@ -174,8 +174,8 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
   import { Route } from 'react-route-dom'
   import { LinkReferenceType, LinkType } from '@yozora/ast'
   import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
-  import { NodeRendererContextType, NodesRenderer  } from '@yozora/react-core'
-  import { ThemeProvider } from '@yozora/react-core'
+  import { NodeRendererContextType, NodesRenderer  } from '@yozora/react'
+  import { ThemeProvider } from '@yozora/react'
   import YozoraParser from '@yozora/parser'
   import type { INodeRendererMap } from '@yozora/react-markdown'
   import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-markdown'

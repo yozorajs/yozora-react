@@ -1,17 +1,21 @@
-# @yozora/react-core
+# @yozora/react
 
 Shared AST renderers, theme providers, syntax highlighting, tokens, code-runner contracts, and utilities for Yozora React.
 
 ```ts
-import { CommonTokenNames, TokenNames, clsx, parseCodeMeta, tokens } from '@yozora/react-core'
-import type { ICodeMetaData, ICodeRunner, ICodeRunnerProps } from '@yozora/react-core'
+import { CommonTokenNames, TokenNames, clsx, parseCodeMeta, tokens } from '@yozora/react'
+import type { ICodeMetaData, ICodeRunner, ICodeRunnerProps } from '@yozora/react'
 ```
 
 ## Migration
 
+`@yozora/react-core` has been renamed to `@yozora/react`. Update dependency names
+and imports, including `@yozora/react/style.css`. Public exports and component
+behavior are unchanged by this rename.
+
 This package replaces `@yozora/core-react-constant`, `@yozora/core-react-types`,
 `@yozora/core-react-util`, and `@yozora/core-react-theme`. Update dependencies and import specifiers to
-`@yozora/react-core`. ESM, CommonJS, and TypeScript declarations are available
+`@yozora/react`. ESM, CommonJS, and TypeScript declarations are available
 through the package root.
 
 The old `light` / `darken` themes and `lightSchema` / `darkenSchema` exports have been
@@ -20,19 +24,19 @@ For direct color-map access, use `vscLightModernSchema.colors` /
 `vscDarkModernSchema.colors`; these use the new palette rather than the old colors.
 
 Source modules are grouped under `constant`, `types`, `util`, `theme`, `highlighter`, and `renderer` inside the package.
-The public import entry is `@yozora/react-core`.
+The public import entry is `@yozora/react`.
 
 ## Theme
 
 ```tsx
-import '@yozora/react-core/style.css'
-import { ThemeProvider, useThemeContext } from '@yozora/react-core'
+import '@yozora/react/style.css'
+import { ThemeProvider, useThemeContext } from '@yozora/react'
 ```
 
 `ThemeProvider`, `useThemeContext`, `vscLightModernSchema`, `vscDarkModernSchema`, `IBreakpoints`,
 `IThemeContext`, and `IThemeProviderProps` are available from the package root.
 Existing component stylesheets include the theme styles through their dependency on
-`react-core`; standalone theme users import `@yozora/react-core/style.css`.
+`@yozora/react`; standalone theme users import `@yozora/react/style.css`.
 Custom breakpoints and inherited CSP nonces retain their existing behavior.
 
 Built-in schemas are flat files under `src/theme/schema/`. Each schema is a literal
@@ -94,12 +98,12 @@ highlighters without a provider retain their dark default.
 ## AST rendering
 
 `@yozora/core-react-renderer` is now included under `src/renderer/`. Import its
-components, hooks, renderer maps, and types from `@yozora/react-core`, and replace
-its stylesheet import with `@yozora/react-core/style.css`.
+components, hooks, renderer maps, and types from `@yozora/react`, and replace
+its stylesheet import with `@yozora/react/style.css`.
 
 ```tsx
-import { NodeRendererProvider, NodesRenderer, ThemeProvider } from '@yozora/react-core'
-import '@yozora/react-core/style.css'
+import { NodeRendererProvider, NodesRenderer, ThemeProvider } from '@yozora/react'
+import '@yozora/react/style.css'
 
 <ThemeProvider theme="vsc" variant="light-modern">
   <NodeRendererProvider>
@@ -123,11 +127,11 @@ unchanged. Bundled utility-only consumers can omit renderer dependencies.
 
 `@yozora/react-code-highlighter` is now included in this package. Replace its default
 import with the named `CodeHighlighter` export, import types such as `IPrismTheme`
-from `@yozora/react-core`, and use `@yozora/react-core/style.css`.
+from `@yozora/react`, and use `@yozora/react/style.css`.
 
 ```tsx
-import { CodeHighlighter, ThemeProvider } from '@yozora/react-core'
-import '@yozora/react-core/style.css'
+import { CodeHighlighter, ThemeProvider } from '@yozora/react'
+import '@yozora/react/style.css'
 
 <ThemeProvider theme="catppuccin" variant="mocha">
   <CodeHighlighter lang="typescript" value="const answer: number = 42" />
@@ -147,7 +151,7 @@ The former named exports remain available, including `HighlightContent`,
 ## Class names
 
 ```tsx
-import { clsx } from '@yozora/react-core'
+import { clsx } from '@yozora/react'
 
 clsx('button', ['rounded', false], { active: true }) // 'button rounded active'
 ```

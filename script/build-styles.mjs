@@ -6,7 +6,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { Rolldown } from 'tsdown'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
-const coreDir = path.join(root, 'packages/react-core')
+const coreDir = path.join(root, 'packages/react')
 const themeNotices = path.join(coreDir, 'THIRD_PARTY_NOTICES.md')
 const require = createRequire(import.meta.url)
 const cliManifestPath = require.resolve('@tailwindcss/cli/package.json')
@@ -15,7 +15,7 @@ const cli = path.resolve(path.dirname(cliManifestPath), cliManifest.bin.tailwind
 
 /** Collect dependency styles before their consumers so component overrides win. */
 export function getStylePackages(packageDir) {
-  /** Utility packages can depend on react-core without publishing a stylesheet. */
+  /** Utility packages can depend on @yozora/react without publishing a stylesheet. */
   if (!fs.existsSync(path.join(packageDir, 'src/style.css'))) return []
   const result = []
   const visited = new Set()

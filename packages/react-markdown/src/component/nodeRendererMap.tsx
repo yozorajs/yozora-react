@@ -18,7 +18,7 @@ import {
   ListItemType,
   MathType,
 } from '@yozora/ast'
-import type { INodeRenderer, INodeRendererMap as INodeRendererMap0 } from '@yozora/react-core'
+import type { INodeRenderer, INodeRendererMap as INodeRendererMap0 } from '@yozora/react'
 import { AdmonitionRenderer } from './renderer/admonition'
 import { FootnoteReferenceRenderer } from './renderer/footnoteReference'
 import { InlineMathRenderer } from './renderer/inlineMath'
