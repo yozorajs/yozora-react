@@ -3,7 +3,7 @@ import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/react-core'
 import CodeRendererJsx from '@yozora/react-embed-jsx'
 import React from 'react'
 import { vi } from 'vitest'
-import CodeLive from '../src'
+import { CodeLive } from '../src'
 
 const code = `
   function Counter() {

@@ -1,3 +1,8 @@
+@import "./embed/style.css";
+@import "./literal/style.css";
+@import "./editor/style.css";
+@import "./live/style.css";
+
 .yozora-code__root {
   margin: var(--yozora_marginBlockNode);
 }

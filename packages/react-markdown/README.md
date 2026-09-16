@@ -288,7 +288,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 
   |          Name           |       Type        | Required | Default | Description                                                                          |
   | :---------------------: | :---------------: | :------: | :-----: | :----------------------------------------------------------------------------------- |
-  |      `codeRunners`      |     See below     | `false`  |    -    | Code runners, passed to [@yozora/react-code-embed][] and [@yozora/react-code-live][] |
+  |      `codeRunners`      |     See below     | `false`  |    -    | Code runners, passed to [CodeEmbed][] and [CodeLive][] |
   |        `darken`         |     `boolean`     | `false`  | `false` | Enable the darken mode                                                               |
   |     `definitionMap`     |     See below     |  `true`  |    -    | Link / Image reference definitions                                                   |
   | `footnoteDefinitionMap` |     See below     |  `true`  |    -    | Footnote reference definitions                                                       |
@@ -412,8 +412,8 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 [@yozora/parser]: https://www.npmjs.com/package/@yozora/parser
 [@yozora/react-admonition]: https://www.npmjs.com/package/@yozora/react-admonition
 [@yozora/react-code]: https://www.npmjs.com/package/@yozora/react-code
-[@yozora/react-code-embed]: https://www.npmjs.com/package/@yozora/react-code-embed
-[@yozora/react-code-live]: https://www.npmjs.com/package/@yozora/react-code-live
+[CodeEmbed]: ../react-code/README.md#codeembed
+[CodeLive]: ../react-code/README.md#codelive
 [@yozora/react-mathjax]: https://www.npmjs.com/package/@yozora/react-mathjax
 [@yozora/tokenizer-admonition]: https://www.npmjs.com/package/@yozora/tokenizer-admonition
 [@yozora/tokenizer-autolink]: https://www.npmjs.com/package/@yozora/tokenizer-autolink

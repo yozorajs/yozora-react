@@ -81,9 +81,9 @@ importers:
 
   packages/demo:
     dependencies:
-      '@yozora/react-code-editor':
+      '@yozora/react-code':
         specifier: workspace:^
-        version: link:../react-code-editor
+        version: link:../react-code
       '@yozora/react-core':
         specifier: workspace:^
         version: link:../react-core
@@ -121,21 +121,21 @@ importers:
 
   packages/react-code:
     dependencies:
+      '@guanghechen/common-util':
+        specifier: ^0.2.8
+        version: 0.2.8
       '@guanghechen/equal':
         specifier: ^2.0.5
         version: 2.0.5
       '@yozora/ast':
         specifier: ^2.0.0
         version: 2.4.1
-      '@yozora/react-code-embed':
+      '@yozora/react-common-copy-button':
         specifier: workspace:^
-        version: link:../react-code-embed
-      '@yozora/react-code-literal':
+        version: link:../react-common-copy-button
+      '@yozora/react-common-light-buttons':
         specifier: workspace:^
-        version: link:../react-code-literal
-      '@yozora/react-code-live':
-        specifier: workspace:^
-        version: link:../react-code-live
+        version: link:../react-common-light-buttons
       '@yozora/react-core':
         specifier: workspace:^
         version: link:../react-core
@@ -148,75 +148,6 @@ importers:
       react-dom:
         specifier: 19.3.0
         version: 19.3.0(react@19.3.0)
-
-  packages/react-code-editor:
-    dependencies:
-      '@guanghechen/equal':
-        specifier: ^2.0.5
-        version: 2.0.5
-      '@yozora/react-core':
-        specifier: workspace:^
-        version: link:../react-core
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
-
-  packages/react-code-embed:
-    dependencies:
-      '@guanghechen/equal':
-        specifier: ^2.0.5
-        version: 2.0.5
-      '@yozora/ast':
-        specifier: ^2.0.0
-        version: 2.4.1
-      '@yozora/react-core':
-        specifier: workspace:^
-        version: link:../react-core
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
-
-  packages/react-code-literal:
-    dependencies:
-      '@yozora/react-common-copy-button':
-        specifier: workspace:^
-        version: link:../react-common-copy-button
-      '@yozora/react-common-light-buttons':
-        specifier: workspace:^
-        version: link:../react-common-light-buttons
-      '@yozora/react-core':
-        specifier: workspace:^
-        version: link:../react-core
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
-
-  packages/react-code-live:
-    dependencies:
-      '@guanghechen/common-util':
-        specifier: ^0.2.8
-        version: 0.2.8
-      '@yozora/ast':
-        specifier: ^2.0.0
-        version: 2.4.1
-      '@yozora/react-code-editor':
-        specifier: workspace:^
-        version: link:../react-code-editor
-      '@yozora/react-code-embed':
-        specifier: workspace:^
-        version: link:../react-code-embed
-      '@yozora/react-common-copy-button':
-        specifier: workspace:^
-        version: link:../react-common-copy-button
-      '@yozora/react-common-light-buttons':
-        specifier: workspace:^
-        version: link:../react-common-light-buttons
-      '@yozora/react-core':
-        specifier: workspace:^
-        version: link:../react-core
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
 
   packages/react-code-runners:
     dependencies:

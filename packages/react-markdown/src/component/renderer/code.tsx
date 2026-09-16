@@ -11,8 +11,6 @@ import React from 'react'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-indented-code
  * @see https://www.npmjs.com/package/@yozora/tokenizer-fenced-code
  * @see https://www.npmjs.com/package/@yozora/react-code
- * @see https://www.npmjs.com/package/@yozora/react-code-embed
- * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
 export const createCodeRenderer = (
   codeRunners: ReadonlyArray<ICodeRunnerItem> | undefined,

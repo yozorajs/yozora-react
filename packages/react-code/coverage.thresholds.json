@@ -4,5 +4,31 @@
     "functions": 50,
     "lines": 40,
     "statements": 40
+  },
+  "files": {
+    "src/{component.tsx,util.ts}": {
+      "branches": 20,
+      "functions": 50,
+      "lines": 40,
+      "statements": 40
+    },
+    "src/editor/**": {
+      "branches": 20,
+      "functions": 50,
+      "lines": 40,
+      "statements": 40
+    },
+    "src/embed/**": {
+      "branches": 20,
+      "functions": 50,
+      "lines": 40,
+      "statements": 40
+    },
+    "src/live/**": {
+      "branches": 20,
+      "functions": 50,
+      "lines": 40,
+      "statements": 40
+    }
   }
 }

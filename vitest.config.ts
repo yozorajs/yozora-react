@@ -98,13 +98,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       include: packageDir ? ['src/**/*.{ts,tsx}'] : ['packages/*/src/**/*.{ts,tsx}'],
-      exclude: [
-        '**/node_modules/**',
-        '**/__test__/**',
-        'src/editor.tsx',
-        'packages/react-code-editor/src/editor.tsx',
-        ...getOtherPackageExcludes(),
-      ],
+      exclude: ['**/node_modules/**', '**/__test__/**', ...getOtherPackageExcludes()],
       ...(coverageThresholds ? { thresholds: coverageThresholds } : {}),
     },
   },

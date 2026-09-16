@@ -48,9 +48,13 @@ for (const name of fs.readdirSync(packagesDir)) {
     assert.ok(!css.includes(':is()'), `${manifest.name}: invalid nested pseudo-element selector`)
     assert.ok(manifest.sideEffects === true || manifest.sideEffects.includes('**/*.css'))
     for (const dir of stylePackages) {
-      const source = fs.readFileSync(path.join(dir, 'src/style.css'), 'utf8')
-      for (const [, className] of source.matchAll(/\.(yozora-[\w-]+)/g)) {
-        assert.ok(css.includes(className), `${manifest.name}: missing .${className}`)
+      const sourceDir = path.join(dir, 'src')
+      for (const file of fs.readdirSync(sourceDir, { recursive: true, withFileTypes: true })) {
+        if (!file.isFile() || !file.name.endsWith('.css')) continue
+        const source = fs.readFileSync(path.join(file.parentPath, file.name), 'utf8')
+        for (const [, className] of source.matchAll(/\.(yozora-[\w-]+)/g)) {
+          assert.ok(css.includes(className), `${manifest.name}: missing .${className}`)
+        }
       }
     }
     if (name === 'react-markdown') {
@@ -195,12 +199,41 @@ export const invalidNestedFunction: INodeStyleMap = { paragraph: { body: { color
 export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] } }
 `
     }
-    if (name === 'react-code-editor' || name === 'react-core') {
+    if (name === 'react-code') {
+      consumer += `export type { IEditorTextareaProps, IEditorPreProps, IEditorProps, IEditorState, IEditorOperationRecord, IEditorHistory, ICodeLiveProps, ICodeLiveState } from '${manifest.name}'\n`
+      consumer += `import type { ComponentProps } from 'react'\n`
+      consumer += `export const editorProps: ComponentProps<typeof CodeEditor> = { lang: 'typescript', code: 'const value = 1', onChange: () => {}, showLineNo: true }\n`
+      consumer += `export const embedProps: ComponentProps<typeof CodeEmbed> = { lang: 'text', value: 'hello', runner: () => null }\n`
+      consumer += `export const literalProps: ComponentProps<typeof CodeLiteral> = { lang: 'typescript', value: 'const value = 1', highlightLinenos: [1] }\n`
+      consumer += `export const liveProps: ComponentProps<typeof CodeLive> = { lang: 'jsx', value: 'function Demo() { return null }', runners: defaultRunners }\n`
+    }
+    if (name === 'react-code' || name === 'react-core') {
       consumer += '// @ts-expect-error Implementation props must remain private.\n'
       consumer += `import type { IProps } from '${manifest.name}'\n`
     }
     fs.writeFileSync(path.join(consumerDir, 'index.mts'), consumer)
     fs.writeFileSync(path.join(consumerDir, 'index.cts'), consumer)
+    if (name === 'react-code') {
+      const editorEntry = path.join(consumerDir, 'editor.mjs')
+      fs.writeFileSync(editorEntry, `export { CodeEditor } from '${manifest.name}'\n`)
+      const bundle = await Rolldown.rolldown({
+        input: editorEntry,
+        external: [
+          ...Object.keys(manifest.dependencies),
+          ...Object.keys(manifest.peerDependencies),
+        ],
+      })
+      try {
+        const { output } = await bundle.generate({ format: 'esm' })
+        assert.deepEqual(
+          output[0].imports.slice().sort(),
+          ['@guanghechen/equal', '@yozora/react-core', 'react'],
+          'Standalone editors must not load JSX runners, live previews, or toolbar dependencies',
+        )
+      } finally {
+        await bundle.close()
+      }
+    }
     if (name === 'react-core') {
       const utilityEntry = path.join(consumerDir, 'utility.mjs')
       fs.writeFileSync(utilityEntry, `export { clsx } from '${manifest.name}'\n`)
@@ -584,10 +617,10 @@ assert.match(html, /token keyword[^>]*color:#cba6f7/i)
       assert.match(markup, /token keyword/)
       assert.match(markup, /token number/)
     }
-    if (name === 'react-code-editor') {
-      assert.equal(module.default, module.CodeEditor)
+    if (name === 'react-code') {
+      assert.equal(module.default, module.Code)
       const markup = renderToStaticMarkup(
-        React.createElement(module.default, {
+        React.createElement(module.CodeEditor, {
           lang: 'typescript',
           code: 'const value = 1',
           onChange: () => {},

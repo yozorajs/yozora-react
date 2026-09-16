@@ -55,8 +55,8 @@
 </header>
 <br/>
 
-This package is designed to provide code runners for [@yozora/react-code-embed][] or
-[@yozora/react-code-live][].
+This package is designed to provide code runners for [CodeEmbed][] or
+[CodeLive][].
 
 ## Install
 
@@ -181,7 +181,7 @@ This package is designed to provide code runners for [@yozora/react-code-embed][
 - [@yozora/react-embed-graphviz][]
 - [@yozora/react-embed-jsx][]
 
-[@yozora/react-code-embed]: ../code-live/README.md
-[@yozora/react-code-live]: ../code-live/README.md
+[CodeEmbed]: ../react-code/README.md#codeembed
+[CodeLive]: ../react-code/README.md#codelive
 [@yozora/react-embed-graphviz]: ../react-embed-graphviz/README.md
 [@yozora/react-embed-jsx]: ../react-embed-jsx/README.md

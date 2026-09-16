@@ -1,10 +1,10 @@
 import { debounce } from '@guanghechen/common-util'
-import { CodeEditor as CodeEditorComponent } from '@yozora/react-code-editor'
-import { CodeEmbed as CodeEmbedComponent } from '@yozora/react-code-embed'
 import { CopyButton as CopyButtonComponent } from '@yozora/react-common-copy-button'
 import { LightButtons as LightButtonsComponent } from '@yozora/react-common-light-buttons'
 import { clsx } from '@yozora/react-core'
 import React from 'react'
+import { CodeEditor as CodeEditorComponent } from '../editor'
+import { CodeEmbed as CodeEmbedComponent } from '../embed'
 import { classes } from './style'
 import type { ICodeLiveProps, ICodeLiveState } from './types'
 
@@ -15,8 +15,6 @@ import type { ICodeLiveProps, ICodeLiveState } from './types'
  * @see https://www.npmjs.com/package/@yozora/tokenizer-indented-code
  * @see https://www.npmjs.com/package/@yozora/tokenizer-fenced-code
  * @see https://www.npmjs.com/package/@yozora/react-code
- * @see https://www.npmjs.com/package/@yozora/react-code-embed
- * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
 export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
   public static displayName = 'CodeLive'

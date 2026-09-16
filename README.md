@@ -70,7 +70,7 @@ import { ThemeProvider } from '@yozora/react-core'
 ```
 
 Each styled package exports `./style.css`, including its dependency components.
-For example, standalone editor users import `@yozora/react-code-editor/style.css`.
+For example, standalone editor users import `@yozora/react-code/style.css`.
 CSS is loaded explicitly so ESM, CommonJS, and server rendering remain usable without
 an automatic CSS loader. Keep these imports in your application's CSS entry point.
 
@@ -161,20 +161,17 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 | [@yozora/react-admonition][] | [admonition][yozora/admonition] |
 |    [@yozora/react-code][]    | [code][yozora/code]             |
 
+`@yozora/react-code` also exports `CodeEditor`, `CodeEmbed`, `CodeLiteral`, and `CodeLive`
+for standalone use. See its [component documentation](./packages/react-code/README.md#standalone-components).
+
 ### Other components
 
 |               Package Name               | Description                                                                    |
 | :--------------------------------------: | :----------------------------------------------------------------------------- |
-|      [@yozora/react-code-editor][]       | A simple code editor.                                                          |
-|       [@yozora/react-code-embed][]       | A simple code editor online.                                                   |
-|      [@yozora/react-code-literal][]      | Render literal code block.                                                     |
-|       [@yozora/react-code-live][]        | A live code editor, be similar to [react-live][].                              |
 |   [@yozora/react-embed-jsx][]    | React component for rendering jsx directly in browser.                         |
 | [@yozora/react-embed-graphviz][] | React component for rendering graphviz (dot) directly in browser.              |
 |        [@yozora/react-markdown][]        | React component for rendering markdown content with above Markdown Components. |
 |        [@yozora/react-mathjax][]         | Render formula with mathjax in react.                                          |
-
-[react-live]: https://github.com/FormidableLabs/react-live
 
 <!-- yozora component links -->
 
@@ -182,15 +179,7 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 [@yozora/react-admonition]:
   https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-admonition#readme
 [@yozora/react-code]:
-  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code#readme
-[@yozora/react-code-editor]:
-  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-editor#readme
-[@yozora/react-code-embed]:
-  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-embed#readme
-[@yozora/react-code-literal]:
-  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-literal#readme
-[@yozora/react-code-live]:
-  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-live#readme
+  https://github.com/yozorajs/yozora-react/tree/main/packages/react-code#readme
 [@yozora/react-embed-jsx]:
   https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-jsx#readme
 [@yozora/react-embed-graphviz]:

@@ -1,7 +1,7 @@
 import { fireEvent, render } from '@testing-library/react'
 import React, { useState } from 'react'
 import { vi } from 'vitest'
-import CodeEditor, { classes } from '../src'
+import { CodeEditor, classes } from '../src'
 
 describe('basic rendering case', () => {
   test('exported classes select individual editor elements', () => {

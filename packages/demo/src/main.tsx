@@ -1,4 +1,4 @@
-import { CodeEditor } from '@yozora/react-code-editor'
+import { CodeEditor } from '@yozora/react-code'
 import { ThemeProvider, themeSchemas } from '@yozora/react-core'
 import { Markdown, MarkdownProvider } from '@yozora/react-markdown'
 import React from 'react'

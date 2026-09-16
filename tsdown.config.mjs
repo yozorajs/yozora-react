@@ -46,8 +46,8 @@ export default defineConfig([
     sourcemap: process.env.BUILD_SOURCEMAP === 'true',
     cjsDefault: false,
     dts: false,
-    // Keep theme and highlighter modules removable for consumers of core utilities.
-    unbundle: isReactCore,
+    // Keep unrelated core and code modules removable for standalone consumers.
+    unbundle: isReactCore || manifest.name === '@yozora/react-code',
     ...(format === 'esm'
       ? {
           hooks: { 'build:done': () => buildStyles(process.cwd()) },

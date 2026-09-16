@@ -1,11 +1,11 @@
 import { isEqual } from '@guanghechen/equal'
-import { CodeEmbed as CodeEmbedComponent } from '@yozora/react-code-embed'
-import { CodeLiteral as CodeLiteralComponent } from '@yozora/react-code-literal'
-import { CodeLive as CodeLiveComponent } from '@yozora/react-code-live'
 import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/react-core'
 import { clsx } from '@yozora/react-core'
 import { CodeRendererJsx as JsxRendererComponent } from '@yozora/react-embed-jsx'
 import React from 'react'
+import { CodeEmbed as CodeEmbedComponent } from './embed'
+import { CodeLiteral as CodeLiteralComponent } from './literal'
+import { CodeLive as CodeLiveComponent } from './live'
 import type { ICodeMetaData, ICodeProps } from './types'
 import { parseCodeMeta } from './util'
 
@@ -32,8 +32,6 @@ interface IState {
  * @see https://www.npmjs.com/package/@yozora/tokenizer-indented-code
  * @see https://www.npmjs.com/package/@yozora/tokenizer-fenced-code
  * @see https://www.npmjs.com/package/@yozora/react-code
- * @see https://www.npmjs.com/package/@yozora/react-code-embed
- * @see https://www.npmjs.com/package/@yozora/react-code-live
  */
 export class Code extends React.Component<ICodeProps, IState> {
   public static readonly displayName = 'YozoraCode'

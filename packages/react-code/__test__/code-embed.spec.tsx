@@ -3,7 +3,7 @@ import type { ICodeRunnerProps } from '@yozora/react-core'
 import CodeRendererJsx from '@yozora/react-embed-jsx'
 import React from 'react'
 import { vi } from 'vitest'
-import CodeEmbed from '../src'
+import { CodeEmbed } from '../src'
 
 function createConsoleMock(methods: Array<'warn' | 'error'>): { restore: () => void } {
   const spies = methods.map(method =>

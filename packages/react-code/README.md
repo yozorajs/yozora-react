@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code#readme">@yozora/react-code</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-code#readme">@yozora/react-code</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-code">
@@ -58,6 +58,25 @@
 This component is for rendering the [Code][@yozora/ast] data produced by
 [@yozora/tokenizer-indented-code][] and [@yozora/tokenizer-fenced-code].\
 This component has been built into [@yozora/react-markdown][], you can use it directly.
+
+## Migration
+
+`@yozora/react-code-editor`, `@yozora/react-code-embed`, `@yozora/react-code-literal`,
+and `@yozora/react-code-live` are now part of this package. Replace their dependencies
+with `@yozora/react-code` and use the corresponding named exports:
+
+```tsx
+import Code, { CodeEditor, CodeEmbed, CodeLiteral, CodeLive } from '@yozora/react-code'
+import '@yozora/react-code/style.css'
+```
+
+`Code` remains the default export. Component props and CSS class names are unchanged.
+The stylesheet includes all four components and their dependency styles; it replaces
+the former packages' stylesheet imports. Applications already importing
+`@yozora/react-markdown/style.css` do not need a second stylesheet.
+
+The editor's existing named exports, including `SimpleCodeEditor`, `classes`, keyboard
+constants, history types, and helpers, are also available from `@yozora/react-code`.
 
 ## Install
 
@@ -153,24 +172,94 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
   }
   ```
 
+## Standalone components
+
+### CodeEditor
+
+A controlled editor with syntax highlighting. Its implementation is derived from
+[react-simple-code-editor][].
+
+```tsx
+import { CodeEditor } from '@yozora/react-code'
+import React from 'react'
+
+function Editor() {
+  const [code, setCode] = React.useState('const value = 1')
+  return <CodeEditor lang="typescript" code={code} onChange={setCode} />
+}
+```
+
+`CodeEditor` accepts `maxLines`, `collapsed`, `showLineNo`, `autoFocus`, `theme`,
+`darken`, and container, textarea, and pre class/style props. An explicit `theme`
+takes precedence over `darken`; otherwise syntax colors follow `ThemeProvider` from
+`@yozora/react-core`. Standalone editors retain their dark default.
+
+### CodeEmbed
+
+Render a code value with a supplied runner and display runner errors inline:
+
+```tsx
+import { CodeEmbed } from '@yozora/react-code'
+import type { ICodeRunnerProps } from '@yozora/react-core'
+
+function TextRunner({ value }: ICodeRunnerProps) {
+  return <output>{value}</output>
+}
+
+const preview = <CodeEmbed lang="text" value="Hello" runner={TextRunner} />
+```
+
+`CodeEmbed` also accepts `meta`, `scope`, `className`, and `style`.
+
+### CodeLiteral
+
+Render highlighted code with a title, copy button, and collapse controls:
+
+```tsx
+import { CodeLiteral } from '@yozora/react-code'
+
+const code = (
+  <CodeLiteral lang="typescript" value="const value = 1" title="Example" showLineNo />
+)
+```
+
+`CodeLiteral` also accepts `highlightLinenos`, `maxLines`, `collapsed`, `darken`,
+`className`, and `style`.
+
+### CodeLive
+
+Combine the editor and preview using a list of runners:
+
+```tsx
+import { CodeLive, defaultRunners } from '@yozora/react-code'
+
+const live = (
+  <CodeLive
+    lang="jsx"
+    value="function Example() { return <strong>Hello</strong> }"
+    runners={defaultRunners}
+  />
+)
+```
+
+`CodeLive` also accepts `meta`, `scope`, `title`, `maxLines`, `collapsed`, `showLineNo`,
+`theme`, `darken`, `autoFocus`, `centerPreviewer`, `className`, and `style`.
+`ICodeLiveProps` and `ICodeLiveState` remain named type exports.
+
 ## Related
 
 - [@yozora/ast][]
-- [@yozora/react-code-embed][]
 - [@yozora/react-core][]
-- [@yozora/react-code-literal][]
-- [@yozora/react-code-live][]
 - [@yozora/react-markdown][]
 - [@yozora/tokenizer-indented-code][]
 - [@yozora/tokenizer-fenced-code][]
 - [Code | Mdast][mdast]
+- [react-simple-code-editor][]
 
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#code
-[@yozora/react-code-embed]: https://www.npmjs.com/package/@yozora/react-code-embed
 [@yozora/react-core]: https://www.npmjs.com/package/@yozora/react-core
-[@yozora/react-code-literal]: https://www.npmjs.com/package/@yozora/react-code-literal
-[@yozora/react-code-live]: https://www.npmjs.com/package/@yozora/react-code-live
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-indented-code]: https://www.npmjs.com/package/@yozora/tokenizer-indented-code
 [@yozora/tokenizer-fenced-code]: https://www.npmjs.com/package/@yozora/tokenizer-fenced-code
 [mdast]: https://github.com/syntax-tree/mdast#code
+[react-simple-code-editor]: https://github.com/satya164/react-simple-code-editor

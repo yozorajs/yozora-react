@@ -1,4 +1,8 @@
 export * from './component'
 export { Code as default } from './component'
+export * from './editor'
+export * from './embed'
+export * from './literal'
+export * from './live'
 export * from './types'
 export * from './util'
