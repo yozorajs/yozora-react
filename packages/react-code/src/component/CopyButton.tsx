@@ -1,9 +1,14 @@
 import { useEventCallback } from '@guanghechen/react-hooks'
 import { clsx } from '@yozora/react-core'
 import React from 'react'
-import { CopyStatus } from './constant'
-import { classes } from './style'
-import { copyToClipboard } from './util'
+import { copyToClipboard } from './CopyButton.util'
+
+const enum CopyStatus {
+  PENDING = 'pending',
+  COPYING = 'copying',
+  COMPLETED = 'completed',
+  FAILED = 'failed',
+}
 
 export type ICopyStatusTipMap = Record<CopyStatus, React.ReactNode>
 
@@ -111,3 +116,7 @@ export const CopyButton: React.FC<IProps> = props => {
 }
 
 CopyButton.displayName = 'YozoraCopyButton'
+
+const classes = {
+  container: 'yozora-common-copy-button__container',
+}

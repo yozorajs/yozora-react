@@ -1,4 +1,4 @@
-@import "./copy-button/style.css";
+@import "./component/CopyButton.css";
 @import "./embed/style.css";
 @import "./literal/style.css";
 @import "./editor/style.css";

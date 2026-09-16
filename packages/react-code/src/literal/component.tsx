@@ -1,7 +1,7 @@
 import { CodeHighlighter as CodeHighlighterComponent, clsx } from '@yozora/react-core'
 import React from 'react'
-import { CopyButton as CopyButtonComponent } from '../copy-button'
-import { LightButtons as LightButtonsComponent } from '../light-buttons'
+import { CopyButton as CopyButtonComponent } from '../component/CopyButton'
+import { LightButtons as LightButtonsComponent } from '../component/LightButtons'
 import { classes } from './style'
 
 interface IProps {
