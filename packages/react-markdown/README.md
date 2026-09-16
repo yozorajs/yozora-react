@@ -371,7 +371,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 
 This component has some built-in sub-components for rendering data of [@yozora/ast].
 
-- [@yozora/react-admonition][]
+- [@yozora/react-renderer-admonition][]
 - [@yozora/react-inline-code][]
 
 ## Related
@@ -416,7 +416,7 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast
 [@yozora/ast-util]: https://www.npmjs.com/package/@yozora/ast-util
 [@yozora/parser]: https://www.npmjs.com/package/@yozora/parser
-[@yozora/react-admonition]: https://www.npmjs.com/package/@yozora/react-admonition
+[@yozora/react-renderer-admonition]: https://www.npmjs.com/package/@yozora/react-renderer-admonition
 [@yozora/react-renderer-code]: https://www.npmjs.com/package/@yozora/react-renderer-code
 [CodeEmbed]: ../react-renderer-code/README.md#codeembed
 [CodeLive]: ../react-renderer-code/README.md#codelive

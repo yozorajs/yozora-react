@@ -1,24 +1,24 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-admonition#readme">@yozora/react-admonition</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-renderer-admonition#readme">@yozora/react-renderer-admonition</a>
   </h1>
   <div align="center">
-    <a href="https://www.npmjs.com/package/@yozora/react-admonition">
+    <a href="https://www.npmjs.com/package/@yozora/react-renderer-admonition">
       <img
         alt="Npm Version"
-        src="https://img.shields.io/npm/v/@yozora/react-admonition.svg"
+        src="https://img.shields.io/npm/v/@yozora/react-renderer-admonition.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-admonition">
+    <a href="https://www.npmjs.com/package/@yozora/react-renderer-admonition">
       <img
         alt="Npm Download"
-        src="https://img.shields.io/npm/dm/@yozora/react-admonition.svg"
+        src="https://img.shields.io/npm/dm/@yozora/react-renderer-admonition.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-admonition">
+    <a href="https://www.npmjs.com/package/@yozora/react-renderer-admonition">
       <img
         alt="Npm License"
-        src="https://img.shields.io/npm/l/@yozora/react-admonition.svg"
+        src="https://img.shields.io/npm/l/@yozora/react-renderer-admonition.svg"
       />
     </a>
     <a href="#install">
@@ -30,13 +30,13 @@
     <a href="https://github.com/nodejs/node">
       <img
         alt="Node.js Version"
-        src="https://img.shields.io/node/v/@yozora/react-admonition"
+        src="https://img.shields.io/node/v/@yozora/react-renderer-admonition"
       />
     </a>
     <a href="https://github.com/facebook/react">
       <img
         alt="React version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-admonition/peer/react"
+        src="https://img.shields.io/npm/dependency-version/@yozora/react-renderer-admonition/peer/react"
       />
     </a>
     <a href="https://github.com/vitest-dev/vitest">
@@ -61,18 +61,25 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
 ![yozora-admonition.png][]
 
+## Migration
+
+`@yozora/react-admonition` has been renamed to `@yozora/react-renderer-admonition`.
+Update the dependency name and imports, including
+`@yozora/react-renderer-admonition/style.css`. Component props, named exports,
+icons, and CSS class names are unchanged by this rename.
+
 ## Install
 
 - npm
 
   ```bash
-  npm install --save @yozora/react-admonition
+  npm install --save @yozora/react-renderer-admonition
   ```
 
 - yarn
 
   ```bash
-  yarn add @yozora/react-admonition
+  yarn add @yozora/react-renderer-admonition
   ```
 
 ## Usage
@@ -80,7 +87,7 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 Import the compiled stylesheet once at your application entry:
 
 ```tsx
-import '@yozora/react-admonition/style.css'
+import '@yozora/react-renderer-admonition/style.css'
 ```
 
 It includes styles for dependency components. Tailwind is not required in the consuming
@@ -91,7 +98,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 
   ```tsx
   import React from 'react'
-  import Admonition from '@yozora/react-admonition'
+  import Admonition from '@yozora/react-renderer-admonition'
 
   const wrapper = (
     <Admonition
@@ -159,7 +166,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 - [remark-admonitions][]
 
 [yozora-admonition.png]:
-  https://github.com/yozorajs/yozora-react/raw/main/packages/react-admonition/doc/yozora-admonition.png
+  https://github.com/yozorajs/yozora-react/raw/main/packages/react-renderer-admonition/doc/yozora-admonition.png
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#admonition
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-admonition]: https://www.npmjs.com/package/@yozora/tokenizer-admonition

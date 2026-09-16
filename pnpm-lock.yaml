@@ -107,15 +107,6 @@ importers:
         specifier: 7.0.2
         version: 7.0.2
 
-  packages/react-admonition:
-    dependencies:
-      '@yozora/react-core':
-        specifier: workspace:^
-        version: link:../react-core
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
-
   packages/react-core:
     dependencies:
       '@guanghechen/equal':
@@ -178,12 +169,12 @@ importers:
       '@yozora/ast':
         specifier: ^2.4.1
         version: 2.4.1
-      '@yozora/react-admonition':
-        specifier: workspace:^
-        version: link:../react-admonition
       '@yozora/react-core':
         specifier: workspace:^
         version: link:../react-core
+      '@yozora/react-renderer-admonition':
+        specifier: workspace:^
+        version: link:../react-renderer-admonition
       '@yozora/react-renderer-code':
         specifier: workspace:^
         version: link:../react-renderer-code
@@ -196,6 +187,15 @@ importers:
       react-dom:
         specifier: 19.3.0
         version: 19.3.0(react@19.3.0)
+
+  packages/react-renderer-admonition:
+    dependencies:
+      '@yozora/react-core':
+        specifier: workspace:^
+        version: link:../react-core
+      react:
+        specifier: 19.3.0
+        version: 19.3.0
 
   packages/react-renderer-code:
     dependencies:

@@ -1,6 +1,6 @@
 import type { Admonition } from '@yozora/ast'
-import { Admonition as AdmonitionRenderer0 } from '@yozora/react-admonition'
 import { NodesRenderer } from '@yozora/react-core'
+import { Admonition as AdmonitionRenderer0 } from '@yozora/react-renderer-admonition'
 import React from 'react'
 
 /**
@@ -8,7 +8,7 @@ import React from 'react'
  *
  * @see https://www.npmjs.com/package/@yozora/ast#admonition
  * @see https://www.npmjs.com/package/@yozora/tokenizer-admonition
- * @see https://www.npmjs.com/package/@yozora/react-admonition
+ * @see https://www.npmjs.com/package/@yozora/react-renderer-admonition
  */
 export class AdmonitionRenderer extends React.Component<Admonition> {
   public override shouldComponentUpdate(nextProps: Readonly<Admonition>): boolean {

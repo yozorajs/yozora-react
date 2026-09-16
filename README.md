@@ -156,10 +156,10 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
 ### Markdown components
 
-|           Package Name          | Token Name                      |
-| :-----------------------------: | :------------------------------ |
-|   [@yozora/react-admonition][]  | [admonition][yozora/admonition] |
-| [@yozora/react-renderer-code][] | [code][yozora/code]             |
+|              Package Name             | Token Name                      |
+| :-----------------------------------: | :------------------------------ |
+| [@yozora/react-renderer-admonition][] | [admonition][yozora/admonition] |
+|    [@yozora/react-renderer-code][]    | [code][yozora/code]             |
 
 `@yozora/react-renderer-code` also exports `CodeEditor`, `CodeEmbed`, `CodeLiteral`, `CodeLive`,
 `CopyButton`, and `LightButtons` for standalone use.
@@ -178,8 +178,8 @@ It also provides [runner factories](./packages/react-renderer-code/README.md#run
 <!-- yozora component links -->
 
 [@yozora/react-core]: ./packages/react-core
-[@yozora/react-admonition]:
-  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-admonition#readme
+[@yozora/react-renderer-admonition]:
+  https://github.com/yozorajs/yozora-react/tree/main/packages/react-renderer-admonition#readme
 [@yozora/react-renderer-code]:
   https://github.com/yozorajs/yozora-react/tree/main/packages/react-renderer-code#readme
 [@yozora/react-embed-jsx]:
