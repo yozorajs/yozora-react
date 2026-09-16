@@ -1,10 +1,10 @@
 import { debounce } from '@guanghechen/common-util'
-import { CopyButton as CopyButtonComponent } from '@yozora/react-common-copy-button'
-import { LightButtons as LightButtonsComponent } from '@yozora/react-common-light-buttons'
 import { clsx } from '@yozora/react-core'
 import React from 'react'
+import { CopyButton as CopyButtonComponent } from '../copy-button'
 import { CodeEditor as CodeEditorComponent } from '../editor'
 import { CodeEmbed as CodeEmbedComponent } from '../embed'
+import { LightButtons as LightButtonsComponent } from '../light-buttons'
 import { classes } from './style'
 import type { ICodeLiveProps, ICodeLiveState } from './types'
 

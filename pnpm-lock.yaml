@@ -127,15 +127,12 @@ importers:
       '@guanghechen/equal':
         specifier: ^2.0.5
         version: 2.0.5
+      '@guanghechen/react-hooks':
+        specifier: ^3.0.17
+        version: 3.0.17(react@19.3.0)
       '@yozora/ast':
         specifier: ^2.0.0
         version: 2.4.1
-      '@yozora/react-common-copy-button':
-        specifier: workspace:^
-        version: link:../react-common-copy-button
-      '@yozora/react-common-light-buttons':
-        specifier: workspace:^
-        version: link:../react-common-light-buttons
       '@yozora/react-core':
         specifier: workspace:^
         version: link:../react-core
@@ -160,27 +157,6 @@ importers:
       '@yozora/ast':
         specifier: ^2.0.0
         version: 2.4.1
-      '@yozora/react-core':
-        specifier: workspace:^
-        version: link:../react-core
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
-
-  packages/react-common-copy-button:
-    dependencies:
-      '@guanghechen/react-hooks':
-        specifier: ^3.0.17
-        version: 3.0.17(react@19.3.0)
-      '@yozora/react-core':
-        specifier: workspace:^
-        version: link:../react-core
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
-
-  packages/react-common-light-buttons:
-    dependencies:
       '@yozora/react-core':
         specifier: workspace:^
         version: link:../react-core

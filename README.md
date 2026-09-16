@@ -161,8 +161,9 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 | [@yozora/react-admonition][] | [admonition][yozora/admonition] |
 |    [@yozora/react-code][]    | [code][yozora/code]             |
 
-`@yozora/react-code` also exports `CodeEditor`, `CodeEmbed`, `CodeLiteral`, and `CodeLive`
-for standalone use. See its [component documentation](./packages/react-code/README.md#standalone-components).
+`@yozora/react-code` also exports `CodeEditor`, `CodeEmbed`, `CodeLiteral`, `CodeLive`,
+`CopyButton`, and `LightButtons` for standalone use.
+See its [component documentation](./packages/react-code/README.md#standalone-components).
 
 ### Other components
 

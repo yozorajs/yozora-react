@@ -62,16 +62,18 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 ## Migration
 
 `@yozora/react-code-editor`, `@yozora/react-code-embed`, `@yozora/react-code-literal`,
-and `@yozora/react-code-live` are now part of this package. Replace their dependencies
+`@yozora/react-code-live`, `@yozora/react-common-copy-button`, and
+`@yozora/react-common-light-buttons` are now part of this package. Replace their dependencies
 with `@yozora/react-code` and use the corresponding named exports:
 
 ```tsx
 import Code, { CodeEditor, CodeEmbed, CodeLiteral, CodeLive } from '@yozora/react-code'
+import { CopyButton, LightButtons, copyToClipboard } from '@yozora/react-code'
 import '@yozora/react-code/style.css'
 ```
 
 `Code` remains the default export. Component props and CSS class names are unchanged.
-The stylesheet includes all four components and their dependency styles; it replaces
+The stylesheet includes all these components and their dependency styles; it replaces
 the former packages' stylesheet imports. Applications already importing
 `@yozora/react-markdown/style.css` do not need a second stylesheet.
 
@@ -245,6 +247,40 @@ const live = (
 `CodeLive` also accepts `meta`, `scope`, `title`, `maxLines`, `collapsed`, `showLineNo`,
 `theme`, `darken`, `autoFocus`, `centerPreviewer`, `className`, and `style`.
 `ICodeLiveProps` and `ICodeLiveState` remain named type exports.
+
+### CopyButton
+
+Copy a value to the clipboard and display its status:
+
+```tsx
+import { CopyButton } from '@yozora/react-code'
+
+const copy = <CopyButton value="const value = 1" statusTipMap={{ completed: 'Copied' }} />
+```
+
+`CopyButton` also accepts `onClick`, `onError`, `className`, and `style`.
+`ICopyStatusTipMap` and `copyToClipboard` remain named exports. The status keys are
+`pending`, `copying`, `completed`, and `failed`.
+
+### LightButtons
+
+Render the close, minimize, and maximize controls used by code toolbars:
+
+```tsx
+import { LightButtons } from '@yozora/react-code'
+import React from 'react'
+
+function Controls() {
+  const [collapsed, setCollapsed] = React.useState(false)
+  return (
+    <div data-collapsed={collapsed}>
+      <LightButtons onMinimize={() => setCollapsed(true)} onMaximize={() => setCollapsed(false)} />
+    </div>
+  )
+}
+```
+
+`LightButtons` also accepts `onClose`, `className`, and `style`.
 
 ## Related
 

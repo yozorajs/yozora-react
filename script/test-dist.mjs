@@ -206,6 +206,9 @@ export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] 
       consumer += `export const embedProps: ComponentProps<typeof CodeEmbed> = { lang: 'text', value: 'hello', runner: () => null }\n`
       consumer += `export const literalProps: ComponentProps<typeof CodeLiteral> = { lang: 'typescript', value: 'const value = 1', highlightLinenos: [1] }\n`
       consumer += `export const liveProps: ComponentProps<typeof CodeLive> = { lang: 'jsx', value: 'function Demo() { return null }', runners: defaultRunners }\n`
+      consumer += `export type { ICopyStatusTipMap } from '${manifest.name}'\n`
+      consumer += `export const copyProps: ComponentProps<typeof CopyButton> = { value: 'hello', statusTipMap: { completed: 'Copied' }, onError: () => {} }\n`
+      consumer += `export const lightProps: ComponentProps<typeof LightButtons> = { onClose: () => {}, onMinimize: () => {}, onMaximize: () => {} }\n`
     }
     if (name === 'react-code' || name === 'react-core') {
       consumer += '// @ts-expect-error Implementation props must remain private.\n'
@@ -619,6 +622,16 @@ assert.match(html, /token keyword[^>]*color:#cba6f7/i)
     }
     if (name === 'react-code') {
       assert.equal(module.default, module.Code)
+      const copyMarkup = renderToStaticMarkup(
+        React.createElement(module.CopyButton, { value: 'hello' }),
+      )
+      assert.match(copyMarkup, /data-copy-status="pending"/)
+      assert.match(copyMarkup, /aria-label="Copy to clipboard"/)
+      const lightMarkup = renderToStaticMarkup(React.createElement(module.LightButtons))
+      for (const title of ['close', 'minimize', 'maximize']) {
+        assert.ok(lightMarkup.includes(`title="${title}"`))
+      }
+      assert.equal(await module.copyToClipboard('server rendering'), false)
       const markup = renderToStaticMarkup(
         React.createElement(module.CodeEditor, {
           lang: 'typescript',
