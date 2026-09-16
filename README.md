@@ -169,8 +169,8 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 |       [@yozora/react-code-embed][]       | A simple code editor online.                                                   |
 |      [@yozora/react-code-literal][]      | Render literal code block.                                                     |
 |       [@yozora/react-code-live][]        | A live code editor, be similar to [react-live][].                              |
-|   [@yozora/react-code-renderer-jsx][]    | React component for rendering jsx directly in browser.                         |
-| [@yozora/react-code-renderer-graphviz][] | React component for rendering graphviz (dot) directly in browser.              |
+|   [@yozora/react-embed-jsx][]    | React component for rendering jsx directly in browser.                         |
+| [@yozora/react-embed-graphviz][] | React component for rendering graphviz (dot) directly in browser.              |
 |        [@yozora/react-markdown][]        | React component for rendering markdown content with above Markdown Components. |
 |        [@yozora/react-mathjax][]         | Render formula with mathjax in react.                                          |
 
@@ -191,10 +191,10 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
   https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-literal#readme
 [@yozora/react-code-live]:
   https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-live#readme
-[@yozora/react-code-renderer-jsx]:
-  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-renderer-jsx#readme
-[@yozora/react-code-renderer-graphviz]:
-  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-renderer-graphviz#readme
+[@yozora/react-embed-jsx]:
+  https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-jsx#readme
+[@yozora/react-embed-graphviz]:
+  https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-graphviz#readme
 [@yozora/react-markdown]:
   https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-markdown#readme
 [@yozora/react-mathjax]:

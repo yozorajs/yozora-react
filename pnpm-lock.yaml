@@ -136,12 +136,12 @@ importers:
       '@yozora/react-code-live':
         specifier: workspace:^
         version: link:../react-code-live
-      '@yozora/react-code-renderer-jsx':
-        specifier: workspace:^
-        version: link:../react-code-renderer-jsx
       '@yozora/react-core':
         specifier: workspace:^
         version: link:../react-core
+      '@yozora/react-embed-jsx':
+        specifier: workspace:^
+        version: link:../react-embed-jsx
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -218,36 +218,6 @@ importers:
         specifier: 19.3.0
         version: 19.3.0
 
-  packages/react-code-renderer-graphviz:
-    dependencies:
-      '@guanghechen/equal':
-        specifier: ^2.0.5
-        version: 2.0.5
-      '@types/d3-graphviz':
-        specifier: 3.1.0
-        version: 3.1.0
-      d3-graphviz:
-        specifier: 5.6.0
-        version: 5.6.0(d3-selection@3.0.0)
-      d3-selection:
-        specifier: 3.0.0
-        version: 3.0.0
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
-
-  packages/react-code-renderer-jsx:
-    dependencies:
-      '@guanghechen/equal':
-        specifier: ^2.0.5
-        version: 2.0.5
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
-      sucrase:
-        specifier: 3.35.1
-        version: 3.35.1
-
   packages/react-code-runners:
     dependencies:
       '@guanghechen/react-hooks':
@@ -310,6 +280,36 @@ importers:
       react-dom:
         specifier: 19.3.0
         version: 19.3.0(react@19.3.0)
+
+  packages/react-embed-graphviz:
+    dependencies:
+      '@guanghechen/equal':
+        specifier: ^2.0.5
+        version: 2.0.5
+      '@types/d3-graphviz':
+        specifier: 3.1.0
+        version: 3.1.0
+      d3-graphviz:
+        specifier: 5.6.0
+        version: 5.6.0(d3-selection@3.0.0)
+      d3-selection:
+        specifier: 3.0.0
+        version: 3.0.0
+      react:
+        specifier: 19.3.0
+        version: 19.3.0
+
+  packages/react-embed-jsx:
+    dependencies:
+      '@guanghechen/equal':
+        specifier: ^2.0.5
+        version: 2.0.5
+      react:
+        specifier: 19.3.0
+        version: 19.3.0
+      sucrase:
+        specifier: 3.35.1
+        version: 3.35.1
 
   packages/react-markdown:
     dependencies:

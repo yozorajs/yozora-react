@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
-import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
 import type { ICodeRunnerProps } from '@yozora/react-core'
+import CodeRendererJsx from '@yozora/react-embed-jsx'
 import React from 'react'
 import { vi } from 'vitest'
 import CodeEmbed from '../src'

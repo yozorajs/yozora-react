@@ -82,7 +82,7 @@ This package is designed to provide code runners for [@yozora/react-code-embed][
   import { createGraphvizRunner } from '@yozora/react-code-runners'
 
   const GraphvizRenderer = loadable(
-    () => import('@yozora/react-code-renderer-graphviz'),
+    () => import('@yozora/react-embed-graphviz'),
   )
 
   export const GraphvizRunner: CodeRunner = createGraphvizRunner(GraphvizRenderer)
@@ -93,13 +93,13 @@ This package is designed to provide code runners for [@yozora/react-code-embed][
   ```tsx title="./runner-jsx.tsx"
   import loadable from '@loadable/component'
   import type { EcmaImport } from '@yozora/ast'
-  import type { ICodeRendererJsxProps } from '@yozora/react-code-renderer-jsx'
+  import type { ICodeRendererJsxProps } from '@yozora/react-embed-jsx'
   import type { ICodeRunner } from '@yozora/react-code-runners'
   import { createUseJsxRunner } from '@yozora/react-code-runners'
   import { useCallback, useEffect, useMemo, useState } from 'react'
 
   const JsxRenderer = loadable<ICodeRendererJsxProps>(
-    () => import('@yozora/react-code-renderer-jsx') as any,
+    () => import('@yozora/react-embed-jsx') as any,
   )
 
   export const useJsxRunner: (ecmaImports: EcmaImport[]) => ICodeRunner =
@@ -178,10 +178,10 @@ This package is designed to provide code runners for [@yozora/react-code-embed][
 
 ## Related
 
-- [@yozora/react-code-renderer-graphviz][]
-- [@yozora/react-code-renderer-jsx][]
+- [@yozora/react-embed-graphviz][]
+- [@yozora/react-embed-jsx][]
 
 [@yozora/react-code-embed]: ../code-live/README.md
 [@yozora/react-code-live]: ../code-live/README.md
-[@yozora/react-code-renderer-graphviz]: ../code-renderer-graphviz/README.md
-[@yozora/react-code-renderer-jsx]: ../code-renderer-jsx/README.md
+[@yozora/react-embed-graphviz]: ../react-embed-graphviz/README.md
+[@yozora/react-embed-jsx]: ../react-embed-jsx/README.md

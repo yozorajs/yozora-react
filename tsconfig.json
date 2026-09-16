@@ -8,12 +8,12 @@
       "@yozora/react-code-embed": ["./packages/react-code-embed/src"],
       "@yozora/react-code-literal": ["./packages/react-code-literal/src"],
       "@yozora/react-code-live": ["./packages/react-code-live/src"],
-      "@yozora/react-code-renderer-graphviz": ["./packages/react-code-renderer-graphviz/src"],
-      "@yozora/react-code-renderer-jsx": ["./packages/react-code-renderer-jsx/src"],
       "@yozora/react-code-runners": ["./packages/react-code-runners/src"],
       "@yozora/react-common-copy-button": ["./packages/react-common-copy-button/src"],
       "@yozora/react-common-light-buttons": ["./packages/react-common-light-buttons/src"],
       "@yozora/react-core": ["./packages/react-core/src"],
+      "@yozora/react-embed-graphviz": ["./packages/react-embed-graphviz/src"],
+      "@yozora/react-embed-jsx": ["./packages/react-embed-jsx/src"],
       "@yozora/react-markdown": ["./packages/react-markdown/src"],
       "@yozora/react-mathjax": ["./packages/react-mathjax/src"]
     }

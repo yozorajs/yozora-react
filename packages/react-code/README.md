@@ -115,7 +115,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 - `runners`:
 
   ```typescript
-  import JsxRenderer from '@yozora/react-code-renderer-jsx'
+  import JsxRenderer from '@yozora/react-embed-jsx'
 
   const defaultRunners: CodeRunnerItem[] = [
     {

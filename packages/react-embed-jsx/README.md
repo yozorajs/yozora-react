@@ -1,24 +1,24 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-renderer-jsx#readme">@yozora/react-code-renderer-jsx</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-jsx#readme">@yozora/react-embed-jsx</a>
   </h1>
   <div align="center">
-    <a href="https://www.npmjs.com/package/@yozora/react-code-renderer-jsx">
+    <a href="https://www.npmjs.com/package/@yozora/react-embed-jsx">
       <img
         alt="Npm Version"
-        src="https://img.shields.io/npm/v/@yozora/react-code-renderer-jsx.svg"
+        src="https://img.shields.io/npm/v/@yozora/react-embed-jsx.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-code-renderer-jsx">
+    <a href="https://www.npmjs.com/package/@yozora/react-embed-jsx">
       <img
         alt="Npm Download"
-        src="https://img.shields.io/npm/dm/@yozora/react-code-renderer-jsx.svg"
+        src="https://img.shields.io/npm/dm/@yozora/react-embed-jsx.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-code-renderer-jsx">
+    <a href="https://www.npmjs.com/package/@yozora/react-embed-jsx">
       <img
         alt="Npm License"
-        src="https://img.shields.io/npm/l/@yozora/react-code-renderer-jsx.svg"
+        src="https://img.shields.io/npm/l/@yozora/react-embed-jsx.svg"
       />
     </a>
     <a href="#install">
@@ -30,13 +30,13 @@
     <a href="https://github.com/nodejs/node">
       <img
         alt="Node.js Version"
-        src="https://img.shields.io/node/v/@yozora/react-code-renderer-jsx"
+        src="https://img.shields.io/node/v/@yozora/react-embed-jsx"
       />
     </a>
     <a href="https://github.com/facebook/react">
       <img
         alt="React version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-code-renderer-jsx/peer/react"
+        src="https://img.shields.io/npm/dependency-version/@yozora/react-embed-jsx/peer/react"
       />
     </a>
     <a href="https://github.com/vitest-dev/vitest">
@@ -57,18 +57,24 @@
 
 This package is designed to live render jsx, inspired by [react live][].
 
+## Migration
+
+This package replaces `@yozora/react-code-renderer-jsx`. Update the import
+specifier to `@yozora/react-embed-jsx`; existing component names, props, and
+default/named exports are unchanged.
+
 ## Install
 
 - npm
 
   ```bash
-  npm install --save @yozora/react-code-renderer-jsx
+  npm install --save @yozora/react-embed-jsx
   ```
 
 - yarn
 
   ```bash
-  yarn add @yozora/react-code-renderer-jsx
+  yarn add @yozora/react-embed-jsx
   ```
 
 ## Usage
@@ -76,7 +82,7 @@ This package is designed to live render jsx, inspired by [react live][].
 - Basic:
 
   ```tsx
-  import CodeRendererJsx from '@yozora/react-code-renderer-jsx'
+  import CodeRendererJsx from '@yozora/react-embed-jsx'
   import React from 'react'
 
   const scope = { accent: 'orange' }

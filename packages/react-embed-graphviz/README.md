@@ -1,24 +1,24 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-code-renderer-graphviz#readme">@yozora/react-code-renderer-graphviz</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-graphviz#readme">@yozora/react-embed-graphviz</a>
   </h1>
   <div align="center">
-    <a href="https://www.npmjs.com/package/@yozora/react-code-renderer-graphviz">
+    <a href="https://www.npmjs.com/package/@yozora/react-embed-graphviz">
       <img
         alt="Npm Version"
-        src="https://img.shields.io/npm/v/@yozora/react-code-renderer-graphviz.svg"
+        src="https://img.shields.io/npm/v/@yozora/react-embed-graphviz.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-code-renderer-graphviz">
+    <a href="https://www.npmjs.com/package/@yozora/react-embed-graphviz">
       <img
         alt="Npm Download"
-        src="https://img.shields.io/npm/dm/@yozora/react-code-renderer-graphviz.svg"
+        src="https://img.shields.io/npm/dm/@yozora/react-embed-graphviz.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-code-renderer-graphviz">
+    <a href="https://www.npmjs.com/package/@yozora/react-embed-graphviz">
       <img
         alt="Npm License"
-        src="https://img.shields.io/npm/l/@yozora/react-code-renderer-graphviz.svg"
+        src="https://img.shields.io/npm/l/@yozora/react-embed-graphviz.svg"
       />
     </a>
     <a href="#install">
@@ -30,13 +30,13 @@
     <a href="https://github.com/nodejs/node">
       <img
         alt="Node.js Version"
-        src="https://img.shields.io/node/v/@yozora/react-code-renderer-graphviz"
+        src="https://img.shields.io/node/v/@yozora/react-embed-graphviz"
       />
     </a>
     <a href="https://github.com/facebook/react">
       <img
         alt="React version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-code-renderer-graphviz/peer/react"
+        src="https://img.shields.io/npm/dependency-version/@yozora/react-embed-graphviz/peer/react"
       />
     </a>
     <a href="https://github.com/vitest-dev/vitest">
@@ -57,18 +57,24 @@
 
 This package is designed to render graphviz (dot) in react, inspired by [graphviz-react][].
 
+## Migration
+
+This package replaces `@yozora/react-code-renderer-graphviz`. Update the import
+specifier to `@yozora/react-embed-graphviz`; existing component names, props, and
+default/named exports are unchanged.
+
 ## Install
 
 - npm
 
   ```bash
-  npm install --save @yozora/react-code-renderer-graphviz
+  npm install --save @yozora/react-embed-graphviz
   ```
 
 - yarn
 
   ```bash
-  yarn add @yozora/react-code-renderer-graphviz
+  yarn add @yozora/react-embed-graphviz
   ```
 
 ## Usage
@@ -77,7 +83,7 @@ This package is designed to render graphviz (dot) in react, inspired by [graphvi
 
   ```tsx
   import React from 'react'
-  import GraphvizRenderer from '@yozora/react-code-renderer-graphviz'
+  import GraphvizRenderer from '@yozora/react-embed-graphviz'
 
   const code = `
     digraph finite_state_machine {
@@ -108,7 +114,7 @@ This package is designed to render graphviz (dot) in react, inspired by [graphvi
 
   ```tsx
   import React from 'react'
-  import GraphvizRenderer from '@yozora/react-code-renderer-graphviz'
+  import GraphvizRenderer from '@yozora/react-embed-graphviz'
 
   function JsxPreview(props: { code: string, inline: boolean }) {
     const [error, setError] = React.useState<any>(null)

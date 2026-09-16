@@ -46,8 +46,8 @@
     "@yozora/react-code-embed": "workspace:^",
     "@yozora/react-code-literal": "workspace:^",
     "@yozora/react-code-live": "workspace:^",
-    "@yozora/react-code-renderer-jsx": "workspace:^",
-    "@yozora/react-core": "workspace:^"
+    "@yozora/react-core": "workspace:^",
+    "@yozora/react-embed-jsx": "workspace:^"
   },
   "peerDependencies": {
     "@yozora/ast": "^2.0.0",
