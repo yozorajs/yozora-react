@@ -2,7 +2,7 @@ import { isEqual } from '@guanghechen/equal'
 import type { ICodeRunner } from '@yozora/react-core'
 import { clsx } from '@yozora/react-core'
 import React from 'react'
-import { embedClasses as classes } from '../style'
+import { classes } from '../style'
 
 interface IProps {
   /**
@@ -95,12 +95,12 @@ export class CodeEmbed extends React.Component<IProps, IState> {
     const { error } = this.state
 
     return (
-      <div className={clsx('yozora-code-embed', classes.container, className)} style={style}>
+      <div className={clsx('yozora-code-embed', classes.embed.container, className)} style={style}>
         {error == null ? (
           <Runner lang={lang} value={value} meta={meta} scope={scope} onError={this._onError} />
         ) : (
-          <div className={classes.error}>
-            <div className={classes.errorDetails}>{error as any}</div>
+          <div className={classes.embed.error}>
+            <div className={classes.embed.errorDetails}>{error as any}</div>
           </div>
         )}
       </div>

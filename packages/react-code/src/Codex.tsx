@@ -6,7 +6,7 @@ import React from 'react'
 import { CodeEmbed as CodeEmbedComponent } from './component/CodeEmbed'
 import { CodeLiteral as CodeLiteralComponent } from './component/CodeLiteral'
 import { CodeLive as CodeLiveComponent } from './live'
-import type { ICodeMetaData, ICodeProps } from './types'
+import type { ICodeMetaData, ICodeProps } from './types/code'
 import { parseCodeMeta } from './util/meta'
 
 export const defaultRunners: ICodeRunnerItem[] = [

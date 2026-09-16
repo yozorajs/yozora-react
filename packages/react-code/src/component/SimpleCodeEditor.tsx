@@ -1,22 +1,21 @@
 import { clsx } from '@yozora/react-core'
 import React from 'react'
-import { editorClasses as classes } from '../style'
+import { classes } from '../style'
 import type {
   IEditorHistory,
   IEditorOperationRecord,
   IEditorProps,
   IEditorState,
-} from './SimpleCodeEditor.types'
+} from '../types/editor'
 import {
   HISTORY_LIMIT,
   HISTORY_TIME_GAP,
   KeyboardCodes,
   KeyboardKeys,
-  getLines,
   isMacLike,
   isWindows,
   regexps,
-} from './SimpleCodeEditor.util'
+} from '../util/keyboard'
 
 /**
  * Based on react-simple-code-editor, developed by satya164
@@ -93,16 +92,16 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
     return (
       <div
         {...htmlProps}
-        className={clsx('yozora-code-editor', classes.container, className)}
+        className={clsx('yozora-code-editor', classes.editor.container, className)}
         style={{ ...style, tabSize }}
       >
-        <div className={classes.textarea}>
-          <div className={classes.textareaLinenos} style={{ width: linenoWidth }} />
+        <div className={classes.editor.textarea}>
+          <div className={classes.editor.textareaLinenos} style={{ width: linenoWidth }} />
           <textarea
             ref={this.inputRef}
             id={textareaId}
             style={textareaStyle}
-            className={clsx(classes.textareaContents, textareaClassName)}
+            className={clsx(classes.editor.textareaContents, textareaClassName)}
             value={value}
             onChange={this._handleChange}
             onKeyDown={this._handleKeyDown}
@@ -127,7 +126,7 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
           />
         </div>
         <pre
-          className={clsx(classes.previewer, preClassName)}
+          className={clsx(classes.editor.previewer, preClassName)}
           style={preStyle}
           aria-hidden="true"
           {...(typeof highlighted === 'string'
@@ -182,10 +181,18 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
         const regex = regexps.lastWordOfLine
 
         // Get the previous line
-        const previous = getLines(last.value, last.selectionStart).pop()!.match(regex)
+        const previous = last.value
+          .substring(0, last.selectionStart)
+          .split('\n')
+          .pop()!
+          .match(regex)
 
         // Get the current line
-        const current = getLines(record.value, record.selectionStart).pop()!.match(regex)
+        const current = record.value
+          .substring(0, record.selectionStart)
+          .split('\n')
+          .pop()!
+          .match(regex)
 
         if (previous && current?.[1].startsWith(previous[1])) {
           // The last word of the previous line and current line match
@@ -284,9 +291,9 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
 
       if (e.shiftKey) {
         // Unindent selected lines
-        const linesBeforeCaret = getLines(value, selectionStart)
+        const linesBeforeCaret = value.substring(0, selectionStart).split('\n')
         const startLine = linesBeforeCaret.length - 1
-        const endLine = getLines(value, selectionEnd).length - 1
+        const endLine = value.substring(0, selectionEnd).split('\n').length - 1
         const nextValue = value
           .split('\n')
           .map((line, i) => {
@@ -314,9 +321,9 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
         }
       } else if (selectionStart !== selectionEnd) {
         // Indent selected lines
-        const linesBeforeCaret = getLines(value, selectionStart)
+        const linesBeforeCaret = value.substring(0, selectionStart).split('\n')
         const startLine = linesBeforeCaret.length - 1
-        const endLine = getLines(value, selectionEnd).length - 1
+        const endLine = value.substring(0, selectionEnd).split('\n').length - 1
         const startLineText = linesBeforeCaret[startLine]
 
         this._applyEdits({
@@ -373,7 +380,7 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
       // Ignore selections
       if (selectionStart === selectionEnd) {
         // Get the current line
-        const line = getLines(value, selectionStart).pop()!
+        const line = value.substring(0, selectionStart).split('\n').pop()!
         const matches = line.match(/^\s+/)
 
         if (matches?.[0]) {

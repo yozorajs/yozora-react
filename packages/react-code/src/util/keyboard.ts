@@ -52,11 +52,3 @@ export enum KeyboardCodes {
 export const regexps = {
   lastWordOfLine: /[^a-z0-9]([a-z0-9]+)$/i,
 }
-
-/**
- * Split text into lines.
- * @param text
- * @param endPos
- */
-export const getLines = (text: string, endPos: number): string[] =>
-  text.substring(0, endPos).split('\n')

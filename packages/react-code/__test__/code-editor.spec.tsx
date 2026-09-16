@@ -7,13 +7,13 @@ describe('basic rendering case', () => {
   test('exported classes select individual editor elements', () => {
     const view = render(<CodeEditor lang="typescript" code="const value = 1" onChange={vi.fn()} />)
 
-    for (const className of Object.values(classes)) {
+    for (const className of Object.values(classes.editor)) {
       expect(view.container.querySelectorAll('.' + className)).toHaveLength(1)
     }
-    expect(view.container.querySelector('.' + classes.textareaContents)).toBe(
+    expect(view.container.querySelector('.' + classes.editor.textareaContents)).toBe(
       view.getByRole('textbox'),
     )
-    expect(view.container.querySelector('.' + classes.previewer)?.tagName).toBe('PRE')
+    expect(view.container.querySelector('.' + classes.editor.previewer)?.tagName).toBe('PRE')
   })
 
   test('input change', () => {

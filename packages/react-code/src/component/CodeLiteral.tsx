@@ -1,6 +1,6 @@
 import { CodeHighlighter as CodeHighlighterComponent, clsx } from '@yozora/react-core'
 import React from 'react'
-import { literalClasses as classes } from '../style'
+import { classes } from '../style'
 import { CopyButton as CopyButtonComponent } from './CopyButton'
 import { LightButtons as LightButtonsComponent } from './LightButtons'
 
@@ -108,18 +108,21 @@ export class CodeLiteral extends React.Component<IProps, IState> {
     const { collapsed, countOfLines } = this.state
 
     return (
-      <div className={clsx('yozora-code-literal', classes.container, className)} style={style}>
-        <div className={classes.toolbar} onDoubleClick={this._onToolbarDbClicked}>
+      <div
+        className={clsx('yozora-code-literal', classes.literal.container, className)}
+        style={style}
+      >
+        <div className={classes.literal.toolbar} onDoubleClick={this._onToolbarDbClicked}>
           <LightButtonsComponent onMinimize={this._onMinimize} onMaximize={this._onMaximize} />
-          <span className={classes.title} title={title}>
+          <span className={classes.literal.title} title={title}>
             {title && <React.Fragment>{title}&nbsp;</React.Fragment>}
             {title && collapsed ? ' | ' + countOfLines + ' lines.' : null}
           </span>
-          <span className={classes.copyBtn} onClick={this._onCopyBtnClicked}>
+          <span className={classes.literal.copyBtn} onClick={this._onCopyBtnClicked}>
             <CopyButtonComponent value={value} />
           </span>
         </div>
-        <code className={classes.content}>
+        <code className={classes.literal.content}>
           <pre>
             <CodeHighlighterComponent
               lang={lang}

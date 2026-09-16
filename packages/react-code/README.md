@@ -77,8 +77,15 @@ The stylesheet includes all these components and their dependency styles; it rep
 the former packages' stylesheet imports. Applications already importing
 `@yozora/react-markdown/style.css` do not need a second stylesheet.
 
-The editor's existing named exports, including `SimpleCodeEditor`, `classes`, keyboard
-constants, history types, and helpers, are also available from `@yozora/react-code`.
+The editor's remaining named exports, including `SimpleCodeEditor`, `classes`, keyboard
+constants, and history types, are also available from `@yozora/react-code`.
+
+`classes` groups selectors by component: `classes.editor`, `classes.embed`,
+`classes.literal`, and `classes.live`. Replace editor selector access such as
+`classes.container` with `classes.editor.container`.
+
+`getLines` is no longer exported. Inline `text.substring(0, endPos).split('\n')`
+where needed.
 
 ## Install
 

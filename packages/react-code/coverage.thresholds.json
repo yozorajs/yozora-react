@@ -12,7 +12,7 @@
       "lines": 40,
       "statements": 40
     },
-    "src/component/{CodeEditor,SimpleCodeEditor*}.{ts,tsx}": {
+    "src/{component/CodeEditor.tsx,component/SimpleCodeEditor.tsx,util/keyboard.ts}": {
       "branches": 20,
       "functions": 50,
       "lines": 40,

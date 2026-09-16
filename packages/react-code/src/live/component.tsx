@@ -5,7 +5,7 @@ import { CodeEditor as CodeEditorComponent } from '../component/CodeEditor'
 import { CodeEmbed as CodeEmbedComponent } from '../component/CodeEmbed'
 import { CopyButton as CopyButtonComponent } from '../component/CopyButton'
 import { LightButtons as LightButtonsComponent } from '../component/LightButtons'
-import { liveClasses as classes } from '../style'
+import { classes } from '../style'
 import type { ICodeLiveProps, ICodeLiveState } from './types'
 
 /**
@@ -76,23 +76,30 @@ export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
     const runner = runners.find(item => item.pattern.test(lang))
 
     return (
-      <div className={clsx('yozora-code-live', classes.container, className)} style={style}>
-        <div key="toolbar" className={classes.toolbar} onDoubleClick={this._onToolbarDbClicked}>
+      <div className={clsx('yozora-code-live', classes.live.container, className)} style={style}>
+        <div
+          key="toolbar"
+          className={classes.live.toolbar}
+          onDoubleClick={this._onToolbarDbClicked}
+        >
           <LightButtonsComponent onMinimize={this._onMinimize} onMaximize={this._onMaximize} />
-          <span className={classes.title} title={title}>
+          <span className={classes.live.title} title={title}>
             {title && <React.Fragment>{title}&nbsp;</React.Fragment>}
             {title && collapsed ? ' | ' + countOfLines + ' lines.' : null}
           </span>
-          <span className={classes.copyBtn} onClick={this._onCopyBtnClicked}>
+          <span className={classes.live.copyBtn} onClick={this._onCopyBtnClicked}>
             <CopyButtonComponent value={value} />
           </span>
         </div>
         <div
           key="main"
           data-collapsed={collapsed || undefined}
-          className={clsx(classes.main, orientation === 'vertical' && classes.mainVertical)}
+          className={clsx(
+            classes.live.main,
+            orientation === 'vertical' && classes.live.mainVertical,
+          )}
         >
-          <div key="editor" className={classes.editor}>
+          <div key="editor" className={classes.live.editor}>
             <CodeEditorComponent
               lang={lang}
               code={value}
@@ -108,7 +115,10 @@ export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
           {runner != null && (
             <div
               key="previewer"
-              className={clsx(classes.previewer, centerPreviewer && classes.previewerCenter)}
+              className={clsx(
+                classes.live.previewer,
+                centerPreviewer && classes.live.previewerCenter,
+              )}
             >
               <CodeEmbedComponent
                 lang={lang}
