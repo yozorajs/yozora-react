@@ -1,24 +1,24 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-code#readme">@yozora/react-code</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-renderer-code#readme">@yozora/react-renderer-code</a>
   </h1>
   <div align="center">
-    <a href="https://www.npmjs.com/package/@yozora/react-code">
+    <a href="https://www.npmjs.com/package/@yozora/react-renderer-code">
       <img
         alt="Npm Version"
-        src="https://img.shields.io/npm/v/@yozora/react-code.svg"
+        src="https://img.shields.io/npm/v/@yozora/react-renderer-code.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-code">
+    <a href="https://www.npmjs.com/package/@yozora/react-renderer-code">
       <img
         alt="Npm Download"
-        src="https://img.shields.io/npm/dm/@yozora/react-code.svg"
+        src="https://img.shields.io/npm/dm/@yozora/react-renderer-code.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-code">
+    <a href="https://www.npmjs.com/package/@yozora/react-renderer-code">
       <img
         alt="Npm License"
-        src="https://img.shields.io/npm/l/@yozora/react-code.svg"
+        src="https://img.shields.io/npm/l/@yozora/react-renderer-code.svg"
       />
     </a>
     <a href="#install">
@@ -30,13 +30,13 @@
     <a href="https://github.com/nodejs/node">
       <img
         alt="Node.js Version"
-        src="https://img.shields.io/node/v/@yozora/react-code"
+        src="https://img.shields.io/node/v/@yozora/react-renderer-code"
       />
     </a>
     <a href="https://github.com/facebook/react">
       <img
         alt="React version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-code/peer/react"
+        src="https://img.shields.io/npm/dependency-version/@yozora/react-renderer-code/peer/react"
       />
     </a>
     <a href="https://github.com/vitest-dev/vitest">
@@ -61,16 +61,20 @@ This component has been built into [@yozora/react-markdown][], you can use it di
 
 ## Migration
 
+`@yozora/react-code` has been renamed to `@yozora/react-renderer-code`. Update the
+dependency name and imports, including `@yozora/react-renderer-code/style.css`.
+Component names, named exports, and props are unchanged by this rename.
+
 `@yozora/react-code-editor`, `@yozora/react-code-embed`, `@yozora/react-code-literal`,
 `@yozora/react-code-live`, `@yozora/react-common-copy-button`,
 `@yozora/react-common-light-buttons`, and `@yozora/react-code-runners` are now part of
-this package. Replace their dependencies with `@yozora/react-code` and use the
+this package. Replace their dependencies with `@yozora/react-renderer-code` and use the
 corresponding named exports:
 
 ```tsx
-import Code, { CodeEditor, CodeEmbed, CodeLiteral, CodeLive } from '@yozora/react-code'
-import { CopyButton, LightButtons, copyToClipboard } from '@yozora/react-code'
-import '@yozora/react-code/style.css'
+import Code, { CodeEditor, CodeEmbed, CodeLiteral, CodeLive } from '@yozora/react-renderer-code'
+import { CopyButton, LightButtons, copyToClipboard } from '@yozora/react-renderer-code'
+import '@yozora/react-renderer-code/style.css'
 ```
 
 `Code` remains the default export. Component props and CSS class names are unchanged.
@@ -79,7 +83,7 @@ the former packages' stylesheet imports. Applications already importing
 `@yozora/react-markdown/style.css` do not need a second stylesheet.
 
 The editor's remaining named exports, including `SimpleCodeEditor`, `classes`, keyboard
-constants, and history types, are also available from `@yozora/react-code`.
+constants, and history types, are also available from `@yozora/react-renderer-code`.
 
 `classes` groups selectors by component: `classes.editor`, `classes.embed`,
 `classes.literal`, and `classes.live`. Replace editor selector access such as
@@ -106,13 +110,13 @@ namespace binding is retained. `IAsyncRunnerScopes.Placeholders` was removed.
 - npm
 
   ```bash
-  npm install --save @yozora/react-code
+  npm install --save @yozora/react-renderer-code
   ```
 
 - yarn
 
   ```bash
-  yarn add @yozora/react-code
+  yarn add @yozora/react-renderer-code
   ```
 
 ## Usage
@@ -120,7 +124,7 @@ namespace binding is retained. `IAsyncRunnerScopes.Placeholders` was removed.
 Import the compiled stylesheet once at your application entry:
 
 ```tsx
-import '@yozora/react-code/style.css'
+import '@yozora/react-renderer-code/style.css'
 ```
 
 It includes styles for dependency components. Tailwind is not required in the consuming
@@ -131,7 +135,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 
   ```tsx
   import React from 'react'
-  import Code from '@yozora/react-code'
+  import Code from '@yozora/react-renderer-code'
 
   const wrapper = (
     <Code
@@ -203,7 +207,7 @@ A controlled editor with syntax highlighting. Its implementation is derived from
 [react-simple-code-editor][].
 
 ```tsx
-import { CodeEditor } from '@yozora/react-code'
+import { CodeEditor } from '@yozora/react-renderer-code'
 import React from 'react'
 
 function Editor() {
@@ -222,7 +226,7 @@ takes precedence over `darken`; otherwise syntax colors follow `ThemeProvider` f
 Render a code value with a supplied runner and display runner errors inline:
 
 ```tsx
-import { CodeEmbed } from '@yozora/react-code'
+import { CodeEmbed } from '@yozora/react-renderer-code'
 import type { ICodeRunnerProps } from '@yozora/react-core'
 
 function TextRunner({ value }: ICodeRunnerProps) {
@@ -239,7 +243,7 @@ const preview = <CodeEmbed lang="text" value="Hello" runner={TextRunner} />
 Render highlighted code with a title, copy button, and collapse controls:
 
 ```tsx
-import { CodeLiteral } from '@yozora/react-code'
+import { CodeLiteral } from '@yozora/react-renderer-code'
 
 const code = (
   <CodeLiteral lang="typescript" value="const value = 1" title="Example" showLineNo />
@@ -254,7 +258,7 @@ const code = (
 Combine the editor and preview using a list of runners:
 
 ```tsx
-import { CodeLive, defaultRunners } from '@yozora/react-code'
+import { CodeLive, defaultRunners } from '@yozora/react-renderer-code'
 
 const live = (
   <CodeLive
@@ -274,7 +278,7 @@ const live = (
 Copy a value to the clipboard and display its status:
 
 ```tsx
-import { CopyButton } from '@yozora/react-code'
+import { CopyButton } from '@yozora/react-renderer-code'
 
 const copy = <CopyButton value="const value = 1" statusTipMap={{ completed: 'Copied' }} />
 ```
@@ -288,7 +292,7 @@ const copy = <CopyButton value="const value = 1" statusTipMap={{ completed: 'Cop
 Render the close, minimize, and maximize controls used by code toolbars:
 
 ```tsx
-import { LightButtons } from '@yozora/react-code'
+import { LightButtons } from '@yozora/react-renderer-code'
 import React from 'react'
 
 function Controls() {
@@ -306,7 +310,7 @@ function Controls() {
 ## Runners
 
 Runner factories and dynamic-import helpers formerly provided by
-`@yozora/react-code-runners` are exported from `@yozora/react-code`:
+`@yozora/react-code-runners` are exported from `@yozora/react-renderer-code`:
 
 - `createGraphvizRunner(GraphvizRenderer)` adapts a renderer accepting `code`, `engine`,
   and `onError` to a code runner.
@@ -318,7 +322,7 @@ Runner factories and dynamic-import helpers formerly provided by
   directly into the runner scope.
 
 ```tsx
-import { CodeLive, createLazyRenderer, createUseJsxRunner } from '@yozora/react-code'
+import { CodeLive, createLazyRenderer, createUseJsxRunner } from '@yozora/react-renderer-code'
 import React from 'react'
 
 const useJsxRunner = createUseJsxRunner({
@@ -348,7 +352,7 @@ Optional embed renderers can be loaded in the same way without making them
 mandatory dependencies of this package:
 
 ```tsx
-import { createGraphvizRunner, createLazyRenderer } from '@yozora/react-code'
+import { createGraphvizRunner, createLazyRenderer } from '@yozora/react-renderer-code'
 
 const GraphvizRunner = createGraphvizRunner(
   createLazyRenderer(() => import('@yozora/react-embed-graphviz')),

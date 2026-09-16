@@ -47,7 +47,7 @@ interface IState {
  * @see https://www.npmjs.com/package/@yozora/ast#code
  * @see https://www.npmjs.com/package/@yozora/tokenizer-indented-code
  * @see https://www.npmjs.com/package/@yozora/tokenizer-fenced-code
- * @see https://www.npmjs.com/package/@yozora/react-code
+ * @see https://www.npmjs.com/package/@yozora/react-renderer-code
  */
 export class CodeEmbed extends React.Component<IProps, IState> {
   public static displayName = 'CodeEmbed'

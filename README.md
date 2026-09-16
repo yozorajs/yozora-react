@@ -70,7 +70,7 @@ import { ThemeProvider } from '@yozora/react-core'
 ```
 
 Each styled package exports `./style.css`, including its dependency components.
-For example, standalone editor users import `@yozora/react-code/style.css`.
+For example, standalone editor users import `@yozora/react-renderer-code/style.css`.
 CSS is loaded explicitly so ESM, CommonJS, and server rendering remain usable without
 an automatic CSS loader. Keep these imports in your application's CSS entry point.
 
@@ -156,15 +156,15 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
 ### Markdown components
 
-|         Package Name         | Token Name                      |
-| :--------------------------: | :------------------------------ |
-| [@yozora/react-admonition][] | [admonition][yozora/admonition] |
-|    [@yozora/react-code][]    | [code][yozora/code]             |
+|           Package Name          | Token Name                      |
+| :-----------------------------: | :------------------------------ |
+|   [@yozora/react-admonition][]  | [admonition][yozora/admonition] |
+| [@yozora/react-renderer-code][] | [code][yozora/code]             |
 
-`@yozora/react-code` also exports `CodeEditor`, `CodeEmbed`, `CodeLiteral`, `CodeLive`,
+`@yozora/react-renderer-code` also exports `CodeEditor`, `CodeEmbed`, `CodeLiteral`, `CodeLive`,
 `CopyButton`, and `LightButtons` for standalone use.
-See its [component documentation](./packages/react-code/README.md#standalone-components).
-It also provides [runner factories](./packages/react-code/README.md#runners) for Graphviz, JSX, and math.
+See its [component documentation](./packages/react-renderer-code/README.md#standalone-components).
+It also provides [runner factories](./packages/react-renderer-code/README.md#runners) for Graphviz, JSX, and math.
 
 ### Other components
 
@@ -180,8 +180,8 @@ It also provides [runner factories](./packages/react-code/README.md#runners) for
 [@yozora/react-core]: ./packages/react-core
 [@yozora/react-admonition]:
   https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-admonition#readme
-[@yozora/react-code]:
-  https://github.com/yozorajs/yozora-react/tree/main/packages/react-code#readme
+[@yozora/react-renderer-code]:
+  https://github.com/yozorajs/yozora-react/tree/main/packages/react-renderer-code#readme
 [@yozora/react-embed-jsx]:
   https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-jsx#readme
 [@yozora/react-embed-graphviz]:

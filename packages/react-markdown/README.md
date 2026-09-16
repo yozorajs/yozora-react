@@ -233,7 +233,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
     CodeRunnerItem,
     CodeRunnerProps,
     CodeRunnerScope,
-  } from '@yozora/react-code'
+  } from '@yozora/react-renderer-code'
   import { MathRenderer } from '@yozora/react-markdown'
   import type { Engine } from 'd3-graphviz'
   import React from 'react'
@@ -417,9 +417,9 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 [@yozora/ast-util]: https://www.npmjs.com/package/@yozora/ast-util
 [@yozora/parser]: https://www.npmjs.com/package/@yozora/parser
 [@yozora/react-admonition]: https://www.npmjs.com/package/@yozora/react-admonition
-[@yozora/react-code]: https://www.npmjs.com/package/@yozora/react-code
-[CodeEmbed]: ../react-code/README.md#codeembed
-[CodeLive]: ../react-code/README.md#codelive
+[@yozora/react-renderer-code]: https://www.npmjs.com/package/@yozora/react-renderer-code
+[CodeEmbed]: ../react-renderer-code/README.md#codeembed
+[CodeLive]: ../react-renderer-code/README.md#codelive
 [@yozora/react-mathjax]: https://www.npmjs.com/package/@yozora/react-mathjax
 [@yozora/tokenizer-admonition]: https://www.npmjs.com/package/@yozora/tokenizer-admonition
 [@yozora/tokenizer-autolink]: https://www.npmjs.com/package/@yozora/tokenizer-autolink

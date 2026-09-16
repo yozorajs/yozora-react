@@ -1,7 +1,7 @@
 import type { Code } from '@yozora/ast'
-import { Code as CodeRenderer0 } from '@yozora/react-code'
 import type { ICodeRunnerItem, INodeRenderer } from '@yozora/react-core'
 import { useNodeRendererState, useThemeContext } from '@yozora/react-core'
+import { Code as CodeRenderer0 } from '@yozora/react-renderer-code'
 import React from 'react'
 
 /**
@@ -10,7 +10,7 @@ import React from 'react'
  * @see https://www.npmjs.com/package/@yozora/ast#code
  * @see https://www.npmjs.com/package/@yozora/tokenizer-indented-code
  * @see https://www.npmjs.com/package/@yozora/tokenizer-fenced-code
- * @see https://www.npmjs.com/package/@yozora/react-code
+ * @see https://www.npmjs.com/package/@yozora/react-renderer-code
  */
 export const createCodeRenderer = (
   codeRunners: ReadonlyArray<ICodeRunnerItem> | undefined,

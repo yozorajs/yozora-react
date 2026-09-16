@@ -199,7 +199,7 @@ export const invalidNestedFunction: INodeStyleMap = { paragraph: { body: { color
 export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] } }
 `
     }
-    if (name === 'react-code') {
+    if (name === 'react-renderer-code') {
       consumer += `export type { IEditorTextareaProps, IEditorPreProps, IEditorProps, IEditorState, IEditorOperationRecord, IEditorHistory, ICodeLiveProps, ICodeLiveState } from '${manifest.name}'\n`
       consumer += `export type { ICreateUseJsxRunnerParams, IDynamicImportRule, IDynamicImportFunc } from '${manifest.name}'\n`
       consumer += `export const componentClasses: string[] = [classes.editor.container, classes.embed.error, classes.literal.content, classes.live.main]\n`
@@ -212,13 +212,13 @@ export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] 
       consumer += `export const copyProps: ComponentProps<typeof CopyButton> = { value: 'hello', statusTipMap: { completed: 'Copied' }, onError: () => {} }\n`
       consumer += `export const lightProps: ComponentProps<typeof LightButtons> = { onClose: () => {}, onMinimize: () => {}, onMaximize: () => {} }\n`
     }
-    if (name === 'react-code' || name === 'react-core') {
+    if (name === 'react-renderer-code' || name === 'react-core') {
       consumer += '// @ts-expect-error Implementation props must remain private.\n'
       consumer += `import type { IProps } from '${manifest.name}'\n`
     }
     fs.writeFileSync(path.join(consumerDir, 'index.mts'), consumer)
     fs.writeFileSync(path.join(consumerDir, 'index.cts'), consumer)
-    if (name === 'react-code') {
+    if (name === 'react-renderer-code') {
       const editorEntry = path.join(consumerDir, 'editor.mjs')
       fs.writeFileSync(editorEntry, `export { CodeEditor } from '${manifest.name}'\n`)
       const bundle = await Rolldown.rolldown({
@@ -663,7 +663,7 @@ assert.match(html, /token keyword[^>]*color:#cba6f7/i)
       assert.match(markup, /token keyword/)
       assert.match(markup, /token number/)
     }
-    if (name === 'react-code') {
+    if (name === 'react-renderer-code') {
       assert.equal(module.default, module.Code)
       const copyMarkup = renderToStaticMarkup(
         React.createElement(module.CopyButton, { value: 'hello' }),

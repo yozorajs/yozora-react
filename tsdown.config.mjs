@@ -47,7 +47,7 @@ export default defineConfig([
     cjsDefault: false,
     dts: false,
     // Keep unrelated core and code modules removable for standalone consumers.
-    unbundle: isReactCore || manifest.name === '@yozora/react-code',
+    unbundle: isReactCore || manifest.name === '@yozora/react-renderer-code',
     ...(format === 'esm'
       ? {
           hooks: { 'build:done': () => buildStyles(process.cwd()) },
