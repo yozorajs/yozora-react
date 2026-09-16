@@ -1,12 +1,90 @@
 import { debounce } from '@guanghechen/common-util'
+import type { ICodeRunnerItem, ICodeRunnerScope, IPrismTheme } from '@yozora/react-core'
 import { clsx } from '@yozora/react-core'
 import React from 'react'
-import { CodeEditor as CodeEditorComponent } from '../component/CodeEditor'
-import { CodeEmbed as CodeEmbedComponent } from '../component/CodeEmbed'
-import { CopyButton as CopyButtonComponent } from '../component/CopyButton'
-import { LightButtons as LightButtonsComponent } from '../component/LightButtons'
 import { classes } from '../style'
-import type { ICodeLiveProps, ICodeLiveState } from './types'
+import { CodeEditor as CodeEditorComponent } from './CodeEditor'
+import { CodeEmbed as CodeEmbedComponent } from './CodeEmbed'
+import { CopyButton as CopyButtonComponent } from './CopyButton'
+import { LightButtons as LightButtonsComponent } from './LightButtons'
+
+/**
+ * Live mode block code
+ */
+export interface ICodeLiveProps {
+  /**
+   * Code runners.
+   */
+  runners: ReadonlyArray<ICodeRunnerItem>
+  /**
+   * Language of the source code.
+   */
+  lang: string
+  /**
+   * Literal source codes.
+   */
+  value: string
+  /**
+   * Additional data (such as data parsed from info string of FencedCode).
+   * @see https://github.github.com/gfm/#info-string
+   * @see https://github.github.com/gfm/#example-113
+   */
+  meta?: Readonly<Record<Lowercase<string>, unknown>>
+  /**
+   * Accessible context variables.
+   */
+  scope?: Readonly<ICodeRunnerScope>
+  /**
+   * Code title
+   */
+  title?: string
+  /**
+   * Maximum number of rows displayed
+   */
+  maxLines?: number
+  /**
+   * Whether the code block is in a collapsed state.
+   * @default false
+   */
+  collapsed?: boolean
+  /**
+   * Whether to display the line numbers.
+   */
+  showLineNo?: boolean
+  /**
+   * If true, use vscDarkTheme as default theme,
+   * otherwise use vscLightTheme as default theme.
+   */
+  darken?: boolean
+  /**
+   * Root css class of the component.
+   */
+  className?: string
+  /**
+   * Root css style.
+   */
+  style?: React.CSSProperties
+  /**
+   * Code highlight theme.
+   */
+  theme?: IPrismTheme
+  /**
+   * Set this code live auto focus.
+   */
+  autoFocus?: boolean
+  /**
+   * Center the embed contents under the previewer component.
+   * @default true
+   */
+  centerPreviewer?: boolean
+}
+
+export interface ICodeLiveState {
+  value: string
+  orientation: 'horizontal' | 'vertical'
+  collapsed: boolean
+  countOfLines: number
+}
 
 /**
  * Render yozora `code` in live mode.
