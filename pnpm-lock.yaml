@@ -184,34 +184,18 @@ importers:
       '@yozora/react-core':
         specifier: workspace:^
         version: link:../react-core
-      '@yozora/react-mathjax':
-        specifier: workspace:^
-        version: link:../react-mathjax
       '@yozora/react-renderer-code':
         specifier: workspace:^
         version: link:../react-renderer-code
+      '@yozora/react-renderer-mathjax':
+        specifier: workspace:^
+        version: link:../react-renderer-mathjax
       react:
         specifier: 19.3.0
         version: 19.3.0
       react-dom:
         specifier: 19.3.0
         version: 19.3.0(react@19.3.0)
-
-  packages/react-mathjax:
-    dependencies:
-      '@guanghechen/equal':
-        specifier: ^2.0.5
-        version: 2.0.5
-      '@yozora/react-core':
-        specifier: workspace:^
-        version: link:../react-core
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
-    devDependencies:
-      '@mathjax/src':
-        specifier: ^4.1.3
-        version: 4.1.3
 
   packages/react-renderer-code:
     dependencies:
@@ -239,6 +223,22 @@ importers:
       react-dom:
         specifier: 19.3.0
         version: 19.3.0(react@19.3.0)
+
+  packages/react-renderer-mathjax:
+    dependencies:
+      '@guanghechen/equal':
+        specifier: ^2.0.5
+        version: 2.0.5
+      '@yozora/react-core':
+        specifier: workspace:^
+        version: link:../react-core
+      react:
+        specifier: 19.3.0
+        version: 19.3.0
+    devDependencies:
+      '@mathjax/src':
+        specifier: ^4.1.3
+        version: 4.1.3
 
 packages:
 

@@ -45,8 +45,8 @@
     "@yozora/ast": "^2.4.1",
     "@yozora/react-admonition": "workspace:^",
     "@yozora/react-core": "workspace:^",
-    "@yozora/react-mathjax": "workspace:^",
-    "@yozora/react-renderer-code": "workspace:^"
+    "@yozora/react-renderer-code": "workspace:^",
+    "@yozora/react-renderer-mathjax": "workspace:^"
   },
   "peerDependencies": {
     "@yozora/ast": "^2.0.0",

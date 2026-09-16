@@ -1,24 +1,24 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-mathjax#readme">@yozora/react-mathjax</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-renderer-mathjax#readme">@yozora/react-renderer-mathjax</a>
   </h1>
   <div align="center">
-    <a href="https://www.npmjs.com/package/@yozora/react-mathjax">
+    <a href="https://www.npmjs.com/package/@yozora/react-renderer-mathjax">
       <img
         alt="Npm Version"
-        src="https://img.shields.io/npm/v/@yozora/react-mathjax.svg"
+        src="https://img.shields.io/npm/v/@yozora/react-renderer-mathjax.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-mathjax">
+    <a href="https://www.npmjs.com/package/@yozora/react-renderer-mathjax">
       <img
         alt="Npm Download"
-        src="https://img.shields.io/npm/dm/@yozora/react-mathjax.svg"
+        src="https://img.shields.io/npm/dm/@yozora/react-renderer-mathjax.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-mathjax">
+    <a href="https://www.npmjs.com/package/@yozora/react-renderer-mathjax">
       <img
         alt="Npm License"
-        src="https://img.shields.io/npm/l/@yozora/react-mathjax.svg"
+        src="https://img.shields.io/npm/l/@yozora/react-renderer-mathjax.svg"
       />
     </a>
     <a href="#install">
@@ -30,13 +30,13 @@
     <a href="https://github.com/nodejs/node">
       <img
         alt="Node.js Version"
-        src="https://img.shields.io/node/v/@yozora/react-mathjax"
+        src="https://img.shields.io/node/v/@yozora/react-renderer-mathjax"
       />
     </a>
     <a href="https://github.com/facebook/react">
       <img
         alt="React version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-mathjax/peer/react"
+        src="https://img.shields.io/npm/dependency-version/@yozora/react-renderer-mathjax/peer/react"
       />
     </a>
     <a href="https://github.com/vitest-dev/vitest">
@@ -59,18 +59,24 @@ Rendering formula with [mathjax][] in react. Inspired by [react-mathjax][] and [
 
 The default version is MathJax 4.1.3, loaded from jsDelivr.
 
+## Migration
+
+`@yozora/react-mathjax` has been renamed to `@yozora/react-renderer-mathjax`.
+Update the dependency name and imports. Named exports, component props, and
+MathJax loading behavior are unchanged by this rename.
+
 ## Install
 
 - npm
 
   ```bash
-  npm install --save @yozora/react-mathjax
+  npm install --save @yozora/react-renderer-mathjax
   ```
 
 - yarn
 
   ```bash
-  yarn add @yozora/react-mathjax
+  yarn add @yozora/react-renderer-mathjax
   ```
 
 ## Usage
@@ -79,7 +85,7 @@ The default version is MathJax 4.1.3, loaded from jsDelivr.
 
   ```tsx
   import React from 'react'
-  import { MathJaxProvider, MathJaxNode } from '@yozora/react-mathjax'
+  import { MathJaxProvider, MathJaxNode } from '@yozora/react-renderer-mathjax'
 
   const code = `
     \\begin{align}

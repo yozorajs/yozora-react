@@ -1,5 +1,5 @@
 {
-  "name": "@yozora/react-mathjax",
+  "name": "@yozora/react-renderer-mathjax",
   "version": "3.0.0-alpha.17",
   "description": "render formula with mathjax in react",
   "author": {
@@ -9,9 +9,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/yozorajs/yozora-react.git",
-    "directory": "packages/react-mathjax"
+    "directory": "packages/react-renderer-mathjax"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-mathjax#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/react-renderer-mathjax#readme",
   "keywords": [
     "mathjax",
     "react"
