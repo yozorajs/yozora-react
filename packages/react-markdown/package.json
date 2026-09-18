@@ -44,9 +44,9 @@
     "@guanghechen/equal": "^2.0.5",
     "@yozora/ast": "^2.4.1",
     "@yozora/react": "workspace:^",
+    "@yozora/react-embed-math": "workspace:^",
     "@yozora/react-renderer-admonition": "workspace:^",
-    "@yozora/react-renderer-code": "workspace:^",
-    "@yozora/react-renderer-mathjax": "workspace:^"
+    "@yozora/react-renderer-code": "workspace:^"
   },
   "peerDependencies": {
     "@yozora/ast": "^2.0.0",

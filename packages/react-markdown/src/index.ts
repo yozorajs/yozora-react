@@ -1,4 +1,4 @@
-export { MathJaxProvider } from '@yozora/react-renderer-mathjax'
+export { MathJaxProvider } from '@yozora/react-embed-math'
 export * from './component/FootnoteDefinitions'
 export * from './component/Markdown'
 export { Markdown as default } from './component/Markdown'

@@ -1,24 +1,24 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-renderer-mathjax#readme">@yozora/react-renderer-mathjax</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-math#readme">@yozora/react-embed-math</a>
   </h1>
   <div align="center">
-    <a href="https://www.npmjs.com/package/@yozora/react-renderer-mathjax">
+    <a href="https://www.npmjs.com/package/@yozora/react-embed-math">
       <img
         alt="Npm Version"
-        src="https://img.shields.io/npm/v/@yozora/react-renderer-mathjax.svg"
+        src="https://img.shields.io/npm/v/@yozora/react-embed-math.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-renderer-mathjax">
+    <a href="https://www.npmjs.com/package/@yozora/react-embed-math">
       <img
         alt="Npm Download"
-        src="https://img.shields.io/npm/dm/@yozora/react-renderer-mathjax.svg"
+        src="https://img.shields.io/npm/dm/@yozora/react-embed-math.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-renderer-mathjax">
+    <a href="https://www.npmjs.com/package/@yozora/react-embed-math">
       <img
         alt="Npm License"
-        src="https://img.shields.io/npm/l/@yozora/react-renderer-mathjax.svg"
+        src="https://img.shields.io/npm/l/@yozora/react-embed-math.svg"
       />
     </a>
     <a href="#install">
@@ -30,13 +30,13 @@
     <a href="https://github.com/nodejs/node">
       <img
         alt="Node.js Version"
-        src="https://img.shields.io/node/v/@yozora/react-renderer-mathjax"
+        src="https://img.shields.io/node/v/@yozora/react-embed-math"
       />
     </a>
     <a href="https://github.com/facebook/react">
       <img
         alt="React version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-renderer-mathjax/peer/react"
+        src="https://img.shields.io/npm/dependency-version/@yozora/react-embed-math/peer/react"
       />
     </a>
     <a href="https://github.com/vitest-dev/vitest">
@@ -61,7 +61,7 @@ The default version is MathJax 4.1.3, loaded from jsDelivr.
 
 ## Migration
 
-`@yozora/react-mathjax` has been renamed to `@yozora/react-renderer-mathjax`.
+`@yozora/react-mathjax` has been renamed to `@yozora/react-embed-math`.
 Update the dependency name and imports. Named exports, component props, and
 MathJax loading behavior are unchanged by this rename.
 
@@ -70,13 +70,13 @@ MathJax loading behavior are unchanged by this rename.
 - npm
 
   ```bash
-  npm install --save @yozora/react-renderer-mathjax
+  npm install --save @yozora/react-embed-math
   ```
 
 - yarn
 
   ```bash
-  yarn add @yozora/react-renderer-mathjax
+  yarn add @yozora/react-embed-math
   ```
 
 ## Usage
@@ -85,7 +85,7 @@ MathJax loading behavior are unchanged by this rename.
 
   ```tsx
   import React from 'react'
-  import { MathJaxProvider, MathJaxNode } from '@yozora/react-renderer-mathjax'
+  import { MathJaxProvider, MathJaxNode } from '@yozora/react-embed-math'
 
   const code = `
     \\begin{align}

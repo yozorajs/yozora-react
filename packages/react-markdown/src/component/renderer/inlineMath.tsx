@@ -1,5 +1,5 @@
 import type { InlineMath } from '@yozora/ast'
-import { MathJaxNode } from '@yozora/react-renderer-mathjax'
+import { MathJaxNode } from '@yozora/react-embed-math'
 import React from 'react'
 
 /**

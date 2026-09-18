@@ -108,7 +108,7 @@ for (const name of fs.readdirSync(packagesDir)) {
       'Core declarations must not require consumers to install Prism types',
     )
   }
-  if (name === 'react-renderer-mathjax') {
+  if (name === 'react-embed-math') {
     assert.doesNotMatch(
       fs.readFileSync(typesPath, 'utf8'),
       /(?:from\s*|import\s*\(\s*)['"]@mathjax\/src/,
@@ -414,7 +414,7 @@ assert.match(html, /token keyword[^>]*color:#cba6f7/i)
             moduleResolution,
             noUncheckedSideEffectImports: true,
             // Bundled MathJax types already have TS2344 errors in the Rollup output.
-            skipLibCheck: name === 'react-renderer-mathjax' || name === 'react-markdown',
+            skipLibCheck: name === 'react-embed-math' || name === 'react-markdown',
             types: [],
           },
           include: ['index.mts', 'index.cts'],

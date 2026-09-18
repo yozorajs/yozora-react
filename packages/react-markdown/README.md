@@ -420,7 +420,7 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 [@yozora/react-renderer-code]: https://www.npmjs.com/package/@yozora/react-renderer-code
 [CodeEmbed]: ../react-renderer-code/README.md#codeembed
 [CodeLive]: ../react-renderer-code/README.md#codelive
-[@yozora/react-renderer-mathjax]: https://www.npmjs.com/package/@yozora/react-renderer-mathjax
+[@yozora/react-embed-math]: https://www.npmjs.com/package/@yozora/react-embed-math
 [@yozora/tokenizer-admonition]: https://www.npmjs.com/package/@yozora/tokenizer-admonition
 [@yozora/tokenizer-autolink]: https://www.npmjs.com/package/@yozora/tokenizer-autolink
 [@yozora/tokenizer-autolink-extension]:

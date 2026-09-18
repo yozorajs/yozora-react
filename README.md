@@ -173,7 +173,7 @@ It also provides [runner factories](./packages/react-renderer-code/README.md#run
 |   [@yozora/react-embed-jsx][]    | React component for rendering jsx directly in browser.                         |
 | [@yozora/react-embed-graphviz][] | React component for rendering graphviz (dot) directly in browser.              |
 |        [@yozora/react-markdown][]        | React component for rendering markdown content with above Markdown Components. |
-|    [@yozora/react-renderer-mathjax][]    | Render formula with mathjax in react.                                          |
+|    [@yozora/react-embed-math][]    | Render formula with mathjax in react.                                          |
 
 <!-- yozora component links -->
 
@@ -188,8 +188,8 @@ It also provides [runner factories](./packages/react-renderer-code/README.md#run
   https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-graphviz#readme
 [@yozora/react-markdown]:
   https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-markdown#readme
-[@yozora/react-renderer-mathjax]:
-  https://github.com/yozorajs/yozora-react/tree/main/packages/react-renderer-mathjax#readme
+[@yozora/react-embed-math]:
+  https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-math#readme
 [yozora/ast]: https://www.npmjs.com/package/@yozora/ast
 [yozora/admonition]: https://www.npmjs.com/package/@yozora/ast#admonition
 [yozora/blockquote]: https://www.npmjs.com/package/@yozora/ast#blockquote

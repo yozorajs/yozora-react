@@ -161,6 +161,22 @@ importers:
         specifier: 3.35.1
         version: 3.35.1
 
+  packages/react-embed-math:
+    dependencies:
+      '@guanghechen/equal':
+        specifier: ^2.0.5
+        version: 2.0.5
+      '@yozora/react':
+        specifier: workspace:^
+        version: link:../react
+      react:
+        specifier: 19.3.0
+        version: 19.3.0
+    devDependencies:
+      '@mathjax/src':
+        specifier: ^4.1.3
+        version: 4.1.3
+
   packages/react-markdown:
     dependencies:
       '@guanghechen/equal':
@@ -172,15 +188,15 @@ importers:
       '@yozora/react':
         specifier: workspace:^
         version: link:../react
+      '@yozora/react-embed-math':
+        specifier: workspace:^
+        version: link:../react-embed-math
       '@yozora/react-renderer-admonition':
         specifier: workspace:^
         version: link:../react-renderer-admonition
       '@yozora/react-renderer-code':
         specifier: workspace:^
         version: link:../react-renderer-code
-      '@yozora/react-renderer-mathjax':
-        specifier: workspace:^
-        version: link:../react-renderer-mathjax
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -223,22 +239,6 @@ importers:
       react-dom:
         specifier: 19.3.0
         version: 19.3.0(react@19.3.0)
-
-  packages/react-renderer-mathjax:
-    dependencies:
-      '@guanghechen/equal':
-        specifier: ^2.0.5
-        version: 2.0.5
-      '@yozora/react':
-        specifier: workspace:^
-        version: link:../react
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
-    devDependencies:
-      '@mathjax/src':
-        specifier: ^4.1.3
-        version: 4.1.3
 
 packages:
 
