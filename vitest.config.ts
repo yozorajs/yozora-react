@@ -4,6 +4,10 @@ import url from 'node:url'
 import { defineConfig } from 'vitest/config'
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
+const packageDirs = fs
+  .globSync('{packages,renderers}/*/package.json', { cwd: __dirname })
+  .map(file => path.dirname(path.resolve(__dirname, file)))
+const packageDir = packageDirs.includes(process.cwd()) ? process.cwd() : undefined
 
 interface ICoverageThresholdValue {
   branches?: number
@@ -17,25 +21,9 @@ interface ICoverageThresholdFile {
   files?: Record<string, ICoverageThresholdValue>
 }
 
-function getPackageDirName(): string {
-  const cwd = process.cwd()
-  const match = cwd.match(/packages[/\\]([^/\\]+)$/)
-  return match ? match[1] : ''
-}
-
 function getPackageAliases(): Record<string, string> {
   const aliases: Record<string, string> = {}
-  const packagesDir = path.resolve(__dirname, 'packages')
-
-  if (!fs.existsSync(packagesDir)) return aliases
-
-  const packageDirs = fs
-    .readdirSync(packagesDir, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name)
-
-  for (const dir of packageDirs) {
-    const packageRoot = path.resolve(packagesDir, dir)
+  for (const packageRoot of packageDirs) {
     const manifestPath = path.resolve(packageRoot, 'package.json')
     const srcPath = path.resolve(packageRoot, 'src')
     if (!fs.existsSync(manifestPath) || !fs.existsSync(srcPath)) continue
@@ -51,12 +39,11 @@ function getPackageAliases(): Record<string, string> {
 }
 
 function loadCoverageThresholds(): Record<string, ICoverageThresholdValue | number> | undefined {
-  const packageDir = getPackageDirName()
   if (!packageDir) {
     return undefined
   }
 
-  const thresholdPath = path.resolve(__dirname, 'packages', packageDir, 'coverage.thresholds.json')
+  const thresholdPath = path.resolve(packageDir, 'coverage.thresholds.json')
   if (!fs.existsSync(thresholdPath)) {
     return undefined
   }
@@ -74,17 +61,11 @@ function loadCoverageThresholds(): Record<string, ICoverageThresholdValue | numb
 }
 
 function getOtherPackageExcludes(): string[] {
-  const packagesDir = path.resolve(__dirname, 'packages')
-  const currentPackage = getPackageDirName()
-  if (!currentPackage || !fs.existsSync(packagesDir)) return []
+  if (!packageDir) return []
 
-  return fs
-    .readdirSync(packagesDir, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory() && dirent.name !== currentPackage)
-    .map(dirent => `${path.resolve(packagesDir, dirent.name, 'src')}/**`)
+  return packageDirs.filter(dir => dir !== packageDir).map(dir => `${path.resolve(dir, 'src')}/**`)
 }
 
-const packageDir = getPackageDirName()
 const coverageThresholds = loadCoverageThresholds()
 
 export default defineConfig({
@@ -92,12 +73,12 @@ export default defineConfig({
     environment: 'jsdom',
     include: packageDir
       ? ['__test__/**/*.spec.{ts,tsx}']
-      : ['packages/*/__test__/**/*.spec.{ts,tsx}'],
+      : ['{packages,renderers}/*/__test__/**/*.spec.{ts,tsx}'],
     setupFiles: [path.resolve(__dirname, 'vitest.setup.ts')],
     globals: true,
     coverage: {
       provider: 'v8',
-      include: packageDir ? ['src/**/*.{ts,tsx}'] : ['packages/*/src/**/*.{ts,tsx}'],
+      include: packageDir ? ['src/**/*.{ts,tsx}'] : ['{packages,renderers}/*/src/**/*.{ts,tsx}'],
       exclude: ['**/node_modules/**', '**/__test__/**', ...getOtherPackageExcludes()],
       ...(coverageThresholds ? { thresholds: coverageThresholds } : {}),
     },

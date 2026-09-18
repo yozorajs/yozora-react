@@ -31,7 +31,7 @@
     "test:coverage": "pnpm -r run --if-present test:coverage",
     "test:update": "pnpm -r run --if-present test:update",
     "typecheck": "tsc --noEmit -p tsconfig.test.json",
-    "version": "pnpm install && node script/sync-doc-link.mjs && git stage -u pnpm-lock.yaml packages/**/package.json packages/**/*.md",
+    "version": "pnpm install && node script/sync-doc-link.mjs && git stage -u pnpm-lock.yaml packages/**/package.json packages/**/*.md renderers/**/package.json renderers/**/*.md",
     "lint": "biome check .",
     "test:dist": "node script/test-dist.mjs",
     "demo": "pnpm --filter @yozora/demo... build && pnpm --filter @yozora/demo start"

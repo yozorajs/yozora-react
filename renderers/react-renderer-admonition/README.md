@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-renderer-admonition#readme">@yozora/react-renderer-admonition</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/main/renderers/react-renderer-admonition#readme">@yozora/react-renderer-admonition</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-renderer-admonition">
@@ -166,7 +166,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 - [remark-admonitions][]
 
 [yozora-admonition.png]:
-  https://github.com/yozorajs/yozora-react/raw/main/packages/react-renderer-admonition/doc/yozora-admonition.png
+  https://github.com/yozorajs/yozora-react/raw/main/renderers/react-renderer-admonition/doc/yozora-admonition.png
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#admonition
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-admonition]: https://www.npmjs.com/package/@yozora/tokenizer-admonition

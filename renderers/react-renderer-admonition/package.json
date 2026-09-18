@@ -1,7 +1,7 @@
 {
-  "name": "@yozora/react-renderer-code",
-  "version": "3.0.0-alpha.23",
-  "description": "render markdown code in react",
+  "name": "@yozora/react-renderer-admonition",
+  "version": "3.0.0-alpha.15",
+  "description": "render markdown admonition in react",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -9,12 +9,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/yozorajs/yozora-react.git",
-    "directory": "packages/react-renderer-code"
+    "directory": "renderers/react-renderer-admonition"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/react-renderer-code#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/renderers/react-renderer-admonition#readme",
   "keywords": [
     "mdast node renderer",
-    "markdown code"
+    "markdown admonition"
   ],
   "type": "module",
   "exports": {
@@ -42,16 +42,10 @@
     "README.md"
   ],
   "dependencies": {
-    "@guanghechen/common-util": "^0.2.8",
-    "@guanghechen/equal": "^2.0.5",
-    "@guanghechen/react-hooks": "^3.0.17",
-    "@yozora/react": "workspace:^",
-    "@yozora/react-embed-jsx": "workspace:^"
+    "@yozora/react": "workspace:^"
   },
   "peerDependencies": {
-    "@yozora/ast": "^2.0.0",
-    "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0"
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "browserslist": [
     "Chrome >= 111",

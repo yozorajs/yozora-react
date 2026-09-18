@@ -86,7 +86,7 @@ importers:
         version: link:../react-markdown
       '@yozora/react-renderer-code':
         specifier: workspace:^
-        version: link:../react-renderer-code
+        version: link:../../renderers/react-renderer-code
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -193,10 +193,10 @@ importers:
         version: link:../react-embed-math
       '@yozora/react-renderer-admonition':
         specifier: workspace:^
-        version: link:../react-renderer-admonition
+        version: link:../../renderers/react-renderer-admonition
       '@yozora/react-renderer-code':
         specifier: workspace:^
-        version: link:../react-renderer-code
+        version: link:../../renderers/react-renderer-code
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -204,16 +204,16 @@ importers:
         specifier: 19.3.0
         version: 19.3.0(react@19.3.0)
 
-  packages/react-renderer-admonition:
+  renderers/react-renderer-admonition:
     dependencies:
       '@yozora/react':
         specifier: workspace:^
-        version: link:../react
+        version: link:../../packages/react
       react:
         specifier: 19.3.0
         version: 19.3.0
 
-  packages/react-renderer-code:
+  renderers/react-renderer-code:
     dependencies:
       '@guanghechen/common-util':
         specifier: ^0.2.8
@@ -229,10 +229,10 @@ importers:
         version: 2.4.1
       '@yozora/react':
         specifier: workspace:^
-        version: link:../react
+        version: link:../../packages/react
       '@yozora/react-embed-jsx':
         specifier: workspace:^
-        version: link:../react-embed-jsx
+        version: link:../../packages/react-embed-jsx
       react:
         specifier: 19.3.0
         version: 19.3.0

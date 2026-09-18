@@ -7,8 +7,8 @@
       "@yozora/react-embed-jsx": ["./packages/react-embed-jsx/src"],
       "@yozora/react-embed-math": ["./packages/react-embed-math/src"],
       "@yozora/react-markdown": ["./packages/react-markdown/src"],
-      "@yozora/react-renderer-admonition": ["./packages/react-renderer-admonition/src"],
-      "@yozora/react-renderer-code": ["./packages/react-renderer-code/src"]
+      "@yozora/react-renderer-admonition": ["./renderers/react-renderer-admonition/src"],
+      "@yozora/react-renderer-code": ["./renderers/react-renderer-code/src"]
     }
   }
 }

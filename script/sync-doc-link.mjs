@@ -4,7 +4,6 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 
 const ROOT_DIR = path.resolve(import.meta.dirname, '..')
-const PACKAGES_DIR = path.join(ROOT_DIR, 'packages')
 
 const SEMVER = String.raw`\d+\.\d+\.\d+(?:-[\w.-]+)?(?:\+[\w.-]+)?`
 const GITHUB_URL_PATTERN = new RegExp(
@@ -13,18 +12,15 @@ const GITHUB_URL_PATTERN = new RegExp(
 )
 
 async function getPackages() {
-  const entries = await fs.readdir(PACKAGES_DIR, { withFileTypes: true })
   const packages = []
 
-  for (const entry of entries) {
-    if (!entry.isDirectory()) continue
-
-    const pkgJsonPath = path.join(PACKAGES_DIR, entry.name, 'package.json')
+  for await (const file of fs.glob('{packages,renderers}/*/package.json', { cwd: ROOT_DIR })) {
+    const pkgJsonPath = path.join(ROOT_DIR, file)
     try {
       const content = await fs.readFile(pkgJsonPath, 'utf8')
       const pkg = JSON.parse(content)
       packages.push({
-        dir: entry.name,
+        dir: path.dirname(pkgJsonPath),
         name: pkg.name,
         version: pkg.version,
       })
@@ -78,7 +74,7 @@ const versionMap = createVersionMap(packages)
 
 let updatedCount = 0
 for (const pkg of packages) {
-  const pkgDir = path.join(PACKAGES_DIR, pkg.dir)
+  const pkgDir = pkg.dir
   const readmePath = path.join(pkgDir, 'README.md')
   if (await updateFile(readmePath, versionMap)) updatedCount += 1
 

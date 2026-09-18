@@ -6,6 +6,13 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { Rolldown } from 'tsdown'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
+const packageDirs = new Map(
+  fs.globSync('{packages,renderers}/*/package.json', { cwd: root }).map(file => {
+    const manifestPath = path.join(root, file)
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+    return [manifest.name, path.dirname(manifestPath)]
+  }),
+)
 const coreDir = path.join(root, 'packages/react')
 const themeNotices = path.join(coreDir, 'THIRD_PARTY_NOTICES.md')
 const require = createRequire(import.meta.url)
@@ -25,8 +32,8 @@ export function getStylePackages(packageDir) {
     const manifest = JSON.parse(fs.readFileSync(path.join(dir, 'package.json'), 'utf8'))
     for (const name of Object.keys(manifest.dependencies ?? {})) {
       if (!name.startsWith('@yozora/')) continue
-      const dependencyDir = path.join(root, 'packages', name.slice('@yozora/'.length))
-      if (fs.existsSync(path.join(dependencyDir, 'package.json'))) visit(dependencyDir)
+      const dependencyDir = packageDirs.get(name)
+      if (dependencyDir) visit(dependencyDir)
     }
     if (fs.existsSync(path.join(dir, 'src/style.css'))) result.push(dir)
   }

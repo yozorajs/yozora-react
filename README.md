@@ -163,8 +163,8 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
 `@yozora/react-renderer-code` also exports `CodeEditor`, `CodeEmbed`, `CodeLiteral`, `CodeLive`,
 `CopyButton`, and `LightButtons` for standalone use.
-See its [component documentation](./packages/react-renderer-code/README.md#standalone-components).
-It also provides [runner factories](./packages/react-renderer-code/README.md#runners) for Graphviz, JSX, and math.
+See its [component documentation](./renderers/react-renderer-code/README.md#standalone-components).
+It also provides [runner factories](./renderers/react-renderer-code/README.md#runners) for Graphviz, JSX, and math.
 
 ### Other components
 
@@ -179,9 +179,9 @@ It also provides [runner factories](./packages/react-renderer-code/README.md#run
 
 [@yozora/react]: ./packages/react
 [@yozora/react-renderer-admonition]:
-  https://github.com/yozorajs/yozora-react/tree/main/packages/react-renderer-admonition#readme
+  https://github.com/yozorajs/yozora-react/tree/main/renderers/react-renderer-admonition#readme
 [@yozora/react-renderer-code]:
-  https://github.com/yozorajs/yozora-react/tree/main/packages/react-renderer-code#readme
+  https://github.com/yozorajs/yozora-react/tree/main/renderers/react-renderer-code#readme
 [@yozora/react-embed-jsx]:
   https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-jsx#readme
 [@yozora/react-embed-graphviz]:

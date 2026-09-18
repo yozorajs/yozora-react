@@ -418,8 +418,8 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 [@yozora/parser]: https://www.npmjs.com/package/@yozora/parser
 [@yozora/react-renderer-admonition]: https://www.npmjs.com/package/@yozora/react-renderer-admonition
 [@yozora/react-renderer-code]: https://www.npmjs.com/package/@yozora/react-renderer-code
-[CodeEmbed]: ../react-renderer-code/README.md#codeembed
-[CodeLive]: ../react-renderer-code/README.md#codelive
+[CodeEmbed]: ../../renderers/react-renderer-code/README.md#codeembed
+[CodeLive]: ../../renderers/react-renderer-code/README.md#codelive
 [@yozora/react-embed-math]: https://www.npmjs.com/package/@yozora/react-embed-math
 [@yozora/tokenizer-admonition]: https://www.npmjs.com/package/@yozora/tokenizer-admonition
 [@yozora/tokenizer-autolink]: https://www.npmjs.com/package/@yozora/tokenizer-autolink

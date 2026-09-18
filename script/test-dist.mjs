@@ -13,9 +13,10 @@ import { getStylePackages } from './build-styles.mjs'
 const root = fileURLToPath(new URL('../', import.meta.url))
 const packagesDir = path.join(root, 'packages')
 
-for (const name of fs.readdirSync(packagesDir)) {
-  const packageDir = path.join(packagesDir, name)
-  const manifestPath = path.join(packageDir, 'package.json')
+for (const file of fs.globSync('{packages,renderers}/*/package.json', { cwd: root })) {
+  const manifestPath = path.join(root, file)
+  const packageDir = path.dirname(manifestPath)
+  const name = path.basename(packageDir)
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
   if (manifest.private) continue
   const rootExports = manifest.exports['.'] ?? manifest.exports
