@@ -1,7 +1,7 @@
 {
-  "name": "@yozora/react-embed-jsx",
-  "version": "3.0.0-alpha.16",
-  "description": "render jsx code",
+  "name": "@yozora/react-embed-graphviz",
+  "version": "3.0.0-alpha.17",
+  "description": "render graphviz (dot) code",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -9,12 +9,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/yozorajs/yozora-react.git",
-    "directory": "packages/react-embed-jsx"
+    "directory": "renderers/react-embed-graphviz"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-jsx#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-graphviz#readme",
   "keywords": [
     "mdast node renderer",
-    "markdown code-jsx renderer"
+    "graphviz renderer"
   ],
   "type": "module",
   "exports": {
@@ -22,7 +22,7 @@
     "import": "./lib/esm/index.mjs",
     "require": "./lib/cjs/index.cjs"
   },
-  "source": "./src/index.ts",
+  "source": "./src/index.tsx",
   "types": "./lib/types/index.d.ts",
   "main": "./lib/cjs/index.cjs",
   "module": "./lib/esm/index.mjs",
@@ -37,7 +37,9 @@
   ],
   "dependencies": {
     "@guanghechen/equal": "^2.0.5",
-    "sucrase": "3.35.1"
+    "@types/d3-graphviz": "3.1.0",
+    "d3-graphviz": "5.6.0",
+    "d3-selection": "3.0.0"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0"

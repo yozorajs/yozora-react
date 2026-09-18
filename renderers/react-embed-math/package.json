@@ -1,7 +1,7 @@
 {
-  "name": "@yozora/react-embed-graphviz",
+  "name": "@yozora/react-embed-math",
   "version": "3.0.0-alpha.17",
-  "description": "render graphviz (dot) code",
+  "description": "render formula with mathjax in react",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -9,12 +9,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/yozorajs/yozora-react.git",
-    "directory": "packages/react-embed-graphviz"
+    "directory": "renderers/react-embed-math"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-graphviz#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-math#readme",
   "keywords": [
-    "mdast node renderer",
-    "graphviz renderer"
+    "mathjax",
+    "react"
   ],
   "type": "module",
   "exports": {
@@ -22,7 +22,7 @@
     "import": "./lib/esm/index.mjs",
     "require": "./lib/cjs/index.cjs"
   },
-  "source": "./src/index.tsx",
+  "source": "./src/index.ts",
   "types": "./lib/types/index.d.ts",
   "main": "./lib/cjs/index.cjs",
   "module": "./lib/esm/index.mjs",
@@ -37,18 +37,18 @@
   ],
   "dependencies": {
     "@guanghechen/equal": "^2.0.5",
-    "@types/d3-graphviz": "3.1.0",
-    "d3-graphviz": "5.6.0",
-    "d3-selection": "3.0.0"
+    "@yozora/react": "workspace:^"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
   },
+  "devDependencies": {
+    "@mathjax/src": "^4.1.3"
+  },
   "browserslist": [
     "last 2 versions",
     "Firefox ESR",
-    "> 1%",
-    "ie >= 11"
+    "> 1%"
   ],
   "scripts": {
     "clean": "rimraf lib",

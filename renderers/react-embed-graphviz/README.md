@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-graphviz#readme">@yozora/react-embed-graphviz</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-graphviz#readme">@yozora/react-embed-graphviz</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-embed-graphviz">

@@ -183,13 +183,13 @@ It also provides [runner factories](./renderers/react-renderer-code/README.md#ru
 [@yozora/react-renderer-code]:
   https://github.com/yozorajs/yozora-react/tree/main/renderers/react-renderer-code#readme
 [@yozora/react-embed-jsx]:
-  https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-jsx#readme
+  https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-jsx#readme
 [@yozora/react-embed-graphviz]:
-  https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-graphviz#readme
+  https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-graphviz#readme
 [@yozora/react-markdown]:
   https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-markdown#readme
 [@yozora/react-embed-math]:
-  https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-math#readme
+  https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-math#readme
 [yozora/ast]: https://www.npmjs.com/package/@yozora/ast
 [yozora/admonition]: https://www.npmjs.com/package/@yozora/ast#admonition
 [yozora/blockquote]: https://www.npmjs.com/package/@yozora/ast#blockquote

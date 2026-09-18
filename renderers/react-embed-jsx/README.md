@@ -1,6 +1,6 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-embed-jsx#readme">@yozora/react-embed-jsx</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-jsx#readme">@yozora/react-embed-jsx</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-embed-jsx">
