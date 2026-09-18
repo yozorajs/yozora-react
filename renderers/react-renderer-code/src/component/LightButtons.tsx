@@ -1,4 +1,4 @@
-import { clsx } from '@yozora/react'
+import { clsx } from '@yozora/react-renderer'
 import React from 'react'
 
 interface IProps {

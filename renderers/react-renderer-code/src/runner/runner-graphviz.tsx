@@ -1,4 +1,4 @@
-import type { ICodeRunner } from '@yozora/react'
+import type { ICodeRunner } from '@yozora/react-renderer'
 import React from 'react'
 
 type GraphvizEngine = 'circo' | 'dot' | 'fdp' | 'neato' | 'osage' | 'patchwork' | 'twopi'

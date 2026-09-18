@@ -1,21 +1,22 @@
-# @yozora/react
+# @yozora/react-renderer
 
 Shared AST renderers, theme providers, syntax highlighting, tokens, code-runner contracts, and utilities for Yozora React.
 
 ```ts
-import { CommonTokenNames, TokenNames, clsx, parseCodeMeta, tokens } from '@yozora/react'
-import type { ICodeMetaData, ICodeRunner, ICodeRunnerProps } from '@yozora/react'
+import { CommonTokenNames, TokenNames, clsx, parseCodeMeta, tokens } from '@yozora/react-renderer'
+import type { ICodeMetaData, ICodeRunner, ICodeRunnerProps } from '@yozora/react-renderer'
 ```
 
 ## Migration
 
-`@yozora/react-core` has been renamed to `@yozora/react`. Update dependency names
-and imports, including `@yozora/react/style.css`. Public exports and component
-behavior are unchanged by this rename.
+The package is now named `@yozora/react-renderer` (previously `@yozora/react` and
+`@yozora/react-core`). Update dependency names and imports, including
+`@yozora/react-renderer/style.css`. Public exports and component behavior are unchanged
+by this rename.
 
 This package replaces `@yozora/core-react-constant`, `@yozora/core-react-types`,
 `@yozora/core-react-util`, and `@yozora/core-react-theme`. Update dependencies and import specifiers to
-`@yozora/react`. ESM, CommonJS, and TypeScript declarations are available
+`@yozora/react-renderer`. ESM, CommonJS, and TypeScript declarations are available
 through the package root.
 
 The old `light` / `darken` themes and `lightSchema` / `darkenSchema` exports have been
@@ -24,19 +25,19 @@ For direct color-map access, use `vscLightModernSchema.colors` /
 `vscDarkModernSchema.colors`; these use the new palette rather than the old colors.
 
 Source modules are grouped under `constant`, `types`, `util`, `theme`, `highlighter`, and `renderer` inside the package.
-The public import entry is `@yozora/react`.
+The public import entry is `@yozora/react-renderer`.
 
 ## Theme
 
 ```tsx
-import '@yozora/react/style.css'
-import { ThemeProvider, useThemeContext } from '@yozora/react'
+import '@yozora/react-renderer/style.css'
+import { ThemeProvider, useThemeContext } from '@yozora/react-renderer'
 ```
 
 `ThemeProvider`, `useThemeContext`, `vscLightModernSchema`, `vscDarkModernSchema`, `IBreakpoints`,
 `IThemeContext`, and `IThemeProviderProps` are available from the package root.
 Existing component stylesheets include the theme styles through their dependency on
-`@yozora/react`; standalone theme users import `@yozora/react/style.css`.
+`@yozora/react-renderer`; standalone theme users import `@yozora/react-renderer/style.css`.
 Custom breakpoints and inherited CSP nonces retain their existing behavior.
 
 Built-in schemas are flat files under `src/theme/schema/`. Each schema is a literal
@@ -98,12 +99,12 @@ highlighters without a provider retain their dark default.
 ## AST rendering
 
 `@yozora/core-react-renderer` is now included under `src/renderer/`. Import its
-components, hooks, renderer maps, and types from `@yozora/react`, and replace
-its stylesheet import with `@yozora/react/style.css`.
+components, hooks, renderer maps, and types from `@yozora/react-renderer`, and replace
+its stylesheet import with `@yozora/react-renderer/style.css`.
 
 ```tsx
-import { NodeRendererProvider, NodesRenderer, ThemeProvider } from '@yozora/react'
-import '@yozora/react/style.css'
+import { NodeRendererProvider, NodesRenderer, ThemeProvider } from '@yozora/react-renderer'
+import '@yozora/react-renderer/style.css'
 
 <ThemeProvider theme="vsc" variant="light-modern">
   <NodeRendererProvider>
@@ -127,11 +128,11 @@ unchanged. Bundled utility-only consumers can omit renderer dependencies.
 
 `@yozora/react-code-highlighter` is now included in this package. Replace its default
 import with the named `CodeHighlighter` export, import types such as `IPrismTheme`
-from `@yozora/react`, and use `@yozora/react/style.css`.
+from `@yozora/react-renderer`, and use `@yozora/react-renderer/style.css`.
 
 ```tsx
-import { CodeHighlighter, ThemeProvider } from '@yozora/react'
-import '@yozora/react/style.css'
+import { CodeHighlighter, ThemeProvider } from '@yozora/react-renderer'
+import '@yozora/react-renderer/style.css'
 
 <ThemeProvider theme="catppuccin" variant="mocha">
   <CodeHighlighter lang="typescript" value="const answer: number = 42" />
@@ -151,7 +152,7 @@ The former named exports remain available, including `HighlightContent`,
 ## Class names
 
 ```tsx
-import { clsx } from '@yozora/react'
+import { clsx } from '@yozora/react-renderer'
 
 clsx('button', ['rounded', false], { active: true }) // 'button rounded active'
 ```

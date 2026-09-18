@@ -1,6 +1,6 @@
 import type { Code } from '@yozora/ast'
-import type { ICodeRunnerItem, INodeRenderer } from '@yozora/react'
-import { useNodeRendererState, useThemeContext } from '@yozora/react'
+import type { ICodeRunnerItem, INodeRenderer } from '@yozora/react-renderer'
+import { useNodeRendererState, useThemeContext } from '@yozora/react-renderer'
 import { Code as CodeRenderer0 } from '@yozora/react-renderer-code'
 import React from 'react'
 

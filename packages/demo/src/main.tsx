@@ -1,5 +1,5 @@
-import { ThemeProvider, themeSchemas } from '@yozora/react'
 import { Markdown, MarkdownProvider } from '@yozora/react-markdown'
+import { ThemeProvider, themeSchemas } from '@yozora/react-renderer'
 import { CodeEditor } from '@yozora/react-renderer-code'
 import React from 'react'
 import { createRoot } from 'react-dom/client'

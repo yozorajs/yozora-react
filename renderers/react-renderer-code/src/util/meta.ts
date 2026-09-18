@@ -1,5 +1,5 @@
-import type { IParseCodeMetaOptions } from '@yozora/react'
-import { parseCodeMeta as $parseCodeMeta } from '@yozora/react'
+import type { IParseCodeMetaOptions } from '@yozora/react-renderer'
+import { parseCodeMeta as $parseCodeMeta } from '@yozora/react-renderer'
 import type { ICodeMetaData } from '../types/code'
 
 export function parseCodeMeta(

@@ -1,6 +1,6 @@
 import { act, fireEvent, render } from '@testing-library/react'
-import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/react'
 import CodeRendererJsx from '@yozora/react-embed-jsx'
+import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/react-renderer'
 import React from 'react'
 import { vi } from 'vitest'
 import { CodeLive } from '../src'

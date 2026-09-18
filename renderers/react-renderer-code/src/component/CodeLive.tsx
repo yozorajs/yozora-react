@@ -1,6 +1,6 @@
 import { debounce } from '@guanghechen/common-util'
-import type { ICodeRunnerItem, ICodeRunnerScope, IPrismTheme } from '@yozora/react'
-import { clsx } from '@yozora/react'
+import type { ICodeRunnerItem, ICodeRunnerScope, IPrismTheme } from '@yozora/react-renderer'
+import { clsx } from '@yozora/react-renderer'
 import React from 'react'
 import { classes } from '../style'
 import { CodeEditor as CodeEditorComponent } from './CodeEditor'

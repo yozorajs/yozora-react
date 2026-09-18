@@ -1,5 +1,5 @@
 import type { Root as IRoot } from '@yozora/ast'
-import { NodesRenderer, clsx, getBreakpointId, useThemeContext } from '@yozora/react'
+import { NodesRenderer, clsx, getBreakpointId, useThemeContext } from '@yozora/react-renderer'
 import React from 'react'
 import { getSmallScreenStyles } from '../small-screen'
 import { FootnoteDefinitions } from './FootnoteDefinitions'

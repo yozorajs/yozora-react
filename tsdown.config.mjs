@@ -20,7 +20,7 @@ const neverBundle = id => {
   return dependencies.has(name)
 }
 
-const isReactCore = manifest.name === '@yozora/react'
+const isReactCore = manifest.name === '@yozora/react-renderer'
 const require = createRequire(import.meta.url)
 
 const common = {

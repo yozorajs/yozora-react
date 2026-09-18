@@ -185,8 +185,8 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 * `meta`:
 
   ```typescript
-  import type { ICodeMetaData as IBaseCodeMetaData } from '@yozora/react'
-  import type { ICodeRunnerItem, ICodeRunnerMetaData } from '@yozora/react'
+  import type { ICodeMetaData as IBaseCodeMetaData } from '@yozora/react-renderer'
+  import type { ICodeRunnerItem, ICodeRunnerMetaData } from '@yozora/react-renderer'
 
   /**
   * Meta data of the fenced-code.
@@ -219,7 +219,7 @@ function Editor() {
 `CodeEditor` accepts `maxLines`, `collapsed`, `showLineNo`, `autoFocus`, `theme`,
 `darken`, and container, textarea, and pre class/style props. An explicit `theme`
 takes precedence over `darken`; otherwise syntax colors follow `ThemeProvider` from
-`@yozora/react`. Standalone editors retain their dark default.
+`@yozora/react-renderer`. Standalone editors retain their dark default.
 
 ### CodeEmbed
 
@@ -227,7 +227,7 @@ Render a code value with a supplied runner and display runner errors inline:
 
 ```tsx
 import { CodeEmbed } from '@yozora/react-renderer-code'
-import type { ICodeRunnerProps } from '@yozora/react'
+import type { ICodeRunnerProps } from '@yozora/react-renderer'
 
 function TextRunner({ value }: ICodeRunnerProps) {
   return <output>{value}</output>
@@ -367,12 +367,12 @@ cached by React; recreate that lazy renderer or reload to retry its module.
 
 `ICreateUseJsxRunnerParams`, `IDynamicImportRule`, and `IDynamicImportFunc` are also
 exported here. Shared contracts such as `ICodeRunner`, `ICodeRunnerItem`, and
-`ICodeRunnerProps` are available from `@yozora/react`.
+`ICodeRunnerProps` are available from `@yozora/react-renderer`.
 
 ## Related
 
 - [@yozora/ast][]
-- [@yozora/react][]
+- [@yozora/react-renderer][]
 - [@yozora/react-markdown][]
 - [@yozora/tokenizer-indented-code][]
 - [@yozora/tokenizer-fenced-code][]
@@ -380,7 +380,7 @@ exported here. Shared contracts such as `ICodeRunner`, `ICodeRunnerItem`, and
 - [react-simple-code-editor][]
 
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#code
-[@yozora/react]: https://www.npmjs.com/package/@yozora/react
+[@yozora/react-renderer]: https://www.npmjs.com/package/@yozora/react-renderer
 [@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
 [@yozora/tokenizer-indented-code]: https://www.npmjs.com/package/@yozora/tokenizer-indented-code
 [@yozora/tokenizer-fenced-code]: https://www.npmjs.com/package/@yozora/tokenizer-fenced-code

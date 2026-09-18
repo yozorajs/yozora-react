@@ -1,5 +1,5 @@
 import { useEventCallback } from '@guanghechen/react-hooks'
-import { clsx } from '@yozora/react'
+import { clsx } from '@yozora/react-renderer'
 import React from 'react'
 import { copyToClipboard } from '../util/copy'
 

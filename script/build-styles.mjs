@@ -13,7 +13,7 @@ const packageDirs = new Map(
     return [manifest.name, path.dirname(manifestPath)]
   }),
 )
-const coreDir = path.join(root, 'packages/react')
+const coreDir = path.join(root, 'renderers/react-rendrer')
 const themeNotices = path.join(coreDir, 'THIRD_PARTY_NOTICES.md')
 const require = createRequire(import.meta.url)
 const cliManifestPath = require.resolve('@tailwindcss/cli/package.json')
@@ -22,7 +22,7 @@ const cli = path.resolve(path.dirname(cliManifestPath), cliManifest.bin.tailwind
 
 /** Collect dependency styles before their consumers so component overrides win. */
 export function getStylePackages(packageDir) {
-  /** Utility packages can depend on @yozora/react without publishing a stylesheet. */
+  /** Utility packages can depend on @yozora/react-renderer without publishing a stylesheet. */
   if (!fs.existsSync(path.join(packageDir, 'src/style.css'))) return []
   const result = []
   const visited = new Set()

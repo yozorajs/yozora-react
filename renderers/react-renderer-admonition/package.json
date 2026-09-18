@@ -42,7 +42,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@yozora/react": "workspace:^"
+    "@yozora/react-renderer": "workspace:^"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0"

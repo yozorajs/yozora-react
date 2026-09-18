@@ -1,6 +1,6 @@
 import { isEqual } from '@guanghechen/equal'
-import type { ICodeRunner } from '@yozora/react'
-import { clsx } from '@yozora/react'
+import type { ICodeRunner } from '@yozora/react-renderer'
+import { clsx } from '@yozora/react-renderer'
 import React from 'react'
 import { classes } from '../style'
 

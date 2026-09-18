@@ -1,6 +1,6 @@
 import { isEqual } from '@guanghechen/equal'
-import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/react'
-import { clsx } from '@yozora/react'
+import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/react-renderer'
+import { clsx } from '@yozora/react-renderer'
 import React from 'react'
 import { CodeEmbed as CodeEmbedComponent } from './component/CodeEmbed'
 import { CodeLiteral as CodeLiteralComponent } from './component/CodeLiteral'

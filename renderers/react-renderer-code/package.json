@@ -45,8 +45,8 @@
     "@guanghechen/common-util": "^0.2.8",
     "@guanghechen/equal": "^2.0.5",
     "@guanghechen/react-hooks": "^3.0.17",
-    "@yozora/react": "workspace:^",
-    "@yozora/react-embed-jsx": "workspace:^"
+    "@yozora/react-embed-jsx": "workspace:^",
+    "@yozora/react-renderer": "workspace:^"
   },
   "peerDependencies": {
     "@yozora/ast": "^2.0.0",

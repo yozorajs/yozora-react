@@ -1,5 +1,5 @@
 import type { EcmaImport as IEcmaImport } from '@yozora/ast'
-import type { ICodeRunnerScope } from '@yozora/react'
+import type { ICodeRunnerScope } from '@yozora/react-renderer'
 import type React from 'react'
 import { createLazyRenderer } from '../../component/LazyRenderer'
 

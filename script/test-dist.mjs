@@ -11,14 +11,14 @@ import { Rolldown } from 'tsdown'
 import { getStylePackages } from './build-styles.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
-const packagesDir = path.join(root, 'packages')
+const coreDir = path.join(root, 'renderers/react-rendrer')
 
 for (const file of fs.globSync('{packages,renderers}/*/package.json', { cwd: root })) {
   const manifestPath = path.join(root, file)
   const packageDir = path.dirname(manifestPath)
-  const name = path.basename(packageDir)
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
   if (manifest.private) continue
+  const name = manifest.name.slice('@yozora/'.length)
   const rootExports = manifest.exports['.'] ?? manifest.exports
   const esmPath = path.resolve(packageDir, rootExports.import)
   const cjsPath = path.resolve(packageDir, rootExports.require)
@@ -35,11 +35,11 @@ for (const file of fs.globSync('{packages,renderers}/*/package.json', { cwd: roo
     const stylesheetPath = createRequire(manifestPath).resolve(`${manifest.name}/style.css`)
     assert.equal(stylesheetPath, path.join(packageDir, 'lib/style.css'))
     const css = fs.readFileSync(stylesheetPath, 'utf8')
-    if (stylePackages.includes(path.join(packagesDir, 'react'))) {
+    if (stylePackages.includes(coreDir)) {
       assert.match(css, /THIRD_PARTY_NOTICES\.md/)
       assert.equal(
         fs.readFileSync(path.join(packageDir, 'lib/THIRD_PARTY_NOTICES.md'), 'utf8'),
-        fs.readFileSync(path.join(packagesDir, 'react/THIRD_PARTY_NOTICES.md'), 'utf8'),
+        fs.readFileSync(path.join(coreDir, 'THIRD_PARTY_NOTICES.md'), 'utf8'),
         `${manifest.name}: theme palette notices must accompany the stylesheet`,
       )
     }
@@ -102,7 +102,7 @@ for (const file of fs.globSync('{packages,renderers}/*/package.json', { cwd: roo
       }
     }
   }
-  if (name === 'react') {
+  if (name === 'react-renderer') {
     assert.doesNotMatch(
       fs.readFileSync(typesPath, 'utf8'),
       /(?:from\s*|import\s*\(\s*)['"]prismjs/,
@@ -140,7 +140,7 @@ for (const file of fs.globSync('{packages,renderers}/*/package.json', { cwd: roo
       consumer += '// @ts-expect-error Unknown CSS subpaths must remain unresolved.\n'
       consumer += `import '${manifest.name}/missing.css'\n`
     }
-    if (name === 'react') {
+    if (name === 'react-renderer') {
       consumer += `export type { ClassValue, IClassDictionary, IParseCodeMetaOptions, ICodeMetaData, ICodeRunnerMetaData, ICodeRunner, ICodeRunnerProps, ICodeRunnerScope, ICodeRunnerItem, IAsyncRunnerScopes } from '${manifest.name}'\n`
       consumer += `import type { IBreakpoints, IThemeContext, IThemeProviderProps } from '${manifest.name}'\n`
       consumer +=
@@ -152,7 +152,7 @@ for (const file of fs.globSync('{packages,renderers}/*/package.json', { cwd: roo
       consumer +=
         'export const modernTheme: IThemeProviderProps = { theme: "vsc", variant: "dark-modern" }\n'
     }
-    if (name === 'react') {
+    if (name === 'react-renderer') {
       consumer += `import type { INodeStyleMap, INodeRendererMap, INodeRendererProviderProps, INodeRendererState, IImageViewerProps } from '${manifest.name}'\n`
       consumer +=
         'export type RendererContracts = [INodeRendererMap, INodeRendererProviderProps, INodeRendererState, IImageViewerProps]\n'
@@ -213,7 +213,7 @@ export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] 
       consumer += `export const copyProps: ComponentProps<typeof CopyButton> = { value: 'hello', statusTipMap: { completed: 'Copied' }, onError: () => {} }\n`
       consumer += `export const lightProps: ComponentProps<typeof LightButtons> = { onClose: () => {}, onMinimize: () => {}, onMaximize: () => {} }\n`
     }
-    if (name === 'react-renderer-code' || name === 'react') {
+    if (name === 'react-renderer-code' || name === 'react-renderer') {
       consumer += '// @ts-expect-error Implementation props must remain private.\n'
       consumer += `import type { IProps } from '${manifest.name}'\n`
     }
@@ -233,7 +233,7 @@ export const invalidArray: INodeStyleMap = { paragraph: { body: [Symbol("red")] 
         const { output } = await bundle.generate({ format: 'esm' })
         assert.deepEqual(
           output[0].imports.slice().sort(),
-          ['@guanghechen/equal', '@yozora/react', 'react'],
+          ['@guanghechen/equal', '@yozora/react-renderer', 'react'],
           'Standalone editors must not load JSX runners, live previews, or toolbar dependencies',
         )
       } finally {
@@ -281,7 +281,7 @@ for (const module of [esm, cjs]) {
       const coldResult = spawnSync(process.execPath, [coldProbe], { encoding: 'utf8' })
       assert.equal(coldResult.status, 0, coldResult.stderr || coldResult.stdout)
     }
-    if (name === 'react') {
+    if (name === 'react-renderer') {
       const utilityEntry = path.join(consumerDir, 'utility.mjs')
       fs.writeFileSync(utilityEntry, `export { clsx } from '${manifest.name}'\n`)
       const bundle = await Rolldown.rolldown({
@@ -439,11 +439,10 @@ assert.match(html, /token keyword[^>]*color:#cba6f7/i)
 
   for (const module of [esm, cjs]) {
     if (name === 'react-markdown') {
-      const themeDir = path.join(packagesDir, 'react')
       const theme =
         module === esm
-          ? await import(pathToFileURL(path.join(themeDir, 'lib/esm/index.mjs')).href)
-          : createRequire(path.join(themeDir, 'package.json'))('@yozora/react')
+          ? await import(pathToFileURL(path.join(coreDir, 'lib/esm/index.mjs')).href)
+          : createRequire(path.join(coreDir, 'package.json'))('@yozora/react-renderer')
       function CustomRoot({ className, style, itemProp, children }) {
         return React.createElement('section', { className, style, itemProp }, children)
       }
@@ -504,7 +503,7 @@ assert.match(html, /token keyword[^>]*color:#cba6f7/i)
         }
       }
     }
-    if (name === 'react') {
+    if (name === 'react-renderer') {
       assert.deepEqual(
         Object.keys(module)
           .filter(key => key !== '__esModule')
@@ -654,7 +653,7 @@ assert.match(html, /token keyword[^>]*color:#cba6f7/i)
         },
       )
     }
-    if (name === 'react') {
+    if (name === 'react-renderer') {
       const markup = renderToStaticMarkup(
         React.createElement(module.CodeHighlighter, {
           lang: 'typescript',

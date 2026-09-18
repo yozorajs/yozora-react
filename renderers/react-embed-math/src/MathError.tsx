@@ -1,4 +1,4 @@
-import { CommonTokenNames, TokenNames } from '@yozora/react'
+import { CommonTokenNames, TokenNames } from '@yozora/react-renderer'
 import React from 'react'
 import type { TexLang } from './types'
 
