@@ -467,9 +467,9 @@ export const vscLightModernSchema: IThemeSchema = {
     [TokenNames.colorBorderTable]: '#CECECE',
     [TokenNames.colorBorderTableActive]: '#CECECE',
     [TokenNames.colorBorderTableHover]: '#CECECE',
-    [TokenNames.colorBorderThematicBreak]: '#21262D',
-    [TokenNames.colorBorderThematicBreakActive]: '#21262D',
-    [TokenNames.colorBorderThematicBreakHover]: '#21262D',
+    [TokenNames.colorBorderThematicBreak]: '#CECECE',
+    [TokenNames.colorBorderThematicBreakActive]: '#CECECE',
+    [TokenNames.colorBorderThematicBreakHover]: '#CECECE',
   },
   syntax: {
     keyword: '#0000ff',

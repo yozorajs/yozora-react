@@ -446,9 +446,9 @@ export const vscDarkModernSchema: IThemeSchema = {
     [TokenNames.colorBorderTable]: '#3C3C3C',
     [TokenNames.colorBorderTableActive]: '#3C3C3C',
     [TokenNames.colorBorderTableHover]: '#3C3C3C',
-    [TokenNames.colorBorderThematicBreak]: '#21262D',
-    [TokenNames.colorBorderThematicBreakActive]: '#21262D',
-    [TokenNames.colorBorderThematicBreakHover]: '#21262D',
+    [TokenNames.colorBorderThematicBreak]: '#3C3C3C',
+    [TokenNames.colorBorderThematicBreakActive]: '#3C3C3C',
+    [TokenNames.colorBorderThematicBreakHover]: '#3C3C3C',
   },
   syntax: {
     keyword: '#569cd6',

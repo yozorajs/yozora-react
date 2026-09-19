@@ -78,6 +78,12 @@ importers:
 
   packages/demo:
     dependencies:
+      '@yozora/react-gfm':
+        specifier: workspace:^
+        version: link:../react-gfm
+      '@yozora/react-gfm-ex':
+        specifier: workspace:^
+        version: link:../react-gfm-ex
       '@yozora/react-renderer':
         specifier: workspace:^
         version: link:../../renderers/react-rendrer

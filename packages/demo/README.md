@@ -13,9 +13,17 @@ pnpm demo
 Open http://127.0.0.1:7302. This builds the demo and its workspace dependencies before
 starting the server. Set `PORT` to use another port. The server binds to loopback only.
 
-The page covers Markdown typography, links, task lists, tables, footnotes, admonitions,
-syntax highlighting, copy buttons, an editable TypeScript editor, and live JSX with
-error rendering. Use the theme and line-number controls and resize the browser to
+Use the Renderer selector to switch between `react-gfm`, `react-gfm-ex`, and
+`react-yozora` (the default). Each selection uses that package's `Markdown`,
+`MarkdownProvider`, stylesheet, and a matching AST fixture:
+
+- `react-gfm`: typography, links, blockquotes, ordinary lists, and code blocks.
+- `react-gfm-ex`: adds strikethrough, task lists, and tables.
+- `react-yozora`: adds footnotes, admonitions, enhanced code blocks, and live JSX.
+
+The standalone TypeScript editor remains available in every preset. Renderer switches
+preserve the theme, line-number setting, and editor text; preset previews remount.
+Use the theme and line-number controls and resize the browser to
 check the 479px breakpoint. The theme selector includes all 18 named variants and defaults to
 `vsc / light-modern`; Markdown, the editor, and live JSX share the selected palette.
 Live JSX has a reset button for recovering from edits.
@@ -23,8 +31,10 @@ Live JSX has a reset button for recovering from edits.
 ## Development
 
 Edit `src/fixtures.ts` to add sample ASTs and `src/main.tsx` to add interactive cases.
-The demo imports package exports and copies the published `react-yozora/style.css`
-entry unchanged. This exercises the same JS and CSS that consumers receive.
+The demo imports package exports and copies all three published preset stylesheets
+unchanged, activating only the selected preset's stylesheet. The standalone editor
+also loads `react-renderer-code/style.css`. This exercises the same JS and CSS that
+consumers receive.
 
 Demo source changes rebuild and reload the page. To also rebuild component packages
 while editing their source, run this in a second terminal:

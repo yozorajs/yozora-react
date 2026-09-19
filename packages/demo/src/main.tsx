@@ -1,11 +1,24 @@
+import * as Gfm from '@yozora/react-gfm'
+import * as GfmEx from '@yozora/react-gfm-ex'
 import { ThemeProvider, themeSchemas } from '@yozora/react-renderer'
 import { CodeEditor } from '@yozora/react-renderer-code'
-import { Markdown, MarkdownProvider } from '@yozora/react-yozora'
+import * as Yozora from '@yozora/react-yozora'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { admonitions, editorCode, footnotes, live, liveError, markdown } from './fixtures'
+import { admonitions, editorCode, footnotes, live, liveError, markdownSamples } from './fixtures'
+
+const presets = [
+  { id: 'gfm', renderer: Gfm, description: '排版 · 链接 · 引用 · 列表 · 代码' },
+  { id: 'gfm-ex', renderer: GfmEx, description: '基础排版 · 删除线 · 任务列表 · 表格' },
+  { id: 'yozora', renderer: Yozora, description: '扩展排版 · 脚注 · Admonition · Live JSX' },
+] as const
 
 function App(): React.ReactElement {
+  const [presetIndex, setPresetIndex] = React.useState(2)
+  const preset = presets[presetIndex]
+  const Markdown: React.ComponentType<Yozora.IMarkdownProps> = preset.renderer.Markdown
+  const { MarkdownProvider } = preset.renderer
+  const isYozora = preset.id === 'yozora'
   const [themeIndex, setThemeIndex] = React.useState(() =>
     themeSchemas.findIndex(schema => schema.theme === 'vsc' && schema.variant === 'light-modern'),
   )
@@ -24,12 +37,33 @@ function App(): React.ReactElement {
 
   return (
     <ThemeProvider theme={selectedTheme.theme} variant={selectedTheme.variant}>
+      {presets.map(item => (
+        <link
+          key={item.id}
+          rel="stylesheet"
+          href={`./${item.id}.css`}
+          media={item.id === preset.id ? 'all' : 'not all'}
+        />
+      ))}
       <div className="demo">
         <header className="demo-header">
           <a className="demo-brand" href="#top">
             yozora<span>component lab</span>
           </a>
           <div className="demo-controls">
+            <label>
+              Renderer
+              <select
+                value={presetIndex}
+                onChange={event => setPresetIndex(Number(event.target.value))}
+              >
+                {presets.map((item, index) => (
+                  <option key={item.id} value={index}>
+                    react-{item.id}
+                  </option>
+                ))}
+              </select>
+            </label>
             <label>
               主题
               <select
@@ -61,41 +95,43 @@ function App(): React.ReactElement {
           <div className="demo-intro">
             <p className="demo-eyebrow">COMPONENT PLAYGROUND</p>
             <h1>在真实页面中测试组件。</h1>
-            <p>切换主题、修改代码，或缩窄浏览器窗口查看小屏效果。</p>
+            <p>切换 Renderer 和主题、修改代码，或缩窄浏览器窗口查看小屏效果。</p>
             <nav aria-label="测试区域">
               <a href="#markdown">Markdown</a>
-              <a href="#admonitions">Admonition</a>
+              {isYozora && <a href="#admonitions">Admonition</a>}
               <a href="#editor">Code editor</a>
-              <a href="#live">Live JSX</a>
+              {isYozora && <a href="#live">Live JSX</a>}
             </nav>
           </div>
 
-          <MarkdownProvider showCodeLineno={showLineNo}>
+          <MarkdownProvider key={preset.id} showCodeLineno={showLineNo}>
             <section id="markdown" className="demo-section">
               <div className="demo-section-heading">
                 <h2>01 / Markdown</h2>
-                <span>排版 · 列表 · 表格 · 高亮 · 复制 · 脚注</span>
+                <span aria-live="polite">{preset.description}</span>
               </div>
               <div className="demo-surface">
                 <MarkdownProvider showCodeLineno={showLineNo} footnoteDefinitionMap={footnotes}>
-                  <Markdown ast={markdown} footnoteDefinitionsTitle="脚注" />
+                  <Markdown ast={markdownSamples[preset.id]} footnoteDefinitionsTitle="脚注" />
                 </MarkdownProvider>
               </div>
             </section>
 
-            <section id="admonitions" className="demo-section">
-              <div className="demo-section-heading">
-                <h2>02 / Admonition</h2>
-                <span>五种语义状态</span>
-              </div>
-              <div className="demo-surface">
-                <Markdown ast={admonitions} />
-              </div>
-            </section>
+            {isYozora && (
+              <section id="admonitions" className="demo-section">
+                <div className="demo-section-heading">
+                  <h2>02 / Admonition</h2>
+                  <span>五种语义状态</span>
+                </div>
+                <div className="demo-surface">
+                  <Markdown ast={admonitions} />
+                </div>
+              </section>
+            )}
 
             <section id="editor" className="demo-section">
               <div className="demo-section-heading">
-                <h2>03 / Code editor</h2>
+                <h2>{isYozora ? '03' : '02'} / Code editor</h2>
                 <button type="button" onClick={() => setCode(editorCode)}>
                   重置代码
                 </button>
@@ -114,38 +150,40 @@ function App(): React.ReactElement {
               </div>
             </section>
 
-            <section id="live" className="demo-section">
-              <div className="demo-section-heading">
-                <h2>04 / Live JSX</h2>
-                <div className="demo-actions">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setLiveSample(liveError)
-                      setRevision(value => value + 1)
-                    }}
-                  >
-                    错误示例
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setLiveSample(live)
-                      setRevision(value => value + 1)
-                    }}
-                  >
-                    重置示例
-                  </button>
+            {isYozora && (
+              <section id="live" className="demo-section">
+                <div className="demo-section-heading">
+                  <h2>04 / Live JSX</h2>
+                  <div className="demo-actions">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setLiveSample(liveError)
+                        setRevision(value => value + 1)
+                      }}
+                    >
+                      错误示例
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setLiveSample(live)
+                        setRevision(value => value + 1)
+                      }}
+                    >
+                      重置示例
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <div className="demo-surface">
-                <p className="demo-hint">
-                  编辑 JSX
-                  查看实时结果。黄色按钮折叠代码，绿色按钮展开；“错误示例”用于检查错误提示。
-                </p>
-                <Markdown key={revision} ast={liveSample} />
-              </div>
-            </section>
+                <div className="demo-surface">
+                  <p className="demo-hint">
+                    编辑 JSX
+                    查看实时结果。黄色按钮折叠代码，绿色按钮展开；“错误示例”用于检查错误提示。
+                  </p>
+                  <Markdown key={revision} ast={liveSample} />
+                </div>
+              </section>
+            )}
           </MarkdownProvider>
         </main>
         <footer className="demo-footer">Yozora React / Local component testing</footer>

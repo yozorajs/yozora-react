@@ -10,6 +10,9 @@ const assets = new Map([
   [path.join(root, 'index.html'), 'index.html'],
   [path.join(root, 'src/demo.css'), 'demo.css'],
   [markdownStyles, 'yozora.css'],
+  [require.resolve('@yozora/react-gfm/style.css'), 'gfm.css'],
+  [require.resolve('@yozora/react-gfm-ex/style.css'), 'gfm-ex.css'],
+  [require.resolve('@yozora/react-renderer-code/style.css'), 'code.css'],
   [path.join(path.dirname(markdownStyles), 'THIRD_PARTY_NOTICES.md'), 'THIRD_PARTY_NOTICES.md'],
 ])
 

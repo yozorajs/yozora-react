@@ -6,8 +6,8 @@ body {
   margin: 0;
 }
 .demo {
-  --demo-bg: var(--yozora_colorBgBody);
-  --demo-panel: var(--yozora_colorBgCode);
+  --demo-bg: var(--yozora_colorBgCode);
+  --demo-panel: var(--yozora_colorBgBody);
   --demo-ink: var(--yozora_colorBody);
   --demo-muted: var(--yozora_colorCodeTitle);
   --demo-border: var(--yozora_colorBorderCode);
@@ -130,7 +130,7 @@ body {
   font-size: 12px;
 }
 .demo-surface {
-  padding: 32px;
+  padding: 32px 40px;
   border: 1px solid var(--demo-border);
   border-radius: 10px;
   background: var(--demo-panel);
@@ -177,7 +177,7 @@ body {
     padding: 28px 16px;
   }
   .demo-surface {
-    padding: 16px;
+    padding: 20px;
   }
   .demo-section-heading {
     align-items: flex-start;
