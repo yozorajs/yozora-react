@@ -18,15 +18,6 @@
 }
 
 .yozora-markdown {
-  --yozora_paragraphLineHeight: 1.75;
-  font-family: var(--yozora_fontFamilyBody);
-  background: var(--yozora_colorBgBody);
-  color: var(--yozora_colorBody);
-  font-size: var(--yozora_fontSizeBody, 16px);
-  line-height: 1.75;
-  word-break: normal;
-  overflow-wrap: anywhere;
-  user-select: unset;
   .yozora-admonition.yozora-admonition {
     margin: var(--yozora_marginBlockNode);
   }
@@ -56,58 +47,6 @@
       }
     }
   }
-  .yozora-list-task-item {
-    @apply yz:relative;
-    list-style-type: none;
-    > .yozora-list-task-item__checkbox {
-      font-variant: tabular-nums;
-      font-feature-settings: "tnum";
-      @apply yz:whitespace-nowrap yz:cursor-default;
-      touch-action: manipulation;
-      @apply yz:select-none yz:absolute;
-      top: 0.425em;
-      left: -1.4em;
-      @apply yz:box-border yz:inline-block;
-      width: 0.9rem;
-      height: 0.9rem;
-      line-height: 0.8rem;
-      > input {
-        @apply yz:absolute yz:top-0 yz:right-0 yz:bottom-0 yz:left-0 yz:box-border yz:h-full yz:w-full yz:p-0 yz:m-0;
-        border: 0;
-        @apply yz:cursor-pointer yz:opacity-0 yz:invisible;
-      }
-      > span {
-        @apply yz:inline-flex yz:items-center yz:justify-center yz:box-border;
-        border: 1px solid var(--yozora_colorBorderBlockquote);
-        border-radius: 3px;
-        background: var(--yozora_colorBgCode);
-        @apply yz:w-full yz:h-full;
-        &::after {
-          content: ".";
-          @apply yz:inline-block;
-          border: 0;
-          color: transparent;
-        }
-        &[data-status="doing"]::after {
-          background-color: var(--yozora_colorLink);
-          width: 0.4rem;
-          height: 0.4rem;
-        }
-        &[data-status="done"] {
-          background-color: var(--yozora_colorLink);
-          border-color: var(--yozora_colorLink);
-          &::after {
-            transform: rotate(45deg) scale(1) translate(-4%, -5%);
-            height: 0.5012rem;
-            width: 0.2468rem;
-            border: 2px solid #fff;
-            border-top: 0;
-            border-left: 0;
-          }
-        }
-      }
-    }
-  }
   .yozora-inline-math {
     @apply yz:p-0;
     border: none;
@@ -133,11 +72,6 @@
     }
     .yozora-inline-math {
       color: inherit;
-    }
-  }
-  .yozora-list-item {
-    > .yozora-list {
-      margin-left: 1.2em;
     }
   }
   .yozora-code-renderer-graphviz {

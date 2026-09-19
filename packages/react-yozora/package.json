@@ -1,7 +1,7 @@
 {
-  "name": "@yozora/react-markdown",
+  "name": "@yozora/react-yozora",
   "version": "3.0.0-alpha.25",
-  "description": "render markdown content in react",
+  "description": "Render Yozora ASTs in React",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -9,9 +9,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/yozorajs/yozora-react.git",
-    "directory": "packages/react-markdown"
+    "directory": "packages/react-yozora"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-markdown#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/react-yozora#readme",
   "keywords": [
     "react markdown component"
   ],
@@ -43,7 +43,9 @@
   "dependencies": {
     "@guanghechen/equal": "^2.0.5",
     "@yozora/ast": "^2.4.1",
+    "@yozora/react": "workspace:^",
     "@yozora/react-embed-math": "workspace:^",
+    "@yozora/react-gfm-ex": "workspace:^",
     "@yozora/react-renderer": "workspace:^",
     "@yozora/react-renderer-admonition": "workspace:^",
     "@yozora/react-renderer-code": "workspace:^"
@@ -62,7 +64,10 @@
   "scripts": {
     "clean": "rimraf lib",
     "build": "tsdown --config ../../tsdown.config.mjs",
-    "watch": "cross-env NODE_ENV=development BUILD_SOURCEMAP=true tsdown --config ../../tsdown.config.mjs -w"
+    "watch": "cross-env NODE_ENV=development BUILD_SOURCEMAP=true tsdown --config ../../tsdown.config.mjs -w",
+    "test": "vitest run --config ../../vitest.config.ts",
+    "test:coverage": "vitest run --config ../../vitest.config.ts --coverage",
+    "test:update": "vitest run --config ../../vitest.config.ts -u"
   },
   "sideEffects": [
     "**/*.css"

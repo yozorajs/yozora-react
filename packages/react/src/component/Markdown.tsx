@@ -2,7 +2,6 @@ import type { Root as IRoot } from '@yozora/ast'
 import { NodesRenderer, clsx, getBreakpointId, useThemeContext } from '@yozora/react-renderer'
 import React from 'react'
 import { getSmallScreenStyles } from '../small-screen'
-import { FootnoteDefinitions } from './FootnoteDefinitions'
 
 export interface IMarkdownProps {
   /**
@@ -10,13 +9,9 @@ export interface IMarkdownProps {
    */
   ast: IRoot
   /**
-   * Title of the footnote definitions.
+   * Content rendered after the document body, supplied by the selected preset.
    */
-  footnoteDefinitionsTitle?: React.ReactNode
-  /**
-   * if true, then the footnote definitions wont be render.
-   */
-  dontNeedFootnoteDefinitions?: boolean
+  footer?: React.ReactNode
   /**
    * Root css class of the component.
    */
@@ -34,35 +29,27 @@ export class Markdown extends React.Component<IMarkdownProps> {
     const prevProps = this.props
     return (
       prevProps.ast !== nextProps.ast ||
-      prevProps.dontNeedFootnoteDefinitions !== nextProps.dontNeedFootnoteDefinitions ||
-      (!nextProps.dontNeedFootnoteDefinitions &&
-        prevProps.footnoteDefinitionsTitle !== nextProps.footnoteDefinitionsTitle) ||
+      prevProps.footer !== nextProps.footer ||
       prevProps.className !== nextProps.className ||
       prevProps.style !== nextProps.style
     )
   }
 
   public override render(): React.ReactElement {
-    const { ast, footnoteDefinitionsTitle, dontNeedFootnoteDefinitions, className, style } =
-      this.props
+    const { ast, footer, className, style } = this.props
 
     return (
       <MarkdownRoot className={className} style={style}>
         <section>
           <NodesRenderer nodes={ast.children} />
         </section>
-        <footer>
-          <FootnoteDefinitions
-            footnoteDefinitionsTitle={footnoteDefinitionsTitle}
-            dontNeedFootnoteDefinitions={dontNeedFootnoteDefinitions}
-          />
-        </footer>
+        {footer != null && <footer>{footer}</footer>}
       </MarkdownRoot>
     )
   }
 }
 
-interface IMarkdownRootProps {
+export interface IMarkdownRootProps {
   Element?: React.ElementType
   className?: string
   itemProp?: string

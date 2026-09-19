@@ -1,24 +1,24 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-markdown#readme">@yozora/react-markdown</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-yozora#readme">@yozora/react-yozora</a>
   </h1>
   <div align="center">
-    <a href="https://www.npmjs.com/package/@yozora/react-markdown">
+    <a href="https://www.npmjs.com/package/@yozora/react-yozora">
       <img
         alt="Npm Version"
-        src="https://img.shields.io/npm/v/@yozora/react-markdown.svg"
+        src="https://img.shields.io/npm/v/@yozora/react-yozora.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-markdown">
+    <a href="https://www.npmjs.com/package/@yozora/react-yozora">
       <img
         alt="Npm Download"
-        src="https://img.shields.io/npm/dm/@yozora/react-markdown.svg"
+        src="https://img.shields.io/npm/dm/@yozora/react-yozora.svg"
       />
     </a>
-    <a href="https://www.npmjs.com/package/@yozora/react-markdown">
+    <a href="https://www.npmjs.com/package/@yozora/react-yozora">
       <img
         alt="Npm License"
-        src="https://img.shields.io/npm/l/@yozora/react-markdown.svg"
+        src="https://img.shields.io/npm/l/@yozora/react-yozora.svg"
       />
     </a>
     <a href="#install">
@@ -30,13 +30,13 @@
     <a href="https://github.com/nodejs/node">
       <img
         alt="Node.js Version"
-        src="https://img.shields.io/node/v/@yozora/react-markdown"
+        src="https://img.shields.io/node/v/@yozora/react-yozora"
       />
     </a>
     <a href="https://github.com/facebook/react">
       <img
         alt="React version"
-        src="https://img.shields.io/npm/dependency-version/@yozora/react-markdown/peer/react"
+        src="https://img.shields.io/npm/dependency-version/@yozora/react-yozora/peer/react"
       />
     </a>
     <a href="https://github.com/vitest-dev/vitest">
@@ -55,6 +55,16 @@
 </header>
 <br/>
 
+This is the Yozora AST preset, built on `@yozora/react-gfm-ex` and the shared
+`@yozora/react` rendering kernel. It adds footnotes, math, admonitions and code
+runners. Frontmatter and ECMA import nodes carry metadata and are not rendered.
+
+Migrating from `@yozora/react-markdown`: replace dependency names and imports with
+`@yozora/react-yozora`, including `@yozora/react-yozora/style.css`. The document,
+footnote and code-runner props remain available. Use `@yozora/react-gfm` or
+`@yozora/react-gfm-ex` for ASTs from those parser packages; they do not depend on
+the Yozora-only renderers.
+
 This component is designed to render data of [@yozora/ast][].
 
 ## Install
@@ -62,13 +72,13 @@ This component is designed to render data of [@yozora/ast][].
 - npm
 
   ```bash
-  npm install --save @yozora/react-markdown
+  npm install --save @yozora/react-yozora
   ```
 
 - yarn
 
   ```bash
-  yarn add @yozora/react-markdown @yozora/ast @yozora/ast-util
+  yarn add @yozora/react-yozora @yozora/ast @yozora/ast-util
   ```
 
 ## Usage
@@ -76,7 +86,7 @@ This component is designed to render data of [@yozora/ast][].
 Import the compiled stylesheet once at your application entry:
 
 ```tsx
-import '@yozora/react-markdown/style.css'
+import '@yozora/react-yozora/style.css'
 ```
 
 It includes styles for dependency components. Tailwind is not required in the consuming
@@ -95,7 +105,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
   ```tsx
   import type { IImageViewerProps } from '@yozora/react-renderer'
   import { ThemeProvider } from '@yozora/react-renderer'
-  import { Markdown, MarkdownProvider } from '@yozora/react-markdown'
+  import { Markdown, MarkdownProvider } from '@yozora/react-yozora'
   import React from 'react'
 
   const LazyImageViewer = React.lazy(() => import('react-viewer'))
@@ -137,7 +147,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
   ```typescript
   import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
   import YozoraParser from '@yozora/parser'
-  import { Markdown, MarkdownProvider } from '@yozora/react-markdown'
+  import { Markdown, MarkdownProvider } from '@yozora/react-yozora'
 
   const parser = new YozoraParser()
   const ast = parser.parse(`source markdown contents`, { shouldReservePosition: true })
@@ -156,7 +166,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 
   ```tsx
   import { ThemeProvider } from '@yozora/react-renderer'
-  import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-markdown'
+  import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-yozora'
 
   <MathJaxProvider>
     <ThemeProvider theme="vsc" variant="light-modern">
@@ -177,8 +187,8 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
   import { NodeRendererContextType, NodesRenderer  } from '@yozora/react-renderer'
   import { ThemeProvider } from '@yozora/react-renderer'
   import YozoraParser from '@yozora/parser'
-  import type { INodeRendererMap } from '@yozora/react-markdown'
-  import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-markdown'
+  import type { INodeRendererMap } from '@yozora/react-yozora'
+  import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-yozora'
 
   const sourceContents = `markdown contents`
   const parser = new YozoraParser()
@@ -234,7 +244,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
     CodeRunnerProps,
     CodeRunnerScope,
   } from '@yozora/react-renderer-code'
-  import { MathRenderer } from '@yozora/react-markdown'
+  import { MathRenderer } from '@yozora/react-yozora'
   import type { Engine } from 'd3-graphviz'
   import React from 'react'
 
@@ -281,7 +291,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 - Don't need the footnote definitions:
 
   ```tsx
-  import { Markdown, MarkdownProvider } from '@yozora/react-markdown'
+  import { Markdown, MarkdownProvider } from '@yozora/react-yozora'
 
   function Demo() {
     return (
@@ -359,7 +369,7 @@ application. The stylesheet uses the `yz` utility prefix and excludes Preflight.
 - `customRendererMap`:
 
   ```typescript
-  import type { INodeRendererMap } from '@yozora/react-markdown'
+  import type { INodeRendererMap } from '@yozora/react-yozora'
   const customRendererMap: Partial<INodeRendererMap>
   ```
 
@@ -409,9 +419,9 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 
 [mdast]: https://github.com/syntax-tree/mdast
 [MdastPropsRoot]:
-  https://github.com/yozorajs/yozora-react/blob/main/packages/react-markdown/src/ast/types.ts
+  https://github.com/yozorajs/yozora-react/blob/main/packages/react-yozora/src/component/nodeRendererMap.tsx
 [MdastRenderer]:
-  https://github.com/yozorajs/yozora-react/blob/main/packages/react-markdown/src/ast/render.tsx
+  https://github.com/yozorajs/yozora-react/blob/main/packages/react/src/component/Markdown.tsx
 [react-viewer]: https://github.com/infeng/react-viewer
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast
 [@yozora/ast-util]: https://www.npmjs.com/package/@yozora/ast-util

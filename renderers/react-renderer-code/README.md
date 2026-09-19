@@ -57,7 +57,7 @@
 
 This component is for rendering the [Code][@yozora/ast] data produced by
 [@yozora/tokenizer-indented-code][] and [@yozora/tokenizer-fenced-code].\
-This component has been built into [@yozora/react-markdown][], you can use it directly.
+This component has been built into [@yozora/react-yozora][], you can use it directly.
 
 ## Migration
 
@@ -80,7 +80,7 @@ import '@yozora/react-renderer-code/style.css'
 `Code` remains the default export. Component props and CSS class names are unchanged.
 The stylesheet includes all these components and their dependency styles; it replaces
 the former packages' stylesheet imports. Applications already importing
-`@yozora/react-markdown/style.css` do not need a second stylesheet.
+`@yozora/react-yozora/style.css` do not need a second stylesheet.
 
 The editor's remaining named exports, including `SimpleCodeEditor`, `classes`, keyboard
 constants, and history types, are also available from `@yozora/react-renderer-code`.
@@ -373,7 +373,7 @@ exported here. Shared contracts such as `ICodeRunner`, `ICodeRunnerItem`, and
 
 - [@yozora/ast][]
 - [@yozora/react-renderer][]
-- [@yozora/react-markdown][]
+- [@yozora/react-yozora][]
 - [@yozora/tokenizer-indented-code][]
 - [@yozora/tokenizer-fenced-code][]
 - [Code | Mdast][mdast]
@@ -381,7 +381,7 @@ exported here. Shared contracts such as `ICodeRunner`, `ICodeRunnerItem`, and
 
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast#code
 [@yozora/react-renderer]: https://www.npmjs.com/package/@yozora/react-renderer
-[@yozora/react-markdown]: https://www.npmjs.com/package/@yozora/react-markdown
+[@yozora/react-yozora]: https://www.npmjs.com/package/@yozora/react-yozora
 [@yozora/tokenizer-indented-code]: https://www.npmjs.com/package/@yozora/tokenizer-indented-code
 [@yozora/tokenizer-fenced-code]: https://www.npmjs.com/package/@yozora/tokenizer-fenced-code
 [mdast]: https://github.com/syntax-tree/mdast#code

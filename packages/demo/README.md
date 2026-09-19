@@ -23,7 +23,7 @@ Live JSX has a reset button for recovering from edits.
 ## Development
 
 Edit `src/fixtures.ts` to add sample ASTs and `src/main.tsx` to add interactive cases.
-The demo imports package exports and copies the published `react-markdown/style.css`
+The demo imports package exports and copies the published `react-yozora/style.css`
 entry unchanged. This exercises the same JS and CSS that consumers receive.
 
 Demo source changes rebuild and reload the page. To also rebuild component packages

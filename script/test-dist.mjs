@@ -12,13 +12,40 @@ import { getStylePackages } from './build-styles.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const coreDir = path.join(root, 'renderers/react-rendrer')
+const manifests = new Map(
+  fs
+    .globSync('{packages,renderers}/*/package.json', { cwd: root })
+    .map(file => [file, JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'))]),
+)
+const manifestsByName = new Map([...manifests.values()].map(manifest => [manifest.name, manifest]))
 
-for (const file of fs.globSync('{packages,renderers}/*/package.json', { cwd: root })) {
+for (const [file, manifest] of manifests) {
   const manifestPath = path.join(root, file)
   const packageDir = path.dirname(manifestPath)
-  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
   if (manifest.private) continue
   const name = manifest.name.slice('@yozora/'.length)
+  if (['react', 'react-gfm', 'react-gfm-ex'].includes(name)) {
+    const pending = [manifest]
+    const visited = new Set()
+    while (pending.length > 0) {
+      const current = pending.pop()
+      if (visited.has(current.name)) continue
+      visited.add(current.name)
+      for (const dependency of Object.keys(current.dependencies ?? {})) {
+        assert.ok(
+          ![
+            '@yozora/react-yozora',
+            '@yozora/react-embed-math',
+            '@yozora/react-renderer-admonition',
+            '@yozora/react-renderer-code',
+          ].includes(dependency),
+          `${manifest.name}: Yozora-only dependency ${dependency}`,
+        )
+        const workspaceDependency = manifestsByName.get(dependency)
+        if (workspaceDependency) pending.push(workspaceDependency)
+      }
+    }
+  }
   const rootExports = manifest.exports['.'] ?? manifest.exports
   const esmPath = path.resolve(packageDir, rootExports.import)
   const cjsPath = path.resolve(packageDir, rootExports.require)
@@ -35,6 +62,15 @@ for (const file of fs.globSync('{packages,renderers}/*/package.json', { cwd: roo
     const stylesheetPath = createRequire(manifestPath).resolve(`${manifest.name}/style.css`)
     assert.equal(stylesheetPath, path.join(packageDir, 'lib/style.css'))
     const css = fs.readFileSync(stylesheetPath, 'utf8')
+    if (['react', 'react-gfm'].includes(name)) {
+      assert.doesNotMatch(css, /yozora-list-task-item__checkbox/)
+    }
+    if (['react-gfm-ex', 'react-yozora'].includes(name)) {
+      assert.match(css, /yozora-list-task-item__checkbox/)
+    }
+    if (['react', 'react-gfm', 'react-gfm-ex'].includes(name)) {
+      assert.doesNotMatch(css, /yozora-admonition__container|yozora-footnote-reference/)
+    }
     if (stylePackages.includes(coreDir)) {
       assert.match(css, /THIRD_PARTY_NOTICES\.md/)
       assert.equal(
@@ -58,7 +94,7 @@ for (const file of fs.globSync('{packages,renderers}/*/package.json', { cwd: roo
         }
       }
     }
-    if (name === 'react-markdown') {
+    if (name === 'react-yozora') {
       /** Verify published declarations and consumer overrides; media/cascade behavior needs a browser. */
       const reset = '* { border-width: 0; border-style: solid; } p { margin: 0; }'
       const host = new JSDOM(`<style>${reset}\n${css}</style>
@@ -128,6 +164,10 @@ for (const file of fs.globSync('{packages,renderers}/*/package.json', { cwd: roo
     `${manifest.name}: ESM and CJS exports must agree`,
   )
   assert.ok(exportedNames.length > 0, `${manifest.name}: missing runtime exports`)
+  if (['react', 'react-gfm', 'react-gfm-ex'].includes(name)) {
+    assert.ok(!exportedNames.includes('MathJaxProvider'))
+    assert.ok(!exportedNames.includes('createCodeRenderer'))
+  }
 
   const consumerDir = fs.mkdtempSync(path.join(packageDir, '.tsdown-consumer-'))
   try {
@@ -135,6 +175,20 @@ for (const file of fs.globSync('{packages,renderers}/*/package.json', { cwd: roo
     const exports = exportedNames.map(key => (key === 'default' ? 'DefaultExport' : key))
     let consumer = `import { ${imports.join(', ')} } from '${manifest.name}'\n`
     consumer += `export { ${exports.join(', ')} }\n`
+    if (name === 'react') {
+      consumer += `import type { IMarkdownProviderProps } from '${manifest.name}'\n`
+      consumer += '// @ts-expect-error The kernel requires an explicit preset renderer map.\n'
+      consumer += 'export const missingPreset: IMarkdownProviderProps = { children: null }\n'
+    }
+    if (name === 'react-yozora') {
+      consumer += `import { createElement, createRef } from 'react'\n`
+      consumer += 'export const markdownRef = createRef<Markdown>()\n'
+      consumer += 'export const defaultMarkdownRef = createRef<DefaultExport>()\n'
+      consumer +=
+        "export const namedDocument = createElement(Markdown, { ref: markdownRef, ast: { type: 'root', children: [] } })\n"
+      consumer +=
+        "export const defaultDocument = createElement(DefaultExport, { ref: defaultMarkdownRef, ast: { type: 'root', children: [] } })\n"
+    }
     if (stylePackages.length > 0) {
       consumer += `import '${manifest.name}/style.css'\n`
       consumer += '// @ts-expect-error Unknown CSS subpaths must remain unresolved.\n'
@@ -415,7 +469,7 @@ assert.match(html, /token keyword[^>]*color:#cba6f7/i)
             moduleResolution,
             noUncheckedSideEffectImports: true,
             // Bundled MathJax types already have TS2344 errors in the Rollup output.
-            skipLibCheck: name === 'react-embed-math' || name === 'react-markdown',
+            skipLibCheck: name === 'react-embed-math' || name === 'react-yozora',
             types: [],
           },
           include: ['index.mts', 'index.cts'],
@@ -438,11 +492,26 @@ assert.match(html, /token keyword[^>]*color:#cba6f7/i)
   }
 
   for (const module of [esm, cjs]) {
-    if (name === 'react-markdown') {
+    if (['react', 'react-gfm', 'react-gfm-ex', 'react-yozora'].includes(name)) {
       const theme =
         module === esm
           ? await import(pathToFileURL(path.join(coreDir, 'lib/esm/index.mjs')).href)
           : createRequire(path.join(coreDir, 'package.json'))('@yozora/react-renderer')
+      const html = renderToStaticMarkup(
+        React.createElement(
+          module.MarkdownProvider,
+          name === 'react' ? { rendererMap: theme.defaultNodeRendererMap } : {},
+          React.createElement(module.Markdown, {
+            ast: {
+              type: 'root',
+              children: [
+                { type: 'paragraph', children: [{ type: 'text', value: 'Published preset' }] },
+              ],
+            },
+          }),
+        ),
+      )
+      assert.match(html, /<p[^>]*>Published preset<\/p>/)
       function CustomRoot({ className, style, itemProp, children }) {
         return React.createElement('section', { className, style, itemProp }, children)
       }

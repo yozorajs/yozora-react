@@ -10,9 +10,9 @@
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
-    "@yozora/react-markdown": "workspace:^",
     "@yozora/react-renderer": "workspace:^",
     "@yozora/react-renderer-code": "workspace:^",
+    "@yozora/react-yozora": "workspace:^",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },

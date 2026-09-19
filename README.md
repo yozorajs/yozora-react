@@ -51,7 +51,13 @@
 A monorepo contains react components render [Yozora AST Nodes][yozora/admonition]. See
 https://yozora.guanghechen.com for details.
 
-Use [@yozora/react-markdown][] to render the [@yozora/ast][yozora/ast].
+Use [@yozora/react-yozora][] to render the [@yozora/ast][yozora/ast].
+
+Choose [@yozora/react-gfm][] for `@yozora/parser-gfm` ASTs, or
+[@yozora/react-gfm-ex][] for tables, strikethrough, extended autolinks and task
+lists. [@yozora/react-yozora][] adds footnotes, math, admonitions and executable
+code. The presets share [@yozora/react][], the rendering kernel. The former
+`@yozora/react-markdown` API now lives in `@yozora/react-yozora`.
 
 https://user-images.githubusercontent.com/42513619/129205123-6a1983c4-6a86-4c80-83d6-02bdbf70edbf.mp4
 
@@ -65,7 +71,7 @@ and live JSX. See [packages/demo](./packages/demo/README.md) for development com
 Import the stylesheet for the highest-level Yozora component you use:
 
 ```tsx
-import '@yozora/react-markdown/style.css'
+import '@yozora/react-yozora/style.css'
 import { ThemeProvider } from '@yozora/react-renderer'
 ```
 
@@ -105,18 +111,18 @@ The public `lightSchema` and `darkenSchema` exports still define the theme token
 
 ## Usage
 
-See [@yozora/react-markdown][]
+See [@yozora/react-yozora][]
 
 - npm
 
   ```bash
-  npm install --save @yozora/react-markdown
+  npm install --save @yozora/react-yozora
   ```
 
 - yarn
 
   ```bash
-  yarn add @yozora/react-markdown
+  yarn add @yozora/react-yozora
   ```
 
 ```tsx
@@ -124,7 +130,7 @@ import loadable from '@loadable/component'
 import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
 import { ThemeProvider } from '@yozora/react-renderer'
 import YozoraParser from '@yozora/parser'
-import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-markdown'
+import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-yozora'
 
 const ImageViewer = loadable(() => import('react-viewer'))
 
@@ -150,9 +156,18 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
 ## Core
 
-| Package Name                  | Description                                              |
-| :---------------------------: | :------------------------------------------------------- |
-| [@yozora/react-renderer][]         | AST renderers, theme providers, syntax highlighting, tokens, code-runner types, and utilities. |
+| Package Name                | Description                                                                                 |
+| :-------------------------- | :------------------------------------------------------------------------------------------ |
+| [@yozora/react][]            | Shared document layout and Provider; renderer defaults are supplied by a preset.             |
+| [@yozora/react-renderer][]   | AST renderers, theme providers, syntax highlighting, tokens, code-runner types and utilities. |
+
+### AST presets
+
+| Package Name              | AST standard and additions                                          |
+| :------------------------ | :------------------------------------------------------------------ |
+| [@yozora/react-gfm][]      | `@yozora/parser-gfm` base nodes.                                      |
+| [@yozora/react-gfm-ex][]   | GFM plus tables, strikethrough, extended autolinks and task lists.    |
+| [@yozora/react-yozora][]   | GFM-Ex plus footnotes, math, admonitions and executable code.         |
 
 ### Markdown components
 
@@ -172,11 +187,13 @@ It also provides [runner factories](./renderers/react-renderer-code/README.md#ru
 | :--------------------------------------: | :----------------------------------------------------------------------------- |
 |   [@yozora/react-embed-jsx][]    | React component for rendering jsx directly in browser.                         |
 | [@yozora/react-embed-graphviz][] | React component for rendering graphviz (dot) directly in browser.              |
-|        [@yozora/react-markdown][]        | React component for rendering markdown content with above Markdown Components. |
 |    [@yozora/react-embed-math][]    | Render formula with mathjax in react.                                          |
 
 <!-- yozora component links -->
 
+[@yozora/react]: ./packages/react
+[@yozora/react-gfm]: ./packages/react-gfm
+[@yozora/react-gfm-ex]: ./packages/react-gfm-ex
 [@yozora/react-renderer]: ./renderers/react-rendrer
 [@yozora/react-renderer-admonition]:
   https://github.com/yozorajs/yozora-react/tree/main/renderers/react-renderer-admonition#readme
@@ -186,8 +203,8 @@ It also provides [runner factories](./renderers/react-renderer-code/README.md#ru
   https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-jsx#readme
 [@yozora/react-embed-graphviz]:
   https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-graphviz#readme
-[@yozora/react-markdown]:
-  https://github.com/yozorajs/yozora-react/tree/release-2.x.x/packages/react-markdown#readme
+[@yozora/react-yozora]:
+  https://github.com/yozorajs/yozora-react/tree/main/packages/react-yozora#readme
 [@yozora/react-embed-math]:
   https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-math#readme
 [yozora/ast]: https://www.npmjs.com/package/@yozora/ast

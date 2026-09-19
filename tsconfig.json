@@ -2,13 +2,16 @@
   "extends": "./tsconfig.settings.json",
   "compilerOptions": {
     "paths": {
+      "@yozora/react": ["./packages/react/src"],
       "@yozora/react-embed-graphviz": ["./renderers/react-embed-graphviz/src"],
       "@yozora/react-embed-jsx": ["./renderers/react-embed-jsx/src"],
       "@yozora/react-embed-math": ["./renderers/react-embed-math/src"],
-      "@yozora/react-markdown": ["./packages/react-markdown/src"],
+      "@yozora/react-gfm": ["./packages/react-gfm/src"],
+      "@yozora/react-gfm-ex": ["./packages/react-gfm-ex/src"],
       "@yozora/react-renderer": ["./renderers/react-rendrer/src"],
       "@yozora/react-renderer-admonition": ["./renderers/react-renderer-admonition/src"],
-      "@yozora/react-renderer-code": ["./renderers/react-renderer-code/src"]
+      "@yozora/react-renderer-code": ["./renderers/react-renderer-code/src"],
+      "@yozora/react-yozora": ["./packages/react-yozora/src"]
     }
   }
 }

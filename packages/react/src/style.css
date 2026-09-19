@@ -1,0 +1,19 @@
+.yozora-markdown {
+  --yozora_paragraphLineHeight: 1.75;
+  font-family: var(--yozora_fontFamilyBody);
+  background: var(--yozora_colorBgBody);
+  color: var(--yozora_colorBody);
+  font-size: var(--yozora_fontSizeBody, 16px);
+  line-height: 1.75;
+  word-break: normal;
+  overflow-wrap: anywhere;
+  user-select: unset;
+}
+
+.yozora-markdown {
+  .yozora-list-item {
+    > .yozora-list {
+      margin-left: 1.2em;
+    }
+  }
+}

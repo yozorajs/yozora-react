@@ -1,6 +1,6 @@
-import { Markdown, MarkdownProvider } from '@yozora/react-markdown'
 import { ThemeProvider, themeSchemas } from '@yozora/react-renderer'
 import { CodeEditor } from '@yozora/react-renderer-code'
+import { Markdown, MarkdownProvider } from '@yozora/react-yozora'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { admonitions, editorCode, footnotes, live, liveError, markdown } from './fixtures'
