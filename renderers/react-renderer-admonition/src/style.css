@@ -1,13 +1,13 @@
 .yozora-admonition__heading {
-  @apply yz:flex yz:items-start;
+  @apply yz:flex yz:items-center;
   line-height: 1.6;
-  font-size: 0.857rem;
+  font-size: 0.875rem;
+  font-weight: 700;
   margin: 0 0 8px 0;
-  @apply yz:align-middle;
-  letter-spacing: 1px;
+  letter-spacing: 0.04em;
   text-rendering: optimizeLegibility;
   text-size-adjust: 100%;
-  text-transform: none;
+  text-transform: uppercase;
   overflow-wrap: break-word;
   font-family:
     system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif;
@@ -67,6 +67,7 @@
 }
 
 .yozora-admonition__icon {
+  @apply yz:flex yz:shrink-0;
   margin-right: 0.5rem;
   > svg:first-child:not([fill="none"]) path {
     @apply yz:fill-current;
