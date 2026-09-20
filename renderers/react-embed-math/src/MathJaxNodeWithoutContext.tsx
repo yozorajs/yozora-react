@@ -112,7 +112,12 @@ export class MathJaxNodeWithoutContext extends React.Component<
       props.inline !== prevProps.inline ||
       props.MathJax !== prevProps.MathJax
     ) {
-      this._typeset()
+      if (this.state.error !== undefined) {
+        /** The error view removes the node ref; retry only after the formula node is restored. */
+        this.setState({ error: undefined }, () => this._typeset())
+      } else {
+        this._typeset()
+      }
     }
   }
 
