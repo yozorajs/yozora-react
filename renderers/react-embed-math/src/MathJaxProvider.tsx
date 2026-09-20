@@ -6,12 +6,13 @@ import { loadMathJax } from './util/load'
 
 export interface IMathJaxProviderProps {
   /**
-   * http / https url for loading mathjax.
+   * URL for the page's shared MathJax instance. Must match other providers on the page.
    * @default 'https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-mml-chtml.js'
    */
   mathjaxSrc?: string
   /**
-   * MathJax config.
+   * Initialization config for the page's shared MathJax instance; fixed after loading starts.
+   * A different URL or configuration is reported through onError. Failed loads can be retried.
    */
   mathjaxConfig?: IMathJaxConfig
   /**
@@ -43,12 +44,11 @@ interface IState {
 export class MathJaxProvider extends React.Component<IMathJaxProviderProps, IState> {
   public static readonly displayName = 'MathJaxProvider'
 
-  protected _cancelLoad: (() => Promise<void>) | undefined
+  protected _loadVersion = 0
 
   public constructor(props: IMathJaxProviderProps) {
     super(props)
 
-    this._cancelLoad = undefined
     this.state = {
       loaded: false,
       context: initialMathJaxContext,
@@ -96,57 +96,42 @@ export class MathJaxProvider extends React.Component<IMathJaxProviderProps, ISta
   }
 
   public override componentWillUnmount(): void {
-    const { MathJax: mathJax } = this.state.context
-    void this.clear().then(() => {
-      mathJax?.texReset()
-    })
+    /** The page owns the engine; unmounting only cancels this provider's subscription. */
+    this._loadVersion += 1
   }
 
   protected async load(): Promise<void> {
-    await this.clear()
-
+    const version = ++this._loadVersion
     const {
       mathjaxSrc = 'https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-mml-chtml.js',
       mathjaxConfig = defaultMathjaxConfig,
     } = this.props
+    this.setState({ loaded: false, context: initialMathJaxContext })
 
-    let cancelled = false
-
-    const loadResult = loadMathJax(mathjaxSrc, mathjaxConfig).then(
-      mathJax => {
-        if (cancelled) return
-
-        if (mathJax === null) {
-          this.setState({ loaded: true, context: initialMathJaxContext })
-          return
-        }
-
-        this.setState(
-          prevState => ({
-            loaded: true,
-            context: { ...prevState.context, MathJax: mathJax },
-          }),
-          () => this.props.onLoad?.(mathJax),
-        )
-      },
-      error => {
-        if (cancelled) return
-        this.setState({ loaded: true, context: initialMathJaxContext }, () => {
-          this.props.onError?.(error)
-        })
-      },
-    )
-
-    this._cancelLoad = async () => {
-      cancelled = true
-      await loadResult
-    }
-  }
-
-  protected async clear(): Promise<void> {
-    if (this._cancelLoad) {
-      await this._cancelLoad()
-      this._cancelLoad = undefined
+    try {
+      const mathJax = await loadMathJax(mathjaxSrc, mathjaxConfig)
+      if (version !== this._loadVersion) return
+      this.setState(
+        () =>
+          version === this._loadVersion
+            ? {
+                loaded: true,
+                context: { ...initialMathJaxContext, MathJax: mathJax },
+              }
+            : null,
+        () => {
+          if (version === this._loadVersion && mathJax) this.props.onLoad?.(mathJax)
+        },
+      )
+    } catch (error: unknown) {
+      if (version !== this._loadVersion) return
+      this.setState(
+        () =>
+          version === this._loadVersion ? { loaded: true, context: initialMathJaxContext } : null,
+        () => {
+          if (version === this._loadVersion) this.props.onError?.(error)
+        },
+      )
     }
   }
 }
@@ -172,12 +157,6 @@ const defaultMathjaxConfig: IMathJaxConfig = {
     displayMath: [['$$', '$$']],
     processEnvironments: true,
     processRefs: true,
-  },
-  tagformat: {
-    number: (n: number) => n.toString(),
-    tag: (tag: string) => '(' + tag + ')',
-    id: (id: string) => 'mjx-eqn:' + id.replace(/\s/g, '_'),
-    url: (id: string, base: string) => base + '#' + encodeURIComponent(id),
   },
   svg: {
     fontCache: 'global',

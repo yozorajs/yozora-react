@@ -105,6 +105,24 @@ MathJax loading behavior are unchanged by this rename.
   )
   ```
 
+### Loading and ownership
+
+All providers on a page share one MathJax initialization. They must use the same resolved
+`mathjaxSrc` URL and structurally equal `mathjaxConfig` values; configuration callbacks must
+retain the same references. The configuration is fixed once loading starts. Conflicting
+requests reject and are reported through the requesting provider's `onError`, leaving other
+providers and their shared engine intact.
+
+Failed loads release their cache and owned script/global so a subsequent call can retry with
+the same or a corrected URL/configuration. For a provider, change its URL/configuration or
+remount it to retry; retries are not automatic. Unmounting a provider cancels its subscription
+without resetting the shared engine. SSR returns no engine and does not populate the browser cache.
+
+Configure MathJax through `mathjaxConfig` instead of preassigning `window.MathJax`. If another
+integration already owns the global, this loader reports an error without replacing it.
+Use `MathJaxContextType.Provider` with `{ MathJax: instance, language: TexLang.TEX }` to supply
+an externally initialized instance directly.
+
 ### Props
 
 - `IMathJaxProviderProps`
@@ -121,12 +139,13 @@ MathJax loading behavior are unchanged by this rename.
     */
     loading?: React.ReactNode
     /**
-    * http / https url for loading mathjax.
+    * URL for the page's shared MathJax instance. Must match other providers on the page.
     * @default 'https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-mml-chtml.js'
     */
     mathjaxSrc?: string
     /**
-    * MathJax config.
+    * Initialization config for the shared instance; fixed after loading starts.
+    * Conflicts are reported through onError. Failed loads can be retried.
     */
     mathjaxConfig?: IMathJaxConfig
     /**
