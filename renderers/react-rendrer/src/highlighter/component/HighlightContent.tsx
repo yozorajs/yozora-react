@@ -177,16 +177,19 @@ export class HighlightContent extends React.Component<IProps, IState> {
       props.language !== prevProps.language || !isEqual(props.theme, prevProps.theme)
         ? themeToDict(props.language, props.theme)
         : state.themeDict
+    const tokens: IToken[][] =
+      props.code !== prevProps.code || props.language !== prevProps.language
+        ? this.tokenize(props.code, props.language)
+        : state.tokens
+    const linenoWidth: string | undefined = props.showLineno
+      ? `${Math.max(2, String(tokens.length).length) * 1.1}em`
+      : undefined
     if (
-      props.code !== prevProps.code ||
-      props.language !== prevProps.language ||
-      latestThemeDict !== prevState.themeDict
+      tokens !== state.tokens ||
+      latestThemeDict !== state.themeDict ||
+      linenoWidth !== state.linenoWidth
     ) {
-      const nextTokens: IToken[][] = this.tokenize(props.code, props.language)
-      const linenoWidth: string | undefined = props.showLineno
-        ? `${Math.max(2, String(nextTokens.length).length) * 1.1}em`
-        : undefined
-      this.setState({ linenoWidth, themeDict: latestThemeDict, tokens: nextTokens })
+      this.setState({ linenoWidth, themeDict: latestThemeDict, tokens })
     }
 
     if (state.linenoWidth !== prevState.linenoWidth) {

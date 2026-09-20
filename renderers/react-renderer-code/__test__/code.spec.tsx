@@ -1,6 +1,19 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-import Code from '../src'
+import Code, { CodeLiteral } from '../src'
+
+test.each(['\n', '\r', '\r\n'])('updates collapsed line counts with %j line endings', newline => {
+  const view = render(
+    <CodeLiteral value={['a', 'b'].join(newline)} title="sample" collapsed={true} />,
+  )
+  expect(view.getByTitle('sample')).toHaveTextContent('2 lines.')
+  view.rerender(
+    <CodeLiteral value={['a', 'b', 'c', 'd'].join(newline)} title="sample" collapsed={true} />,
+  )
+  expect(view.getByTitle('sample')).toHaveTextContent('4 lines.')
+  view.rerender(<CodeLiteral value="a" title="sample" collapsed={true} />)
+  expect(view.getByTitle('sample')).toHaveTextContent('1 lines.')
+})
 
 describe('customization', () => {
   test('render with custom className', () => {

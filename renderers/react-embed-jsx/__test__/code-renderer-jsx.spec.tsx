@@ -1,5 +1,6 @@
 import { fireEvent, render, waitFor } from '@testing-library/react'
 import React from 'react'
+import { vi } from 'vitest'
 import CodeRendererJsx from '../src'
 
 const scope = { accent: 'orange' }
@@ -15,6 +16,57 @@ function Wrapper(props: { code: string; inline: boolean }): React.ReactElement {
 }
 
 describe('basic', () => {
+  test('preserves preview state when the default TypeScript setting becomes explicit', () => {
+    const code = `function Counter() {
+      const [count, setCount] = React.useState(0 as number)
+      return <button onClick={() => setCount(count + 1)}>{count}</button>
+    }`
+    const onError = vi.fn()
+    const view = render(<CodeRendererJsx code={code} inline={true} onError={onError} />)
+    fireEvent.click(view.getByRole('button', { name: '0' }))
+    expect(view.getByRole('button', { name: '1' })).toBeInTheDocument()
+    view.rerender(
+      <CodeRendererJsx code={code} inline={true} enabledTypeScript={true} onError={onError} />,
+    )
+    expect(view.getByRole('button', { name: '1' })).toBeInTheDocument()
+    view.rerender(<CodeRendererJsx code={code} inline={true} onError={onError} />)
+    expect(view.getByRole('button', { name: '1' })).toBeInTheDocument()
+    expect(onError).toHaveBeenCalledTimes(1)
+  })
+
+  test('recompiles when only the render mode changes', () => {
+    const code = '(<span>mode preview</span>)'
+    const onError = vi.fn()
+    const view = render(<CodeRendererJsx code={code} inline={true} onError={onError} />)
+    expect(view.getByText('mode preview')).toBeInTheDocument()
+    view.rerender(<CodeRendererJsx code={code} inline={false} onError={onError} />)
+    expect(view.queryByText('mode preview')).not.toBeInTheDocument()
+    expect(onError).toHaveBeenLastCalledWith(
+      'SyntaxError: No-Inline evaluations must call `render`.',
+    )
+    view.rerender(<CodeRendererJsx code={code} inline={true} onError={onError} />)
+    expect(view.getByText('mode preview')).toBeInTheDocument()
+    expect(onError).toHaveBeenLastCalledWith(null)
+  })
+
+  test('recompiles when only TypeScript support changes', () => {
+    const code = '(<span>typed preview</span> as React.ReactNode)'
+    const onError = vi.fn()
+    const view = render(
+      <CodeRendererJsx code={code} inline={true} enabledTypeScript={true} onError={onError} />,
+    )
+    expect(view.getByText('typed preview')).toBeInTheDocument()
+    view.rerender(
+      <CodeRendererJsx code={code} inline={true} enabledTypeScript={false} onError={onError} />,
+    )
+    expect(view.queryByText('typed preview')).not.toBeInTheDocument()
+    expect(onError).toHaveBeenLastCalledWith(expect.stringContaining('SyntaxError'))
+    view.rerender(
+      <CodeRendererJsx code={code} inline={true} enabledTypeScript={true} onError={onError} />,
+    )
+    expect(view.getByText('typed preview')).toBeInTheDocument()
+    expect(onError).toHaveBeenLastCalledWith(null)
+  })
   describe('inline', () => {
     test('greet', () => {
       const code = `

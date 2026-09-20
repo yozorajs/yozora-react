@@ -1,6 +1,28 @@
 import { render } from '@testing-library/react'
+import Prism from 'prismjs'
 import React from 'react'
+import { vi } from 'vitest'
 import { CodeHighlighter, ThemeProvider } from '../../src'
+
+test('theme changes recolor cached tokens while code and language changes tokenize again', () => {
+  const tokenize = vi.spyOn(Prism, 'tokenize')
+  try {
+    const value = 'const x = 1'
+    const view = render(<CodeHighlighter value={value} lang="typescript" darken={true} />)
+    const mountedCalls = tokenize.mock.calls.length
+    expect(mountedCalls).toBeGreaterThan(0)
+    view.rerender(<CodeHighlighter value={value} lang="typescript" darken={false} />)
+    expect(tokenize).toHaveBeenCalledTimes(mountedCalls)
+    expect(view.container.querySelector('.token.keyword')).toHaveStyle({ color: '#0000ff' })
+    view.rerender(<CodeHighlighter value="const x = 2" lang="typescript" darken={false} />)
+    expect(tokenize).toHaveBeenCalledTimes(mountedCalls + 1)
+    expect(view.container.querySelector('.token.number')).toHaveTextContent('2')
+    view.rerender(<CodeHighlighter value="const x = 2" lang="javascript" darken={false} />)
+    expect(tokenize).toHaveBeenCalledTimes(mountedCalls + 2)
+  } finally {
+    tokenize.mockRestore()
+  }
+})
 
 test('highlighting follows named variants through a PureComponent boundary', () => {
   const code = <CodeHighlighter lang="typescript" value={'const value = "hello"'} />

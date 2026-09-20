@@ -69,7 +69,7 @@ export class CodeLiteral extends React.Component<IProps, IState> {
     super(props)
     this.state = {
       collapsed: props.collapsed ?? false,
-      countOfLines: props.value.split(/\r|\n|\n\r/g).length,
+      countOfLines: props.value.split(/\r\n|\r|\n/g).length,
     }
   }
 
@@ -141,7 +141,7 @@ export class CodeLiteral extends React.Component<IProps, IState> {
 
   public override componentDidUpdate(prevProps: Readonly<IProps>): void {
     if (this.props.value !== prevProps.value) {
-      const countOfLines: number = prevProps.value.split(/\r|\n|\n\r/g).length
+      const countOfLines: number = this.props.value.split(/\r\n|\r|\n/g).length
       if (countOfLines !== this.state.countOfLines) {
         this.setState({ countOfLines })
       }

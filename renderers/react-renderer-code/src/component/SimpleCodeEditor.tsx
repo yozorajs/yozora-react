@@ -281,6 +281,8 @@ export class SimpleCodeEditor extends React.Component<IEditorProps, IEditorState
       target.blur()
     }
 
+    if (this.props.readOnly) return
+
     const { value, selectionStart, selectionEnd } = target
 
     const tabCharacter = (insertSpaces ? ' ' : '\t').repeat(tabSize)

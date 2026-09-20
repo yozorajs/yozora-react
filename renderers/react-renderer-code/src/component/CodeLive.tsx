@@ -151,7 +151,7 @@ export class CodeLive extends React.Component<ICodeLiveProps, ICodeLiveState> {
       style,
     } = this.props
     const { value, orientation, collapsed, countOfLines } = this.state
-    const runner = runners.find(item => item.pattern.test(lang))
+    const runner = runners.find(item => new RegExp(item.pattern).test(lang))
 
     return (
       <div className={clsx('yozora-code-live', classes.live.container, className)} style={style}>

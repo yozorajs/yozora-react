@@ -59,6 +59,45 @@ describe('runner integration', () => {
     expect(view.getByTestId('math')).toHaveAttribute('data-type', MathType)
   })
 
+  test.each([
+    ['x^2', 'x^2'],
+    ['$x^2$', 'x^2'],
+    ['  $$\nx^2\n$$  ', 'x^2'],
+    ['$$$x^2$$$', 'x^2'],
+    ['$$  $$', ''],
+    ['$', '$'],
+    ['$$', '$$'],
+    ['$$x^2$', '$$x^2$'],
+    ['$' + 'x'.repeat(20), '$' + 'x'.repeat(20)],
+  ])('handles math delimiters in %j', (value, expected) => {
+    const MathRunner = createMathRunner(({ value }) => <output data-testid="math">{value}</output>)
+    const view = render(<MathRunner lang="latex" value={value} onError={vi.fn()} />)
+    expect(view.getByTestId('math').textContent).toBe(expected)
+  })
+
+  test.each([
+    ['embed', 'g'],
+    ['embed', 'y'],
+    ['live', 'g'],
+    ['live', 'y'],
+  ])('%s runners ignore and preserve the %s regex cursor', (mode, flags) => {
+    const pattern = new RegExp('^text$', flags)
+    pattern.lastIndex = 2
+    const runners = [
+      {
+        title: 'text',
+        pattern,
+        runner: ({ value }: { value: string }) => <output data-testid="preview">{value}</output>,
+      },
+    ]
+    const view = render(<Code lang="text" meta={mode} value="first" runners={runners} />)
+    for (const value of ['first', 'second', 'third']) {
+      view.rerender(<Code lang="text" meta={mode} value={value} runners={runners} />)
+      expect(view.getByTestId('preview')).toHaveTextContent(value)
+      expect(pattern.lastIndex).toBe(2)
+    }
+  })
+
   test('creates an interactive JSX runner with its preset scope', () => {
     const useJsxRunner = createUseJsxRunner({
       presetJsxScope: { React, label: 'preset' },

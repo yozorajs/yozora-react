@@ -51,6 +51,7 @@ export class CodeRendererJsx extends React.Component<ICodeRendererJsxProps, ISta
       state.Element !== nextState.Element ||
       props.code !== nextProps.code ||
       props.inline !== nextProps.inline ||
+      (props.enabledTypeScript ?? true) !== (nextProps.enabledTypeScript ?? true) ||
       !isEqual(props.scope, nextProps.scope)
     )
   }
@@ -66,7 +67,12 @@ export class CodeRendererJsx extends React.Component<ICodeRendererJsxProps, ISta
 
   public override componentDidUpdate(prevProps: Readonly<ICodeRendererJsxProps>): void {
     const props = this.props
-    if (props.code !== prevProps.code || !isEqual(props.scope, prevProps.scope)) {
+    if (
+      props.code !== prevProps.code ||
+      props.inline !== prevProps.inline ||
+      (props.enabledTypeScript ?? true) !== (prevProps.enabledTypeScript ?? true) ||
+      !isEqual(props.scope, prevProps.scope)
+    ) {
       void this.transpile()
     }
   }

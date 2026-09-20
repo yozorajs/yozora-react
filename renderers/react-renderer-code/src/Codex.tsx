@@ -92,7 +92,7 @@ export class Code extends React.Component<ICodeProps, IState> {
           )
         }
         case 'embed': {
-          const runner = runners.find(item => item.pattern.test(lang as string))
+          const runner = runners.find(item => new RegExp(item.pattern).test(lang))
           if (runner != null) {
             return (
               <CodeEmbedComponent

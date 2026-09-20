@@ -1,9 +1,53 @@
 import { fireEvent, render } from '@testing-library/react'
 import React, { useState } from 'react'
 import { vi } from 'vitest'
-import { CodeEditor, classes } from '../src'
+import { CodeEditor, SimpleCodeEditor, classes } from '../src'
 
 describe('basic rendering case', () => {
+  test('removes and restores the input gutter when toggling line numbers', () => {
+    const onChange = vi.fn()
+    const view = render(
+      <CodeEditor lang="typescript" code="const x = 1" showLineNo={true} onChange={onChange} />,
+    )
+    const gutter = view.container.querySelector<HTMLElement>('.' + classes.editor.textareaLinenos)!
+    expect(gutter.style.width).toBe('2.2em')
+    view.rerender(
+      <CodeEditor lang="typescript" code="const x = 1" showLineNo={false} onChange={onChange} />,
+    )
+    expect(gutter.style.width).toBe('')
+    view.rerender(
+      <CodeEditor lang="typescript" code="const x = 1" showLineNo={true} onChange={onChange} />,
+    )
+    expect(gutter.style.width).toBe('2.2em')
+  })
+
+  test.each([
+    { key: 'Tab', shiftKey: false, start: 7, end: 7 },
+    { key: 'Tab', shiftKey: true, start: 0, end: 7 },
+    { key: 'Backspace', shiftKey: false, start: 7, end: 7 },
+    { key: 'Enter', shiftKey: false, start: 7, end: 7 },
+    { key: '(', shiftKey: false, start: 2, end: 5 },
+  ])('does not apply $key edits to a read-only editor', ({ key, shiftKey, start, end }) => {
+    const value = '  abc  '
+    const onValueChange = vi.fn()
+    const onKeyDown = vi.fn()
+    const view = render(
+      <SimpleCodeEditor
+        value={value}
+        readOnly={true}
+        highlight={value => value}
+        onValueChange={onValueChange}
+        onKeyDown={onKeyDown}
+        onScroll={vi.fn()}
+      />,
+    )
+    const textarea = view.getByRole('textbox') as HTMLTextAreaElement
+    textarea.setSelectionRange(start, end)
+    fireEvent.keyDown(textarea, { key, shiftKey })
+    expect(textarea.value).toBe(value)
+    expect(onValueChange).not.toHaveBeenCalled()
+    expect(onKeyDown).toHaveBeenCalledTimes(1)
+  })
   test('exported classes select individual editor elements', () => {
     const view = render(<CodeEditor lang="typescript" code="const value = 1" onChange={vi.fn()} />)
 

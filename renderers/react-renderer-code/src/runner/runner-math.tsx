@@ -10,7 +10,12 @@ import React from 'react'
  */
 export function createMathRunner(MathRenderer: React.ComponentType<IMath>): ICodeRunner {
   const MathRunner: ICodeRunner = props => {
-    const value = props.value.replace(/^[\s\n]*([$]+)([\s\S]+)*\1[\s\n]*$/, '$2').trim()
+    const source = props.value.trim()
+    const delimiter = /^\$+/.exec(source)?.[0]
+    const value =
+      delimiter && source.length >= delimiter.length * 2 && source.endsWith(delimiter)
+        ? source.slice(delimiter.length, -delimiter.length).trim()
+        : source
     return <MathRenderer type={MathType} value={value} />
   }
 
