@@ -19,7 +19,13 @@ Use the Renderer selector to switch between `react-gfm`, `react-gfm-ex`, and
 
 - `react-gfm`: typography, links, blockquotes, ordinary lists, and code blocks.
 - `react-gfm-ex`: adds strikethrough, task lists, and tables.
-- `react-yozora`: adds footnotes, admonitions, enhanced code blocks, and live JSX.
+- `react-yozora`: adds footnotes, admonitions, math, enhanced code blocks, and live JSX.
+
+The Math section includes inline formulas, sums, integrals, matrices, and piecewise
+functions. It uses `MathJaxProvider` and the preset's `inlineMath` / `math` renderers.
+MathJax 4.1.3 and its CHTML fonts are copied from the existing workspace dependencies
+into the static build, with the MathJax license and font package metadata; formulas
+render without a CDN.
 
 The standalone TypeScript editor remains available in every preset. Renderer switches
 preserve the theme, line-number setting, and editor text; preset previews remount.
@@ -53,7 +59,7 @@ pnpm --filter '@yozora/demo...' build
 
 Serve `packages/demo/dist` with any static HTTP server. The static build does not
 contain the development reload client. No external assets or CDN requests are needed.
-MathJax and Graphviz cases are not included in this minimal playground.
+Graphviz cases are not included in this playground.
 
 ## Reproducing an existing live JSX issue
 

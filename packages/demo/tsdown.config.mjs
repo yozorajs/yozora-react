@@ -6,6 +6,11 @@ import { defineConfig } from 'tsdown'
 const root = import.meta.dirname
 const require = createRequire(import.meta.url)
 const markdownStyles = require.resolve('@yozora/react-yozora/style.css')
+const mathjaxManifest = require.resolve('@mathjax/src/package.json')
+const mathjaxRoot = path.dirname(mathjaxManifest)
+const mathjaxFontRoot = path.dirname(
+  createRequire(mathjaxManifest).resolve('@mathjax/mathjax-newcm-font/package.json'),
+)
 const assets = new Map([
   [path.join(root, 'index.html'), 'index.html'],
   [path.join(root, 'src/demo.css'), 'demo.css'],
@@ -14,6 +19,10 @@ const assets = new Map([
   [require.resolve('@yozora/react-gfm-ex/style.css'), 'gfm-ex.css'],
   [require.resolve('@yozora/react-renderer-code/style.css'), 'code.css'],
   [path.join(path.dirname(markdownStyles), 'THIRD_PARTY_NOTICES.md'), 'THIRD_PARTY_NOTICES.md'],
+  [path.join(mathjaxRoot, 'bundle'), 'mathjax'],
+  [path.join(mathjaxRoot, 'LICENSE'), 'mathjax/LICENSE'],
+  [path.join(mathjaxFontRoot, 'chtml'), 'mathjax-newcm-font/chtml'],
+  [path.join(mathjaxFontRoot, 'package.json'), 'mathjax-newcm-font/package.json'],
 ])
 
 export default defineConfig({
@@ -41,9 +50,9 @@ export default defineConfig({
   ],
   hooks: {
     async 'build:done'() {
-      await Promise.all(
-        [...assets].map(([source, name]) => fs.copyFile(source, path.join(root, 'dist', name))),
-      )
+      for (const [source, name] of assets) {
+        await fs.cp(source, path.join(root, 'dist', name), { recursive: true })
+      }
     },
   },
 })

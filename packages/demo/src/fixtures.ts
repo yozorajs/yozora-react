@@ -182,6 +182,42 @@ export const admonitions = {
   })),
 }
 
+export const math = {
+  type: 'root' as const,
+  children: [
+    {
+      type: 'paragraph',
+      children: [
+        { type: 'text', value: '行内公式与正文混排：质能方程 ' },
+        { type: 'inlineMath', value: 'E = mc^2' },
+        { type: 'text', value: '，以及欧拉恒等式 ' },
+        { type: 'inlineMath', value: String.raw`e^{i\pi} + 1 = 0` },
+        { type: 'text', value: '。检查公式的基线、间距与换行。' },
+      ],
+    },
+    {
+      type: 'heading',
+      depth: 3,
+      children: [{ type: 'text', value: '求和与积分' }],
+    },
+    { type: 'math', value: String.raw`\sum_{k=1}^{n} k = \frac{n(n+1)}{2}` },
+    { type: 'math', value: String.raw`\int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}` },
+    {
+      type: 'heading',
+      depth: 3,
+      children: [{ type: 'text', value: '矩阵与分段函数' }],
+    },
+    {
+      type: 'math',
+      value: String.raw`A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}, \quad \det A = ad - bc`,
+    },
+    {
+      type: 'math',
+      value: String.raw`f(x) = \begin{cases} x^2, & x \ge 0 \\ -x, & x < 0 \end{cases}`,
+    },
+  ],
+}
+
 export const live = {
   type: 'root' as const,
   children: [

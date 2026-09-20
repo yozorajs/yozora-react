@@ -6,11 +6,16 @@ import * as Yozora from '@yozora/react-yozora'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { admonitions, editorCode, footnotes, live, liveError, markdownSamples } from './fixtures'
+import { MathDemo } from './MathDemo'
 
 const presets = [
   { id: 'gfm', renderer: Gfm, description: '排版 · 链接 · 引用 · 列表 · 代码' },
   { id: 'gfm-ex', renderer: GfmEx, description: '基础排版 · 删除线 · 任务列表 · 表格' },
-  { id: 'yozora', renderer: Yozora, description: '扩展排版 · 脚注 · Admonition · Live JSX' },
+  {
+    id: 'yozora',
+    renderer: Yozora,
+    description: '扩展排版 · 脚注 · 数学公式 · Admonition · Live JSX',
+  },
 ] as const
 
 function App(): React.ReactElement {
@@ -99,6 +104,7 @@ function App(): React.ReactElement {
             <nav aria-label="测试区域">
               <a href="#markdown">Markdown</a>
               {isYozora && <a href="#admonitions">Admonition</a>}
+              {isYozora && <a href="#math">Math</a>}
               <a href="#editor">Code editor</a>
               {isYozora && <a href="#live">Live JSX</a>}
             </nav>
@@ -129,9 +135,21 @@ function App(): React.ReactElement {
               </section>
             )}
 
+            {isYozora && (
+              <section id="math" className="demo-section">
+                <div className="demo-section-heading">
+                  <h2>03 / Math</h2>
+                  <span>行内公式 · 求和 · 积分 · 矩阵 · 分段函数</span>
+                </div>
+                <div className="demo-surface">
+                  <MathDemo />
+                </div>
+              </section>
+            )}
+
             <section id="editor" className="demo-section">
               <div className="demo-section-heading">
-                <h2>{isYozora ? '03' : '02'} / Code editor</h2>
+                <h2>{isYozora ? '04' : '02'} / Code editor</h2>
                 <button type="button" onClick={() => setCode(editorCode)}>
                   重置代码
                 </button>
@@ -153,7 +171,7 @@ function App(): React.ReactElement {
             {isYozora && (
               <section id="live" className="demo-section">
                 <div className="demo-section-heading">
-                  <h2>04 / Live JSX</h2>
+                  <h2>05 / Live JSX</h2>
                   <div className="demo-actions">
                     <button
                       type="button"
