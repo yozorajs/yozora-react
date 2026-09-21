@@ -20,6 +20,7 @@ function MermaidRunner({ value, onError }: ICodeRunnerProps): React.ReactElement
   }, [schema])
   return (
     <MermaidRenderer
+      preview
       code={value}
       theme={schema?.darken ? 'dark' : 'default'}
       palette={palette}

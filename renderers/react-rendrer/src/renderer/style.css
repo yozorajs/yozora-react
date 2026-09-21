@@ -123,8 +123,6 @@
   > img {
     flex: 1 0 auto;
     @apply yz:box-border yz:max-w-full;
-    border: 1px solid var(--yozora_colorBorderImage);
-    box-shadow: 0 0 20px 1px rgba(126, 125, 150, 0.6);
   }
   > figcaption {
     @apply yz:text-center yz:italic;
@@ -209,6 +207,12 @@
   border-spacing: 0;
   font-size: 0.875em;
   line-height: 1.6;
+  &[data-column-lines="true"] {
+    > thead > tr > th + th,
+    > tbody > tr > td + td {
+      border-inline-start: 1px solid var(--yozora_colorBorderTable);
+    }
+  }
   > thead {
     background: var(--yozora_colorBgTableHead);
     color: var(--yozora_colorHeading);

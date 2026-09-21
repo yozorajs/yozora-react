@@ -17,8 +17,9 @@ import '@yozora/react-gfm/style.css'
 `Markdown` renders the AST body and an optional `footer`. `MarkdownRoot` supplies
 the shared document layout and responsive styles, including inherited CSP nonces.
 `MarkdownProvider` accepts a `rendererMap` and the common reference-definition,
-image-viewer, line-number and `customRendererMap` options. Defined custom renderers
-override the preset; omitted or `undefined` entries retain its defaults.
+image-viewer, line-number, `showTableColumnLines` (default `true`) and `customRendererMap`
+options. Defined custom renderers override the preset; omitted or `undefined`
+entries retain its defaults.
 
 The presets follow the corresponding Yozora parser packages:
 

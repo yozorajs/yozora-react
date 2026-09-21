@@ -6,6 +6,7 @@ import * as Yozora from '@yozora/react-yozora'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { admonitions, editorCode, footnotes, live, liveError, markdownSamples } from './fixtures'
+import { DemoImageViewer, ImageDemo, previewImages } from './ImageDemo'
 import { MathDemo } from './MathDemo'
 import { MermaidDemo } from './MermaidDemo'
 
@@ -30,6 +31,7 @@ function App(): React.ReactElement {
   )
   const selectedTheme = themeSchemas[themeIndex]
   const [showLineNo, setShowLineNo] = React.useState(true)
+  const [showTableColumnLines, setShowTableColumnLines] = React.useState(true)
   const [code, setCode] = React.useState(editorCode)
   const [revision, setRevision] = React.useState(0)
   const [liveSample, setLiveSample] = React.useState(live)
@@ -92,6 +94,16 @@ function App(): React.ReactElement {
               />
               显示行号
             </label>
+            {preset.id !== 'gfm' && (
+              <label>
+                <input
+                  type="checkbox"
+                  checked={showTableColumnLines}
+                  onChange={event => setShowTableColumnLines(event.target.checked)}
+                />
+                表格列线
+              </label>
+            )}
             <span className="demo-viewport">
               {width}px · {width <= 479 ? '小屏' : '常规'}
             </span>
@@ -109,18 +121,29 @@ function App(): React.ReactElement {
               {isYozora && <a href="#math">Math</a>}
               <a href="#editor">Code editor</a>
               <a href="#mermaid">Mermaid</a>
+              <a href="#images">Images</a>
               {isYozora && <a href="#live">Live JSX</a>}
             </nav>
           </div>
 
-          <MarkdownProvider key={preset.id} showCodeLineno={showLineNo}>
+          <MarkdownProvider
+            key={preset.id}
+            showCodeLineno={showLineNo}
+            showTableColumnLines={showTableColumnLines}
+            images={previewImages}
+            ImageViewer={DemoImageViewer}
+          >
             <section id="markdown" className="demo-section">
               <div className="demo-section-heading">
                 <h2>01 / Markdown</h2>
                 <span aria-live="polite">{preset.description}</span>
               </div>
               <div className="demo-surface">
-                <MarkdownProvider showCodeLineno={showLineNo} footnoteDefinitionMap={footnotes}>
+                <MarkdownProvider
+                  showCodeLineno={showLineNo}
+                  showTableColumnLines={showTableColumnLines}
+                  footnoteDefinitionMap={footnotes}
+                >
                   <Markdown ast={markdownSamples[preset.id]} footnoteDefinitionsTitle="脚注" />
                 </MarkdownProvider>
               </div>
@@ -211,8 +234,22 @@ function App(): React.ReactElement {
                 <span>SVG 图表 · 实时编辑</span>
               </div>
               <div className="demo-surface">
-                <p className="demo-hint">修改 Mermaid 源码查看图表，主题随页面切换。</p>
+                <p className="demo-hint">
+                  修改 Mermaid 源码查看图表，主题随页面切换。点击图表可放大预览。
+                </p>
                 <MermaidDemo showLineNo={showLineNo} />
+              </div>
+            </section>
+            <section id="images" className="demo-section">
+              <div className="demo-section-heading">
+                <h2>{isYozora ? '07' : '04'} / Image preview</h2>
+                <span>缩放 · 旋转 · 裁剪 · 拉伸</span>
+              </div>
+              <div className="demo-surface">
+                <p className="demo-hint">
+                  点击图片打开预览。裁剪和拉伸仅影响当前视图，可随时重置。
+                </p>
+                <ImageDemo />
               </div>
             </section>
           </MarkdownProvider>

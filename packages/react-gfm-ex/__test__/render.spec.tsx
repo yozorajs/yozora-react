@@ -44,7 +44,7 @@ test('GFM-Ex enables tables, strikethrough, links and task lists without Yozora 
   const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
   try {
     const html = renderToStaticMarkup(
-      <MarkdownProvider>
+      <MarkdownProvider showTableColumnLines={false}>
         <Markdown ast={ast} />
       </MarkdownProvider>,
     )
@@ -52,6 +52,7 @@ test('GFM-Ex enables tables, strikethrough, links and task lists without Yozora 
     expect(doc.querySelector('del')?.textContent).toContain('Removed')
     expect(doc.querySelector('a')?.getAttribute('href')).toBe('https://example.com')
     expect(doc.querySelector('table th')?.textContent).toContain('Header')
+    expect(doc.querySelector('table')?.getAttribute('data-column-lines')).toBe('false')
     expect(doc.querySelectorAll('input[type="checkbox"]')).toHaveLength(3)
     expect(doc.querySelectorAll('input[checked]')).toHaveLength(1)
     expect(doc.querySelector('[data-status="doing"]')).not.toBeNull()

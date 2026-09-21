@@ -33,6 +33,7 @@ Server-side SVG layout is not provided.
 | `code` | `string` | Required | Mermaid diagram source. |
 | `theme` | `'default' \| 'dark' \| 'forest' \| 'neutral' \| 'base'` | `'default'` | Mermaid theme. |
 | `palette` | `IMermaidPalette` | — | Override node, border, text, line, surface, and group colors. |
+| `preview` | `boolean` | `false` | Open a zoomable SVG preview by clicking the diagram or its Preview button. |
 | `onError` | `(error: string \| null) => void` | — | Receives a rendering error, or `null` on success. |
 | `className` | `string` | — | Additional class on the root container. |
 | `style` | `React.CSSProperties` | — | Inline styles for the root container. |
@@ -44,7 +45,8 @@ node shapes and source-defined styles are preserved; `forest`, `neutral`, and
 
 The root always has the class `yozora-code-renderer-mermaid`. It fills the available
 width and centers the SVG; `style` can override these defaults. No additional
-stylesheet is required. Mermaid renders with `securityLevel: 'strict'`, which
+stylesheet is required for inline diagrams. The optional preview uses the renderer
+stylesheet shown below. Mermaid renders with `securityLevel: 'strict'`, which
 sanitizes diagram content and disables source-defined JavaScript callbacks.
 
 Updates to `code`, `theme`, or palette colors trigger a new render. Equivalent
@@ -57,10 +59,33 @@ Mermaid configuration is shared. Renderer copies on the same page share a queue
 and SVG ID counter, including mixed ESM/CJS imports. Avoid concurrently calling
 `mermaid.initialize()` elsewhere on the same Mermaid instance.
 
+## Click-to-open preview
+
+```tsx
+import '@yozora/react-renderer/style.css'
+
+<MermaidRenderer code="flowchart LR; A-->B" preview />
+```
+
+Yozora Markdown preset stylesheets already include these preview styles.
+
+Click the diagram or use the keyboard-accessible Preview button to open a modal.
+It uses `@yozora/react-renderer` for the shared SVG toolbar: zoom, Fit, 100% scale,
+90° rotation, reset, mouse dragging, and touch scrolling. The same package provides
+an `ImageViewer` with preview-only crop and stretch controls.
+Close it with Escape, the close button, or the backdrop. The modal uses the current
+palette and restores focus to the Preview button when closed.
+If the diagram is still updating or has failed, focus returns to its container.
+
+The preview captures the rendered SVG when opened. It stays sharp when enlarged
+and does not run Mermaid again. An isolated, sandboxed document keeps its SVG IDs
+separate from the inline diagram. Links in the inline diagram still work normally;
+the enlarged preview is read-only. Source updates appear when the preview is reopened.
+
 ## Use with react-renderer themes
 
-Read the active `ThemeProvider` schema and pass its colors explicitly. This keeps
-the Mermaid package usable independently of `@yozora/react-renderer`.
+Read the active `ThemeProvider` schema and pass its colors explicitly. A palette
+can also be supplied directly without mounting a theme provider.
 
 ```tsx
 import MermaidRenderer from '@yozora/react-embed-mermaid'

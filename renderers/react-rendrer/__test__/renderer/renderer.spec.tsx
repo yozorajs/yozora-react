@@ -6,6 +6,7 @@ import type {
   Image,
   LinkReference,
   Paragraph,
+  Table,
   Text,
 } from '@yozora/ast'
 import React from 'react'
@@ -96,4 +97,46 @@ test('image activation and closing share the merged renderer context', () => {
   expect(screen.getByRole('dialog')).toHaveTextContent('/preview.png')
   fireEvent.click(screen.getByRole('button', { name: 'Close preview' }))
   expect(screen.queryByRole('dialog')).toBeNull()
+})
+
+const table: Table = {
+  type: 'table',
+  columns: [{ align: 'left' }, { align: 'right' }],
+  children: [
+    ['Name', 'Value'],
+    ['Alpha', '42'],
+  ].map(row => ({
+    type: 'tableRow',
+    children: row.map(value => ({ type: 'tableCell', children: [{ type: 'text', value }] })),
+  })),
+}
+
+test.each([undefined, false, true])(
+  'table column lines honor %s during SSR',
+  showTableColumnLines => {
+    const html = renderToStaticMarkup(
+      <NodeRendererProvider showTableColumnLines={showTableColumnLines}>
+        <NodesRenderer nodes={[table]} />
+      </NodeRendererProvider>,
+    )
+    const doc = new DOMParser().parseFromString(html, 'text/html')
+    expect(doc.querySelector('table')?.getAttribute('data-column-lines')).toBe(
+      String(showTableColumnLines ?? true),
+    )
+    expect(doc.querySelectorAll('th')).toHaveLength(2)
+    expect(doc.querySelectorAll('td')).toHaveLength(2)
+    expect(doc.querySelector('td[align="right"]')?.textContent).toBe('42')
+  },
+)
+
+test('table column lines update stable AST children and reset to the default', () => {
+  const child = <NodesRenderer nodes={[table]} />
+  const view = render(<NodeRendererProvider>{child}</NodeRendererProvider>)
+  const element = view.getByRole('table')
+  expect(element).toHaveAttribute('data-column-lines', 'true')
+  view.rerender(<NodeRendererProvider showTableColumnLines={false}>{child}</NodeRendererProvider>)
+  expect(view.getByRole('table')).toBe(element)
+  expect(element).toHaveAttribute('data-column-lines', 'false')
+  view.rerender(<NodeRendererProvider>{child}</NodeRendererProvider>)
+  expect(element).toHaveAttribute('data-column-lines', 'true')
 })

@@ -31,6 +31,11 @@ export interface INodeRendererProviderProps {
    */
   showCodeLineno?: boolean
   /**
+   * Show vertical separators between table columns.
+   * @default true
+   */
+  showTableColumnLines?: boolean
+  /**
    * Descendant elements.
    */
   children?: React.ReactNode
@@ -50,13 +55,19 @@ export class NodeRendererProvider extends React.Component<INodeRendererProviderP
   public constructor(props: INodeRendererProviderProps) {
     super(props)
 
-    const { showCodeLineno = true, definitionMap = {}, footnoteDefinitionMap = {} } = props
+    const {
+      showCodeLineno = true,
+      showTableColumnLines = true,
+      definitionMap = {},
+      footnoteDefinitionMap = {},
+    } = props
     const rendererMap: Readonly<INodeRendererMap> = buildNodeRendererMap(props.customRendererMap)
     const viewmodel = new NodeRendererViewModel({
       images: props.images ? props.images.map(item => ({ src: item.src, alt: item.alt })) : [],
       imageViewerVisible: false,
       imageActivatedIndex: -1,
       showCodeLineno,
+      showTableColumnLines,
       rendererMap,
       definitionMap,
       footnoteDefinitionMap,
@@ -73,6 +84,7 @@ export class NodeRendererProvider extends React.Component<INodeRendererProviderP
     return (
       state.viewmodel !== nextState.viewmodel ||
       props.showCodeLineno !== nextProps.showCodeLineno ||
+      props.showTableColumnLines !== nextProps.showTableColumnLines ||
       props.children !== nextProps.children ||
       props.ImageViewer !== nextProps.ImageViewer ||
       !isEqual(props.definitionMap, nextProps.definitionMap) ||
@@ -101,6 +113,10 @@ export class NodeRendererProvider extends React.Component<INodeRendererProviderP
     if (props.showCodeLineno !== prevProps.showCodeLineno) {
       const nextShowCodeLineno: boolean = props.showCodeLineno ?? true
       vm.showCodeLineno$.next(nextShowCodeLineno)
+    }
+
+    if (props.showTableColumnLines !== prevProps.showTableColumnLines) {
+      vm.showTableColumnLines$.next(props.showTableColumnLines ?? true)
     }
 
     if (!isEqual(props.definitionMap, prevProps.definitionMap)) {

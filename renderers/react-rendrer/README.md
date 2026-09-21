@@ -120,6 +120,11 @@ Individual renderers, `buildNodeRendererMap`, `defaultNodeRendererMap`, and the
 remain available. Renderer context and viewmodel exports retain their names and
 behavior.
 
+Tables show vertical column separators by default, using the active theme's
+table border color. Set `showTableColumnLines={false}` on `NodeRendererProvider`
+or a preset's `MarkdownProvider` to hide them. The option updates existing tables
+without replacing the AST; horizontal row separators remain visible.
+
 The renderer's existing `@guanghechen/react-viewmodel` dependency and `@yozora/ast`
 / `react-dom` peer requirements now belong to this package. Their versions are
 unchanged. Bundled utility-only consumers can omit renderer dependencies.
@@ -144,10 +149,86 @@ preserved. An explicit Prism `theme` overrides `darken`, which overrides the
 provider's theme; standalone highlighters still default to VS Code dark colors.
 Language registration is included when using the highlighter. Bundled consumers
 that only import core utilities can omit Prism and the registered languages.
+Mermaid source is highlighted with `lang="mermaid"` using the Prism 1.30.0 grammar;
+the same registration is used by `CodeEditor` and `CodeLive`.
 
 The former named exports remain available, including `HighlightContent`,
 `HighlightLinenos`, `classes`, `vars`, `githubTheme`, `vscDarkTheme`, `vscLightTheme`,
 `normalizeTokens`, `themeToDict`, `areSameArray`, and the Prism-related types.
+
+## Media preview
+
+Shared modal preview for SVG diagrams and images. Supports React 17, 18, and 19.
+Preview styles are included in `@yozora/react-renderer/style.css` and every
+Markdown preset's stylesheet. Standalone consumers must import the renderer CSS.
+
+### ImageViewer
+
+Use `ImageViewer` with the image slot on any Yozora Markdown preset:
+
+```tsx
+import { ImageViewer } from '@yozora/react-renderer'
+import { MarkdownProvider } from '@yozora/react-yozora'
+import '@yozora/react-yozora/style.css'
+
+<MarkdownProvider
+  images={[{ src: '/photo.jpg', alt: 'Landscape' }]}
+  ImageViewer={ImageViewer}
+>
+  {/* Markdown content */}
+</MarkdownProvider>
+```
+
+For standalone use, pass `images`, `visible`, `activeIndex` (default `0`) and
+`onClose`. `onMaskClick`, when provided, handles backdrop dismissal instead of
+`onClose`; the parent must hide the viewer in either callback. Changing the active
+image source or closing the viewer discards its edits.
+
+### MediaPreview
+
+Mount `MediaPreview` to open a dialog, and unmount it in `onClose`:
+
+```tsx
+import { MediaPreview } from '@yozora/react-renderer'
+import '@yozora/react-renderer/style.css'
+
+<MediaPreview
+  source={{ kind: 'image', src: '/photo.jpg', alt: 'Landscape' }}
+  onClose={() => setOpen(false)}
+/>
+```
+
+SVG sources use `{ kind: 'svg', svg, width, height }`, with dimensions in SVG
+coordinate units. SVG markup is displayed in a sandboxed iframe with scripts
+disabled and IDs isolated from the host document. A missing root `viewBox` is
+derived from `width` and `height` on the client; existing view boxes are preserved.
+Supply trusted or sanitized SVG;
+the preview does not sanitize markup or prevent external resource requests.
+Mount a new preview (or change its React `key`) when replacing a source.
+
+Both components accept `dark` (default `false`) and an optional
+`palette: { surface, text, border }`. Map the current renderer theme colors into
+these props to match the surrounding document. `MediaPreview` also accepts a
+custom `title`.
+
+### Controls
+
+- Zoom in/out, Fit, original scale (100%), drag to pan, and touch scrolling.
+- Rotate left/right in 90° steps; Reset restores the original view and fits it.
+- Images: rectangular crop with selection dragging, corner handles, or pixel
+  inputs; Apply commits the selection locally and Cancel discards it.
+- Images: independent width/height stretch from 25% to 300%.
+
+Crop coordinates refer to the original image, including after rotation and
+stretching. All edits are preview-only: no export and no changes to source files.
+The close button, Escape, and backdrop dismiss the modal and restore focus.
+Fit follows viewport size changes; manual zoom preserves the chosen scale.
+Short viewports use compact, horizontally scrollable controls while preserving
+a usable canvas. At very small heights, the dialog contents can scroll vertically.
+`PreviewIcon` is also exported for matching preview triggers.
+
+Import and SSR are safe in Node. The dialog opens only in a client effect and
+requires a browser with native `HTMLDialogElement` and `ResizeObserver` support.
 
 ## Class names
 

@@ -1,5 +1,6 @@
 export * from './constant'
 export * from './highlighter'
+export * from './preview'
 export * from './renderer'
 export * from './theme'
 export * from './types'

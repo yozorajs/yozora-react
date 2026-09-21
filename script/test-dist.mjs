@@ -180,12 +180,20 @@ for (const [file, manifest] of manifests) {
       consumer += '// @ts-expect-error The kernel requires an explicit preset renderer map.\n'
       consumer += 'export const missingPreset: IMarkdownProviderProps = { children: null }\n'
     }
+    if (name === 'react-renderer') {
+      consumer += `import type { IMediaPreviewProps, IPreviewPalette, IPreviewSource } from '${manifest.name}'\n`
+      consumer +=
+        "export const imageSource: IPreviewSource = { kind: 'image', src: '/photo.jpg' }\n"
+      consumer +=
+        'export const previewProps: IMediaPreviewProps = { source: imageSource, onClose() {} }\n'
+      consumer += 'export const imageViewer: React.ComponentType<IImageViewerProps> = ImageViewer\n'
+    }
     if (name === 'react-embed-mermaid') {
       consumer += `import type { IMermaidPalette, IMermaidRendererProps } from '${manifest.name}'\n`
       consumer +=
         "export const palette: IMermaidPalette = { node: '#ffffff', border: '#cccccc', text: '#333333', line: '#777777', surface: '#f8f8f8', group: '#f0f0f0' }\n"
       consumer +=
-        "export const diagramProps: IMermaidRendererProps = { code: 'flowchart LR; A-->B', palette }\n"
+        "export const diagramProps: IMermaidRendererProps = { code: 'flowchart LR; A-->B', palette, preview: true }\n"
     }
     if (name === 'react-yozora') {
       consumer += `import { createElement, createRef } from 'react'\n`
@@ -217,6 +225,8 @@ for (const [file, manifest] of manifests) {
       consumer += `import type { INodeStyleMap, INodeRendererMap, INodeRendererProviderProps, INodeRendererState, IImageViewerProps } from '${manifest.name}'\n`
       consumer +=
         'export type RendererContracts = [INodeRendererMap, INodeRendererProviderProps, INodeRendererState, IImageViewerProps]\n'
+      consumer +=
+        'export const tableOptions: INodeRendererProviderProps = { showTableColumnLines: false }\n'
       consumer +=
         'export const nodeStyles: INodeStyleMap = { paragraph: { color: "red", nested: { "&:hover": { color: "blue" } }, fallbacks: [null, false, { display: "flex" }] } }\n'
       /** Keep representative legacy input types without restoring a styling-engine dependency. */
@@ -370,6 +380,32 @@ for (const module of [esm, cjs]) {
       } finally {
         await bundle.close()
       }
+      const previewEntry = path.join(consumerDir, 'preview.mjs')
+      fs.writeFileSync(
+        previewEntry,
+        `export { MediaPreview, ImageViewer } from '${manifest.name}'\n`,
+      )
+      const previewBundle = await Rolldown.rolldown({
+        input: previewEntry,
+        external: [
+          'react',
+          'react-dom',
+          'prismjs',
+          '@guanghechen/equal',
+          '@guanghechen/react-viewmodel',
+          '@yozora/ast',
+        ],
+      })
+      try {
+        const { output } = await previewBundle.generate({ format: 'esm' })
+        assert.deepEqual(
+          output[0].imports,
+          ['react'],
+          'Standalone previews must not load highlighter or renderer state dependencies',
+        )
+      } finally {
+        await previewBundle.close()
+      }
       const highlighterEntry = path.join(consumerDir, 'highlighter.mjs')
       fs.writeFileSync(highlighterEntry, `export { CodeHighlighter } from '${manifest.name}'\n`)
       const highlighterBundle = await Rolldown.rolldown({
@@ -404,6 +440,7 @@ for (const [lang, value] of [
   ['typescript', 'const count: number = 1'],
   ['python', 'def greet(): return "hello"'],
   ['sql', 'SELECT name FROM users'],
+  ['mermaid', 'flowchart LR; A[Markdown] --> B[SVG]'],
 ]) {
   const markup = renderToStaticMarkup(React.createElement(CodeHighlighter, { lang, value }))
   assert.match(markup, /token keyword/, lang + ': bundled highlighters must retain grammars')
@@ -597,11 +634,13 @@ assert.match(html, /token keyword[^>]*color:#cba6f7/i)
           'ImagePreviewer',
           'ImageReferenceRenderer',
           'ImageRenderer',
+          'ImageViewer',
           'InlineCodeRenderer',
           'LinkReferenceRenderer',
           'LinkRenderer',
           'ListItemRenderer',
           'ListRenderer',
+          'MediaPreview',
           'NodeRendererActionsType',
           'NodeRendererContextType',
           'NodeRendererController',
@@ -609,6 +648,7 @@ assert.match(html, /token keyword[^>]*color:#cba6f7/i)
           'NodeRendererViewModel',
           'NodesRenderer',
           'ParagraphRenderer',
+          'PreviewIcon',
           'StrongRenderer',
           'TableRenderer',
           'TextRenderer',
@@ -727,6 +767,32 @@ assert.match(html, /token keyword[^>]*color:#cba6f7/i)
           collapsed: true,
           showlineno: false,
         },
+      )
+    }
+    if (name === 'react-renderer') {
+      for (const source of [
+        { kind: 'image', src: '/photo.jpg', alt: 'Photo' },
+        { kind: 'svg', svg: '<svg width="200" height="100"/>', width: 200, height: 100 },
+      ]) {
+        const markup = renderToStaticMarkup(
+          React.createElement(module.MediaPreview, { source, onClose() {} }),
+        )
+        assert.match(markup, /<dialog/)
+        assert.doesNotMatch(markup, /open=""/)
+        if (source.kind === 'svg') {
+          assert.match(markup, /<iframe/)
+          assert.doesNotMatch(markup, /srcdoc=/i, 'SVG normalization waits for the browser')
+        }
+      }
+      assert.equal(
+        renderToStaticMarkup(
+          React.createElement(module.ImageViewer, {
+            images: [],
+            visible: false,
+            onClose() {},
+          }),
+        ),
+        '',
       )
     }
     if (name === 'react-embed-mermaid') {

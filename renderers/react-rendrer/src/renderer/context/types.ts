@@ -19,6 +19,8 @@ export interface INodeRendererState {
    * Determine if show code line number.
    */
   readonly showCodeLineno: boolean
+  /** Show vertical separators between table columns. */
+  readonly showTableColumnLines: boolean
   /**
    * Yozora ast node renderer map.
    */

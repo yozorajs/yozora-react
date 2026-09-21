@@ -1,6 +1,7 @@
 import { isEqual } from '@guanghechen/equal'
 import type { Table } from '@yozora/ast'
 import React from 'react'
+import { useNodeRendererState } from '../../context'
 import { NodesRenderer } from '../NodesRenderer'
 
 /**
@@ -28,32 +29,41 @@ export class TableRenderer extends React.Component<Table> {
       row.children.map((cell, idx) => <NodesRenderer key={idx} nodes={cell.children} />),
     )
     return (
-      <div className="yozora-table-scroll">
-        <table className={cls}>
-          <thead>
-            <tr>
-              {ths.map((children, idx) => (
-                <Th key={idx} align={aligns[idx]}>
+      <TableFrame>
+        <thead>
+          <tr>
+            {ths.map((children, idx) => (
+              <Th key={idx} align={aligns[idx]}>
+                {children}
+              </Th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {tds.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {row.map((children, idx) => (
+                <td key={idx} align={aligns[idx]}>
                   {children}
-                </Th>
+                </td>
               ))}
             </tr>
-          </thead>
-          <tbody>
-            {tds.map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                {row.map((children, idx) => (
-                  <td key={idx} align={aligns[idx]}>
-                    {children}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </TableFrame>
     )
   }
+}
+
+function TableFrame({ children }: React.PropsWithChildren): React.ReactElement {
+  const showColumnLines = useNodeRendererState(store => store.showTableColumnLines$)
+  return (
+    <div className="yozora-table-scroll">
+      <table className={cls} data-column-lines={showColumnLines}>
+        {children}
+      </table>
+    </div>
+  )
 }
 
 interface IThProps {

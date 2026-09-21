@@ -38,6 +38,7 @@
   ],
   "sideEffects": false,
   "dependencies": {
+    "@yozora/react-renderer": "workspace:^",
     "mermaid": "11.17.2"
   },
   "peerDependencies": {

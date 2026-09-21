@@ -207,3 +207,13 @@ body {
   flex-wrap: wrap;
   gap: 8px;
 }
+.demo-image-sample {
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+.demo-image-sample img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+}

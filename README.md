@@ -159,7 +159,7 @@ const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 | Package Name                | Description                                                                                 |
 | :-------------------------- | :------------------------------------------------------------------------------------------ |
 | [@yozora/react][]            | Shared document layout and Provider; renderer defaults are supplied by a preset.             |
-| [@yozora/react-renderer][]   | AST renderers, theme providers, syntax highlighting, tokens, code-runner types and utilities. |
+| [@yozora/react-renderer][]   | AST renderers, SVG/image previews, themes, syntax highlighting, tokens and utilities. |
 
 ### AST presets
 

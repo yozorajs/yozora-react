@@ -4,6 +4,21 @@ import { vi } from 'vitest'
 import { CodeEditor, SimpleCodeEditor, classes } from '../src'
 
 describe('basic rendering case', () => {
+  test('Mermaid edits refresh syntax highlighting without changing source text', () => {
+    const code = 'flowchart LR\n  A[Markdown] --> B[SVG]'
+    const onChange = vi.fn()
+    const view = render(<CodeEditor lang="mermaid" code={code} onChange={onChange} />)
+    const textarea = view.getByRole('textbox')
+    expect(view.container.querySelector('.token.keyword')).toHaveTextContent('flowchart')
+    expect(view.container.querySelector('.token.arrow.operator')).toHaveTextContent('-->')
+    const next = 'sequenceDiagram\n  Alice->>Bob: Hello'
+    fireEvent.change(textarea, { target: { value: next } })
+    expect(onChange).toHaveBeenLastCalledWith(next)
+    expect(textarea).toHaveValue(next)
+    expect(view.container.querySelector('.token.keyword')).toHaveTextContent('sequenceDiagram')
+    expect(view.container.querySelector('.token.arrow.operator')).toHaveTextContent('->>')
+  })
+
   test('removes and restores the input gutter when toggling line numbers', () => {
     const onChange = vi.fn()
     const view = render(

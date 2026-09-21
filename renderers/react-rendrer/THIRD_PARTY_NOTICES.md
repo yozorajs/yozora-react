@@ -1,8 +1,19 @@
-# Third-party theme notices
+# Third-party notices
 
 The theme schemas contain palette data from the projects below. Original color
 names and values are retained; Yozora adds component and syntax role mappings.
 These notices apply to the palette data included in JavaScript and generated CSS.
+
+## Prism Mermaid grammar (MIT)
+
+Copyright (c) 2012 Lea Verou
+
+Source: https://github.com/PrismJS/prism/blob/v1.30.0/components/prism-mermaid.js
+
+License source: https://github.com/PrismJS/prism/blob/v1.30.0/LICENSE
+
+The Mermaid grammar is adapted to import the shared Prism instance explicitly.
+The MIT permission and disclaimer below also apply to this grammar.
 
 ## MIT-licensed palettes
 

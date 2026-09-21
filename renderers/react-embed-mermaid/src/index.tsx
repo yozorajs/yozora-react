@@ -1,5 +1,6 @@
 import React from 'react'
 import { getMermaidAppearance } from './appearance'
+import { MermaidPreview } from './Preview'
 import type { IMermaidPalette } from './types'
 
 export type { IMermaidPalette } from './types'
@@ -11,6 +12,8 @@ export interface IMermaidRendererProps {
   theme?: 'default' | 'dark' | 'forest' | 'neutral' | 'base'
   /** Override the diagram colors, for example with a host application's theme. */
   palette?: IMermaidPalette
+  /** Enable click-to-open SVG preview with zoom controls. Defaults to false. */
+  preview?: boolean
   /** Receives an error message, or null after a successful render. */
   onError?(error: string | null): void
   className?: string
@@ -27,7 +30,8 @@ const QUEUE_KEY = Symbol.for('@yozora/react-embed-mermaid/render')
 
 /** Render on the client; SSR and initial hydration both produce an empty container. */
 export function MermaidRenderer(props: IMermaidRendererProps): React.ReactElement {
-  const { code, theme = 'default', palette, onError, className, style } = props
+  const { code, theme = 'default', palette, preview = false, onError, className, style } = props
+  const [ready, setReady] = React.useState(false)
   /** Snapshot colors by value so equivalent inline palettes do not restart rendering. */
   const colors = React.useMemo(
     () => (palette ? { ...palette } : undefined),
@@ -49,6 +53,7 @@ export function MermaidRenderer(props: IMermaidRendererProps): React.ReactElemen
   React.useEffect(() => {
     const root = rootRef.current
     if (!root) return
+    setReady(false)
     let cancelled = false
     let scratch: HTMLDivElement | undefined
     const runtime = globalThis as typeof globalThis & { [QUEUE_KEY]?: IRenderQueue }
@@ -79,6 +84,7 @@ export function MermaidRenderer(props: IMermaidRendererProps): React.ReactElemen
         if (cancelled) return
         root.innerHTML = result.svg
         result.bindFunctions?.(root)
+        if (preview) setReady(true)
         return true
       } finally {
         scratch.remove()
@@ -104,14 +110,21 @@ export function MermaidRenderer(props: IMermaidRendererProps): React.ReactElemen
       root.replaceChildren()
       scratch?.remove()
     }
-  }, [code, theme, colors])
+  }, [code, theme, colors, preview])
 
-  return (
+  const graph = (
     <div
       ref={rootRef}
       className={['yozora-code-renderer-mermaid', className].filter(Boolean).join(' ')}
       style={{ width: '100%', textAlign: 'center', ...style }}
     />
+  )
+  return preview ? (
+    <MermaidPreview ready={ready} dark={theme === 'dark'} palette={colors}>
+      {graph}
+    </MermaidPreview>
+  ) : (
+    graph
   )
 }
 

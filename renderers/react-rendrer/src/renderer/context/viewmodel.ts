@@ -6,13 +6,16 @@ import { NodeRendererActionsType } from './constant'
 import { NodeRendererController } from './controller'
 import type { INodeRendererAction, INodeRendererState } from './types'
 
-interface IProps extends INodeRendererState {}
+interface IProps extends Omit<INodeRendererState, 'showTableColumnLines'> {
+  readonly showTableColumnLines?: boolean
+}
 
 export class NodeRendererViewModel extends ViewModel {
   public readonly images$: State<ReadonlyArray<IPreviewImageItem>>
   public readonly imageViewerVisible$: State<boolean>
   public readonly imageActivatedIndex$: State<number>
   public readonly showCodeLineno$: State<boolean>
+  public readonly showTableColumnLines$: State<boolean>
   public readonly rendererMap$: State<Readonly<INodeRendererMap>>
   public readonly definitionMap$: State<Readonly<Record<string, Definition>>>
   public readonly footnoteDefinitionMap$: State<Readonly<Record<string, FootnoteDefinition>>>
@@ -25,6 +28,7 @@ export class NodeRendererViewModel extends ViewModel {
     this.imageViewerVisible$ = new State(props.imageViewerVisible)
     this.imageActivatedIndex$ = new State(props.imageActivatedIndex)
     this.showCodeLineno$ = new State(props.showCodeLineno)
+    this.showTableColumnLines$ = new State(props.showTableColumnLines ?? true)
     this.rendererMap$ = new State(props.rendererMap)
     this.definitionMap$ = new State(props.definitionMap)
     this.footnoteDefinitionMap$ = new State(props.footnoteDefinitionMap)
@@ -39,6 +43,7 @@ export class NodeRendererViewModel extends ViewModel {
       imageViewerVisible: this.imageViewerVisible$.getSnapshot(),
       imageActivatedIndex: this.imageActivatedIndex$.getSnapshot(),
       showCodeLineno: this.showCodeLineno$.getSnapshot(),
+      showTableColumnLines: this.showTableColumnLines$.getSnapshot(),
       rendererMap: this.rendererMap$.getSnapshot(),
       definitionMap: this.definitionMap$.getSnapshot(),
       footnoteDefinitionMap: this.footnoteDefinitionMap$.getSnapshot(),

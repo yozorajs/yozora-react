@@ -254,6 +254,9 @@ importers:
 
   renderers/react-embed-mermaid:
     dependencies:
+      '@yozora/react-renderer':
+        specifier: workspace:^
+        version: link:../react-rendrer
       mermaid:
         specifier: 11.17.2
         version: 11.17.2
