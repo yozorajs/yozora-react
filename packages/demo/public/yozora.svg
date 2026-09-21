@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none">
+  <title>Yozora</title>
+  <defs>
+    <linearGradient id="night" x1="20" y1="8" x2="70" y2="91" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#168694" />
+      <stop offset=".55" stop-color="#426a88" />
+      <stop offset="1" stop-color="#d59a98" />
+    </linearGradient>
+  </defs>
+  <g stroke="url(#night)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M43 49C29 45 24 36 23 26S20 13 16 7" />
+    <path d="M24 30C16 28 11 22 10 15M31 41C23 41 18 37 15 31M26 35C30 30 33 24 33 18" />
+    <path d="M53 49C67 45 72 36 73 26S76 13 80 7" />
+    <path d="M72 30C80 28 85 22 86 15M65 41C73 41 78 37 81 31M70 35C66 30 63 24 63 18" />
+  </g>
+  <path d="M34 45C39 46 43 49 48 49S57 46 62 45L57 63C56 72 60 81 65 89C56 92 40 92 31 89C36 81 40 72 39 63Z" fill="url(#night)" />
+  <g fill="#fff" fill-opacity=".9">
+    <path d="m47 57 1.2 3.3L51.5 61.5 48.2 62.7 47 66l-1.2-3.3-3.3-1.2 3.3-1.2Z" />
+    <circle cx="51" cy="74" r="1.1" />
+    <circle cx="43" cy="82" r=".8" />
+    <circle cx="56" cy="85" r=".7" />
+  </g>
+</svg>

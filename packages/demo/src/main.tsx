@@ -7,6 +7,7 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { admonitions, editorCode, footnotes, live, liveError, markdownSamples } from './fixtures'
 import { MathDemo } from './MathDemo'
+import { MermaidDemo } from './MermaidDemo'
 
 const presets = [
   { id: 'gfm', renderer: Gfm, description: '排版 · 链接 · 引用 · 列表 · 代码' },
@@ -53,6 +54,7 @@ function App(): React.ReactElement {
       <div className="demo">
         <header className="demo-header">
           <a className="demo-brand" href="#top">
+            <img className="demo-logo" src="./yozora.svg" width="38" height="38" alt="" />
             yozora<span>component lab</span>
           </a>
           <div className="demo-controls">
@@ -106,6 +108,7 @@ function App(): React.ReactElement {
               {isYozora && <a href="#admonitions">Admonition</a>}
               {isYozora && <a href="#math">Math</a>}
               <a href="#editor">Code editor</a>
+              <a href="#mermaid">Mermaid</a>
               {isYozora && <a href="#live">Live JSX</a>}
             </nav>
           </div>
@@ -202,6 +205,16 @@ function App(): React.ReactElement {
                 </div>
               </section>
             )}
+            <section id="mermaid" className="demo-section">
+              <div className="demo-section-heading">
+                <h2>{isYozora ? '06' : '03'} / Mermaid</h2>
+                <span>SVG 图表 · 实时编辑</span>
+              </div>
+              <div className="demo-surface">
+                <p className="demo-hint">修改 Mermaid 源码查看图表，主题随页面切换。</p>
+                <MermaidDemo showLineNo={showLineNo} />
+              </div>
+            </section>
           </MarkdownProvider>
         </main>
         <footer className="demo-footer">Yozora React / Local component testing</footer>

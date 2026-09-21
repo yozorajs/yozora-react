@@ -33,16 +33,23 @@ body {
   background: var(--demo-panel);
 }
 .demo-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   color: var(--demo-ink);
   font-size: 24px;
   font-weight: 750;
   text-decoration: none;
 }
 .demo-brand span {
-  margin-left: 16px;
+  margin-left: 4px;
   color: var(--demo-muted);
   font-size: 12px;
   font-weight: 450;
+}
+.demo-logo {
+  flex: none;
+  display: block;
 }
 .demo-controls {
   display: flex;

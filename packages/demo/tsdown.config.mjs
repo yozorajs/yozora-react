@@ -13,6 +13,7 @@ const mathjaxFontRoot = path.dirname(
 )
 const assets = new Map([
   [path.join(root, 'index.html'), 'index.html'],
+  [path.join(root, 'public/yozora.svg'), 'yozora.svg'],
   [path.join(root, 'src/demo.css'), 'demo.css'],
   [markdownStyles, 'yozora.css'],
   [require.resolve('@yozora/react-gfm/style.css'), 'gfm.css'],

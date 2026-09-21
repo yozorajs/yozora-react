@@ -6,6 +6,7 @@
       "@yozora/react-embed-graphviz": ["./renderers/react-embed-graphviz/src"],
       "@yozora/react-embed-jsx": ["./renderers/react-embed-jsx/src"],
       "@yozora/react-embed-math": ["./renderers/react-embed-math/src"],
+      "@yozora/react-embed-mermaid": ["./renderers/react-embed-mermaid/src"],
       "@yozora/react-gfm": ["./packages/react-gfm/src"],
       "@yozora/react-gfm-ex": ["./packages/react-gfm-ex/src"],
       "@yozora/react-renderer": ["./renderers/react-rendrer/src"],

@@ -188,6 +188,7 @@ It also provides [runner factories](./renderers/react-renderer-code/README.md#ru
 |   [@yozora/react-embed-jsx][]    | React component for rendering jsx directly in browser.                         |
 | [@yozora/react-embed-graphviz][] | React component for rendering graphviz (dot) directly in browser.              |
 |    [@yozora/react-embed-math][]    | Render formula with mathjax in react.                                          |
+| [@yozora/react-embed-mermaid][] | Render Mermaid diagrams as SVG in React.                                      |
 
 <!-- yozora component links -->
 
@@ -207,6 +208,8 @@ It also provides [runner factories](./renderers/react-renderer-code/README.md#ru
   https://github.com/yozorajs/yozora-react/tree/main/packages/react-yozora#readme
 [@yozora/react-embed-math]:
   https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-math#readme
+[@yozora/react-embed-mermaid]:
+  https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-mermaid#readme
 [yozora/ast]: https://www.npmjs.com/package/@yozora/ast
 [yozora/admonition]: https://www.npmjs.com/package/@yozora/ast#admonition
 [yozora/blockquote]: https://www.npmjs.com/package/@yozora/ast#blockquote

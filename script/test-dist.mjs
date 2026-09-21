@@ -180,6 +180,13 @@ for (const [file, manifest] of manifests) {
       consumer += '// @ts-expect-error The kernel requires an explicit preset renderer map.\n'
       consumer += 'export const missingPreset: IMarkdownProviderProps = { children: null }\n'
     }
+    if (name === 'react-embed-mermaid') {
+      consumer += `import type { IMermaidPalette, IMermaidRendererProps } from '${manifest.name}'\n`
+      consumer +=
+        "export const palette: IMermaidPalette = { node: '#ffffff', border: '#cccccc', text: '#333333', line: '#777777', surface: '#f8f8f8', group: '#f0f0f0' }\n"
+      consumer +=
+        "export const diagramProps: IMermaidRendererProps = { code: 'flowchart LR; A-->B', palette }\n"
+    }
     if (name === 'react-yozora') {
       consumer += `import { createElement, createRef } from 'react'\n`
       consumer += 'export const markdownRef = createRef<Markdown>()\n'
@@ -720,6 +727,16 @@ assert.match(html, /token keyword[^>]*color:#cba6f7/i)
           collapsed: true,
           showlineno: false,
         },
+      )
+    }
+    if (name === 'react-embed-mermaid') {
+      assert.equal(module.default, module.MermaidRenderer)
+      assert.equal(
+        renderToStaticMarkup(
+          React.createElement(module.MermaidRenderer, { code: 'flowchart LR; A-->B' }),
+        ),
+        '<div class="yozora-code-renderer-mermaid" style="width:100%;text-align:center"></div>',
+        'Mermaid must support Node import and SSR without a browser DOM',
       )
     }
     if (name === 'react-renderer') {

@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
+    "@yozora/react-embed-mermaid": "workspace:^",
     "@yozora/react-gfm": "workspace:^",
     "@yozora/react-gfm-ex": "workspace:^",
     "@yozora/react-renderer": "workspace:^",
