@@ -9,9 +9,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/yozorajs/yozora-react.git",
-    "directory": "renderers/react-rendrer"
+    "directory": "renderers/react-renderer"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/renderers/react-rendrer#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/renderers/react-renderer#readme",
   "keywords": [],
   "type": "module",
   "exports": {

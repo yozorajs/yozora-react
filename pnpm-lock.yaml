@@ -89,7 +89,7 @@ importers:
         version: link:../react-gfm-ex
       '@yozora/react-renderer':
         specifier: workspace:^
-        version: link:../../renderers/react-rendrer
+        version: link:../../renderers/react-renderer
       '@yozora/react-renderer-code':
         specifier: workspace:^
         version: link:../../renderers/react-renderer-code
@@ -126,7 +126,7 @@ importers:
         version: 2.4.1
       '@yozora/react-renderer':
         specifier: workspace:^
-        version: link:../../renderers/react-rendrer
+        version: link:../../renderers/react-renderer
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -144,7 +144,7 @@ importers:
         version: link:../react
       '@yozora/react-renderer':
         specifier: workspace:^
-        version: link:../../renderers/react-rendrer
+        version: link:../../renderers/react-renderer
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -165,7 +165,7 @@ importers:
         version: link:../react-gfm
       '@yozora/react-renderer':
         specifier: workspace:^
-        version: link:../../renderers/react-rendrer
+        version: link:../../renderers/react-renderer
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -192,7 +192,7 @@ importers:
         version: link:../react-gfm-ex
       '@yozora/react-renderer':
         specifier: workspace:^
-        version: link:../../renderers/react-rendrer
+        version: link:../../renderers/react-renderer
       '@yozora/react-renderer-admonition':
         specifier: workspace:^
         version: link:../../renderers/react-renderer-admonition
@@ -243,7 +243,7 @@ importers:
         version: 2.0.5
       '@yozora/react-renderer':
         specifier: workspace:^
-        version: link:../react-rendrer
+        version: link:../react-renderer
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -256,7 +256,7 @@ importers:
     dependencies:
       '@yozora/react-renderer':
         specifier: workspace:^
-        version: link:../react-rendrer
+        version: link:../react-renderer
       mermaid:
         specifier: 11.17.2
         version: 11.17.2
@@ -264,11 +264,35 @@ importers:
         specifier: 19.3.0
         version: 19.3.0
 
+  renderers/react-renderer:
+    dependencies:
+      '@guanghechen/equal':
+        specifier: ^2.0.5
+        version: 2.0.5
+      '@guanghechen/react-viewmodel':
+        specifier: ^0.2.21
+        version: 0.2.21(react@19.3.0)
+      '@guanghechen/string':
+        specifier: ^2.0.5
+        version: 2.0.5
+      '@yozora/ast':
+        specifier: ^2.0.0
+        version: 2.4.1
+      prismjs:
+        specifier: 1.30.0
+        version: 1.30.0
+      react:
+        specifier: 19.3.0
+        version: 19.3.0
+      react-dom:
+        specifier: 19.3.0
+        version: 19.3.0(react@19.3.0)
+
   renderers/react-renderer-admonition:
     dependencies:
       '@yozora/react-renderer':
         specifier: workspace:^
-        version: link:../react-rendrer
+        version: link:../react-renderer
       react:
         specifier: 19.3.0
         version: 19.3.0
@@ -292,31 +316,7 @@ importers:
         version: link:../react-embed-jsx
       '@yozora/react-renderer':
         specifier: workspace:^
-        version: link:../react-rendrer
-      react:
-        specifier: 19.3.0
-        version: 19.3.0
-      react-dom:
-        specifier: 19.3.0
-        version: 19.3.0(react@19.3.0)
-
-  renderers/react-rendrer:
-    dependencies:
-      '@guanghechen/equal':
-        specifier: ^2.0.5
-        version: 2.0.5
-      '@guanghechen/react-viewmodel':
-        specifier: ^0.2.21
-        version: 0.2.21(react@19.3.0)
-      '@guanghechen/string':
-        specifier: ^2.0.5
-        version: 2.0.5
-      '@yozora/ast':
-        specifier: ^2.0.0
-        version: 2.4.1
-      prismjs:
-        specifier: 1.30.0
-        version: 1.30.0
+        version: link:../react-renderer
       react:
         specifier: 19.3.0
         version: 19.3.0

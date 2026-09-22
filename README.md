@@ -195,7 +195,7 @@ It also provides [runner factories](./renderers/react-renderer-code/README.md#ru
 [@yozora/react]: ./packages/react
 [@yozora/react-gfm]: ./packages/react-gfm
 [@yozora/react-gfm-ex]: ./packages/react-gfm-ex
-[@yozora/react-renderer]: ./renderers/react-rendrer
+[@yozora/react-renderer]: ./renderers/react-renderer
 [@yozora/react-renderer-admonition]:
   https://github.com/yozorajs/yozora-react/tree/main/renderers/react-renderer-admonition#readme
 [@yozora/react-renderer-code]:

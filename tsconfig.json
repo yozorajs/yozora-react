@@ -9,7 +9,7 @@
       "@yozora/react-embed-mermaid": ["./renderers/react-embed-mermaid/src"],
       "@yozora/react-gfm": ["./packages/react-gfm/src"],
       "@yozora/react-gfm-ex": ["./packages/react-gfm-ex/src"],
-      "@yozora/react-renderer": ["./renderers/react-rendrer/src"],
+      "@yozora/react-renderer": ["./renderers/react-renderer/src"],
       "@yozora/react-renderer-admonition": ["./renderers/react-renderer-admonition/src"],
       "@yozora/react-renderer-code": ["./renderers/react-renderer-code/src"],
       "@yozora/react-yozora": ["./packages/react-yozora/src"]

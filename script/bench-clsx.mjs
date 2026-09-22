@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import path from 'node:path'
 import { performance } from 'node:perf_hooks'
 import { pathToFileURL } from 'node:url'
-import { clsx } from '../renderers/react-rendrer/src/util/clsx.ts'
+import { clsx } from '../renderers/react-renderer/src/util/clsx.ts'
 
 function collectAndJoin(...values) {
   const names = []

@@ -11,7 +11,7 @@ import { Rolldown } from 'tsdown'
 import { getStylePackages } from './build-styles.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
-const coreDir = path.join(root, 'renderers/react-rendrer')
+const coreDir = path.join(root, 'renderers/react-renderer')
 const manifests = new Map(
   fs
     .globSync('{packages,renderers}/*/package.json', { cwd: root })
