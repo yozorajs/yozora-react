@@ -3,7 +3,8 @@
  */
 export interface ICodeMetaData {
   /**
-   * The line number of the highlighted row.
+   * The line numbers of the highlighted rows. Metadata parsing returns distinct,
+   * sorted positive integers within the supplied code line count.
    */
   highlights: number[]
   /**

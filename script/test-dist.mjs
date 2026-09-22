@@ -211,6 +211,11 @@ for (const [file, manifest] of manifests) {
     }
     if (name === 'react-renderer') {
       consumer += `export type { ClassValue, IClassDictionary, IParseCodeMetaOptions, ICodeMetaData, ICodeRunnerMetaData, ICodeRunner, ICodeRunnerProps, ICodeRunnerScope, ICodeRunnerItem, IAsyncRunnerScopes } from '${manifest.name}'\n`
+      consumer +=
+        'export const codeMeta = parseCodeMeta("{2-1000000000}", { showCodeLineno: true, lineCount: countCodeLines("a\\nb") })\n'
+      consumer +=
+        '// @ts-expect-error A code line count is required to bound highlight expansion.\n'
+      consumer += 'parseCodeMeta("{1-3}", { showCodeLineno: true })\n'
       consumer += `import type { IBreakpoints, IThemeContext, IThemeProviderProps } from '${manifest.name}'\n`
       consumer +=
         'export const customTheme: IThemeProviderProps = { breakpoints: {} as IBreakpoints, nonce: "request-nonce" }\n'
@@ -664,6 +669,7 @@ assert.match(html, /token keyword[^>]*color:#cba6f7/i)
           'classes',
           'clsx',
           'convertToBoolean',
+          'countCodeLines',
           'defaultNodeRendererMap',
           'getBreakpointId',
           'getThemeSchema',
@@ -758,7 +764,7 @@ assert.match(html, /token keyword[^>]*color:#cba6f7/i)
         'button rounded active',
       )
       assert.deepEqual(
-        module.parseCodeMeta('{1-2,2-3} live collapsed', { showCodeLineno: false }),
+        module.parseCodeMeta('{1-2,2-3} live collapsed', { showCodeLineno: false, lineCount: 3 }),
         {
           live: true,
           highlights: [1, 2, 3],

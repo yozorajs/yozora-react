@@ -94,6 +94,7 @@ export class HighlightContent extends React.Component<IProps, IState> {
 
     const countOfLines: number = tokens.length
     const visibleLines: number = maxLines > 0 ? Math.min(maxLines, countOfLines) : countOfLines
+    const highlightedLines = new Set(highlightLinenos)
 
     // Sync lineno width.
     const style: React.CSSProperties = {
@@ -137,7 +138,7 @@ export class HighlightContent extends React.Component<IProps, IState> {
         >
           <div className={classes.codeWrapper}>
             {tokens.map((line, lineNo) => {
-              const isHighlight = highlightLinenos.includes(lineNo + 1)
+              const isHighlight = highlightedLines.has(lineNo + 1)
               const lineProps = this.getLineProps({ line })
               return (
                 <div

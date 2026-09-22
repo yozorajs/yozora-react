@@ -13,6 +13,21 @@ import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import type { IImageViewerProps } from '../../src'
 import { NodeRendererProvider, NodesRenderer, ThemeProvider } from '../../src'
+import { CodeRendererInner } from '../../src/renderer/component/renderer/inner/CodeRendererInner'
+
+test('core code renderer clips highlights after trimming trailing line endings', () => {
+  const props = { lang: null, meta: '{2-1000000000}', showCodeLineno: true }
+  const element = <CodeRendererInner {...props} value={'one\r\ntwo\rthree\n\r\n'} />
+  const selector = '.yozora-code-highlighter__code-line.yozora-code-highlighter__highlight-line'
+  const doc = new DOMParser().parseFromString(renderToStaticMarkup(element), 'text/html')
+  expect(doc.querySelectorAll(selector)).toHaveLength(2)
+  const view = render(element)
+  expect(view.container.querySelectorAll(selector)).toHaveLength(2)
+  view.rerender(<CodeRendererInner {...props} value={'one\ntwo\nthree\nfour\n'} />)
+  expect(view.container.querySelectorAll(selector)).toHaveLength(3)
+  view.rerender(<CodeRendererInner {...props} value="one" />)
+  expect(view.container.querySelectorAll(selector)).toHaveLength(0)
+})
 
 test('the merged entry renders nested AST nodes and provider-themed code during SSR', () => {
   const text: Text = { type: 'text', value: 'Nested content' }

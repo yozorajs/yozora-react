@@ -21,9 +21,10 @@ export class HighlightLinenos extends React.Component<IProps> {
 
   public override render(): React.ReactElement {
     const { countOfLines, highlightLinenos = [] } = this.props
+    const highlightedLines = new Set(highlightLinenos)
     const lines: React.ReactElement[] = []
     for (let lineno = 0; lineno < countOfLines; ++lineno) {
-      const isHighlight = highlightLinenos.includes(lineno + 1)
+      const isHighlight = highlightedLines.has(lineno + 1)
       const line = (
         <div
           key={lineno}

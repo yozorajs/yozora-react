@@ -152,6 +152,17 @@ that only import core utilities can omit Prism and the registered languages.
 Mermaid source is highlighted with `lang="mermaid"` using the Prism 1.30.0 grammar;
 the same registration is used by `CodeEditor` and `CodeLive`.
 
+`parseCodeMeta` requires `lineCount` alongside `showCodeLineno`. Pass the actual
+number of code lines; `countCodeLines(value)` counts LF, CRLF, and CR line endings
+without splitting the code into an array (empty code has one line). Existing
+callers must add this option; omitted, negative, fractional, or non-safe counts
+throw a `RangeError`.
+
+Line highlights in `{1-3}`, `highlight=`, and `highlights=` metadata are merged,
+sorted, and clipped to `1…lineCount` before expansion. Unsafe endpoints are ignored.
+For example, `{2-1000000000}` with `lineCount: 4` returns `[2, 3, 4]`. There is no
+fixed highlight-count limit; allocation is bounded by the actual code line count.
+
 The former named exports remain available, including `HighlightContent`,
 `HighlightLinenos`, `classes`, `vars`, `githubTheme`, `vscDarkTheme`, `vscLightTheme`,
 `normalizeTokens`, `themeToDict`, `areSameArray`, and the Prism-related types.

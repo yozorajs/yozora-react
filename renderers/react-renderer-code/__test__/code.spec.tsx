@@ -1,6 +1,30 @@
 import { render } from '@testing-library/react'
 import React from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
 import Code, { CodeLiteral } from '../src'
+
+test.each(['\n', '\r', '\r\n'])(
+  'updates metadata highlights when code grows or shrinks with %j',
+  newline => {
+    const meta = '{2-1000000000}'
+    const value = ['one', 'two'].join(newline)
+    const element = <Code value={value} meta={meta} />
+    const doc = new DOMParser().parseFromString(renderToStaticMarkup(element), 'text/html')
+    const selector = '.yozora-code-highlighter__code-line.yozora-code-highlighter__highlight-line'
+    expect(doc.querySelectorAll(selector)).toHaveLength(1)
+
+    const view = render(element)
+    const highlighted = (): string[] =>
+      Array.from(view.container.querySelectorAll(selector)).map(line => line.textContent ?? '')
+    expect(highlighted()).toEqual(['two'])
+    view.rerender(<Code value={['one', 'two', 'three', 'four'].join(newline)} meta={meta} />)
+    expect(highlighted()).toEqual(['two', 'three', 'four'])
+    view.rerender(<Code value="one" meta={meta} />)
+    expect(highlighted()).toEqual([])
+    view.rerender(<Code value="one" meta="highlight=1" />)
+    expect(highlighted()).toEqual(['one'])
+  },
+)
 
 test.each(['\n', '\r', '\r\n'])('updates collapsed line counts with %j line endings', newline => {
   const view = render(

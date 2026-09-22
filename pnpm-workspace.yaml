@@ -11,3 +11,5 @@ overrides:
   react-dom: 19.3.0
 minimumReleaseAgeExclude:
   - '@yozora/ast@2.4.1'
+allowBuilds:
+  '@parcel/watcher': false

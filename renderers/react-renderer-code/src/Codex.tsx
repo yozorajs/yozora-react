@@ -1,6 +1,6 @@
 import { isEqual } from '@guanghechen/equal'
 import type { ICodeRunnerItem, ICodeRunnerProps } from '@yozora/react-renderer'
-import { clsx } from '@yozora/react-renderer'
+import { clsx, countCodeLines } from '@yozora/react-renderer'
 import React from 'react'
 import { CodeEmbed as CodeEmbedComponent } from './component/CodeEmbed'
 import { CodeLiteral as CodeLiteralComponent } from './component/CodeLiteral'
@@ -41,7 +41,10 @@ export class Code extends React.Component<ICodeProps, IState> {
   public constructor(props: ICodeProps) {
     super(props)
     this.state = {
-      meta: parseCodeMeta(props.meta ?? '', { showCodeLineno: props.showCodeLineno ?? true }),
+      meta: parseCodeMeta(props.meta ?? '', {
+        showCodeLineno: props.showCodeLineno ?? true,
+        lineCount: countCodeLines(props.value),
+      }),
     }
   }
 
@@ -127,9 +130,16 @@ export class Code extends React.Component<ICodeProps, IState> {
 
   public override componentDidUpdate(prevProps: ICodeProps): void {
     const props: ICodeProps = this.props
-    if (props.meta !== prevProps.meta || props.showCodeLineno !== prevProps.showCodeLineno) {
+    if (
+      props.meta !== prevProps.meta ||
+      props.showCodeLineno !== prevProps.showCodeLineno ||
+      props.value !== prevProps.value
+    ) {
       this.setState({
-        meta: parseCodeMeta(props.meta ?? '', { showCodeLineno: props.showCodeLineno ?? true }),
+        meta: parseCodeMeta(props.meta ?? '', {
+          showCodeLineno: props.showCodeLineno ?? true,
+          lineCount: countCodeLines(props.value),
+        }),
       })
     }
   }

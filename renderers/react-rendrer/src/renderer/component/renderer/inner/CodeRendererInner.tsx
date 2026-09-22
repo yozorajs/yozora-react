@@ -1,6 +1,6 @@
 import React from 'react'
 import { CodeHighlighter as CodeHighlighterComponent } from '../../../../highlighter/component/CodeHighlighter'
-import { parseCodeMeta } from '../../../../util/code'
+import { countCodeLines, parseCodeMeta } from '../../../../util/code'
 
 interface IProps {
   lang: string | null
@@ -27,7 +27,7 @@ export class CodeRendererInner extends React.Component<IProps> {
 
     // Remove trailing line endings.
     const value: string = this.props.value.replace(/[\r\n]+$/, '')
-    const metaData = parseCodeMeta(meta ?? '', { showCodeLineno })
+    const metaData = parseCodeMeta(meta ?? '', { showCodeLineno, lineCount: countCodeLines(value) })
 
     return (
       <code className={cls}>
