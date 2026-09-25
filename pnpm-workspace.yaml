@@ -1,6 +1,7 @@
 packages:
   - 'packages/*'
   - 'renderers/*'
+verifyDepsBeforeRun: false
 autoInstallPeers: true
 strictPeerDependencies: false
 nodeLinker: isolated

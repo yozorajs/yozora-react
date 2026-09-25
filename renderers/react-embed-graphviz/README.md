@@ -1,12 +1,12 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-graphviz#readme">@yozora/react-embed-graphviz</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/@yozora/react-embed-graphviz@3.0.0-alpha.26/renderers/react-embed-graphviz#readme">@yozora/react-embed-graphviz</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-embed-graphviz">
       <img
         alt="Npm Version"
-        src="https://img.shields.io/npm/v/@yozora/react-embed-graphviz.svg"
+        src="https://img.shields.io/npm/v/@yozora/react-embed-graphviz/alpha.svg"
       />
     </a>
     <a href="https://www.npmjs.com/package/@yozora/react-embed-graphviz">
@@ -68,13 +68,13 @@ default/named exports are unchanged.
 - npm
 
   ```bash
-  npm install --save @yozora/react-embed-graphviz
+  npm install --save @yozora/react-embed-graphviz@alpha
   ```
 
 - yarn
 
   ```bash
-  yarn add @yozora/react-embed-graphviz
+  yarn add @yozora/react-embed-graphviz@alpha
   ```
 
 ## Usage

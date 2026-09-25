@@ -59,6 +59,10 @@ lists. [@yozora/react-yozora][] adds footnotes, math, admonitions and executable
 code. The presets share [@yozora/react][], the rendering kernel. The former
 `@yozora/react-markdown` API now lives in `@yozora/react-yozora`.
 
+The current prerelease line uses `3.0.0-alpha.26` across all public packages. See the
+[release notes](./CHANGELOG.md) for breaking changes and known limitations, and
+[release workflow](./RELEASING.md) for maintainer commands.
+
 https://user-images.githubusercontent.com/42513619/129205123-6a1983c4-6a86-4c80-83d6-02bdbf70edbf.mp4
 
 ## Component demo
@@ -86,12 +90,16 @@ CSS can target existing `yozora-*` classes and override the `--yozora_*` tokens.
 rules are unlayered so ordinary host resets do not outrank component selectors.
 Utilities follow component rules; use matching specificity or explicit important
 utilities when overriding more specific component selectors.
-The public `lightSchema` and `darkenSchema` exports still define the theme tokens.
+Use `vscLightModernSchema.colors` and `vscDarkModernSchema.colors` for direct
+color-map access. The former `lightSchema` and `darkenSchema` exports were removed.
 
 ### Migrating from Emotion
 
 - Add the stylesheet import; remove `@emotion/css` if your application no longer uses it.
-- Keep `ThemeProvider`, `theme="light"` / `theme="darken"`, `className`, and `style`.
+- Import `ThemeProvider` from `@yozora/react-renderer`. Replace `theme="light"` with
+  `theme="vsc" variant="light-modern"`, and `theme="darken"` with
+  `theme="vsc" variant="dark-modern"`. Keep `className` and `style`. The new palettes
+  replace the old colors; see the [theme API](./renderers/react-renderer/README.md#theme).
 - `ThemeProvider.breakpoints`, `IThemeContext.breakpoints`, and `IBreakpoints` remain
   available. The default small-screen threshold is `479px` in compiled CSS; custom
   `xsMinus` queries render scoped `<style media="...">` elements and work before
@@ -116,23 +124,21 @@ See [@yozora/react-yozora][]
 - npm
 
   ```bash
-  npm install --save @yozora/react-yozora
+  npm install --save @yozora/react-yozora@alpha
   ```
 
 - yarn
 
   ```bash
-  yarn add @yozora/react-yozora
+  yarn add @yozora/react-yozora@alpha
   ```
 
 ```tsx
-import loadable from '@loadable/component'
+import '@yozora/react-yozora/style.css'
 import { calcDefinitionMap, calcFootnoteDefinitionMap } from '@yozora/ast-util'
-import { ThemeProvider } from '@yozora/react-renderer'
+import { ImageViewer, ThemeProvider } from '@yozora/react-renderer'
 import YozoraParser from '@yozora/parser'
 import { MathJaxProvider, Markdown, MarkdownProvider } from '@yozora/react-yozora'
-
-const ImageViewer = loadable(() => import('react-viewer'))
 
 const parser = new YozoraParser()
 const ast = parser.parse(`source markdown contents`, { shouldReservePosition: true })
@@ -140,7 +146,7 @@ const definitionMap = calcDefinitionMap(ast)
 const footnoteDefinitionMap = calcFootnoteDefinitionMap(ast)
 
 <MathJaxProvider>
-  <ThemeProvider theme="light">
+  <ThemeProvider theme="vsc" variant="light-modern">
     <MarkdownProvider
       definitionMap={definitionMap}
       footnoteDefinitionMap={footnoteDefinitionMap}
@@ -192,24 +198,24 @@ It also provides [runner factories](./renderers/react-renderer-code/README.md#ru
 
 <!-- yozora component links -->
 
-[@yozora/react]: ./packages/react
-[@yozora/react-gfm]: ./packages/react-gfm
-[@yozora/react-gfm-ex]: ./packages/react-gfm-ex
-[@yozora/react-renderer]: ./renderers/react-renderer
+[@yozora/react]: https://github.com/yozorajs/yozora-react/tree/@yozora/react@3.0.0-alpha.26/packages/react#readme
+[@yozora/react-gfm]: https://github.com/yozorajs/yozora-react/tree/@yozora/react-gfm@3.0.0-alpha.26/packages/react-gfm#readme
+[@yozora/react-gfm-ex]: https://github.com/yozorajs/yozora-react/tree/@yozora/react-gfm-ex@3.0.0-alpha.26/packages/react-gfm-ex#readme
+[@yozora/react-renderer]: https://github.com/yozorajs/yozora-react/tree/@yozora/react-renderer@3.0.0-alpha.26/renderers/react-renderer#readme
 [@yozora/react-renderer-admonition]:
-  https://github.com/yozorajs/yozora-react/tree/main/renderers/react-renderer-admonition#readme
+  https://github.com/yozorajs/yozora-react/tree/@yozora/react-renderer-admonition@3.0.0-alpha.26/renderers/react-renderer-admonition#readme
 [@yozora/react-renderer-code]:
-  https://github.com/yozorajs/yozora-react/tree/main/renderers/react-renderer-code#readme
+  https://github.com/yozorajs/yozora-react/tree/@yozora/react-renderer-code@3.0.0-alpha.26/renderers/react-renderer-code#readme
 [@yozora/react-embed-jsx]:
-  https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-jsx#readme
+  https://github.com/yozorajs/yozora-react/tree/@yozora/react-embed-jsx@3.0.0-alpha.26/renderers/react-embed-jsx#readme
 [@yozora/react-embed-graphviz]:
-  https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-graphviz#readme
+  https://github.com/yozorajs/yozora-react/tree/@yozora/react-embed-graphviz@3.0.0-alpha.26/renderers/react-embed-graphviz#readme
 [@yozora/react-yozora]:
-  https://github.com/yozorajs/yozora-react/tree/main/packages/react-yozora#readme
+  https://github.com/yozorajs/yozora-react/tree/@yozora/react-yozora@3.0.0-alpha.26/packages/react-yozora#readme
 [@yozora/react-embed-math]:
-  https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-math#readme
+  https://github.com/yozorajs/yozora-react/tree/@yozora/react-embed-math@3.0.0-alpha.26/renderers/react-embed-math#readme
 [@yozora/react-embed-mermaid]:
-  https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-mermaid#readme
+  https://github.com/yozorajs/yozora-react/tree/@yozora/react-embed-mermaid@3.0.0-alpha.26/renderers/react-embed-mermaid#readme
 [yozora/ast]: https://www.npmjs.com/package/@yozora/ast
 [yozora/admonition]: https://www.npmjs.com/package/@yozora/ast#admonition
 [yozora/blockquote]: https://www.npmjs.com/package/@yozora/ast#blockquote

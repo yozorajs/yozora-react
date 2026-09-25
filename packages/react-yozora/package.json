@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-yozora",
-  "version": "3.0.0-alpha.25",
+  "version": "3.0.0-alpha.26",
   "description": "Render Yozora ASTs in React",
   "author": {
     "name": "guanghechen",
@@ -11,7 +11,7 @@
     "url": "https://github.com/yozorajs/yozora-react.git",
     "directory": "packages/react-yozora"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/react-yozora#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/@yozora/react-yozora@3.0.0-alpha.26/packages/react-yozora#readme",
   "keywords": [
     "react markdown component"
   ],

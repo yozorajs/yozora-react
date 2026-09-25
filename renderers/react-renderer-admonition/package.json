@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-renderer-admonition",
-  "version": "3.0.0-alpha.15",
+  "version": "3.0.0-alpha.26",
   "description": "render markdown admonition in react",
   "author": {
     "name": "guanghechen",
@@ -11,7 +11,7 @@
     "url": "https://github.com/yozorajs/yozora-react.git",
     "directory": "renderers/react-renderer-admonition"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/renderers/react-renderer-admonition#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/@yozora/react-renderer-admonition@3.0.0-alpha.26/renderers/react-renderer-admonition#readme",
   "keywords": [
     "mdast node renderer",
     "markdown admonition"

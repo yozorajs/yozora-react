@@ -1,12 +1,12 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/main/renderers/react-renderer-code#readme">@yozora/react-renderer-code</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/@yozora/react-renderer-code@3.0.0-alpha.26/renderers/react-renderer-code#readme">@yozora/react-renderer-code</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-renderer-code">
       <img
         alt="Npm Version"
-        src="https://img.shields.io/npm/v/@yozora/react-renderer-code.svg"
+        src="https://img.shields.io/npm/v/@yozora/react-renderer-code/alpha.svg"
       />
     </a>
     <a href="https://www.npmjs.com/package/@yozora/react-renderer-code">
@@ -110,13 +110,13 @@ namespace binding is retained. `IAsyncRunnerScopes.Placeholders` was removed.
 - npm
 
   ```bash
-  npm install --save @yozora/react-renderer-code
+  npm install --save @yozora/react-renderer-code@alpha
   ```
 
 - yarn
 
   ```bash
-  yarn add @yozora/react-renderer-code
+  yarn add @yozora/react-renderer-code@alpha
   ```
 
 ## Usage

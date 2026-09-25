@@ -7,7 +7,7 @@ const ROOT_DIR = path.resolve(import.meta.dirname, '..')
 
 const SEMVER = String.raw`\d+\.\d+\.\d+(?:-[\w.-]+)?(?:\+[\w.-]+)?`
 const GITHUB_URL_PATTERN = new RegExp(
-  String.raw`(github\.com/yozorajs/yozora-react/tree/)(@[\w-]+/[\w-]+@)(${SEMVER})`,
+  String.raw`(github\.com/yozorajs/yozora-react/(?:tree|blob)/)(@[\w-]+/[\w-]+@)(${SEMVER})`,
   'g',
 )
 
@@ -19,6 +19,7 @@ async function getPackages() {
     try {
       const content = await fs.readFile(pkgJsonPath, 'utf8')
       const pkg = JSON.parse(content)
+      if (pkg.private) continue
       packages.push({
         dir: path.dirname(pkgJsonPath),
         name: pkg.name,
@@ -73,6 +74,7 @@ const packages = await getPackages()
 const versionMap = createVersionMap(packages)
 
 let updatedCount = 0
+if (await updateFile(path.join(ROOT_DIR, 'README.md'), versionMap)) updatedCount += 1
 for (const pkg of packages) {
   const pkgDir = pkg.dir
   const readmePath = path.join(pkgDir, 'README.md')

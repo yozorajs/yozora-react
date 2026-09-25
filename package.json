@@ -18,7 +18,8 @@
     "node": "^22.22.2 || ^24.11.0 || >=26.0.0"
   },
   "scripts": {
-    ":publish:all": "pnpm -r exec npm version patch --no-git-tag-version && pnpm -r publish --no-git-checks",
+    ":publish:all": "changeset publish --no-git-tag --from-pack-dir",
+    ":version": "changeset version && node script/sync-doc-link.mjs",
     ":upgrade": "pnpm update -i && pnpm clean && pnpm format && pnpm build && pnpm test",
     "build": "cross-env NODE_ENV=production BUILD_SOURCEMAP=true pnpm -r run build",
     "build:production": "cross-env NODE_ENV=production BUILD_SOURCEMAP=false pnpm -r run build",
@@ -31,13 +32,14 @@
     "test:coverage": "pnpm -r run --if-present test:coverage",
     "test:update": "pnpm -r run --if-present test:update",
     "typecheck": "tsc --noEmit -p tsconfig.test.json",
-    "version": "pnpm install && node script/sync-doc-link.mjs && git stage -u pnpm-lock.yaml packages/**/package.json packages/**/*.md renderers/**/package.json renderers/**/*.md",
+    "version": "node script/sync-doc-link.mjs",
     "lint": "biome check .",
     "test:dist": "node script/test-dist.mjs",
     "demo": "pnpm --filter @yozora/demo... build && pnpm --filter @yozora/demo start"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.13",
+    "@changesets/cli": "3.0.3",
     "@guanghechen/githooks": "1.0.0",
     "@tailwindcss/cli": "^4.3.3",
     "@testing-library/jest-dom": "7.0.1",

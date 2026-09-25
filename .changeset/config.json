@@ -1,0 +1,30 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@4.0.1/schema.json",
+  "changelog": "../script/changelog.mjs",
+  "commit": false,
+  "format": false,
+  "fixed": [
+    [
+      "@yozora/react",
+      "@yozora/react-gfm",
+      "@yozora/react-gfm-ex",
+      "@yozora/react-yozora",
+      "@yozora/react-renderer",
+      "@yozora/react-renderer-code",
+      "@yozora/react-renderer-admonition",
+      "@yozora/react-embed-graphviz",
+      "@yozora/react-embed-jsx",
+      "@yozora/react-embed-math",
+      "@yozora/react-embed-mermaid"
+    ]
+  ],
+  "linked": [],
+  "access": "public",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "privatePackages": {
+    "version": false,
+    "tag": false
+  },
+  "ignore": []
+}

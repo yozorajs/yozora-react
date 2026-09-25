@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-embed-math",
-  "version": "3.0.0-alpha.17",
+  "version": "3.0.0-alpha.26",
   "description": "render formula with mathjax in react",
   "author": {
     "name": "guanghechen",
@@ -11,7 +11,7 @@
     "url": "https://github.com/yozorajs/yozora-react.git",
     "directory": "renderers/react-embed-math"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-math#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/@yozora/react-embed-math@3.0.0-alpha.26/renderers/react-embed-math#readme",
   "keywords": [
     "mathjax",
     "react"

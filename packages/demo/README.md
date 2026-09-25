@@ -61,11 +61,9 @@ Serve `packages/demo/dist` with any static HTTP server. The static build does no
 contain the development reload client. No external assets or CDN requests are needed.
 Graphviz cases are not included in this playground.
 
-## Reproducing an existing live JSX issue
+## Checking live JSX errors
 
-Change the working counter code to `function {`: the preview becomes empty without
-showing the syntax error. `CodeEmbed.componentDidUpdate` clears the error on value
-changes after the child renderer reports it. Resetting the sample restores the
-counter. The separate “错误示例” button mounts invalid code directly, which shows the
-error panel and allows its styles to be tested. The demo preserves this library
-behavior instead of applying a workaround in the runner.
+Change the working counter code to `function {`: the preview should show a syntax
+error. Resetting the sample restores the counter. The separate “错误示例” button
+mounts invalid code directly, which also shows the error panel and allows its
+styles to be tested.

@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-gfm",
-  "version": "3.0.0-alpha.0",
+  "version": "3.0.0-alpha.26",
   "description": "Render GFM ASTs in React",
   "author": {
     "name": "guanghechen",
@@ -11,7 +11,7 @@
     "url": "https://github.com/yozorajs/yozora-react.git",
     "directory": "packages/react-gfm"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/packages/react-gfm#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/@yozora/react-gfm@3.0.0-alpha.26/packages/react-gfm#readme",
   "keywords": [
     "react markdown component"
   ],
@@ -36,6 +36,7 @@
     "lib/",
     "!lib/**/*.map",
     "package.json",
+    "CHANGELOG.md",
     "LICENSE",
     "README.md"
   ],

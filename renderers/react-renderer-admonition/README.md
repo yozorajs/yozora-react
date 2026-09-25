@@ -1,12 +1,12 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/main/renderers/react-renderer-admonition#readme">@yozora/react-renderer-admonition</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/@yozora/react-renderer-admonition@3.0.0-alpha.26/renderers/react-renderer-admonition#readme">@yozora/react-renderer-admonition</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-renderer-admonition">
       <img
         alt="Npm Version"
-        src="https://img.shields.io/npm/v/@yozora/react-renderer-admonition.svg"
+        src="https://img.shields.io/npm/v/@yozora/react-renderer-admonition/alpha.svg"
       />
     </a>
     <a href="https://www.npmjs.com/package/@yozora/react-renderer-admonition">
@@ -73,13 +73,13 @@ icons, and CSS class names are unchanged by this rename.
 - npm
 
   ```bash
-  npm install --save @yozora/react-renderer-admonition
+  npm install --save @yozora/react-renderer-admonition@alpha
   ```
 
 - yarn
 
   ```bash
-  yarn add @yozora/react-renderer-admonition
+  yarn add @yozora/react-renderer-admonition@alpha
   ```
 
 ## Usage

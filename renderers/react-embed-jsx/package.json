@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-embed-jsx",
-  "version": "3.0.0-alpha.16",
+  "version": "3.0.0-alpha.26",
   "description": "render jsx code",
   "author": {
     "name": "guanghechen",
@@ -11,7 +11,7 @@
     "url": "https://github.com/yozorajs/yozora-react.git",
     "directory": "renderers/react-embed-jsx"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-jsx#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/@yozora/react-embed-jsx@3.0.0-alpha.26/renderers/react-embed-jsx#readme",
   "keywords": [
     "mdast node renderer",
     "markdown code-jsx renderer"

@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-embed-mermaid",
-  "version": "3.0.0-alpha.0",
+  "version": "3.0.0-alpha.26",
   "description": "Render Mermaid diagrams as SVG in React.",
   "author": {
     "name": "guanghechen",
@@ -11,7 +11,7 @@
     "url": "https://github.com/yozorajs/yozora-react.git",
     "directory": "renderers/react-embed-mermaid"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-mermaid#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/@yozora/react-embed-mermaid@3.0.0-alpha.26/renderers/react-embed-mermaid#readme",
   "keywords": [
     "react",
     "mermaid",
@@ -33,6 +33,7 @@
     "lib/",
     "!lib/**/*.map",
     "package.json",
+    "CHANGELOG.md",
     "LICENSE",
     "README.md"
   ],

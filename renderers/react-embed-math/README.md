@@ -1,12 +1,12 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-math#readme">@yozora/react-embed-math</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/@yozora/react-embed-math@3.0.0-alpha.26/renderers/react-embed-math#readme">@yozora/react-embed-math</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-embed-math">
       <img
         alt="Npm Version"
-        src="https://img.shields.io/npm/v/@yozora/react-embed-math.svg"
+        src="https://img.shields.io/npm/v/@yozora/react-embed-math/alpha.svg"
       />
     </a>
     <a href="https://www.npmjs.com/package/@yozora/react-embed-math">
@@ -62,22 +62,32 @@ The default version is MathJax 4.1.3, loaded from jsDelivr.
 ## Migration
 
 `@yozora/react-mathjax` has been renamed to `@yozora/react-embed-math`.
-Update the dependency name and imports. Named exports, component props, and
-MathJax loading behavior are unchanged by this rename.
+Update the dependency name and imports. Named exports and component props are unchanged
+by this rename. Shared loading now requires matching URLs and initialization
+configurations; see [Loading and ownership](#loading-and-ownership) before upgrading.
 
 ## Install
 
 - npm
 
   ```bash
-  npm install --save @yozora/react-embed-math
+  npm install --save @yozora/react-embed-math@alpha
   ```
 
 - yarn
 
   ```bash
-  yarn add @yozora/react-embed-math
+  yarn add @yozora/react-embed-math@alpha
   ```
+
+### TypeScript limitation
+
+The bundled MathJax declarations currently report `TS2344` generic-constraint errors
+when declaration checking is enabled. This also affects consumers importing the
+`@yozora/react-yozora` preset. For this alpha, set `compilerOptions.skipLibCheck` to
+`true` as a workaround; this skips checking all dependency declarations, while
+application source remains typechecked. Consumers requiring checked declarations
+should wait for a fix. The distribution tests currently use the same workaround.
 
 ## Usage
 

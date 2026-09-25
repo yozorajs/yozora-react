@@ -1,12 +1,12 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/main/packages/react-yozora#readme">@yozora/react-yozora</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/@yozora/react-yozora@3.0.0-alpha.26/packages/react-yozora#readme">@yozora/react-yozora</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-yozora">
       <img
         alt="Npm Version"
-        src="https://img.shields.io/npm/v/@yozora/react-yozora.svg"
+        src="https://img.shields.io/npm/v/@yozora/react-yozora/alpha.svg"
       />
     </a>
     <a href="https://www.npmjs.com/package/@yozora/react-yozora">
@@ -72,14 +72,21 @@ This component is designed to render data of [@yozora/ast][].
 - npm
 
   ```bash
-  npm install --save @yozora/react-yozora
+  npm install --save @yozora/react-yozora@alpha
   ```
 
 - yarn
 
   ```bash
-  yarn add @yozora/react-yozora @yozora/ast @yozora/ast-util
+  yarn add @yozora/react-yozora@alpha @yozora/ast @yozora/ast-util
   ```
+
+### TypeScript limitation
+
+This alpha includes MathJax declarations with known `TS2344` generic-constraint errors.
+Consumers need `compilerOptions.skipLibCheck: true` until these declarations are fixed.
+See the [MathJax limitation](../../renderers/react-embed-math/README.md#typescript-limitation)
+for the workaround's scope. The `react-gfm` and `react-gfm-ex` presets do not include MathJax.
 
 ## Usage
 
@@ -419,9 +426,9 @@ This component has some built-in sub-components for rendering data of [@yozora/a
 
 [mdast]: https://github.com/syntax-tree/mdast
 [MdastPropsRoot]:
-  https://github.com/yozorajs/yozora-react/blob/main/packages/react-yozora/src/component/nodeRendererMap.tsx
+  https://github.com/yozorajs/yozora-react/blob/@yozora/react-yozora@3.0.0-alpha.26/packages/react-yozora/src/component/nodeRendererMap.tsx
 [MdastRenderer]:
-  https://github.com/yozorajs/yozora-react/blob/main/packages/react/src/component/Markdown.tsx
+  https://github.com/yozorajs/yozora-react/blob/@yozora/react@3.0.0-alpha.26/packages/react/src/component/Markdown.tsx
 [react-viewer]: https://github.com/infeng/react-viewer
 [@yozora/ast]: https://www.npmjs.com/package/@yozora/ast
 [@yozora/ast-util]: https://www.npmjs.com/package/@yozora/ast-util

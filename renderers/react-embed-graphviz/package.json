@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-embed-graphviz",
-  "version": "3.0.0-alpha.17",
+  "version": "3.0.0-alpha.26",
   "description": "render graphviz (dot) code",
   "author": {
     "name": "guanghechen",
@@ -11,7 +11,7 @@
     "url": "https://github.com/yozorajs/yozora-react.git",
     "directory": "renderers/react-embed-graphviz"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-graphviz#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/@yozora/react-embed-graphviz@3.0.0-alpha.26/renderers/react-embed-graphviz#readme",
   "keywords": [
     "mdast node renderer",
     "graphviz renderer"

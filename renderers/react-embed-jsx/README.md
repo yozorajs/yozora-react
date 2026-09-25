@@ -1,12 +1,12 @@
 <header>
   <h1 align="center">
-    <a href="https://github.com/yozorajs/yozora-react/tree/main/renderers/react-embed-jsx#readme">@yozora/react-embed-jsx</a>
+    <a href="https://github.com/yozorajs/yozora-react/tree/@yozora/react-embed-jsx@3.0.0-alpha.26/renderers/react-embed-jsx#readme">@yozora/react-embed-jsx</a>
   </h1>
   <div align="center">
     <a href="https://www.npmjs.com/package/@yozora/react-embed-jsx">
       <img
         alt="Npm Version"
-        src="https://img.shields.io/npm/v/@yozora/react-embed-jsx.svg"
+        src="https://img.shields.io/npm/v/@yozora/react-embed-jsx/alpha.svg"
       />
     </a>
     <a href="https://www.npmjs.com/package/@yozora/react-embed-jsx">
@@ -68,13 +68,13 @@ default/named exports are unchanged.
 - npm
 
   ```bash
-  npm install --save @yozora/react-embed-jsx
+  npm install --save @yozora/react-embed-jsx@alpha
   ```
 
 - yarn
 
   ```bash
-  yarn add @yozora/react-embed-jsx
+  yarn add @yozora/react-embed-jsx@alpha
   ```
 
 ## Usage

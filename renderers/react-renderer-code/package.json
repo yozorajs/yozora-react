@@ -1,6 +1,6 @@
 {
   "name": "@yozora/react-renderer-code",
-  "version": "3.0.0-alpha.23",
+  "version": "3.0.0-alpha.26",
   "description": "render markdown code in react",
   "author": {
     "name": "guanghechen",
@@ -11,7 +11,7 @@
     "url": "https://github.com/yozorajs/yozora-react.git",
     "directory": "renderers/react-renderer-code"
   },
-  "homepage": "https://github.com/yozorajs/yozora-react/tree/main/renderers/react-renderer-code#readme",
+  "homepage": "https://github.com/yozorajs/yozora-react/tree/@yozora/react-renderer-code@3.0.0-alpha.26/renderers/react-renderer-code#readme",
   "keywords": [
     "mdast node renderer",
     "markdown code"
